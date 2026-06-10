@@ -1,0 +1,63 @@
+# Zero-egress assurance CI.
+#
+# NOTE: the repo has no git remote yet, so this workflow does not RUN until a
+# remote is added and the branch is pushed. It is an authored deliverable of
+# PR2; the gate itself is provable locally NOW via scripts/check-no-network.sh.
+#
+# Three jobs:
+#   1. gate         — the network-crate denylist gate (the heart of PR2).
+#   2. windows-link — validates MSVC static linking of sherpa-onnx for engine +
+#                     app (the PR1-deferred Windows risk; not runnable on the
+#                     mac dev host).
+#   3. frontend     — npm ci && npm run build for the React/Vite frontend.
+name: zero-egress
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  gate:
+    name: network-crate gate (cargo tree denylist)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      # SHERPA_ONNX_LIB_DIR is NOT set here on purpose: `cargo tree` resolves the
+      # dependency graph from manifests/lockfiles WITHOUT building, so no
+      # sherpa-onnx C-lib download happens. The gate inspects linked crates only.
+      - name: Run zero-egress gate
+        run: bash scripts/check-no-network.sh
+
+  windows-link:
+    name: windows MSVC static-link (engine + app)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      # Vendored sherpa-onnx Windows static libs make the build provably offline.
+      # Point SHERPA_ONNX_LIB_DIR at the unpacked
+      # `sherpa-onnx-vX-win-x64-static-lib/lib` dir (see engine/README.md). Until
+      # the vendored libs are wired into CI artifacts/cache, the build script
+      # performs its one-time BUILD-TIME fetch (not runtime egress).
+      # env:
+      #   SHERPA_ONNX_LIB_DIR: ${{ github.workspace }}\vendor\sherpa-onnx\lib
+      - name: Build engine (MSVC static link)
+        run: cargo build --manifest-path engine/Cargo.toml
+      - name: Build app backend (engine + sherpa-onnx linked into Tauri)
+        run: cargo build --manifest-path app/src-tauri/Cargo.toml
+
+  frontend:
+    name: frontend build (React + Vite)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+      - run: npm run build
