@@ -1,0 +1,510 @@
+{
+  "segments": [
+    {
+      "start": 3.445,
+      "end": 5.786,
+      "text": " I met him on Plenty of Fish.",
+      "words": [
+        {
+          "word": "I",
+          "start": 3.445,
+          "end": 3.545,
+          "score": 0.788,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "met",
+          "start": 3.605,
+          "end": 3.805,
+          "score": 0.904,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "him",
+          "start": 3.845,
+          "end": 3.985,
+          "score": 0.891,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "on",
+          "start": 4.285,
+          "end": 4.545,
+          "score": 0.893,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "Plenty",
+          "start": 4.905,
+          "end": 5.286,
+          "score": 0.916,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "of",
+          "start": 5.326,
+          "end": 5.366,
+          "score": 0.924,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "Fish.",
+          "start": 5.446,
+          "end": 5.786,
+          "score": 0.841,
+          "speaker": "SPEAKER_11"
+        }
+      ],
+      "avg_logprob": -0.06674849716099826,
+      "speaker": "SPEAKER_11"
+    },
+    {
+      "start": 6.566,
+      "end": 8.086,
+      "text": "He was very complimentary.",
+      "words": [
+        {
+          "word": "He",
+          "start": 6.566,
+          "end": 6.686,
+          "score": 0.857,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "was",
+          "start": 6.726,
+          "end": 6.846,
+          "score": 0.863,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "very",
+          "start": 7.066,
+          "end": 7.326,
+          "score": 0.854,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "complimentary.",
+          "start": 7.406,
+          "end": 8.086,
+          "score": 0.838,
+          "speaker": "SPEAKER_11"
+        }
+      ],
+      "avg_logprob": -0.06674849716099826,
+      "speaker": "SPEAKER_11"
+    },
+    {
+      "start": 8.646,
+      "end": 9.487,
+      "text": "Seemed really nice.",
+      "words": [
+        {
+          "word": "Seemed",
+          "start": 8.646,
+          "end": 8.866,
+          "score": 0.805,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "really",
+          "start": 8.906,
+          "end": 9.127,
+          "score": 0.914,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "nice.",
+          "start": 9.187,
+          "end": 9.487,
+          "score": 0.93,
+          "speaker": "SPEAKER_11"
+        }
+      ],
+      "avg_logprob": -0.06674849716099826,
+      "speaker": "SPEAKER_11"
+    },
+    {
+      "start": 9.507,
+      "end": 12.967,
+      "text": "And that's when he started with his charm.",
+      "words": [
+        {
+          "word": "And",
+          "start": 9.507,
+          "end": 11.327,
+          "score": 0.488,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "that's",
+          "start": 11.347,
+          "end": 11.527,
+          "score": 0.882,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "when",
+          "start": 11.547,
+          "end": 11.647,
+          "score": 0.876,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "he",
+          "start": 11.687,
+          "end": 11.767,
+          "score": 0.842,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "started",
+          "start": 11.787,
+          "end": 12.127,
+          "score": 0.739,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "with",
+          "start": 12.147,
+          "end": 12.267,
+          "score": 0.863,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "his",
+          "start": 12.307,
+          "end": 12.427,
+          "score": 0.69,
+          "speaker": "SPEAKER_11"
+        },
+        {
+          "word": "charm.",
+          "start": 12.547,
+          "end": 12.967,
+          "score": 0.928,
+          "speaker": "SPEAKER_11"
+        }
+      ],
+      "avg_logprob": -0.06674849716099826,
+      "speaker": "SPEAKER_11"
+    },
+    {
+      "start": 13.988,
+      "end": 18.989,
+      "text": "People normally think dangerous is somebody who can physically hurt you, make you bleed.",
+      "words": [
+        {
+          "word": "People",
+          "start": 13.988,
+          "end": 14.248,
+          "score": 0.939,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "normally",
+          "start": 14.328,
+          "end": 14.688,
+          "score": 0.772,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "think",
+          "start": 14.748,
+          "end": 14.988,
+          "score": 0.896,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "dangerous",
+          "start": 15.008,
+          "end": 15.428,
+          "score": 0.793,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "is",
+          "start": 15.508,
+          "end": 15.588,
+          "score": 0.538,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "somebody",
+          "start": 15.628,
+          "end": 16.008,
+          "score": 0.962,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "who",
+          "start": 16.068,
+          "end": 16.188,
+          "score": 0.998,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "can",
+          "start": 16.248,
+          "end": 16.368,
+          "score": 0.881,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "physically",
+          "start": 16.448,
+          "end": 16.889,
+          "score": 0.919,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "hurt",
+          "start": 16.949,
+          "end": 17.209,
+          "score": 0.7,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "you,",
+          "start": 17.269,
+          "end": 17.429,
+          "score": 0.93,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "make",
+          "start": 18.249,
+          "end": 18.429,
+          "score": 0.922,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "you",
+          "start": 18.449,
+          "end": 18.569,
+          "score": 0.945,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "bleed.",
+          "start": 18.629,
+          "end": 18.989,
+          "score": 0.923,
+          "speaker": "SPEAKER_00"
+        }
+      ],
+      "avg_logprob": -0.06674849716099826,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 20.289,
+      "end": 23.09,
+      "text": "I wasn't used to people treating me like this.",
+      "words": [
+        {
+          "word": "I",
+          "start": 20.289,
+          "end": 20.349,
+          "score": 0.918,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "wasn't",
+          "start": 20.389,
+          "end": 20.669,
+          "score": 0.803,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "used",
+          "start": 20.81,
+          "end": 20.99,
+          "score": 0.895,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "to",
+          "start": 21.03,
+          "end": 21.13,
+          "score": 0.618,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "people",
+          "start": 21.15,
+          "end": 21.55,
+          "score": 0.737,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "treating",
+          "start": 22.13,
+          "end": 22.37,
+          "score": 0.623,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "me",
+          "start": 22.39,
+          "end": 22.53,
+          "score": 0.879,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "like",
+          "start": 22.55,
+          "end": 22.75,
+          "score": 0.608,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "this.",
+          "start": 22.79,
+          "end": 23.09,
+          "score": 0.662,
+          "speaker": "SPEAKER_03"
+        }
+      ],
+      "avg_logprob": -0.06674849716099826,
+      "speaker": "SPEAKER_03"
+    },
+    {
+      "start": 23.77,
+      "end": 25.711,
+      "text": "It was new, it was special.",
+      "words": [
+        {
+          "word": "It",
+          "start": 23.77,
+          "end": 23.83,
+          "score": 0.911,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "was",
+          "start": 23.87,
+          "end": 23.99,
+          "score": 0.908,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "new,",
+          "start": 24.07,
+          "end": 24.29,
+          "score": 0.963,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "it",
+          "start": 24.41,
+          "end": 24.47,
+          "score": 0.85,
+          "speaker": "SPEAKER_03"
+        },
+        {
+          "word": "was",
+          "start": 24.51,
+          "end": 24.671,
+          "score": 0.833,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "special.",
+          "start": 25.291,
+          "end": 25.711,
+          "score": 0.993,
+          "speaker": "SPEAKER_03"
+        }
+      ],
+      "avg_logprob": -0.06674849716099826,
+      "speaker": "SPEAKER_03"
+    },
+    {
+      "start": 27.111,
+      "end": 30.312,
+      "text": "But Raymond is dangerous in a way he hurt people emotionally.",
+      "words": [
+        {
+          "word": "But",
+          "start": 27.111,
+          "end": 27.251,
+          "score": 0.982,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "Raymond",
+          "start": 27.331,
+          "end": 27.791,
+          "score": 0.812,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "is",
+          "start": 27.931,
+          "end": 28.011,
+          "score": 0.926,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "dangerous",
+          "start": 28.071,
+          "end": 28.472,
+          "score": 0.899,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "in",
+          "start": 28.512,
+          "end": 28.552,
+          "score": 0.998,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "a",
+          "start": 28.612,
+          "end": 28.672,
+          "score": 0.525,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "way",
+          "start": 28.692,
+          "end": 28.852,
+          "score": 0.882,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "he",
+          "start": 28.892,
+          "end": 29.032,
+          "score": 0.676,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "hurt",
+          "start": 29.132,
+          "end": 29.352,
+          "score": 0.696,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "people",
+          "start": 29.392,
+          "end": 29.672,
+          "score": 0.895,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "emotionally.",
+          "start": 29.712,
+          "end": 30.312,
+          "score": 0.925,
+          "speaker": "SPEAKER_00"
+        }
+      ],
+      "avg_logprob": -0.06674849716099826,
+      "speaker": "SPEAKER_00"
+    }
+  ]
+}

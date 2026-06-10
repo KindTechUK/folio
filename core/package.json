@@ -1,0 +1,18 @@
+{
+  "name": "@podcast-transcribe/core",
+  "version": "0.1.0",
+  "description": "Framework-independent core logic for the privacy-first local transcription app: turn building, diarization assignment, editor reducer, and model-pack validation. Drops into the Tauri/Vibe frontend.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "verify": "tsc --noEmit && vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.20",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
+  }
+}
