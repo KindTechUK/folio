@@ -36,6 +36,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
       # Vendored sherpa-onnx Windows static libs make the build provably offline.
       # Point SHERPA_ONNX_LIB_DIR at the unpacked
       # `sherpa-onnx-vX-win-x64-static-lib/lib` dir (see engine/README.md). Until
@@ -45,6 +48,12 @@ jobs:
       #   SHERPA_ONNX_LIB_DIR: ${{ github.workspace }}\vendor\sherpa-onnx\lib
       - name: Build engine (MSVC static link)
         run: cargo build --manifest-path engine/Cargo.toml
+      # tauri-build embeds frontendDist (../dist) at compile time, and
+      # beforeBuildCommand only runs under `tauri build` — so the dist must be
+      # built explicitly before a plain `cargo build` of the Tauri backend.
+      - name: Build frontend (so tauri-build can embed dist)
+        working-directory: app
+        run: npm ci && npm run build
       - name: Build app backend (engine + sherpa-onnx linked into Tauri)
         run: cargo build --manifest-path app/src-tauri/Cargo.toml
 
