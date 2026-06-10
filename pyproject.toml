@@ -1,0 +1,13 @@
+[project]
+name = "podcast-transcribe"
+version = "0.1.0"
+description = "Local podcast transcription with speaker diarization and timestamps (WhisperX -> Word doc)"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "demucs>=4.0.1",
+    "python-docx>=1.2.0",
+    "python-dotenv>=1.2.2",
+    "whisperx>=3.8.6",
+    "yt-dlp>=2026.3.17",
+]

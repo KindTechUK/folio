@@ -1,0 +1,35 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.venv-sherpa
+
+# Downloaded model weights + spike scratch (sherpa-onnx spike)
+models/
+
+# Node
+node_modules/
+
+# Secrets
+.env
+
+# Generated transcripts and audio
+out/
+*.docx
+*.mp3
+*.wav
+*.m4a
+*.mp4
+
+# Source media + extracted artifacts (large; not source)
+downloads/
+frames/
+
+# macOS
+.DS_Store
