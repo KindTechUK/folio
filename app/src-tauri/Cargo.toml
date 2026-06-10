@@ -1,0 +1,41 @@
+[package]
+name = "podcast-transcribe-app"
+version = "0.1.0"
+description = "Hardened, zero-egress local transcription app shell (Tauri v2)."
+edition = "2021"
+license = "Apache-2.0"
+default-run = "podcast-transcribe-app"
+
+# The library that Tauri's mobile/desktop entrypoints share.
+[lib]
+name = "podcast_transcribe_app_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+# In-process engine (committed in PR1) via a PATH dependency — NOT a network
+# crate, NOT a registry fetch. This pulls sherpa-onnx in transitively and is
+# what we link the app against.
+engine = { path = "../../engine" }
+
+# Tauri v2 with ONLY the plugins this app needs. Deliberately ABSENT (the
+# product's zero-egress differentiator — see docs/plans/vibe-fork-plan.md §4):
+#   tauri-plugin-http, tauri-plugin-updater, tauri-plugin-aptabase,
+#   tauri-plugin-deep-link, and any HTTP client (reqwest/ureq/hyper/isahc/surf).
+# scripts/check-no-network.sh + .github/workflows/zero-egress.yml enforce this.
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[features]
+# Default + `hardened` are BOTH network-free in PR2. `hardened` is the forward
+# guard rail: it is the feature the shipped firm build sets, reserved to compile
+# OUT any future optional networked catalog (the open-SME variant, PRD #31).
+# The CI gate runs `cargo tree` for default AND `--features hardened`.
+default = []
+hardened = []
