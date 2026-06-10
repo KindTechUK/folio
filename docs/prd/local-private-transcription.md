@@ -1,6 +1,7 @@
 # PRD: Privacy-First Local Transcription & Review App (Windows, law-firm-grade)
 
-> Status: ready-for-agent · Recorded 2026-06-10 · Source: design + two deep-research passes + grill-me session.
+> Status: building · Recorded 2026-06-10 · Reconciled with sherpa-onnx spike + Vibe fork-plan 2026-06-10.
+> Source: design + two deep-research passes + grill-me session + engine spike + fork-plan investigation.
 > Builds on the existing `~/podcast-transcribe` Python pipeline (WhisperX + pyannote), which remains for
 > internal/high-fidelity use but is the wrong *shape* to ship to clients.
 
@@ -64,10 +65,11 @@ by IT) — no app reinstall, no internet fetch in the hardened build. Output is 
 
 ## Implementation Decisions
 
-**Stack & architecture**
-- Desktop shell: **Tauri** (Rust backend + web frontend in a native webview). Fork **Vibe** (MIT) as the base, or harvest its proven pieces (whisper-rs integration, model manager, installer config).
-- Engine layer is **Python-free**: ASR via **whisper.cpp** (ggml) and/or **sherpa-onnx** (ONNX); diarization via **sherpa-onnx**. The existing WhisperX/pyannote Python pipeline is retained only for internal high-fidelity work, not shipped.
-- Strip Vibe's networked features (URL ingestion, cloud summarization, updater). The current Python diarization path in Vibe (if pyannote-based) is removed in favor of sherpa-onnx.
+**Stack & architecture** (refined by the fork-plan investigation — see `docs/plans/vibe-fork-plan.md`)
+- Desktop shell: **Tauri v2** (Rust backend + web frontend in a native webview). **HARVEST Vibe's reusable pieces into a fresh Tauri v2 app — do NOT hard-fork.** Vibe is MIT and already Tauri v2, but carries large surface we'd only delete (updater, telemetry, yt-dlp, HTTP, AI summaries); building fresh keeps the zero-egress surface minimal *by construction*, which is a stronger security-review story than minimal *by deletion*.
+- Engine layer is **Python-free and in-process**: ASR and diarization both via the **official `sherpa-onnx` Rust crate** (k2-fsa, Apache-2.0, exposes `OfflineSpeakerDiarization`). NOTE: `sherpa-rs` was deprecated/archived 2026-06-06 — use the first-party `sherpa-onnx` crate. whisper.cpp remains an option for ASR, but sherpa-onnx covers both, validated by the spike. The existing WhisperX/pyannote Python pipeline is retained only for internal high-fidelity work, not shipped.
+- **Correction to earlier assumption:** current Vibe (v3.x) does NOT run whisper in-process — it spawns a `sona` Go sidecar (whisper.cpp over localhost HTTP) plus `sona-diarize`. There is therefore *no in-Rust pyannote path to remove*; instead we **drop the sidecar and its localhost HTTP surface entirely** and call sherpa-onnx in-process.
+- Strip Vibe's networked features (URL/yt-dlp ingestion, cloud/AI summarization, telemetry, auto-updater, model download). Vibe surfaces segment-level output only (no word timing), so the review editor is built **fresh**, driven by the already-built `core/src/editor.ts` reducer.
 
 **Privacy & deployment (settled in grill-me)**
 - **Zero outbound network by design.** No telemetry, crash reporting, analytics, or update pings. Diagnostics are local-only and user-initiated.
@@ -95,8 +97,8 @@ by IT) — no app reinstall, no internet fetch in the hardened build. Output is 
     "signature": "…"               // vendor signature over the manifest+weights
   }
   ```
-- The app **verifies the signature and hash before loading** and **refuses unsigned/tampered packs** (app embeds the vendor public key).
-- **Dual delivery from one codebase**: (1) offline import (watch folder / file-picker, zero network — law-firm path, IT-pushed); (2) optional in-app catalog from the vendor's signed server, explicit and **off by default** (open-SME segment). A **hardened build variant compiles networking out** entirely for clients requiring a provably-offline binary.
+- The app **verifies the signature and hash before loading** and **refuses unsigned/tampered packs** (app embeds the vendor public key). Verification is **enforced in Rust at the trust boundary** (the `node:crypto`-based `core/src/modelpack.ts` cannot run in the webview); the TS `core` tests are the **conformance oracle** the Rust port must match. The signing canonicalization is fixed: ed25519 over the UTF-8 of `JSON.stringify` of the manifest's known fields with keys in ascending lexicographic order and `signature` excluded.
+- **Dual delivery from one codebase**: (1) offline import (watch folder / file-picker, zero network — law-firm path, IT-pushed); (2) optional in-app catalog from the vendor's signed server, explicit and **off by default** (open-SME segment). A **hardened build variant compiles networking out** entirely for clients requiring a provably-offline binary, gated by a `hardened` Cargo feature plus a **CI `cargo tree` check that fails the build if any network crate reappears** — provable absence, not just config flags.
 - **Honest bound**: painless updates apply to weights for architectures the engine already supports; a genuinely new architecture requires an engine upgrade = a new app/MSI release.
 - **License-vetting is a release gate** in the vendor pipeline: reject CC-BY-NC / gated weights (e.g. the Rev `reverb-diarization` model). Prefer MIT segmentation (pyannote/segmentation-3.0) + a permissively-licensed embedding model; Parakeet weights are CC-BY-4.0 (attribution required and surfaced in-app).
 
@@ -145,9 +147,10 @@ Modules to be tested (confirmed):
 
 ## Further Notes
 
-- **Open empirical risk (do this first):** the sherpa-onnx diarization accuracy and CPU speed are *inferred*, not measured on representative legal audio. Run a half-day spike on a real (or representative) legal clip — measure transcription RTF on CPU, diarization quality vs the existing pyannote output, and the word-highlight feel — before committing promises. Misattribution is the likeliest failure; risk shrinks if the firm's audio is mostly 1–2 speakers (dictation/client calls) vs many-party interviews.
+- **Empirical risk — RESOLVED by the spike (`docs/spikes/sherpa-onnx-spike.md`): GO-WITH-CONDITIONS.** On real multi-speaker audio (Mac CPU, int8): ASR RTF small.en 0.109 / medium.en 0.357, diarization RTF ~0.05, all weights MIT/Apache-2.0 (no HF gating). The sherpa sidecar output flowed through the `core` `buildTurns` unchanged. **Default ship model = small.en** (medium.en as opt-in). **#1 residual risk = blind auto speaker-count over-segments** (12 detected vs pyannote's 3); supplying the known count fixed it, so expose the speaker-count hint (user story #32) and lean on the human relabel backstop. Matters little for the firm's real 1–2-speaker dictation/client-call case. Caveat: released Whisper ONNX decoders lack cross-attention → no true per-token timestamps; words get the VAD-chunk span re-spread across them, consistent with the "timestamps = playback aid" model.
 - **Prerequisite:** a registered company entity to hold the OV code-signing certificate.
 - **Commercial model (unconfirmed):** likely paid setup + the compliance pack + support + customization around an open-source core.
 - "Just download and set up" at a law firm realistically means "IT packages and pushes a signed MSI" — set this expectation with the buyer.
-- Sequenced next steps: (1) sherpa-onnx spike on real audio; (2) inspect Vibe source for a concrete fork plan (Tauri version, diarization path to remove, network features to strip, files to touch); (3) scaffold the compliance/assurance pack; (4) design the model-pack format + signing/verification.
+- Sequenced next steps: ~~(1) sherpa-onnx spike~~ **DONE**; ~~(2) Vibe fork plan~~ **DONE** (harvest into fresh Tauri v2 — `docs/plans/vibe-fork-plan.md`). Now the **first 3 PRs** from the fork plan: (PR1) in-process sherpa-onnx engine adapter on Windows CPU with vendored libs (de-risks native linking + bundling); (PR2) hardened zero-egress shell + the CI network-crate gate; (PR3) signed model packs (Rust verify mirroring `core/modelpack`) + the `core`-driven React review editor. Then: scaffold the compliance/assurance pack; build the vendor-side signing/publish CLI.
+- The framework-independent **`core/` TypeScript library is built and verified** (turn builder, diarization assignment, editor reducer, model-pack verify; 69 tests; `npm run verify`). It drops into the Tauri v2 frontend; the Rust side mirrors only `modelpack` verification at the trust boundary.
 - Related internal note: Demucs `--isolate-vocals` recovers speech-under-music in the existing pipeline (see project memory).
