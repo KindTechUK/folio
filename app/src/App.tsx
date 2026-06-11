@@ -1,32 +1,27 @@
 import { useState } from "react";
-import { invoke } from "@tauri-apps/api/core";
+import { invoke, convertFileSrc } from "@tauri-apps/api/core";
 import { open } from "@tauri-apps/plugin-dialog";
+import { loadTranscript } from "@core/editor";
+import type { EditorState } from "@core/editor";
+import type { Transcript } from "@core/types";
+import Editor from "./Editor";
 
-// MINIMAL smoke UI for PR2. This is intentionally NOT the review editor
-// (that is PR3, driven by core/src/editor.ts). Its only job is to prove the
-// IPC -> engine wiring links and runs, and to surface the zero-egress posture.
-
-type Transcript = {
-  segments: Array<{
-    start: number;
-    end: number;
-    text: string;
-    speaker?: string | null;
-    words: Array<{ word: string; start: number; end: number; speaker?: string | null }>;
-  }>;
-};
+// PR3b: the review-editor flow. Pick audio -> invoke("transcribe") ->
+// loadTranscript -> render <Editor>. All edit behaviour is driven by the tested
+// core reducer; this component only owns the EditorState and the audio src.
 
 export default function App() {
   const [status, setStatus] = useState<string>("idle");
-  const [result, setResult] = useState<string>("");
+  const [state, setState] = useState<EditorState | null>(null);
+  const [audioSrc, setAudioSrc] = useState<string | undefined>(undefined);
 
   async function pickAndTranscribe() {
-    setResult("");
+    setState(null);
     setStatus("selecting file…");
     const path = await open({
       multiple: false,
       directory: false,
-      filters: [{ name: "Audio", extensions: ["wav"] }],
+      filters: [{ name: "Audio", extensions: ["wav", "m4a", "mp3", "flac"] }],
     });
     if (typeof path !== "string") {
       setStatus("idle");
@@ -34,9 +29,9 @@ export default function App() {
     }
     setStatus(`transcribing ${path}…`);
     try {
-      // num_speakers omitted -> engine auto-detects.
       const transcript = await invoke<Transcript>("transcribe", { path });
-      setResult(JSON.stringify(transcript, null, 2));
+      setState(loadTranscript(transcript));
+      setAudioSrc(convertFileSrc(path));
       setStatus(`done — ${transcript.segments.length} segments`);
     } catch (e) {
       setStatus(`error: ${String(e)}`);
@@ -44,7 +39,7 @@ export default function App() {
   }
 
   return (
-    <main style={{ fontFamily: "system-ui, sans-serif", padding: "1.5rem", maxWidth: 900 }}>
+    <main style={{ fontFamily: "system-ui, sans-serif", padding: "1.5rem", maxWidth: 960 }}>
       <h1>Podcast Transcribe</h1>
       <p
         style={{
@@ -59,23 +54,16 @@ export default function App() {
         100% local — no network access. This build contains no networking code and
         runs fully in airplane mode.
       </p>
-      <button onClick={pickAndTranscribe} style={{ padding: "0.6rem 1rem", fontSize: "1rem" }}>
-        Open audio &rarr; transcribe
-      </button>
-      <p>Status: {status}</p>
-      {result && (
-        <pre
-          style={{
-            background: "#1e1e1e",
-            color: "#d4d4d4",
-            padding: "1rem",
-            borderRadius: 6,
-            overflow: "auto",
-            maxHeight: 480,
-          }}
-        >
-          {result}
-        </pre>
+      <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <button onClick={pickAndTranscribe} style={{ padding: "0.6rem 1rem", fontSize: "1rem" }}>
+          Open audio &rarr; transcribe
+        </button>
+        <span>Status: {status}</span>
+      </div>
+      {state && (
+        <div style={{ marginTop: "1.25rem" }}>
+          <Editor state={state} setState={setState} audioSrc={audioSrc} />
+        </div>
       )}
     </main>
   );

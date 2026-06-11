@@ -41,9 +41,6 @@ export interface EditorState {
   renameMap: Record<SpeakerId, string>;
 }
 
-/** Sentence end test, ported verbatim from the prototype. */
-const isEnd = (w: string): boolean => /[.!?]["')\]]*$/.test(w);
-
 /** Resolve a positional speaker id to its display name. */
 function displayName(renameMap: Record<SpeakerId, string>, id: SpeakerId): string {
   return renameMap[id] ?? id;
