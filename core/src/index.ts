@@ -29,7 +29,9 @@ export {
   reassignSentenceSpeaker,
   exportJSON,
   exportText,
+  groupParagraphs,
 } from "./editor.js";
+export type { EditorWord, EditorSentence, EditorState } from "./editor.js";
 
 // Signed/versioned model-pack validation & verification.
 export { validateManifest, verifyModelPack, compareSemver } from "./modelpack.js";

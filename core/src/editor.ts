@@ -183,6 +183,42 @@ export function exportJSON(state: EditorState): {
   return { words };
 }
 
+/**
+ * Group sentences into pause-based paragraphs for plain (no-speaker) QA reading.
+ *
+ * Starts a new paragraph when the gap between the previous sentence's last-word
+ * `end` and the current sentence's first-word `start` exceeds `gapSeconds`, OR
+ * once the current paragraph already holds `maxSentences` sentences (a readable
+ * cap for audio with no clear pauses). Pure: returns an array of sentence groups
+ * in document order; empty input → `[]`. Sentences with no words never start a
+ * gap break on their own (treated as gap 0) but still count toward the cap.
+ */
+export function groupParagraphs(
+  sentences: EditorSentence[],
+  gapSeconds = 0.75,
+  maxSentences = 6,
+): EditorSentence[][] {
+  const paragraphs: EditorSentence[][] = [];
+  let current: EditorSentence[] = [];
+  let prevEnd: number | null = null;
+
+  for (const s of sentences) {
+    const firstStart = s.words[0]?.start;
+    const gap =
+      prevEnd !== null && firstStart !== undefined ? firstStart - prevEnd : 0;
+    const tooLong = current.length >= maxSentences;
+    if (current.length > 0 && (gap > gapSeconds || tooLong)) {
+      paragraphs.push(current);
+      current = [];
+    }
+    current.push(s);
+    const lastEnd = s.words[s.words.length - 1]?.end;
+    if (lastEnd !== undefined) prevEnd = lastEnd;
+  }
+  if (current.length > 0) paragraphs.push(current);
+  return paragraphs;
+}
+
 /** Format seconds as mm:ss (prototype). */
 function mmss(t: number): string {
   const total = Math.floor(t);

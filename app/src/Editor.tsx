@@ -12,10 +12,12 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import type { JSX } from "react";
 import {
   editSentence,
   renameSpeaker,
   reassignSentenceSpeaker,
+  groupParagraphs,
 } from "@core/editor";
 import type { EditorState, EditorSentence } from "@core/editor";
 import { UNKNOWN_SPEAKER } from "@core/types";
@@ -25,6 +27,7 @@ import {
   exportJSONWithDisclaimer,
   exportTextWithDisclaimer,
 } from "./draft";
+import { saveDocx } from "./docx";
 
 const SPEEDS = [0.75, 1, 1.25, 1.5, 2] as const;
 
@@ -78,9 +81,21 @@ export interface EditorProps {
   setState: (next: EditorState) => void;
   /** Audio source URL (use `convertFileSrc(path)` in the Tauri app). */
   audioSrc?: string;
+  /**
+   * Whether the transcript was produced with speaker diarization. When `false`
+   * (the default — paragraph QA mode) the document renders as plain pause-based
+   * paragraphs with no speaker chips/reassign; when `true` it renders the
+   * speaker-turn view. Karaoke highlight + double-click edit work in both.
+   */
+  diarized?: boolean;
 }
 
-export default function Editor({ state, setState, audioSrc }: EditorProps) {
+export default function Editor({
+  state,
+  setState,
+  audioSrc,
+  diarized = false,
+}: EditorProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [activeIdx, setActiveIdx] = useState(-1);
   const [cur, setCur] = useState(0);
@@ -90,6 +105,10 @@ export default function Editor({ state, setState, audioSrc }: EditorProps) {
   const [editingId, setEditingId] = useState<string | null>(null);
 
   const turns = useMemo(() => groupTurns(state), [state]);
+  const paragraphs = useMemo(
+    () => groupParagraphs(state.sentences),
+    [state],
+  );
   const starts = useMemo(() => flatWords(state).map((w) => w.start), [state]);
 
   // rAF highlight loop. Cannot run headlessly (no real <audio>), so this is the
@@ -149,8 +168,60 @@ export default function Editor({ state, setState, audioSrc }: EditorProps) {
   }
 
   // Flat index bookkeeping so each rendered word knows its document position
-  // (for highlight). Built in the same document order as flatWords/starts.
+  // (for highlight). Built in the same document order as flatWords/starts —
+  // both views walk state.sentences in order, so the cursor stays consistent.
   let flatCursor = 0;
+
+  // Render ONE sentence (editable on double-click; per-word highlight). Shared
+  // by the speaker-turn and the plain-paragraph views so the highlight indexing
+  // is identical in both.
+  function renderSentence(sent: EditorSentence): JSX.Element {
+    const isEditing = editingId === sent.id;
+    if (isEditing) {
+      return (
+        <SentenceEditor
+          key={sent.id}
+          sent={sent}
+          onCommit={(text) => commitEdit(sent.id, text)}
+          onCancel={() => setEditingId(null)}
+        />
+      );
+    }
+    return (
+      <span
+        key={sent.id}
+        className="sent"
+        data-testid={`sentence-${sent.id}`}
+        onDoubleClick={() => setEditingId(sent.id)}
+        style={{ borderRadius: 6, padding: "1px 3px" }}
+      >
+        {sent.words.map((w, wi) => {
+          const myIdx = flatCursor++;
+          const active = myIdx === activeIdx;
+          const played = activeIdx >= 0 && myIdx < activeIdx;
+          return (
+            <span
+              key={wi}
+              className={`w${active ? " active" : ""}`}
+              data-testid="word"
+              onClick={(ev) => {
+                ev.stopPropagation();
+                seek(w.start);
+              }}
+              style={{
+                cursor: "pointer",
+                borderRadius: 4,
+                background: active ? "#fde047" : undefined,
+                color: active ? "#422006" : played ? "#999" : undefined,
+              }}
+            >
+              {w.text}{" "}
+            </span>
+          );
+        })}
+      </span>
+    );
+  }
 
   return (
     <div className="editor">
@@ -240,10 +311,29 @@ export default function Editor({ state, setState, audioSrc }: EditorProps) {
         >
           Export Script
         </button>
+        <button
+          data-testid="export-docx"
+          onClick={() => {
+            void saveDocx(state, { diarized });
+          }}
+        >
+          Export DOCX
+        </button>
       </div>
 
       <div className="doc" style={{ maxWidth: 820, margin: "16px auto" }}>
-        {turns.map((turn, ti) => {
+        {!diarized
+          ? paragraphs.map((para, pi) => (
+              <p
+                key={pi}
+                className="paragraph"
+                data-testid="paragraph"
+                style={{ margin: "0 0 16px", lineHeight: 1.6 }}
+              >
+                {para.map((sent) => renderSentence(sent))}
+              </p>
+            ))
+          : turns.map((turn, ti) => {
           const color = speakerColor(turn.speaker);
           const first = turn.sentences[0]?.words[0];
           return (
@@ -319,61 +409,11 @@ export default function Editor({ state, setState, audioSrc }: EditorProps) {
               </div>
 
               <div className="body">
-                {turn.sentences.map((sent) => {
-                  const isEditing = editingId === sent.id;
-                  if (isEditing) {
-                    return (
-                      <SentenceEditor
-                        key={sent.id}
-                        sent={sent}
-                        onCommit={(text) => commitEdit(sent.id, text)}
-                        onCancel={() => setEditingId(null)}
-                      />
-                    );
-                  }
-                  return (
-                    <span
-                      key={sent.id}
-                      className="sent"
-                      data-testid={`sentence-${sent.id}`}
-                      onDoubleClick={() => setEditingId(sent.id)}
-                      style={{ borderRadius: 6, padding: "1px 3px" }}
-                    >
-                      {sent.words.map((w, wi) => {
-                        const myIdx = flatCursor++;
-                        const active = myIdx === activeIdx;
-                        const played = activeIdx >= 0 && myIdx < activeIdx;
-                        return (
-                          <span
-                            key={wi}
-                            className={`w${active ? " active" : ""}`}
-                            data-testid="word"
-                            onClick={(ev) => {
-                              ev.stopPropagation();
-                              seek(w.start);
-                            }}
-                            style={{
-                              cursor: "pointer",
-                              borderRadius: 4,
-                              background: active ? "#fde047" : undefined,
-                              color: active
-                                ? "#422006"
-                                : played
-                                  ? "#999"
-                                  : undefined,
-                            }}
-                          >
-                            {w.text}{" "}
-                          </span>
-                        );
-                      })}
-                    </span>
-                  );
-                })}
+                {turn.sentences.map((sent) => renderSentence(sent))}
               </div>
             </div>
           );
-        })}
+            })}
       </div>
     </div>
   );

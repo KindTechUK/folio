@@ -19,6 +19,12 @@ export default function App() {
   const [status, setStatus] = useState<string>("idle");
   const [state, setState] = useState<EditorState | null>(null);
   const [audioSrc, setAudioSrc] = useState<string | undefined>(undefined);
+  // Speaker detection is OPT-IN (default off): on real audio its quality hurt
+  // more than it helped, so the default is plain paragraph QA mode.
+  const [detectSpeakers, setDetectSpeakers] = useState(false);
+  const [speakerCount, setSpeakerCount] = useState("");
+  // Whether the CURRENTLY loaded transcript was diarized (drives the editor view).
+  const [diarized, setDiarized] = useState(false);
 
   async function pickAndTranscribe() {
     setState(null);
@@ -33,9 +39,19 @@ export default function App() {
       return;
     }
     setStatus(`transcribing ${path}…`);
+    const parsedCount = parseInt(speakerCount, 10);
+    const num_speakers =
+      detectSpeakers && Number.isFinite(parsedCount) && parsedCount > 0
+        ? parsedCount
+        : undefined;
     try {
-      const transcript = await invoke<Transcript>("transcribe", { path });
+      const transcript = await invoke<Transcript>("transcribe", {
+        path,
+        diarize: detectSpeakers,
+        num_speakers,
+      });
       setState(loadTranscript(transcript));
+      setDiarized(detectSpeakers);
       setAudioSrc(convertFileSrc(path));
       setStatus(`done — ${transcript.segments.length} segments`);
     } catch (e) {
@@ -84,9 +100,47 @@ export default function App() {
             </button>
             <span>Status: {status}</span>
           </div>
+          <div
+            style={{
+              display: "flex",
+              gap: 12,
+              alignItems: "center",
+              margin: "0.6rem 0 0",
+              fontSize: 14,
+            }}
+          >
+            <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
+              <input
+                type="checkbox"
+                data-testid="detect-speakers"
+                checked={detectSpeakers}
+                onChange={(e) => setDetectSpeakers(e.target.checked)}
+              />
+              Detect speakers (slower, experimental)
+            </label>
+            {detectSpeakers && (
+              <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                Speakers
+                <input
+                  type="number"
+                  min={1}
+                  data-testid="speaker-count"
+                  placeholder="auto"
+                  value={speakerCount}
+                  onChange={(e) => setSpeakerCount(e.target.value)}
+                  style={{ width: 64 }}
+                />
+              </label>
+            )}
+          </div>
           {state && (
             <div style={{ marginTop: "1.25rem" }}>
-              <Editor state={state} setState={setState} audioSrc={audioSrc} />
+              <Editor
+                state={state}
+                setState={setState}
+                audioSrc={audioSrc}
+                diarized={diarized}
+              />
             </div>
           )}
         </>

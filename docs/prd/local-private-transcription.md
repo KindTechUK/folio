@@ -31,7 +31,7 @@ by IT) — no app reinstall, no internet fetch in the hardened build. Output is 
 
 1. As a fee-earner, I want to transcribe an audio file fully on my laptop, so that privileged client material never leaves the device.
 2. As a fee-earner, I want the app to work with no internet connection, so that I can use it on a train or in a secure room and trust nothing is uploaded.
-3. As a fee-earner, I want to open an audio file and get a speaker-separated transcript, so that I can see who said what.
+3. As a fee-earner, I want to open an audio file and by default get a clean transcript split into pause-based paragraphs (no speaker labels), so that I get a readable draft to QA with the karaoke highlight without being misled by poor speaker labels. Speaker detection is an explicit opt-in toggle for the multi-party cases that want it.
 4. As a fee-earner, I want to play the audio while the spoken word highlights in the transcript, so that I can follow along and spot errors.
 5. As a fee-earner, I want to change playback speed (0.75×–2×), so that I can review faster or slow down for unclear passages.
 6. As a fee-earner, I want to click a word to jump the audio to that moment, so that I can re-listen to a specific phrase.
@@ -60,7 +60,7 @@ by IT) — no app reinstall, no internet fetch in the hardened build. Output is 
 29. As the vendor, I want each model pack to carry a manifest (id, version, engine-min-version, license, attribution, hash), so that the app can validate compatibility and display attribution.
 30. As the vendor, I want the engine behind a stable adapter interface, so that I can switch between whisper.cpp and sherpa-onnx without touching the rest of the app.
 31. As an open-segment SME user (non-locked-down), I want an optional in-app model catalog I can explicitly opt into, so that I can fetch new models conveniently when my environment allows it.
-32. As a fee-earner, I want the app to auto-detect the number of speakers, so that I don't have to know it in advance for a multi-party interview.
+32. As a fee-earner, when I opt into speaker detection I want the app to auto-detect the number of speakers (with an optional explicit count when I know it), so that I don't have to know it in advance for a multi-party interview. (Speaker detection is opt-in; the default is paragraph QA mode.)
 33. As a fee-earner, I want the default bundled model to run at acceptable speed on a CPU-only laptop, so that I'm not waiting excessively for a transcript.
 
 ## Implementation Decisions
@@ -103,9 +103,10 @@ by IT) — no app reinstall, no internet fetch in the hardened build. Output is 
 - **License-vetting is a release gate** in the vendor pipeline: reject CC-BY-NC / gated weights (e.g. the Rev `reverb-diarization` model). Prefer MIT segmentation (pyannote/segmentation-3.0) + a permissively-licensed embedding model; Parakeet weights are CC-BY-4.0 (attribution required and surfaced in-app).
 
 **Diarization specifics**
-- sherpa-onnx pipeline = converted-pyannote segmentation (MIT) + a vetted speaker-embedding model + clustering.
-- **Auto-detects speaker count** via cluster threshold (no need to know count in advance); optional explicit count when known.
-- Accepted accuracy tier ≈ open pyannote-3.1 (~11.5% English DER) — meaningfully below pyannote's paid API (6.6%), but acceptable because the **human relabel step is the accuracy backstop**.
+- **Diarization is OPT-IN; the default is paragraph QA mode.** Live-demo testing (2026-06-11) found measured speaker quality on real audio poor enough that the labels hurt more than they helped (the blind auto speaker-count over-segmentation risk flagged in the spike, observed in the wild). The default flow therefore transcribes to plain text split into **pause-based paragraphs** (with the karaoke highlight + sentence editor), and speaker detection is exposed as a "Detect speakers (slower, experimental)" toggle — the working diarization code path is kept for the multi-party cases that want it. The engine default is `EngineConfig::diarize = false` (segment + word `speaker: None`).
+- sherpa-onnx pipeline (when enabled) = converted-pyannote segmentation (MIT) + a vetted speaker-embedding model + clustering.
+- **Auto-detects speaker count** via cluster threshold (no need to know count in advance); optional explicit count when known (surfaced as a speaker-count input next to the toggle, since supplying the known count was the spike's fix for over-segmentation).
+- Accepted accuracy tier ≈ open pyannote-3.1 (~11.5% English DER) — meaningfully below pyannote's paid API (6.6%); when diarization is used, the **human relabel step is the accuracy backstop**.
 
 **Transcript contract & editing model**
 - Engine→editor contract is the existing word-level sidecar shape (decision, already in use):
