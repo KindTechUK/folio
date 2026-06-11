@@ -57,6 +57,18 @@ jobs:
       - name: Build app backend (engine + sherpa-onnx linked into Tauri)
         run: cargo build --manifest-path app/src-tauri/Cargo.toml
 
+  modelpack:
+    name: modelpack verify (cross-language conformance)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      # The standalone model-pack verification crate (no workspace). Its
+      # tests/conformance.rs reads the shared fixtures under fixtures/modelpack/
+      # and asserts identical trust decisions to the TS oracle.
+      - name: Run modelpack tests
+        run: cargo test --manifest-path modelpack/Cargo.toml
+
   frontend:
     name: frontend build (React + Vite)
     runs-on: ubuntu-latest

@@ -1,0 +1,4 @@
+{
+  "outcome": "reject",
+  "reasonContains": "missing required field \"license\""
+}

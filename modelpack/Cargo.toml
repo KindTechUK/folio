@@ -1,0 +1,21 @@
+[package]
+name = "modelpack"
+version = "0.1.0"
+edition = "2021"
+description = "Signed/versioned model-pack verification at the Rust trust boundary. A byte-for-byte mirror of core/src/modelpack.ts (the spec + oracle): fail-closed validate -> sha256 -> ed25519 signature -> engine-version gate. Network-free by construction."
+license = "Apache-2.0"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+# ed25519-dalek v2 PureEdDSA verify (matches Node `crypto.verify(null, ...)`).
+# `pem` (implies `pkcs8`) pulls in DecodePublicKey + PEM decoding so we can
+# accept the vendor key as an SPKI PEM string. All three crates here are
+# network-free (verified by scripts/check-no-network.sh).
+ed25519-dalek = { version = "2", features = ["pem"] }
+sha2 = "0.10"
+base64 = "0.22"
+thiserror = "2"
+
+[dev-dependencies]
+serde_json = "1.0"
