@@ -107,6 +107,12 @@ pub struct EngineConfig {
     /// Fixed speaker count, or `None` to auto-detect via the clustering
     /// threshold.
     pub num_speakers: Option<u32>,
+    /// When `true`, run speaker diarization and merge speakers into the
+    /// transcript. When `false` (the DEFAULT — see PR #4 / the PRD), transcribe
+    /// only and emit speaker-less segments/words for plain "paragraph QA" mode.
+    /// Measured speaker quality on real audio was poor enough that labels hurt,
+    /// so diarization is opt-in; the code path is kept for multi-party use.
+    pub diarize: bool,
 }
 
 impl EngineConfig {
@@ -116,6 +122,7 @@ impl EngineConfig {
             asr_model: AsrModel::default(),
             num_threads: 4,
             num_speakers: None,
+            diarize: false,
         }
     }
 }
@@ -150,7 +157,12 @@ pub trait TranscriptionEngine {
     ) -> anyhow::Result<Vec<SpeakerSpan>>;
 }
 
-/// Run the full pipeline: transcribe + diarize + merge into the contract.
+/// Run the pipeline into the contract.
+///
+/// When `cfg.diarize` is `true`: transcribe + diarize + merge (speaker labels).
+/// When `false` (the default): transcribe ONLY and build a speaker-less
+/// transcript (segment + word `speaker: None`) for plain paragraph QA mode —
+/// `diarize` is never called.
 pub fn process<E: TranscriptionEngine>(
     engine: &E,
     samples: &[f32],
@@ -158,8 +170,12 @@ pub fn process<E: TranscriptionEngine>(
     cfg: &EngineConfig,
 ) -> anyhow::Result<Transcript> {
     let asr = engine.transcribe(samples, sample_rate)?;
-    let spans = engine.diarize(samples, sample_rate, cfg.num_speakers)?;
-    Ok(merge::merge(&asr, &spans))
+    if cfg.diarize {
+        let spans = engine.diarize(samples, sample_rate, cfg.num_speakers)?;
+        Ok(merge::merge(&asr, &spans))
+    } else {
+        Ok(merge::from_asr(&asr))
+    }
 }
 
 /// Load a WAV as 16 kHz mono `f32` samples in `[-1, 1)`.
@@ -198,4 +214,81 @@ pub fn load_wav_16k_mono(path: impl AsRef<Path>) -> anyhow::Result<(Vec<f32>, u3
         .collect::<Result<_, _>>()
         .map_err(|e| EngineError::Audio(format!("decoding samples: {e}")))?;
     Ok((samples, spec.sample_rate))
+}
+
+#[cfg(test)]
+mod process_tests {
+    use super::*;
+    use std::cell::Cell;
+
+    /// A model-free `TranscriptionEngine`: returns canned ASR segments and
+    /// records whether `diarize` was called.
+    struct MockEngine {
+        diarize_called: Cell<bool>,
+    }
+
+    impl MockEngine {
+        fn new() -> Self {
+            Self { diarize_called: Cell::new(false) }
+        }
+    }
+
+    impl TranscriptionEngine for MockEngine {
+        fn transcribe(&self, _samples: &[f32], _sample_rate: u32) -> anyhow::Result<Vec<AsrSegment>> {
+            Ok(vec![AsrSegment {
+                start: 0.0,
+                end: 2.0,
+                text: "hello world".into(),
+                words: vec![
+                    Word { word: "hello".into(), start: 0.0, end: 1.0, speaker: None },
+                    Word { word: "world".into(), start: 1.0, end: 2.0, speaker: None },
+                ],
+            }])
+        }
+
+        fn diarize(
+            &self,
+            _samples: &[f32],
+            _sample_rate: u32,
+            _num_speakers: Option<u32>,
+        ) -> anyhow::Result<Vec<SpeakerSpan>> {
+            self.diarize_called.set(true);
+            Ok(vec![
+                SpeakerSpan { speaker: "SPEAKER_00".into(), start: 0.0, end: 1.0 },
+                SpeakerSpan { speaker: "SPEAKER_01".into(), start: 1.0, end: 2.0 },
+            ])
+        }
+    }
+
+    #[test]
+    fn process_without_diarize_emits_no_speakers_and_skips_diarize() {
+        let engine = MockEngine::new();
+        let cfg = EngineConfig::new("models"); // diarize defaults to false
+        assert!(!cfg.diarize, "diarize must default to false");
+
+        let t = process(&engine, &[0.0_f32; 16], 16_000, &cfg).unwrap();
+
+        assert!(!engine.diarize_called.get(), "diarize must NOT be called when off");
+        for seg in &t.segments {
+            assert_eq!(seg.speaker, None, "segment speaker must be None");
+            for w in &seg.words {
+                assert_eq!(w.speaker, None, "word speaker must be None");
+            }
+        }
+    }
+
+    #[test]
+    fn process_with_diarize_merges_speakers() {
+        let engine = MockEngine::new();
+        let mut cfg = EngineConfig::new("models");
+        cfg.diarize = true;
+
+        let t = process(&engine, &[0.0_f32; 16], 16_000, &cfg).unwrap();
+
+        assert!(engine.diarize_called.get(), "diarize must be called when on");
+        let words = &t.segments[0].words;
+        assert_eq!(words[0].speaker.as_deref(), Some("SPEAKER_00"));
+        assert_eq!(words[1].speaker.as_deref(), Some("SPEAKER_01"));
+        assert!(t.segments[0].speaker.is_some(), "segment speaker must be set");
+    }
 }

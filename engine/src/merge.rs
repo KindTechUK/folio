@@ -82,6 +82,33 @@ pub fn merge(asr: &[AsrSegment], spans: &[SpeakerSpan]) -> Transcript {
     Transcript { segments: out_segs }
 }
 
+/// Build a speaker-less [`Transcript`] from ASR segments alone (no diarization).
+///
+/// Used by the default "paragraph QA" path (`EngineConfig::diarize == false`):
+/// every segment and word carries `speaker: None`.
+pub fn from_asr(asr: &[AsrSegment]) -> Transcript {
+    let segments = asr
+        .iter()
+        .map(|seg| Segment {
+            start: seg.start,
+            end: seg.end,
+            text: seg.text.clone(),
+            speaker: None,
+            words: seg
+                .words
+                .iter()
+                .map(|w| Word {
+                    word: w.word.clone(),
+                    start: w.start,
+                    end: w.end,
+                    speaker: None,
+                })
+                .collect(),
+        })
+        .collect();
+    Transcript { segments }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

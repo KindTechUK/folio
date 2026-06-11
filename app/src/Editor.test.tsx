@@ -40,12 +40,23 @@ const FIXTURE: Transcript = {
 };
 
 /** Test harness owning EditorState, exposing it via a ref-like callback. */
-function Harness({ onState }: { onState: (s: EditorState) => void }) {
-  const [state, setState] = useState<EditorState>(() => loadTranscript(FIXTURE));
+function Harness({
+  onState,
+  diarized = true,
+  transcript = FIXTURE,
+}: {
+  onState: (s: EditorState) => void;
+  diarized?: boolean;
+  transcript?: Transcript;
+}) {
+  const [state, setState] = useState<EditorState>(() =>
+    loadTranscript(transcript),
+  );
   onState(state);
   return (
     <Editor
       state={state}
+      diarized={diarized}
       setState={(s) => {
         onState(s);
         setState(s);
@@ -112,6 +123,7 @@ describe("Editor (jsdom)", () => {
       return (
         <Editor
           state={state}
+          diarized
           setState={(s) => {
             capture(s);
             setState(s);
@@ -162,7 +174,7 @@ describe("Editor (jsdom)", () => {
     function H() {
       const [state, setState] = useState<EditorState>(() => loadTranscript(FIXTURE));
       capture(state);
-      return <Editor state={state} setState={(s) => { capture(s); setState(s); }} />;
+      return <Editor state={state} diarized setState={(s) => { capture(s); setState(s); }} />;
     }
     vi.spyOn(window, "prompt").mockReturnValue("Witness");
     render(<H />);
@@ -209,5 +221,33 @@ describe("Editor (jsdom)", () => {
     );
     // No audio src in this harness, so seek is a no-op but must not throw.
     expect(() => fireEvent.click(words[1]!)).not.toThrow();
+  });
+
+  it("paragraph mode (diarized=false): renders paragraphs, NO speaker chips, editing still commits", () => {
+    render(<Harness onState={capture} diarized={false} />);
+
+    // Paragraph blocks render, and there are NO speaker chips / reassign selects.
+    expect(screen.getAllByTestId("paragraph").length).toBeGreaterThan(0);
+    expect(screen.queryByTestId("speaker-chip")).toBeNull();
+    expect(screen.queryByTestId("reassign-sent-0")).toBeNull();
+
+    // Sentences still render and double-click-edit still commits.
+    const sentence = screen.getByTestId("sentence-sent-0");
+    fireEvent.doubleClick(sentence);
+    const ta = screen.getByTestId("edit-sent-0") as HTMLTextAreaElement;
+    fireEvent.change(ta, { target: { value: "edited paragraph text." } });
+    fireEvent.blur(ta);
+
+    const edited = latest.sentences.find((s) => s.id === "sent-0")!;
+    expect(edited.words.map((w) => w.text).join(" ")).toBe(
+      "edited paragraph text.",
+    );
+    expect(screen.getByTestId("sentence-sent-0")).toHaveTextContent("edited");
+  });
+
+  it("diarized=true still shows speaker chips", () => {
+    render(<Harness onState={capture} diarized={true} />);
+    expect(screen.getAllByTestId("speaker-chip").length).toBeGreaterThan(0);
+    expect(screen.queryByTestId("paragraph")).toBeNull();
   });
 });

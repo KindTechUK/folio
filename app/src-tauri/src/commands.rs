@@ -24,16 +24,22 @@ fn models_dir() -> PathBuf {
         .join("../../models")
 }
 
-/// Transcribe + diarize a 16 kHz mono WAV into the project's JSON contract.
+/// Transcribe a 16 kHz mono WAV into the project's JSON contract.
 ///
-/// `num_speakers = None` lets the engine auto-detect. Uses the default ASR
-/// model (`small.en`). Runtime success requires the model files to be present;
-/// that is best-effort for PR2 (the bar is that this COMPILES/LINKS into the
-/// Tauri build), and is finalized by the model-pack work in PR3.
+/// `diarize` defaults to `false` (paragraph QA mode — speaker detection on real
+/// audio was poor enough to hurt; see PR #4): the transcript comes back with no
+/// speaker labels. Pass `diarize = Some(true)` to opt into speaker detection;
+/// `num_speakers = None` then lets the engine auto-detect. Uses the default ASR
+/// model (`small.en`).
 #[tauri::command]
-pub fn transcribe(path: String, num_speakers: Option<u32>) -> Result<engine::Transcript, String> {
+pub fn transcribe(
+    path: String,
+    num_speakers: Option<u32>,
+    diarize: Option<bool>,
+) -> Result<engine::Transcript, String> {
     let mut cfg = EngineConfig::new(models_dir());
     cfg.num_speakers = num_speakers;
+    cfg.diarize = diarize.unwrap_or(false);
 
     let sherpa = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
     let (samples, sample_rate) = load_wav_16k_mono(&path).map_err(|e| e.to_string())?;
