@@ -1,0 +1,4 @@
+{
+  "outcome": "reject",
+  "reasonContains": "unsigned or untrusted"
+}

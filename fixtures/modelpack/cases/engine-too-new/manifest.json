@@ -1,0 +1,11 @@
+{
+  "id": "acme/whisper-base-en",
+  "version": "1.2.3",
+  "engine": "whisper.cpp",
+  "engine_min_version": "9.9.9",
+  "task": "asr",
+  "license": "MIT",
+  "attribution": "Acme Speech Labs",
+  "sha256": "ee354067cfdd707b0fc21ef3b3a091e18d5992b7f1e2854cc1043bf598f5b69e",
+  "signature": "A0ZgHJ1X07CnBkImSi1TzKua6oihN1xPPpM7O9mcBacMTWynciM6DOBmR52SefgqdN2tMbMSIRMacUulpxruAw=="
+}

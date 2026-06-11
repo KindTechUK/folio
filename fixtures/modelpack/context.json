@@ -1,0 +1,8 @@
+{
+  "pubkeySpkiPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA1HsQTCcJ2eUma5lmkjVdzCce0p3EaxywplN4xyZcSpU=\n-----END PUBLIC KEY-----\n",
+  "pubkeyRawHex": "d47b104c2709d9e5266b996692355dcc271ed29dc46b1cb0a65378c7265c4a95",
+  "engineVersions": {
+    "whisper.cpp": "1.7.0",
+    "sherpa-onnx": "1.13.2"
+  }
+}

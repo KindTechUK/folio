@@ -21,6 +21,7 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 APP_MANIFEST="$REPO_ROOT/app/src-tauri/Cargo.toml"
 ENGINE_MANIFEST="$REPO_ROOT/engine/Cargo.toml"
+MODELPACK_MANIFEST="$REPO_ROOT/modelpack/Cargo.toml"
 
 # Denylist: HTTP clients, low-level HTTP/2, and the Vibe network plugins we must
 # never reintroduce. Matched as whole crate names at the start of a `cargo tree
@@ -72,11 +73,14 @@ scan() {
 scan "app/src-tauri (default features)"   "$APP_MANIFEST"
 scan "app/src-tauri (--features hardened)" "$APP_MANIFEST" --features hardened
 scan "engine (default features)"          "$ENGINE_MANIFEST"
+# The model-pack verification crate runs at the Rust trust boundary and must be
+# network-free too (ed25519-dalek/sha2/serde have no network deps).
+scan "modelpack (default features)"        "$MODELPACK_MANIFEST"
 
 echo
 if [[ "$FAIL" -ne 0 ]]; then
   echo "FAIL: zero-egress gate tripped — a network crate is in the dependency graph." >&2
   exit 1
 fi
-echo "PASS: zero-egress gate clean — no network crates in app or engine."
+echo "PASS: zero-egress gate clean — no network crates in app, engine, or modelpack."
 exit 0

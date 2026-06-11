@@ -1,0 +1,11 @@
+{
+  "id": "acme/whisper-base-en",
+  "version": "1.2.3",
+  "engine": "whisper.cpp",
+  "engine_min_version": "1.5.0",
+  "task": "asr",
+  "license": "MIT",
+  "attribution": "Totally Different Vendor",
+  "sha256": "9bcd7a2a85dfb164126a9cb26758cd91fa3f8d52f1c72dbbc311db666c8bbd6f",
+  "signature": "DkMAfFiANxIGFjq38nQS0GqTK96A9+FKXwhIKgfFWbBayeAPcluMFJH7GsyTE24mFZHr7a1UtIXUk/Yw6IOXDQ=="
+}

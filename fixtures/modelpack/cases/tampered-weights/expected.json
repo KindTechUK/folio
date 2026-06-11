@@ -1,0 +1,4 @@
+{
+  "outcome": "reject",
+  "reasonContains": "weights hash mismatch"
+}
