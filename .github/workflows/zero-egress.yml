@@ -82,3 +82,4 @@ jobs:
           node-version: "20"
       - run: npm ci
       - run: npm run build
+      - run: npx vitest run
