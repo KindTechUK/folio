@@ -20,6 +20,12 @@ tauri-build = { version = "2", features = [] }
 # what we link the app against.
 engine = { path = "../../engine" }
 
+# Model-pack verification crate (PR #3a) via a PATH dependency — network-free
+# (ed25519-dalek/sha2/serde). PR #3c wires it at the trust boundary so the app
+# verifies signed packs before trusting/importing them. The zero-egress gate
+# already scans modelpack (scripts/check-no-network.sh).
+modelpack = { path = "../../modelpack" }
+
 # Tauri v2 with ONLY the plugins this app needs. Deliberately ABSENT (the
 # product's zero-egress differentiator — see docs/plans/vibe-fork-plan.md §4):
 #   tauri-plugin-http, tauri-plugin-updater, tauri-plugin-aptabase,
