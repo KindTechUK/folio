@@ -5,6 +5,7 @@
 //! in the dependency graph (enforced by scripts/check-no-network.sh).
 
 mod commands;
+mod models;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -12,7 +13,11 @@ pub fn run() {
         // Scoped file dialog + filesystem only. No network plugin exists.
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_fs::init())
-        .invoke_handler(tauri::generate_handler![commands::transcribe])
+        .invoke_handler(tauri::generate_handler![
+            commands::transcribe,
+            models::list_model_packs,
+            models::import_model_pack
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
