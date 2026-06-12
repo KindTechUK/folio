@@ -99,10 +99,12 @@ At **no** stage is any byte sent off the device.
   engine decodes audio in memory and does not write a separate scratch/temp
   file to disk (`engine/src/decode.rs`); see `data-at-rest.md` for the honest
   status of the PRD's "wipe temp files on completion" intent.
-- **Models**: read from a local models directory (dev: the repo `models/`
-  folder via `PODCAST_MODELS_DIR`; 🚧 production: installer-bundled default
-  pack + a per-user data dir for signed packs — see `app/src-tauri/src/commands.rs`,
-  `models.rs`).
+- **Models**: at transcription time, weights are loaded **ONLY from a
+  cryptographically verified signed pack** (ed25519 + sha256, fail-closed),
+  extracted into a per-user content-addressed cache. Release/hardened builds
+  always enforce this; a debug-only `PODCAST_MODELS_DIR` override exists for the
+  dev/demo. See `app/src-tauri/src/commands.rs`, `models.rs`. 🚧 Installer
+  bundling of a default signed pack + the production signing key remain roadmap.
 - **Exports**: a local folder the user picks, expected to be on the firm's
   **BitLocker-encrypted** volume (see `data-at-rest.md`).
 

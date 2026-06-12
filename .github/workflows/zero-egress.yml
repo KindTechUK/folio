@@ -69,6 +69,19 @@ jobs:
       - name: Run modelpack tests
         run: cargo test --manifest-path modelpack/Cargo.toml
 
+  modelpack-sign:
+    name: modelpack-sign (producer signer conformance)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      # The vendor-side producer CLI (standalone crate, not shipped). It links
+      # NO sherpa-onnx, so it builds/tests on plain ubuntu. Its cross-tool test
+      # proves the Rust signer reproduces the committed TS-generated signature
+      # byte-for-byte (signer never drifts from the in-app verifier).
+      - name: Run modelpack-sign tests
+        run: cargo test --manifest-path tools/modelpack-sign/Cargo.toml
+
   frontend:
     name: frontend build (React + Vite)
     runs-on: ubuntu-latest
