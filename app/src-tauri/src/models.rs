@@ -14,11 +14,13 @@
 //! missing or garbage files — it maps every failure to a human-readable reason.
 
 use std::collections::BTreeMap;
-use std::path::{Path, PathBuf};
+use std::io::Read;
+use std::path::{Component, Path, PathBuf};
 
 use modelpack::{verify_model_pack, PublicKey};
 use serde::Serialize;
 use serde_json::Value;
+use sha2::{Digest, Sha256};
 use tauri::Manager;
 
 /// DEV/TEST KEY — the production build injects the real vendor key via the
@@ -213,6 +215,181 @@ pub fn import_model_pack(app: tauri::AppHandle, src_dir: String) -> Result<PackS
     Ok(status)
 }
 
+// --- verified-pack resolver (PR #3d) ---------------------------------------
+
+/// Lowercase-hex SHA-256 of `bytes`.
+fn sha256_hex(bytes: &[u8]) -> String {
+    let digest = Sha256::digest(bytes);
+    let mut out = String::with_capacity(digest.len() * 2);
+    for b in digest {
+        out.push_str(&format!("{b:02x}"));
+    }
+    out
+}
+
+/// True iff `name` (a zip entry path) stays within the extraction root: no
+/// absolute paths, no `..` components, no root/prefix components. Defends
+/// against zip path-traversal ("zip slip") regardless of `ZipArchive::extract`'s
+/// own sanitization.
+fn zip_entry_is_safe(name: &str) -> bool {
+    if name.is_empty() {
+        return false;
+    }
+    let p = Path::new(name);
+    p.components().all(|c| matches!(c, Component::Normal(_) | Component::CurDir))
+}
+
+/// Extract every file entry of the zip `weights` into `dest`, creating parent
+/// dirs as needed. Skips entries whose normalized path would escape `dest`.
+/// Returns `Err` only on genuine I/O failure (NOT on "not a zip" — the caller
+/// decides that). The caller pre-checks zip validity.
+fn extract_zip_into(weights: &[u8], dest: &Path) -> Result<(), String> {
+    let reader = std::io::Cursor::new(weights);
+    let mut archive = zip::ZipArchive::new(reader)
+        .map_err(|e| format!("weights.bin is not a valid zip: {e}"))?;
+    for i in 0..archive.len() {
+        let mut entry = archive
+            .by_index(i)
+            .map_err(|e| format!("reading zip entry {i}: {e}"))?;
+        // Prefer the archive's own sanitized name; fall back to the raw name.
+        let rel = match entry.enclosed_name() {
+            Some(p) => p.to_path_buf(),
+            None => {
+                // enclosed_name() rejected it as unsafe — skip.
+                continue;
+            }
+        };
+        let rel_str = rel.to_string_lossy();
+        if !zip_entry_is_safe(&rel_str) {
+            continue; // belt-and-braces traversal guard
+        }
+        let out_path = dest.join(&rel);
+        if entry.is_dir() {
+            std::fs::create_dir_all(&out_path)
+                .map_err(|e| format!("creating dir {}: {e}", out_path.display()))?;
+            continue;
+        }
+        if let Some(parent) = out_path.parent() {
+            std::fs::create_dir_all(parent)
+                .map_err(|e| format!("creating dir {}: {e}", parent.display()))?;
+        }
+        let mut buf = Vec::with_capacity(entry.size() as usize);
+        entry
+            .read_to_end(&mut buf)
+            .map_err(|e| format!("reading zip entry {rel_str}: {e}"))?;
+        std::fs::write(&out_path, &buf)
+            .map_err(|e| format!("writing {}: {e}", out_path.display()))?;
+    }
+    Ok(())
+}
+
+/// PURE, testable verified-pack resolver. Enumerates `packs_dir`, VERIFIES every
+/// pack, extracts ONLY verified packs' `weights.bin` zips into a content-
+/// addressed cache under `cache_base`, and returns the cache dir IFF it provides
+/// every model file the engine requires for `(asr_model, diarize)`. Fails closed
+/// at every step: no verified pack, or any missing required file, is an `Err`.
+///
+/// The cache dir is keyed by the SHA-256 of the verified packs' `sha256` manifest
+/// strings (sorted ascending, `\n`-joined), so the same verified set always maps
+/// to the same dir and re-extraction is skipped via a `.complete` marker.
+pub fn resolve_verified_models_dir_in(
+    packs_dir: &Path,
+    cache_base: &Path,
+    pubkey: &PublicKey<'_>,
+    engine_versions: &BTreeMap<String, String>,
+    asr_model: engine::AsrModel,
+    diarize: bool,
+) -> Result<PathBuf, String> {
+    // 1. Enumerate + verify; keep verified pack dirs.
+    let mut verified_dirs: Vec<PathBuf> = match std::fs::read_dir(packs_dir) {
+        Ok(entries) => entries
+            .filter_map(|e| e.ok())
+            .map(|e| e.path())
+            .filter(|p| p.is_dir())
+            .filter(|p| verify_pack_dir(p, pubkey, engine_versions).verified)
+            .collect(),
+        Err(_) => Vec::new(),
+    };
+    verified_dirs.sort();
+    if verified_dirs.is_empty() {
+        return Err(format!(
+            "no verified model pack found in {}",
+            packs_dir.display()
+        ));
+    }
+
+    // 2. Deterministic combined key from the verified packs' manifest sha256s.
+    let mut sha_list: Vec<String> = Vec::new();
+    for dir in &verified_dirs {
+        let bytes = std::fs::read(dir.join("manifest.json"))
+            .map_err(|e| format!("reading {}: {e}", dir.join("manifest.json").display()))?;
+        let value: Value = serde_json::from_slice(&bytes)
+            .map_err(|e| format!("parsing {}: {e}", dir.join("manifest.json").display()))?;
+        let sha = value
+            .get("sha256")
+            .and_then(Value::as_str)
+            .ok_or_else(|| format!("manifest in {} has no sha256", dir.display()))?
+            .to_string();
+        sha_list.push(sha);
+    }
+    sha_list.sort();
+    let combined_key = sha256_hex(sha_list.join("\n").as_bytes());
+
+    // 3. Composed cache dir; reuse if already extracted (idempotent).
+    let composed = cache_base.join("verified-models").join(&combined_key);
+    let complete_marker = composed.join(".complete");
+    if !complete_marker.exists() {
+        // 4. Fresh extraction: clear any partial dir, recreate, extract each
+        //    verified pack's zip-valid weights.bin (skip non-zip packs).
+        if composed.exists() {
+            std::fs::remove_dir_all(&composed)
+                .map_err(|e| format!("clearing partial cache {}: {e}", composed.display()))?;
+        }
+        std::fs::create_dir_all(&composed)
+            .map_err(|e| format!("creating cache dir {}: {e}", composed.display()))?;
+        for dir in &verified_dirs {
+            let weights = std::fs::read(dir.join("weights.bin")).unwrap_or_default();
+            // A non-zip weights.bin contributes no files — skip rather than abort.
+            if zip::ZipArchive::new(std::io::Cursor::new(&weights)).is_err() {
+                continue;
+            }
+            extract_zip_into(&weights, &composed)?;
+        }
+        std::fs::write(&complete_marker, b"")
+            .map_err(|e| format!("writing completion marker {}: {e}", complete_marker.display()))?;
+    }
+
+    // 5. Fail closed unless EVERY required file is present.
+    let missing: Vec<String> = engine::required_model_files(asr_model, diarize)
+        .into_iter()
+        .filter(|rel| !composed.join(rel).exists())
+        .collect();
+    if !missing.is_empty() {
+        return Err(format!(
+            "no verified pack provides the required model file(s): {missing:?}"
+        ));
+    }
+    Ok(composed)
+}
+
+/// AppHandle wrapper used by the `transcribe` command: resolves `packs_dir(app)`
+/// and the app-data cache base, builds the trusted vendor key + engine versions,
+/// and delegates to [`resolve_verified_models_dir_in`].
+pub fn resolve_verified_models_dir(
+    app: &tauri::AppHandle,
+    asr_model: engine::AsrModel,
+    diarize: bool,
+) -> Result<PathBuf, String> {
+    let packs = packs_dir(app)?;
+    let cache_base = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| format!("cannot resolve app data dir: {e}"))?;
+    let pubkey = PublicKey::SpkiPem(vendor_pubkey_pem());
+    let versions = engine_versions();
+    resolve_verified_models_dir_in(&packs, &cache_base, &pubkey, &versions, asr_model, diarize)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -321,5 +498,126 @@ mod tests {
         let status = verify_pack_dir(&tmp, &pubkey, &versions);
         assert!(!status.verified);
         assert!(status.reason.unwrap().contains("weights hash mismatch"));
+    }
+
+    fn unique_tmp(tag: &str) -> PathBuf {
+        std::env::temp_dir().join(format!(
+            "podcast-resolver-{tag}-{}-{:?}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ))
+    }
+
+    /// POSITIVE: the committed `asr-small-en` fixture pack verifies, extracts,
+    /// and provides every file `engine::required_model_files(SmallEn, false)`
+    /// needs. A second call reuses the `.complete` marker (idempotent).
+    #[test]
+    fn resolve_verified_models_dir_in_extracts_committed_fixture_pack() {
+        let (pem, versions) = fixtures_context();
+        let pubkey = PublicKey::SpkiPem(&pem);
+        let packs = repo_root().join("fixtures/modelpack/packs");
+        let cache_base = unique_tmp("ok");
+        let _ = fs::remove_dir_all(&cache_base);
+
+        let dir = resolve_verified_models_dir_in(
+            &packs,
+            &cache_base,
+            &pubkey,
+            &versions,
+            engine::AsrModel::SmallEn,
+            false,
+        )
+        .expect("committed verified pack must resolve");
+
+        for rel in engine::required_model_files(engine::AsrModel::SmallEn, false) {
+            assert!(
+                dir.join(&rel).exists(),
+                "required file {rel} missing under {}",
+                dir.display()
+            );
+        }
+        assert!(dir.join(".complete").exists(), ".complete marker must exist");
+
+        // Second call is idempotent: same dir, reuses the marker.
+        let dir2 = resolve_verified_models_dir_in(
+            &packs,
+            &cache_base,
+            &pubkey,
+            &versions,
+            engine::AsrModel::SmallEn,
+            false,
+        )
+        .expect("second resolve must succeed");
+        assert_eq!(dir, dir2, "resolver must be deterministic / idempotent");
+
+        let _ = fs::remove_dir_all(&cache_base);
+    }
+
+    /// FAIL-CLOSED: a packs dir holding only the `unsigned` fixture case (which
+    /// the verifier rejects) yields no verified pack → `Err`.
+    #[test]
+    fn resolve_verified_models_dir_in_fails_closed_when_no_verified_pack() {
+        let (pem, versions) = fixtures_context();
+        let pubkey = PublicKey::SpkiPem(&pem);
+
+        let packs = unique_tmp("unsigned-packs");
+        let _ = fs::remove_dir_all(&packs);
+        let dest = packs.join("unsigned");
+        fs::create_dir_all(&dest).unwrap();
+        let src = repo_root().join("fixtures/modelpack/cases/unsigned");
+        for file in ["manifest.json", "weights.bin"] {
+            let from = src.join(file);
+            if from.exists() {
+                fs::copy(&from, dest.join(file)).unwrap();
+            }
+        }
+        let cache_base = unique_tmp("unsigned-cache");
+
+        let err = resolve_verified_models_dir_in(
+            &packs,
+            &cache_base,
+            &pubkey,
+            &versions,
+            engine::AsrModel::SmallEn,
+            false,
+        )
+        .expect_err("an unsigned pack must not be trusted");
+        assert!(
+            err.contains("no verified model pack found"),
+            "expected no-verified-pack error, got: {err}"
+        );
+
+        let _ = fs::remove_dir_all(&packs);
+        let _ = fs::remove_dir_all(&cache_base);
+    }
+
+    /// DIARIZE-MISSING: the asr-only fixture pack provides no seg/emb model, so
+    /// resolving with `diarize=true` fails closed naming the missing file(s).
+    #[test]
+    fn resolve_verified_models_dir_in_fails_closed_when_diarization_models_missing() {
+        let (pem, versions) = fixtures_context();
+        let pubkey = PublicKey::SpkiPem(&pem);
+        let packs = repo_root().join("fixtures/modelpack/packs");
+        let cache_base = unique_tmp("diarize");
+        let _ = fs::remove_dir_all(&cache_base);
+
+        let err = resolve_verified_models_dir_in(
+            &packs,
+            &cache_base,
+            &pubkey,
+            &versions,
+            engine::AsrModel::SmallEn,
+            true,
+        )
+        .expect_err("asr-only pack must not satisfy diarization");
+        assert!(
+            err.contains("required model file") && err.contains("pyannote-segmentation"),
+            "expected missing seg/emb error, got: {err}"
+        );
+
+        let _ = fs::remove_dir_all(&cache_base);
     }
 }

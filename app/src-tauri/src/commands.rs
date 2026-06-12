@@ -5,24 +5,17 @@
 //! network call is made. The command is what gives the network-crate gate a
 //! real dependency graph (app -> engine -> sherpa-onnx) to scan.
 
-use std::path::PathBuf;
-
 use engine::{decode_to_16k_mono, process, EngineConfig, SherpaEngine};
 use tauri::{AppHandle, Emitter};
 
-/// Resolve the directory holding the model files.
-///
-/// PR2: read `PODCAST_MODELS_DIR` if set, else fall back to the repo's `models/`
-/// dir (dev convenience). PR3 finalizes the bundled-models path (signed model
-/// packs resolved under the per-user data dir + the installer-bundled default
-/// pack) — see docs/plans/vibe-fork-plan.md §5.
-fn models_dir() -> PathBuf {
-    if let Ok(dir) = std::env::var("PODCAST_MODELS_DIR") {
-        return PathBuf::from(dir);
-    }
-    // ../../models relative to app/src-tauri (the committed dev models dir).
-    PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("../../models")
+use crate::models;
+
+/// DEBUG-ONLY raw models dir override: when `PODCAST_MODELS_DIR` is set in a
+/// debug build, the transcribe path uses it RAW (dev/demo convenience), skipping
+/// verified-pack resolution. NEVER consulted in a release/hardened build.
+#[cfg(debug_assertions)]
+fn debug_models_dir_override() -> Option<std::path::PathBuf> {
+    std::env::var("PODCAST_MODELS_DIR").ok().map(std::path::PathBuf::from)
 }
 
 /// Transcribe an audio file (wav/mp3/m4a/mp4/flac/ogg…) into the project's JSON
@@ -46,11 +39,44 @@ pub async fn transcribe(
     num_speakers: Option<u32>,
     diarize: Option<bool>,
 ) -> Result<engine::Transcript, String> {
-    let mut cfg = EngineConfig::new(models_dir());
+    // `models_dir` is left UNSET here on purpose: it is resolved INSIDE
+    // spawn_blocking (verified-pack extraction may be large — keep the UI thread
+    // free) and assigned just before `SherpaEngine::new`.
+    let mut cfg = EngineConfig::new("");
     cfg.num_speakers = num_speakers;
     cfg.diarize = diarize.unwrap_or(false);
 
+    // Clone for the resolver/emit closure (AppHandle is Clone + Send).
+    let resolve_app = app.clone();
+
     tauri::async_runtime::spawn_blocking(move || {
+        // Resolve the models dir, enforcing verified-pack trust.
+        //
+        // Debug build: an explicit PODCAST_MODELS_DIR is honored RAW (dev/demo);
+        // otherwise we resolve via the verified-pack resolver.
+        // Release/hardened build: ALWAYS resolve via the verified-pack resolver,
+        // IGNORING PODCAST_MODELS_DIR. Fail closed if resolution errors.
+        let models_dir = {
+            #[cfg(debug_assertions)]
+            {
+                if let Some(raw) = debug_models_dir_override() {
+                    // No-op progress note that we are bypassing pack verification.
+                    let _ = resolve_app.emit(
+                        "transcribe-progress",
+                        engine::Progress::new("decoding", 0, 1, 0.0),
+                    );
+                    raw
+                } else {
+                    models::resolve_verified_models_dir(&resolve_app, cfg.asr_model, cfg.diarize)?
+                }
+            }
+            #[cfg(not(debug_assertions))]
+            {
+                models::resolve_verified_models_dir(&resolve_app, cfg.asr_model, cfg.diarize)?
+            }
+        };
+        cfg.models_dir = models_dir;
+
         let sherpa = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
         let (samples, sample_rate) = decode_to_16k_mono(&path).map_err(|e| e.to_string())?;
         process(&sherpa, &samples, sample_rate, &cfg, &move |p| {
