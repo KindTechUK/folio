@@ -25,6 +25,9 @@ export { assignSpeakers } from "./diarization.js";
 export {
   loadTranscript,
   editSentence,
+  editParagraph,
+  joinSentences,
+  splitSentence,
   renameSpeaker,
   reassignSentenceSpeaker,
   exportJSON,
