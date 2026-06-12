@@ -165,6 +165,37 @@ impl EngineConfig {
 /// Fallback speaker label when no diarized span can be matched to a word.
 pub const UNKNOWN_SPEAKER: &str = "UNKNOWN";
 
+/// Silero VAD model file (relative to `models_dir`). Always required.
+pub const VAD_MODEL: &str = "silero_vad.onnx";
+/// Pyannote segmentation model (relative to `models_dir`). Diarization only.
+pub const SEG_MODEL: &str = "sherpa-onnx-pyannote-segmentation-3-0/model.onnx";
+/// 3D-Speaker embedding model (relative to `models_dir`). Diarization only.
+pub const EMB_MODEL: &str = "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx";
+
+/// The RELATIVE model-file paths (forward-slash) the engine needs for the given
+/// `asr_model` / `diarize` combination. The single source of truth shared by
+/// [`SherpaEngine::new`]'s existence check and the verified-pack resolver, so
+/// the two can never drift.
+///
+/// Always: the ASR encoder/decoder/tokens (under `<asr_model.dir()>/`) and the
+/// Silero VAD model. When `diarize`: also the pyannote segmentation and
+/// 3D-Speaker embedding models.
+pub fn required_model_files(asr_model: AsrModel, diarize: bool) -> Vec<String> {
+    let dir = asr_model.dir();
+    let stem = asr_model.stem();
+    let mut files = vec![
+        format!("{dir}/{stem}-encoder.int8.onnx"),
+        format!("{dir}/{stem}-decoder.int8.onnx"),
+        format!("{dir}/{stem}-tokens.txt"),
+        VAD_MODEL.to_string(),
+    ];
+    if diarize {
+        files.push(SEG_MODEL.to_string());
+        files.push(EMB_MODEL.to_string());
+    }
+    files
+}
+
 #[derive(Debug, thiserror::Error)]
 pub enum EngineError {
     #[error("model file not found: {0}")]

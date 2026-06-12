@@ -38,6 +38,12 @@ tauri-plugin-fs = "2"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 
+# Verified-pack resolution (PR #3d): extract verified packs' `weights.bin` zips
+# into a content-addressed cache and SHA-256 the manifest set for the cache key.
+# Both are network-free (the zero-egress gate scans this manifest).
+zip = "2"
+sha2 = "0.10"
+
 [features]
 # Default + `hardened` are BOTH network-free in PR2. `hardened` is the forward
 # guard rail: it is the feature the shipped firm build sets, reserved to compile

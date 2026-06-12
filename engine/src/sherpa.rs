@@ -19,10 +19,10 @@ use sherpa_onnx::{
     SileroVadModelConfig, SpeakerEmbeddingExtractorConfig, VadModelConfig, VoiceActivityDetector,
 };
 
-// Diarization model file names (the spike's downloads).
-const SEG_MODEL: &str = "sherpa-onnx-pyannote-segmentation-3-0/model.onnx";
-const EMB_MODEL: &str = "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx";
-const VAD_MODEL: &str = "silero_vad.onnx";
+// Model file names — the single source of truth lives in `crate` (lib.rs), so
+// the runtime path-building here and the resolver's required-file list can
+// never drift.
+use crate::{EMB_MODEL, SEG_MODEL, VAD_MODEL};
 
 /// Concrete engine bound to a `models/` directory and a config (model choice,
 /// thread count).
@@ -38,19 +38,12 @@ impl SherpaEngine {
     /// error).
     pub fn new(cfg: &EngineConfig) -> anyhow::Result<Self> {
         let dir = &cfg.models_dir;
-        let stem = cfg.asr_model.stem();
-        let asr_dir = dir.join(cfg.asr_model.dir());
-        let required = [
-            asr_dir.join(format!("{stem}-encoder.int8.onnx")),
-            asr_dir.join(format!("{stem}-decoder.int8.onnx")),
-            asr_dir.join(format!("{stem}-tokens.txt")),
-            dir.join(VAD_MODEL),
-            dir.join(SEG_MODEL),
-            dir.join(EMB_MODEL),
-        ];
-        for p in &required {
+        // Build the required list from the shared source of truth so the
+        // diarization models are required ONLY when `cfg.diarize`.
+        for rel in crate::required_model_files(cfg.asr_model, cfg.diarize) {
+            let p = dir.join(&rel);
             if !p.exists() {
-                return Err(EngineError::ModelNotFound(p.clone()).into());
+                return Err(EngineError::ModelNotFound(p).into());
             }
         }
         Ok(Self {
@@ -316,5 +309,53 @@ impl TranscriptionEngine for SherpaEngine {
             .collect();
         spans.sort_by(|a, b| a.start.partial_cmp(&b.start).unwrap_or(std::cmp::Ordering::Equal));
         Ok(spans)
+    }
+}
+
+#[cfg(test)]
+mod new_tests {
+    use super::*;
+    use crate::AsrModel;
+
+    /// Lay down EMPTY placeholder files at every relative path the engine needs
+    /// for `small.en` WITHOUT diarization (the 3 ASR files + Silero VAD).
+    fn write_asr_vad_placeholders(root: &Path) {
+        for rel in crate::required_model_files(AsrModel::SmallEn, false) {
+            let p = root.join(&rel);
+            if let Some(parent) = p.parent() {
+                std::fs::create_dir_all(parent).unwrap();
+            }
+            std::fs::write(&p, b"").unwrap();
+        }
+    }
+
+    /// `new()` does fs-existence checks only: with the 4 ASR+VAD files present
+    /// and `diarize=false` it succeeds, but `diarize=true` fails closed with a
+    /// `ModelNotFound` pointing at a missing diarization model.
+    #[test]
+    fn new_requires_diarization_models_only_when_diarizing() {
+        let tmp = std::env::temp_dir().join(format!("sherpa-new-test-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&tmp);
+        std::fs::create_dir_all(&tmp).unwrap();
+        write_asr_vad_placeholders(&tmp);
+
+        let mut cfg = EngineConfig::new(&tmp);
+        cfg.diarize = false;
+        assert!(
+            SherpaEngine::new(&cfg).is_ok(),
+            "ASR+VAD files present and diarize=false must be Ok"
+        );
+
+        cfg.diarize = true;
+        let msg = match SherpaEngine::new(&cfg) {
+            Ok(_) => panic!("diarize=true must fail without seg/emb models"),
+            Err(e) => e.to_string(),
+        };
+        assert!(
+            msg.contains("model file not found"),
+            "expected ModelNotFound, got: {msg}"
+        );
+
+        let _ = std::fs::remove_dir_all(&tmp);
     }
 }

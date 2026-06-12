@@ -1,0 +1,11 @@
+{
+  "attribution": "Sightline Test ASR small.en",
+  "engine": "sherpa-onnx",
+  "engine_min_version": "1.13.2",
+  "id": "sightline/whisper-small.en",
+  "license": "MIT",
+  "sha256": "739ed5b2a5da4ae28599586591b4aa7a08a765a332a5855941e8e369b1f6f952",
+  "signature": "2YDWeoKQtcvoi2d2xEKPEhj4qdmHF83VfwYgiNg+cB+LxlhAytjUwDp/MqmgYdItSadCUbEMpFOtgRv6ghccCg==",
+  "task": "asr",
+  "version": "1.0.0"
+}
