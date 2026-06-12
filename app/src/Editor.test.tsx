@@ -223,7 +223,7 @@ describe("Editor (jsdom)", () => {
     expect(() => fireEvent.click(words[1]!)).not.toThrow();
   });
 
-  it("paragraph mode (diarized=false): renders paragraphs, NO speaker chips, editing still commits", () => {
+  it("paragraph mode (diarized=false): renders paragraphs, NO speaker chips", () => {
     render(<Harness onState={capture} diarized={false} />);
 
     // Paragraph blocks render, and there are NO speaker chips / reassign selects.
@@ -231,18 +231,47 @@ describe("Editor (jsdom)", () => {
     expect(screen.queryByTestId("speaker-chip")).toBeNull();
     expect(screen.queryByTestId("reassign-sent-0")).toBeNull();
 
-    // Sentences still render and double-click-edit still commits.
-    const sentence = screen.getByTestId("sentence-sent-0");
-    fireEvent.doubleClick(sentence);
+    // Words still render (for karaoke + click-to-seek).
+    expect(screen.getAllByTestId("word").length).toBeGreaterThan(0);
+  });
+
+  it("paragraph mode: double-click a paragraph -> edit whole text -> commit re-spreads in the anchor span", () => {
+    render(<Harness onState={capture} diarized={false} />);
+    // FIXTURE's two sentences (no gap) group into one paragraph keyed on sent-0,
+    // anchored [0, 4] (first word start -> last word end).
+    const span = { start: 0, end: 4 };
+
+    const para = screen.getAllByTestId("paragraph")[0]!;
+    // The whole paragraph is one editable surface seeded with its full text.
+    expect(para).toHaveTextContent("The witness arrived.");
+    expect(para).toHaveTextContent("I object loudly.");
+
+    fireEvent.doubleClick(para);
     const ta = screen.getByTestId("edit-sent-0") as HTMLTextAreaElement;
-    fireEvent.change(ta, { target: { value: "edited paragraph text." } });
+    // Seeded with the joined paragraph text.
+    expect(ta.value).toBe("The witness arrived. I object loudly.");
+    fireEvent.change(ta, {
+      target: { value: "the deponent calmly entered and then objected." },
+    });
     fireEvent.blur(ta);
 
+    // Whole run collapsed to one sentence (id = first sentence's id).
     const edited = latest.sentences.find((s) => s.id === "sent-0")!;
     expect(edited.words.map((w) => w.text).join(" ")).toBe(
-      "edited paragraph text.",
+      "the deponent calmly entered and then objected.",
     );
-    expect(screen.getByTestId("sentence-sent-0")).toHaveTextContent("edited");
+    // The second sentence is gone (collapsed into sent-0).
+    expect(latest.sentences.find((s) => s.id === "sent-1")).toBeUndefined();
+
+    // Timings stay within the original anchor span.
+    expect(edited.words[0]!.start).toBeCloseTo(span.start, 3);
+    expect(edited.words.at(-1)!.end).toBeCloseTo(span.end, 3);
+    for (const w of edited.words) {
+      expect(w.start).toBeGreaterThanOrEqual(span.start - 1e-6);
+      expect(w.end).toBeLessThanOrEqual(span.end + 1e-6);
+    }
+    // DOM reflects the edit.
+    expect(screen.getAllByTestId("paragraph")[0]!).toHaveTextContent("deponent");
   });
 
   it("diarized=true still shows speaker chips", () => {

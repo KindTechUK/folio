@@ -15,6 +15,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { JSX } from "react";
 import {
   editSentence,
+  editParagraph,
+  joinSentences,
+  splitSentence,
   renameSpeaker,
   reassignSentenceSpeaker,
   groupParagraphs,
@@ -155,6 +158,24 @@ export default function Editor({
     setEditingId(null);
   }
 
+  // Paragraph-mode commit: re-spread the whole paragraph's text across its
+  // anchor span and collapse the run to one sentence (core `editParagraph`).
+  function commitParagraphEdit(sentenceIds: string[], text: string): void {
+    setState(editParagraph(state, sentenceIds, text));
+    setEditingId(null);
+  }
+
+  // Merge this paragraph's sentences with the next paragraph's into one run
+  // (core `joinSentences`); timings unchanged.
+  function joinWithNext(para: EditorSentence[], nextPara: EditorSentence[]): void {
+    setState(joinSentences(state, [...para, ...nextPara].map((s) => s.id)));
+  }
+
+  // Split a sentence at a word boundary (core `splitSentence`); timings intact.
+  function splitAt(sentenceId: string, wordIndex: number): void {
+    setState(splitSentence(state, sentenceId, wordIndex));
+  }
+
   function onRename(origId: string): void {
     const current = displayName(state, origId);
     const name = window.prompt(`Rename "${current}" everywhere as:`, current);
@@ -172,9 +193,49 @@ export default function Editor({
   // both views walk state.sentences in order, so the cursor stays consistent.
   let flatCursor = 0;
 
-  // Render ONE sentence (editable on double-click; per-word highlight). Shared
-  // by the speaker-turn and the plain-paragraph views so the highlight indexing
-  // is identical in both.
+  // Render the words of a sentence as click-to-seek, highlight-aware spans.
+  // `flatCursor` advances in document order so the flat highlight index stays
+  // aligned with flatWords/starts (the karaoke engine is untouched). Shared by
+  // the per-sentence (speaker) view and the per-paragraph (plain) read view.
+  function renderWords(
+    sent: EditorSentence,
+    onSplitBefore?: (wordIndex: number) => void,
+  ): JSX.Element[] {
+    return sent.words.map((w, wi) => {
+      const myIdx = flatCursor++;
+      const active = myIdx === activeIdx;
+      const played = activeIdx >= 0 && myIdx < activeIdx;
+      return (
+        <span
+          key={wi}
+          className={`w${active ? " active" : ""}`}
+          data-testid="word"
+          onClick={(ev) => {
+            ev.stopPropagation();
+            // Shift-click splits the sentence just before this word (paragraph
+            // mode only); plain click seeks. Splitting at index 0 is a no-op in
+            // core, so leading-word shift-clicks safely do nothing.
+            if (onSplitBefore && ev.shiftKey) {
+              onSplitBefore(wi);
+              return;
+            }
+            seek(w.start);
+          }}
+          style={{
+            cursor: "pointer",
+            borderRadius: 4,
+            background: active ? "#fde047" : undefined,
+            color: active ? "#422006" : played ? "#999" : undefined,
+          }}
+        >
+          {w.text}{" "}
+        </span>
+      );
+    });
+  }
+
+  // Render ONE sentence (editable on double-click; per-word highlight). Used by
+  // the speaker-turn view so per-sentence editing + reassign stay as-is.
   function renderSentence(sent: EditorSentence): JSX.Element {
     const isEditing = editingId === sent.id;
     if (isEditing) {
@@ -195,30 +256,7 @@ export default function Editor({
         onDoubleClick={() => setEditingId(sent.id)}
         style={{ borderRadius: 6, padding: "1px 3px" }}
       >
-        {sent.words.map((w, wi) => {
-          const myIdx = flatCursor++;
-          const active = myIdx === activeIdx;
-          const played = activeIdx >= 0 && myIdx < activeIdx;
-          return (
-            <span
-              key={wi}
-              className={`w${active ? " active" : ""}`}
-              data-testid="word"
-              onClick={(ev) => {
-                ev.stopPropagation();
-                seek(w.start);
-              }}
-              style={{
-                cursor: "pointer",
-                borderRadius: 4,
-                background: active ? "#fde047" : undefined,
-                color: active ? "#422006" : played ? "#999" : undefined,
-              }}
-            >
-              {w.text}{" "}
-            </span>
-          );
-        })}
+        {renderWords(sent)}
       </span>
     );
   }
@@ -323,16 +361,72 @@ export default function Editor({
 
       <div className="doc" style={{ maxWidth: 820, margin: "16px auto" }}>
         {!diarized
-          ? paragraphs.map((para, pi) => (
-              <p
-                key={pi}
-                className="paragraph"
-                data-testid="paragraph"
-                style={{ margin: "0 0 16px", lineHeight: 1.6 }}
-              >
-                {para.map((sent) => renderSentence(sent))}
-              </p>
-            ))
+          ? paragraphs.map((para, pi) => {
+              // A paragraph collapses to one sentence on edit (id = first
+              // sentence's id), so we key paragraph edit state on that id. This
+              // shares the same `editingId` gate as the speaker view, so the
+              // rAF highlight freezes/resumes identically.
+              const paraId = para[0]!.id;
+              const isEditing = editingId === paraId;
+              if (isEditing) {
+                return (
+                  <ParagraphEditor
+                    key={paraId}
+                    para={para}
+                    onCommit={(text) =>
+                      commitParagraphEdit(
+                        para.map((s) => s.id),
+                        text,
+                      )
+                    }
+                    onCancel={() => setEditingId(null)}
+                  />
+                );
+              }
+              const next = paragraphs[pi + 1];
+              return (
+                <p
+                  key={paraId}
+                  className="paragraph"
+                  data-testid="paragraph"
+                  data-paragraph-id={paraId}
+                  onDoubleClick={() => setEditingId(paraId)}
+                  style={{ margin: "0 0 16px", lineHeight: 1.6 }}
+                >
+                  {para.map((sent) => (
+                    <span
+                      key={sent.id}
+                      className="sent"
+                      data-testid={`sentence-${sent.id}`}
+                    >
+                      {renderWords(sent, (wi) => splitAt(sent.id, wi))}
+                    </span>
+                  ))}
+                  {next && (
+                    <button
+                      data-testid={`join-${paraId}`}
+                      aria-label="join with next paragraph"
+                      title="Join with next paragraph"
+                      onClick={(ev) => {
+                        ev.stopPropagation();
+                        joinWithNext(para, next);
+                      }}
+                      style={{
+                        marginLeft: 6,
+                        fontSize: 11,
+                        color: "#888",
+                        background: "none",
+                        border: "1px solid #ddd",
+                        borderRadius: 4,
+                        cursor: "pointer",
+                      }}
+                    >
+                      ⌄ join
+                    </button>
+                  )}
+                </p>
+              );
+            })
           : turns.map((turn, ti) => {
           const color = speakerColor(turn.speaker);
           const first = turn.sentences[0]?.words[0];
@@ -416,6 +510,64 @@ export default function Editor({
             })}
       </div>
     </div>
+  );
+}
+
+/**
+ * Inline editable text for a WHOLE paragraph (paragraph mode). Seeded with the
+ * paragraph's joined text; Enter/blur commits via `editParagraph`, Esc cancels.
+ * Keyed (testid) on the paragraph's first-sentence id, which is also the id the
+ * collapsed sentence keeps, so the highlight/edit id stays stable.
+ */
+function ParagraphEditor({
+  para,
+  onCommit,
+  onCancel,
+}: {
+  para: EditorSentence[];
+  onCommit: (text: string) => void;
+  onCancel: () => void;
+}) {
+  const paraId = para[0]!.id;
+  const initial = para.flatMap((s) => s.words.map((w) => w.text)).join(" ");
+  const [text, setText] = useState(initial);
+  const ref = useRef<HTMLTextAreaElement | null>(null);
+  useEffect(() => {
+    ref.current?.focus();
+    ref.current?.select();
+  }, []);
+  return (
+    <p className="paragraph editing" style={{ margin: "0 0 16px" }}>
+      <textarea
+        ref={ref}
+        className="sent editing"
+        data-testid={`edit-${paraId}`}
+        aria-label="edit paragraph"
+        value={text}
+        rows={4}
+        onChange={(e) => setText(e.target.value)}
+        onBlur={() => onCommit(text)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            onCommit(text);
+          } else if (e.key === "Escape") {
+            e.preventDefault();
+            onCancel();
+          }
+        }}
+        style={{
+          display: "block",
+          width: "100%",
+          font: "inherit",
+          lineHeight: 1.6,
+          padding: "6px 8px",
+          boxSizing: "border-box",
+          boxShadow: "0 0 0 2px #38bdf8",
+          borderRadius: 6,
+        }}
+      />
+    </p>
   );
 }
 

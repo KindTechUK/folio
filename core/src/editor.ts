@@ -79,6 +79,46 @@ export function loadTranscript(t: Transcript): EditorState {
   return { sentences, renameMap: {} };
 }
 
+/** Tokenize free text into words: collapse whitespace, trim, drop empties. */
+function tokenize(text: string): string[] {
+  return text
+    .replace(/\s+/g, " ")
+    .trim()
+    .split(" ")
+    .filter(Boolean);
+}
+
+/**
+ * Re-spread an ANCHOR span `[spanStart, spanEnd]` across `tokens` by character length
+ * (prototype `rebuild`). Each word is assigned `speaker`. When the span is degenerate
+ * (end <= start) a synthetic span proportional to token count stands in so timings stay
+ * monotonic. Pure: returns a fresh array; callers never share references.
+ *
+ * Shared by `editSentence` and `editParagraph` so the timing-after-edit math lives in
+ * exactly one place.
+ */
+function respread(
+  spanStart: number,
+  spanEnd: number,
+  tokens: string[],
+  speaker: SpeakerId,
+): EditorWord[] {
+  const span =
+    spanEnd - spanStart > 0
+      ? spanEnd - spanStart
+      : Math.max(0.3 * tokens.length, 0.3);
+  const total = tokens.join("").length || 1;
+  let acc = 0;
+  const rebuilt: EditorWord[] = [];
+  for (const tok of tokens) {
+    const st = spanStart + span * (acc / total);
+    acc += tok.length;
+    const en = spanStart + span * (acc / total);
+    rebuilt.push({ text: tok, start: st, end: en, speaker });
+  }
+  return rebuilt;
+}
+
 /**
  * Re-tokenize `newText` and re-spread the sentence's original [start, end] span across
  * the new words by character length (prototype `rebuild`). Blank/whitespace text DELETES
@@ -99,11 +139,7 @@ export function editSentence(
   const e = orig.length > 0 ? orig[orig.length - 1]!.end : 0;
   const speaker = orig.length > 0 ? orig[0]!.speaker : UNKNOWN_SPEAKER;
 
-  const toks = newText
-    .replace(/\s+/g, " ")
-    .trim()
-    .split(" ")
-    .filter(Boolean);
+  const toks = tokenize(newText);
 
   if (toks.length === 0) {
     // Sentence deleted.
@@ -111,17 +147,142 @@ export function editSentence(
     return next;
   }
 
-  const span = e - s > 0 ? e - s : Math.max(0.3 * toks.length, 0.3);
-  const total = toks.join("").length || 1;
-  let acc = 0;
-  const rebuilt: EditorWord[] = [];
-  for (const tok of toks) {
-    const st = s + span * (acc / total);
-    acc += tok.length;
-    const en = s + span * (acc / total);
-    rebuilt.push({ text: tok, start: st, end: en, speaker });
+  sentence.words = respread(s, e, toks, speaker);
+  return next;
+}
+
+/** Indexes of a contiguous run of `sentenceIds` in `sentences`, or null if the run is
+ * non-contiguous, contains an unknown id, has a duplicate, or is empty. Contiguity is
+ * checked against document order: the ids must name consecutive sentences in `sentences`
+ * (not merely be a set that happens to be adjacent). */
+function contiguousRun(
+  sentences: EditorSentence[],
+  sentenceIds: string[],
+): number[] | null {
+  if (sentenceIds.length === 0) return null;
+  const indices: number[] = [];
+  for (const id of sentenceIds) {
+    const idx = sentences.findIndex((s) => s.id === id);
+    if (idx === -1) return null;
+    indices.push(idx);
   }
-  sentence.words = rebuilt;
+  for (let i = 1; i < indices.length; i++) {
+    if (indices[i]! !== indices[i - 1]! + 1) return null;
+  }
+  return indices;
+}
+
+/**
+ * Paragraph-scope edit. Re-tokenize `newText` and re-spread it across the run's ANCHOR
+ * span — the first listed sentence's first-word `start` to the last listed sentence's
+ * last-word `end` — then collapse the whole contiguous run to ONE sentence whose id is
+ * the FIRST sentence's id (so highlight/edit ids stay stable) and whose speaker is the
+ * first word's speaker. Blank/whitespace `newText` deletes the entire run.
+ *
+ * Contiguity rule: `sentenceIds` must name a contiguous run of sentences in document
+ * order. Non-contiguous ids, an unknown id, or an empty list return the state UNCHANGED.
+ * Returns a NEW state; the input is not mutated.
+ */
+export function editParagraph(
+  state: EditorState,
+  sentenceIds: string[],
+  newText: string,
+): EditorState {
+  const next = cloneState(state);
+  const run = contiguousRun(next.sentences, sentenceIds);
+  if (run === null) return next;
+
+  const startIdx = run[0]!;
+  const endIdx = run[run.length - 1]!;
+  const runSentences = next.sentences.slice(startIdx, endIdx + 1);
+
+  const toks = tokenize(newText);
+  if (toks.length === 0) {
+    // Whole run deleted.
+    next.sentences.splice(startIdx, run.length);
+    return next;
+  }
+
+  // Anchor span = first word start of first sentence -> last word end of last sentence.
+  let spanStart = 0;
+  let spanEnd = 0;
+  let speaker: SpeakerId = UNKNOWN_SPEAKER;
+  for (const s of runSentences) {
+    if (s.words.length > 0) {
+      spanStart = s.words[0]!.start;
+      speaker = s.words[0]!.speaker;
+      break;
+    }
+  }
+  for (let i = runSentences.length - 1; i >= 0; i--) {
+    const w = runSentences[i]!.words;
+    if (w.length > 0) {
+      spanEnd = w[w.length - 1]!.end;
+      break;
+    }
+  }
+
+  const collapsed: EditorSentence = {
+    id: runSentences[0]!.id,
+    words: respread(spanStart, spanEnd, toks, speaker),
+  };
+  next.sentences.splice(startIdx, run.length, collapsed);
+  return next;
+}
+
+/**
+ * Concatenate a CONTIGUOUS run of sentences into ONE sentence (id = the first sentence's
+ * id), preserving every word's timing in document order. No re-spread. Used to join
+ * sentences into a paragraph without retyping. Non-contiguous ids, an unknown id, or an
+ * empty list return the state UNCHANGED. Returns a NEW state; the input is not mutated.
+ */
+export function joinSentences(
+  state: EditorState,
+  sentenceIds: string[],
+): EditorState {
+  const next = cloneState(state);
+  const run = contiguousRun(next.sentences, sentenceIds);
+  if (run === null) return next;
+
+  const startIdx = run[0]!;
+  const runSentences = next.sentences.slice(startIdx, startIdx + run.length);
+  const merged: EditorSentence = {
+    id: runSentences[0]!.id,
+    words: runSentences.flatMap((s) => s.words),
+  };
+  next.sentences.splice(startIdx, run.length, merged);
+  return next;
+}
+
+/**
+ * Split one sentence into TWO at `wordIndex`: words `[0, wordIndex)` stay in a sentence
+ * keeping the original id, words `[wordIndex, end)` move to a new sentence with id
+ * `${id}-b`. Each half keeps its existing word timings (no re-spread). Document order and
+ * monotonic starts are preserved (the two halves stay adjacent in order). An out-of-range
+ * `wordIndex` (<= 0 or >= word count) or an unknown id returns the state UNCHANGED.
+ * Returns a NEW state; the input is not mutated.
+ */
+export function splitSentence(
+  state: EditorState,
+  sentenceId: string,
+  wordIndex: number,
+): EditorState {
+  const next = cloneState(state);
+  const idx = next.sentences.findIndex((s) => s.id === sentenceId);
+  if (idx === -1) return next;
+
+  const sentence = next.sentences[idx]!;
+  if (wordIndex <= 0 || wordIndex >= sentence.words.length) return next;
+
+  const head: EditorSentence = {
+    id: sentence.id,
+    words: sentence.words.slice(0, wordIndex),
+  };
+  const tail: EditorSentence = {
+    id: `${sentence.id}-b`,
+    words: sentence.words.slice(wordIndex),
+  };
+  next.sentences.splice(idx, 1, head, tail);
   return next;
 }
 
