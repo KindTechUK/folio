@@ -62,8 +62,9 @@
 | Risk | Mitigation | Status |
 | --- | --- | --- |
 | Audio/transcript leaks to a third party or vendor | Zero egress by construction; CI gate; strict CSP; no telemetry. | ✅ |
-| Device theft exposes stored data | Firm BitLocker full-disk encryption. | ✅ (firm-operated) — 🚧 in-app BitLocker-off warning |
-| Tampered/untrusted model injected | Fail-closed signed model-pack verification at the Rust trust boundary. | ✅ (TEST key) — 🚧 production key |
+| Device theft exposes stored data | Firm BitLocker full-disk encryption + in-app advisory BitLocker-off warning banner on launch. | ✅ (firm-operated; in-app banner implemented) |
+| Tampered/untrusted model injected | Fail-closed signed model-pack verification at the Rust trust boundary; the transcribe path loads weights ONLY from a verified pack (enforced in release/hardened builds). | ✅ (TEST key) — 🚧 production key |
+| Stale matter left on disk after use | One-click "delete matter" removes the source audio + clears the transcript. | ✅ |
 | Over-reliance on an inaccurate transcript | Machine-draft disclaimer in UI + every export; human review is a first-class step; speaker labels off by default. | ✅ |
 | Speaker mislabelling (diarization over-segmentation) | Diarization opt-in + optional speaker-count hint + human relabel backstop. | ✅ |
 | Residual data left in temp files | In-memory decode writes no scratch file today. | ✅ (today) — 🚧 explicit app-owned scratch + wipe routine |

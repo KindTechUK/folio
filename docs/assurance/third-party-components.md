@@ -54,6 +54,7 @@ verified before load (see `data-flow.md` and the modelpack section below).
 | `ed25519-dalek` | 2.x | **BSD-3-Clause** | Model-pack signature verification. |
 | `sha2` | 0.10.x | **Apache-2.0 / MIT** | Model-pack weights hashing. |
 | `base64` | 0.22.x | **Apache-2.0 / MIT** | Signature decoding. |
+| `zip` | 2.x | **MIT** | Extract verified model packs (a pack's `weights.bin` is a zip) into the per-user verified-models cache. |
 
 > **`symphonia` licence note (MPL-2.0):** MPL-2.0 is a permissive, file-level
 > copyleft that is redistributable in a commercial product and does **not**
@@ -66,6 +67,11 @@ verified before load (see `data-flow.md` and the modelpack section below).
 `tauri-plugin-http`, `tauri-plugin-updater`, `tauri-plugin-aptabase`,
 `tauri-plugin-deep-link`, `yt-dlp`. Their absence is machine-enforced — see
 `airplane-mode-verification.md`.
+
+**Not shipped to the firm:** the producer signing tool `tools/modelpack-sign`
+(and its extra dev deps `clap`, `walkdir`, `rand_core`) is a **vendor-side**
+crate used to build/sign model packs. It is a standalone crate, NOT linked into
+the app or engine binary, so none of its dependencies reach the firm's install.
 
 ## npm / frontend dependencies (the review editor)
 

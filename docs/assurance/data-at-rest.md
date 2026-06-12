@@ -20,15 +20,22 @@ the app runs on. The non-processor / on-device posture (see
 `non-processor-statement.md`) is independent of BitLocker; BitLocker is what
 protects the locally-stored data from device theft/loss.
 
-### Launch-time BitLocker-status check — 🚧 roadmap
+### Launch-time BitLocker-status check — ✅ implemented (advisory)
 
 The PRD specifies that the app checks BitLocker status on launch and **warns
 the fee-earner if encryption is off**, so privileged data is not stored
-unprotected (user story #15). **This check is not yet implemented in the
-current code** — it is committed roadmap (see `docs/plans/vibe-fork-plan.md`
-§10, step 12). Until it ships, the firm should enforce BitLocker through its
-existing device-management policy (Intune/SCCM) rather than relying on an in-app
-prompt.
+unprotected (user story #15). **Implemented:** on launch the app calls the
+`volume_encryption_status` command, which on Windows derives the drive and parses
+`manage-bde -status`; unless the volume is confirmed encrypted it shows a
+dismissible amber banner advising the matter be stored/run on an encrypted
+volume (`app/src-tauri/src/system.rs`, `app/src/App.tsx`). The check **fails
+soft** — if `manage-bde` cannot be run it reports `unknown` (and still warns),
+never erroring the app; on non-Windows dev hosts it reports the Windows-only
+`unknown` variant.
+
+This is an **advisory** prompt, not an enforcement gate — the firm should still
+enforce BitLocker through its device-management policy (Intune/SCCM) as the
+primary control; the in-app banner is a backstop, not a substitute.
 
 ## Where data is stored
 
@@ -36,7 +43,7 @@ prompt.
 | --- | --- | --- |
 | Input audio | Wherever the user keeps it | Read in place; not copied to a vendor-controlled location. |
 | Working/decoded audio | **In memory** during a run | Current engine decodes to in-memory `f32` samples (`engine/src/decode.rs`); see temp-file note below. |
-| Models / model packs | Local models dir | Dev: repo `models/` via `PODCAST_MODELS_DIR`. 🚧 Production: installer-bundled default pack + per-user data dir for signed packs. |
+| Models / model packs | Verified, signed packs only | ✅ The transcribe path loads weights ONLY from a cryptographically verified signed pack, extracted into a per-user content-addressed cache (`app_data/verified-models/`). Release/hardened builds always enforce this; a debug-only `PODCAST_MODELS_DIR` override exists for the dev/demo. See `non-processor-statement.md` / `third-party-components.md`. |
 | Exports (DOCX/JSON/text) | A local folder the user chooses | Expected to be on the BitLocker volume; carries the draft disclaimer. |
 
 `fs` access is **scoped** by the Tauri capability set to the user data,
@@ -64,15 +71,23 @@ stronger position than a wipe-on-completion routine. However:
   and "explicit app-owned scratch + wipe" as committed direction — not claim the
   wipe routine exists.
 
-## Disposal: one-click "delete this matter" — 🚧 roadmap
+## Disposal: one-click "delete this matter" — ✅ implemented
 
 The PRD specifies a one-click action to remove the audio and transcript for a
-matter when the fee-earner is done (user story #14). **This is not yet
-implemented.** Until it ships, disposal is manual: the user deletes the input
-audio and any exported files through the OS, and (because there is no
-vendor-side copy and no automatic temp spill) nothing else persists. Because the
-vendor never receives the data, there is no vendor-side deletion to request or
-verify.
+matter when the fee-earner is done (user story #14). **Implemented:** a "Delete
+matter" button (shown once a transcript is loaded) confirms, then calls the
+`delete_matter` command to remove the source audio file and clears the
+in-memory transcript (`app/src-tauri/src/system.rs`, `app/src/App.tsx`). The
+deletion helper is idempotent (an already-gone file counts as deleted) and
+reports any genuine failure per-path rather than crashing.
+
+**Honest scope:** the app does not yet maintain a persistent "matter" store, so
+the artifact removed is the **source audio** the user loaded (plus clearing the
+working transcript). Because the engine writes no temp/scratch file (in-memory
+decode, above) and there is no vendor-side copy, that source audio is the entire
+on-disk footprint of a run. Exports the user separately saved are deleted by the
+user through the OS. Because the vendor never receives the data, there is no
+vendor-side deletion to request or verify.
 
 ## Summary for the reviewer
 
@@ -81,5 +96,9 @@ verify.
 - ✅ `fs` access is capability-scoped, not system-wide.
 - ✅ No decode temp/scratch file is written today (in-memory decode).
 - ✅ Exports carry the machine-draft disclaimer.
-- 🚧 Launch-time BitLocker check, an explicit app-owned scratch dir with
-  wipe-on-completion, and one-click delete-matter are roadmap, not present.
+- ✅ Launch-time BitLocker-status banner (advisory) and one-click delete-matter
+  (removes the source audio + clears the transcript) are implemented.
+- ✅ Models load ONLY from cryptographically verified signed packs at
+  transcription time (enforced in release/hardened builds).
+- 🚧 An explicit app-owned scratch dir with wipe-on-completion remains roadmap
+  for any future code path that spills intermediates to disk (none does today).
