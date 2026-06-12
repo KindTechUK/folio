@@ -1,8 +1,8 @@
 # Zero-egress assurance CI.
 #
-# NOTE: the repo has no git remote yet, so this workflow does not RUN until a
-# remote is added and the branch is pushed. It is an authored deliverable of
-# PR2; the gate itself is provable locally NOW via scripts/check-no-network.sh.
+# This workflow is LIVE: it runs on every push and currently passes on Linux
+# (gate + frontend + modelpack) and a real Windows x64 runner (MSVC static-link).
+# The gate is also provable locally any time via scripts/check-no-network.sh.
 #
 # Three jobs:
 #   1. gate         — the network-crate denylist gate (the heart of PR2).
