@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { invoke, convertFileSrc } from "@tauri-apps/api/core";
+import { listen } from "@tauri-apps/api/event";
 import { open } from "@tauri-apps/plugin-dialog";
 import { loadTranscript } from "@core/editor";
 import type { EditorState } from "@core/editor";
 import type { Transcript } from "@core/types";
+import { progressView } from "./progress";
+import type { Progress, ProgressView } from "./progress";
 import Editor from "./Editor";
 import Models from "./Models";
 
@@ -25,25 +28,46 @@ export default function App() {
   const [speakerCount, setSpeakerCount] = useState("");
   // Whether the CURRENTLY loaded transcript was diarized (drives the editor view).
   const [diarized, setDiarized] = useState(false);
+  // Determinate progress for the in-flight transcription (null = not running).
+  const [progress, setProgress] = useState<ProgressView | null>(null);
 
   async function pickAndTranscribe() {
     setState(null);
+    setProgress(null);
     setStatus("selecting file…");
     const path = await open({
       multiple: false,
       directory: false,
-      filters: [{ name: "Audio", extensions: ["wav", "m4a", "mp3", "flac"] }],
+      filters: [
+        {
+          name: "Audio",
+          // Symphonia covers these in-app (decoded to 16 kHz mono); the command
+          // resamples/downmixes as needed.
+          extensions: ["wav", "m4a", "mp3", "flac", "mp4", "mov", "aac", "ogg"],
+        },
+      ],
     });
     if (typeof path !== "string") {
       setStatus("idle");
       return;
     }
-    setStatus(`transcribing ${path}…`);
     const parsedCount = parseInt(speakerCount, 10);
     const num_speakers =
       detectSpeakers && Number.isFinite(parsedCount) && parsedCount > 0
         ? parsedCount
         : undefined;
+
+    // Determinate progress bar driven by backend `transcribe-progress` events.
+    // The command is async/off-thread, so the webview stays responsive while it
+    // runs. We unlisten in `finally` (and on the error path) so no listener leaks.
+    const startedAt = Date.now();
+    setStatus("transcribing…");
+    setProgress({ fraction: 0, label: "Starting…" });
+    const unlisten = await listen<Progress>("transcribe-progress", (event) => {
+      const elapsedSec = (Date.now() - startedAt) / 1000;
+      setProgress(progressView(event.payload, elapsedSec));
+    });
+
     try {
       const transcript = await invoke<Transcript>("transcribe", {
         path,
@@ -56,6 +80,9 @@ export default function App() {
       setStatus(`done — ${transcript.segments.length} segments`);
     } catch (e) {
       setStatus(`error: ${String(e)}`);
+    } finally {
+      unlisten();
+      setProgress(null);
     }
   }
 
@@ -133,6 +160,26 @@ export default function App() {
               </label>
             )}
           </div>
+          {progress && (
+            <div
+              data-testid="transcribe-progress"
+              style={{ margin: "0.9rem 0 0", display: "flex", flexDirection: "column", gap: 4, maxWidth: 480 }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13 }}>
+                <span>{progress.label}</span>
+                <span>
+                  {Math.round(progress.fraction * 100)}%
+                  {progress.etaSeconds !== undefined &&
+                    ` · ~${Math.ceil(progress.etaSeconds)}s left`}
+                </span>
+              </div>
+              <progress
+                value={progress.fraction}
+                max={1}
+                style={{ width: "100%", height: 14 }}
+              />
+            </div>
+          )}
           {state && (
             <div style={{ marginTop: "1.25rem" }}>
               <Editor

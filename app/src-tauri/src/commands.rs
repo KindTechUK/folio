@@ -7,7 +7,8 @@
 
 use std::path::PathBuf;
 
-use engine::{load_wav_16k_mono, process, EngineConfig, SherpaEngine};
+use engine::{decode_to_16k_mono, process, EngineConfig, SherpaEngine};
+use tauri::{AppHandle, Emitter};
 
 /// Resolve the directory holding the model files.
 ///
@@ -24,7 +25,14 @@ fn models_dir() -> PathBuf {
         .join("../../models")
 }
 
-/// Transcribe a 16 kHz mono WAV into the project's JSON contract.
+/// Transcribe an audio file (wav/mp3/m4a/mp4/flac/ogg…) into the project's JSON
+/// contract.
+///
+/// ASYNC + off the UI thread: the heavy decode + ASR + (optional) diarize runs
+/// inside `spawn_blocking` so the webview stays responsive, and a determinate
+/// progress stream is pushed to the frontend via the `transcribe-progress`
+/// event. Input is decoded to 16 kHz mono in-process (Symphonia + Rubato, no
+/// bundled ffmpeg) — any common container/codec is accepted.
 ///
 /// `diarize` defaults to `false` (paragraph QA mode — speaker detection on real
 /// audio was poor enough to hurt; see PR #4): the transcript comes back with no
@@ -32,7 +40,8 @@ fn models_dir() -> PathBuf {
 /// `num_speakers = None` then lets the engine auto-detect. Uses the default ASR
 /// model (`small.en`).
 #[tauri::command]
-pub fn transcribe(
+pub async fn transcribe(
+    app: AppHandle,
     path: String,
     num_speakers: Option<u32>,
     diarize: Option<bool>,
@@ -41,7 +50,15 @@ pub fn transcribe(
     cfg.num_speakers = num_speakers;
     cfg.diarize = diarize.unwrap_or(false);
 
-    let sherpa = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
-    let (samples, sample_rate) = load_wav_16k_mono(&path).map_err(|e| e.to_string())?;
-    process(&sherpa, &samples, sample_rate, &cfg).map_err(|e| e.to_string())
+    tauri::async_runtime::spawn_blocking(move || {
+        let sherpa = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
+        let (samples, sample_rate) = decode_to_16k_mono(&path).map_err(|e| e.to_string())?;
+        process(&sherpa, &samples, sample_rate, &cfg, &move |p| {
+            // Best-effort: a dropped progress event must never fail the job.
+            let _ = app.emit("transcribe-progress", p);
+        })
+        .map_err(|e| e.to_string())
+    })
+    .await
+    .map_err(|e| format!("transcription task failed: {e}"))?
 }

@@ -17,4 +17,10 @@ anyhow = "1.0"
 thiserror = "2.0"
 hound = "3.5"
 
+# Pure-Rust audio decode (mp3 / AAC-in-M4A / FLAC / WAV / MP4 demux) — keeps the
+# single auditable binary (no bundled ffmpeg). `rubato` does the 16 kHz resample.
+# Both are codec/DSP crates with NO network deps (scripts/check-no-network.sh).
+symphonia = { version = "0.5", default-features = false, features = ["mp3", "aac", "isomp4", "flac", "wav", "pcm", "ogg", "vorbis"] }
+rubato = "0.16"
+
 [dev-dependencies]
