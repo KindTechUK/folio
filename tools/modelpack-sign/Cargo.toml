@@ -1,0 +1,20 @@
+[package]
+name = "modelpack-sign"
+version = "0.1.0"
+edition = "2021"
+description = "Vendor-side producer CLI that creates signed model packs. Reuses the `modelpack` verifier crate so the signer and verifier can never drift. NOT linked into the app/engine binary."
+license = "Apache-2.0"
+
+[dependencies]
+# Reuse the verifier's Manifest + canonicalize + validate_manifest + verify_model_pack
+# so the signing pipeline is byte-for-byte the same shape the app verifies.
+modelpack = { path = "../../modelpack" }
+ed25519-dalek = { version = "2", features = ["rand_core", "pkcs8", "pem"] }
+rand_core = { version = "0.6", features = ["getrandom"] }
+sha2 = "0.10"
+base64 = "0.22"
+serde_json = "1"
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+zip = "2"
+walkdir = "2"
