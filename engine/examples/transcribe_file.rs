@@ -109,7 +109,9 @@ fn main() -> anyhow::Result<()> {
     let eng = SherpaEngine::new(&cfg)?;
 
     let t0 = Instant::now();
-    let transcript = process(&eng, &samples, sr, &cfg)?;
+    let transcript = process(&eng, &samples, sr, &cfg, &|p| {
+        eprintln!("progress    : {} {:.0}%", p.stage, p.fraction * 100.0);
+    })?;
     let proc_s = t0.elapsed().as_secs_f64();
     let rtf = if audio_dur > 0.0 { proc_s / audio_dur } else { 0.0 };
 

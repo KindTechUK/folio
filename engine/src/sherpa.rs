@@ -5,7 +5,10 @@
 //! token-timestamp word grouping) and `models/diar_spike.py` (pyannote
 //! segmentation + 3D-Speaker embedding + FastClustering) verbatim.
 
-use crate::{AsrSegment, EngineConfig, EngineError, SpeakerSpan, TranscriptionEngine, Word};
+use crate::{
+    AsrSegment, EngineConfig, EngineError, Progress, ProgressSink, SpeakerSpan,
+    TranscriptionEngine, Word,
+};
 use anyhow::Context;
 use std::path::{Path, PathBuf};
 
@@ -199,14 +202,30 @@ fn round3(x: f64) -> f64 {
 }
 
 impl TranscriptionEngine for SherpaEngine {
-    fn transcribe(&self, samples: &[f32], sample_rate: u32) -> anyhow::Result<Vec<AsrSegment>> {
+    fn transcribe(
+        &self,
+        samples: &[f32],
+        sample_rate: u32,
+        progress: &ProgressSink<'_>,
+    ) -> anyhow::Result<Vec<AsrSegment>> {
         let recognizer = self.build_recognizer()?;
         let chunks = self
             .vad_chunks(samples, sample_rate)
             .context("VAD chunking")?;
 
+        let total = chunks.len() as u32;
         let mut segments = Vec::new();
-        for (start_sample, chunk) in &chunks {
+        for (k, (start_sample, chunk)) in chunks.iter().enumerate() {
+            // One progress tick per VAD chunk. Scale into [0, 0.9] so the bar
+            // leaves headroom for the diarizing/done markers `process` emits.
+            let done = (k + 1) as u32;
+            let frac = if total > 0 {
+                0.9 * (done as f32 / total as f32)
+            } else {
+                0.9
+            };
+            progress(Progress::new("transcribing", done, total, frac));
+
             let stream = recognizer.create_stream();
             stream.accept_waveform(sample_rate as i32, chunk);
             recognizer.decode(&stream);

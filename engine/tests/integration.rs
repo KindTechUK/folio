@@ -67,7 +67,7 @@ fn end_to_end_small_en_3_speakers() {
     let eng = SherpaEngine::new(&cfg).expect("build SherpaEngine");
 
     let t0 = Instant::now();
-    let transcript = process(&eng, &samples, sr, &cfg).expect("process");
+    let transcript = process(&eng, &samples, sr, &cfg, &|_| {}).expect("process");
     let proc_s = t0.elapsed().as_secs_f64();
     let rtf = proc_s / audio_dur;
 

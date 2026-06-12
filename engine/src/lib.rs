@@ -12,10 +12,45 @@
 use serde::{Deserialize, Serialize};
 use std::path::{Path, PathBuf};
 
+pub mod decode;
 pub mod merge;
 pub mod sherpa;
 
+pub use decode::decode_to_16k_mono;
 pub use sherpa::SherpaEngine;
+
+/// A progress update emitted during the pipeline so the UI can render a
+/// determinate bar instead of a blocking spinner. `fraction` is in `[0, 1]`.
+///
+/// Serializes to the shape consumed by `app/src/progress.ts` (the Tauri
+/// `transcribe-progress` event payload).
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct Progress {
+    /// One of `"decoding" | "transcribing" | "diarizing" | "done"`.
+    pub stage: String,
+    /// Units completed so far within the current stage.
+    pub done: u32,
+    /// Total units in the current stage (`0` when indeterminate).
+    pub total: u32,
+    /// Overall completion fraction in `[0, 1]`.
+    pub fraction: f32,
+}
+
+impl Progress {
+    /// Build a `Progress` clamping `fraction` into `[0, 1]`.
+    pub fn new(stage: &str, done: u32, total: u32, fraction: f32) -> Self {
+        Self {
+            stage: stage.to_string(),
+            done,
+            total,
+            fraction: fraction.clamp(0.0, 1.0),
+        }
+    }
+}
+
+/// A progress sink: a `Sync` callback so it can be shared across the
+/// `spawn_blocking` boundary in the Tauri command. Tests pass a no-op `&|_| {}`.
+pub type ProgressSink<'a> = dyn Fn(Progress) + Sync + 'a;
 
 /// A single recognized word with timing and (optionally) its diarized speaker.
 ///
@@ -145,7 +180,16 @@ pub enum EngineError {
 /// [`merge`].
 pub trait TranscriptionEngine {
     /// Transcribe 16 kHz mono `samples` into word-bearing segments.
-    fn transcribe(&self, samples: &[f32], sample_rate: u32) -> anyhow::Result<Vec<AsrSegment>>;
+    ///
+    /// `progress` is called as the transcription advances (e.g. once per VAD
+    /// chunk) with the `"transcribing"` stage so the UI can show a determinate
+    /// bar. Implementations that have no incremental progress may ignore it.
+    fn transcribe(
+        &self,
+        samples: &[f32],
+        sample_rate: u32,
+        progress: &ProgressSink<'_>,
+    ) -> anyhow::Result<Vec<AsrSegment>>;
 
     /// Diarize 16 kHz mono `samples` into speaker spans. `num_speakers = None`
     /// auto-detects.
@@ -163,19 +207,33 @@ pub trait TranscriptionEngine {
 /// When `false` (the default): transcribe ONLY and build a speaker-less
 /// transcript (segment + word `speaker: None`) for plain paragraph QA mode —
 /// `diarize` is never called.
+/// `progress` is the sink for [`Progress`] events: `process` emits `decoding`
+/// (0%) up front, forwards the engine's per-chunk `transcribing` updates,
+/// brackets the diarize step with `diarizing`, and emits `done` (100%) last.
+/// Pass `&|_| {}` to ignore progress.
 pub fn process<E: TranscriptionEngine>(
     engine: &E,
     samples: &[f32],
     sample_rate: u32,
     cfg: &EngineConfig,
+    progress: &ProgressSink<'_>,
 ) -> anyhow::Result<Transcript> {
-    let asr = engine.transcribe(samples, sample_rate)?;
-    if cfg.diarize {
+    // The decode has already happened by the time `process` is called with
+    // samples; emit a 0% `decoding` marker so the bar starts at a known stage.
+    progress(Progress::new("decoding", 0, 1, 0.0));
+
+    let asr = engine.transcribe(samples, sample_rate, progress)?;
+
+    let transcript = if cfg.diarize {
+        progress(Progress::new("diarizing", 0, 1, 0.95));
         let spans = engine.diarize(samples, sample_rate, cfg.num_speakers)?;
-        Ok(merge::merge(&asr, &spans))
+        merge::merge(&asr, &spans)
     } else {
-        Ok(merge::from_asr(&asr))
-    }
+        merge::from_asr(&asr)
+    };
+
+    progress(Progress::new("done", 1, 1, 1.0));
+    Ok(transcript)
 }
 
 /// Load a WAV as 16 kHz mono `f32` samples in `[-1, 1)`.
@@ -234,7 +292,15 @@ mod process_tests {
     }
 
     impl TranscriptionEngine for MockEngine {
-        fn transcribe(&self, _samples: &[f32], _sample_rate: u32) -> anyhow::Result<Vec<AsrSegment>> {
+        fn transcribe(
+            &self,
+            _samples: &[f32],
+            _sample_rate: u32,
+            progress: &ProgressSink<'_>,
+        ) -> anyhow::Result<Vec<AsrSegment>> {
+            // Emit two transcribing ticks to mimic a 2-chunk VAD pass.
+            progress(Progress::new("transcribing", 1, 2, 0.5));
+            progress(Progress::new("transcribing", 2, 2, 0.9));
             Ok(vec![AsrSegment {
                 start: 0.0,
                 end: 2.0,
@@ -266,7 +332,7 @@ mod process_tests {
         let cfg = EngineConfig::new("models"); // diarize defaults to false
         assert!(!cfg.diarize, "diarize must default to false");
 
-        let t = process(&engine, &[0.0_f32; 16], 16_000, &cfg).unwrap();
+        let t = process(&engine, &[0.0_f32; 16], 16_000, &cfg, &|_| {}).unwrap();
 
         assert!(!engine.diarize_called.get(), "diarize must NOT be called when off");
         for seg in &t.segments {
@@ -283,12 +349,58 @@ mod process_tests {
         let mut cfg = EngineConfig::new("models");
         cfg.diarize = true;
 
-        let t = process(&engine, &[0.0_f32; 16], 16_000, &cfg).unwrap();
+        let t = process(&engine, &[0.0_f32; 16], 16_000, &cfg, &|_| {}).unwrap();
 
         assert!(engine.diarize_called.get(), "diarize must be called when on");
         let words = &t.segments[0].words;
         assert_eq!(words[0].speaker.as_deref(), Some("SPEAKER_00"));
         assert_eq!(words[1].speaker.as_deref(), Some("SPEAKER_01"));
         assert!(t.segments[0].speaker.is_some(), "segment speaker must be set");
+    }
+
+    #[test]
+    fn process_emits_progress_with_monotonic_fraction_and_stages() {
+        let engine = MockEngine::new();
+        let mut cfg = EngineConfig::new("models");
+        cfg.diarize = true; // exercise the diarizing stage too
+
+        // The sink is `Sync` (it must cross `spawn_blocking` in the command), so
+        // collect through a Mutex rather than a RefCell.
+        let events = std::sync::Mutex::new(Vec::<Progress>::new());
+        process(&engine, &[0.0_f32; 16], 16_000, &cfg, &|p| {
+            events.lock().unwrap().push(p);
+        })
+        .unwrap();
+
+        let events = events.into_inner().unwrap();
+        assert!(events.len() >= 4, "expected several progress events");
+
+        // First stage is decoding, last is done at 100%.
+        assert_eq!(events.first().unwrap().stage, "decoding");
+        let last = events.last().unwrap();
+        assert_eq!(last.stage, "done");
+        assert_eq!(last.fraction, 1.0);
+
+        // Stages appear in pipeline order and fraction never decreases.
+        let stages: Vec<&str> = events.iter().map(|p| p.stage.as_str()).collect();
+        assert!(stages.contains(&"transcribing"));
+        assert!(stages.contains(&"diarizing"));
+        let mut prev = -1.0_f32;
+        for p in &events {
+            assert!(
+                p.fraction >= prev - f32::EPSILON,
+                "fraction must be monotonic non-decreasing, got {} after {}",
+                p.fraction,
+                prev
+            );
+            assert!((0.0..=1.0).contains(&p.fraction), "fraction in [0,1]");
+            prev = p.fraction;
+        }
+    }
+
+    #[test]
+    fn progress_new_clamps_fraction() {
+        assert_eq!(Progress::new("decoding", 0, 1, 2.0).fraction, 1.0);
+        assert_eq!(Progress::new("decoding", 0, 1, -1.0).fraction, 0.0);
     }
 }
