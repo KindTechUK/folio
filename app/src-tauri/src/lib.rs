@@ -6,6 +6,7 @@
 
 mod commands;
 mod models;
+mod system;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -16,7 +17,9 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             commands::transcribe,
             models::list_model_packs,
-            models::import_model_pack
+            models::import_model_pack,
+            system::volume_encryption_status,
+            system::delete_matter
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

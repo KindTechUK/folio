@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { invoke, convertFileSrc } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { open } from "@tauri-apps/plugin-dialog";
@@ -17,11 +17,26 @@ import Models from "./Models";
 
 type View = "review" | "models";
 
+// Mirrors the Rust `EncryptionStatus` struct returned by the
+// `volume_encryption_status` command. `state` is "encrypted" | "unencrypted" |
+// "unknown"; we warn unless it is confirmed "encrypted".
+interface EncryptionStatus {
+  state: string;
+  detail: string;
+}
+
 export default function App() {
   const [view, setView] = useState<View>("review");
   const [status, setStatus] = useState<string>("idle");
   const [state, setState] = useState<EditorState | null>(null);
   const [audioSrc, setAudioSrc] = useState<string | undefined>(undefined);
+  // The raw filesystem path of the picked audio (NOT the convertFileSrc URL),
+  // retained so "Delete matter" can remove the source file — the only artifact.
+  const [loadedPath, setLoadedPath] = useState<string | null>(null);
+  // Volume-encryption banner state. `null` until the on-mount check resolves;
+  // `dismissed` hides it for the session.
+  const [encryption, setEncryption] = useState<EncryptionStatus | null>(null);
+  const [encryptionDismissed, setEncryptionDismissed] = useState(false);
   // Speaker detection is OPT-IN (default off): on real audio its quality hurt
   // more than it helped, so the default is plain paragraph QA mode.
   const [detectSpeakers, setDetectSpeakers] = useState(false);
@@ -30,6 +45,52 @@ export default function App() {
   const [diarized, setDiarized] = useState(false);
   // Determinate progress for the in-flight transcription (null = not running).
   const [progress, setProgress] = useState<ProgressView | null>(null);
+
+  // On mount, check whether the volume holding the app is encrypted. This is a
+  // soft advisory: on macOS/dev it returns the "Windows only" variant. Tauri
+  // invoke is not jsdom-testable, so this wiring is thin and verified manually.
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        const result = await invoke<EncryptionStatus>(
+          "volume_encryption_status",
+          { path: "." },
+        );
+        if (!cancelled) setEncryption(result);
+      } catch {
+        // Never let an advisory check disrupt the app — leave the banner hidden.
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Wipe the matter's only on-disk artifact (the source audio) and clear the
+  // loaded transcript. The engine writes no temp files, so the picked path is
+  // the entire footprint to remove.
+  async function deleteMatter() {
+    if (
+      !window.confirm(
+        "Delete the source audio for this matter and clear the transcript? This cannot be undone.",
+      )
+    ) {
+      return;
+    }
+    try {
+      const report = await invoke<{ deleted: string[]; failed: unknown[] }>(
+        "delete_matter",
+        { paths: loadedPath ? [loadedPath] : [] },
+      );
+      setState(null);
+      setAudioSrc(undefined);
+      setLoadedPath(null);
+      setStatus(`matter deleted — ${report.deleted.length} file(s) removed`);
+    } catch (e) {
+      setStatus(`error deleting matter: ${String(e)}`);
+    }
+  }
 
   async function pickAndTranscribe() {
     setState(null);
@@ -77,6 +138,7 @@ export default function App() {
       setState(loadTranscript(transcript));
       setDiarized(detectSpeakers);
       setAudioSrc(convertFileSrc(path));
+      setLoadedPath(path);
       setStatus(`done — ${transcript.segments.length} segments`);
     } catch (e) {
       setStatus(`error: ${String(e)}`);
@@ -102,6 +164,47 @@ export default function App() {
         100% local — no network access. This build contains no networking code and
         runs fully in airplane mode.
       </p>
+      {encryption &&
+        encryption.state !== "encrypted" &&
+        !encryptionDismissed && (
+          <div
+            role="alert"
+            data-testid="encryption-warning"
+            style={{
+              display: "flex",
+              gap: 12,
+              alignItems: "flex-start",
+              background: "#fff8e1",
+              border: "1px solid #c08a00",
+              color: "#7a5800",
+              padding: "0.6rem 0.9rem",
+              borderRadius: 6,
+              margin: "0 0 0.75rem",
+            }}
+          >
+            <span style={{ flex: 1 }}>
+              This volume is not confirmed BitLocker-encrypted. For
+              client-confidential matters, store and run on an encrypted volume.{" "}
+              <span style={{ color: "#9a7400" }}>({encryption.detail})</span>
+            </span>
+            <button
+              aria-label="dismiss encryption warning"
+              data-testid="dismiss-encryption-warning"
+              onClick={() => setEncryptionDismissed(true)}
+              style={{
+                background: "none",
+                border: "none",
+                color: "#7a5800",
+                cursor: "pointer",
+                fontSize: 18,
+                lineHeight: 1,
+                padding: 0,
+              }}
+            >
+              ×
+            </button>
+          </div>
+        )}
       <nav style={{ display: "flex", gap: 8, margin: "0.5rem 0 1rem" }}>
         <button
           onClick={() => setView("review")}
@@ -126,6 +229,23 @@ export default function App() {
               Open audio &rarr; transcribe
             </button>
             <span>Status: {status}</span>
+            {state && (
+              <button
+                data-testid="delete-matter"
+                onClick={() => void deleteMatter()}
+                style={{
+                  padding: "0.5rem 0.9rem",
+                  marginLeft: "auto",
+                  color: "#7f1d1d",
+                  background: "#fee2e2",
+                  border: "1px solid #b91c1c",
+                  borderRadius: 6,
+                  cursor: "pointer",
+                }}
+              >
+                Delete matter
+              </button>
+            )}
           </div>
           <div
             style={{
