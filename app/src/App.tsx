@@ -7,6 +7,15 @@ import type { EditorState } from "@core/editor";
 import type { Transcript } from "@core/types";
 import { progressView } from "./progress";
 import type { Progress, ProgressView } from "./progress";
+import {
+  initHistory,
+  pushHistory,
+  undo,
+  redo,
+  canUndo,
+  canRedo,
+} from "./history";
+import type { History } from "./history";
 import Editor from "./Editor";
 import Models from "./Models";
 
@@ -28,7 +37,14 @@ interface EncryptionStatus {
 export default function App() {
   const [view, setView] = useState<View>("review");
   const [status, setStatus] = useState<string>("idle");
-  const [state, setState] = useState<EditorState | null>(null);
+  // Edit history wraps the EditorState so all edits are undoable. `state` is
+  // derived from the history's present; `setState` records a new entry.
+  const [history, setHistory] = useState<History<EditorState> | null>(null);
+  const state = history?.present ?? null;
+  const setState = (next: EditorState) =>
+    setHistory((h) => (h ? pushHistory(h, next) : initHistory(next)));
+  const onUndo = () => setHistory((h) => (h ? undo(h) : h));
+  const onRedo = () => setHistory((h) => (h ? redo(h) : h));
   const [audioSrc, setAudioSrc] = useState<string | undefined>(undefined);
   // The raw filesystem path of the picked audio (NOT the convertFileSrc URL),
   // retained so "Delete matter" can remove the source file — the only artifact.
@@ -83,7 +99,7 @@ export default function App() {
         "delete_matter",
         { paths: loadedPath ? [loadedPath] : [] },
       );
-      setState(null);
+      setHistory(null);
       setAudioSrc(undefined);
       setLoadedPath(null);
       setStatus(`matter deleted — ${report.deleted.length} file(s) removed`);
@@ -93,7 +109,7 @@ export default function App() {
   }
 
   async function pickAndTranscribe() {
-    setState(null);
+    setHistory(null);
     setProgress(null);
     setStatus("selecting file…");
     const path = await open({
@@ -135,7 +151,7 @@ export default function App() {
         diarize: detectSpeakers,
         num_speakers,
       });
-      setState(loadTranscript(transcript));
+      setHistory(initHistory(loadTranscript(transcript)));
       setDiarized(detectSpeakers);
       setAudioSrc(convertFileSrc(path));
       setLoadedPath(path);
@@ -307,6 +323,10 @@ export default function App() {
                 setState={setState}
                 audioSrc={audioSrc}
                 diarized={diarized}
+                onUndo={onUndo}
+                onRedo={onRedo}
+                canUndo={history ? canUndo(history) : false}
+                canRedo={history ? canRedo(history) : false}
               />
             </div>
           )}

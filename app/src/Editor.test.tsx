@@ -100,7 +100,7 @@ describe("Editor (jsdom)", () => {
     expect(screen.getByTestId("sentence-sent-0")).toHaveTextContent("deponent");
   });
 
-  it("click a speaker chip -> rename -> ALL that speaker's chips show new name", () => {
+  it("click a speaker chip -> inline rename -> ALL that speaker's chips show new name", () => {
     // Build a fixture where the same speaker appears in two non-adjacent turns.
     const t: Transcript = {
       segments: [
@@ -131,15 +131,19 @@ describe("Editor (jsdom)", () => {
         />
       );
     }
-    const promptSpy = vi.spyOn(window, "prompt").mockReturnValue("Counsel");
     render(<H />);
 
     const chips = screen
       .getAllByTestId("speaker-chip")
       .filter((c) => c.getAttribute("data-speaker") === "SPEAKER_00");
     expect(chips.length).toBe(2); // two SPEAKER_00 turns
+
+    // Clicking the chip swaps it for a seeded inline input.
     fireEvent.click(chips[0]!);
-    expect(promptSpy).toHaveBeenCalled();
+    const input = screen.getByTestId("speaker-rename-input") as HTMLInputElement;
+    expect(input.value).toBe("SPEAKER_00"); // seeded with current display name
+    fireEvent.change(input, { target: { value: "Counsel" } });
+    fireEvent.keyDown(input, { key: "Enter" });
 
     const renamed = screen
       .getAllByTestId("speaker-chip")
@@ -176,14 +180,16 @@ describe("Editor (jsdom)", () => {
       capture(state);
       return <Editor state={state} diarized setState={(s) => { capture(s); setState(s); }} />;
     }
-    vi.spyOn(window, "prompt").mockReturnValue("Witness");
     render(<H />);
 
-    // rename SPEAKER_00 -> Witness
+    // rename SPEAKER_00 -> Witness via the inline input
     const chip = screen
       .getAllByTestId("speaker-chip")
       .find((c) => c.getAttribute("data-speaker") === "SPEAKER_00")!;
     fireEvent.click(chip);
+    const renameInput = screen.getByTestId("speaker-rename-input");
+    fireEvent.change(renameInput, { target: { value: "Witness" } });
+    fireEvent.keyDown(renameInput, { key: "Enter" });
 
     // edit sent-1
     fireEvent.doubleClick(screen.getByTestId("sentence-sent-1"));
@@ -279,4 +285,84 @@ describe("Editor (jsdom)", () => {
     expect(screen.getAllByTestId("speaker-chip").length).toBeGreaterThan(0);
     expect(screen.queryByTestId("paragraph")).toBeNull();
   });
+
+  it("find & replace: open, count matches across sentences, replace all", () => {
+    // "I" appears once; use a term present in >= 2 sentences. Build a fixture
+    // where "the" appears in both sentences.
+    const t: Transcript = {
+      segments: [
+        {
+          start: 0,
+          end: 2,
+          text: "the witness arrived.",
+          speaker: "SPEAKER_00",
+          words: [
+            { word: "the", start: 0, end: 0.5, speaker: "SPEAKER_00" },
+            { word: "witness", start: 0.5, end: 1.2, speaker: "SPEAKER_00" },
+            { word: "arrived.", start: 1.2, end: 2, speaker: "SPEAKER_00" },
+          ],
+        },
+        {
+          start: 2,
+          end: 4,
+          text: "the clerk left.",
+          speaker: "SPEAKER_01",
+          words: [
+            { word: "the", start: 2, end: 2.3, speaker: "SPEAKER_01" },
+            { word: "clerk", start: 2.3, end: 3.1, speaker: "SPEAKER_01" },
+            { word: "left.", start: 3.1, end: 4, speaker: "SPEAKER_01" },
+          ],
+        },
+      ],
+    };
+    render(<Harness onState={capture} diarized transcript={t} />);
+
+    // Open the find & replace row.
+    fireEvent.click(screen.getByTestId("toggle-find"));
+    const find = screen.getByTestId("find-input");
+    const replace = screen.getByTestId("replace-input");
+    fireEvent.change(find, { target: { value: "the" } });
+    fireEvent.change(replace, { target: { value: "a" } });
+
+    // Live count reflects both sentences (case-insensitive by default).
+    expect(screen.getByTestId("find-count")).toHaveTextContent("2 matches");
+
+    fireEvent.click(screen.getByTestId("replace-all"));
+
+    // Rendered words changed across both sentences; captured state reflects it.
+    const joined = latest.sentences
+      .map((s) => s.words.map((w) => w.text).join(" "))
+      .join(" | ");
+    expect(joined).toBe("a witness arrived. | a clerk left.");
+    expect(latest.sentences.every((s) => s.words[0]!.text === "a")).toBe(true);
+  });
+
+  it("undo button: disabled when canUndo=false, calls onUndo when enabled", () => {
+    const onUndo = vi.fn();
+    function H({ can }: { can: boolean }) {
+      const [state, setState] = useState<EditorState>(() =>
+        loadTranscript(FIXTURE),
+      );
+      return (
+        <Editor
+          state={state}
+          diarized
+          setState={setState}
+          onUndo={onUndo}
+          canUndo={can}
+        />
+      );
+    }
+    const { rerender } = render(<H can={false} />);
+    expect(screen.getByTestId("undo")).toBeDisabled();
+
+    rerender(<H can={true} />);
+    fireEvent.click(screen.getByTestId("undo"));
+    expect(onUndo).toHaveBeenCalled();
+  });
+
+  // NOTE: rAF karaoke highlight, audio play/pause, Space play/pause, click-to-
+  // pause, and the Follow auto-scroll are NOT jsdom-testable (no real <audio> /
+  // layout / scroll). They are verified manually via `npm run tauri dev`. Undo/
+  // redo stack correctness is covered by history.test.ts.
 });
