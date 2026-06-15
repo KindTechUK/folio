@@ -5,6 +5,7 @@
 //! in the dependency graph (enforced by scripts/check-no-network.sh).
 
 mod commands;
+mod library;
 mod models;
 mod system;
 
@@ -18,6 +19,10 @@ pub fn run() {
             commands::transcribe,
             models::list_model_packs,
             models::import_model_pack,
+            library::save_session,
+            library::list_sessions,
+            library::load_session,
+            library::delete_session,
             system::volume_encryption_status,
             system::delete_matter
         ])

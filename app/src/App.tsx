@@ -16,15 +16,27 @@ import {
   canRedo,
 } from "./history";
 import type { History } from "./history";
+import { buildSession } from "./session";
+import type { SessionJson } from "./session";
 import Editor from "./Editor";
 import Models from "./Models";
+import Library from "./Library";
 
 // PR3b: the review-editor flow. Pick audio -> invoke("transcribe") ->
 // loadTranscript -> render <Editor>. All edit behaviour is driven by the tested
 // core reducer; this component only owns the EditorState and the audio src.
 // PR3c: a "Models" view that lists/verifies signed model packs (trust boundary).
 
-type View = "review" | "models";
+type View = "review" | "models" | "library";
+
+// Session id generator: prefers the platform UUID; falls back to a
+// timestamp+random id where `crypto.randomUUID` is unavailable.
+function newId(): string {
+  return (
+    globalThis.crypto?.randomUUID?.() ??
+    `s-${Date.now()}-${Math.floor(Math.random() * 1e9)}`
+  );
+}
 
 // Mirrors the Rust `EncryptionStatus` struct returned by the
 // `volume_encryption_status` command. `state` is "encrypted" | "unencrypted" |
@@ -61,6 +73,14 @@ export default function App() {
   const [diarized, setDiarized] = useState(false);
   // Determinate progress for the in-flight transcription (null = not running).
   const [progress, setProgress] = useState<ProgressView | null>(null);
+  // Metadata for the currently loaded library session (null = unsaved/none).
+  // Drives debounced auto-save and ties a loaded matter to its saved entry.
+  const [currentSessionMeta, setCurrentSessionMeta] = useState<{
+    id: string;
+    createdAt: string;
+    audioPath: string;
+    diarized: boolean;
+  } | null>(null);
 
   // On mount, check whether the volume holding the app is encrypted. This is a
   // soft advisory: on macOS/dev it returns the "Windows only" variant. Tauri
@@ -83,6 +103,59 @@ export default function App() {
     };
   }, []);
 
+  // Debounced auto-save: whenever the edited state changes for a saved session,
+  // coalesce rapid edits into a single write ~800ms after the last keystroke.
+  // A failed autosave must never crash the UI, so errors are swallowed.
+  useEffect(() => {
+    if (!state || !currentSessionMeta) return;
+    const meta = currentSessionMeta;
+    const timer = setTimeout(() => {
+      void invoke("save_session", {
+        session: buildSession({
+          id: meta.id,
+          createdAt: meta.createdAt,
+          updatedAt: new Date().toISOString(),
+          audioPath: meta.audioPath,
+          diarized: meta.diarized,
+          state,
+        }),
+      }).catch(() => {});
+    }, 800);
+    return () => clearTimeout(timer);
+  }, [state, currentSessionMeta]);
+
+  // Open a saved session from the Library: load its JSON, restore the editor
+  // and audio, and switch to the review view. Audio may be missing if the
+  // referenced source file was moved/deleted.
+  async function openSession(id: string) {
+    try {
+      const res = await invoke<{ session: SessionJson; audioAvailable: boolean }>(
+        "load_session",
+        { id },
+      );
+      setHistory(initHistory(res.session.editorState));
+      setDiarized(res.session.diarized);
+      setCurrentSessionMeta({
+        id: res.session.id,
+        createdAt: res.session.createdAt,
+        audioPath: res.session.audioPath,
+        diarized: res.session.diarized,
+      });
+      setAudioSrc(
+        res.audioAvailable ? convertFileSrc(res.session.audioPath) : undefined,
+      );
+      setLoadedPath(res.audioAvailable ? res.session.audioPath : null);
+      setView("review");
+      setStatus(
+        res.audioAvailable
+          ? `opened ${res.session.audioFilename}`
+          : `opened ${res.session.audioFilename} (audio file not found)`,
+      );
+    } catch (e) {
+      setStatus(`error opening transcript: ${String(e)}`);
+    }
+  }
+
   // Wipe the matter's only on-disk artifact (the source audio) and clear the
   // loaded transcript. The engine writes no temp files, so the picked path is
   // the entire footprint to remove.
@@ -99,9 +172,15 @@ export default function App() {
         "delete_matter",
         { paths: loadedPath ? [loadedPath] : [] },
       );
+      // Purge the saved library entry for this matter too, so deleting a matter
+      // leaves no persisted transcript behind.
+      if (currentSessionMeta) {
+        await invoke("delete_session", { id: currentSessionMeta.id });
+      }
       setHistory(null);
       setAudioSrc(undefined);
       setLoadedPath(null);
+      setCurrentSessionMeta(null);
       setStatus(`matter deleted — ${report.deleted.length} file(s) removed`);
     } catch (e) {
       setStatus(`error deleting matter: ${String(e)}`);
@@ -110,6 +189,7 @@ export default function App() {
 
   async function pickAndTranscribe() {
     setHistory(null);
+    setCurrentSessionMeta(null);
     setProgress(null);
     setStatus("selecting file…");
     const path = await open({
@@ -151,10 +231,26 @@ export default function App() {
         diarize: detectSpeakers,
         num_speakers,
       });
-      setHistory(initHistory(loadTranscript(transcript)));
+      // Build the editor state once and reuse it for both the live history and
+      // the saved copy, so the persisted session matches what is on screen.
+      const editorState = loadTranscript(transcript);
+      const id = newId();
+      const createdAt = new Date().toISOString();
+      setHistory(initHistory(editorState));
       setDiarized(detectSpeakers);
       setAudioSrc(convertFileSrc(path));
       setLoadedPath(path);
+      setCurrentSessionMeta({ id, createdAt, audioPath: path, diarized: detectSpeakers });
+      void invoke("save_session", {
+        session: buildSession({
+          id,
+          createdAt,
+          updatedAt: createdAt,
+          audioPath: path,
+          diarized: detectSpeakers,
+          state: editorState,
+        }),
+      }).catch(() => {});
       setStatus(`done — ${transcript.segments.length} segments`);
     } catch (e) {
       setStatus(`error: ${String(e)}`);
@@ -235,6 +331,13 @@ export default function App() {
           style={{ padding: "0.4rem 0.9rem", fontWeight: view === "models" ? 700 : 400 }}
         >
           Models
+        </button>
+        <button
+          onClick={() => setView("library")}
+          aria-pressed={view === "library"}
+          style={{ padding: "0.4rem 0.9rem", fontWeight: view === "library" ? 700 : 400 }}
+        >
+          Library
         </button>
       </nav>
 
@@ -331,8 +434,10 @@ export default function App() {
             </div>
           )}
         </>
-      ) : (
+      ) : view === "models" ? (
         <Models />
+      ) : (
+        <Library onOpen={openSession} />
       )}
     </main>
   );
