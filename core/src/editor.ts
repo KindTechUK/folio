@@ -230,6 +230,83 @@ export function editParagraph(
   return next;
 }
 
+/** Options for `replaceAll`. */
+export interface ReplaceOptions {
+  /** Match case exactly (default false: case-insensitive). */
+  caseSensitive?: boolean;
+  /** Require whole-word boundaries around the match (default false). */
+  wholeWord?: boolean;
+}
+
+/** Escape every regex metacharacter so `find` is matched as a literal string. */
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/**
+ * Literal find-and-replace across every sentence. `find` is treated as a LITERAL
+ * string (all regex metacharacters escaped) and `replace` is inserted VERBATIM — a
+ * replacer function returns it as-is so `$1`/`$&` in the user's text are never
+ * interpreted as regex group references.
+ *
+ * Matching is per-sentence against the sentence's joined word text
+ * (`words.map(w => w.text).join(" ")`), so a multi-word `find` like "John Smith"
+ * matches across the word boundary. Flags are global plus case-insensitive unless
+ * `caseSensitive`; `wholeWord` wraps the pattern in `\b…\b`.
+ *
+ * A changed sentence is re-tokenized and its ORIGINAL [first-word start, last-word
+ * end] span is re-spread across the new tokens (keeping the first word's speaker),
+ * mirroring `editSentence`. NO-DELETE rule: if a replacement would empty a sentence
+ * (zero tokens) the sentence is left unchanged — find/replace must never drop a
+ * sentence. Sentences with no matches are left untouched.
+ *
+ * Empty `find` is a no-op: returns the input state with `count` 0. Otherwise clones
+ * once and returns a NEW state plus the total number of matches replaced.
+ */
+export function replaceAll(
+  state: EditorState,
+  find: string,
+  replace: string,
+  opts: ReplaceOptions = {},
+): { state: EditorState; count: number } {
+  if (find === "") return { state, count: 0 };
+
+  const escaped = escapeRegExp(find);
+  const pattern = opts.wholeWord ? `\\b${escaped}\\b` : escaped;
+  const flags = opts.caseSensitive ? "g" : "gi";
+  const regex = new RegExp(pattern, flags);
+  // Replacer returns the literal text so `$n`/`$&` are inserted verbatim.
+  const replacer = (): string => replace;
+
+  const next = cloneState(state);
+  let count = 0;
+
+  for (const sentence of next.sentences) {
+    const orig = sentence.words;
+    const joined = orig.map((w) => w.text).join(" ");
+
+    regex.lastIndex = 0;
+    let matches = 0;
+    while (regex.exec(joined) !== null) {
+      matches++;
+      if (regex.lastIndex === 0) break; // guard against zero-width loops
+    }
+    if (matches === 0) continue;
+
+    const newText = joined.replace(regex, replacer);
+    const toks = tokenize(newText);
+    if (toks.length === 0) continue; // no-delete rule
+
+    const s = orig.length > 0 ? orig[0]!.start : 0;
+    const e = orig.length > 0 ? orig[orig.length - 1]!.end : 0;
+    const speaker = orig.length > 0 ? orig[0]!.speaker : UNKNOWN_SPEAKER;
+    sentence.words = respread(s, e, toks, speaker);
+    count += matches;
+  }
+
+  return { state: next, count };
+}
+
 /**
  * Concatenate a CONTIGUOUS run of sentences into ONE sentence (id = the first sentence's
  * id), preserving every word's timing in document order. No re-spread. Used to join
