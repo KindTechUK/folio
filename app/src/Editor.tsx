@@ -21,6 +21,7 @@ import {
   renameSpeaker,
   reassignSentenceSpeaker,
   groupParagraphs,
+  replaceAll,
 } from "@core/editor";
 import type { EditorState, EditorSentence } from "@core/editor";
 import { UNKNOWN_SPEAKER } from "@core/types";
@@ -91,6 +92,12 @@ export interface EditorProps {
    * speaker-turn view. Karaoke highlight + double-click edit work in both.
    */
   diarized?: boolean;
+  /** Step back/forward in the App-owned edit history (F2). Optional so the
+   * test Harness can render the Editor without history plumbing. */
+  onUndo?: () => void;
+  onRedo?: () => void;
+  canUndo?: boolean;
+  canRedo?: boolean;
 }
 
 export default function Editor({
@@ -98,6 +105,10 @@ export default function Editor({
   setState,
   audioSrc,
   diarized = false,
+  onUndo,
+  onRedo,
+  canUndo = false,
+  canRedo = false,
 }: EditorProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [activeIdx, setActiveIdx] = useState(-1);
@@ -106,6 +117,16 @@ export default function Editor({
   const [speed, setSpeed] = useState(1);
   const [playing, setPlaying] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
+  // F1: which speaker chip is being inline-renamed (positional id), or null.
+  const [renamingSpeaker, setRenamingSpeaker] = useState<string | null>(null);
+  // F3: find & replace UI state.
+  const [findOpen, setFindOpen] = useState(false);
+  const [findText, setFindText] = useState("");
+  const [replaceText, setReplaceText] = useState("");
+  const [findCase, setFindCase] = useState(false);
+  const [findWhole, setFindWhole] = useState(false);
+  // F4: karaoke auto-follow toggle (scroll the active word into view).
+  const [follow, setFollow] = useState(true);
 
   const turns = useMemo(() => groupTurns(state), [state]);
   const paragraphs = useMemo(
@@ -113,6 +134,17 @@ export default function Editor({
     [state],
   );
   const starts = useMemo(() => flatWords(state).map((w) => w.start), [state]);
+
+  // F3: live match options + count. We discard the returned state here and only
+  // read `.count`; the actual replacement runs on the "Replace all" click.
+  const findOpts = useMemo(
+    () => ({ caseSensitive: findCase, wholeWord: findWhole }),
+    [findCase, findWhole],
+  );
+  const findCount = useMemo(
+    () => replaceAll(state, findText, replaceText, findOpts).count,
+    [state, findText, replaceText, findOpts],
+  );
 
   // rAF highlight loop. Cannot run headlessly (no real <audio>), so this is the
   // manually-verified path; the index logic itself is the unit-tested
@@ -134,6 +166,66 @@ export default function Editor({
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
   }, [starts, editingId]);
+
+  // F4: karaoke auto-follow. Scroll the active word into view during playback
+  // when Follow is on. block:"nearest" only — smooth scroll lags at high speed.
+  // Not jsdom-testable (no layout/scroll); verified manually in `tauri dev`.
+  useEffect(() => {
+    if (playing && follow && activeIdx >= 0) {
+      document
+        .querySelector(`[data-flat-index="${activeIdx}"]`)
+        ?.scrollIntoView({ block: "nearest" });
+    }
+  }, [activeIdx, playing, follow]);
+
+  // F2 + F4 global keyboard shortcuts (on document):
+  //   Cmd/Ctrl-Z          -> undo
+  //   Cmd/Ctrl-Shift-Z, Ctrl-Y -> redo
+  //   Space               -> play/pause
+  // Guard: while a sentence/paragraph is being edited (editingId !== null) OR a
+  // text field is focused, let native text editing win — we do nothing. Space is
+  // additionally ignored when a BUTTON is focused so clicking transport buttons
+  // with the keyboard still works. The audio/Space path is verified manually.
+  useEffect(() => {
+    function isTextTarget(el: Element | null, includeButton: boolean): boolean {
+      if (!el) return false;
+      const tag = el.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return true;
+      if (includeButton && tag === "BUTTON") return true;
+      if ((el as HTMLElement).isContentEditable) return true;
+      return false;
+    }
+    function onKeyDown(e: KeyboardEvent): void {
+      if (editingId !== null) return;
+      const active = document.activeElement;
+      const meta = e.metaKey || e.ctrlKey;
+      const key = e.key.toLowerCase();
+
+      if (meta && key === "z" && !e.shiftKey) {
+        if (isTextTarget(active, false)) return; // native text undo wins
+        if (canUndo) {
+          e.preventDefault();
+          onUndo?.();
+        }
+        return;
+      }
+      if ((meta && key === "z" && e.shiftKey) || (e.ctrlKey && key === "y")) {
+        if (isTextTarget(active, false)) return; // native text redo wins
+        if (canRedo) {
+          e.preventDefault();
+          onRedo?.();
+        }
+        return;
+      }
+      if (e.key === " ") {
+        if (isTextTarget(active, true)) return;
+        e.preventDefault();
+        togglePlay();
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [editingId, canUndo, canRedo, onUndo, onRedo]);
 
   function seek(t: number): void {
     const a = audioRef.current;
@@ -176,11 +268,11 @@ export default function Editor({
     setState(splitSentence(state, sentenceId, wordIndex));
   }
 
-  function onRename(origId: string): void {
-    const current = displayName(state, origId);
-    const name = window.prompt(`Rename "${current}" everywhere as:`, current);
-    if (name == null) return;
-    setState(renameSpeaker(state, origId, name.trim() || origId));
+  // F1: commit an inline speaker rename. Empty input falls back to the original
+  // positional id (a no-op rename). Always clears the renaming state.
+  function commitRename(origId: string, value: string): void {
+    setState(renameSpeaker(state, origId, value.trim() || origId));
+    setRenamingSpeaker(null);
   }
 
   function onReassign(sentenceId: string, newId: string): void {
@@ -210,6 +302,7 @@ export default function Editor({
           key={wi}
           className={`w${active ? " active" : ""}`}
           data-testid="word"
+          data-flat-index={myIdx}
           onClick={(ev) => {
             ev.stopPropagation();
             // Shift-click splits the sentence just before this word (paragraph
@@ -357,9 +450,102 @@ export default function Editor({
         >
           Export DOCX
         </button>
+        <button
+          data-testid="undo"
+          onClick={() => onUndo?.()}
+          disabled={!canUndo}
+        >
+          Undo
+        </button>
+        <button
+          data-testid="redo"
+          onClick={() => onRedo?.()}
+          disabled={!canRedo}
+        >
+          Redo
+        </button>
+        <button
+          data-testid="toggle-find"
+          onClick={() => setFindOpen((v) => !v)}
+          aria-pressed={findOpen}
+        >
+          Find &amp; replace
+        </button>
+        <button
+          data-testid="toggle-follow"
+          onClick={() => setFollow((v) => !v)}
+          aria-pressed={follow}
+        >
+          Follow
+        </button>
       </div>
 
-      <div className="doc" style={{ maxWidth: 820, margin: "16px auto" }}>
+      {findOpen && (
+        <div
+          className="find-replace"
+          style={{
+            display: "flex",
+            gap: 8,
+            alignItems: "center",
+            flexWrap: "wrap",
+            padding: "8px 0",
+            borderBottom: "1px solid #eee",
+          }}
+        >
+          <input
+            data-testid="find-input"
+            placeholder="Find"
+            value={findText}
+            onChange={(e) => setFindText(e.target.value)}
+            style={{ font: "inherit", padding: "4px 6px" }}
+          />
+          <input
+            data-testid="replace-input"
+            placeholder="Replace with"
+            value={replaceText}
+            onChange={(e) => setReplaceText(e.target.value)}
+            style={{ font: "inherit", padding: "4px 6px" }}
+          />
+          <label style={{ display: "flex", gap: 4, alignItems: "center", fontSize: 12 }}>
+            <input
+              type="checkbox"
+              data-testid="find-case"
+              checked={findCase}
+              onChange={(e) => setFindCase(e.target.checked)}
+            />
+            Match case
+          </label>
+          <label style={{ display: "flex", gap: 4, alignItems: "center", fontSize: 12 }}>
+            <input
+              type="checkbox"
+              data-testid="find-whole"
+              checked={findWhole}
+              onChange={(e) => setFindWhole(e.target.checked)}
+            />
+            Whole word
+          </label>
+          <span data-testid="find-count" style={{ fontSize: 12, color: "#555" }}>
+            {findCount} matches
+          </span>
+          <button
+            data-testid="replace-all"
+            disabled={findText === "" || findCount === 0}
+            onClick={() =>
+              setState(replaceAll(state, findText, replaceText, findOpts).state)
+            }
+          >
+            Replace all
+          </button>
+        </div>
+      )}
+
+      {/* Background clicks toggle play (F4). Word/chip/edit/button handlers all
+          stopPropagation, so only empty-space clicks reach here. */}
+      <div
+        className="doc"
+        onClick={togglePlay}
+        style={{ maxWidth: 820, margin: "16px auto" }}
+      >
         {!diarized
           ? paragraphs.map((para, pi) => {
               // A paragraph collapses to one sentence on edit (id = first
@@ -430,6 +616,14 @@ export default function Editor({
           : turns.map((turn, ti) => {
           const color = speakerColor(turn.speaker);
           const first = turn.sentences[0]?.words[0];
+          // A speaker can appear in multiple turns; rename is global, so when
+          // `renamingSpeaker` matches we only mount the inline input on the
+          // FIRST turn for that speaker. Mounting it on every matching turn
+          // would race two autofocus inputs (the later mount's focus blurs the
+          // earlier, committing prematurely).
+          const isRenameTurn =
+            renamingSpeaker === turn.speaker &&
+            turns.findIndex((t) => t.speaker === turn.speaker) === ti;
           return (
             <div
               key={ti}
@@ -448,28 +642,36 @@ export default function Editor({
                   marginBottom: 2,
                 }}
               >
-                <span
-                  role="button"
-                  tabIndex={0}
-                  className="spk"
-                  data-testid="speaker-chip"
-                  data-speaker={turn.speaker}
-                  onClick={() => onRename(turn.speaker)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") onRename(turn.speaker);
-                  }}
-                  style={{
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    padding: "1px 8px",
-                    borderRadius: 6,
-                    background: color,
-                    color: "#fff",
-                    fontSize: 13,
-                  }}
-                >
-                  {displayName(state, turn.speaker)}
-                </span>
+                {isRenameTurn ? (
+                  <SpeakerRenameInput
+                    initial={displayName(state, turn.speaker)}
+                    onCommit={(value) => commitRename(turn.speaker, value)}
+                    onCancel={() => setRenamingSpeaker(null)}
+                  />
+                ) : (
+                  <span
+                    role="button"
+                    tabIndex={0}
+                    className="spk"
+                    data-testid="speaker-chip"
+                    data-speaker={turn.speaker}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setRenamingSpeaker(turn.speaker);
+                    }}
+                    style={{
+                      fontWeight: 700,
+                      cursor: "pointer",
+                      padding: "1px 8px",
+                      borderRadius: 6,
+                      background: color,
+                      color: "#fff",
+                      fontSize: 13,
+                    }}
+                  >
+                    {displayName(state, turn.speaker)}
+                  </span>
+                )}
                 {first && (
                   <span style={{ color: "#888", fontSize: 12 }}>
                     {mmss(first.start)}
@@ -479,6 +681,7 @@ export default function Editor({
                   aria-label="reassign speaker"
                   data-testid={`reassign-${turn.sentences[0]?.id ?? ti}`}
                   value=""
+                  onClick={(e) => e.stopPropagation()}
                   onChange={(e) => {
                     const v = e.target.value;
                     if (v) onReassign(turn.sentences[0]!.id, v);
@@ -568,6 +771,70 @@ function ParagraphEditor({
         }}
       />
     </p>
+  );
+}
+
+/**
+ * F1: inline speaker-rename input rendered in the chip's place. Seeded with the
+ * current display name; Enter OR blur commits, Escape cancels. Autofocus +
+ * select on mount, mirroring SentenceEditor. stopPropagation on click/keydown so
+ * the background play-toggle and the global shortcut handler stay out of the way.
+ */
+function SpeakerRenameInput({
+  initial,
+  onCommit,
+  onCancel,
+}: {
+  initial: string;
+  onCommit: (value: string) => void;
+  onCancel: () => void;
+}) {
+  const [value, setValue] = useState(initial);
+  const ref = useRef<HTMLInputElement | null>(null);
+  // Enter commits then unmounts the input, which fires blur — guard so we only
+  // commit/cancel once (no duplicate history entry).
+  const done = useRef(false);
+  useEffect(() => {
+    ref.current?.focus();
+    ref.current?.select();
+  }, []);
+  const commit = (): void => {
+    if (done.current) return;
+    done.current = true;
+    onCommit(value);
+  };
+  const cancel = (): void => {
+    if (done.current) return;
+    done.current = true;
+    onCancel();
+  };
+  return (
+    <input
+      ref={ref}
+      data-testid="speaker-rename-input"
+      aria-label="rename speaker"
+      value={value}
+      onClick={(e) => e.stopPropagation()}
+      onChange={(e) => setValue(e.target.value)}
+      onBlur={commit}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          commit();
+        } else if (e.key === "Escape") {
+          e.preventDefault();
+          cancel();
+        }
+      }}
+      style={{
+        font: "inherit",
+        fontWeight: 700,
+        fontSize: 13,
+        padding: "1px 6px",
+        borderRadius: 6,
+        boxShadow: "0 0 0 2px #38bdf8",
+      }}
+    />
   );
 }
 
