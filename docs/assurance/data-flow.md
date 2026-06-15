@@ -99,6 +99,11 @@ At **no** stage is any byte sent off the device.
   engine decodes audio in memory and does not write a separate scratch/temp
   file to disk (`engine/src/decode.rs`); see `data-at-rest.md` for the honest
   status of the PRD's "wipe temp files on completion" intent.
+- **Saved transcripts**: each transcript is auto-saved to a local library
+  (`app_data/library/`, on the BitLocker volume) so past matters reopen — it
+  stores the transcript/edits + a path reference to the source audio (the audio
+  is not copied). It never leaves the device; one-click delete-matter purges it.
+  See `data-at-rest.md`.
 - **Models**: at transcription time, weights are loaded **ONLY from a
   cryptographically verified signed pack** (ed25519 + sha256, fail-closed),
   extracted into a per-user content-addressed cache. Release/hardened builds

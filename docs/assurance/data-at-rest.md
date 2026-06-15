@@ -43,6 +43,7 @@ primary control; the in-app banner is a backstop, not a substitute.
 | --- | --- | --- |
 | Input audio | Wherever the user keeps it | Read in place; not copied to a vendor-controlled location. |
 | Working/decoded audio | **In memory** during a run | Current engine decodes to in-memory `f32` samples (`engine/src/decode.rs`); see temp-file note below. |
+| **Saved transcripts (library)** | Per-user app-data dir, on the BitLocker volume | ✅ Each transcript is **auto-saved** as a local JSON file (`app_data/library/<id>.json`, `app/src-tauri/src/library.rs`) so past matters reappear on reopen. It stores the transcript text/edits + metadata and a **reference (path) to the source audio** — the audio itself is NOT copied into the library (one copy on disk). Purged by one-click delete-matter. Never leaves the device. |
 | Models / model packs | Verified, signed packs only | ✅ The transcribe path loads weights ONLY from a cryptographically verified signed pack, extracted into a per-user content-addressed cache (`app_data/verified-models/`). Release/hardened builds always enforce this; a debug-only `PODCAST_MODELS_DIR` override exists for the dev/demo. See `non-processor-statement.md` / `third-party-components.md`. |
 | Exports (DOCX/JSON/text) | A local folder the user chooses | Expected to be on the BitLocker volume; carries the draft disclaimer. |
 
@@ -76,18 +77,19 @@ stronger position than a wipe-on-completion routine. However:
 The PRD specifies a one-click action to remove the audio and transcript for a
 matter when the fee-earner is done (user story #14). **Implemented:** a "Delete
 matter" button (shown once a transcript is loaded) confirms, then calls the
-`delete_matter` command to remove the source audio file and clears the
-in-memory transcript (`app/src-tauri/src/system.rs`, `app/src/App.tsx`). The
+`delete_matter` command to remove the source audio file, **purges the saved
+library entry** for that matter (`delete_session`), and clears the in-memory
+transcript (`app/src-tauri/src/system.rs`, `library.rs`, `app/src/App.tsx`). The
 deletion helper is idempotent (an already-gone file counts as deleted) and
 reports any genuine failure per-path rather than crashing.
 
-**Honest scope:** the app does not yet maintain a persistent "matter" store, so
-the artifact removed is the **source audio** the user loaded (plus clearing the
-working transcript). Because the engine writes no temp/scratch file (in-memory
-decode, above) and there is no vendor-side copy, that source audio is the entire
-on-disk footprint of a run. Exports the user separately saved are deleted by the
-user through the OS. Because the vendor never receives the data, there is no
-vendor-side deletion to request or verify.
+**Honest scope:** the on-disk footprint of a matter is the **source audio** (the
+user's own file, referenced not copied) plus the **saved transcript JSON** in the
+library — delete-matter removes both. The engine writes no temp/scratch file
+(in-memory decode, above) and there is no vendor-side copy. Exports the user
+separately saved elsewhere are deleted by the user through the OS. A matter can
+also be deleted individually from the Library view. Because the vendor never
+receives the data, there is no vendor-side deletion to request or verify.
 
 ## Summary for the reviewer
 
@@ -96,8 +98,11 @@ vendor-side deletion to request or verify.
 - ✅ `fs` access is capability-scoped, not system-wide.
 - ✅ No decode temp/scratch file is written today (in-memory decode).
 - ✅ Exports carry the machine-draft disclaimer.
+- ✅ Transcripts are auto-saved to a local on-device library (app-data dir, on
+  the BitLocker volume); the source audio is referenced by path, not copied.
 - ✅ Launch-time BitLocker-status banner (advisory) and one-click delete-matter
-  (removes the source audio + clears the transcript) are implemented.
+  (removes the source audio + purges the saved library entry + clears the
+  transcript) are implemented.
 - ✅ Models load ONLY from cryptographically verified signed packs at
   transcription time (enforced in release/hardened builds).
 - 🚧 An explicit app-owned scratch dir with wipe-on-completion remains roadmap

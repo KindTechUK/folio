@@ -38,6 +38,7 @@ data-at-rest dependency note, and a pre-filled DPIA-support template.
 | Model weights loaded **ONLY from a verified signed pack** at transcription time (enforced in release/hardened builds; fail-closed) | ✅ implemented (against a **TEST** key) |
 | Producer-side signing CLI to build signed packs (`tools/modelpack-sign`; reuses the verifier's canonicalization) | ✅ implemented |
 | DOCX / JSON / text export, each carrying a machine-generated-draft disclaimer | ✅ implemented |
+| Local transcript library — transcripts auto-saved on-device (BitLocker volume), zero-egress, purged by delete-matter | ✅ implemented |
 | All bundled components / models permissive (MIT / Apache-2.0) | ✅ verified from manifests |
 | Launch-time BitLocker-status check + warning (advisory banner) | ✅ implemented |
 | One-click "delete this matter" (removes source audio + clears transcript) | ✅ implemented |
