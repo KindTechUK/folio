@@ -2,7 +2,7 @@
 
 > Status: building · Recorded 2026-06-10 · Reconciled with sherpa-onnx spike + Vibe fork-plan 2026-06-10.
 > Source: design + two deep-research passes + grill-me session + engine spike + fork-plan investigation.
-> Builds on the existing `~/podcast-transcribe` Python pipeline (WhisperX + pyannote), which remains for
+> Builds on the existing `~/kindtech-transcribe` Python pipeline (WhisperX + pyannote), which remains for
 > internal/high-fidelity use but is the wrong *shape* to ship to clients.
 
 ## Problem Statement

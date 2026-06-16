@@ -19,10 +19,10 @@ use serde::Serialize;
 use serde_json::Value;
 use tauri::Manager;
 
-/// Resolve the library directory: `PODCAST_LIBRARY_DIR` env (dev/test) else the
+/// Resolve the library directory: `KINDTECH_LIBRARY_DIR` env (dev/test) else the
 /// per-user app-data `library/` dir. Created on demand by `save_session_in`.
 fn library_dir(app: &tauri::AppHandle) -> Result<PathBuf, String> {
-    if let Ok(dir) = std::env::var("PODCAST_LIBRARY_DIR") {
+    if let Ok(dir) = std::env::var("KINDTECH_LIBRARY_DIR") {
         return Ok(PathBuf::from(dir));
     }
     let base = app

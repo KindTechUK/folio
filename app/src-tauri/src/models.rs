@@ -146,10 +146,10 @@ pub fn verify_pack_dir(
     }
 }
 
-/// Resolve the packs directory: `PODCAST_PACKS_DIR` env (dev) else the per-user
+/// Resolve the packs directory: `KINDTECH_PACKS_DIR` env (dev) else the per-user
 /// app-data `packs/` dir. The app-data dir is created on demand.
 fn packs_dir(app: &tauri::AppHandle) -> Result<PathBuf, String> {
-    if let Ok(dir) = std::env::var("PODCAST_PACKS_DIR") {
+    if let Ok(dir) = std::env::var("KINDTECH_PACKS_DIR") {
         return Ok(PathBuf::from(dir));
     }
     let base = app

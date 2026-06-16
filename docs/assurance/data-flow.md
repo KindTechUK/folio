@@ -107,7 +107,7 @@ At **no** stage is any byte sent off the device.
 - **Models**: at transcription time, weights are loaded **ONLY from a
   cryptographically verified signed pack** (ed25519 + sha256, fail-closed),
   extracted into a per-user content-addressed cache. Release/hardened builds
-  always enforce this; a debug-only `PODCAST_MODELS_DIR` override exists for the
+  always enforce this; a debug-only `KINDTECH_MODELS_DIR` override exists for the
   dev/demo. See `app/src-tauri/src/commands.rs`, `models.rs`. 🚧 Installer
   bundling of a default signed pack + the production signing key remain roadmap.
 - **Exports**: a local folder the user picks, expected to be on the firm's
