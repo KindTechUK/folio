@@ -10,12 +10,12 @@ use tauri::{AppHandle, Emitter};
 
 use crate::models;
 
-/// DEBUG-ONLY raw models dir override: when `PODCAST_MODELS_DIR` is set in a
+/// DEBUG-ONLY raw models dir override: when `KINDTECH_MODELS_DIR` is set in a
 /// debug build, the transcribe path uses it RAW (dev/demo convenience), skipping
 /// verified-pack resolution. NEVER consulted in a release/hardened build.
 #[cfg(debug_assertions)]
 fn debug_models_dir_override() -> Option<std::path::PathBuf> {
-    std::env::var("PODCAST_MODELS_DIR").ok().map(std::path::PathBuf::from)
+    std::env::var("KINDTECH_MODELS_DIR").ok().map(std::path::PathBuf::from)
 }
 
 /// Transcribe an audio file (wav/mp3/m4a/mp4/flac/ogg…) into the project's JSON
@@ -52,10 +52,10 @@ pub async fn transcribe(
     tauri::async_runtime::spawn_blocking(move || {
         // Resolve the models dir, enforcing verified-pack trust.
         //
-        // Debug build: an explicit PODCAST_MODELS_DIR is honored RAW (dev/demo);
+        // Debug build: an explicit KINDTECH_MODELS_DIR is honored RAW (dev/demo);
         // otherwise we resolve via the verified-pack resolver.
         // Release/hardened build: ALWAYS resolve via the verified-pack resolver,
-        // IGNORING PODCAST_MODELS_DIR. Fail closed if resolution errors.
+        // IGNORING KINDTECH_MODELS_DIR. Fail closed if resolution errors.
         let models_dir = {
             #[cfg(debug_assertions)]
             {
