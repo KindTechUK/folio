@@ -1,4 +1,6 @@
-# Kindtech Transcribe
+# Folio
+
+_An open-source product by [KindTech](https://github.com/KindTechUK)._
 
 **Private, on-device podcast & interview transcription.** A desktop app that turns audio
 into a speaker-labelled, timestamped transcript — and **nothing ever leaves your
