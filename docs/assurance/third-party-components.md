@@ -83,7 +83,7 @@ the app or engine binary, so none of its dependencies reach the firm's install.
 | `@tauri-apps/plugin-fs` | ^2 | **Apache-2.0 / MIT** | Scoped file I/O. |
 | `docx` | ^9.7.1 | **MIT** | In-process DOCX export (no network). |
 | `vite` / `typescript` / `vitest` / testing-library | dev only | **MIT / Apache-2.0** | Build + test tooling (not shipped). |
-| `@podcast-transcribe/core` (this project) | 0.1.0 | project-owned (Apache-2.0) | Turn builder, diarization assignment, editor reducer, modelpack oracle. |
+| `@kindtech/core` (this project) | 0.1.0 | project-owned (Apache-2.0) | Turn builder, diarization assignment, editor reducer, modelpack oracle. |
 
 `@types/*` packages are dev-only type stubs (MIT).
 

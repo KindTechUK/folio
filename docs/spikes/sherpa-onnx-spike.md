@@ -190,7 +190,7 @@ before promising turnaround times to the buyer.
 ## Reproduction
 
 ```bash
-cd ~/podcast-transcribe
+cd ~/kindtech-transcribe
 uv venv .venv-sherpa --python 3.11
 uv pip install --python .venv-sherpa/bin/python sherpa-onnx numpy
 
