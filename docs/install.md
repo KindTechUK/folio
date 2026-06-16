@@ -7,8 +7,8 @@ Grab the installer for your OS from the
 
 | OS | Asset |
 |----|-------|
-| macOS | `Kindtech Transcribe_<version>_*.dmg` |
-| Windows | `Kindtech Transcribe_<version>_*-setup.exe` (NSIS) |
+| macOS | `Folio_<version>_*.dmg` |
+| Windows | `Folio_<version>_*-setup.exe` (NSIS) |
 | Linux | `*.AppImage` or `*.deb` |
 
 ### First-launch notes (unsigned builds)
@@ -22,7 +22,7 @@ launch. This is expected.
     clear the quarantine attribute:
 
     ```bash
-    xattr -dr com.apple.quarantine "/Applications/Kindtech Transcribe.app"
+    xattr -dr com.apple.quarantine "/Applications/Folio.app"
     ```
 
 === "Windows"

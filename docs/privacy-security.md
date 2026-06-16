@@ -1,6 +1,6 @@
 # Privacy & security
 
-Kindtech Transcribe is built to a **zero-egress**, on-device threat model. The guarantee
+Folio is built to a **zero-egress**, on-device threat model. The guarantee
 is structural, not a policy promise: the shipped app and engine **cannot** make outbound
 network calls because they link no networking code.
 

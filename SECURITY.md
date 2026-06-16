@@ -2,7 +2,7 @@
 
 ## Design posture
 
-kindtech-transcribe is built to a **zero-egress**, on-device threat model:
+Folio is built to a **zero-egress**, on-device threat model:
 
 - The shipped app and engine link **no networking crates** — enforced in CI by
   `scripts/check-no-network.sh` (the network-crate denylist gate). Audio, transcripts,

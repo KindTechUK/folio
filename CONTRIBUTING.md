@@ -1,4 +1,4 @@
-# Contributing to kindtech-transcribe
+# Contributing to Folio
 
 Thanks for your interest in contributing. This project is a privacy-first,
 **zero-egress**, CPU-only local transcription desktop app. The most important

@@ -1,4 +1,6 @@
-# Kindtech Transcribe
+# Folio
+
+_An open-source product by [KindTech](https://github.com/KindTechUK)._
 
 **Private, fully-local transcription and human review for organisations that
 handle sensitive recordings.** Audio and transcripts are processed entirely on
@@ -113,7 +115,7 @@ OV Authenticode code-signing for IT-managed (Intune/SCCM) deployment.
 
 The original macOS-only command-line pipeline predates the app and remains in
 the repo for batch transcription on Apple Silicon. It is **separate** from the
-Kindtech Transcribe product above and uses a different stack (WhisperX +
+Folio product above and uses a different stack (WhisperX +
 `pyannote`, producing a Word document). It requires `uv`, `ffmpeg`, and — for
 diarization — a Hugging Face token for the gated `pyannote` models.
 
