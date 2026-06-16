@@ -32,6 +32,16 @@ import { Banner, Button, Chip } from "./ui";
 // Shell: a left sidebar (Library / New transcription / Models) with a pinned
 // privacy chip; Library is the landing view so past matters are the home screen.
 
+// Static per-view page header copy (title + subtitle).
+const HEADINGS: Record<View, { title: string; subtitle: string }> = {
+  library: { title: "Library", subtitle: "Your saved matters, stored on this device." },
+  transcribe: {
+    title: "New transcription",
+    subtitle: "Transcribe an audio file entirely on this device.",
+  },
+  models: { title: "Models", subtitle: "Signed, verified model packs." },
+};
+
 // Session id generator: prefers the platform UUID; falls back to a
 // timestamp+random id where `crypto.randomUUID` is unavailable.
 function newId(): string {
@@ -266,15 +276,6 @@ export default function App() {
   const showEncryptionWarning =
     encryption && encryption.state !== "encrypted" && !encryptionDismissed;
 
-  const headings: Record<View, { title: string; subtitle: string }> = {
-    library: { title: "Library", subtitle: "Your saved matters, stored on this device." },
-    transcribe: {
-      title: "New transcription",
-      subtitle: "Transcribe an audio file entirely on this device.",
-    },
-    models: { title: "Models", subtitle: "Signed, verified model packs." },
-  };
-
   return (
     <div style={{ display: "flex", minHeight: "100vh", background: "var(--canvas)" }}>
       <Sidebar view={view} onNavigate={setView} />
@@ -289,10 +290,10 @@ export default function App() {
       >
         <header style={{ maxWidth: 960, marginBottom: "var(--space-5)" }}>
           <h1 style={{ margin: 0, fontSize: "var(--text-2xl)" }}>
-            {headings[view].title}
+            {HEADINGS[view].title}
           </h1>
           <p style={{ margin: "var(--space-2) 0 0", color: "var(--slate-500)" }}>
-            {headings[view].subtitle}
+            {HEADINGS[view].subtitle}
           </p>
         </header>
 

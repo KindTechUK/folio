@@ -41,17 +41,18 @@ export default function Banner({
   children,
   onDismiss,
   role,
+  "data-testid": testId,
+  "aria-label": ariaLabel,
   dismissLabel = "dismiss",
   dismissTestid,
   style,
-  ...rest
 }: BannerProps) {
   const c = palette[variant];
   return (
     <div
       role={role}
-      data-testid={rest["data-testid"]}
-      aria-label={rest["aria-label"]}
+      data-testid={testId}
+      aria-label={ariaLabel}
       style={{
         display: "flex",
         gap: "var(--space-3)",

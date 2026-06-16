@@ -9,16 +9,13 @@ export function Toolbar({
   children,
   sticky = false,
   style,
-  className,
 }: {
   children: ReactNode;
   sticky?: boolean;
   style?: React.CSSProperties;
-  className?: string;
 }) {
   return (
     <div
-      className={className}
       style={{
         display: "flex",
         alignItems: "center",
