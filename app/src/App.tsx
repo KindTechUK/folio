@@ -21,13 +21,16 @@ import type { SessionJson } from "./session";
 import Editor from "./Editor";
 import Models from "./Models";
 import Library from "./Library";
+import Sidebar from "./Sidebar";
+import type { View } from "./Sidebar";
+import { Banner, Button, Chip } from "./ui";
 
 // PR3b: the review-editor flow. Pick audio -> invoke("transcribe") ->
 // loadTranscript -> render <Editor>. All edit behaviour is driven by the tested
 // core reducer; this component only owns the EditorState and the audio src.
 // PR3c: a "Models" view that lists/verifies signed model packs (trust boundary).
-
-type View = "review" | "models" | "library";
+// Shell: a left sidebar (Library / New transcription / Models) with a pinned
+// privacy chip; Library is the landing view so past matters are the home screen.
 
 // Session id generator: prefers the platform UUID; falls back to a
 // timestamp+random id where `crypto.randomUUID` is unavailable.
@@ -47,7 +50,7 @@ interface EncryptionStatus {
 }
 
 export default function App() {
-  const [view, setView] = useState<View>("review");
+  const [view, setView] = useState<View>("library");
   const [status, setStatus] = useState<string>("idle");
   // Edit history wraps the EditorState so all edits are undoable. `state` is
   // derived from the history's present; `setState` records a new entry.
@@ -145,7 +148,7 @@ export default function App() {
         res.audioAvailable ? convertFileSrc(res.session.audioPath) : undefined,
       );
       setLoadedPath(res.audioAvailable ? res.session.audioPath : null);
-      setView("review");
+      setView("transcribe");
       setStatus(
         res.audioAvailable
           ? `opened ${res.session.audioFilename}`
@@ -260,185 +263,190 @@ export default function App() {
     }
   }
 
+  const showEncryptionWarning =
+    encryption && encryption.state !== "encrypted" && !encryptionDismissed;
+
+  const headings: Record<View, { title: string; subtitle: string }> = {
+    library: { title: "Library", subtitle: "Your saved matters, stored on this device." },
+    transcribe: {
+      title: "New transcription",
+      subtitle: "Transcribe an audio file entirely on this device.",
+    },
+    models: { title: "Models", subtitle: "Signed, verified model packs." },
+  };
+
   return (
-    <main style={{ fontFamily: "system-ui, sans-serif", padding: "1.5rem", maxWidth: 960 }}>
-      <h1>Podcast Transcribe</h1>
-      <p
+    <div style={{ display: "flex", minHeight: "100vh", background: "var(--canvas)" }}>
+      <Sidebar view={view} onNavigate={setView} />
+
+      <main
         style={{
-          background: "#eef7ee",
-          border: "1px solid #2e7d32",
-          color: "#1b5e20",
-          padding: "0.6rem 0.9rem",
-          borderRadius: 6,
-          fontWeight: 600,
+          flex: 1,
+          minWidth: 0,
+          padding: "var(--space-6) var(--space-7)",
+          overflowX: "hidden",
         }}
       >
-        100% local — no network access. This build contains no networking code and
-        runs fully in airplane mode.
-      </p>
-      {encryption &&
-        encryption.state !== "encrypted" &&
-        !encryptionDismissed && (
-          <div
+        <header style={{ maxWidth: 960, marginBottom: "var(--space-5)" }}>
+          <h1 style={{ margin: 0, fontSize: "var(--text-2xl)" }}>
+            {headings[view].title}
+          </h1>
+          <p style={{ margin: "var(--space-2) 0 0", color: "var(--slate-500)" }}>
+            {headings[view].subtitle}
+          </p>
+        </header>
+
+        {showEncryptionWarning && (
+          <Banner
+            variant="warning"
             role="alert"
             data-testid="encryption-warning"
-            style={{
-              display: "flex",
-              gap: 12,
-              alignItems: "flex-start",
-              background: "#fff8e1",
-              border: "1px solid #c08a00",
-              color: "#7a5800",
-              padding: "0.6rem 0.9rem",
-              borderRadius: 6,
-              margin: "0 0 0.75rem",
-            }}
+            onDismiss={() => setEncryptionDismissed(true)}
+            dismissLabel="dismiss encryption warning"
+            dismissTestid="dismiss-encryption-warning"
+            style={{ maxWidth: 960, marginBottom: "var(--space-4)" }}
           >
-            <span style={{ flex: 1 }}>
-              This volume is not confirmed BitLocker-encrypted. For
-              client-confidential matters, store and run on an encrypted volume.{" "}
-              <span style={{ color: "#9a7400" }}>({encryption.detail})</span>
-            </span>
-            <button
-              aria-label="dismiss encryption warning"
-              data-testid="dismiss-encryption-warning"
-              onClick={() => setEncryptionDismissed(true)}
-              style={{
-                background: "none",
-                border: "none",
-                color: "#7a5800",
-                cursor: "pointer",
-                fontSize: 18,
-                lineHeight: 1,
-                padding: 0,
-              }}
-            >
-              ×
-            </button>
-          </div>
+            This volume is not confirmed BitLocker-encrypted. For
+            client-confidential matters, store and run on an encrypted volume.{" "}
+            <span style={{ opacity: 0.8 }}>({encryption!.detail})</span>
+          </Banner>
         )}
-      <nav style={{ display: "flex", gap: 8, margin: "0.5rem 0 1rem" }}>
-        <button
-          onClick={() => setView("review")}
-          aria-pressed={view === "review"}
-          style={{ padding: "0.4rem 0.9rem", fontWeight: view === "review" ? 700 : 400 }}
-        >
-          Review
-        </button>
-        <button
-          onClick={() => setView("models")}
-          aria-pressed={view === "models"}
-          style={{ padding: "0.4rem 0.9rem", fontWeight: view === "models" ? 700 : 400 }}
-        >
-          Models
-        </button>
-        <button
-          onClick={() => setView("library")}
-          aria-pressed={view === "library"}
-          style={{ padding: "0.4rem 0.9rem", fontWeight: view === "library" ? 700 : 400 }}
-        >
-          Library
-        </button>
-      </nav>
 
-      {view === "review" ? (
-        <>
-          <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-            <button onClick={pickAndTranscribe} style={{ padding: "0.6rem 1rem", fontSize: "1rem" }}>
-              Open audio &rarr; transcribe
-            </button>
-            <span>Status: {status}</span>
-            {state && (
-              <button
-                data-testid="delete-matter"
-                onClick={() => void deleteMatter()}
+        <div style={{ maxWidth: 960 }}>
+          {view === "transcribe" ? (
+            <>
+              <div
                 style={{
-                  padding: "0.5rem 0.9rem",
-                  marginLeft: "auto",
-                  color: "#7f1d1d",
-                  background: "#fee2e2",
-                  border: "1px solid #b91c1c",
-                  borderRadius: 6,
-                  cursor: "pointer",
+                  display: "flex",
+                  gap: "var(--space-3)",
+                  alignItems: "center",
+                  flexWrap: "wrap",
                 }}
               >
-                Delete matter
-              </button>
-            )}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              gap: 12,
-              alignItems: "center",
-              margin: "0.6rem 0 0",
-              fontSize: 14,
-            }}
-          >
-            <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
-              <input
-                type="checkbox"
-                data-testid="detect-speakers"
-                checked={detectSpeakers}
-                onChange={(e) => setDetectSpeakers(e.target.checked)}
-              />
-              Detect speakers (slower, experimental)
-            </label>
-            {detectSpeakers && (
-              <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                Speakers
-                <input
-                  type="number"
-                  min={1}
-                  data-testid="speaker-count"
-                  placeholder="auto"
-                  value={speakerCount}
-                  onChange={(e) => setSpeakerCount(e.target.value)}
-                  style={{ width: 64 }}
-                />
-              </label>
-            )}
-          </div>
-          {progress && (
-            <div
-              data-testid="transcribe-progress"
-              style={{ margin: "0.9rem 0 0", display: "flex", flexDirection: "column", gap: 4, maxWidth: 480 }}
-            >
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13 }}>
-                <span>{progress.label}</span>
-                <span>
-                  {Math.round(progress.fraction * 100)}%
-                  {progress.etaSeconds !== undefined &&
-                    ` · ~${Math.ceil(progress.etaSeconds)}s left`}
-                </span>
+                <Button variant="primary" onClick={pickAndTranscribe}>
+                  Open audio → transcribe
+                </Button>
+                <Chip tone="neutral">{status}</Chip>
+                {state && (
+                  <Button
+                    variant="danger"
+                    data-testid="delete-matter"
+                    onClick={() => void deleteMatter()}
+                    style={{ marginLeft: "auto" }}
+                  >
+                    Delete matter
+                  </Button>
+                )}
               </div>
-              <progress
-                value={progress.fraction}
-                max={1}
-                style={{ width: "100%", height: 14 }}
-              />
-            </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  gap: "var(--space-4)",
+                  alignItems: "center",
+                  margin: "var(--space-3) 0 0",
+                  fontSize: "var(--text-sm)",
+                  color: "var(--slate-600)",
+                }}
+              >
+                <label
+                  style={{ display: "flex", gap: 6, alignItems: "center", cursor: "pointer" }}
+                  title="Detect and label distinct speakers. Slower; best on clear 1–2 speaker audio."
+                >
+                  <input
+                    type="checkbox"
+                    data-testid="detect-speakers"
+                    checked={detectSpeakers}
+                    onChange={(e) => setDetectSpeakers(e.target.checked)}
+                  />
+                  Detect speakers (slower)
+                </label>
+                {detectSpeakers && (
+                  <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                    Speakers
+                    <input
+                      type="number"
+                      min={1}
+                      data-testid="speaker-count"
+                      placeholder="auto"
+                      value={speakerCount}
+                      onChange={(e) => setSpeakerCount(e.target.value)}
+                      style={{ width: 64 }}
+                    />
+                  </label>
+                )}
+              </div>
+
+              {progress && (
+                <div
+                  data-testid="transcribe-progress"
+                  style={{
+                    margin: "var(--space-4) 0 0",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 4,
+                    maxWidth: 480,
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      fontSize: "var(--text-sm)",
+                      color: "var(--slate-600)",
+                    }}
+                  >
+                    <span>{progress.label}</span>
+                    <span className="tabular">
+                      {Math.round(progress.fraction * 100)}%
+                      {progress.etaSeconds !== undefined &&
+                        ` · ~${Math.ceil(progress.etaSeconds)}s left`}
+                    </span>
+                  </div>
+                  <progress
+                    value={progress.fraction}
+                    max={1}
+                    style={{ width: "100%", height: 12 }}
+                  />
+                </div>
+              )}
+
+              {state ? (
+                <div style={{ marginTop: "var(--space-5)" }}>
+                  <Editor
+                    state={state}
+                    setState={setState}
+                    audioSrc={audioSrc}
+                    diarized={diarized}
+                    onUndo={onUndo}
+                    onRedo={onRedo}
+                    canUndo={history ? canUndo(history) : false}
+                    canRedo={history ? canRedo(history) : false}
+                  />
+                </div>
+              ) : (
+                !progress && (
+                  <p
+                    style={{
+                      marginTop: "var(--space-5)",
+                      color: "var(--slate-500)",
+                      maxWidth: 520,
+                    }}
+                  >
+                    Choose an audio file to begin. It is transcribed on this
+                    device and saved to your Library automatically — nothing is
+                    uploaded.
+                  </p>
+                )
+              )}
+            </>
+          ) : view === "models" ? (
+            <Models />
+          ) : (
+            <Library onOpen={openSession} />
           )}
-          {state && (
-            <div style={{ marginTop: "1.25rem" }}>
-              <Editor
-                state={state}
-                setState={setState}
-                audioSrc={audioSrc}
-                diarized={diarized}
-                onUndo={onUndo}
-                onRedo={onRedo}
-                canUndo={history ? canUndo(history) : false}
-                canRedo={history ? canRedo(history) : false}
-              />
-            </div>
-          )}
-        </>
-      ) : view === "models" ? (
-        <Models />
-      ) : (
-        <Library onOpen={openSession} />
-      )}
-    </main>
+        </div>
+      </main>
+    </div>
   );
 }
