@@ -367,7 +367,7 @@ export default function Editor({
         {DRAFT_DISCLAIMER}
       </Banner>
 
-      <Toolbar sticky className="transport">
+      <Toolbar sticky>
         {audioSrc && (
           // eslint-disable-next-line jsx-a11y/media-has-caption
           <audio
