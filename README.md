@@ -33,6 +33,16 @@ independently runnable airplane-mode verification, component/licence inventory,
 data-at-rest notes, and a DPIA-support template — lives in
 [`docs/assurance/`](docs/assurance/README.md).
 
+## Documentation & downloads
+
+- **Docs site:** <https://billlyzhaoyh.github.io/kindtech-transcribe/> — install
+  guide, model packs, building from source, and the privacy/assurance pack.
+- **Downloads:** signed model packs and desktop installers (macOS / Windows /
+  Linux) are published to
+  [GitHub Releases](https://github.com/billlyzhaoyh/kindtech-transcribe/releases).
+- **Contributing & security:** see [CONTRIBUTING.md](CONTRIBUTING.md),
+  [SECURITY.md](SECURITY.md), and the [Apache-2.0 licence](LICENSE).
+
 ## What it does
 
 - **In-app decode** to 16 kHz mono via pure-Rust `symphonia` + `rubato` — no
