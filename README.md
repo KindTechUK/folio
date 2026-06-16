@@ -1,4 +1,4 @@
-# podcast-transcribe
+# kindtech-transcribe
 
 Local, private English-podcast transcription on Apple Silicon. Produces a **Word
 document** where every speaker turn is a block with start/end timestamps:
@@ -27,7 +27,7 @@ to real names afterward (see [Relabeling speakers](#relabeling-speakers)).
 ## Setup
 
 ```bash
-cd ~/podcast-transcribe
+cd ~/kindtech-transcribe
 uv sync                 # creates a Python 3.11 venv and installs everything
 ```
 

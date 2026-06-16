@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    podcast_transcribe_app_lib::run();
+    kindtech_transcribe_app_lib::run();
 }
