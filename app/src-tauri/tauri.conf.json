@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Podcast Transcribe",
+  "productName": "Kindtech Transcribe",
   "version": "0.1.0",
-  "identifier": "com.sightline.transcribe",
+  "identifier": "uk.kindtech.transcribe",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "Podcast Transcribe",
+        "title": "Kindtech Transcribe",
         "width": 1000,
         "height": 720
       }

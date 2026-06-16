@@ -2,7 +2,7 @@
 
 > Audience: a UK law firm's IT, DPO, and security reviewers clearing this
 > product through procurement and a DPIA.
-> Vendor: Sightline (the developer of *Podcast Transcribe*).
+> Vendor: Kindtech (the developer of *Kindtech Transcribe*).
 > Status of this pack: drafted 2026-06-12 against the live source tree. Every
 > capability claim carries a status tag — **✅ implemented and verifiable
 > today** or **🚧 planned / roadmap** — so a reviewer can tell what they can
@@ -10,7 +10,7 @@
 
 ## Executive summary (the privacy posture in one paragraph)
 
-*Podcast Transcribe* is a self-contained Windows desktop application that
+*Kindtech Transcribe* is a self-contained Windows desktop application that
 transcribes and (optionally) diarizes sensitive audio **entirely on the
 device**. It is engineered so that **audio, transcripts, and any derived
 personal data never leave the laptop, and the vendor never receives any of it**.
