@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import type { SessionMeta } from "./session";
+import { Button, Chip } from "./ui";
 
 // The persisted transcript Library. Lists the saved sessions returned by the
 // Rust `list_sessions` command (newest-first) and offers per-row Open/Delete.
@@ -38,97 +39,75 @@ export default function Library({ onOpen }: { onOpen: (id: string) => void }) {
 
   return (
     <section>
-      <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: "0.75rem" }}>
-        <button onClick={() => void refresh()} style={{ padding: "0.5rem 0.9rem" }}>
-          Refresh
-        </button>
+      <div
+        style={{
+          display: "flex",
+          gap: "var(--space-3)",
+          alignItems: "center",
+          marginBottom: "var(--space-4)",
+        }}
+      >
+        <Button onClick={() => void refresh()}>Refresh</Button>
         {status && (
-          <span role="status" style={{ color: "#444" }}>
+          <span role="status" style={{ color: "var(--slate-600)" }}>
             {status}
           </span>
         )}
       </div>
 
       {sessions.length === 0 ? (
-        <p style={{ color: "#666" }}>
+        <p style={{ color: "var(--slate-500)" }}>
           No saved transcripts yet — transcribe an audio file and it will be saved
           here automatically.
         </p>
       ) : (
-        <table style={{ borderCollapse: "collapse", width: "100%" }}>
+        <table>
           <thead>
-            <tr style={{ textAlign: "left", borderBottom: "1px solid #ddd" }}>
-              <th style={{ padding: "0.4rem 0.6rem" }}>Audio</th>
-              <th style={{ padding: "0.4rem 0.6rem" }}>Updated</th>
-              <th style={{ padding: "0.4rem 0.6rem" }}>Segments</th>
-              <th style={{ padding: "0.4rem 0.6rem" }}>Mode</th>
-              <th style={{ padding: "0.4rem 0.6rem" }} />
+            <tr>
+              <th>Audio</th>
+              <th>Updated</th>
+              <th>Segments</th>
+              <th>Mode</th>
+              <th />
             </tr>
           </thead>
           <tbody>
             {sessions.map((s) => (
-              <tr key={s.id} style={{ borderBottom: "1px solid #f0f0f0" }}>
-                <td style={{ padding: "0.4rem 0.6rem" }}>
+              <tr key={s.id}>
+                <td>
                   {s.audioFilename}
                   {!s.audioAvailable && (
-                    <div style={{ color: "#888", fontSize: "0.85em" }}>audio missing</div>
+                    <div style={{ color: "var(--slate-400)", fontSize: "var(--text-xs)" }}>
+                      audio missing
+                    </div>
                   )}
                 </td>
-                <td style={{ padding: "0.4rem 0.6rem", color: "#555", whiteSpace: "nowrap" }}>
+                <td className="tabular" style={{ whiteSpace: "nowrap" }}>
                   {new Date(s.updatedAt).toLocaleString()}
                 </td>
-                <td style={{ padding: "0.4rem 0.6rem", color: "#555" }}>{s.segments}</td>
-                <td style={{ padding: "0.4rem 0.6rem" }}>
-                  {s.diarized ? (
-                    <span
-                      style={{
-                        background: "#e3f2fd",
-                        color: "#0d47a1",
-                        borderRadius: 4,
-                        padding: "0.1rem 0.4rem",
-                        fontSize: "0.8em",
-                        fontWeight: 600,
-                      }}
-                    >
-                      speakers
-                    </span>
-                  ) : (
-                    <span
-                      style={{
-                        background: "#f0f0f0",
-                        color: "#555",
-                        borderRadius: 4,
-                        padding: "0.1rem 0.4rem",
-                        fontSize: "0.8em",
-                        fontWeight: 600,
-                      }}
-                    >
-                      paragraphs
-                    </span>
-                  )}
+                <td>{s.segments}</td>
+                <td>
+                  <Chip tone={s.diarized ? "accent" : "neutral"}>
+                    {s.diarized ? "speakers" : "paragraphs"}
+                  </Chip>
                 </td>
-                <td style={{ padding: "0.4rem 0.6rem", whiteSpace: "nowrap" }}>
-                  <button
+                <td style={{ whiteSpace: "nowrap" }}>
+                  <Button
+                    size="sm"
                     data-testid={`open-${s.id}`}
                     onClick={() => onOpen(s.id)}
-                    style={{ padding: "0.35rem 0.7rem", marginRight: 8 }}
+                    style={{ marginRight: 8 }}
                   >
                     Open
-                  </button>
-                  <button
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="danger"
                     data-testid={`delete-${s.id}`}
                     onClick={() => void remove(s.id)}
-                    style={{
-                      padding: "0.35rem 0.7rem",
-                      color: "#7f1d1d",
-                      background: "#fee2e2",
-                      border: "1px solid #b91c1c",
-                      borderRadius: 6,
-                      cursor: "pointer",
-                    }}
                   >
                     Delete
-                  </button>
+                  </Button>
                 </td>
               </tr>
             ))}

@@ -1891,6 +1891,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "kindtech-transcribe-app"
+version = "0.1.0"
+dependencies = [
+ "engine",
+ "modelpack",
+ "serde",
+ "serde_json",
+ "sha2",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-dialog",
+ "tauri-plugin-fs",
+ "zip",
+]
+
+[[package]]
 name = "lazy_static"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2572,22 +2588,6 @@ dependencies = [
  "fdeflate",
  "flate2",
  "miniz_oxide",
-]
-
-[[package]]
-name = "podcast-transcribe-app"
-version = "0.1.0"
-dependencies = [
- "engine",
- "modelpack",
- "serde",
- "serde_json",
- "sha2",
- "tauri",
- "tauri-build",
- "tauri-plugin-dialog",
- "tauri-plugin-fs",
- "zip",
 ]
 
 [[package]]

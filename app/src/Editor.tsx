@@ -32,6 +32,8 @@ import {
   exportTextWithDisclaimer,
 } from "./draft";
 import { saveDocx } from "./docx";
+import { Banner, Button } from "./ui";
+import { Toolbar, ToolbarGroup } from "./ui/Toolbar";
 
 const SPEEDS = [0.75, 1, 1.25, 1.5, 2] as const;
 
@@ -356,37 +358,16 @@ export default function Editor({
 
   return (
     <div className="editor">
-      <div
+      <Banner
+        variant="info"
         role="note"
         aria-label="machine-generated draft disclaimer"
-        style={{
-          background: "#fff8e1",
-          border: "1px solid #c08a00",
-          color: "#7a5800",
-          padding: "0.5rem 0.8rem",
-          borderRadius: 6,
-          fontSize: 13,
-          marginBottom: 12,
-        }}
+        style={{ marginBottom: "var(--space-3)" }}
       >
         {DRAFT_DISCLAIMER}
-      </div>
+      </Banner>
 
-      <div
-        className="transport"
-        style={{
-          display: "flex",
-          gap: 10,
-          alignItems: "center",
-          flexWrap: "wrap",
-          position: "sticky",
-          top: 0,
-          background: "#fff",
-          padding: "8px 0",
-          borderBottom: "1px solid #ddd",
-          zIndex: 5,
-        }}
-      >
+      <Toolbar sticky>
         {audioSrc && (
           // eslint-disable-next-line jsx-a11y/media-has-caption
           <audio
@@ -399,86 +380,98 @@ export default function Editor({
             onPause={() => setPlaying(false)}
           />
         )}
-        <button onClick={togglePlay} data-testid="play">
-          {playing ? "Pause" : "Play"}
-        </button>
-        <span style={{ fontVariantNumeric: "tabular-nums", color: "#555" }}>
-          {mmss(cur)} / {mmss(dur)}
-        </span>
-        <span style={{ display: "flex", gap: 4, alignItems: "center" }}>
-          <span style={{ fontSize: 12, color: "#888" }}>speed</span>
+        <ToolbarGroup>
+          <Button variant="primary" size="sm" onClick={togglePlay} data-testid="play">
+            {playing ? "Pause" : "Play"}
+          </Button>
+          <span className="tabular" style={{ color: "var(--slate-500)", fontSize: "var(--text-sm)" }}>
+            {mmss(cur)} / {mmss(dur)}
+          </span>
+        </ToolbarGroup>
+
+        <ToolbarGroup>
+          <span style={{ fontSize: "var(--text-xs)", color: "var(--slate-400)" }}>speed</span>
           {SPEEDS.map((s) => (
-            <button
+            <Button
               key={s}
+              size="sm"
+              variant={speed === s ? "primary" : "ghost"}
               onClick={() => applySpeed(s)}
               aria-pressed={speed === s}
-              style={{ fontWeight: speed === s ? 700 : 400 }}
             >
               {s}x
-            </button>
+            </Button>
           ))}
-        </span>
-        <button
-          data-testid="export-json"
-          onClick={() =>
-            download(
-              JSON.stringify(exportJSONWithDisclaimer(state), null, 2),
-              "transcript_edited.json",
-              "application/json",
-            )
-          }
-        >
-          Export JSON
-        </button>
-        <button
-          data-testid="export-text"
-          onClick={() =>
-            download(
-              exportTextWithDisclaimer(state),
-              "transcript_edited.txt",
-              "text/plain",
-            )
-          }
-        >
-          Export Script
-        </button>
-        <button
-          data-testid="export-docx"
-          onClick={() => {
-            void saveDocx(state, { diarized });
-          }}
-        >
-          Export DOCX
-        </button>
-        <button
-          data-testid="undo"
-          onClick={() => onUndo?.()}
-          disabled={!canUndo}
-        >
-          Undo
-        </button>
-        <button
-          data-testid="redo"
-          onClick={() => onRedo?.()}
-          disabled={!canRedo}
-        >
-          Redo
-        </button>
-        <button
-          data-testid="toggle-find"
-          onClick={() => setFindOpen((v) => !v)}
-          aria-pressed={findOpen}
-        >
-          Find &amp; replace
-        </button>
-        <button
-          data-testid="toggle-follow"
-          onClick={() => setFollow((v) => !v)}
-          aria-pressed={follow}
-        >
-          Follow
-        </button>
-      </div>
+        </ToolbarGroup>
+
+        <ToolbarGroup>
+          <Button
+            size="sm"
+            data-testid="export-json"
+            onClick={() =>
+              download(
+                JSON.stringify(exportJSONWithDisclaimer(state), null, 2),
+                "transcript_edited.json",
+                "application/json",
+              )
+            }
+          >
+            Export JSON
+          </Button>
+          <Button
+            size="sm"
+            data-testid="export-text"
+            onClick={() =>
+              download(
+                exportTextWithDisclaimer(state),
+                "transcript_edited.txt",
+                "text/plain",
+              )
+            }
+          >
+            Export Script
+          </Button>
+          <Button
+            size="sm"
+            data-testid="export-docx"
+            onClick={() => {
+              void saveDocx(state, { diarized });
+            }}
+          >
+            Export DOCX
+          </Button>
+        </ToolbarGroup>
+
+        <ToolbarGroup>
+          <Button size="sm" data-testid="undo" onClick={() => onUndo?.()} disabled={!canUndo}>
+            Undo
+          </Button>
+          <Button size="sm" data-testid="redo" onClick={() => onRedo?.()} disabled={!canRedo}>
+            Redo
+          </Button>
+        </ToolbarGroup>
+
+        <ToolbarGroup divider={false}>
+          <Button
+            size="sm"
+            variant={findOpen ? "primary" : "ghost"}
+            data-testid="toggle-find"
+            onClick={() => setFindOpen((v) => !v)}
+            aria-pressed={findOpen}
+          >
+            Find &amp; replace
+          </Button>
+          <Button
+            size="sm"
+            variant={follow ? "primary" : "ghost"}
+            data-testid="toggle-follow"
+            onClick={() => setFollow((v) => !v)}
+            aria-pressed={follow}
+          >
+            Follow
+          </Button>
+        </ToolbarGroup>
+      </Toolbar>
 
       {findOpen && (
         <div
@@ -524,10 +517,12 @@ export default function Editor({
             />
             Whole word
           </label>
-          <span data-testid="find-count" style={{ fontSize: 12, color: "#555" }}>
+          <span data-testid="find-count" style={{ fontSize: "var(--text-xs)", color: "var(--slate-500)" }}>
             {findCount} matches
           </span>
-          <button
+          <Button
+            size="sm"
+            variant="primary"
             data-testid="replace-all"
             disabled={findText === "" || findCount === 0}
             onClick={() =>
@@ -535,7 +530,7 @@ export default function Editor({
             }
           >
             Replace all
-          </button>
+          </Button>
         </div>
       )}
 

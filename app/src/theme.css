@@ -1,0 +1,151 @@
+/*
+ * Design tokens + base layer for Kindtech Transcribe.
+ *
+ * Calm-professional direction for a UK law-firm buyer: a restrained slate/ink
+ * neutral ramp, one deep blue-slate accent, generous whitespace, a system serif
+ * for the wordmark. ZERO-EGRESS: only system font stacks — no web fonts, no
+ * external CSS. Bundled by Vite and allowed by the CSP (`style-src 'self'`).
+ */
+
+:root {
+  /* Neutral ramp (slate/ink) */
+  --ink: #1c2230;
+  --slate-900: #232a39;
+  --slate-700: #3c4660;
+  --slate-600: #525d78;
+  --slate-500: #6b748d;
+  --slate-400: #97a0b5;
+  --slate-300: #c3cad8;
+  --slate-200: #dde2ec;
+  --slate-100: #eef1f6;
+  --slate-50: #f7f9fc;
+  --surface: #ffffff;
+  --canvas: #f4f6fa;
+
+  /* Single accent (deep blue-slate) */
+  --accent: #2f4868;
+  --accent-strong: #243a55;
+  --accent-soft: #e7edf5;
+  --accent-contrast: #ffffff;
+
+  /* Semantic */
+  --privacy: #2f6b4f;        /* quiet, confident green — the trust signal */
+  --privacy-soft: #e8f1ec;
+  --warning: #9a6b00;        /* amber — reserved for genuine warnings only */
+  --warning-soft: #fdf3df;
+  --warning-border: #d8a64a;
+  --danger: #9b1c1c;
+  --danger-soft: #fbe9e9;
+  --danger-border: #d99a9a;
+  --info-soft: #eef1f6;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 12px;
+
+  /* Type */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  --font-serif: Georgia, "Times New Roman", "Iowan Old Style", serif;
+
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+
+  --ring: 0 0 0 3px rgba(47, 72, 104, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* A single, consistent keyboard focus ring across the app. */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+  border-radius: var(--radius-sm);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--accent);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sensible defaults so per-element inline styling can be dropped. */
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: var(--text-sm);
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--slate-300);
+  border-radius: var(--radius-sm);
+  padding: 6px 8px;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  accent-color: var(--accent);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--text-sm);
+}
+
+th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--slate-600);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--slate-200);
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--slate-100);
+  color: var(--slate-700);
+}

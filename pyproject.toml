@@ -1,5 +1,5 @@
 [project]
-name = "podcast-transcribe"
+name = "kindtech-transcribe"
 version = "0.1.0"
 description = "Local podcast transcription with speaker diarization and timestamps (WhisperX -> Word doc)"
 readme = "README.md"

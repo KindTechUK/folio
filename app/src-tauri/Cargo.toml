@@ -1,14 +1,14 @@
 [package]
-name = "podcast-transcribe-app"
+name = "kindtech-transcribe-app"
 version = "0.1.0"
 description = "Hardened, zero-egress local transcription app shell (Tauri v2)."
 edition = "2021"
 license = "Apache-2.0"
-default-run = "podcast-transcribe-app"
+default-run = "kindtech-transcribe-app"
 
 # The library that Tauri's mobile/desktop entrypoints share.
 [lib]
-name = "podcast_transcribe_app_lib"
+name = "kindtech_transcribe_app_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]

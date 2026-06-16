@@ -2,7 +2,7 @@
 
 This document is part of the **assurance pack**. It lets an independent reviewer
 (e.g. a law firm's IT / a security auditor) verify for themselves that the
-Podcast Transcribe application makes **no outbound network connections** — that
+Kindtech Transcribe application makes **no outbound network connections** — that
 networking is absent **by construction**, not merely disabled by configuration.
 It addresses PRD user story #24 (compliance officer wants independent
 airplane-mode verification steps).

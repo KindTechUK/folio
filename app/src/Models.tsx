@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import { open } from "@tauri-apps/plugin-dialog";
+import { Button, Chip } from "./ui";
 
 // PR3c: the model-pack trust boundary, surfaced. Lists the packs in the packs
 // dir with their VERIFIED / REJECTED status (decided in Rust by the `modelpack`
@@ -55,54 +56,63 @@ export default function Models() {
 
   return (
     <section>
-      <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: "0.75rem" }}>
-        <button onClick={importPack} style={{ padding: "0.5rem 0.9rem" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "var(--space-3)",
+          alignItems: "center",
+          marginBottom: "var(--space-4)",
+        }}
+      >
+        <Button variant="primary" onClick={importPack}>
           Import model pack…
-        </button>
+        </Button>
         {status && (
-          <span role="status" style={{ color: "#444" }}>
+          <span role="status" style={{ color: "var(--slate-600)" }}>
             {status}
           </span>
         )}
       </div>
 
       {packs.length === 0 ? (
-        <p style={{ color: "#666" }}>
+        <p style={{ color: "var(--slate-500)" }}>
           No model packs installed. Import a signed pack to add a model — unsigned or
           tampered packs are refused.
         </p>
       ) : (
-        <table style={{ borderCollapse: "collapse", width: "100%" }}>
+        <table>
           <thead>
-            <tr style={{ textAlign: "left", borderBottom: "1px solid #ddd" }}>
-              <th style={{ padding: "0.4rem 0.6rem" }}>Status</th>
-              <th style={{ padding: "0.4rem 0.6rem" }}>Model</th>
-              <th style={{ padding: "0.4rem 0.6rem" }}>Engine / task</th>
-              <th style={{ padding: "0.4rem 0.6rem" }}>Attribution</th>
+            <tr>
+              <th>Status</th>
+              <th>Model</th>
+              <th>Engine / task</th>
+              <th>Attribution</th>
             </tr>
           </thead>
           <tbody>
             {packs.map((p) => (
-              <tr key={p.dir} style={{ borderBottom: "1px solid #f0f0f0" }}>
-                <td style={{ padding: "0.4rem 0.6rem", whiteSpace: "nowrap" }}>
+              <tr key={p.dir}>
+                <td style={{ whiteSpace: "nowrap" }}>
                   {p.verified ? (
-                    <span style={{ color: "#1b5e20", fontWeight: 600 }}>✓ verified</span>
+                    <Chip tone="privacy">✓ verified</Chip>
                   ) : (
-                    <span style={{ color: "#b71c1c", fontWeight: 600 }}>✗ rejected</span>
+                    <Chip tone="danger">✗ rejected</Chip>
                   )}
                 </td>
-                <td style={{ padding: "0.4rem 0.6rem" }}>
+                <td>
                   {p.id || p.dir}
-                  {p.version && <span style={{ color: "#888" }}> v{p.version}</span>}
+                  {p.version && <span style={{ color: "var(--slate-400)" }}> v{p.version}</span>}
                   {!p.verified && p.reason && (
-                    <div style={{ color: "#b71c1c", fontSize: "0.85em" }}>{p.reason}</div>
+                    <div style={{ color: "var(--danger)", fontSize: "var(--text-xs)" }}>
+                      {p.reason}
+                    </div>
                   )}
                 </td>
-                <td style={{ padding: "0.4rem 0.6rem", color: "#555" }}>
+                <td>
                   {p.engine || "—"}
                   {p.task && ` / ${p.task}`}
                 </td>
-                <td style={{ padding: "0.4rem 0.6rem", color: "#555" }}>{p.attribution || "—"}</td>
+                <td>{p.attribution || "—"}</td>
               </tr>
             ))}
           </tbody>
