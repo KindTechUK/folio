@@ -16,8 +16,15 @@ models/
 # Node
 node_modules/
 
-# Secrets
+# Secrets — never commit signing private keys (the committed test fixture under
+# fixtures/modelpack/keys/ is already tracked and unaffected by these rules).
 .env
+*.pkcs8.pem
+/keys/
+
+# Built docs site (mkdocs build) + release model-pack staging
+/site/
+/dist-packs/
 
 # Generated transcripts and audio
 out/
