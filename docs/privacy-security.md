@@ -8,7 +8,7 @@ network calls because they link no networking code.
 
 - **No network at runtime.** The app and engine link **no networking crates**. This is
   enforced in CI by a network-crate denylist gate
-  ([`scripts/check-no-network.sh`](https://github.com/billlyzhaoyh/kindtech-transcribe/blob/main/scripts/check-no-network.sh)),
+  ([`scripts/check-no-network.sh`](https://github.com/KindTechUK/folio/blob/main/scripts/check-no-network.sh)),
   and the Tauri webview CSP sets `connect-src 'none'`. You can run the whole pipeline in
   airplane mode.
 - **No telemetry.** Nothing is collected or phoned home.
@@ -20,9 +20,9 @@ network calls because they link no networking code.
 
 !!! note "Build-time vs runtime"
     The `sherpa-onnx` C library is fetched once at **build time** and is intentionally
-    outside the network gate's scope. It is not runtime egress. The legacy Python CLI
-    (`transcribe.py`) *does* download models from Hugging Face on first run and is **not**
-    part of the zero-egress desktop release.
+    outside the network gate's scope. It is not runtime egress. The retired Python
+    pipeline (`archive/transcribe.py`) *does* download models from Hugging Face on first
+    run and is **not** part of the zero-egress desktop release.
 
 ## Assurance pack
 
@@ -42,4 +42,4 @@ repository and is mirrored here:
 Please report security issues **privately** via GitHub's
 [private vulnerability reporting](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability)
 (the **Security** tab → *Report a vulnerability*). See
-[SECURITY.md](https://github.com/billlyzhaoyh/kindtech-transcribe/blob/main/SECURITY.md).
+[SECURITY.md](https://github.com/KindTechUK/folio/blob/main/SECURITY.md).

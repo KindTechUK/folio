@@ -46,4 +46,4 @@ The app (Tauri v2, React 19 frontend) drives an in-process Rust engine built on
 
 ## License
 
-[Apache-2.0](https://github.com/billlyzhaoyh/kindtech-transcribe/blob/main/LICENSE).
+[Apache-2.0](https://github.com/KindTechUK/folio/blob/main/LICENSE).

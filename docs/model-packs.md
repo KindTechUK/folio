@@ -50,7 +50,7 @@ packs with the corresponding private key.
 
 ## Packs shipped with each release
 
-Built by [`scripts/build-model-packs.sh`](https://github.com/billlyzhaoyh/kindtech-transcribe/blob/main/scripts/build-model-packs.sh)
+Built by [`scripts/build-model-packs.sh`](https://github.com/KindTechUK/folio/blob/main/scripts/build-model-packs.sh)
 from upstream [k2-fsa/sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) weights:
 
 | Pack id | task | contents | license |
@@ -89,7 +89,7 @@ cargo run --manifest-path tools/modelpack-sign/Cargo.toml -- verify \
   --pack asr-whisper-small.en --pubkey keys/public.spki.pem
 ```
 
-The reusable [`scripts/build-model-packs.sh`](https://github.com/billlyzhaoyh/kindtech-transcribe/blob/main/scripts/build-model-packs.sh)
+The reusable [`scripts/build-model-packs.sh`](https://github.com/KindTechUK/folio/blob/main/scripts/build-model-packs.sh)
 downloads the upstream weights and builds all three release packs in one go:
 
 ```bash

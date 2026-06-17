@@ -2,9 +2,9 @@ site_name: Folio
 site_description: >-
   Private, on-device podcast & interview transcription. Zero-egress, CPU-only,
   with signed model packs — nothing ever leaves your machine.
-site_url: https://billlyzhaoyh.github.io/kindtech-transcribe/
-repo_url: https://github.com/billlyzhaoyh/kindtech-transcribe
-repo_name: billlyzhaoyh/kindtech-transcribe
+site_url: https://kindtechuk.github.io/folio/
+repo_url: https://github.com/KindTechUK/folio
+repo_name: KindTechUK/folio
 edit_uri: edit/main/docs/
 
 docs_dir: docs

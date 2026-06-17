@@ -14,7 +14,7 @@ please keep that in mind for every change.
 | `engine/` | Rust ASR + speaker diarization over `sherpa-onnx` (CPU-only, no Python at runtime). |
 | `modelpack/` | Rust model-pack **verifier** (fail-closed: validate → sha256 → ed25519 → engine-version gate). Mirrors `core/src/modelpack.ts`. |
 | `tools/modelpack-sign/` | Vendor-side **producer** CLI that creates signed model packs. Reuses `modelpack/` so signer and verifier never drift. Not shipped in the app. |
-| `transcribe.py` | Legacy standalone Python WhisperX CLI (predates the Rust engine). Documented but not part of the released app. |
+| `archive/` | Retired standalone Python WhisperX pipeline (`transcribe.py` + helpers) that predates the Rust engine. Kept for reference; not part of the released app. |
 | `docs/` | Assurance/compliance, design, PRD, and spike docs (also the mkdocs site source). |
 | `scripts/` | Dev/CI helpers, including the zero-egress gate. |
 

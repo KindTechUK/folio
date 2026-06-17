@@ -3,7 +3,7 @@
 ## 1. Download the app
 
 Grab the installer for your OS from the
-[**Releases**](https://github.com/billlyzhaoyh/kindtech-transcribe/releases) page:
+[**Releases**](https://github.com/KindTechUK/folio/releases) page:
 
 | OS | Asset |
 |----|-------|
