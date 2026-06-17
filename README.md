@@ -37,11 +37,11 @@ data-at-rest notes, and a DPIA-support template — lives in
 
 ## Documentation & downloads
 
-- **Docs site:** <https://billlyzhaoyh.github.io/kindtech-transcribe/> — install
+- **Docs site:** <https://kindtechuk.github.io/folio/> — install
   guide, model packs, building from source, and the privacy/assurance pack.
 - **Downloads:** signed model packs and desktop installers (macOS / Windows /
   Linux) are published to
-  [GitHub Releases](https://github.com/billlyzhaoyh/kindtech-transcribe/releases).
+  [GitHub Releases](https://github.com/KindTechUK/folio/releases).
 - **Contributing & security:** see [CONTRIBUTING.md](CONTRIBUTING.md),
   [SECURITY.md](SECURITY.md), and the [Apache-2.0 licence](LICENSE).
 
@@ -74,7 +74,7 @@ data-at-rest notes, and a DPIA-support template — lives in
 | `modelpack/` | Rust model-pack signature/verification crate (mirrors the `core` oracle). |
 | `tools/modelpack-sign/` | Vendor-side CLI to build and sign model packs. |
 | `docs/assurance/` | The compliance / assurance pack. |
-| `transcribe.py` (+ `pyproject.toml`) | **Legacy** macOS Python batch pipeline (see below). |
+| `archive/` | **Retired** Python batch pipeline + helper scripts that predate the app (see below). |
 
 ## Build & run the app (development)
 
@@ -111,23 +111,10 @@ OV Authenticode code-signing for IT-managed (Intune/SCCM) deployment.
 
 ---
 
-## Legacy: Python batch pipeline (`transcribe.py`)
+## Retired: Python batch pipeline
 
-The original macOS-only command-line pipeline predates the app and remains in
-the repo for batch transcription on Apple Silicon. It is **separate** from the
-Folio product above and uses a different stack (WhisperX +
-`pyannote`, producing a Word document). It requires `uv`, `ffmpeg`, and — for
-diarization — a Hugging Face token for the gated `pyannote` models.
-
-```bash
-uv sync
-uv run transcribe.py episode.mp3 -o out/episode.docx --speakers 2
-uv run transcribe.py episode.mp3 --no-diarize          # transcript only
-uv run transcribe.py episode.mp3 --isolate-vocals      # strip music first (Demucs)
-uv run transcribe.py --render-only out/episode.json -o out/episode.docx
-```
-
-Run `uv run transcribe.py --help` for the full flag list. Note: `--isolate-vocals`
-recovers speech buried under music (Demucs `htdemucs`) and is the fix for
-music-bed speech; do **not** tune `--vad-onset`/`--vad-offset` to chase it, as
-that mis-chunks audio and can drop speech.
+The original macOS-only WhisperX + pyannote command-line pipeline predates the app
+and has been moved to [`archive/`](archive/README.md). It is **separate** from Folio,
+uses a different stack, and (unlike Folio) downloads models from Hugging Face on first
+run — so it is **not** covered by the zero-egress guarantee. See
+[`archive/README.md`](archive/README.md) to run it if you still need it.
