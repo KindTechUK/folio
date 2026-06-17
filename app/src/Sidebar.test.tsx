@@ -10,7 +10,8 @@ import Sidebar from "./Sidebar";
 describe("Sidebar", () => {
   it("renders the wordmark, the three nav items, and the privacy chip", () => {
     render(<Sidebar view="library" onNavigate={() => {}} />);
-    expect(screen.getByText("Kindtech")).toBeInTheDocument();
+    expect(screen.getByText("Folio")).toBeInTheDocument();
+    expect(screen.getByText(/© 2026 KindTech/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Library/ })).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: /New transcription/ }),

@@ -44,7 +44,7 @@ export default function Sidebar({
             lineHeight: 1.15,
           }}
         >
-          Kindtech
+          Folio
         </div>
         <div
           style={{
@@ -54,7 +54,7 @@ export default function Sidebar({
             lineHeight: 1.15,
           }}
         >
-          Transcribe
+          Private transcription
         </div>
       </div>
 
@@ -103,6 +103,15 @@ export default function Sidebar({
           }}
         >
           No network access. Audio and transcripts never leave this device.
+        </p>
+        <p
+          style={{
+            margin: "var(--space-3) 0 0",
+            fontSize: "var(--text-xs)",
+            color: "var(--slate-400)",
+          }}
+        >
+          © 2026 KindTech
         </p>
       </div>
     </aside>
