@@ -74,7 +74,6 @@ data-at-rest notes, and a DPIA-support template — lives in
 | `modelpack/` | Rust model-pack signature/verification crate (mirrors the `core` oracle). |
 | `tools/modelpack-sign/` | Vendor-side CLI to build and sign model packs. |
 | `docs/assurance/` | The compliance / assurance pack. |
-| `archive/` | **Retired** Python batch pipeline + helper scripts that predate the app (see below). |
 
 ## Build & run the app (development)
 
@@ -108,13 +107,3 @@ Pre-release. The trust boundary, zero-egress enforcement, review editor, and
 local Library are implemented and tested. **Roadmap**: a production vendor
 signing key (fixtures use a committed TEST key), and Windows MSI packaging with
 OV Authenticode code-signing for IT-managed (Intune/SCCM) deployment.
-
----
-
-## Retired: Python batch pipeline
-
-The original macOS-only WhisperX + pyannote command-line pipeline predates the app
-and has been moved to [`archive/`](archive/README.md). It is **separate** from Folio,
-uses a different stack, and (unlike Folio) downloads models from Hugging Face on first
-run — so it is **not** covered by the zero-egress guarantee. See
-[`archive/README.md`](archive/README.md) to run it if you still need it.

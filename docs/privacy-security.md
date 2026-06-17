@@ -20,9 +20,9 @@ network calls because they link no networking code.
 
 !!! note "Build-time vs runtime"
     The `sherpa-onnx` C library is fetched once at **build time** and is intentionally
-    outside the network gate's scope. It is not runtime egress. The retired Python
-    pipeline (`archive/transcribe.py`) *does* download models from Hugging Face on first
-    run and is **not** part of the zero-egress desktop release.
+    outside the network gate's scope. It is not runtime egress. A separate legacy Python
+    pipeline (not part of Folio) *does* download models from Hugging Face on first run; it
+    is **not** part of the zero-egress desktop release.
 
 ## Assurance pack
 
