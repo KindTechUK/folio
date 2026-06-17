@@ -1,0 +1,78 @@
+site_name: Folio
+site_description: >-
+  Private, on-device podcast & interview transcription. Zero-egress, CPU-only,
+  with signed model packs — nothing ever leaves your machine.
+site_url: https://kindtechuk.github.io/folio/
+repo_url: https://github.com/KindTechUK/folio
+repo_name: KindTechUK/folio
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - content.code.copy
+    - toc.follow
+    - search.suggest
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+
+# Cross-repo links (to source files outside docs/) are expected; keep them as
+# warnings so a stray link never breaks the published site.
+validation:
+  nav:
+    omitted_files: info
+  links:
+    not_found: warn
+    absolute_links: ignore
+    unrecognized_links: ignore
+
+nav:
+  - Home: index.md
+  - Install: install.md
+  - Model packs: model-packs.md
+  - Build from source: build-from-source.md
+  - Privacy & security:
+      - Overview: privacy-security.md
+      - Assurance pack: assurance/README.md
+      - Data flow: assurance/data-flow.md
+      - Data at rest: assurance/data-at-rest.md
+      - Airplane-mode verification: assurance/airplane-mode-verification.md
+      - DPIA support: assurance/dpia-support.md
+      - Non-processor statement: assurance/non-processor-statement.md
+      - Third-party components: assurance/third-party-components.md
+  - Design & planning:
+      - Paragraph editing UX: design/paragraph-editing-ux.md
+      - PRD — local private transcription: prd/local-private-transcription.md
+      - sherpa-onnx spike: spikes/sherpa-onnx-spike.md
+      - Vibe fork plan: plans/vibe-fork-plan.md
