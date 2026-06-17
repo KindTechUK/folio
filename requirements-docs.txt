@@ -1,0 +1,5 @@
+# Docs site dependencies (mkdocs + Material theme).
+# Build locally:  pip install -r requirements-docs.txt && mkdocs build --strict
+# CI publishes via .github/workflows/docs.yml.
+mkdocs>=1.6.1
+mkdocs-material>=9.5.0

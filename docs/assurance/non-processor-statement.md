@@ -8,7 +8,7 @@
 ## The assertion
 
 The vendor (Kindtech) asserts that, in respect of the audio the firm
-transcribes with *Kindtech Transcribe*, **the vendor is not a data processor**
+transcribes with *Folio*, **the vendor is not a data processor**
 and **not a data controller** under the UK GDPR and the Data Protection Act
 2018, because **the vendor never receives, accesses, stores, or otherwise
 processes any of that personal data**.

@@ -1,4 +1,6 @@
-# Kindtech Transcribe
+# Folio
+
+_An open-source product by [KindTech](https://github.com/KindTechUK)._
 
 **Private, fully-local transcription and human review for organisations that
 handle sensitive recordings.** Audio and transcripts are processed entirely on
@@ -33,6 +35,16 @@ independently runnable airplane-mode verification, component/licence inventory,
 data-at-rest notes, and a DPIA-support template — lives in
 [`docs/assurance/`](docs/assurance/README.md).
 
+## Documentation & downloads
+
+- **Docs site:** <https://kindtechuk.github.io/folio/> — install
+  guide, model packs, building from source, and the privacy/assurance pack.
+- **Downloads:** signed model packs and desktop installers (macOS / Windows /
+  Linux) are published to
+  [GitHub Releases](https://github.com/KindTechUK/folio/releases).
+- **Contributing & security:** see [CONTRIBUTING.md](CONTRIBUTING.md),
+  [SECURITY.md](SECURITY.md), and the [Apache-2.0 licence](LICENSE).
+
 ## What it does
 
 - **In-app decode** to 16 kHz mono via pure-Rust `symphonia` + `rubato` — no
@@ -62,7 +74,6 @@ data-at-rest notes, and a DPIA-support template — lives in
 | `modelpack/` | Rust model-pack signature/verification crate (mirrors the `core` oracle). |
 | `tools/modelpack-sign/` | Vendor-side CLI to build and sign model packs. |
 | `docs/assurance/` | The compliance / assurance pack. |
-| `transcribe.py` (+ `pyproject.toml`) | **Legacy** macOS Python batch pipeline (see below). |
 
 ## Build & run the app (development)
 
@@ -96,26 +107,3 @@ Pre-release. The trust boundary, zero-egress enforcement, review editor, and
 local Library are implemented and tested. **Roadmap**: a production vendor
 signing key (fixtures use a committed TEST key), and Windows MSI packaging with
 OV Authenticode code-signing for IT-managed (Intune/SCCM) deployment.
-
----
-
-## Legacy: Python batch pipeline (`transcribe.py`)
-
-The original macOS-only command-line pipeline predates the app and remains in
-the repo for batch transcription on Apple Silicon. It is **separate** from the
-Kindtech Transcribe product above and uses a different stack (WhisperX +
-`pyannote`, producing a Word document). It requires `uv`, `ffmpeg`, and — for
-diarization — a Hugging Face token for the gated `pyannote` models.
-
-```bash
-uv sync
-uv run transcribe.py episode.mp3 -o out/episode.docx --speakers 2
-uv run transcribe.py episode.mp3 --no-diarize          # transcript only
-uv run transcribe.py episode.mp3 --isolate-vocals      # strip music first (Demucs)
-uv run transcribe.py --render-only out/episode.json -o out/episode.docx
-```
-
-Run `uv run transcribe.py --help` for the full flag list. Note: `--isolate-vocals`
-recovers speech buried under music (Demucs `htdemucs`) and is the fix for
-music-bed speech; do **not** tune `--vad-onset`/`--vad-offset` to chase it, as
-that mis-chunks audio and can drop speech.
