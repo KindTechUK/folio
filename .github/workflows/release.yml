@@ -74,6 +74,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      # Install the frontend deps (incl. @tauri-apps/cli) so `npm run tauri build`
+      # — which tauri-action invokes — can find the `tauri` binary. Without this
+      # the build dies with "tauri: command not found" (exit 127).
+      - name: Install frontend deps
+        working-directory: app
+        run: npm ci
       - name: Install Linux bundling deps
         if: matrix.platform == 'ubuntu-latest'
         run: |
