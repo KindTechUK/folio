@@ -25,6 +25,30 @@ use sherpa_onnx::{
 // never drift.
 use crate::{EMB_MODEL, SEG_MODEL, VAD_MODEL};
 
+/// VAD segmentation tuning per model family, as
+/// `(min_silence_duration_s, max_speech_duration_s)`.
+///
+/// `min_silence_duration` is the "redemption" time: how long a pause must last
+/// before a speech segment is closed. `max_speech_duration` caps a segment's
+/// length (Silero cuts at the cap).
+///
+/// Folio is an offline/import workflow (no live-caption latency budget), so for
+/// the default transducer path (Parakeet) we bridge natural pauses into longer,
+/// more coherent segments — better ASR context and cleaner review paragraphs.
+/// The Whisper path is left at its validated params: it MUST stay under the 30 s
+/// decode window, so a raised cap there would silently truncate audio.
+fn vad_params(is_transducer: bool) -> (f32, f32) {
+    if is_transducer {
+        // Offline transducer: ~0.8 s redemption bridges breaths/hesitations;
+        // 120 s cap has plenty of headroom (Parakeet has no 30 s window) while
+        // still bounding memory and keeping progress ticks flowing.
+        (0.8, 120.0)
+    } else {
+        // Whisper: keep under the 30 s window (the original spike params).
+        (0.25, 25.0)
+    }
+}
+
 /// Concrete engine bound to a `models/` directory and a config (model choice,
 /// thread count).
 pub struct SherpaEngine {
@@ -98,16 +122,19 @@ impl SherpaEngine {
             .ok_or_else(|| EngineError::Sherpa("create OfflineRecognizer returned None".into()).into())
     }
 
-    /// VAD-chunk `samples` into `(start_sample, chunk_samples)` speech segments
-    /// (spike params: threshold 0.5, min_silence/min_speech 0.25, max_speech
-    /// 25.0 to stay under Whisper's 30 s window).
+    /// VAD-chunk `samples` into `(start_sample, chunk_samples)` speech segments.
+    /// Silence/max-length params are model-aware (see [`vad_params`]): Whisper
+    /// stays under its 30 s window; the offline transducer path bridges pauses
+    /// into longer, coherent segments.
     fn vad_chunks(&self, samples: &[f32], sample_rate: u32) -> anyhow::Result<Vec<(usize, Vec<f32>)>> {
+        let (min_silence_duration, max_speech_duration) =
+            vad_params(self.asr_model.is_transducer());
         let mut silero = SileroVadModelConfig::default();
         silero.model = Some(self.model_path(VAD_MODEL));
         silero.threshold = 0.5;
-        silero.min_silence_duration = 0.25;
+        silero.min_silence_duration = min_silence_duration;
         silero.min_speech_duration = 0.25;
-        silero.max_speech_duration = 25.0;
+        silero.max_speech_duration = max_speech_duration;
 
         let window = if silero.window_size > 0 {
             silero.window_size as usize
@@ -336,6 +363,22 @@ impl TranscriptionEngine for SherpaEngine {
 mod new_tests {
     use super::*;
     use crate::AsrModel;
+
+    /// VAD params are model-aware: Whisper must stay under its 30 s window; the
+    /// offline transducer path may run long and bridges pauses at least as much.
+    #[test]
+    fn vad_params_are_model_aware() {
+        let (whisper_sil, whisper_max) = vad_params(false);
+        assert_eq!(whisper_max, 25.0, "whisper cap must be the validated 25s");
+        assert!(whisper_max < 30.0, "whisper must stay under its 30s window");
+
+        let (par_sil, par_max) = vad_params(true);
+        assert!(par_max > 30.0, "transducer has no 30s limit — allow long segments");
+        assert!(
+            par_sil >= whisper_sil,
+            "transducer bridges pauses at least as aggressively as whisper"
+        );
+    }
 
     /// Lay down EMPTY placeholder files at every relative path the engine needs
     /// for the DEFAULT model WITHOUT diarization (its ASR files + Silero VAD).
