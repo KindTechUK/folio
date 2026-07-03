@@ -11,7 +11,7 @@ use tauri::{AppHandle, Emitter};
 use crate::models;
 
 /// Map a frontend model name to an [`engine::AsrModel`], defaulting to the engine
-/// default (`small.en`) for `None`/unrecognized values. Accepts the same aliases
+/// default (`parakeet`) for `None`/unrecognized values. Accepts the same aliases
 /// as the engine example's `--model` flag.
 fn parse_asr_model(name: Option<&str>) -> engine::AsrModel {
     match name.map(|s| s.trim().to_ascii_lowercase()).as_deref() {
@@ -46,11 +46,12 @@ fn debug_models_dir_override() -> Option<std::path::PathBuf> {
 /// speaker labels. Pass `diarize = Some(true)` to opt into speaker detection;
 /// `num_speakers = None` then lets the engine auto-detect.
 ///
-/// `model` selects the ASR model: `"small.en"` / `"medium.en"` (Whisper) or
-/// `"parakeet"` (Parakeet-TDT-v2, English, much faster on CPU with native word
-/// timestamps). `None`/unrecognized falls back to the default (`small.en`).
-/// NOTE: the default is intentionally NOT yet flipped to Parakeet — that awaits
-/// a true-WER check on real client audio (see models/run_asr_bench.sh).
+/// `model` selects the ASR model: `"parakeet"` (Parakeet-TDT-v2, English, the
+/// DEFAULT — fastest on CPU with native word timestamps) or `"small.en"` /
+/// `"medium.en"` (Whisper, for non-English or hard/noisy audio).
+/// `None`/unrecognized falls back to the default (`parakeet`).
+/// NOTE: because the transcribe path loads ONLY verified signed packs, a signed
+/// Parakeet pack must be shipped or the resolver fails closed on the default.
 #[tauri::command]
 pub async fn transcribe(
     app: AppHandle,
