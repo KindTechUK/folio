@@ -1,8 +1,8 @@
 # Release pipeline — triggered by pushing a version tag (e.g. v0.1.0).
 #
 # Produces, on the GitHub Release for the tag:
-#   • signed model packs  (asr-whisper-small.en, asr-whisper-medium.en,
-#     diarization-pyannote-campplus) + SHA256SUMS
+#   • signed model packs  (asr-parakeet-tdt-0.6b-v2, asr-whisper-small.en,
+#     asr-whisper-medium.en, diarization-pyannote-campplus) + SHA256SUMS
 #   • desktop installers for macOS (.dmg), Windows (.exe), Linux (.AppImage/.deb)
 #
 # The app and the packs share ONE ed25519 keypair (see docs/model-packs.md):
