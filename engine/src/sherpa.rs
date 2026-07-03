@@ -15,8 +15,9 @@ use std::path::{Path, PathBuf};
 use sherpa_onnx::{
     FastClusteringConfig, OfflineRecognizer, OfflineRecognizerConfig, OfflineSpeakerDiarization,
     OfflineSpeakerDiarizationConfig, OfflineSpeakerSegmentationModelConfig,
-    OfflineSpeakerSegmentationPyannoteModelConfig, OfflineWhisperModelConfig,
-    SileroVadModelConfig, SpeakerEmbeddingExtractorConfig, VadModelConfig, VoiceActivityDetector,
+    OfflineSpeakerSegmentationPyannoteModelConfig, OfflineTransducerModelConfig,
+    OfflineWhisperModelConfig, SileroVadModelConfig, SpeakerEmbeddingExtractorConfig,
+    VadModelConfig, VoiceActivityDetector,
 };
 
 // Model file names — the single source of truth lives in `crate` (lib.rs), so
@@ -58,21 +59,37 @@ impl SherpaEngine {
     }
 
     fn build_recognizer(&self) -> anyhow::Result<OfflineRecognizer> {
-        let stem = self.asr_model.stem();
         let asr_dir = self.models_dir.join(self.asr_model.dir());
-        let p = |name: String| asr_dir.join(name).to_string_lossy().into_owned();
+        let p = |name: &str| asr_dir.join(name).to_string_lossy().into_owned();
 
         let mut config = OfflineRecognizerConfig::default();
-        config.model_config.whisper = OfflineWhisperModelConfig {
-            encoder: Some(p(format!("{stem}-encoder.int8.onnx"))),
-            decoder: Some(p(format!("{stem}-decoder.int8.onnx"))),
-            language: Some(String::new()), // .en models: empty == default
-            task: Some("transcribe".to_string()),
-            tail_paddings: 0,
-            enable_token_timestamps: true, // spike: word-level timing source
-            enable_segment_timestamps: false,
-        };
-        config.model_config.tokens = Some(p(format!("{stem}-tokens.txt")));
+        if self.asr_model.is_transducer() {
+            // NeMo Parakeet-TDT transducer. `model_type` MUST be
+            // "nemo_transducer" for the TDT/RNN-T NeMo export. `greedy_search`
+            // is deliberate: sherpa-onnx #3267 documents modified_beam_search
+            // hallucinating / returning empty ~20% of the time on Parakeet-TDT.
+            // Native per-token timestamps come back in the result with no flag.
+            config.model_config.transducer = OfflineTransducerModelConfig {
+                encoder: Some(p("encoder.int8.onnx")),
+                decoder: Some(p("decoder.int8.onnx")),
+                joiner: Some(p("joiner.int8.onnx")),
+            };
+            config.model_config.model_type = Some("nemo_transducer".to_string());
+            config.model_config.tokens = Some(p("tokens.txt"));
+            config.decoding_method = Some("greedy_search".to_string());
+        } else {
+            let stem = self.asr_model.stem();
+            config.model_config.whisper = OfflineWhisperModelConfig {
+                encoder: Some(p(&format!("{stem}-encoder.int8.onnx"))),
+                decoder: Some(p(&format!("{stem}-decoder.int8.onnx"))),
+                language: Some(String::new()), // .en models: empty == default
+                task: Some("transcribe".to_string()),
+                tail_paddings: 0,
+                enable_token_timestamps: true, // spike: word-level timing source
+                enable_segment_timestamps: false,
+            };
+            config.model_config.tokens = Some(p(&format!("{stem}-tokens.txt")));
+        }
         config.model_config.provider = Some("cpu".to_string());
         config.model_config.num_threads = self.num_threads;
         config.model_config.debug = false;
@@ -146,8 +163,11 @@ fn group_tokens_to_words(
         let mut cur_start: Option<f64> = None;
         let mut cur_end: f64 = 0.0;
         for (tok, &ts) in tokens.iter().zip(timestamps.iter()) {
-            let is_new = tok.starts_with(' ') || tok.starts_with('Ġ');
-            let clean = tok.replace('Ġ', " ");
+            // Word-start markers: Whisper BPE uses a leading space / `Ġ`;
+            // Parakeet's SentencePiece uses `▁` (U+2581). Handle both so the
+            // same grouping serves the Whisper and transducer paths.
+            let is_new = tok.starts_with(' ') || tok.starts_with('Ġ') || tok.starts_with('▁');
+            let clean = tok.replace('Ġ', " ").replace('▁', " ");
             if is_new && !cur_word.trim().is_empty() {
                 words.push(Word {
                     word: cur_word.trim().to_string(),

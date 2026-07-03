@@ -25,7 +25,7 @@ use engine::{load_wav_16k_mono, process, AsrModel, EngineConfig, SherpaEngine};
 fn usage() -> ! {
     eprintln!(
         "usage: transcribe_file <wav_16k_mono> <out.json> \
-         [--speakers N] [--model small.en|medium.en] [--threads N] [--models-dir DIR]"
+         [--speakers N] [--model small.en|medium.en|parakeet] [--threads N] [--models-dir DIR]"
     );
     exit(2);
 }
@@ -65,8 +65,9 @@ fn main() -> anyhow::Result<()> {
                 asr_model = match v.as_str() {
                     "small.en" | "small" | "SmallEn" => AsrModel::SmallEn,
                     "medium.en" | "medium" | "MediumEn" => AsrModel::MediumEn,
+                    "parakeet" | "parakeet-v2" | "ParakeetV2" => AsrModel::ParakeetV2,
                     other => {
-                        eprintln!("unknown --model {other:?} (want small.en|medium.en)");
+                        eprintln!("unknown --model {other:?} (want small.en|medium.en|parakeet)");
                         exit(2);
                     }
                 };
