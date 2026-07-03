@@ -50,7 +50,7 @@ fn main() -> anyhow::Result<()> {
     };
 
     let mut num_speakers: Option<u32> = None;
-    let mut asr_model = AsrModel::SmallEn;
+    let mut asr_model = AsrModel::default();
     let mut num_threads: i32 = 4;
     let mut models_dir = default_models_dir();
 

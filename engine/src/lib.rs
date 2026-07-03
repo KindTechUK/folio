@@ -103,8 +103,10 @@ pub struct AsrSegment {
     pub words: Vec<Word>,
 }
 
-/// Which ASR model to use. Default is `SmallEn` (the spike recommendation:
-/// best RTF/quality trade on CPU among the Whisper models).
+/// Which ASR model to use. Default is `ParakeetV2` (English): on CPU it is the
+/// fastest by far and the only one of our models that emits native word-level
+/// timestamps. `SmallEn`/`MediumEn` (Whisper) remain available for non-English
+/// or hard/noisy audio.
 ///
 /// Two families are supported through the SAME sherpa-onnx `OfflineRecognizer`:
 /// the Whisper encoder/decoder models (`SmallEn`/`MediumEn`) and the NeMo
@@ -113,14 +115,15 @@ pub struct AsrSegment {
 /// [`sherpa::SherpaEngine::build_recognizer`]).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub enum AsrModel {
-    #[default]
     SmallEn,
     MediumEn,
     /// NVIDIA Parakeet-TDT-0.6B-v2 (English), an int8 NeMo transducer run via
     /// sherpa-onnx. On CPU it is ~6x faster than `small.en` and ~24x faster than
     /// `medium.en` (see `models/run_asr_bench.sh`) and emits NATIVE word-level
     /// timestamps — unlike our int8 Whisper decoders, which lack cross-attention
-    /// outputs and fall back to spread timings. Trade-off: English-only.
+    /// outputs and fall back to spread timings. The default. Trade-off:
+    /// English-only, so callers handling other languages must select Whisper.
+    #[default]
     ParakeetV2,
 }
 
@@ -180,7 +183,8 @@ impl AsrModel {
 }
 
 /// Engine configuration. `num_threads` defaults to 4 and `asr_model` to
-/// `SmallEn` (the spike defaults).
+/// `ParakeetV2` (the fastest CPU model with native word timestamps; select a
+/// Whisper model for non-English audio).
 #[derive(Debug, Clone)]
 pub struct EngineConfig {
     /// Directory holding all model files (the project's `models/`).

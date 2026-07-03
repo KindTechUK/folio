@@ -338,9 +338,10 @@ mod new_tests {
     use crate::AsrModel;
 
     /// Lay down EMPTY placeholder files at every relative path the engine needs
-    /// for `small.en` WITHOUT diarization (the 3 ASR files + Silero VAD).
+    /// for the DEFAULT model WITHOUT diarization (its ASR files + Silero VAD).
+    /// Uses `AsrModel::default()` so the test tracks whichever model is default.
     fn write_asr_vad_placeholders(root: &Path) {
-        for rel in crate::required_model_files(AsrModel::SmallEn, false) {
+        for rel in crate::required_model_files(AsrModel::default(), false) {
             let p = root.join(&rel);
             if let Some(parent) = p.parent() {
                 std::fs::create_dir_all(parent).unwrap();
