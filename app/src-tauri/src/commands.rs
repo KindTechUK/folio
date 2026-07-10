@@ -5,7 +5,7 @@
 //! network call is made. The command is what gives the network-crate gate a
 //! real dependency graph (app -> engine -> sherpa-onnx) to scan.
 
-use engine::{decode_to_16k_mono, process, EngineConfig, SherpaEngine};
+use engine::{decode_to_16k_mono_with_progress, process, EngineConfig, SherpaEngine};
 use tauri::{AppHandle, Emitter};
 
 use crate::models;
@@ -82,11 +82,6 @@ pub async fn transcribe(
             #[cfg(debug_assertions)]
             {
                 if let Some(raw) = debug_models_dir_override() {
-                    // No-op progress note that we are bypassing pack verification.
-                    let _ = resolve_app.emit(
-                        "transcribe-progress",
-                        engine::Progress::new("decoding", 0, 1, 0.0),
-                    );
                     raw
                 } else {
                     models::resolve_verified_models_dir(&resolve_app, cfg.asr_model, cfg.diarize)?
@@ -100,12 +95,24 @@ pub async fn transcribe(
         cfg.models_dir = models_dir;
 
         let sherpa = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
-        let (samples, sample_rate) = decode_to_16k_mono(&path).map_err(|e| e.to_string())?;
-        process(&sherpa, &samples, sample_rate, &cfg, &move |p| {
-            // Best-effort: a dropped progress event must never fail the job.
+
+        // One progress sink for the whole job (best-effort: a dropped event must
+        // never fail transcription). Decode drives [0, PROGRESS_DECODE_END];
+        // model-load / VAD / transcription fractions come from the engine.
+        let progress = move |p: engine::Progress| {
             let _ = app.emit("transcribe-progress", p);
+        };
+        progress(engine::Progress::new("decoding", 0, 0, 0.0)); // show the bar at once
+        let (samples, sample_rate) = decode_to_16k_mono_with_progress(&path, &|f| {
+            progress(engine::Progress::new(
+                "decoding",
+                0,
+                0,
+                engine::PROGRESS_DECODE_END * f.clamp(0.0, 1.0),
+            ));
         })
-        .map_err(|e| e.to_string())
+        .map_err(|e| e.to_string())?;
+        process(&sherpa, &samples, sample_rate, &cfg, &progress).map_err(|e| e.to_string())
     })
     .await
     .map_err(|e| format!("transcription task failed: {e}"))?

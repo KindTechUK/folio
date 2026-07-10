@@ -6,7 +6,13 @@
 // rough ETA. Kept side-effect-free so it is unit-testable without Tauri/jsdom
 // (the live `listen(...)` wiring in App.tsx is verified manually via `tauri dev`).
 
-export type ProgressStage = "decoding" | "transcribing" | "diarizing" | "done";
+export type ProgressStage =
+  | "decoding"
+  | "loading"
+  | "segmenting"
+  | "transcribing"
+  | "diarizing"
+  | "done";
 
 export interface Progress {
   stage: string;
@@ -26,6 +32,8 @@ export interface ProgressView {
 
 const STAGE_LABELS: Record<string, string> = {
   decoding: "Decoding audio…",
+  loading: "Loading model…",
+  segmenting: "Detecting speech…",
   transcribing: "Transcribing…",
   diarizing: "Detecting speakers…",
   done: "Done",

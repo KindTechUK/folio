@@ -126,7 +126,12 @@ impl SherpaEngine {
     /// Silence/max-length params are model-aware (see [`vad_params`]): Whisper
     /// stays under its 30 s window; the offline transducer path bridges pauses
     /// into longer, coherent segments.
-    fn vad_chunks(&self, samples: &[f32], sample_rate: u32) -> anyhow::Result<Vec<(usize, Vec<f32>)>> {
+    fn vad_chunks(
+        &self,
+        samples: &[f32],
+        sample_rate: u32,
+        progress: &ProgressSink<'_>,
+    ) -> anyhow::Result<Vec<(usize, Vec<f32>)>> {
         let (min_silence_duration, max_speech_duration) =
             vad_params(self.asr_model.is_transducer());
         let mut silero = SileroVadModelConfig::default();
@@ -156,11 +161,25 @@ impl SherpaEngine {
             .ok_or_else(|| EngineError::Sherpa("create VoiceActivityDetector returned None".into()))?;
 
         let mut chunks: Vec<(usize, Vec<f32>)> = Vec::new();
+        // Emit "segmenting" progress across [PROGRESS_DECODE_END, PROGRESS_VAD_END]
+        // as the full-file VAD pass advances (throttled to whole-percent steps).
+        let total = samples.len().max(1);
+        let mut processed = 0usize;
+        let mut last_pct: u32 = u32::MAX;
         for chunk in samples.chunks(window) {
             vad.accept_waveform(chunk);
             while let Some(seg) = vad.front() {
                 chunks.push((seg.start().max(0) as usize, seg.samples().to_vec()));
                 vad.pop();
+            }
+            processed += chunk.len();
+            let pct = (100 * processed / total) as u32;
+            if pct != last_pct {
+                last_pct = pct;
+                let frac = crate::PROGRESS_DECODE_END
+                    + (crate::PROGRESS_VAD_END - crate::PROGRESS_DECODE_END)
+                        * (processed as f32 / total as f32);
+                progress(Progress::new("segmenting", processed as u32, total as u32, frac));
             }
         }
         vad.flush();
@@ -248,21 +267,26 @@ impl TranscriptionEngine for SherpaEngine {
         sample_rate: u32,
         progress: &ProgressSink<'_>,
     ) -> anyhow::Result<Vec<AsrSegment>> {
+        // Loading the model (esp. the ~600 MB Parakeet encoder) is a real, silent
+        // wait; surface it as its own "loading" step holding at the decode/VAD
+        // boundary instead of a frozen "decoding 0%".
+        progress(Progress::new("loading", 0, 0, crate::PROGRESS_DECODE_END));
         let recognizer = self.build_recognizer()?;
         let chunks = self
-            .vad_chunks(samples, sample_rate)
+            .vad_chunks(samples, sample_rate, progress)
             .context("VAD chunking")?;
 
         let total = chunks.len() as u32;
         let mut segments = Vec::new();
         for (k, (start_sample, chunk)) in chunks.iter().enumerate() {
-            // One progress tick per VAD chunk. Scale into [0, 0.9] so the bar
-            // leaves headroom for the diarizing/done markers `process` emits.
+            // One tick per VAD chunk, filling [PROGRESS_VAD_END,
+            // PROGRESS_TRANSCRIBE_END] and leaving headroom for diarize/done.
             let done = (k + 1) as u32;
+            let span = crate::PROGRESS_TRANSCRIBE_END - crate::PROGRESS_VAD_END;
             let frac = if total > 0 {
-                0.9 * (done as f32 / total as f32)
+                crate::PROGRESS_VAD_END + span * (done as f32 / total as f32)
             } else {
-                0.9
+                crate::PROGRESS_TRANSCRIBE_END
             };
             progress(Progress::new("transcribing", done, total, frac));
 

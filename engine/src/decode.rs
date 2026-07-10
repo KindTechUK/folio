@@ -32,14 +32,27 @@ pub const TARGET_SAMPLE_RATE: u32 = 16_000;
 /// Returns `(samples, 16_000)`. Channels are averaged to mono and the signal is
 /// resampled to 16 kHz; if the source is already 16 kHz, resampling is skipped.
 pub fn decode_to_16k_mono(path: impl AsRef<Path>) -> anyhow::Result<(Vec<f32>, u32)> {
+    decode_to_16k_mono_with_progress(path, &|_| {})
+}
+
+/// Like [`decode_to_16k_mono`] but reports LOCAL progress in `[0, 1]` as the file
+/// is decoded and resampled — so a long file no longer shows a frozen bar. The
+/// caller maps this local fraction onto its global band (see `PROGRESS_DECODE_END`).
+/// Decode occupies the first ~85% of the local range, resampling the tail.
+pub fn decode_to_16k_mono_with_progress(
+    path: impl AsRef<Path>,
+    progress: &dyn Fn(f32),
+) -> anyhow::Result<(Vec<f32>, u32)> {
     let path = path.as_ref();
-    let (mono, src_rate) = decode_to_mono(path)?;
-    let samples = resample_to_16k(&mono, src_rate)?;
+    let (mono, src_rate) = decode_to_mono(path, &|f| progress(0.85 * f))?;
+    let samples = resample_to_16k(&mono, src_rate, &|f| progress(0.85 + 0.15 * f))?;
     Ok((samples, TARGET_SAMPLE_RATE))
 }
 
 /// Decode `path` to mono `f32`, returning `(mono_samples, source_sample_rate)`.
-fn decode_to_mono(path: &Path) -> anyhow::Result<(Vec<f32>, u32)> {
+/// `report` is called with decode progress in `[0, 1]` (best-effort: only when
+/// the container declares a total frame count; otherwise it stays at 0).
+fn decode_to_mono(path: &Path, report: &dyn Fn(f32)) -> anyhow::Result<(Vec<f32>, u32)> {
     let file = std::fs::File::open(path)
         .map_err(|e| EngineError::Audio(format!("opening {}: {e}", path.display())))?;
     let mss = MediaSourceStream::new(Box::new(file), Default::default());
@@ -65,6 +78,9 @@ fn decode_to_mono(path: &Path) -> anyhow::Result<(Vec<f32>, u32)> {
         .find(|t| t.codec_params.codec != CODEC_TYPE_NULL)
         .ok_or_else(|| EngineError::Audio("no decodable audio track found".into()))?;
     let track_id = track.id;
+    // Total per-channel frame count when the container declares it, so we can
+    // report decode progress (mono.len() == frames appended so far).
+    let total_frames = track.codec_params.n_frames;
 
     let mut decoder = symphonia::default::get_codecs()
         .make(&track.codec_params, &DecoderOptions::default())
@@ -72,6 +88,7 @@ fn decode_to_mono(path: &Path) -> anyhow::Result<(Vec<f32>, u32)> {
 
     let mut mono: Vec<f32> = Vec::new();
     let mut src_rate: Option<u32> = None;
+    let mut last_pct: u32 = u32::MAX;
 
     loop {
         let packet = match format.next_packet() {
@@ -97,6 +114,14 @@ fn decode_to_mono(path: &Path) -> anyhow::Result<(Vec<f32>, u32)> {
                     src_rate = Some(decoded.spec().rate);
                 }
                 downmix_into(&decoded, &mut mono);
+                // Best-effort decode progress, throttled to whole-percent steps.
+                if let Some(total) = total_frames.filter(|&t| t > 0) {
+                    let pct = (100 * mono.len() as u64 / total) as u32;
+                    if pct != last_pct {
+                        last_pct = pct;
+                        report((mono.len() as f64 / total as f64).min(1.0) as f32);
+                    }
+                }
             }
             // Recoverable decode hiccups: skip the packet (mirrors symphonia docs).
             Err(symphonia::core::errors::Error::DecodeError(_)) => continue,
@@ -163,18 +188,25 @@ where
 }
 
 /// Resample mono `f32` from `src_rate` to 16 kHz. No-op if already 16 kHz.
-fn resample_to_16k(mono: &[f32], src_rate: u32) -> anyhow::Result<Vec<f32>> {
+/// `report` receives resample progress in `[0, 1]`.
+fn resample_to_16k(mono: &[f32], src_rate: u32, report: &dyn Fn(f32)) -> anyhow::Result<Vec<f32>> {
     if src_rate == TARGET_SAMPLE_RATE {
+        report(1.0);
         return Ok(mono.to_vec());
     }
-    resample(mono, src_rate, TARGET_SAMPLE_RATE)
+    resample(mono, src_rate, TARGET_SAMPLE_RATE, report)
 }
 
 /// Fixed-ratio resample of a single mono channel using rubato's FFT resampler.
 ///
 /// Processes in the resampler's fixed input-chunk size; the final partial chunk
 /// is zero-padded. Output length is approximately `len * dst / src`.
-fn resample(mono: &[f32], src_rate: u32, dst_rate: u32) -> anyhow::Result<Vec<f32>> {
+fn resample(
+    mono: &[f32],
+    src_rate: u32,
+    dst_rate: u32,
+    report: &dyn Fn(f32),
+) -> anyhow::Result<Vec<f32>> {
     if mono.is_empty() {
         return Ok(Vec::new());
     }
@@ -186,6 +218,8 @@ fn resample(mono: &[f32], src_rate: u32, dst_rate: u32) -> anyhow::Result<Vec<f3
     let mut out: Vec<f32> = Vec::with_capacity(mono.len() * dst_rate as usize / src_rate as usize + 1);
     let mut pos = 0usize;
     let mut in_buf: Vec<Vec<f32>> = vec![Vec::new()];
+    let total = mono.len();
+    let mut last_pct: u32 = u32::MAX;
 
     while pos < mono.len() {
         let need = resampler.input_frames_next();
@@ -201,6 +235,11 @@ fn resample(mono: &[f32], src_rate: u32, dst_rate: u32) -> anyhow::Result<Vec<f3
             .map_err(|e| EngineError::Audio(format!("resampling: {e}")))?;
         out.extend_from_slice(&resampled[0]);
         pos += consumed;
+        let pct = (100 * pos / total) as u32;
+        if pct != last_pct {
+            last_pct = pct;
+            report((pos as f32 / total as f32).min(1.0));
+        }
     }
 
     Ok(out)
@@ -220,7 +259,7 @@ mod tests {
             .map(|i| (2.0 * std::f32::consts::PI * freq * i as f32 / src_rate as f32).sin())
             .collect();
 
-        let out = resample(&sine, src_rate, 16_000).unwrap();
+        let out = resample(&sine, src_rate, 16_000, &|_| {}).unwrap();
         let expected = n / 3;
         let lo = (expected as f32 * 0.97) as usize;
         let hi = (expected as f32 * 1.03) as usize;
@@ -236,7 +275,7 @@ mod tests {
     #[test]
     fn resample_is_noop_at_16k() {
         let mono = vec![0.1, -0.2, 0.3, -0.4];
-        let out = resample_to_16k(&mono, 16_000).unwrap();
+        let out = resample_to_16k(&mono, 16_000, &|_| {}).unwrap();
         assert_eq!(out, mono);
     }
 
