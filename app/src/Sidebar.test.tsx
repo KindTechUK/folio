@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 
 // Sidebar is a pure presentational nav (no Tauri), so it renders straight in
 // jsdom. These tests pin the shell's navigation contract: the nav items, the
-// active-state signalling (aria-pressed), the onNavigate callback, and the
+// active-state signalling (aria-current), the onNavigate callback, and the
 // always-visible privacy signal.
 
 describe("Sidebar", () => {
@@ -12,32 +12,29 @@ describe("Sidebar", () => {
     render(<Sidebar view="library" onNavigate={() => {}} />);
     expect(screen.getByText("Folio")).toBeInTheDocument();
     expect(screen.getByText(/© 2026 KindTech/)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /Library/ })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Matters/ })).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /New transcription/ }),
+      screen.getByRole("button", { name: /Import recording/ }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /Models/ })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Models & settings/ })).toBeInTheDocument();
     expect(screen.getByText(/Local only/)).toBeInTheDocument();
   });
 
-  it("marks only the active view with aria-pressed", () => {
+  it("marks only the active view with aria-current", () => {
     render(<Sidebar view="models" onNavigate={() => {}} />);
-    expect(screen.getByRole("button", { name: /Models/ })).toHaveAttribute(
-      "aria-pressed",
-      "true",
+    expect(screen.getByRole("button", { name: /Models & settings/ })).toHaveAttribute(
+      "aria-current",
+      "page",
     );
-    expect(screen.getByRole("button", { name: /Library/ })).toHaveAttribute(
-      "aria-pressed",
-      "false",
-    );
+    expect(screen.getByRole("button", { name: /Matters/ })).not.toHaveAttribute("aria-current");
   });
 
   it("calls onNavigate with the clicked view id", () => {
     const onNavigate = vi.fn();
     render(<Sidebar view="library" onNavigate={onNavigate} />);
-    fireEvent.click(screen.getByRole("button", { name: /New transcription/ }));
+    fireEvent.click(screen.getByRole("button", { name: /Import recording/ }));
     expect(onNavigate).toHaveBeenCalledWith("transcribe");
-    fireEvent.click(screen.getByRole("button", { name: /Models/ }));
+    fireEvent.click(screen.getByRole("button", { name: /Models & settings/ }));
     expect(onNavigate).toHaveBeenCalledWith("models");
   });
 });

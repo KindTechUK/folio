@@ -1,10 +1,10 @@
 /*
  * Design tokens + base layer for Folio.
  *
- * Calm-professional direction for a UK law-firm buyer: a restrained slate/ink
- * neutral ramp, one deep blue-slate accent, generous whitespace, a system serif
- * for the wordmark. ZERO-EGRESS: only system font stacks — no web fonts, no
- * external CSS. Bundled by Vite and allowed by the CSP (`style-src 'self'`).
+ * Calm Windows-professional direction for a UK law-firm buyer: a restrained
+ * slate/ink neutral ramp, one deep blue-slate accent, and familiar Segoe UI
+ * typography. ZERO-EGRESS: only system font stacks — no web fonts or external
+ * CSS. Bundled by Vite and allowed by the CSP (`style-src 'self'`).
  */
 
 :root {
@@ -54,9 +54,8 @@
   --radius-lg: 12px;
 
   /* Type */
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+  --font-sans: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial,
     sans-serif;
-  --font-serif: Georgia, "Times New Roman", "Iowan Old Style", serif;
 
   --text-xs: 12px;
   --text-sm: 13px;
@@ -98,10 +97,10 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   color: var(--ink);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 a {
@@ -110,6 +109,18 @@ a {
 
 .tabular {
   font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Sensible defaults so per-element inline styling can be dropped. */
