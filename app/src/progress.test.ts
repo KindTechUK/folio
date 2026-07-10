@@ -13,6 +13,8 @@ function p(stage: string, fraction: number): Progress {
 describe("progressView", () => {
   it("maps each stage to a human label", () => {
     expect(progressView(p("decoding", 0), 0).label).toBe("Decoding audio…");
+    expect(progressView(p("loading", 0.15), 1).label).toBe("Loading model…");
+    expect(progressView(p("segmenting", 0.2), 1).label).toBe("Detecting speech…");
     expect(progressView(p("transcribing", 0.5), 1).label).toBe("Transcribing…");
     expect(progressView(p("diarizing", 0.95), 1).label).toBe("Detecting speakers…");
     expect(progressView(p("done", 1), 1).label).toBe("Done");

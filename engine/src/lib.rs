@@ -16,7 +16,7 @@ pub mod decode;
 pub mod merge;
 pub mod sherpa;
 
-pub use decode::decode_to_16k_mono;
+pub use decode::{decode_to_16k_mono, decode_to_16k_mono_with_progress};
 pub use sherpa::SherpaEngine;
 
 /// A progress update emitted during the pipeline so the UI can render a
@@ -51,6 +51,17 @@ impl Progress {
 /// A progress sink: a `Sync` callback so it can be shared across the
 /// `spawn_blocking` boundary in the Tauri command. Tests pass a no-op `&|_| {}`.
 pub type ProgressSink<'a> = dyn Fn(Progress) + Sync + 'a;
+
+/// Progress-bar fraction bands, so the pipeline's phases map onto ONE monotonic
+/// [0,1] bar with honest per-phase advancement (see the `transcribe` command and
+/// [`sherpa::SherpaEngine::transcribe`]): decode → `[0, DECODE_END]`, model load
+/// holds at `DECODE_END` ("loading"), VAD → `[DECODE_END, VAD_END]`
+/// ("segmenting"), transcription → `[VAD_END, TRANSCRIBE_END]`, then
+/// diarize/done fill the remainder. Before this, the whole prefix showed a
+/// single frozen "decoding 0%".
+pub const PROGRESS_DECODE_END: f32 = 0.15;
+pub const PROGRESS_VAD_END: f32 = 0.30;
+pub const PROGRESS_TRANSCRIBE_END: f32 = 0.95;
 
 /// A single recognized word with timing and (optionally) its diarized speaker.
 ///
@@ -296,10 +307,10 @@ pub fn process<E: TranscriptionEngine>(
     cfg: &EngineConfig,
     progress: &ProgressSink<'_>,
 ) -> anyhow::Result<Transcript> {
-    // The decode has already happened by the time `process` is called with
-    // samples; emit a 0% `decoding` marker so the bar starts at a known stage.
-    progress(Progress::new("decoding", 0, 1, 0.0));
-
+    // Decode progress is emitted by the caller (it owns the file→samples step)
+    // and model-load/VAD/transcription progress by the engine, all onto the
+    // shared PROGRESS_* bands. `process` just forwards those and brackets the
+    // optional diarize step, then emits `done`.
     let asr = engine.transcribe(samples, sample_rate, progress)?;
 
     let transcript = if cfg.diarize {
@@ -453,8 +464,9 @@ mod process_tests {
         let events = events.into_inner().unwrap();
         assert!(events.len() >= 4, "expected several progress events");
 
-        // First stage is decoding, last is done at 100%.
-        assert_eq!(events.first().unwrap().stage, "decoding");
+        // Last event is done at 100%. (decode/load/VAD progress is emitted by
+        // the caller/engine, not `process`, so the first event here is the
+        // mock's transcribing tick.)
         let last = events.last().unwrap();
         assert_eq!(last.stage, "done");
         assert_eq!(last.fraction, 1.0);
