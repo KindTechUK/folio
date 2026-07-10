@@ -10,6 +10,20 @@ use tauri::{AppHandle, Emitter};
 
 use crate::models;
 
+/// Map a frontend model name to an [`engine::AsrModel`], defaulting to the engine
+/// default (`parakeet`) for `None`/unrecognized values. Accepts the same aliases
+/// as the engine example's `--model` flag.
+fn parse_asr_model(name: Option<&str>) -> engine::AsrModel {
+    match name.map(|s| s.trim().to_ascii_lowercase()).as_deref() {
+        Some("parakeet") | Some("parakeet-v2") | Some("parakeet-tdt-0.6b-v2") => {
+            engine::AsrModel::ParakeetV2
+        }
+        Some("medium.en") | Some("medium") => engine::AsrModel::MediumEn,
+        Some("small.en") | Some("small") => engine::AsrModel::SmallEn,
+        _ => engine::AsrModel::default(),
+    }
+}
+
 /// DEBUG-ONLY raw models dir override: when `KINDTECH_MODELS_DIR` is set in a
 /// debug build, the transcribe path uses it RAW (dev/demo convenience), skipping
 /// verified-pack resolution. NEVER consulted in a release/hardened build.
@@ -30,14 +44,21 @@ fn debug_models_dir_override() -> Option<std::path::PathBuf> {
 /// `diarize` defaults to `false` (paragraph QA mode — speaker detection on real
 /// audio was poor enough to hurt; see PR #4): the transcript comes back with no
 /// speaker labels. Pass `diarize = Some(true)` to opt into speaker detection;
-/// `num_speakers = None` then lets the engine auto-detect. Uses the default ASR
-/// model (`small.en`).
+/// `num_speakers = None` then lets the engine auto-detect.
+///
+/// `model` selects the ASR model: `"parakeet"` (Parakeet-TDT-v2, English, the
+/// DEFAULT — fastest on CPU with native word timestamps) or `"small.en"` /
+/// `"medium.en"` (Whisper, for non-English or hard/noisy audio).
+/// `None`/unrecognized falls back to the default (`parakeet`).
+/// NOTE: because the transcribe path loads ONLY verified signed packs, a signed
+/// Parakeet pack must be shipped or the resolver fails closed on the default.
 #[tauri::command]
 pub async fn transcribe(
     app: AppHandle,
     path: String,
     num_speakers: Option<u32>,
     diarize: Option<bool>,
+    model: Option<String>,
 ) -> Result<engine::Transcript, String> {
     // `models_dir` is left UNSET here on purpose: it is resolved INSIDE
     // spawn_blocking (verified-pack extraction may be large — keep the UI thread
@@ -45,6 +66,7 @@ pub async fn transcribe(
     let mut cfg = EngineConfig::new("");
     cfg.num_speakers = num_speakers;
     cfg.diarize = diarize.unwrap_or(false);
+    cfg.asr_model = parse_asr_model(model.as_deref());
 
     // Clone for the resolver/emit closure (AppHandle is Clone + Send).
     let resolve_app = app.clone();

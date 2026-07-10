@@ -15,14 +15,39 @@ use std::path::{Path, PathBuf};
 use sherpa_onnx::{
     FastClusteringConfig, OfflineRecognizer, OfflineRecognizerConfig, OfflineSpeakerDiarization,
     OfflineSpeakerDiarizationConfig, OfflineSpeakerSegmentationModelConfig,
-    OfflineSpeakerSegmentationPyannoteModelConfig, OfflineWhisperModelConfig,
-    SileroVadModelConfig, SpeakerEmbeddingExtractorConfig, VadModelConfig, VoiceActivityDetector,
+    OfflineSpeakerSegmentationPyannoteModelConfig, OfflineTransducerModelConfig,
+    OfflineWhisperModelConfig, SileroVadModelConfig, SpeakerEmbeddingExtractorConfig,
+    VadModelConfig, VoiceActivityDetector,
 };
 
 // Model file names — the single source of truth lives in `crate` (lib.rs), so
 // the runtime path-building here and the resolver's required-file list can
 // never drift.
 use crate::{EMB_MODEL, SEG_MODEL, VAD_MODEL};
+
+/// VAD segmentation tuning per model family, as
+/// `(min_silence_duration_s, max_speech_duration_s)`.
+///
+/// `min_silence_duration` is the "redemption" time: how long a pause must last
+/// before a speech segment is closed. `max_speech_duration` caps a segment's
+/// length (Silero cuts at the cap).
+///
+/// Folio is an offline/import workflow (no live-caption latency budget), so for
+/// the default transducer path (Parakeet) we bridge natural pauses into longer,
+/// more coherent segments — better ASR context and cleaner review paragraphs.
+/// The Whisper path is left at its validated params: it MUST stay under the 30 s
+/// decode window, so a raised cap there would silently truncate audio.
+fn vad_params(is_transducer: bool) -> (f32, f32) {
+    if is_transducer {
+        // Offline transducer: ~0.8 s redemption bridges breaths/hesitations;
+        // 120 s cap has plenty of headroom (Parakeet has no 30 s window) while
+        // still bounding memory and keeping progress ticks flowing.
+        (0.8, 120.0)
+    } else {
+        // Whisper: keep under the 30 s window (the original spike params).
+        (0.25, 25.0)
+    }
+}
 
 /// Concrete engine bound to a `models/` directory and a config (model choice,
 /// thread count).
@@ -58,21 +83,37 @@ impl SherpaEngine {
     }
 
     fn build_recognizer(&self) -> anyhow::Result<OfflineRecognizer> {
-        let stem = self.asr_model.stem();
         let asr_dir = self.models_dir.join(self.asr_model.dir());
-        let p = |name: String| asr_dir.join(name).to_string_lossy().into_owned();
+        let p = |name: &str| asr_dir.join(name).to_string_lossy().into_owned();
 
         let mut config = OfflineRecognizerConfig::default();
-        config.model_config.whisper = OfflineWhisperModelConfig {
-            encoder: Some(p(format!("{stem}-encoder.int8.onnx"))),
-            decoder: Some(p(format!("{stem}-decoder.int8.onnx"))),
-            language: Some(String::new()), // .en models: empty == default
-            task: Some("transcribe".to_string()),
-            tail_paddings: 0,
-            enable_token_timestamps: true, // spike: word-level timing source
-            enable_segment_timestamps: false,
-        };
-        config.model_config.tokens = Some(p(format!("{stem}-tokens.txt")));
+        if self.asr_model.is_transducer() {
+            // NeMo Parakeet-TDT transducer. `model_type` MUST be
+            // "nemo_transducer" for the TDT/RNN-T NeMo export. `greedy_search`
+            // is deliberate: sherpa-onnx #3267 documents modified_beam_search
+            // hallucinating / returning empty ~20% of the time on Parakeet-TDT.
+            // Native per-token timestamps come back in the result with no flag.
+            config.model_config.transducer = OfflineTransducerModelConfig {
+                encoder: Some(p("encoder.int8.onnx")),
+                decoder: Some(p("decoder.int8.onnx")),
+                joiner: Some(p("joiner.int8.onnx")),
+            };
+            config.model_config.model_type = Some("nemo_transducer".to_string());
+            config.model_config.tokens = Some(p("tokens.txt"));
+            config.decoding_method = Some("greedy_search".to_string());
+        } else {
+            let stem = self.asr_model.stem();
+            config.model_config.whisper = OfflineWhisperModelConfig {
+                encoder: Some(p(&format!("{stem}-encoder.int8.onnx"))),
+                decoder: Some(p(&format!("{stem}-decoder.int8.onnx"))),
+                language: Some(String::new()), // .en models: empty == default
+                task: Some("transcribe".to_string()),
+                tail_paddings: 0,
+                enable_token_timestamps: true, // spike: word-level timing source
+                enable_segment_timestamps: false,
+            };
+            config.model_config.tokens = Some(p(&format!("{stem}-tokens.txt")));
+        }
         config.model_config.provider = Some("cpu".to_string());
         config.model_config.num_threads = self.num_threads;
         config.model_config.debug = false;
@@ -81,16 +122,19 @@ impl SherpaEngine {
             .ok_or_else(|| EngineError::Sherpa("create OfflineRecognizer returned None".into()).into())
     }
 
-    /// VAD-chunk `samples` into `(start_sample, chunk_samples)` speech segments
-    /// (spike params: threshold 0.5, min_silence/min_speech 0.25, max_speech
-    /// 25.0 to stay under Whisper's 30 s window).
+    /// VAD-chunk `samples` into `(start_sample, chunk_samples)` speech segments.
+    /// Silence/max-length params are model-aware (see [`vad_params`]): Whisper
+    /// stays under its 30 s window; the offline transducer path bridges pauses
+    /// into longer, coherent segments.
     fn vad_chunks(&self, samples: &[f32], sample_rate: u32) -> anyhow::Result<Vec<(usize, Vec<f32>)>> {
+        let (min_silence_duration, max_speech_duration) =
+            vad_params(self.asr_model.is_transducer());
         let mut silero = SileroVadModelConfig::default();
         silero.model = Some(self.model_path(VAD_MODEL));
         silero.threshold = 0.5;
-        silero.min_silence_duration = 0.25;
+        silero.min_silence_duration = min_silence_duration;
         silero.min_speech_duration = 0.25;
-        silero.max_speech_duration = 25.0;
+        silero.max_speech_duration = max_speech_duration;
 
         let window = if silero.window_size > 0 {
             silero.window_size as usize
@@ -146,8 +190,11 @@ fn group_tokens_to_words(
         let mut cur_start: Option<f64> = None;
         let mut cur_end: f64 = 0.0;
         for (tok, &ts) in tokens.iter().zip(timestamps.iter()) {
-            let is_new = tok.starts_with(' ') || tok.starts_with('Ġ');
-            let clean = tok.replace('Ġ', " ");
+            // Word-start markers: Whisper BPE uses a leading space / `Ġ`;
+            // Parakeet's SentencePiece uses `▁` (U+2581). Handle both so the
+            // same grouping serves the Whisper and transducer paths.
+            let is_new = tok.starts_with(' ') || tok.starts_with('Ġ') || tok.starts_with('▁');
+            let clean = tok.replace('Ġ', " ").replace('▁', " ");
             if is_new && !cur_word.trim().is_empty() {
                 words.push(Word {
                     word: cur_word.trim().to_string(),
@@ -317,10 +364,27 @@ mod new_tests {
     use super::*;
     use crate::AsrModel;
 
+    /// VAD params are model-aware: Whisper must stay under its 30 s window; the
+    /// offline transducer path may run long and bridges pauses at least as much.
+    #[test]
+    fn vad_params_are_model_aware() {
+        let (whisper_sil, whisper_max) = vad_params(false);
+        assert_eq!(whisper_max, 25.0, "whisper cap must be the validated 25s");
+        assert!(whisper_max < 30.0, "whisper must stay under its 30s window");
+
+        let (par_sil, par_max) = vad_params(true);
+        assert!(par_max > 30.0, "transducer has no 30s limit — allow long segments");
+        assert!(
+            par_sil >= whisper_sil,
+            "transducer bridges pauses at least as aggressively as whisper"
+        );
+    }
+
     /// Lay down EMPTY placeholder files at every relative path the engine needs
-    /// for `small.en` WITHOUT diarization (the 3 ASR files + Silero VAD).
+    /// for the DEFAULT model WITHOUT diarization (its ASR files + Silero VAD).
+    /// Uses `AsrModel::default()` so the test tracks whichever model is default.
     fn write_asr_vad_placeholders(root: &Path) {
-        for rel in crate::required_model_files(AsrModel::SmallEn, false) {
+        for rel in crate::required_model_files(AsrModel::default(), false) {
             let p = root.join(&rel);
             if let Some(parent) = p.parent() {
                 std::fs::create_dir_all(parent).unwrap();

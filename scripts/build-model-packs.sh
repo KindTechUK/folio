@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 # build-model-packs.sh — download upstream sherpa-onnx weights and produce the
-# three SIGNED model packs the app distributes.
+# SIGNED model packs the app distributes.
 #
 # Each pack is a directory of { manifest.json, weights.bin } produced by
 # tools/modelpack-sign. The staged layout MUST mirror the engine's
 # `required_model_files()` (engine/src/lib.rs), because the pack zip is extracted
 # verbatim into the verified-models cache:
 #
+#   asr-parakeet-tdt-0.6b-v2/ sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/{encoder,decoder,joiner}.int8.onnx
+#                           sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/tokens.txt
+#                           silero_vad.onnx            (the DEFAULT ASR model)
 #   asr-whisper-small.en/   sherpa-onnx-whisper-small.en/{small.en-encoder,small.en-decoder}.int8.onnx
 #                           sherpa-onnx-whisper-small.en/small.en-tokens.txt
 #                           silero_vad.onnx
@@ -63,6 +66,30 @@ build_asr() {
     --attribution "OpenAI Whisper ${model}.en (MIT) + Silero VAD (MIT); packaged by k2-fsa/sherpa-onnx"
 }
 
+# Parakeet-TDT-0.6B-v2 (English) — the DEFAULT ASR model. NeMo transducer, so
+# the layout is encoder/decoder/joiner + tokens (no `<stem>-` prefix). Same
+# sherpa-onnx engine as the Whisper packs; license is CC-BY-4.0 (NVIDIA).
+build_parakeet() {
+  local dir="sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
+  echo "==> ASR pack: parakeet-tdt-0.6b-v2 (int8, default)"
+  dl "$BASE/asr-models/${dir}.tar.bz2" "$work/${dir}.tar.bz2"
+  tar xjf "$work/${dir}.tar.bz2" -C "$work"
+  local stage="$work/stage-parakeet"
+  mkdir -p "$stage/${dir}"
+  cp "$work/${dir}/encoder.int8.onnx" "$stage/${dir}/"
+  cp "$work/${dir}/decoder.int8.onnx" "$stage/${dir}/"
+  cp "$work/${dir}/joiner.int8.onnx"  "$stage/${dir}/"
+  cp "$work/${dir}/tokens.txt"        "$stage/${dir}/"
+  cp "$work/silero_vad.onnx" "$stage/"
+  "${SIGN[@]}" pack \
+    --model-dir "$stage" --out "$OUT/asr-parakeet-tdt-0.6b-v2" --key "$KEY" \
+    --id "asr-parakeet-tdt-0.6b-v2" --version "$VERSION" \
+    --engine "$ENGINE" --engine-min-version "$ENGINE_MIN" \
+    --task asr --license "CC-BY-4.0" \
+    --attribution "NVIDIA Parakeet-TDT-0.6B-v2 (CC-BY-4.0) + Silero VAD (MIT); ONNX export & packaging by k2-fsa/sherpa-onnx"
+}
+
+build_parakeet
 build_asr small
 build_asr medium
 
