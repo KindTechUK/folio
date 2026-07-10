@@ -103,36 +103,88 @@ pub struct AsrSegment {
     pub words: Vec<Word>,
 }
 
-/// Which Whisper model to use. Default is `SmallEn` (the spike recommendation:
-/// best RTF/quality trade on CPU).
+/// Which ASR model to use. Default is `ParakeetV2` (English): on CPU it is the
+/// fastest by far and the only one of our models that emits native word-level
+/// timestamps. `SmallEn`/`MediumEn` (Whisper) remain available for non-English
+/// or hard/noisy audio.
+///
+/// Two families are supported through the SAME sherpa-onnx `OfflineRecognizer`:
+/// the Whisper encoder/decoder models (`SmallEn`/`MediumEn`) and the NeMo
+/// transducer `ParakeetV2`. They differ only in the recognizer config and the
+/// on-disk file layout (see [`AsrModel::asr_files`] and
+/// [`sherpa::SherpaEngine::build_recognizer`]).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub enum AsrModel {
-    #[default]
     SmallEn,
     MediumEn,
+    /// NVIDIA Parakeet-TDT-0.6B-v2 (English), an int8 NeMo transducer run via
+    /// sherpa-onnx. On CPU it is ~6x faster than `small.en` and ~24x faster than
+    /// `medium.en` (see `models/run_asr_bench.sh`) and emits NATIVE word-level
+    /// timestamps — unlike our int8 Whisper decoders, which lack cross-attention
+    /// outputs and fall back to spread timings. The default. Trade-off:
+    /// English-only, so callers handling other languages must select Whisper.
+    #[default]
+    ParakeetV2,
 }
 
 impl AsrModel {
-    /// Model subdirectory name under `models_dir` and the file-name stem the
-    /// downloaded models use, e.g. `sherpa-onnx-whisper-small.en` /
-    /// `small.en-encoder.int8.onnx`.
+    /// Model subdirectory name under `models_dir`, e.g.
+    /// `sherpa-onnx-whisper-small.en` or
+    /// `sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8`.
     pub fn dir(&self) -> &'static str {
         match self {
             AsrModel::SmallEn => "sherpa-onnx-whisper-small.en",
             AsrModel::MediumEn => "sherpa-onnx-whisper-medium.en",
+            AsrModel::ParakeetV2 => "sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8",
         }
     }
 
+    /// Whisper file-name stem (e.g. `small.en` in `small.en-encoder.int8.onnx`).
+    /// A Whisper-only naming concept; the transducer layout has no stem, so
+    /// `ParakeetV2` returns a display-only identifier that is NOT used to build
+    /// file paths (see [`AsrModel::asr_files`]).
     pub fn stem(&self) -> &'static str {
         match self {
             AsrModel::SmallEn => "small.en",
             AsrModel::MediumEn => "medium.en",
+            AsrModel::ParakeetV2 => "parakeet-tdt-0.6b-v2",
+        }
+    }
+
+    /// True for NeMo transducer models (encoder/decoder/joiner + greedy decode,
+    /// native word timestamps) vs Whisper encoder/decoder models.
+    pub fn is_transducer(&self) -> bool {
+        matches!(self, AsrModel::ParakeetV2)
+    }
+
+    /// The model-relative ASR file paths (relative to `models_dir`), NOT
+    /// including the Silero VAD or diarization models. Whisper models use the
+    /// `<stem>-encoder/decoder/tokens` layout; transducer models use
+    /// `encoder/decoder/joiner.int8.onnx` + `tokens.txt`. This is the single
+    /// source of truth [`required_model_files`] builds on.
+    pub fn asr_files(&self) -> Vec<String> {
+        let dir = self.dir();
+        if self.is_transducer() {
+            vec![
+                format!("{dir}/encoder.int8.onnx"),
+                format!("{dir}/decoder.int8.onnx"),
+                format!("{dir}/joiner.int8.onnx"),
+                format!("{dir}/tokens.txt"),
+            ]
+        } else {
+            let stem = self.stem();
+            vec![
+                format!("{dir}/{stem}-encoder.int8.onnx"),
+                format!("{dir}/{stem}-decoder.int8.onnx"),
+                format!("{dir}/{stem}-tokens.txt"),
+            ]
         }
     }
 }
 
 /// Engine configuration. `num_threads` defaults to 4 and `asr_model` to
-/// `SmallEn` (the spike defaults).
+/// `ParakeetV2` (the fastest CPU model with native word timestamps; select a
+/// Whisper model for non-English audio).
 #[derive(Debug, Clone)]
 pub struct EngineConfig {
     /// Directory holding all model files (the project's `models/`).
@@ -177,18 +229,13 @@ pub const EMB_MODEL: &str = "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx";
 /// [`SherpaEngine::new`]'s existence check and the verified-pack resolver, so
 /// the two can never drift.
 ///
-/// Always: the ASR encoder/decoder/tokens (under `<asr_model.dir()>/`) and the
-/// Silero VAD model. When `diarize`: also the pyannote segmentation and
+/// Always: the model's ASR files (via [`AsrModel::asr_files`] — Whisper's
+/// encoder/decoder/tokens, or a transducer's encoder/decoder/joiner/tokens) and
+/// the Silero VAD model. When `diarize`: also the pyannote segmentation and
 /// 3D-Speaker embedding models.
 pub fn required_model_files(asr_model: AsrModel, diarize: bool) -> Vec<String> {
-    let dir = asr_model.dir();
-    let stem = asr_model.stem();
-    let mut files = vec![
-        format!("{dir}/{stem}-encoder.int8.onnx"),
-        format!("{dir}/{stem}-decoder.int8.onnx"),
-        format!("{dir}/{stem}-tokens.txt"),
-        VAD_MODEL.to_string(),
-    ];
+    let mut files = asr_model.asr_files();
+    files.push(VAD_MODEL.to_string());
     if diarize {
         files.push(SEG_MODEL.to_string());
         files.push(EMB_MODEL.to_string());
@@ -433,5 +480,31 @@ mod process_tests {
     fn progress_new_clamps_fraction() {
         assert_eq!(Progress::new("decoding", 0, 1, 2.0).fraction, 1.0);
         assert_eq!(Progress::new("decoding", 0, 1, -1.0).fraction, 0.0);
+    }
+
+    #[test]
+    fn parakeet_uses_transducer_file_layout() {
+        // Transducer layout: encoder/decoder/joiner + tokens (no `<stem>-`
+        // prefix), plus Silero VAD. NO Whisper-style `-encoder.int8.onnx`.
+        let files = required_model_files(AsrModel::ParakeetV2, false);
+        let dir = "sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8";
+        assert!(files.contains(&format!("{dir}/encoder.int8.onnx")));
+        assert!(files.contains(&format!("{dir}/decoder.int8.onnx")));
+        assert!(files.contains(&format!("{dir}/joiner.int8.onnx")), "transducer needs a joiner");
+        assert!(files.contains(&format!("{dir}/tokens.txt")));
+        assert!(files.contains(&VAD_MODEL.to_string()));
+        assert!(AsrModel::ParakeetV2.is_transducer());
+        assert!(
+            !files.iter().any(|f| f.contains("-encoder.int8.onnx")),
+            "transducer must not use the Whisper <stem>-encoder naming: {files:?}"
+        );
+    }
+
+    #[test]
+    fn whisper_still_uses_stem_layout_and_is_not_transducer() {
+        let files = required_model_files(AsrModel::SmallEn, false);
+        assert!(files.contains(&"sherpa-onnx-whisper-small.en/small.en-encoder.int8.onnx".to_string()));
+        assert!(!AsrModel::SmallEn.is_transducer());
+        assert!(!files.iter().any(|f| f.ends_with("joiner.int8.onnx")));
     }
 }
