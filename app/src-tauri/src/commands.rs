@@ -32,6 +32,37 @@ fn debug_models_dir_override() -> Option<std::path::PathBuf> {
     std::env::var("KINDTECH_MODELS_DIR").ok().map(std::path::PathBuf::from)
 }
 
+/// Report a usable raw-model override to the frontend in development builds.
+///
+/// This keeps the import preflight honest when developers run with
+/// `KINDTECH_MODELS_DIR`: the UI only enables transcription when every file the
+/// selected engine model needs is actually present. Release builds always return
+/// `None` and rely exclusively on verified signed packs.
+#[tauri::command]
+pub fn debug_asr_model_override() -> Option<String> {
+    #[cfg(debug_assertions)]
+    {
+        let dir = debug_models_dir_override()?;
+        for (model, name) in [
+            (engine::AsrModel::ParakeetV2, "parakeet"),
+            (engine::AsrModel::SmallEn, "small.en"),
+            (engine::AsrModel::MediumEn, "medium.en"),
+        ] {
+            if engine::required_model_files(model, false)
+                .iter()
+                .all(|file| dir.join(file).is_file())
+            {
+                return Some(name.to_string());
+            }
+        }
+        None
+    }
+    #[cfg(not(debug_assertions))]
+    {
+        None
+    }
+}
+
 /// Transcribe an audio file (wav/mp3/m4a/mp4/flac/ogg…) into the project's JSON
 /// contract.
 ///
