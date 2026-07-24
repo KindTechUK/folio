@@ -19,27 +19,23 @@ import type { History } from "./history";
 import { buildSession } from "./session";
 import type { SessionJson } from "./session";
 import Editor from "./Editor";
-import Models from "./Models";
+import Models, { selectAsrModel } from "./Models";
+import type { PackStatus } from "./Models";
 import Library from "./Library";
 import Sidebar from "./Sidebar";
 import type { View } from "./Sidebar";
 import { Banner, Button, Chip } from "./ui";
 
-// PR3b: the review-editor flow. Pick audio -> invoke("transcribe") ->
-// loadTranscript -> render <Editor>. All edit behaviour is driven by the tested
-// core reducer; this component only owns the EditorState and the audio src.
-// PR3c: a "Models" view that lists/verifies signed model packs (trust boundary).
-// Shell: a left sidebar (Library / New transcription / Models) with a pinned
-// privacy chip; Library is the landing view so past matters are the home screen.
-
-// Static per-view page header copy (title + subtitle).
 const HEADINGS: Record<View, { title: string; subtitle: string }> = {
-  library: { title: "Library", subtitle: "Your saved matters, stored on this device." },
+  library: { title: "Matters", subtitle: "Recordings and transcripts stored on this device." },
   transcribe: {
-    title: "New transcription",
-    subtitle: "Transcribe an audio file entirely on this device.",
+    title: "Import recording",
+    subtitle: "Create a private transcript without uploading the recording.",
   },
-  models: { title: "Models", subtitle: "Signed, verified model packs." },
+  models: {
+    title: "Models & settings",
+    subtitle: "Manage the signed model packs available to Folio.",
+  },
 };
 
 // Session id generator: prefers the platform UUID; falls back to a
@@ -51,11 +47,9 @@ function newId(): string {
   );
 }
 
-// Mirrors the Rust `EncryptionStatus` struct returned by the
-// `volume_encryption_status` command. `state` is "encrypted" | "unencrypted" |
-// "unknown"; we warn unless it is confirmed "encrypted".
+// Mirrors the Rust `EncryptionStatus` struct returned by `volume_encryption_status`.
 interface EncryptionStatus {
-  state: string;
+  state: "encrypted" | "unencrypted" | "unknown";
   detail: string;
 }
 
@@ -86,6 +80,10 @@ export default function App() {
   const [diarized, setDiarized] = useState(false);
   // Determinate progress for the in-flight transcription (null = not running).
   const [progress, setProgress] = useState<ProgressView | null>(null);
+  const [installedAsrModel, setInstalledAsrModel] = useState<string | null>(null);
+  const [debugAsrModel, setDebugAsrModel] = useState<string | null>(null);
+  const [modelsChecked, setModelsChecked] = useState(false);
+  const asrModel = debugAsrModel ?? installedAsrModel;
   // Metadata for the currently loaded library session (null = unsaved/none).
   // Drives debounced auto-save and ties a loaded matter to its saved entry.
   const [currentSessionMeta, setCurrentSessionMeta] = useState<{
@@ -94,6 +92,11 @@ export default function App() {
     audioPath: string;
     diarized: boolean;
   } | null>(null);
+
+  function updateModelStatus(packs: PackStatus[]) {
+    setInstalledAsrModel(selectAsrModel(packs));
+    setModelsChecked(true);
+  }
 
   // On mount, check whether the volume holding the app is encrypted. This is a
   // soft advisory: on macOS/dev it returns the "Windows only" variant. Tauri
@@ -114,6 +117,19 @@ export default function App() {
     return () => {
       cancelled = true;
     };
+  }, []);
+
+  useEffect(() => {
+    void Promise.all([
+      invoke<PackStatus[]>("list_model_packs"),
+      invoke<string | null>("debug_asr_model_override"),
+    ])
+      .then(([packs, debugModel]) => {
+        setInstalledAsrModel(selectAsrModel(packs));
+        setDebugAsrModel(debugModel);
+        setModelsChecked(true);
+      })
+      .catch(() => setModelsChecked(true));
   }, []);
 
   // Debounced auto-save: whenever the edited state changes for a saved session,
@@ -201,9 +217,10 @@ export default function App() {
   }
 
   async function pickAndTranscribe() {
-    setHistory(null);
-    setCurrentSessionMeta(null);
-    setProgress(null);
+    if (!asrModel) {
+      setStatus("error: install a verified transcription model before choosing a recording");
+      return;
+    }
     setStatus("selecting file…");
     const path = await open({
       multiple: false,
@@ -218,9 +235,12 @@ export default function App() {
       ],
     });
     if (typeof path !== "string") {
-      setStatus("idle");
+      setStatus(state ? "review open" : "idle");
       return;
     }
+    setHistory(null);
+    setCurrentSessionMeta(null);
+    setProgress(null);
     const parsedCount = parseInt(speakerCount, 10);
     const num_speakers =
       detectSpeakers && Number.isFinite(parsedCount) && parsedCount > 0
@@ -243,6 +263,7 @@ export default function App() {
         path,
         diarize: detectSpeakers,
         num_speakers,
+        model: asrModel,
       });
       // Build the editor state once and reuse it for both the live history and
       // the saved copy, so the persisted session matches what is on screen.
@@ -275,6 +296,18 @@ export default function App() {
 
   const showEncryptionWarning =
     encryption && encryption.state !== "encrypted" && !encryptionDismissed;
+  const heading =
+    view === "transcribe" && state
+      ? {
+          title: "Review transcript",
+          subtitle: "Listen, correct, and verify the machine-generated draft.",
+        }
+      : HEADINGS[view];
+  const statusTone = status.startsWith("error")
+    ? "danger"
+    : status.startsWith("done") || status.startsWith("opened")
+      ? "privacy"
+      : "neutral";
 
   return (
     <div style={{ display: "flex", minHeight: "100vh", background: "var(--canvas)" }}>
@@ -284,16 +317,16 @@ export default function App() {
         style={{
           flex: 1,
           minWidth: 0,
-          padding: "var(--space-6) var(--space-7)",
+          padding: "var(--space-5)",
           overflowX: "hidden",
         }}
       >
-        <header style={{ maxWidth: 960, marginBottom: "var(--space-5)" }}>
+        <header style={{ maxWidth: 1040, marginBottom: "var(--space-5)" }}>
           <h1 style={{ margin: 0, fontSize: "var(--text-2xl)" }}>
-            {HEADINGS[view].title}
+            {heading.title}
           </h1>
           <p style={{ margin: "var(--space-2) 0 0", color: "var(--slate-500)" }}>
-            {HEADINGS[view].subtitle}
+            {heading.subtitle}
           </p>
         </header>
 
@@ -305,90 +338,147 @@ export default function App() {
             onDismiss={() => setEncryptionDismissed(true)}
             dismissLabel="dismiss encryption warning"
             dismissTestid="dismiss-encryption-warning"
-            style={{ maxWidth: 960, marginBottom: "var(--space-4)" }}
+            style={{ maxWidth: 1040, marginBottom: "var(--space-4)" }}
           >
             This volume is not confirmed BitLocker-encrypted. For
             client-confidential matters, store and run on an encrypted volume.{" "}
-            <span style={{ opacity: 0.8 }}>({encryption!.detail})</span>
+            <span style={{ opacity: 0.8 }}>({encryption.detail})</span>
           </Banner>
         )}
 
-        <div style={{ maxWidth: 960 }}>
+        <div style={{ maxWidth: 1040 }}>
           {view === "transcribe" ? (
             <>
-              <div
-                style={{
-                  display: "flex",
-                  gap: "var(--space-3)",
-                  alignItems: "center",
-                  flexWrap: "wrap",
-                }}
-              >
-                <Button variant="primary" onClick={pickAndTranscribe}>
-                  Open audio → transcribe
-                </Button>
-                <Chip tone="neutral">{status}</Chip>
-                {state && (
-                  <Button
-                    variant="danger"
-                    data-testid="delete-matter"
-                    onClick={() => void deleteMatter()}
-                    style={{ marginLeft: "auto" }}
-                  >
-                    Delete matter
-                  </Button>
-                )}
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  gap: "var(--space-4)",
-                  alignItems: "center",
-                  margin: "var(--space-3) 0 0",
-                  fontSize: "var(--text-sm)",
-                  color: "var(--slate-600)",
-                }}
-              >
-                <label
-                  style={{ display: "flex", gap: 6, alignItems: "center", cursor: "pointer" }}
-                  title="Detect and label distinct speakers. Slower; best on clear 1–2 speaker audio."
-                >
-                  <input
-                    type="checkbox"
-                    data-testid="detect-speakers"
-                    checked={detectSpeakers}
-                    onChange={(e) => setDetectSpeakers(e.target.checked)}
-                  />
-                  Detect speakers (slower)
-                </label>
-                {detectSpeakers && (
-                  <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                    Speakers
-                    <input
-                      type="number"
-                      min={1}
-                      data-testid="speaker-count"
-                      placeholder="auto"
-                      value={speakerCount}
-                      onChange={(e) => setSpeakerCount(e.target.value)}
-                      style={{ width: 64 }}
-                    />
-                  </label>
-                )}
-              </div>
-
-              {progress && (
-                <div
-                  data-testid="transcribe-progress"
+              {!state && !progress && (
+                <section
                   style={{
-                    margin: "var(--space-4) 0 0",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 4,
-                    maxWidth: 480,
+                    padding: "var(--space-6)",
+                    background: "var(--surface)",
+                    border: "1px solid var(--slate-200)",
+                    borderRadius: "var(--radius-lg)",
+                    maxWidth: 720,
                   }}
                 >
+                  <h2 style={{ margin: 0, fontSize: "var(--text-lg)" }}>
+                    Choose a recording to transcribe
+                  </h2>
+                  <p
+                    style={{
+                      color: "var(--slate-500)",
+                      margin: "var(--space-2) 0 var(--space-5)",
+                      maxWidth: 560,
+                    }}
+                  >
+                    Supported audio and video files are processed entirely on this
+                    Windows device and saved to Matters automatically.
+                  </p>
+                  {modelsChecked && !asrModel ? (
+                    <Banner
+                      variant="warning"
+                      role="alert"
+                      style={{ marginBottom: "var(--space-4)" }}
+                    >
+                      A verified transcription model must be installed before
+                      importing a recording.{" "}
+                      <Button
+                        size="sm"
+                        onClick={() => setView("models")}
+                        style={{ marginLeft: "var(--space-2)" }}
+                      >
+                        Open Models &amp; settings
+                      </Button>
+                    </Banner>
+                  ) : (
+                    <Button
+                      variant="primary"
+                      onClick={pickAndTranscribe}
+                      disabled={!modelsChecked}
+                      style={{ marginBottom: "var(--space-4)" }}
+                    >
+                      {modelsChecked ? "Choose recording" : "Checking transcription model…"}
+                    </Button>
+                  )}
+                  {status.startsWith("error") && asrModel && (
+                    <Banner
+                      variant="warning"
+                      role="alert"
+                      style={{ marginBottom: "var(--space-4)" }}
+                    >
+                      {status.replace(/^error:\s*/, "")}
+                    </Banner>
+                  )}
+
+                  <div
+                    style={{
+                      paddingTop: "var(--space-4)",
+                      borderTop: "1px solid var(--slate-200)",
+                      fontSize: "var(--text-sm)",
+                      color: "var(--slate-600)",
+                    }}
+                  >
+                    <div style={{ fontWeight: 600, marginBottom: "var(--space-2)" }}>
+                      Optional review setup
+                    </div>
+                    <label
+                      style={{
+                        display: "flex",
+                        gap: 8,
+                        alignItems: "center",
+                        cursor: "pointer",
+                      }}
+                      title="Detect and label distinct speakers. Slower; best on clear 1–2 speaker audio."
+                    >
+                      <input
+                        type="checkbox"
+                        data-testid="detect-speakers"
+                        checked={detectSpeakers}
+                        onChange={(e) => setDetectSpeakers(e.target.checked)}
+                      />
+                      Detect and label speakers (slower)
+                    </label>
+                    {detectSpeakers && (
+                      <label
+                        style={{
+                          display: "flex",
+                          gap: 8,
+                          alignItems: "center",
+                          margin: "var(--space-3) 0 0 24px",
+                        }}
+                      >
+                        Expected number of speakers
+                        <input
+                          type="number"
+                          min={1}
+                          data-testid="speaker-count"
+                          placeholder="Auto"
+                          value={speakerCount}
+                          onChange={(e) => setSpeakerCount(e.target.value)}
+                          style={{ width: 72 }}
+                        />
+                      </label>
+                    )}
+                  </div>
+                </section>
+              )}
+
+              {progress && (
+                <section
+                  data-testid="transcribe-progress"
+                  aria-live="polite"
+                  style={{
+                    padding: "var(--space-6)",
+                    background: "var(--surface)",
+                    border: "1px solid var(--slate-200)",
+                    borderRadius: "var(--radius-lg)",
+                    maxWidth: 720,
+                  }}
+                >
+                  <h2 style={{ margin: 0, fontSize: "var(--text-lg)" }}>
+                    Creating local transcript
+                  </h2>
+                  <p style={{ margin: "var(--space-2) 0 var(--space-4)", color: "var(--slate-500)" }}>
+                    Keep Folio open while this recording is processed on your device.
+                  </p>
                   <div
                     style={{
                       display: "flex",
@@ -401,50 +491,57 @@ export default function App() {
                     <span className="tabular">
                       {Math.round(progress.fraction * 100)}%
                       {progress.etaSeconds !== undefined &&
-                        ` · ~${Math.ceil(progress.etaSeconds)}s left`}
+                        ` · about ${Math.ceil(progress.etaSeconds)}s left`}
                     </span>
                   </div>
                   <progress
                     value={progress.fraction}
                     max={1}
-                    style={{ width: "100%", height: 12 }}
+                    style={{ width: "100%", height: 12, marginTop: "var(--space-2)" }}
                   />
-                </div>
+                </section>
               )}
 
-              {state ? (
-                <div style={{ marginTop: "var(--space-5)" }}>
-                  <Editor
-                    state={state}
-                    setState={setState}
-                    audioSrc={audioSrc}
-                    diarized={diarized}
-                    onUndo={onUndo}
-                    onRedo={onRedo}
-                    canUndo={history ? canUndo(history) : false}
-                    canRedo={history ? canRedo(history) : false}
-                  />
-                </div>
-              ) : (
-                !progress && (
-                  <p
+              {state && (
+                <>
+                  <div
                     style={{
-                      marginTop: "var(--space-5)",
-                      color: "var(--slate-500)",
-                      maxWidth: 520,
+                      display: "flex",
+                      gap: "var(--space-3)",
+                      alignItems: "center",
+                      flexWrap: "wrap",
                     }}
                   >
-                    Choose an audio file to begin. It is transcribed on this
-                    device and saved to your Library automatically — nothing is
-                    uploaded.
-                  </p>
-                )
+                    <Button onClick={pickAndTranscribe}>Import another recording</Button>
+                    <Chip tone={statusTone}>{status}</Chip>
+                    <Button
+                      variant="danger"
+                      data-testid="delete-matter"
+                      onClick={() => void deleteMatter()}
+                      style={{ marginLeft: "auto" }}
+                    >
+                      Delete audio and transcript
+                    </Button>
+                  </div>
+                  <div style={{ marginTop: "var(--space-5)" }}>
+                    <Editor
+                      state={state}
+                      setState={setState}
+                      audioSrc={audioSrc}
+                      diarized={diarized}
+                      onUndo={onUndo}
+                      onRedo={onRedo}
+                      canUndo={history ? canUndo(history) : false}
+                      canRedo={history ? canRedo(history) : false}
+                    />
+                  </div>
+                </>
               )}
             </>
           ) : view === "models" ? (
-            <Models />
+            <Models onPacksChanged={updateModelStatus} />
           ) : (
-            <Library onOpen={openSession} />
+            <Library onOpen={openSession} onImport={() => setView("transcribe")} />
           )}
         </div>
       </main>

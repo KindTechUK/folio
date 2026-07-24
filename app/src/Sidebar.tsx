@@ -1,16 +1,51 @@
 import { Chip } from "./ui";
 
-// The app shell's left rail: serif wordmark, primary navigation, and a pinned
-// footer privacy chip. The privacy signal lives here — calm and always visible —
-// rather than as a loud banner competing with genuine warnings.
-
 export type View = "library" | "transcribe" | "models";
 
-const NAV: { id: View; label: string; hint: string }[] = [
-  { id: "library", label: "Library", hint: "Saved matters" },
-  { id: "transcribe", label: "New transcription", hint: "Transcribe audio" },
-  { id: "models", label: "Models", hint: "Signed model packs" },
+const PRIMARY_NAV: { id: View; label: string; hint: string }[] = [
+  { id: "library", label: "Matters", hint: "Saved transcripts" },
+  { id: "transcribe", label: "Import recording", hint: "Start a local transcript" },
 ];
+
+const SETTINGS_NAV: { id: View; label: string; hint: string }[] = [
+  { id: "models", label: "Models & settings", hint: "Verified model packs" },
+];
+
+function NavigationItem({
+  item,
+  active,
+  onNavigate,
+}: {
+  item: { id: View; label: string; hint: string };
+  active: boolean;
+  onNavigate: (view: View) => void;
+}) {
+  return (
+    <button
+      onClick={() => onNavigate(item.id)}
+      aria-current={active ? "page" : undefined}
+      style={{
+        textAlign: "left",
+        font: "inherit",
+        cursor: "pointer",
+        border: "1px solid transparent",
+        borderRadius: "var(--radius-sm)",
+        padding: "8px 10px",
+        background: active ? "var(--accent-soft)" : "transparent",
+        color: active ? "var(--accent-strong)" : "var(--slate-600)",
+        fontWeight: active ? 600 : 500,
+        display: "flex",
+        flexDirection: "column",
+        gap: 1,
+      }}
+    >
+      <span>{item.label}</span>
+      <span style={{ fontSize: "var(--text-xs)", color: "var(--slate-400)" }}>
+        {item.hint}
+      </span>
+    </button>
+  );
+}
 
 export default function Sidebar({
   view,
@@ -34,12 +69,11 @@ export default function Sidebar({
         top: 0,
       }}
     >
-      <div style={{ marginBottom: "var(--space-6)" }}>
+      <div style={{ marginBottom: "var(--space-5)" }}>
         <div
           style={{
-            fontFamily: "var(--font-serif)",
             fontSize: "var(--text-xl)",
-            fontWeight: 600,
+            fontWeight: 650,
             color: "var(--ink)",
             lineHeight: 1.15,
           }}
@@ -48,10 +82,10 @@ export default function Sidebar({
         </div>
         <div
           style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "var(--text-lg)",
+            fontSize: "var(--text-xs)",
             color: "var(--slate-500)",
-            lineHeight: 1.15,
+            lineHeight: 1.4,
+            marginTop: 3,
           }}
         >
           Private transcription
@@ -59,40 +93,46 @@ export default function Sidebar({
       </div>
 
       <nav style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-        {NAV.map((item) => {
-          const active = view === item.id;
-          return (
-            <button
-              key={item.id}
-              onClick={() => onNavigate(item.id)}
-              aria-pressed={active}
-              style={{
-                textAlign: "left",
-                font: "inherit",
-                cursor: "pointer",
-                border: "none",
-                borderRadius: "var(--radius)",
-                padding: "9px 12px",
-                background: active ? "var(--accent-soft)" : "transparent",
-                color: active ? "var(--accent-strong)" : "var(--slate-600)",
-                fontWeight: active ? 600 : 500,
-                display: "flex",
-                flexDirection: "column",
-                gap: 1,
-              }}
-            >
-              <span>{item.label}</span>
-              <span style={{ fontSize: "var(--text-xs)", color: "var(--slate-400)" }}>
-                {item.hint}
-              </span>
-            </button>
-          );
-        })}
+        {PRIMARY_NAV.map((item) => (
+          <NavigationItem
+            key={item.id}
+            item={item}
+            active={view === item.id}
+            onNavigate={onNavigate}
+          />
+        ))}
       </nav>
+
+      <div
+        style={{
+          marginTop: "var(--space-5)",
+          paddingTop: "var(--space-4)",
+          borderTop: "1px solid var(--slate-200)",
+        }}
+      >
+        <div
+          style={{
+            padding: "0 10px var(--space-2)",
+            color: "var(--slate-400)",
+            fontSize: "var(--text-xs)",
+            fontWeight: 600,
+          }}
+        >
+          Administration
+        </div>
+        {SETTINGS_NAV.map((item) => (
+          <NavigationItem
+            key={item.id}
+            item={item}
+            active={view === item.id}
+            onNavigate={onNavigate}
+          />
+        ))}
+      </div>
 
       <div style={{ marginTop: "auto", paddingTop: "var(--space-5)" }}>
         <Chip tone="privacy" style={{ width: "100%", justifyContent: "center" }}>
-          🔒 Local only · airplane-mode
+          Local only · no network
         </Chip>
         <p
           style={{

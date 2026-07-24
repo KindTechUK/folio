@@ -17,6 +17,7 @@ pub fn run() {
         .plugin(tauri_plugin_fs::init())
         .invoke_handler(tauri::generate_handler![
             commands::transcribe,
+            commands::debug_asr_model_override,
             models::list_model_packs,
             models::import_model_pack,
             library::save_session,

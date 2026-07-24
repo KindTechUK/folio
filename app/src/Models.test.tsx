@@ -11,7 +11,7 @@ const openMock = vi.fn();
 vi.mock("@tauri-apps/api/core", () => ({ invoke: (...a: unknown[]) => invokeMock(...a) }));
 vi.mock("@tauri-apps/plugin-dialog", () => ({ open: (...a: unknown[]) => openMock(...a) }));
 
-import Models from "./Models";
+import Models, { selectAsrModel } from "./Models";
 
 const verified: PackStatus = {
   dir: "whisper-small-en",
@@ -40,6 +40,13 @@ beforeEach(() => {
 });
 
 describe("Models view", () => {
+  it("selects the engine model provided by a verified ASR pack", () => {
+    expect(selectAsrModel([verified])).toBe("small.en");
+    expect(selectAsrModel([{ ...verified, id: "asr-parakeet-v2" }])).toBe("parakeet");
+    expect(selectAsrModel([{ ...verified, verified: false }])).toBeNull();
+    expect(selectAsrModel([{ ...verified, task: "diarization" }])).toBeNull();
+  });
+
   it("lists packs with verified ✓ and rejected ✗ + reason", async () => {
     invokeMock.mockImplementation((cmd: string) => {
       if (cmd === "list_model_packs") return Promise.resolve([verified, rejected]);

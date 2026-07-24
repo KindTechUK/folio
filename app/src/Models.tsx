@@ -21,13 +21,29 @@ export type PackStatus = {
   reason: string | null;
 };
 
-export default function Models() {
+export function selectAsrModel(packs: PackStatus[]): string | null {
+  const ids = packs
+    .filter((pack) => pack.verified && pack.task === "asr")
+    .map((pack) => pack.id.toLocaleLowerCase());
+  if (ids.some((id) => id.includes("parakeet"))) return "parakeet";
+  if (ids.some((id) => id.includes("small"))) return "small.en";
+  if (ids.some((id) => id.includes("medium"))) return "medium.en";
+  return null;
+}
+
+export default function Models({
+  onPacksChanged,
+}: {
+  onPacksChanged?: (packs: PackStatus[]) => void;
+}) {
   const [packs, setPacks] = useState<PackStatus[]>([]);
   const [status, setStatus] = useState<string>("");
 
   async function refresh() {
     try {
-      setPacks(await invoke<PackStatus[]>("list_model_packs"));
+      const nextPacks = await invoke<PackStatus[]>("list_model_packs");
+      setPacks(nextPacks);
+      onPacksChanged?.(nextPacks);
     } catch (e) {
       setStatus(`error listing packs: ${String(e)}`);
     }
