@@ -1,0 +1,8 @@
+# Pinned upstream release assets used by build-model-packs.sh. Update a hash
+# only after independently verifying the corresponding k2-fsa release asset.
+9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6  silero_vad.onnx
+157c157bc51155e03e37d2466522a3a737dd9c72bb25f36eb18912964161e1ad  sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+0cdba2b8aaab69e04847f3427cc9709574112e67913a1a84b7fec3a8729faa9a  sherpa-onnx-whisper-small.en.tar.bz2
+73d95c169a410b5f23a79f8901374b26e0a16a09ea7f02b5e1db983f4cdfdd67  sherpa-onnx-whisper-medium.en.tar.bz2
+24615ee884c897d9d2ba09bb4d30da6bb1b15e685065962db5b02e76e4996488  sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
+357a834f702b80161e5b981182c038e18553c1f2ca752ed6cec2052365d4129b  3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx

@@ -5,6 +5,7 @@ import type { Transcript } from "@core/types";
 const invokeMock = vi.fn();
 const openMock = vi.fn();
 const listenMock = vi.fn();
+let deleteMatterReport: { deleted: string[]; failed: unknown[] };
 
 vi.mock("@tauri-apps/api/core", () => ({
   invoke: (...args: unknown[]) => invokeMock(...args),
@@ -42,6 +43,7 @@ beforeEach(() => {
   listenMock.mockReset();
   openMock.mockResolvedValue("/recordings/interview.wav");
   listenMock.mockResolvedValue(() => {});
+  deleteMatterReport = { deleted: ["/recordings/interview.wav"], failed: [] };
   invokeMock.mockImplementation((command: string) => {
     switch (command) {
       case "volume_encryption_status":
@@ -63,14 +65,21 @@ beforeEach(() => {
         return Promise.resolve(null);
       case "list_sessions":
         return Promise.resolve([]);
+      case "pick_recording":
+        return Promise.resolve("/recordings/interview.wav");
       case "transcribe":
         return Promise.resolve(transcript);
       case "save_session":
+        return Promise.resolve();
+      case "delete_matter":
+        return Promise.resolve(deleteMatterReport);
+      case "delete_session":
         return Promise.resolve();
       default:
         throw new Error(`unexpected command ${command}`);
     }
   });
+
 });
 
 describe("App import flow", () => {
@@ -86,7 +95,8 @@ describe("App import flow", () => {
       "The local transcript is ready.",
     );
     expect(screen.getByRole("heading", { name: "Review transcript" })).toBeInTheDocument();
-    expect(openMock).toHaveBeenCalledOnce();
+    expect(invokeMock).toHaveBeenCalledWith("pick_recording");
+    expect(openMock).not.toHaveBeenCalled();
     expect(invokeMock).toHaveBeenCalledWith("transcribe", {
       path: "/recordings/interview.wav",
       diarize: false,
@@ -99,5 +109,79 @@ describe("App import flow", () => {
         expect.objectContaining({ session: expect.any(Object) }),
       ),
     );
+  });
+
+  it("deletes matter audio by backend-owned session id, not a renderer path", async () => {
+    render(<App />);
+    await screen.findByText("Import your first recording");
+
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+    await screen.findByTestId("paragraph");
+    const saveCall = invokeMock.mock.calls.find(([command]) => command === "save_session");
+    const sessionId = saveCall?.[1]?.session?.id;
+    expect(sessionId).toEqual(expect.any(String));
+
+    fireEvent.click(screen.getByTestId("delete-matter"));
+
+    await waitFor(() =>
+      expect(invokeMock).toHaveBeenCalledWith("delete_matter", { id: sessionId }),
+    );
+    expect(invokeMock).not.toHaveBeenCalledWith(
+      "delete_matter",
+      expect.objectContaining({ paths: expect.anything() }),
+    );
+    expect(invokeMock).not.toHaveBeenCalledWith("delete_session", expect.anything());
+  });
+
+  it("keeps the transcript when source-audio deletion reports a failure", async () => {
+    deleteMatterReport = {
+      deleted: [],
+      failed: [{ path: "/recordings/interview.wav", error: "locked" }],
+    };
+
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+    await screen.findByTestId("paragraph");
+    fireEvent.click(screen.getByTestId("delete-matter"));
+
+    expect(await screen.findByText(/source audio could not be deleted/i)).toBeInTheDocument();
+    expect(screen.getByTestId("paragraph")).toHaveTextContent("The local transcript is ready.");
+    expect(invokeMock).not.toHaveBeenCalledWith("delete_session", expect.anything());
+  });
+
+  it("reports backend picker errors instead of leaving an unhandled rejection", async () => {
+    invokeMock.mockImplementation((command: string) => {
+      if (command === "pick_recording") {
+        return Promise.reject(new Error("registry unavailable"));
+      }
+      if (command === "volume_encryption_status") {
+        return Promise.resolve({ state: "encrypted", detail: "test volume" });
+      }
+      if (command === "list_model_packs") {
+        return Promise.resolve([{
+          dir: "asr-small-en",
+          id: "asr-whisper-small.en",
+          version: "1.0.0",
+          engine: "sherpa-onnx",
+          task: "asr",
+          attribution: "OpenAI Whisper",
+          verified: true,
+          reason: null,
+        }]);
+      }
+      if (command === "debug_asr_model_override") return Promise.resolve(null);
+      if (command === "list_sessions") return Promise.resolve([]);
+      throw new Error(`unexpected command ${command}`);
+    });
+
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+
+    expect(await screen.findByText(/registry unavailable/i)).toBeInTheDocument();
   });
 });
