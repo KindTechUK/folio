@@ -200,6 +200,14 @@ fn write_approved_recordings_in(
 /// rejected so later confirmation and deletion refer to the same filesystem
 /// entry the user selected.
 pub fn approve_recording_in(library_dir: &Path, path: &Path) -> Result<PathBuf, String> {
+    let canonical = canonical_recording(path)?;
+    let mut approved = approved_recordings_in(library_dir)?;
+    approved.insert(canonical.clone());
+    write_approved_recordings_in(library_dir, &approved)?;
+    Ok(canonical)
+}
+
+fn canonical_recording(path: &Path) -> Result<PathBuf, String> {
     let metadata = std::fs::symlink_metadata(path).map_err(|error| {
         format!(
             "cannot inspect selected recording {}: {error}",
@@ -224,10 +232,34 @@ pub fn approve_recording_in(library_dir: &Path, path: &Path) -> Result<PathBuf, 
             canonical.display()
         ));
     }
-    let mut approved = approved_recordings_in(library_dir)?;
-    approved.insert(canonical.clone());
-    write_approved_recordings_in(library_dir, &approved)?;
     Ok(canonical)
+}
+
+/// Re-authorize a recording saved by an older release. The user must select
+/// the exact same canonical regular file in a new backend-owned native dialog;
+/// choosing any sibling or replacement path fails closed.
+pub fn reauthorize_recording_in(
+    library_dir: &Path,
+    expected: &Path,
+    selected: &Path,
+) -> Result<PathBuf, String> {
+    let expected = canonical_recording(expected)?;
+    let selected = canonical_recording(selected)?;
+    if selected != expected {
+        return Err(format!(
+            "selected recording does not match the saved matter path: {}",
+            expected.display()
+        ));
+    }
+    let mut approved = approved_recordings_in(library_dir)?;
+    approved.insert(expected.clone());
+    write_approved_recordings_in(library_dir, &approved)?;
+    Ok(expected)
+}
+
+fn recording_is_approved_in(library_dir: &Path, path: &Path) -> Result<bool, String> {
+    let canonical = canonical_recording(path)?;
+    Ok(approved_recordings_in(library_dir)?.contains(&canonical))
 }
 
 fn forget_approved_recording_in(library_dir: &Path, path: &Path) {
@@ -250,7 +282,7 @@ pub fn delete_matter_authorized_in<F>(
     authorize: F,
 ) -> Result<DeleteReport, String>
 where
-    F: FnOnce(&Path) -> bool,
+    F: FnOnce(Option<&Path>, bool) -> bool,
 {
     let loaded = crate::library::load_session_in(library_dir, id)?;
     let audio_path = loaded
@@ -259,6 +291,10 @@ where
         .and_then(serde_json::Value::as_str)
         .unwrap_or("");
     if audio_path.is_empty() {
+        if !authorize(None, false) {
+            return Err("matter deletion was cancelled".to_string());
+        }
+        crate::library::delete_session_in(library_dir, id)?;
         return Ok(DeleteReport {
             deleted: Vec::new(),
             failed: Vec::new(),
@@ -266,15 +302,12 @@ where
     }
 
     let audio = Path::new(audio_path);
-    let approved = approved_recordings_in(library_dir)?;
     if !audio.exists() {
-        if !approved.contains(audio) {
-            return Err(format!(
-                "refusing to delete an unapproved saved audio path: {}",
-                audio.display()
-            ));
+        if !authorize(Some(audio), false) {
+            return Err("matter deletion was cancelled".to_string());
         }
         forget_approved_recording_in(library_dir, audio);
+        crate::library::delete_session_in(library_dir, id)?;
         return Ok(DeleteReport {
             deleted: vec![audio_path.to_string()],
             failed: Vec::new(),
@@ -292,6 +325,7 @@ where
     let canonical_audio = audio
         .canonicalize()
         .map_err(|e| format!("cannot resolve saved audio path {audio_path:?}: {e}"))?;
+    let approved = approved_recordings_in(library_dir)?;
     if !approved.contains(&canonical_audio) {
         return Err(format!(
             "refusing to delete a recording not approved by the native picker: {}",
@@ -304,14 +338,15 @@ where
             canonical_audio.display()
         ));
     }
-    if !authorize(&canonical_audio) {
-        return Err("source-audio deletion was cancelled".to_string());
+    if !authorize(Some(&canonical_audio), true) {
+        return Err("matter deletion was cancelled".to_string());
     }
 
     let canonical_string = canonical_audio.to_string_lossy().into_owned();
     let report = delete_paths(&[canonical_string]);
     if report.failed.is_empty() {
         forget_approved_recording_in(library_dir, &canonical_audio);
+        crate::library::delete_session_in(library_dir, id)?;
     }
     Ok(report)
 }
@@ -428,22 +463,71 @@ pub async fn pick_recording(app: tauri::AppHandle) -> Result<Option<String>, Str
     .map_err(|error| format!("recording-picker task failed: {error}"))?
 }
 
-/// Delete the source audio recorded by a saved session. The renderer supplies
-/// only the session id; the backend resolves the stored path and requires an
-/// exact match in its native-picker approval registry. A native backend-owned
-/// confirmation dialog displays the canonical path and must authorize the
-/// deletion; renderer-side confirmation is not trusted.
+/// Delete the source audio and saved transcript for a session. The renderer
+/// supplies only the session id; the backend resolves the stored path and
+/// requires an exact native-picker approval, with an exact-file re-selection
+/// flow for legacy sessions. A backend-owned dialog confirms the complete
+/// deletion even when the source recording is already missing.
 #[tauri::command]
 pub async fn delete_matter(app: tauri::AppHandle, id: String) -> Result<DeleteReport, String> {
     let library = crate::library::library_dir(&app)?;
     tauri::async_runtime::spawn_blocking(move || {
-        delete_matter_authorized_in(&library, &id, |audio_path| {
+        let loaded = crate::library::load_session_in(&library, &id)?;
+        let saved_audio = loaded
+            .session
+            .get("audioPath")
+            .and_then(serde_json::Value::as_str)
+            .filter(|path| !path.is_empty())
+            .map(PathBuf::from);
+
+        if let Some(saved_audio) = saved_audio.as_deref().filter(|path| path.exists()) {
+            if !recording_is_approved_in(&library, saved_audio)? {
+                let continue_reauthorization = app
+                    .dialog()
+                    .message(format!(
+                        "This matter was imported by an older Folio version. To delete it safely, re-select this exact source recording:\n\n{}",
+                        saved_audio.display()
+                    ))
+                    .title("Re-authorize source recording")
+                    .kind(MessageDialogKind::Warning)
+                    .buttons(MessageDialogButtons::OkCancelCustom(
+                        "Re-select recording".to_string(),
+                        "Cancel".to_string(),
+                    ))
+                    .blocking_show();
+                if !continue_reauthorization {
+                    return Err("matter deletion was cancelled".to_string());
+                }
+                let selected = app
+                    .dialog()
+                    .file()
+                    .add_filter(
+                        "Audio",
+                        &["wav", "m4a", "mp3", "flac", "mp4", "mov", "aac", "ogg"],
+                    )
+                    .blocking_pick_file()
+                    .ok_or_else(|| "recording re-authorization was cancelled".to_string())?
+                    .into_path()
+                    .map_err(|error| {
+                        format!("selected recording is not a local file: {error}")
+                    })?;
+                reauthorize_recording_in(&library, saved_audio, &selected)?;
+            }
+        }
+
+        delete_matter_authorized_in(&library, &id, |audio_path, audio_exists| {
+            let source_detail = match (audio_path, audio_exists) {
+                (Some(path), true) => format!("Source recording:\n{}", path.display()),
+                (Some(path), false) => {
+                    format!("Source recording is already missing:\n{}", path.display())
+                }
+                (None, _) => "No source recording is attached.".to_string(),
+            };
             app.dialog()
                 .message(format!(
-                    "Permanently delete this source audio file?\n\n{}",
-                    audio_path.display()
+                    "Permanently delete this matter?\n\n{source_detail}\n\nThe saved transcript will also be permanently deleted."
                 ))
-                .title("Delete source audio")
+                .title("Delete matter")
                 .kind(MessageDialogKind::Warning)
                 .buttons(MessageDialogButtons::OkCancelCustom(
                     "Delete".to_string(),
@@ -654,7 +738,7 @@ Volume C: [OSDisk]
         let approved = approve_recording_in(&library, &audio).unwrap();
         save_session(&library, "matter-1", &audio);
 
-        let report = delete_matter_authorized_in(&library, "matter-1", |_| true).unwrap();
+        let report = delete_matter_authorized_in(&library, "matter-1", |_, _| true).unwrap();
 
         assert_eq!(report.deleted, vec![approved.to_string_lossy()]);
         assert!(report.failed.is_empty());
@@ -671,7 +755,7 @@ Volume C: [OSDisk]
         fs::write(&outside, b"keep").unwrap();
         save_session(&library, "matter-2", &outside);
 
-        let result = delete_matter_authorized_in(&library, "matter-2", |_| true);
+        let result = delete_matter_authorized_in(&library, "matter-2", |_, _| true);
 
         assert!(result.is_err());
         assert!(outside.exists());
@@ -689,7 +773,7 @@ Volume C: [OSDisk]
         approve_recording_in(&library, &audio).unwrap();
         save_session(&library, "matter-denied", &audio);
 
-        let result = delete_matter_authorized_in(&library, "matter-denied", |_| false);
+        let result = delete_matter_authorized_in(&library, "matter-denied", |_, _| false);
 
         assert!(result.is_err());
         assert!(audio.exists());
@@ -734,11 +818,61 @@ Volume C: [OSDisk]
         symlink(&target, &link).unwrap();
         save_session(&library, "matter-4", &link);
 
-        let result = delete_matter_authorized_in(&library, "matter-4", |_| true);
+        let result = delete_matter_authorized_in(&library, "matter-4", |_, _| true);
 
         assert!(result.is_err());
         assert!(link.exists());
         assert!(target.exists());
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn legacy_recording_reauthorization_requires_the_same_exact_file() {
+        let dir = unique_tmp("legacy-reauthorization");
+        let library = dir.join("library");
+        fs::create_dir_all(&dir).unwrap();
+        let expected = dir.join("expected.wav");
+        let other = dir.join("other.wav");
+        fs::write(&expected, b"expected").unwrap();
+        fs::write(&other, b"other").unwrap();
+
+        assert!(reauthorize_recording_in(&library, &expected, &other).is_err());
+        let canonical = reauthorize_recording_in(&library, &expected, &expected).unwrap();
+        save_session(&library, "legacy", &expected);
+
+        let report = delete_matter_authorized_in(&library, "legacy", |_, _| true).unwrap();
+        assert_eq!(report.deleted, vec![canonical.to_string_lossy()]);
+        assert!(crate::library::load_session_in(&library, "legacy").is_err());
+        assert!(other.exists());
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn missing_audio_still_requires_confirmation_before_transcript_deletion() {
+        let dir = unique_tmp("missing-audio-confirmation");
+        let library = dir.join("library");
+        fs::create_dir_all(&dir).unwrap();
+        let audio = dir.join("gone.wav");
+        fs::write(&audio, b"audio").unwrap();
+        approve_recording_in(&library, &audio).unwrap();
+        save_session(&library, "missing-audio", &audio);
+        fs::remove_file(&audio).unwrap();
+
+        let denied = delete_matter_authorized_in(&library, "missing-audio", |path, exists| {
+            assert_eq!(path, Some(audio.as_path()));
+            assert!(!exists);
+            false
+        });
+        assert!(denied.is_err());
+        assert!(crate::library::load_session_in(&library, "missing-audio").is_ok());
+
+        delete_matter_authorized_in(&library, "missing-audio", |path, exists| {
+            assert_eq!(path, Some(audio.as_path()));
+            assert!(!exists);
+            true
+        })
+        .unwrap();
+        assert!(crate::library::load_session_in(&library, "missing-audio").is_err());
         let _ = fs::remove_dir_all(&dir);
     }
 }

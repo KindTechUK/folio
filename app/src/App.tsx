@@ -180,9 +180,8 @@ export default function App() {
     }
   }
 
-  // Wipe the matter's only on-disk artifact (the source audio) and clear the
-  // loaded transcript. The engine writes no temp files, so the picked path is
-  // the entire footprint to remove.
+  // Ask the backend to confirm and delete both the source recording and saved
+  // transcript, then clear the loaded UI only after the backend succeeds.
   async function deleteMatter() {
     try {
       const report = await invoke<{ deleted: string[]; failed: unknown[] }>(
@@ -192,11 +191,6 @@ export default function App() {
       if (report.failed.length > 0) {
         setStatus("error deleting matter: source audio could not be deleted");
         return;
-      }
-      // Purge the saved library entry for this matter too, so deleting a matter
-      // leaves no persisted transcript behind.
-      if (currentSessionMeta) {
-        await invoke("delete_session", { id: currentSessionMeta.id });
       }
       setHistory(null);
       setAudioSrc(undefined);
@@ -213,32 +207,33 @@ export default function App() {
       return;
     }
     setStatus("selecting file…");
-    const path = await invoke<string | null>("pick_recording");
-    if (typeof path !== "string") {
-      setStatus(state ? "review open" : "idle");
-      return;
-    }
-    setHistory(null);
-    setCurrentSessionMeta(null);
-    setProgress(null);
-    const parsedCount = parseInt(speakerCount, 10);
-    const num_speakers =
-      detectSpeakers && Number.isFinite(parsedCount) && parsedCount > 0
-        ? parsedCount
-        : undefined;
-
-    // Determinate progress bar driven by backend `transcribe-progress` events.
-    // The command is async/off-thread, so the webview stays responsive while it
-    // runs. We unlisten in `finally` (and on the error path) so no listener leaks.
-    const startedAt = Date.now();
-    setStatus("transcribing…");
-    setProgress({ fraction: 0, label: "Starting…" });
-    const unlisten = await listen<Progress>("transcribe-progress", (event) => {
-      const elapsedSec = (Date.now() - startedAt) / 1000;
-      setProgress(progressView(event.payload, elapsedSec));
-    });
-
+    let unlisten = () => {};
     try {
+      const path = await invoke<string | null>("pick_recording");
+      if (typeof path !== "string") {
+        setStatus(state ? "review open" : "idle");
+        return;
+      }
+      setHistory(null);
+      setCurrentSessionMeta(null);
+      setProgress(null);
+      const parsedCount = parseInt(speakerCount, 10);
+      const num_speakers =
+        detectSpeakers && Number.isFinite(parsedCount) && parsedCount > 0
+          ? parsedCount
+          : undefined;
+
+      // Determinate progress bar driven by backend `transcribe-progress` events.
+      // The command is async/off-thread, so the webview stays responsive while it
+      // runs. We unlisten in `finally` (and on the error path) so no listener leaks.
+      const startedAt = Date.now();
+      setStatus("transcribing…");
+      setProgress({ fraction: 0, label: "Starting…" });
+      unlisten = await listen<Progress>("transcribe-progress", (event) => {
+        const elapsedSec = (Date.now() - startedAt) / 1000;
+        setProgress(progressView(event.payload, elapsedSec));
+      });
+
       const transcript = await invoke<Transcript>("transcribe", {
         path,
         diarize: detectSpeakers,

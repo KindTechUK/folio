@@ -121,3 +121,5 @@ jobs:
         run: npm ci && npm run build
       - name: Build app backend (engine + sherpa-onnx linked into Tauri)
         run: cargo build --manifest-path app/src-tauri/Cargo.toml
+      - name: Test app backend security and persistence logic
+        run: cargo test --manifest-path app/src-tauri/Cargo.toml
