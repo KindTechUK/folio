@@ -7,13 +7,15 @@
 //! in one click. The engine writes no temp files, so the picked audio path is
 //! the entire footprint to remove.
 //!
-//! Everything network-free + std-only (`std::process` for the Windows
-//! `manage-bde` call). The PURE cores — [`parse_manage_bde_status`] and
-//! [`delete_paths`] — are unit-tested and never panic; the `#[tauri::command]`
-//! wrappers are thin and fail SOFT (an encryption check that cannot run is
-//! `Unknown`, never an app error).
+//! Everything is network-free. The PURE cores — [`parse_manage_bde_status`]
+//! and [`delete_matter_authorized_in`] — are unit-tested and never panic; the
+//! `#[tauri::command]` wrappers resolve platform paths and native confirmation.
+//! Encryption checks fail SOFT (`Unknown`, never an app error).
 
 use serde::Serialize;
+use std::path::{Path, PathBuf};
+use tauri::Manager;
+use tauri_plugin_dialog::{DialogExt, MessageDialogButtons, MessageDialogKind};
 
 /// Volume-encryption verdict from parsing `manage-bde -status <drive>` text.
 ///
@@ -75,8 +77,9 @@ pub struct DeleteReport {
 ///   - `Percentage Encrypted: 0%` / `0.0%`
 ///   - `Protection Status: Protection Off`
 ///
-/// Otherwise [`EncryptionState::Unknown`]. The encrypted signals are checked
-/// first so a fully-encrypted volume is never mis-read.
+/// Otherwise [`EncryptionState::Unknown`]. A volume is reported as encrypted
+/// only when conversion is complete AND BitLocker protection is on; suspended
+/// protection must never inherit a green status from the conversion fields.
 ///
 /// Consumed by the Windows `manage-bde` worker and the unit tests; allow
 /// dead-code on non-Windows dev builds where only the tests exercise it.
@@ -103,10 +106,11 @@ pub fn parse_manage_bde_status(output: &str) -> EncryptionState {
         out
     };
 
-    let encrypted = lc.contains("protection status: protection on")
-        || lc.contains("conversion status: fully encrypted")
+    let protection_on = lc.contains("protection status: protection on");
+    let conversion_complete = lc.contains("conversion status: fully encrypted")
         || lc.contains("percentage encrypted: 100%")
         || lc.contains("percentage encrypted: 100.0%");
+    let encrypted = protection_on && conversion_complete;
     if encrypted {
         return EncryptionState::Encrypted;
     }
@@ -147,6 +151,67 @@ pub fn delete_paths(paths: &[String]) -> DeleteReport {
     }
 
     DeleteReport { deleted, failed }
+}
+
+/// Delete the audio path recorded by a backend-owned saved session, but only
+/// when its canonical target is within one of the canonical allowed roots.
+/// This prevents a compromised renderer from turning the command into an
+/// arbitrary `remove_file` primitive. Symlinks that escape a root are rejected.
+pub fn delete_matter_authorized_in<F>(
+    library_dir: &Path,
+    id: &str,
+    allowed_roots: &[PathBuf],
+    authorize: F,
+) -> Result<DeleteReport, String>
+where
+    F: FnOnce(&Path) -> bool,
+{
+    let loaded = crate::library::load_session_in(library_dir, id)?;
+    let audio_path = loaded
+        .session
+        .get("audioPath")
+        .and_then(serde_json::Value::as_str)
+        .unwrap_or("");
+    if audio_path.is_empty() {
+        return Ok(DeleteReport {
+            deleted: Vec::new(),
+            failed: Vec::new(),
+        });
+    }
+
+    let audio = Path::new(audio_path);
+    if !audio.exists() {
+        return Ok(DeleteReport {
+            deleted: vec![audio_path.to_string()],
+            failed: Vec::new(),
+        });
+    }
+
+    let canonical_audio = audio
+        .canonicalize()
+        .map_err(|e| format!("cannot resolve saved audio path {audio_path:?}: {e}"))?;
+    let inside_allowed_root = allowed_roots.iter().any(|root| {
+        root.canonicalize()
+            .map(|canonical_root| canonical_audio.starts_with(canonical_root))
+            .unwrap_or(false)
+    });
+    if !inside_allowed_root {
+        return Err(format!(
+            "refusing to delete saved audio outside approved user-media folders: {}",
+            canonical_audio.display()
+        ));
+    }
+    if !canonical_audio.is_file() {
+        return Err(format!(
+            "refusing to delete a non-file matter path: {}",
+            canonical_audio.display()
+        ));
+    }
+    if !authorize(&canonical_audio) {
+        return Err("source-audio deletion was cancelled".to_string());
+    }
+
+    Ok(delete_paths(&[audio_path.to_string()]))
 }
 
 /// Report the encryption state of the volume holding `path`.
@@ -233,17 +298,48 @@ fn drive_letter(path: &str) -> Option<String> {
     }
 }
 
-/// Delete the on-disk artifacts of a matter (the source audio path(s)). Thin
-/// wrapper over [`delete_paths`]; always returns a [`DeleteReport`] (failures
-/// are reported per-path, never raised as a command error).
+/// Delete the source audio recorded by a saved session. The renderer supplies
+/// only the session id; the backend resolves the stored path and permits
+/// deletion only inside standard user audio/document/desktop/download roots.
+/// A native backend-owned confirmation dialog displays the canonical path and
+/// must authorize the deletion; renderer-side confirmation is not trusted.
 #[tauri::command]
-pub fn delete_matter(paths: Vec<String>) -> Result<DeleteReport, String> {
-    Ok(delete_paths(&paths))
+pub async fn delete_matter(app: tauri::AppHandle, id: String) -> Result<DeleteReport, String> {
+    let library = crate::library::library_dir(&app)?;
+    let resolver = app.path();
+    let allowed_roots: Vec<PathBuf> = [
+        resolver.audio_dir(),
+        resolver.document_dir(),
+        resolver.desktop_dir(),
+        resolver.download_dir(),
+    ]
+    .into_iter()
+    .filter_map(Result::ok)
+    .collect();
+    tauri::async_runtime::spawn_blocking(move || {
+        delete_matter_authorized_in(&library, &id, &allowed_roots, |audio_path| {
+            app.dialog()
+                .message(format!(
+                    "Permanently delete this source audio file?\n\n{}",
+                    audio_path.display()
+                ))
+                .title("Delete source audio")
+                .kind(MessageDialogKind::Warning)
+                .buttons(MessageDialogButtons::OkCancelCustom(
+                    "Delete".to_string(),
+                    "Cancel".to_string(),
+                ))
+                .blocking_show()
+        })
+    })
+    .await
+    .map_err(|e| format!("delete-matter task failed: {e}"))?
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use serde_json::json;
     use std::fs;
     use std::path::PathBuf;
 
@@ -306,7 +402,26 @@ Volume D: [Data]
     Identification Field: None
     Key Protectors:       None Found
 ";
-        assert_eq!(parse_manage_bde_status(sample), EncryptionState::Unencrypted);
+        assert_eq!(
+            parse_manage_bde_status(sample),
+            EncryptionState::Unencrypted
+        );
+    }
+
+    /// A fully converted volume with protection suspended is not protected at
+    /// rest: `Protection Off` must override the 100% conversion signals.
+    #[test]
+    fn suspended_bitlocker_is_not_reported_as_encrypted() {
+        let sample = "\
+Volume C: [OSDisk]
+    Conversion Status:    Fully Encrypted
+    Percentage Encrypted: 100.0%
+    Protection Status:    Protection Off
+";
+        assert_eq!(
+            parse_manage_bde_status(sample),
+            EncryptionState::Unencrypted
+        );
     }
 
     /// Garbage / empty / unrelated text → Unknown, never a panic.
@@ -323,17 +438,17 @@ Volume D: [Data]
         );
     }
 
-    /// Heuristics are case-insensitive and the encrypted signal wins even on a
-    /// partial readout (Protection On alone).
+    /// Heuristics are case-insensitive, but incomplete output is not enough to
+    /// claim the volume is protected.
     #[test]
     fn parses_case_insensitively() {
         assert_eq!(
             parse_manage_bde_status("PROTECTION STATUS:    PROTECTION ON"),
-            EncryptionState::Encrypted
+            EncryptionState::Unknown
         );
         assert_eq!(
             parse_manage_bde_status("conversion status: fully encrypted"),
-            EncryptionState::Encrypted
+            EncryptionState::Unknown
         );
     }
 
@@ -394,6 +509,102 @@ Volume D: [Data]
         assert_eq!(report.failed[0].path, paths[0]);
         assert!(!report.failed[0].error.is_empty());
 
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    fn save_session(library: &Path, id: &str, audio_path: &Path) {
+        crate::library::save_session_in(
+            library,
+            &json!({
+                "id": id,
+                "audioPath": audio_path.to_string_lossy(),
+            }),
+        )
+        .unwrap();
+    }
+
+    #[test]
+    fn delete_matter_removes_only_saved_audio_inside_an_allowed_root() {
+        let dir = unique_tmp("matter-allowed");
+        let library = dir.join("library");
+        let audio_root = dir.join("audio");
+        fs::create_dir_all(&audio_root).unwrap();
+        let audio = audio_root.join("recording.wav");
+        fs::write(&audio, b"audio").unwrap();
+        save_session(&library, "matter-1", &audio);
+
+        let report =
+            delete_matter_authorized_in(&library, "matter-1", &[audio_root], |_| true).unwrap();
+
+        assert_eq!(report.deleted, vec![audio.to_string_lossy()]);
+        assert!(report.failed.is_empty());
+        assert!(!audio.exists());
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn delete_matter_rejects_saved_audio_outside_allowed_roots() {
+        let dir = unique_tmp("matter-outside");
+        let library = dir.join("library");
+        let audio_root = dir.join("audio");
+        let outside_root = dir.join("outside");
+        fs::create_dir_all(&audio_root).unwrap();
+        fs::create_dir_all(&outside_root).unwrap();
+        let outside = outside_root.join("unrelated.txt");
+        fs::write(&outside, b"keep").unwrap();
+        save_session(&library, "matter-2", &outside);
+
+        let result = delete_matter_authorized_in(&library, "matter-2", &[audio_root], |_| true);
+
+        assert!(result.is_err());
+        assert!(outside.exists());
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn delete_matter_requires_backend_authorizer_approval() {
+        let dir = unique_tmp("matter-denied");
+        let library = dir.join("library");
+        let audio_root = dir.join("audio");
+        fs::create_dir_all(&audio_root).unwrap();
+        let audio = audio_root.join("recording.wav");
+        fs::write(&audio, b"keep").unwrap();
+        save_session(&library, "matter-denied", &audio);
+
+        let result = delete_matter_authorized_in(
+            &library,
+            "matter-denied",
+            &[audio_root],
+            |_| false,
+        );
+
+        assert!(result.is_err());
+        assert!(audio.exists());
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn delete_matter_rejects_symlink_that_escapes_allowed_root() {
+        use std::os::unix::fs::symlink;
+
+        let dir = unique_tmp("matter-symlink");
+        let library = dir.join("library");
+        let audio_root = dir.join("audio");
+        let outside_root = dir.join("outside");
+        fs::create_dir_all(&audio_root).unwrap();
+        fs::create_dir_all(&outside_root).unwrap();
+        let outside = outside_root.join("unrelated.txt");
+        let link = audio_root.join("recording.wav");
+        fs::write(&outside, b"keep").unwrap();
+        symlink(&outside, &link).unwrap();
+        save_session(&library, "matter-3", &link);
+
+        let result = delete_matter_authorized_in(&library, "matter-3", &[audio_root], |_| true);
+
+        assert!(result.is_err());
+        assert!(link.exists());
+        assert!(outside.exists());
         let _ = fs::remove_dir_all(&dir);
     }
 }

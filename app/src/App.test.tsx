@@ -67,10 +67,15 @@ beforeEach(() => {
         return Promise.resolve(transcript);
       case "save_session":
         return Promise.resolve();
+      case "delete_matter":
+        return Promise.resolve({ deleted: ["/recordings/interview.wav"], failed: [] });
+      case "delete_session":
+        return Promise.resolve();
       default:
         throw new Error(`unexpected command ${command}`);
     }
   });
+
 });
 
 describe("App import flow", () => {
@@ -98,6 +103,28 @@ describe("App import flow", () => {
         "save_session",
         expect.objectContaining({ session: expect.any(Object) }),
       ),
+    );
+  });
+
+  it("deletes matter audio by backend-owned session id, not a renderer path", async () => {
+    render(<App />);
+    await screen.findByText("Import your first recording");
+
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+    await screen.findByTestId("paragraph");
+    const saveCall = invokeMock.mock.calls.find(([command]) => command === "save_session");
+    const sessionId = saveCall?.[1]?.session?.id;
+    expect(sessionId).toEqual(expect.any(String));
+
+    fireEvent.click(screen.getByTestId("delete-matter"));
+
+    await waitFor(() =>
+      expect(invokeMock).toHaveBeenCalledWith("delete_matter", { id: sessionId }),
+    );
+    expect(invokeMock).not.toHaveBeenCalledWith(
+      "delete_matter",
+      expect.objectContaining({ paths: expect.anything() }),
     );
   });
 });

@@ -28,10 +28,12 @@ use tauri::Manager;
 /// the TEST SPKI key from `fixtures/modelpack/context.json`, used only in
 /// dev/CI builds so the committed fixture packs verify. It must NEVER be the key
 /// that signs production packs.
-const DEV_TEST_PUBKEY_SPKI_PEM: &str = "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA1HsQTCcJ2eUma5lmkjVdzCce0p3EaxywplN4xyZcSpU=\n-----END PUBLIC KEY-----\n";
+const DEV_TEST_PUBKEY_SPKI_PEM: &str =
+    include_str!("../../../fixtures/modelpack/keys/test-public.spki.pem");
 
-/// The vendor public key this build trusts. Real vendor key when injected at
-/// build time, else the dev/test fallback above.
+/// The vendor public key this build trusts. `build.rs` makes a release build
+/// fail when the value is missing, empty, or equal to the committed test key;
+/// the fallback therefore exists only for debug/test builds.
 fn vendor_pubkey_pem() -> &'static str {
     option_env!("VENDOR_PUBKEY_SPKI_PEM").unwrap_or(DEV_TEST_PUBKEY_SPKI_PEM)
 }

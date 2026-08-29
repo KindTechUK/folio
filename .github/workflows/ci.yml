@@ -92,6 +92,8 @@ jobs:
       # The vendor-side producer CLI (standalone crate, not shipped). It links NO
       # sherpa-onnx, so it builds/tests on plain ubuntu. Its cross-tool test proves
       # the Rust signer reproduces the committed TS-generated signature byte-for-byte.
+      - name: Run model-pack supply-chain tests
+        run: bash scripts/test-modelpack-security.sh
       - name: Run modelpack-sign tests
         run: cargo test --manifest-path tools/modelpack-sign/Cargo.toml
 
@@ -109,6 +111,8 @@ jobs:
       # script performs its one-time BUILD-TIME fetch (not runtime egress).
       - name: Build engine (MSVC static link)
         run: cargo build --manifest-path engine/Cargo.toml
+      - name: Test modelpack signer key handling on Windows
+        run: cargo test --manifest-path tools/modelpack-sign/Cargo.toml
       # tauri-build embeds frontendDist (../dist) at compile time, and
       # beforeBuildCommand only runs under `tauri build` — so the dist must be
       # built explicitly before a plain `cargo build` of the Tauri backend.

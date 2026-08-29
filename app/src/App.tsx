@@ -65,9 +65,6 @@ export default function App() {
   const onUndo = () => setHistory((h) => (h ? undo(h) : h));
   const onRedo = () => setHistory((h) => (h ? redo(h) : h));
   const [audioSrc, setAudioSrc] = useState<string | undefined>(undefined);
-  // The raw filesystem path of the picked audio (NOT the convertFileSrc URL),
-  // retained so "Delete matter" can remove the source file — the only artifact.
-  const [loadedPath, setLoadedPath] = useState<string | null>(null);
   // Volume-encryption banner state. `null` until the on-mount check resolves;
   // `dismissed` hides it for the session.
   const [encryption, setEncryption] = useState<EncryptionStatus | null>(null);
@@ -173,7 +170,6 @@ export default function App() {
       setAudioSrc(
         res.audioAvailable ? convertFileSrc(res.session.audioPath) : undefined,
       );
-      setLoadedPath(res.audioAvailable ? res.session.audioPath : null);
       setView("transcribe");
       setStatus(
         res.audioAvailable
@@ -189,17 +185,10 @@ export default function App() {
   // loaded transcript. The engine writes no temp files, so the picked path is
   // the entire footprint to remove.
   async function deleteMatter() {
-    if (
-      !window.confirm(
-        "Delete the source audio for this matter and clear the transcript? This cannot be undone.",
-      )
-    ) {
-      return;
-    }
     try {
       const report = await invoke<{ deleted: string[]; failed: unknown[] }>(
         "delete_matter",
-        { paths: loadedPath ? [loadedPath] : [] },
+        { id: currentSessionMeta?.id ?? "" },
       );
       // Purge the saved library entry for this matter too, so deleting a matter
       // leaves no persisted transcript behind.
@@ -208,7 +197,6 @@ export default function App() {
       }
       setHistory(null);
       setAudioSrc(undefined);
-      setLoadedPath(null);
       setCurrentSessionMeta(null);
       setStatus(`matter deleted — ${report.deleted.length} file(s) removed`);
     } catch (e) {
@@ -273,9 +261,8 @@ export default function App() {
       setHistory(initHistory(editorState));
       setDiarized(detectSpeakers);
       setAudioSrc(convertFileSrc(path));
-      setLoadedPath(path);
       setCurrentSessionMeta({ id, createdAt, audioPath: path, diarized: detectSpeakers });
-      void invoke("save_session", {
+      await invoke("save_session", {
         session: buildSession({
           id,
           createdAt,
@@ -284,7 +271,7 @@ export default function App() {
           diarized: detectSpeakers,
           state: editorState,
         }),
-      }).catch(() => {});
+      });
       setStatus(`done — ${transcript.segments.length} segments`);
     } catch (e) {
       setStatus(`error: ${String(e)}`);
