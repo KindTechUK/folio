@@ -1,38 +1,7 @@
+use ed25519_dalek::{pkcs8::DecodePublicKey, VerifyingKey};
+
 const DEV_TEST_PUBKEY_SPKI_PEM: &str =
     include_str!("../../fixtures/modelpack/keys/test-public.spki.pem");
-
-fn public_key_payload(pem: &str) -> Option<String> {
-    const BEGIN: &str = "-----BEGIN PUBLIC KEY-----";
-    const END: &str = "-----END PUBLIC KEY-----";
-
-    let mut inside = false;
-    let mut payload = String::new();
-    for raw_line in pem.lines() {
-        let line = raw_line.trim();
-        if !inside {
-            if line.is_empty() {
-                continue;
-            }
-            if line == BEGIN {
-                inside = true;
-                continue;
-            }
-            return None;
-        }
-        if line == END {
-            return (!payload.is_empty()).then_some(payload);
-        }
-        if line.is_empty()
-            || !line
-                .bytes()
-                .all(|byte| byte.is_ascii_alphanumeric() || matches!(byte, b'+' | b'/' | b'='))
-        {
-            return None;
-        }
-        payload.push_str(line);
-    }
-    None
-}
 
 pub(crate) fn validate_vendor_key(profile: &str, configured: Option<&str>) -> Result<(), String> {
     if profile != "release" {
@@ -46,9 +15,12 @@ pub(crate) fn validate_vendor_key(profile: &str, configured: Option<&str>) -> Re
             "release builds require VENDOR_PUBKEY_SPKI_PEM; refusing the development key"
                 .to_string()
         })?;
-    let configured_payload = public_key_payload(configured)
-        .ok_or_else(|| "VENDOR_PUBKEY_SPKI_PEM is not a valid public-key PEM".to_string())?;
-    if Some(configured_payload) == public_key_payload(DEV_TEST_PUBKEY_SPKI_PEM) {
+    let configured_key = VerifyingKey::from_public_key_pem(configured).map_err(|error| {
+        format!("VENDOR_PUBKEY_SPKI_PEM is not a valid Ed25519 SPKI key: {error}")
+    })?;
+    let test_key = VerifyingKey::from_public_key_pem(DEV_TEST_PUBKEY_SPKI_PEM)
+        .map_err(|error| format!("committed development public key is invalid: {error}"))?;
+    if configured_key == test_key {
         return Err(
             "release builds must not trust the committed development/test public key".to_string(),
         );
@@ -78,6 +50,12 @@ mod tests {
     #[test]
     fn release_accepts_a_non_test_vendor_key() {
         assert_eq!(validate_vendor_key("release", Some(OTHER_KEY)), Ok(()));
+    }
+
+    #[test]
+    fn release_rejects_base64_that_is_not_an_ed25519_public_key() {
+        let invalid = "-----BEGIN PUBLIC KEY-----\nAAECAwQFBgcICQ==\n-----END PUBLIC KEY-----";
+        assert!(validate_vendor_key("release", Some(invalid)).is_err());
     }
 
     #[test]

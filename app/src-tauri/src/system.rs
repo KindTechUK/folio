@@ -13,8 +13,8 @@
 //! Encryption checks fail SOFT (`Unknown`, never an app error).
 
 use serde::Serialize;
+use std::collections::BTreeSet;
 use std::path::{Path, PathBuf};
-use tauri::Manager;
 use tauri_plugin_dialog::{DialogExt, MessageDialogButtons, MessageDialogKind};
 
 /// Volume-encryption verdict from parsing `manage-bde -status <drive>` text.
@@ -153,14 +153,100 @@ pub fn delete_paths(paths: &[String]) -> DeleteReport {
     DeleteReport { deleted, failed }
 }
 
+const APPROVED_RECORDINGS_FILE: &str = ".approved-recordings";
+
+fn approved_recordings_in(library_dir: &Path) -> Result<BTreeSet<PathBuf>, String> {
+    let path = library_dir.join(APPROVED_RECORDINGS_FILE);
+    let bytes = match std::fs::read(&path) {
+        Ok(bytes) => bytes,
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(BTreeSet::new()),
+        Err(error) => {
+            return Err(format!(
+                "cannot read approved-recordings registry {}: {error}",
+                path.display()
+            ))
+        }
+    };
+    serde_json::from_slice(&bytes).map_err(|error| {
+        format!(
+            "approved-recordings registry {} is invalid: {error}",
+            path.display()
+        )
+    })
+}
+
+fn write_approved_recordings_in(
+    library_dir: &Path,
+    recordings: &BTreeSet<PathBuf>,
+) -> Result<(), String> {
+    std::fs::create_dir_all(library_dir).map_err(|error| {
+        format!(
+            "cannot create library dir {}: {error}",
+            library_dir.display()
+        )
+    })?;
+    let path = library_dir.join(APPROVED_RECORDINGS_FILE);
+    let tmp = library_dir.join(format!("{APPROVED_RECORDINGS_FILE}.tmp"));
+    let bytes = serde_json::to_vec_pretty(recordings)
+        .map_err(|error| format!("cannot serialize approved recordings: {error}"))?;
+    std::fs::write(&tmp, bytes)
+        .map_err(|error| format!("cannot write {}: {error}", tmp.display()))?;
+    std::fs::rename(&tmp, &path)
+        .map_err(|error| format!("cannot finalize {}: {error}", path.display()))
+}
+
+/// Persist the exact canonical file selected by the backend-owned native file
+/// picker. Renderer-provided paths never enter this registry. Symlinks are
+/// rejected so later confirmation and deletion refer to the same filesystem
+/// entry the user selected.
+pub fn approve_recording_in(library_dir: &Path, path: &Path) -> Result<PathBuf, String> {
+    let metadata = std::fs::symlink_metadata(path).map_err(|error| {
+        format!(
+            "cannot inspect selected recording {}: {error}",
+            path.display()
+        )
+    })?;
+    if metadata.file_type().is_symlink() {
+        return Err(format!(
+            "refusing to approve a symlink recording path: {}",
+            path.display()
+        ));
+    }
+    let canonical = path.canonicalize().map_err(|error| {
+        format!(
+            "cannot resolve selected recording {}: {error}",
+            path.display()
+        )
+    })?;
+    if !canonical.is_file() {
+        return Err(format!(
+            "selected recording is not a regular file: {}",
+            canonical.display()
+        ));
+    }
+    let mut approved = approved_recordings_in(library_dir)?;
+    approved.insert(canonical.clone());
+    write_approved_recordings_in(library_dir, &approved)?;
+    Ok(canonical)
+}
+
+fn forget_approved_recording_in(library_dir: &Path, path: &Path) {
+    let Ok(mut approved) = approved_recordings_in(library_dir) else {
+        return;
+    };
+    if approved.remove(path) {
+        let _ = write_approved_recordings_in(library_dir, &approved);
+    }
+}
+
 /// Delete the audio path recorded by a backend-owned saved session, but only
-/// when its canonical target is within one of the canonical allowed roots.
-/// This prevents a compromised renderer from turning the command into an
-/// arbitrary `remove_file` primitive. Symlinks that escape a root are rejected.
+/// when it resolves to the exact canonical file previously approved by the
+/// backend-owned native picker. This permits recordings on external drives and
+/// in arbitrary folders without making the command an arbitrary file-removal
+/// primitive. Symlink paths are always rejected.
 pub fn delete_matter_authorized_in<F>(
     library_dir: &Path,
     id: &str,
-    allowed_roots: &[PathBuf],
     authorize: F,
 ) -> Result<DeleteReport, String>
 where
@@ -180,24 +266,35 @@ where
     }
 
     let audio = Path::new(audio_path);
+    let approved = approved_recordings_in(library_dir)?;
     if !audio.exists() {
+        if !approved.contains(audio) {
+            return Err(format!(
+                "refusing to delete an unapproved saved audio path: {}",
+                audio.display()
+            ));
+        }
+        forget_approved_recording_in(library_dir, audio);
         return Ok(DeleteReport {
             deleted: vec![audio_path.to_string()],
             failed: Vec::new(),
         });
     }
 
+    let metadata = std::fs::symlink_metadata(audio)
+        .map_err(|error| format!("cannot inspect saved audio path {audio_path:?}: {error}"))?;
+    if metadata.file_type().is_symlink() {
+        return Err(format!(
+            "refusing to delete a symlink matter path: {}",
+            audio.display()
+        ));
+    }
     let canonical_audio = audio
         .canonicalize()
         .map_err(|e| format!("cannot resolve saved audio path {audio_path:?}: {e}"))?;
-    let inside_allowed_root = allowed_roots.iter().any(|root| {
-        root.canonicalize()
-            .map(|canonical_root| canonical_audio.starts_with(canonical_root))
-            .unwrap_or(false)
-    });
-    if !inside_allowed_root {
+    if !approved.contains(&canonical_audio) {
         return Err(format!(
-            "refusing to delete saved audio outside approved user-media folders: {}",
+            "refusing to delete a recording not approved by the native picker: {}",
             canonical_audio.display()
         ));
     }
@@ -211,7 +308,12 @@ where
         return Err("source-audio deletion was cancelled".to_string());
     }
 
-    Ok(delete_paths(&[audio_path.to_string()]))
+    let canonical_string = canonical_audio.to_string_lossy().into_owned();
+    let report = delete_paths(&[canonical_string]);
+    if report.failed.is_empty() {
+        forget_approved_recording_in(library_dir, &canonical_audio);
+    }
+    Ok(report)
 }
 
 /// Report the encryption state of the volume holding `path`.
@@ -298,26 +400,44 @@ fn drive_letter(path: &str) -> Option<String> {
     }
 }
 
+/// Pick a recording through a backend-owned native dialog and persist its exact
+/// canonical path in a backend-only approval registry. The renderer receives
+/// the path for transcription but cannot add arbitrary registry entries.
+#[tauri::command]
+pub async fn pick_recording(app: tauri::AppHandle) -> Result<Option<String>, String> {
+    let library = crate::library::library_dir(&app)?;
+    tauri::async_runtime::spawn_blocking(move || {
+        let selected = app
+            .dialog()
+            .file()
+            .add_filter(
+                "Audio",
+                &["wav", "m4a", "mp3", "flac", "mp4", "mov", "aac", "ogg"],
+            )
+            .blocking_pick_file();
+        let Some(selected) = selected else {
+            return Ok(None);
+        };
+        let path = selected
+            .into_path()
+            .map_err(|error| format!("selected recording is not a local file: {error}"))?;
+        let approved = approve_recording_in(&library, &path)?;
+        Ok(Some(approved.to_string_lossy().into_owned()))
+    })
+    .await
+    .map_err(|error| format!("recording-picker task failed: {error}"))?
+}
+
 /// Delete the source audio recorded by a saved session. The renderer supplies
-/// only the session id; the backend resolves the stored path and permits
-/// deletion only inside standard user audio/document/desktop/download roots.
-/// A native backend-owned confirmation dialog displays the canonical path and
-/// must authorize the deletion; renderer-side confirmation is not trusted.
+/// only the session id; the backend resolves the stored path and requires an
+/// exact match in its native-picker approval registry. A native backend-owned
+/// confirmation dialog displays the canonical path and must authorize the
+/// deletion; renderer-side confirmation is not trusted.
 #[tauri::command]
 pub async fn delete_matter(app: tauri::AppHandle, id: String) -> Result<DeleteReport, String> {
     let library = crate::library::library_dir(&app)?;
-    let resolver = app.path();
-    let allowed_roots: Vec<PathBuf> = [
-        resolver.audio_dir(),
-        resolver.document_dir(),
-        resolver.desktop_dir(),
-        resolver.download_dir(),
-    ]
-    .into_iter()
-    .filter_map(Result::ok)
-    .collect();
     tauri::async_runtime::spawn_blocking(move || {
-        delete_matter_authorized_in(&library, &id, &allowed_roots, |audio_path| {
+        delete_matter_authorized_in(&library, &id, |audio_path| {
             app.dialog()
                 .message(format!(
                     "Permanently delete this source audio file?\n\n{}",
@@ -524,37 +644,34 @@ Volume C: [OSDisk]
     }
 
     #[test]
-    fn delete_matter_removes_only_saved_audio_inside_an_allowed_root() {
+    fn delete_matter_removes_an_exact_backend_approved_recording_from_any_folder() {
         let dir = unique_tmp("matter-allowed");
         let library = dir.join("library");
-        let audio_root = dir.join("audio");
-        fs::create_dir_all(&audio_root).unwrap();
-        let audio = audio_root.join("recording.wav");
+        let external_drive = dir.join("external-drive");
+        fs::create_dir_all(&external_drive).unwrap();
+        let audio = external_drive.join("recording.wav");
         fs::write(&audio, b"audio").unwrap();
+        let approved = approve_recording_in(&library, &audio).unwrap();
         save_session(&library, "matter-1", &audio);
 
-        let report =
-            delete_matter_authorized_in(&library, "matter-1", &[audio_root], |_| true).unwrap();
+        let report = delete_matter_authorized_in(&library, "matter-1", |_| true).unwrap();
 
-        assert_eq!(report.deleted, vec![audio.to_string_lossy()]);
+        assert_eq!(report.deleted, vec![approved.to_string_lossy()]);
         assert!(report.failed.is_empty());
         assert!(!audio.exists());
         let _ = fs::remove_dir_all(&dir);
     }
 
     #[test]
-    fn delete_matter_rejects_saved_audio_outside_allowed_roots() {
+    fn delete_matter_rejects_a_saved_path_not_approved_by_the_backend_picker() {
         let dir = unique_tmp("matter-outside");
         let library = dir.join("library");
-        let audio_root = dir.join("audio");
-        let outside_root = dir.join("outside");
-        fs::create_dir_all(&audio_root).unwrap();
-        fs::create_dir_all(&outside_root).unwrap();
-        let outside = outside_root.join("unrelated.txt");
+        let outside = dir.join("unrelated.txt");
+        fs::create_dir_all(&dir).unwrap();
         fs::write(&outside, b"keep").unwrap();
         save_session(&library, "matter-2", &outside);
 
-        let result = delete_matter_authorized_in(&library, "matter-2", &[audio_root], |_| true);
+        let result = delete_matter_authorized_in(&library, "matter-2", |_| true);
 
         assert!(result.is_err());
         assert!(outside.exists());
@@ -569,14 +686,10 @@ Volume C: [OSDisk]
         fs::create_dir_all(&audio_root).unwrap();
         let audio = audio_root.join("recording.wav");
         fs::write(&audio, b"keep").unwrap();
+        approve_recording_in(&library, &audio).unwrap();
         save_session(&library, "matter-denied", &audio);
 
-        let result = delete_matter_authorized_in(
-            &library,
-            "matter-denied",
-            &[audio_root],
-            |_| false,
-        );
+        let result = delete_matter_authorized_in(&library, "matter-denied", |_| false);
 
         assert!(result.is_err());
         assert!(audio.exists());
@@ -585,7 +698,7 @@ Volume C: [OSDisk]
 
     #[cfg(unix)]
     #[test]
-    fn delete_matter_rejects_symlink_that_escapes_allowed_root() {
+    fn backend_picker_approval_rejects_symlink_paths() {
         use std::os::unix::fs::symlink;
 
         let dir = unique_tmp("matter-symlink");
@@ -598,13 +711,34 @@ Volume C: [OSDisk]
         let link = audio_root.join("recording.wav");
         fs::write(&outside, b"keep").unwrap();
         symlink(&outside, &link).unwrap();
-        save_session(&library, "matter-3", &link);
-
-        let result = delete_matter_authorized_in(&library, "matter-3", &[audio_root], |_| true);
+        let result = approve_recording_in(&library, &link);
 
         assert!(result.is_err());
         assert!(link.exists());
         assert!(outside.exists());
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn delete_matter_rejects_a_symlink_even_when_its_target_was_approved() {
+        use std::os::unix::fs::symlink;
+
+        let dir = unique_tmp("matter-approved-target-symlink");
+        let library = dir.join("library");
+        fs::create_dir_all(&dir).unwrap();
+        let target = dir.join("recording.wav");
+        let link = dir.join("recording-link.wav");
+        fs::write(&target, b"keep").unwrap();
+        approve_recording_in(&library, &target).unwrap();
+        symlink(&target, &link).unwrap();
+        save_session(&library, "matter-4", &link);
+
+        let result = delete_matter_authorized_in(&library, "matter-4", |_| true);
+
+        assert!(result.is_err());
+        assert!(link.exists());
+        assert!(target.exists());
         let _ = fs::remove_dir_all(&dir);
     }
 }

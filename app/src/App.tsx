@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { invoke, convertFileSrc } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
-import { open } from "@tauri-apps/plugin-dialog";
 import { loadTranscript } from "@core/editor";
 import type { EditorState } from "@core/editor";
 import type { Transcript } from "@core/types";
@@ -190,6 +189,10 @@ export default function App() {
         "delete_matter",
         { id: currentSessionMeta?.id ?? "" },
       );
+      if (report.failed.length > 0) {
+        setStatus("error deleting matter: source audio could not be deleted");
+        return;
+      }
       // Purge the saved library entry for this matter too, so deleting a matter
       // leaves no persisted transcript behind.
       if (currentSessionMeta) {
@@ -210,18 +213,7 @@ export default function App() {
       return;
     }
     setStatus("selecting file…");
-    const path = await open({
-      multiple: false,
-      directory: false,
-      filters: [
-        {
-          name: "Audio",
-          // Symphonia covers these in-app (decoded to 16 kHz mono); the command
-          // resamples/downmixes as needed.
-          extensions: ["wav", "m4a", "mp3", "flac", "mp4", "mov", "aac", "ogg"],
-        },
-      ],
-    });
+    const path = await invoke<string | null>("pick_recording");
     if (typeof path !== "string") {
       setStatus(state ? "review open" : "idle");
       return;

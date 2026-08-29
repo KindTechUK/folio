@@ -29,6 +29,7 @@ pub fn run() {
             library::load_session,
             library::delete_session,
             system::volume_encryption_status,
+            system::pick_recording,
             system::delete_matter
         ])
         .run(tauri::generate_context!())
