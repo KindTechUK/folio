@@ -76,12 +76,14 @@ stronger position than a wipe-on-completion routine. However:
 
 The PRD specifies a one-click action to remove the audio and transcript for a
 matter when the fee-earner is done (user story #14). **Implemented:** a "Delete
-matter" button (shown once a transcript is loaded) confirms, then calls the
-`delete_matter` command to remove the source audio file, **purges the saved
-library entry** for that matter (`delete_session`), and clears the in-memory
-transcript (`app/src-tauri/src/system.rs`, `library.rs`, `app/src/App.tsx`). The
-deletion helper is idempotent (an already-gone file counts as deleted) and
-reports any genuine failure per-path rather than crashing.
+matter" button (shown once a transcript is loaded) calls the backend, which
+resolves the saved source path, restricts it to approved user-media folders,
+rejects escaping symlinks, and displays the canonical path in a native
+confirmation dialog before deletion. It then **purges the saved library entry**
+for that matter (`delete_session`) and clears the in-memory transcript
+(`app/src-tauri/src/system.rs`, `library.rs`, `app/src/App.tsx`). The deletion
+helper is idempotent (an already-gone file counts as deleted) and reports any
+genuine failure rather than crashing.
 
 **Honest scope:** the on-disk footprint of a matter is the **source audio** (the
 user's own file, referenced not copied) plus the **saved transcript JSON** in the

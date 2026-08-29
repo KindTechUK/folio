@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { invoke, convertFileSrc } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
-import { open } from "@tauri-apps/plugin-dialog";
 import { loadTranscript } from "@core/editor";
 import type { EditorState } from "@core/editor";
 import type { Transcript } from "@core/types";
@@ -65,9 +64,6 @@ export default function App() {
   const onUndo = () => setHistory((h) => (h ? undo(h) : h));
   const onRedo = () => setHistory((h) => (h ? redo(h) : h));
   const [audioSrc, setAudioSrc] = useState<string | undefined>(undefined);
-  // The raw filesystem path of the picked audio (NOT the convertFileSrc URL),
-  // retained so "Delete matter" can remove the source file — the only artifact.
-  const [loadedPath, setLoadedPath] = useState<string | null>(null);
   // Volume-encryption banner state. `null` until the on-mount check resolves;
   // `dismissed` hides it for the session.
   const [encryption, setEncryption] = useState<EncryptionStatus | null>(null);
@@ -173,7 +169,6 @@ export default function App() {
       setAudioSrc(
         res.audioAvailable ? convertFileSrc(res.session.audioPath) : undefined,
       );
-      setLoadedPath(res.audioAvailable ? res.session.audioPath : null);
       setView("transcribe");
       setStatus(
         res.audioAvailable
@@ -185,30 +180,20 @@ export default function App() {
     }
   }
 
-  // Wipe the matter's only on-disk artifact (the source audio) and clear the
-  // loaded transcript. The engine writes no temp files, so the picked path is
-  // the entire footprint to remove.
+  // Ask the backend to confirm and delete both the source recording and saved
+  // transcript, then clear the loaded UI only after the backend succeeds.
   async function deleteMatter() {
-    if (
-      !window.confirm(
-        "Delete the source audio for this matter and clear the transcript? This cannot be undone.",
-      )
-    ) {
-      return;
-    }
     try {
       const report = await invoke<{ deleted: string[]; failed: unknown[] }>(
         "delete_matter",
-        { paths: loadedPath ? [loadedPath] : [] },
+        { id: currentSessionMeta?.id ?? "" },
       );
-      // Purge the saved library entry for this matter too, so deleting a matter
-      // leaves no persisted transcript behind.
-      if (currentSessionMeta) {
-        await invoke("delete_session", { id: currentSessionMeta.id });
+      if (report.failed.length > 0) {
+        setStatus("error deleting matter: source audio could not be deleted");
+        return;
       }
       setHistory(null);
       setAudioSrc(undefined);
-      setLoadedPath(null);
       setCurrentSessionMeta(null);
       setStatus(`matter deleted — ${report.deleted.length} file(s) removed`);
     } catch (e) {
@@ -222,43 +207,33 @@ export default function App() {
       return;
     }
     setStatus("selecting file…");
-    const path = await open({
-      multiple: false,
-      directory: false,
-      filters: [
-        {
-          name: "Audio",
-          // Symphonia covers these in-app (decoded to 16 kHz mono); the command
-          // resamples/downmixes as needed.
-          extensions: ["wav", "m4a", "mp3", "flac", "mp4", "mov", "aac", "ogg"],
-        },
-      ],
-    });
-    if (typeof path !== "string") {
-      setStatus(state ? "review open" : "idle");
-      return;
-    }
-    setHistory(null);
-    setCurrentSessionMeta(null);
-    setProgress(null);
-    const parsedCount = parseInt(speakerCount, 10);
-    const num_speakers =
-      detectSpeakers && Number.isFinite(parsedCount) && parsedCount > 0
-        ? parsedCount
-        : undefined;
-
-    // Determinate progress bar driven by backend `transcribe-progress` events.
-    // The command is async/off-thread, so the webview stays responsive while it
-    // runs. We unlisten in `finally` (and on the error path) so no listener leaks.
-    const startedAt = Date.now();
-    setStatus("transcribing…");
-    setProgress({ fraction: 0, label: "Starting…" });
-    const unlisten = await listen<Progress>("transcribe-progress", (event) => {
-      const elapsedSec = (Date.now() - startedAt) / 1000;
-      setProgress(progressView(event.payload, elapsedSec));
-    });
-
+    let unlisten = () => {};
     try {
+      const path = await invoke<string | null>("pick_recording");
+      if (typeof path !== "string") {
+        setStatus(state ? "review open" : "idle");
+        return;
+      }
+      setHistory(null);
+      setCurrentSessionMeta(null);
+      setProgress(null);
+      const parsedCount = parseInt(speakerCount, 10);
+      const num_speakers =
+        detectSpeakers && Number.isFinite(parsedCount) && parsedCount > 0
+          ? parsedCount
+          : undefined;
+
+      // Determinate progress bar driven by backend `transcribe-progress` events.
+      // The command is async/off-thread, so the webview stays responsive while it
+      // runs. We unlisten in `finally` (and on the error path) so no listener leaks.
+      const startedAt = Date.now();
+      setStatus("transcribing…");
+      setProgress({ fraction: 0, label: "Starting…" });
+      unlisten = await listen<Progress>("transcribe-progress", (event) => {
+        const elapsedSec = (Date.now() - startedAt) / 1000;
+        setProgress(progressView(event.payload, elapsedSec));
+      });
+
       const transcript = await invoke<Transcript>("transcribe", {
         path,
         diarize: detectSpeakers,
@@ -273,9 +248,8 @@ export default function App() {
       setHistory(initHistory(editorState));
       setDiarized(detectSpeakers);
       setAudioSrc(convertFileSrc(path));
-      setLoadedPath(path);
       setCurrentSessionMeta({ id, createdAt, audioPath: path, diarized: detectSpeakers });
-      void invoke("save_session", {
+      await invoke("save_session", {
         session: buildSession({
           id,
           createdAt,
@@ -284,7 +258,7 @@ export default function App() {
           diarized: detectSpeakers,
           state: editorState,
         }),
-      }).catch(() => {});
+      });
       setStatus(`done — ${transcript.segments.length} segments`);
     } catch (e) {
       setStatus(`error: ${String(e)}`);

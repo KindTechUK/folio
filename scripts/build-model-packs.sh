@@ -33,27 +33,40 @@ ENGINE_MIN="1.13.2" # must be <= the app's reported engine version (models.rs)
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BASE="https://github.com/k2-fsa/sherpa-onnx/releases/download"
 SIGN=(cargo run --release --quiet --manifest-path "$REPO_ROOT/tools/modelpack-sign/Cargo.toml" --)
+ASSET_MANIFEST="$REPO_ROOT/scripts/modelpack-assets.sha256"
+source "$REPO_ROOT/scripts/modelpack-security.sh"
 
 work="$(mktemp -d)"
 trap 'rm -rf "$work"' EXIT
 mkdir -p "$OUT"
 
-dl() { echo "  ↓ $1"; curl -fsSL "$1" -o "$2"; }
+dl() {
+  local url="$1"
+  local dest="$2"
+  local asset="$3"
+  echo "  ↓ $url"
+  curl -fsSL "$url" -o "$dest"
+  verify_pinned_asset "$ASSET_MANIFEST" "$dest" "$asset"
+}
 
 # Build the producer once up front so per-pack runs don't interleave build logs.
 ( cd "$REPO_ROOT" && cargo build --release --quiet --manifest-path tools/modelpack-sign/Cargo.toml )
 
 # Silero VAD is shared by both ASR packs (the engine always needs it).
-dl "$BASE/asr-models/silero_vad.onnx" "$work/silero_vad.onnx"
+dl "$BASE/asr-models/silero_vad.onnx" "$work/silero_vad.onnx" "silero_vad.onnx"
 
 build_asr() {
   local model="$1" # small | medium
   local dir="sherpa-onnx-whisper-${model}.en"
   echo "==> ASR pack: ${model}.en"
-  dl "$BASE/asr-models/${dir}.tar.bz2" "$work/${dir}.tar.bz2"
+  dl "$BASE/asr-models/${dir}.tar.bz2" "$work/${dir}.tar.bz2" "${dir}.tar.bz2"
   tar xjf "$work/${dir}.tar.bz2" -C "$work"
+  reject_archive_links "$work/$dir"
   local stage="$work/stage-${model}"
   mkdir -p "$stage/${dir}"
+  require_regular_file "$work/${dir}/${model}.en-encoder.int8.onnx"
+  require_regular_file "$work/${dir}/${model}.en-decoder.int8.onnx"
+  require_regular_file "$work/${dir}/${model}.en-tokens.txt"
   cp "$work/${dir}/${model}.en-encoder.int8.onnx" "$stage/${dir}/"
   cp "$work/${dir}/${model}.en-decoder.int8.onnx" "$stage/${dir}/"
   cp "$work/${dir}/${model}.en-tokens.txt"        "$stage/${dir}/"
@@ -72,10 +85,15 @@ build_asr() {
 build_parakeet() {
   local dir="sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
   echo "==> ASR pack: parakeet-tdt-0.6b-v2 (int8, default)"
-  dl "$BASE/asr-models/${dir}.tar.bz2" "$work/${dir}.tar.bz2"
+  dl "$BASE/asr-models/${dir}.tar.bz2" "$work/${dir}.tar.bz2" "${dir}.tar.bz2"
   tar xjf "$work/${dir}.tar.bz2" -C "$work"
+  reject_archive_links "$work/$dir"
   local stage="$work/stage-parakeet"
   mkdir -p "$stage/${dir}"
+  require_regular_file "$work/${dir}/encoder.int8.onnx"
+  require_regular_file "$work/${dir}/decoder.int8.onnx"
+  require_regular_file "$work/${dir}/joiner.int8.onnx"
+  require_regular_file "$work/${dir}/tokens.txt"
   cp "$work/${dir}/encoder.int8.onnx" "$stage/${dir}/"
   cp "$work/${dir}/decoder.int8.onnx" "$stage/${dir}/"
   cp "$work/${dir}/joiner.int8.onnx"  "$stage/${dir}/"
@@ -94,9 +112,12 @@ build_asr small
 build_asr medium
 
 echo "==> Diarization pack: pyannote segmentation-3.0 + 3D-Speaker CAM++"
-dl "$BASE/speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2" "$work/seg.tar.bz2"
+dl "$BASE/speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2" "$work/seg.tar.bz2" "sherpa-onnx-pyannote-segmentation-3-0.tar.bz2"
 tar xjf "$work/seg.tar.bz2" -C "$work"
-dl "$BASE/speaker-recongition-models/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx" "$work/campplus.onnx"
+reject_archive_links "$work/sherpa-onnx-pyannote-segmentation-3-0"
+require_regular_file "$work/sherpa-onnx-pyannote-segmentation-3-0/model.onnx"
+dl "$BASE/speaker-recongition-models/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx" "$work/campplus.onnx" "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx"
+require_regular_file "$work/campplus.onnx"
 stage="$work/stage-diar"
 mkdir -p "$stage/sherpa-onnx-pyannote-segmentation-3-0"
 cp "$work/sherpa-onnx-pyannote-segmentation-3-0/model.onnx" "$stage/sherpa-onnx-pyannote-segmentation-3-0/"

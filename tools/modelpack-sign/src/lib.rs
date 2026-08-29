@@ -47,17 +47,127 @@ pub fn generate_keypair() -> Result<(String, String)> {
     Ok((private_pem, public_pem))
 }
 
+fn secure_key_directory(out_dir: &Path) -> Result<()> {
+    if out_dir.exists() {
+        bail!("key out-dir already exists: {}", out_dir.display());
+    }
+    if let Some(parent) = out_dir.parent() {
+        std::fs::create_dir_all(parent)
+            .with_context(|| format!("creating parent directory {}", parent.display()))?;
+    }
+
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::DirBuilderExt;
+        let mut builder = std::fs::DirBuilder::new();
+        builder.mode(0o700);
+        builder
+            .create(out_dir)
+            .with_context(|| format!("creating secure key out-dir {}", out_dir.display()))?;
+    }
+
+    #[cfg(windows)]
+    {
+        std::fs::create_dir(out_dir)
+            .with_context(|| format!("creating key out-dir {}", out_dir.display()))?;
+        if let Err(error) = secure_windows_acl(out_dir, true) {
+            let _ = std::fs::remove_dir(out_dir);
+            return Err(error);
+        }
+    }
+
+    #[cfg(not(any(unix, windows)))]
+    std::fs::create_dir(out_dir)
+        .with_context(|| format!("creating key out-dir {}", out_dir.display()))?;
+
+    Ok(())
+}
+
+#[cfg(windows)]
+fn current_windows_user_sid() -> Result<String> {
+    let output = std::process::Command::new("whoami")
+        .args(["/user", "/fo", "csv", "/nh"])
+        .output()
+        .context("running whoami to resolve the current user SID")?;
+    if !output.status.success() {
+        bail!("whoami could not resolve the current user SID");
+    }
+    let text = String::from_utf8_lossy(&output.stdout);
+    text.split(|character: char| character == ',' || character == '"' || character.is_whitespace())
+        .find(|field| field.starts_with("S-1-"))
+        .map(str::to_string)
+        .ok_or_else(|| anyhow::anyhow!("whoami returned no Windows user SID"))
+}
+
+#[cfg(windows)]
+fn secure_windows_acl(path: &Path, directory: bool) -> Result<()> {
+    let sid = current_windows_user_sid()?;
+    let grant = if directory {
+        format!("*{sid}:(OI)(CI)F")
+    } else {
+        format!("*{sid}:F")
+    };
+    let status = std::process::Command::new("icacls")
+        .arg(path)
+        .arg("/inheritancelevel:r")
+        .arg("/grant:r")
+        .arg(grant)
+        .status()
+        .with_context(|| format!("running icacls to secure {}", path.display()))?;
+    if !status.success() {
+        bail!("icacls could not secure {}", path.display());
+    }
+    Ok(())
+}
+
+fn write_new_file(path: &Path, bytes: &[u8], private: bool) -> Result<()> {
+    let mut options = std::fs::OpenOptions::new();
+    options.write(true).create_new(true);
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::OpenOptionsExt;
+        options.mode(if private { 0o600 } else { 0o644 });
+    }
+    #[cfg(not(unix))]
+    let _ = private;
+
+    let mut file = options.open(path).map_err(|e| {
+        if e.kind() == std::io::ErrorKind::AlreadyExists {
+            anyhow::anyhow!("key file already exists: {}", path.display())
+        } else {
+            anyhow::anyhow!("cannot create {}: {e}", path.display())
+        }
+    })?;
+    #[cfg(windows)]
+    if private {
+        if let Err(error) = secure_windows_acl(path, false) {
+            drop(file);
+            let _ = std::fs::remove_file(path);
+            return Err(error);
+        }
+    }
+    file.write_all(bytes)
+        .with_context(|| format!("writing {}", path.display()))?;
+    file.sync_all()
+        .with_context(|| format!("syncing {}", path.display()))?;
+    Ok(())
+}
+
 /// Write a freshly generated keypair into `out_dir`, returning the two paths.
 pub fn keygen(out_dir: &Path) -> Result<(std::path::PathBuf, std::path::PathBuf)> {
-    std::fs::create_dir_all(out_dir)
-        .with_context(|| format!("creating key out-dir {}", out_dir.display()))?;
-    let (private_pem, public_pem) = generate_keypair()?;
+    secure_key_directory(out_dir)?;
     let private_path = out_dir.join("private.pkcs8.pem");
     let public_path = out_dir.join("public.spki.pem");
-    std::fs::write(&private_path, private_pem.as_bytes())
-        .with_context(|| format!("writing {}", private_path.display()))?;
-    std::fs::write(&public_path, public_pem.as_bytes())
-        .with_context(|| format!("writing {}", public_path.display()))?;
+    if private_path.exists() || public_path.exists() {
+        bail!("key file already exists in {}", out_dir.display());
+    }
+
+    let (private_pem, public_pem) = generate_keypair()?;
+    write_new_file(&private_path, private_pem.as_bytes(), true)?;
+    if let Err(error) = write_new_file(&public_path, public_pem.as_bytes(), false) {
+        let _ = std::fs::remove_file(&private_path);
+        return Err(error);
+    }
     Ok((private_path, public_path))
 }
 
@@ -301,6 +411,54 @@ mod tests {
         .unwrap_err();
         assert!(err.contains("weights hash mismatch"), "got: {err}");
 
+        let _ = std::fs::remove_dir_all(&tmp);
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn keygen_creates_owner_only_private_key() {
+        use std::os::unix::fs::PermissionsExt;
+
+        let tmp = std::env::temp_dir().join(format!("mps-mode-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&tmp);
+        let (private_path, _) = keygen(&tmp).unwrap();
+
+        let mode = std::fs::metadata(private_path)
+            .unwrap()
+            .permissions()
+            .mode()
+            & 0o777;
+        assert_eq!(mode, 0o600);
+
+        let _ = std::fs::remove_dir_all(&tmp);
+    }
+
+    #[test]
+    fn keygen_refuses_to_overwrite_existing_private_key() {
+        let tmp = std::env::temp_dir().join(format!("mps-existing-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&tmp);
+        std::fs::create_dir_all(&tmp).unwrap();
+        let private_path = tmp.join("private.pkcs8.pem");
+        std::fs::write(&private_path, b"keep-me").unwrap();
+
+        let error = keygen(&tmp).unwrap_err().to_string();
+
+        assert!(error.contains("already exists"), "got: {error}");
+        assert_eq!(std::fs::read(&private_path).unwrap(), b"keep-me");
+
+        let _ = std::fs::remove_dir_all(&tmp);
+    }
+
+    #[test]
+    fn keygen_refuses_an_existing_output_directory() {
+        let tmp = std::env::temp_dir().join(format!("mps-existing-dir-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&tmp);
+        std::fs::create_dir_all(&tmp).unwrap();
+
+        let error = keygen(&tmp).unwrap_err().to_string();
+
+        assert!(error.contains("already exists"), "got: {error}");
+        assert!(!tmp.join("private.pkcs8.pem").exists());
         let _ = std::fs::remove_dir_all(&tmp);
     }
 

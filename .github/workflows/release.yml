@@ -41,7 +41,10 @@ jobs:
       - name: Write vendor signing key
         env:
           MODELPACK_SIGNING_KEY: ${{ secrets.MODELPACK_SIGNING_KEY }}
-        run: printf '%s\n' "$MODELPACK_SIGNING_KEY" > "$RUNNER_TEMP/private.pkcs8.pem"
+        run: |
+          test -n "$MODELPACK_SIGNING_KEY" || { echo "MODELPACK_SIGNING_KEY is required" >&2; exit 1; }
+          umask 077
+          printf '%s\n' "$MODELPACK_SIGNING_KEY" > "$RUNNER_TEMP/private.pkcs8.pem"
       - name: Build + sign packs
         env:
           VERSION: ${{ github.ref_name }}
@@ -94,8 +97,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Compile the real vendor public key into the app so it trusts the
-          # packs signed in the model-packs job. Falls back to the dev/test key
-          # only if the secret is unset (then released packs would be rejected).
+          # packs signed in the model-packs job. build.rs fails release builds
+          # if this is empty or equal to the committed development/test key.
           VENDOR_PUBKEY_SPKI_PEM: ${{ secrets.VENDOR_PUBKEY_SPKI_PEM }}
         with:
           projectPath: app
