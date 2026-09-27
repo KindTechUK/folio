@@ -74,5 +74,9 @@ nav:
   - Design & planning:
       - Paragraph editing UX: design/paragraph-editing-ux.md
       - PRD — local private transcription: prd/local-private-transcription.md
+      - PRD — next phase (live capture & notes): prd/folio-next-live-capture-and-notes.md
       - sherpa-onnx spike: spikes/sherpa-onnx-spike.md
+      - Next-phase spike plan: spikes/next-phase-spikes.md
       - Vibe fork plan: plans/vibe-fork-plan.md
+  - Research:
+      - Scribe landscape (Sep 2026): research/scribe-landscape-2026-09.md
