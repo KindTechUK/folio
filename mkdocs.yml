@@ -47,6 +47,10 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
+plugins:
+  - search
+  - blog
+
 # Cross-repo links (to source files outside docs/) are expected; keep them as
 # warnings so a stray link never breaks the published site.
 validation:
@@ -62,6 +66,8 @@ nav:
   - Install: install.md
   - Model packs: model-packs.md
   - Build from source: build-from-source.md
+  - Blog:
+      - blog/index.md
   - Privacy & security:
       - Overview: privacy-security.md
       - Assurance pack: assurance/README.md
