@@ -24,9 +24,10 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment; newer pushes supersede in-flight ones.
+# One run per ref: newer pushes supersede in-flight ones, and PR builds never
+# cancel a main deployment.
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
