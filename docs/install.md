@@ -7,9 +7,9 @@ Grab the installer for your OS from the
 
 | OS | Asset |
 |----|-------|
-| macOS | `Folio_<version>_*.dmg` |
-| Windows | `Folio_<version>_*-setup.exe` (NSIS) |
-| Linux | `*.AppImage` or `*.deb` |
+| macOS (Apple Silicon) | `Folio_<version>_aarch64.dmg` |
+| Windows x64 | `Folio_<version>_x64-setup.exe` (NSIS) |
+| Linux x64 | `Folio_<version>_amd64.AppImage` or `Folio_<version>_amd64.deb` |
 
 ### First-launch notes (unsigned builds)
 
@@ -39,11 +39,15 @@ launch. This is expected.
 The app ships **without** model weights — you import a signed pack once. From the same
 release, download the packs you need (each is a `.zip` of `manifest.json` + `weights.bin`):
 
-| Pack | Use it for |
-|------|-----------|
-| `asr-whisper-small.en` | Transcription (faster, ~370 MB) |
-| `asr-whisper-medium.en` | Transcription (more accurate, ~930 MB) |
-| `diarization-pyannote-campplus` | Speaker labels (~35 MB) |
+| Pack | Use it for | Download |
+|------|-----------|----------|
+| `asr-parakeet-tdt-0.6b-v2` | Transcription — **default, recommended** (English, fastest on CPU) | ~480 MB |
+| `asr-whisper-small.en` | Transcription (Whisper alternative) | ~230 MB |
+| `asr-whisper-medium.en` | Transcription (Whisper, slower, more accurate than small.en) | ~585 MB |
+| `diarization-pyannote-campplus` | Speaker labels (optional) | ~33 MB |
+
+The Parakeet pack is published from v0.2.0 onwards. The app uses Parakeet when it is
+installed, otherwise `small.en`, then `medium.en`.
 
 Then:
 
@@ -53,16 +57,19 @@ Then:
    ✓ **imported** — or a rejection reason if it fails. Nothing is installed unless it
    verifies.
 
-You typically want **one ASR pack + the diarization pack**. Verify downloads against
-`SHA256SUMS` from the release:
+You need **one ASR pack** (Parakeet recommended). Add the diarization pack only if you
+will use *Detect and label speakers*. Verify downloads against `SHA256SUMS` from the
+release:
 
 ```bash
-sha256sum -c SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS            # Linux / Windows (Git Bash)
+shasum -a 256 -c --ignore-missing SHA256SUMS        # macOS
 ```
 
 ## 3. Transcribe
 
-Open an audio file, optionally set the speaker count, and transcribe. Everything runs
+Open an audio file and transcribe. To label speakers, tick *Detect and label speakers*
+(optionally giving the expected number of speakers). Everything runs
 locally on CPU — you can do it in airplane mode. See
 [Privacy & security](privacy-security.md) for the guarantees, or
 [Model packs](model-packs.md) to build your own.

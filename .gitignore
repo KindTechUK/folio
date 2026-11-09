@@ -10,7 +10,7 @@ wheels/
 .venv
 .venv-sherpa
 
-# Downloaded model weights + spike scratch (sherpa-onnx spike)
+# Downloaded model weights (local dev / integration test)
 models/
 
 # Node
