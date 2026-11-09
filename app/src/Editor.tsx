@@ -499,8 +499,8 @@ export default function Editor({
         </div>
       )}
 
-      {/* Background clicks toggle play (F4). Word/chip/edit/button handlers all
-          stopPropagation, so only empty-space clicks reach here. */}
+      {/* Empty-space clicks toggle play; word, chip, button and editor handlers
+          stopPropagation. */}
       <div
         className="doc"
         onClick={togglePlay}
@@ -702,6 +702,7 @@ function ParagraphEditor({
         value={text}
         rows={4}
         onChange={(e) => setText(e.target.value)}
+        onClick={(e) => e.stopPropagation()}
         onBlur={() => onCommit(text)}
         onKeyDown={(e) => {
           if (e.key === "Enter" && !e.shiftKey) {
@@ -814,6 +815,7 @@ function SentenceEditor({
       value={text}
       rows={2}
       onChange={(e) => setText(e.target.value)}
+      onClick={(e) => e.stopPropagation()}
       onBlur={() => onCommit(text)}
       onKeyDown={(e) => {
         if (e.key === "Enter" && !e.shiftKey) {

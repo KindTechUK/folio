@@ -39,10 +39,12 @@ function Harness({
   onState,
   diarized = true,
   transcript = FIXTURE,
+  audioSrc,
 }: {
   onState: (s: EditorState) => void;
   diarized?: boolean;
   transcript?: Transcript;
+  audioSrc?: string;
 }) {
   const [state, setState] = useState<EditorState>(() =>
     loadTranscript(transcript),
@@ -52,6 +54,7 @@ function Harness({
     <Editor
       state={state}
       diarized={diarized}
+      audioSrc={audioSrc}
       setState={(s) => {
         onState(s);
         setState(s);
@@ -287,6 +290,23 @@ describe("Editor (jsdom)", () => {
     rerender(<H can={true} />);
     fireEvent.click(screen.getByTestId("undo"));
     expect(onUndo).toHaveBeenCalled();
+  });
+
+  it.each([
+    ["sentence", true, "sentence-sent-0"],
+    ["paragraph", false, "paragraph"],
+  ])("clicking inside an open %s editor does not toggle playback", (_, diarized, target) => {
+    const play = vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue();
+    const { container } = render(
+      <Harness onState={capture} diarized={diarized as boolean} audioSrc="clip.wav" />,
+    );
+
+    fireEvent.doubleClick(screen.getAllByTestId(target as string)[0]!);
+    fireEvent.click(screen.getByTestId("edit-sent-0"));
+    expect(play).not.toHaveBeenCalled();
+
+    fireEvent.click(container.querySelector(".doc")!);
+    expect(play).toHaveBeenCalledTimes(1);
   });
 
   // NOTE: rAF karaoke highlight, audio play/pause, Space play/pause, click-to-
