@@ -26,7 +26,7 @@ so a human verifies every transcript before it is relied on.
   opening any connection, and a CI gate fails the build if a networking crate
   reappears.
 - **No telemetry, no crash reporting, no auto-updater.** Updates ship as a new
-  signed installer pushed by IT.
+  installer pushed by IT (installer code-signing is on the roadmap).
 - Because the vendor never receives any data, the vendor's position is that it
   is **not a data processor** under UK GDPR / DPA 2018.
 
@@ -39,8 +39,9 @@ data-at-rest notes, and a DPIA-support template — lives in
 
 - **Docs site:** <https://kindtechuk.github.io/folio/> — install
   guide, model packs, building from source, and the privacy/assurance pack.
-- **Downloads:** signed model packs and desktop installers (macOS / Windows /
-  Linux) are published to
+- **Downloads:** signed model packs and (not yet code-signed) desktop
+  installers — macOS Apple Silicon `.dmg`, Windows x64 `-setup.exe`, Linux x64
+  `.AppImage` / `.deb` — are published to
   [GitHub Releases](https://github.com/KindTechUK/folio/releases).
 - **Contributing & security:** see [CONTRIBUTING.md](CONTRIBUTING.md),
   [SECURITY.md](SECURITY.md), and the [Apache-2.0 licence](LICENSE).
@@ -49,8 +50,10 @@ data-at-rest notes, and a DPIA-support template — lives in
 
 - **In-app decode** to 16 kHz mono via pure-Rust `symphonia` + `rubato` — no
   bundled ffmpeg, no sidecar.
-- **In-process ASR on CPU** (Whisper `small.en`, int8) via the official k2-fsa
-  `sherpa-onnx` crate. **No Python at runtime.**
+- **In-process ASR on CPU** via the official k2-fsa `sherpa-onnx` crate:
+  NVIDIA **Parakeet-TDT-0.6B-v2** (int8, English, native word timestamps) by
+  default, or Whisper `small.en` / `medium.en` (int8) when only those packs are
+  installed. **No Python at runtime.**
 - **Optional speaker diarization** (opt-in, default off — see
   [`engine/README.md`](engine/README.md)), with an optional speaker-count hint.
 - **Review editor**: variable-speed playback, word-synced highlight + follow,
@@ -73,37 +76,42 @@ data-at-rest notes, and a DPIA-support template — lives in
 | `engine/` | Rust ASR + diarization engine over `sherpa-onnx` (CPU, no Python). |
 | `modelpack/` | Rust model-pack signature/verification crate (mirrors the `core` oracle). |
 | `tools/modelpack-sign/` | Vendor-side CLI to build and sign model packs. |
-| `docs/assurance/` | The compliance / assurance pack. |
+| `docs/` | The docs site source, including the compliance / assurance pack (`docs/assurance/`). |
+| `scripts/` | Dev/CI helpers: the zero-egress gate, model-pack release build, manual e2e harness. |
+| `fixtures/` | Test-only model-pack fixtures and keys for the conformance tests. |
 
 ## Build & run the app (development)
 
-Prerequisites: Node.js + npm, the Rust toolchain, and the `sherpa-onnx` native
-libraries (set `SHERPA_ONNX_LIB_DIR` to point at them — see
+Prerequisites: Node.js 22+ and npm, the Rust toolchain, and Tauri's platform
+dependencies. The first build downloads the prebuilt `sherpa-onnx` C library;
+set `SHERPA_ONNX_LIB_DIR` only for an offline/vendored build (see
 [`engine/README.md`](engine/README.md)).
 
 ```bash
 cd app
-npm install
-# point at your sherpa-onnx libs, then:
-SHERPA_ONNX_LIB_DIR=/path/to/sherpa-onnx/lib npm run tauri dev
+npm ci
+npm run tauri dev
 ```
 
 A debug-only `KINDTECH_MODELS_DIR` env var can point the transcribe path at a
-raw models directory for dev/demo; release/hardened builds ignore it and load
+raw models directory for dev/demo; release builds ignore it and load
 only from verified signed packs.
 
 ### Tests & checks
 
 ```bash
-cd core && npm run verify          # typecheck + 110 unit tests
-cd app  && npm run build && npx vitest run   # tsc strict build + component tests
-SHERPA_ONNX_LIB_DIR=... cargo test --manifest-path app/src-tauri/Cargo.toml
-bash scripts/check-no-network.sh   # zero-egress denylist gate
+(cd core && npm ci && npm run verify)                    # typecheck + unit tests
+(cd app && npm ci && npm run build && npx vitest run)    # tsc build + component tests
+cargo test --manifest-path app/src-tauri/Cargo.toml      # app backend (needs app/dist from the line above)
+bash scripts/check-no-network.sh                         # zero-egress denylist gate
 ```
+
+See [Build from source](docs/build-from-source.md) for every component.
 
 ## Status
 
 Pre-release. The trust boundary, zero-egress enforcement, review editor, and
-local Library are implemented and tested. **Roadmap**: a production vendor
-signing key (fixtures use a committed TEST key), and Windows MSI packaging with
-OV Authenticode code-signing for IT-managed (Intune/SCCM) deployment.
+local Library are implemented and tested. Release packs are signed with a
+CI-held vendor key, and release builds refuse to compile against the committed
+test key. **Roadmap**: Windows MSI packaging with OV Authenticode code-signing
+for IT-managed (Intune/SCCM) deployment.

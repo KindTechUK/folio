@@ -1,23 +1,24 @@
 # Third-party component & licence inventory
 
-> Part of the assurance pack. Addresses PRD user story #25 (compliance officer
-> wants a list of bundled third-party components and licences to clear
-> procurement).
+> Part of the assurance pack. Lists the bundled third-party components and
+> licences a compliance officer needs to clear procurement.
 
 ## Headline
 
 **Every bundled component — Rust crate, npm dependency, and ONNX model — is
-under a permissive, redistributable licence (MIT or Apache-2.0).** There are
-**no copyleft (GPL/AGPL/LGPL) dependencies**, **no source-available/non-commercial
-weights** (CC-BY-NC and gated models such as Rev `reverb-diarization` were
-deliberately rejected per the PRD licence-vetting gate), and **no Hugging Face
-token / account is required** to obtain or run any model. Required attributions
-are surfaced below.
+under a permissive, redistributable licence** (MIT, Apache-2.0, BSD-3-Clause, or
+CC-BY-4.0 for the default ASR model; `symphonia` is MPL-2.0, see the note below).
+There are **no copyleft (GPL/AGPL/LGPL) dependencies**, **no
+source-available/non-commercial weights** (CC-BY-NC and gated models such as Rev
+`reverb-diarization` were deliberately rejected during licence vetting), and **no
+Hugging Face token / account is required** to obtain or run any model. Required
+attributions are surfaced below.
 
 Versions are read from the committed manifests (`engine/Cargo.toml`,
 `modelpack/Cargo.toml`, `app/src-tauri/Cargo.toml`, `app/package.json`,
-`core/package.json`) and the model table from the sherpa-onnx spike
-(`docs/spikes/sherpa-onnx-spike.md`). Transitive dependencies of the listed
+`core/package.json`) and the model table from the release pack build
+(`scripts/build-model-packs.sh`, with upstream assets pinned by SHA-256 in
+`scripts/modelpack-assets.sha256`). Transitive dependencies of the listed
 crates/packages are resolvable from the committed lockfiles
 (`app/src-tauri/Cargo.lock`, npm lockfiles) and via `cargo tree` /
 `npm ls`; all are confirmed network-free by the zero-egress gate
@@ -27,13 +28,14 @@ crates/packages are resolvable from the committed lockfiles
 
 | Role | Model | Version / tag | Licence | Attribution (required) |
 | --- | --- | --- | --- | --- |
-| ASR (default) | Whisper `small.en` (int8, sherpa-onnx) | k2-fsa `asr-models` | **MIT** | OpenAI Whisper |
-| ASR (higher accuracy, opt-in) | Whisper `medium.en` (int8) | k2-fsa `asr-models` | **MIT** | OpenAI Whisper |
+| ASR (default) | NVIDIA Parakeet-TDT-0.6B-v2 (int8, sherpa-onnx) | k2-fsa `asr-models` | **CC-BY-4.0** | NVIDIA |
+| ASR (alternative) | Whisper `small.en` (int8) | k2-fsa `asr-models` | **MIT** | OpenAI Whisper |
+| ASR (alternative, slower) | Whisper `medium.en` (int8) | k2-fsa `asr-models` | **MIT** | OpenAI Whisper |
 | Diarization — segmentation | pyannote/segmentation-3.0 (ONNX) | k2-fsa `speaker-segmentation-models` | **MIT** | pyannote / segmentation-3.0 (CNRS) |
 | Diarization — speaker embedding | 3D-Speaker CAM++ (`...campplus_sv_en_voxceleb_16k`) | k2-fsa `speaker-recognition-models` | **Apache-2.0** | 3D-Speaker / ModelScope |
 | VAD (chunking) | Silero VAD | k2-fsa `asr-models` | **MIT** | Silero Team |
 
-All weights are MIT/Apache-2.0, ungated, no token required — a direct enabler of
+All weights are MIT, Apache-2.0, or CC-BY-4.0 (attribution required), ungated, no token required — a direct enabler of
 the airplane-mode story. Models are bundled/imported as **signed model packs**
 verified before load (see `data-flow.md` and the modelpack section below).
 
@@ -58,15 +60,16 @@ verified before load (see `data-flow.md` and the modelpack section below).
 
 > **`symphonia` licence note (MPL-2.0):** MPL-2.0 is a permissive, file-level
 > copyleft that is redistributable in a commercial product and does **not**
-> impose obligations on the firm as an end user. It is the one non-MIT/Apache
+> impose obligations on the firm as an end user. It is the only weak-copyleft
 > crate; flagged here for completeness. If your procurement policy excludes
 > MPL-2.0 outright, raise it with the vendor — it is an isolated decode
 > dependency. (BSD-3-Clause for `ed25519-dalek` is likewise permissive.)
 
-**Deliberately absent** (the stripped Vibe egress surface): `reqwest`, `hyper`,
-`tauri-plugin-http`, `tauri-plugin-updater`, `tauri-plugin-aptabase`,
-`tauri-plugin-deep-link`, `yt-dlp`. Their absence is machine-enforced — see
-`airplane-mode-verification.md`.
+**Deliberately absent:** `reqwest`, `hyper`, `tauri-plugin-http`,
+`tauri-plugin-updater`, `tauri-plugin-aptabase`, `tauri-plugin-deep-link`, and
+any other crate on the network-crate denylist. Their absence is
+machine-enforced — see `airplane-mode-verification.md`. No URL/YouTube ingestion
+(e.g. `yt-dlp`) exists either.
 
 **Not shipped to the firm:** the producer signing tool `tools/modelpack-sign`
 (and its extra dev deps `clap`, `walkdir`, `rand_core`) is a **vendor-side**
@@ -83,16 +86,9 @@ the app or engine binary, so none of its dependencies reach the firm's install.
 | `@tauri-apps/plugin-fs` | ^2 | **Apache-2.0 / MIT** | Scoped file I/O. |
 | `docx` | ^9.7.1 | **MIT** | In-process DOCX export (no network). |
 | `vite` / `typescript` / `vitest` / testing-library | dev only | **MIT / Apache-2.0** | Build + test tooling (not shipped). |
-| `@kindtech/core` (this project) | 0.1.0 | project-owned (Apache-2.0) | Turn builder, diarization assignment, editor reducer, modelpack oracle. |
+| `core/` (this project) | — | project-owned (Apache-2.0) | Turn builder, diarization assignment, editor reducer. Bundled from TS source via the `@core` alias, not an npm dependency. |
 
 `@types/*` packages are dev-only type stubs (MIT).
-
-## Upstream harvest attribution
-
-The app is built fresh but harvests patterns from **Vibe**
-(github.com/thewh1teagle/vibe, **MIT**, © thewh1teagle 2024). Per the fork
-plan, any file lifted from Vibe preserves its MIT copyright notice. No Vibe
-networked code (updater, aptabase, ytdlp, http, sona sidecar) is carried over.
 
 ## Model packs & attribution surfacing
 
@@ -100,8 +96,7 @@ Each model pack carries a manifest with a `license` and `attribution` field;
 the verifier returns the attribution on success
 (`modelpack/src/lib.rs` → `Verified.attribution`) so it can be displayed
 in-app alongside the loaded model — satisfying the attribution requirements
-above (and PRD #29). ✅ implemented (verification + attribution surfacing);
-🚧 the in-app display surface and production signing key are roadmap.
+above. ✅ implemented: the Models screen shows each pack's attribution.
 
 ## How to regenerate this inventory
 
