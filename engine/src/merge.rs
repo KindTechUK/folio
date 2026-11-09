@@ -1,8 +1,7 @@
 //! Per-word speaker assignment + segment-speaker majority.
 //!
-//! Direct port of `models/merge_spike.py` (which is itself the logic mirrored by
-//! `core/src/diarization.ts assignSpeakers` + `transcribe.py`'s majority vote —
-//! the TS `core` is the oracle this must conform to):
+//! Mirrors `core/src/diarization.ts` `assignSpeakers` plus a duration-weighted
+//! segment majority; the TS `core` is the oracle this must conform to:
 //!
 //! - each word gets the speaker of the diarized span it overlaps most;
 //! - no overlap -> nearest span by midpoint distance to either span edge;
@@ -53,14 +52,12 @@ pub fn merge(asr: &[AsrSegment], spans: &[SpeakerSpan]) -> Transcript {
                 speaker: Some(speaker_for(w.start, w.end, spans)),
             });
         }
-        // Segment speaker = duration-weighted majority of its words.
         let mut weight: HashMap<String, f64> = HashMap::new();
         for w in &words {
             let spk = w.speaker.clone().unwrap_or_else(|| UNKNOWN_SPEAKER.to_string());
             *weight.entry(spk).or_insert(0.0) += (w.end - w.start).max(1e-3);
         }
-        // most_common(1): highest weight wins; ties broken by speaker label for
-        // determinism.
+        // Highest weight wins; ties go to the smallest label, for determinism.
         let seg_spk = weight
             .into_iter()
             .max_by(|a, b| {

@@ -13,7 +13,7 @@ use std::time::Instant;
 use engine::{load_wav_16k_mono, process, AsrModel, EngineConfig, SherpaEngine};
 
 fn models_dir() -> PathBuf {
-    // tests run with CWD = crate root (engine/); models/ is one level up.
+    // models/ is a sibling of the engine crate.
     Path::new(env!("CARGO_MANIFEST_DIR"))
         .parent()
         .unwrap()
@@ -80,7 +80,6 @@ fn end_to_end_small_en_3_speakers() {
     )
     .expect("write engine_slice.json");
 
-    // ---- assertions ----
     let n_segments = transcript.segments.len();
     let n_words: usize = transcript.segments.iter().map(|s| s.words.len()).sum();
     let speakers: HashSet<String> = transcript

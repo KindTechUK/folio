@@ -1,18 +1,13 @@
-//! Tauri IPC commands. PR2 exposes a single `transcribe` command that wires the
-//! frontend to the in-process `engine` crate (sherpa-onnx ASR + diarization).
-//!
-//! This is in-process and CPU-only: the audio never leaves the machine and no
-//! network call is made. The command is what gives the network-crate gate a
-//! real dependency graph (app -> engine -> sherpa-onnx) to scan.
+//! Tauri IPC commands for transcription. In-process and CPU-only: audio never
+//! leaves the machine and no network call is made.
 
 use engine::{decode_to_16k_mono_with_progress, process, EngineConfig, SherpaEngine};
 use tauri::{AppHandle, Emitter};
 
 use crate::models;
 
-/// Map a frontend model name to an [`engine::AsrModel`], defaulting to the engine
-/// default (`parakeet`) for `None`/unrecognized values. Accepts the same aliases
-/// as the engine example's `--model` flag.
+/// Map a frontend model name to an [`engine::AsrModel`], falling back to the
+/// engine default (`parakeet`) for `None`/unrecognized values.
 fn parse_asr_model(name: Option<&str>) -> engine::AsrModel {
     match name.map(|s| s.trim().to_ascii_lowercase()).as_deref() {
         Some("parakeet") | Some("parakeet-v2") | Some("parakeet-tdt-0.6b-v2") => {
@@ -66,21 +61,14 @@ pub fn debug_asr_model_override() -> Option<String> {
 /// Transcribe an audio file (wav/mp3/m4a/mp4/flac/ogg…) into the project's JSON
 /// contract.
 ///
-/// ASYNC + off the UI thread: the heavy decode + ASR + (optional) diarize runs
-/// inside `spawn_blocking` so the webview stays responsive, and a determinate
-/// progress stream is pushed to the frontend via the `transcribe-progress`
-/// event. Input is decoded to 16 kHz mono in-process (Symphonia + Rubato, no
-/// bundled ffmpeg) — any common container/codec is accepted.
+/// Runs decode + ASR + optional diarize in `spawn_blocking` and streams progress
+/// via the `transcribe-progress` event.
 ///
-/// `diarize` defaults to `false` (paragraph QA mode — speaker detection on real
-/// audio was poor enough to hurt; see PR #4): the transcript comes back with no
-/// speaker labels. Pass `diarize = Some(true)` to opt into speaker detection;
-/// `num_speakers = None` then lets the engine auto-detect.
+/// `diarize` defaults to `false` (speaker-less transcript); `Some(true)` opts
+/// in, and `num_speakers = None` then auto-detects.
 ///
-/// `model` selects the ASR model: `"parakeet"` (Parakeet-TDT-v2, English, the
-/// DEFAULT — fastest on CPU with native word timestamps) or `"small.en"` /
-/// `"medium.en"` (Whisper, for non-English or hard/noisy audio).
-/// `None`/unrecognized falls back to the default (`parakeet`).
+/// `model`: `"parakeet"` (default) | `"small.en"` | `"medium.en"`;
+/// `None`/unrecognized falls back to the default.
 /// NOTE: because the transcribe path loads ONLY verified signed packs, a signed
 /// Parakeet pack must be shipped or the resolver fails closed on the default.
 #[tauri::command]
@@ -99,16 +87,11 @@ pub async fn transcribe(
     cfg.diarize = diarize.unwrap_or(false);
     cfg.asr_model = parse_asr_model(model.as_deref());
 
-    // Clone for the resolver/emit closure (AppHandle is Clone + Send).
     let resolve_app = app.clone();
 
     tauri::async_runtime::spawn_blocking(move || {
-        // Resolve the models dir, enforcing verified-pack trust.
-        //
-        // Debug build: an explicit KINDTECH_MODELS_DIR is honored RAW (dev/demo);
-        // otherwise we resolve via the verified-pack resolver.
-        // Release/hardened build: ALWAYS resolve via the verified-pack resolver,
-        // IGNORING KINDTECH_MODELS_DIR. Fail closed if resolution errors.
+        // Resolve the models dir, enforcing verified-pack trust (debug-only raw
+        // override: see `debug_models_dir_override`).
         let models_dir = {
             #[cfg(debug_assertions)]
             {
