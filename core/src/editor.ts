@@ -245,7 +245,6 @@ export function replaceAll(
     let matches = 0;
     while (regex.exec(joined) !== null) {
       matches++;
-      if (regex.lastIndex === 0) break; // guard against zero-width loops
     }
     if (matches === 0) continue;
 
