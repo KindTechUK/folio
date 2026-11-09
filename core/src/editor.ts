@@ -1,13 +1,6 @@
 /**
- * editor — a headless, DOM-free reducer for the review editor.
- *
- * Pure data in, pure data out: the Tauri/Vibe frontend drives this state model and
- * we unit-test behavior without a browser. This is a faithful port of the edit logic
- * embedded in the `karaoke_editor.html` prototype.
- *
- * Word timestamps are a playback aid, not an edit surface. When a sentence's text is
- * edited we re-spread its ORIGINAL [start, end] span across the new tokens, weighted by
- * character length (per the prototype's `rebuild`).
+ * Headless, DOM-free reducer for the review editor. Every exported operation
+ * returns a NEW state and never mutates its input.
  */
 
 import type { Transcript, SpeakerId } from "./types.js";
@@ -51,7 +44,6 @@ function cloneSentence(s: EditorSentence): EditorSentence {
   return { id: s.id, words: s.words.map((w) => ({ ...w })) };
 }
 
-/** Clone the whole state (sentences + rename map) for immutable updates. */
 function cloneState(state: EditorState): EditorState {
   return {
     sentences: state.sentences.map(cloneSentence),
@@ -59,11 +51,7 @@ function cloneState(state: EditorState): EditorState {
   };
 }
 
-/**
- * Load a transcript into editor state. Reuses `flattenWords`/`splitSentences` from
- * `./transcript` (resolved speaker = word.speaker || segment speaker || previous ||
- * UNKNOWN), then groups the flat words into sentences with stable positional ids.
- */
+/** Load a transcript into editor state: one sentence per `splitSentences` group, ids `sent-<i>`. */
 export function loadTranscript(t: Transcript): EditorState {
   const flat = flattenWords(t.segments);
   const grouped = splitSentences(flat);
@@ -89,13 +77,9 @@ function tokenize(text: string): string[] {
 }
 
 /**
- * Re-spread an ANCHOR span `[spanStart, spanEnd]` across `tokens` by character length
- * (prototype `rebuild`). Each word is assigned `speaker`. When the span is degenerate
- * (end <= start) a synthetic span proportional to token count stands in so timings stay
- * monotonic. Pure: returns a fresh array; callers never share references.
- *
- * Shared by `editSentence` and `editParagraph` so the timing-after-edit math lives in
- * exactly one place.
+ * Spread `[spanStart, spanEnd]` across `tokens` by character length, all assigned
+ * `speaker`. A degenerate span (end <= start) becomes 0.3s per token so timings stay
+ * monotonic.
  */
 function respread(
   spanStart: number,
@@ -119,11 +103,7 @@ function respread(
   return rebuilt;
 }
 
-/**
- * Re-tokenize `newText` and re-spread the sentence's original [start, end] span across
- * the new words by character length (prototype `rebuild`). Blank/whitespace text DELETES
- * the sentence. Returns a NEW state; the input is not mutated.
- */
+/** Replace a sentence's text, keeping its original time span. Blank text deletes the sentence. */
 export function editSentence(
   state: EditorState,
   sentenceId: string,
@@ -142,7 +122,6 @@ export function editSentence(
   const toks = tokenize(newText);
 
   if (toks.length === 0) {
-    // Sentence deleted.
     next.sentences.splice(idx, 1);
     return next;
   }
@@ -151,10 +130,7 @@ export function editSentence(
   return next;
 }
 
-/** Indexes of a contiguous run of `sentenceIds` in `sentences`, or null if the run is
- * non-contiguous, contains an unknown id, has a duplicate, or is empty. Contiguity is
- * checked against document order: the ids must name consecutive sentences in `sentences`
- * (not merely be a set that happens to be adjacent). */
+/** Indexes of `sentenceIds` if they name consecutive sentences in document order, else null. */
 function contiguousRun(
   sentences: EditorSentence[],
   sentenceIds: string[],
@@ -179,9 +155,7 @@ function contiguousRun(
  * the FIRST sentence's id (so highlight/edit ids stay stable) and whose speaker is the
  * first word's speaker. Blank/whitespace `newText` deletes the entire run.
  *
- * Contiguity rule: `sentenceIds` must name a contiguous run of sentences in document
- * order. Non-contiguous ids, an unknown id, or an empty list return the state UNCHANGED.
- * Returns a NEW state; the input is not mutated.
+ * Non-contiguous, unknown or empty ids return the state unchanged.
  */
 export function editParagraph(
   state: EditorState,
@@ -198,12 +172,10 @@ export function editParagraph(
 
   const toks = tokenize(newText);
   if (toks.length === 0) {
-    // Whole run deleted.
     next.sentences.splice(startIdx, run.length);
     return next;
   }
 
-  // Anchor span = first word start of first sentence -> last word end of last sentence.
   let spanStart = 0;
   let spanEnd = 0;
   let speaker: SpeakerId = UNKNOWN_SPEAKER;
@@ -230,7 +202,6 @@ export function editParagraph(
   return next;
 }
 
-/** Options for `replaceAll`. */
 export interface ReplaceOptions {
   /** Match case exactly (default false: case-insensitive). */
   caseSensitive?: boolean;
@@ -244,24 +215,10 @@ function escapeRegExp(s: string): string {
 }
 
 /**
- * Literal find-and-replace across every sentence. `find` is treated as a LITERAL
- * string (all regex metacharacters escaped) and `replace` is inserted VERBATIM — a
- * replacer function returns it as-is so `$1`/`$&` in the user's text are never
- * interpreted as regex group references.
- *
- * Matching is per-sentence against the sentence's joined word text
- * (`words.map(w => w.text).join(" ")`), so a multi-word `find` like "John Smith"
- * matches across the word boundary. Flags are global plus case-insensitive unless
- * `caseSensitive`; `wholeWord` wraps the pattern in `\b…\b`.
- *
- * A changed sentence is re-tokenized and its ORIGINAL [first-word start, last-word
- * end] span is re-spread across the new tokens (keeping the first word's speaker),
- * mirroring `editSentence`. NO-DELETE rule: if a replacement would empty a sentence
- * (zero tokens) the sentence is left unchanged — find/replace must never drop a
- * sentence. Sentences with no matches are left untouched.
- *
- * Empty `find` is a no-op: returns the input state with `count` 0. Otherwise clones
- * once and returns a NEW state plus the total number of matches replaced.
+ * Literal, per-sentence find/replace (a multi-word `find` matches across word gaps).
+ * `replace` is inserted verbatim (no `$`-substitution). A changed sentence keeps its
+ * time span; a replacement that would empty a sentence is skipped. Empty `find` is a
+ * no-op. Returns the new state and the number of matches replaced.
  */
 export function replaceAll(
   state: EditorState,
@@ -275,7 +232,6 @@ export function replaceAll(
   const pattern = opts.wholeWord ? `\\b${escaped}\\b` : escaped;
   const flags = opts.caseSensitive ? "g" : "gi";
   const regex = new RegExp(pattern, flags);
-  // Replacer returns the literal text so `$n`/`$&` are inserted verbatim.
   const replacer = (): string => replace;
 
   const next = cloneState(state);
@@ -311,7 +267,7 @@ export function replaceAll(
  * Concatenate a CONTIGUOUS run of sentences into ONE sentence (id = the first sentence's
  * id), preserving every word's timing in document order. No re-spread. Used to join
  * sentences into a paragraph without retyping. Non-contiguous ids, an unknown id, or an
- * empty list return the state UNCHANGED. Returns a NEW state; the input is not mutated.
+ * empty list return the state UNCHANGED.
  */
 export function joinSentences(
   state: EditorState,
@@ -365,7 +321,7 @@ export function splitSentence(
 
 /**
  * Global, positional speaker rename: all words whose positional id is `origId` will
- * DISPLAY as `displayNameValue`. Returns a NEW state; input not mutated.
+ * DISPLAY as `displayNameValue`.
  */
 export function renameSpeaker(
   state: EditorState,
@@ -380,7 +336,7 @@ export function renameSpeaker(
 /**
  * Reassign the speaker of ONLY the target sentence's words (per-sentence diarization
  * fix). `newSpeakerId` is a positional id, so a prior `renameSpeaker` for that id still
- * applies at display time. Returns a NEW state; input not mutated.
+ * applies at display time.
  */
 export function reassignSentenceSpeaker(
   state: EditorState,
@@ -406,7 +362,7 @@ function orderedWords(state: EditorState): EditorWord[] {
 }
 
 /**
- * Export to the prototype JSON shape: `{ words: [{ word, start, end, speaker }] }`.
+ * Export as `{ words: [{ word, start, end, speaker }] }`.
  * start/end rounded to 3 decimals; speaker is the DISPLAY name.
  */
 export function exportJSON(state: EditorState): {
@@ -457,7 +413,7 @@ export function groupParagraphs(
   return paragraphs;
 }
 
-/** Format seconds as mm:ss (prototype). */
+/** Format seconds as mm:ss. */
 function mmss(t: number): string {
   const total = Math.floor(t);
   const mm = Math.floor(total / 60);
@@ -465,11 +421,7 @@ function mmss(t: number): string {
   return `${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")}`;
 }
 
-/**
- * Export to the prototype script/text format. Walk words in order; whenever the DISPLAY
- * speaker changes, emit a header `\n\n${speaker}  [${mm:ss}]\n`, then append each word +
- * ' '. Trim, end with a newline.
- */
+/** Script export: a `<speaker>  [mm:ss]` header at each display-speaker change, then the words. */
 export function exportText(state: EditorState): string {
   const words = orderedWords(state);
   let out = "";

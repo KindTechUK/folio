@@ -37,8 +37,6 @@ const HEADINGS: Record<View, { title: string; subtitle: string }> = {
   },
 };
 
-// Session id generator: prefers the platform UUID; falls back to a
-// timestamp+random id where `crypto.randomUUID` is unavailable.
 function newId(): string {
   return (
     globalThis.crypto?.randomUUID?.() ??
@@ -55,8 +53,7 @@ interface EncryptionStatus {
 export default function App() {
   const [view, setView] = useState<View>("library");
   const [status, setStatus] = useState<string>("idle");
-  // Edit history wraps the EditorState so all edits are undoable. `state` is
-  // derived from the history's present; `setState` records a new entry.
+  // `state` is the history's present; `setState` pushes a new entry.
   const [history, setHistory] = useState<History<EditorState> | null>(null);
   const state = history?.present ?? null;
   const setState = (next: EditorState) =>
@@ -64,8 +61,6 @@ export default function App() {
   const onUndo = () => setHistory((h) => (h ? undo(h) : h));
   const onRedo = () => setHistory((h) => (h ? redo(h) : h));
   const [audioSrc, setAudioSrc] = useState<string | undefined>(undefined);
-  // Volume-encryption banner state. `null` until the on-mount check resolves;
-  // `dismissed` hides it for the session.
   const [encryption, setEncryption] = useState<EncryptionStatus | null>(null);
   const [encryptionDismissed, setEncryptionDismissed] = useState(false);
   // Speaker detection is OPT-IN (default off): on real audio its quality hurt
@@ -74,7 +69,6 @@ export default function App() {
   const [speakerCount, setSpeakerCount] = useState("");
   // Whether the CURRENTLY loaded transcript was diarized (drives the editor view).
   const [diarized, setDiarized] = useState(false);
-  // Determinate progress for the in-flight transcription (null = not running).
   const [progress, setProgress] = useState<ProgressView | null>(null);
   const [installedAsrModel, setInstalledAsrModel] = useState<string | null>(null);
   const [debugAsrModel, setDebugAsrModel] = useState<string | null>(null);
@@ -94,9 +88,7 @@ export default function App() {
     setModelsChecked(true);
   }
 
-  // On mount, check whether the volume holding the app is encrypted. This is a
-  // soft advisory: on macOS/dev it returns the "Windows only" variant. Tauri
-  // invoke is not jsdom-testable, so this wiring is thin and verified manually.
+  // Soft advisory on mount: non-Windows builds report `unknown`.
   useEffect(() => {
     let cancelled = false;
     void (async () => {
@@ -128,9 +120,7 @@ export default function App() {
       .catch(() => setModelsChecked(true));
   }, []);
 
-  // Debounced auto-save: whenever the edited state changes for a saved session,
-  // coalesce rapid edits into a single write ~800ms after the last keystroke.
-  // A failed autosave must never crash the UI, so errors are swallowed.
+  // Debounced (800ms) auto-save; failures are swallowed so the UI never crashes.
   useEffect(() => {
     if (!state || !currentSessionMeta) return;
     const meta = currentSessionMeta;
@@ -223,9 +213,7 @@ export default function App() {
           ? parsedCount
           : undefined;
 
-      // Determinate progress bar driven by backend `transcribe-progress` events.
-      // The command is async/off-thread, so the webview stays responsive while it
-      // runs. We unlisten in `finally` (and on the error path) so no listener leaks.
+      // Unlisten in `finally` so the progress listener never leaks.
       const startedAt = Date.now();
       setStatus("transcribing…");
       setProgress({ fraction: 0, label: "Starting…" });

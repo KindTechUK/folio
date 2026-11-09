@@ -3,11 +3,7 @@ import { invoke } from "@tauri-apps/api/core";
 import type { SessionMeta } from "./session";
 import { Button, Chip } from "./ui";
 
-// The persisted transcript Library. Lists the saved sessions returned by the
-// Rust `list_sessions` command (newest-first) and offers per-row Open/Delete.
-// Like Models.tsx, this is a thin command-backed list: the Tauri `invoke`
-// wiring is verified manually (not jsdom-tested); the pure logic lives in the
-// tested `session.ts` / Rust `library.rs`.
+// Saved-transcript list from Rust `list_sessions` (newest first), with per-row Open/Remove.
 
 interface LibraryProps {
   onOpen: (id: string) => void;

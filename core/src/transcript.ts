@@ -1,9 +1,6 @@
 /**
- * The turn builder — a faithful TypeScript port of the Python pipeline's pure
- * functions (`flatten_words`, `split_sentences`, `build_turns`).
- *
- * Real recorded JSON sidecars must build identical turns, so behavior matches the
- * Python source precisely.
+ * The turn builder. Behaviour matches the retired Python pipeline exactly, so real
+ * recorded sidecars build identical turns.
  */
 
 import type { Segment, Word, FlatWord, Turn } from "./types.js";

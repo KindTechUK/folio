@@ -1,18 +1,11 @@
-/**
- * highlight — pure helpers for the playback word-highlight, free of the DOM.
- *
- * `<audio>` playback and the rAF highlight loop can only run in a real webview
- * (verify manually via `npm run tauri dev`); but the index-selection LOGIC is
- * pure and deterministic, so it is unit-tested here. The Editor's rAF loop calls
- * `activeWordIndex(starts, t)` once per frame against the flat word starts.
- */
+/** DOM-free helpers for the playback word highlight. */
 
 import type { EditorState, EditorWord } from "@core/editor";
 
 /**
  * Binary search for the index of the last word whose start <= t (the "active"
  * word at playback time t). Returns -1 if no word has started yet, or for an
- * empty list. Ported from the prototype's `activeAt`.
+ * empty list.
  *
  * `starts` MUST be non-decreasing (document order), which it always is for a
  * loaded transcript.

@@ -26,7 +26,7 @@ function gapDistance(mid: number, seg: SpeakerSegment): number {
 
 /**
  * Returns a NEW array of words (inputs are never mutated), each with `.speaker`
- * resolved to the best-matching segment's speaker (or UNKNOWN when there are none).
+ * resolved to the best-matching segment's speaker.
  *
  * Complexity: O(words × segments).
  */
@@ -56,7 +56,6 @@ export function assignSpeakers(words: Word[], speakerSegments: SpeakerSegment[])
       return { ...word, speaker: bestSpeaker };
     }
 
-    // No overlap anywhere -> nearest segment by midpoint distance.
     const mid = (word.start + word.end) / 2;
     let nearestSpeaker = UNKNOWN_SPEAKER;
     let nearestDist = Infinity;
