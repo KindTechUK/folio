@@ -126,10 +126,9 @@ function browserDownload(blob: Blob, name: string): void {
 }
 
 /**
- * Build the .docx and save it. In the Tauri app, open the native save dialog
- * and write via plugin-fs (the dialog grants the chosen path's scope). In a
- * plain browser (dev/tests) fall back to a download. Returns the chosen path,
- * or `null` if the user cancelled.
+ * Build and save the .docx: native save dialog + plugin-fs in Tauri (the dialog
+ * grants the chosen path's scope), download fallback in a plain browser. Returns
+ * the saved path, or `null` if cancelled or in browser mode.
  */
 export async function saveDocx(
   state: EditorState,

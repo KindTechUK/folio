@@ -1,10 +1,5 @@
-// Pure view-model for the transcription progress bar.
-//
-// The Rust backend emits `transcribe-progress` events shaped like `Progress`
-// (see engine `Progress`); `progressView` maps the latest one (+ elapsed wall
-// time) into what the bar renders: a clamped fraction, a human label, and a
-// rough ETA. Kept side-effect-free so it is unit-testable without Tauri/jsdom
-// (the live `listen(...)` wiring in App.tsx is verified manually via `tauri dev`).
+// View-model for the progress bar: maps the latest Rust `transcribe-progress`
+// event + elapsed time to a clamped fraction, label and ETA.
 
 export type ProgressStage =
   | "decoding"

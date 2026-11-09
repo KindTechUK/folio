@@ -1,13 +1,12 @@
 /**
  * gen-modelpack-fixtures.ts — generator for the cross-language model-pack
- * conformance fixtures (PR #3a).
+ * conformance fixtures.
  *
- * Run via the e2e harness's proven pattern (so the TS `core` source imports
- * resolve without a build step):
+ * Run with vite-node (resolves core's TS imports without a build step):
  *
  *   core/node_modules/.bin/vite-node scripts/gen-modelpack-fixtures.ts
  *
- * It imports `canonicalize` from the TS ORACLE (`core/src/index.js`) and signs
+ * It imports `canonicalize` from the TS oracle (`core/src/modelpack.ts`) and signs
  * manifests with the committed TEST-ONLY ed25519 key (node crypto
  * `sign(null, canonicalize(manifest), key)` — PureEdDSA, matching the Rust
  * `ed25519-dalek` verify path). Output is fully deterministic: re-running it
@@ -21,16 +20,14 @@
  *   cases/<name>/expected.json         — { outcome: "ok"|"reject", reasonContains?: string }
  *
  * The keys under fixtures/modelpack/keys/ are EXPLICITLY NON-PRODUCTION (see
- * fixtures/modelpack/README.md). The real vendor key + signing CLI are a later PR.
+ * fixtures/modelpack/README.md).
  */
 import { createHash, createPrivateKey, sign as nodeSign } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { mkdirSync, readFileSync, writeFileSync, rmSync, existsSync } from "node:fs";
 
-// `canonicalize` is internal to the modelpack module (not re-exported from the
-// package index, which exposes only the public verify surface). We import it
-// directly from the module — read-only; core/src is not modified.
+// `canonicalize` is not re-exported from core's index, so import the module directly.
 import { canonicalize } from "../core/src/modelpack.js";
 import type { Manifest } from "../core/src/modelpack.js";
 

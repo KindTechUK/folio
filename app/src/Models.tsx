@@ -3,11 +3,9 @@ import { invoke } from "@tauri-apps/api/core";
 import { open } from "@tauri-apps/plugin-dialog";
 import { Button, Chip } from "./ui";
 
-// PR3c: the model-pack trust boundary, surfaced. Lists the packs in the packs
-// dir with their VERIFIED / REJECTED status (decided in Rust by the `modelpack`
-// crate — ed25519 + sha256 + engine-version gate, fail-closed), and gates
-// import: an unsigned/tampered/untrusted/too-new pack is shown with its reason
-// and never installed. Real audio/keys never leave the device.
+// Pack trust is decided in Rust (`modelpack` crate: ed25519 + sha256 +
+// engine-version gate, fail-closed). This view only lists the verdicts; a
+// rejected pack is shown with its reason and never installed.
 
 /** Mirrors the Rust `PackStatus` (serde) returned by the backend commands. */
 export type PackStatus = {

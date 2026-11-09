@@ -1,9 +1,6 @@
 import type { ReactNode } from "react";
 
-// A horizontal control container that groups its children with vertical
-// dividers between groups. Each <ToolbarGroup> is one logical cluster (e.g.
-// playback, edit, export) so the editor transport reads as grouped tools rather
-// than one undifferentiated row of buttons.
+// Horizontal control bar; each ToolbarGroup is a cluster separated by a divider.
 
 export function Toolbar({
   children,
