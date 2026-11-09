@@ -2,18 +2,18 @@
 #
 # e2e.sh — reusable end-to-end verification harness for the transcription pipeline.
 #
-#   scripts/e2e.sh <audio> [--speakers N] [--model small.en|medium.en|parakeet]
+#   scripts/e2e.sh <audio> [--diarize] [--speakers N] [--model parakeet|small.en|medium.en]
 #
 # Steps:
 #   1. If <audio> is not already a 16 kHz mono 16-bit WAV, decode it via ffmpeg to a
 #      temp WAV.
 #   2. Build (release) + run the engine example `transcribe_file`, which loads the WAV,
-#      runs ASR + diarization + merge, and writes the `{segments:[...]}` sidecar to
+#      runs ASR (+ diarization with --diarize/--speakers), and writes the `{segments:[...]}` sidecar to
 #      out/<name>.engine.json. SHERPA_ONNX_LIB_DIR is pointed at the vendored
 #      prebuilt libs so the sherpa-onnx-sys build script does NOT re-download.
 #   3. Run the core harness (scripts/e2e_core.mjs) over that sidecar: buildTurns +
 #      a full editor round-trip with invariant assertions, and write a human-readable
-#      speaker-labelled transcript to out/e2e_transcript.txt.
+#      readable transcript to out/e2e_transcript.txt.
 
 set -euo pipefail
 
@@ -27,16 +27,18 @@ OUT_DIR="$ROOT/out"
 
 # ---- args ----
 if [[ $# -lt 1 ]]; then
-  echo "usage: e2e.sh <audio> [--speakers N] [--model small.en|medium.en|parakeet]" >&2
+  echo "usage: e2e.sh <audio> [--diarize] [--speakers N] [--model parakeet|small.en|medium.en]" >&2
   exit 2
 fi
 
 AUDIO="$1"; shift
 
+DIARIZE=""
 SPEAKERS=""
-MODEL="small.en"
+MODEL="parakeet"
 while [[ $# -gt 0 ]]; do
   case "$1" in
+    --diarize)  DIARIZE=1; shift ;;
     --speakers) SPEAKERS="$2"; shift 2 ;;
     --model)    MODEL="$2"; shift 2 ;;
     *) echo "unknown argument: $1" >&2; exit 2 ;;
@@ -110,6 +112,9 @@ else
 fi
 
 ENGINE_ARGS=("$WAV" "$SIDECAR" "--model" "$MODEL")
+if [[ -n "$DIARIZE" ]]; then
+  ENGINE_ARGS+=("--diarize")
+fi
 if [[ -n "$SPEAKERS" ]]; then
   ENGINE_ARGS+=("--speakers" "$SPEAKERS")
 fi

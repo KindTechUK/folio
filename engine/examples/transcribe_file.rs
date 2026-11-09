@@ -4,10 +4,11 @@
 //! Usage:
 //!
 //!     cargo run --release --example transcribe_file -- \
-//!         <wav_16k_mono> <out.json> [--speakers N] [--model small.en|medium.en|parakeet] \
+//!         <wav_16k_mono> <out.json> [--diarize] [--speakers N] [--model small.en|medium.en|parakeet] \
 //!         [--threads N] [--models-dir DIR]
 //!
-//! It loads a 16 kHz mono WAV, runs ASR + diarization + merge, writes the
+//! It loads a 16 kHz mono WAV, runs ASR (plus speaker diarization with
+//! `--diarize`; `--speakers N` implies it), writes the
 //! `{ "segments": [...] }` sidecar to `<out.json>`, and prints
 //! RTF / n_segments / n_words / speakers to stderr (so stdout stays clean).
 //!
@@ -24,7 +25,7 @@ use engine::{load_wav_16k_mono, process, AsrModel, EngineConfig, SherpaEngine};
 fn usage() -> ! {
     eprintln!(
         "usage: transcribe_file <wav_16k_mono> <out.json> \
-         [--speakers N] [--model small.en|medium.en|parakeet] [--threads N] [--models-dir DIR]"
+         [--diarize] [--speakers N] [--model small.en|medium.en|parakeet] [--threads N] [--models-dir DIR]"
     );
     exit(2);
 }
@@ -48,6 +49,7 @@ fn main() -> anyhow::Result<()> {
         None => usage(),
     };
 
+    let mut diarize = false;
     let mut num_speakers: Option<u32> = None;
     let mut asr_model = AsrModel::default();
     let mut num_threads: i32 = 4;
@@ -55,9 +57,11 @@ fn main() -> anyhow::Result<()> {
 
     while let Some(flag) = args.next() {
         match flag.as_str() {
+            "--diarize" => diarize = true,
             "--speakers" => {
                 let v = args.next().unwrap_or_else(|| usage());
                 num_speakers = Some(v.parse().expect("--speakers must be a positive integer"));
+                diarize = true;
             }
             "--model" => {
                 let v = args.next().unwrap_or_else(|| usage());
@@ -91,6 +95,7 @@ fn main() -> anyhow::Result<()> {
     let mut cfg = EngineConfig::new(&models_dir);
     cfg.asr_model = asr_model;
     cfg.num_threads = num_threads;
+    cfg.diarize = diarize;
     cfg.num_speakers = num_speakers;
 
     eprintln!("=== transcribe_file ===");
