@@ -10,8 +10,8 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 # ed25519-dalek v2 PureEdDSA verify (matches Node `crypto.verify(null, ...)`).
 # `pem` (implies `pkcs8`) pulls in DecodePublicKey + PEM decoding so we can
-# accept the vendor key as an SPKI PEM string. All three crates here are
-# network-free (verified by scripts/check-no-network.sh).
+# accept the vendor key as an SPKI PEM string. All deps here are network-free
+# (verified by scripts/check-no-network.sh).
 ed25519-dalek = { version = "2", features = ["pem"] }
 sha2 = "0.10"
 base64 = "0.22"

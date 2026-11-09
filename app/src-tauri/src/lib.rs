@@ -1,4 +1,4 @@
-//! Tauri v2 application shell (PR2: hardened, zero-egress).
+//! Tauri v2 application shell (hardened, zero-egress).
 //!
 //! Networking is absent BY CONSTRUCTION: only `dialog` + `fs` plugins are
 //! registered, there is no http/updater/aptabase plugin, and no HTTP client is
@@ -16,7 +16,6 @@ mod build_support;
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        // Scoped file dialog + filesystem only. No network plugin exists.
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_fs::init())
         .invoke_handler(tauri::generate_handler![

@@ -5,8 +5,6 @@
 //! verify_model_pack}` directly so the signing pipeline can never drift from the
 //! verifier: whatever bytes we sign are exactly the bytes the app re-canonicalizes
 //! and verifies.
-//!
-//! Logic lives here (not in `main.rs`) so it is unit-testable.
 
 use std::collections::BTreeMap;
 use std::io::{Cursor, Read, Write};

@@ -1,12 +1,11 @@
 //! Scriptable CLI front-end for the engine, used by the end-to-end harness
-//! (`scripts/e2e.sh`). ADDITIVE: this example does not touch any existing
-//! engine source; it only calls the public API (`load_wav_16k_mono`,
-//! `EngineConfig`, `SherpaEngine`, `process`).
+//! (`scripts/e2e.sh`).
 //!
 //! Usage:
 //!
 //!     cargo run --release --example transcribe_file -- \
-//!         <wav_16k_mono> <out.json> [--speakers N] [--model small.en|medium.en]
+//!         <wav_16k_mono> <out.json> [--speakers N] [--model small.en|medium.en|parakeet] \
+//!         [--threads N] [--models-dir DIR]
 //!
 //! It loads a 16 kHz mono WAV, runs ASR + diarization + merge, writes the
 //! `{ "segments": [...] }` sidecar to `<out.json>`, and prints

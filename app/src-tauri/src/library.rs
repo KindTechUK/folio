@@ -7,11 +7,8 @@
 //! `createdAt`, `updatedAt`, `audioPath`, `audioFilename`, `diarized`,
 //! `segments`.
 //!
-//! All filesystem-touching logic lives in PURE `*_in(dir, …)` cores that take a
-//! directory and return `Result<…, String>` without ever panicking on bad
-//! input; the `#[tauri::command]` wrappers are thin and only resolve the library
-//! directory before delegating. Writes are ATOMIC (temp file + rename) so a
-//! crash mid-write never corrupts an existing session.
+//! Filesystem logic lives in `*_in(dir, …)` cores that never panic on bad
+//! input; the `#[tauri::command]` wrappers only resolve the library dir.
 
 use std::path::{Path, PathBuf};
 
@@ -73,7 +70,7 @@ fn audio_available(audio_path: &str) -> bool {
     !audio_path.is_empty() && Path::new(audio_path).exists()
 }
 
-/// PURE core: persist `value` as `<dir>/<id>.json`. Reads `value["id"]` as a
+/// Persist `value` as `<dir>/<id>.json`. Reads `value["id"]` as a
 /// non-empty, traversal-safe string (else `Err`), creates `dir`, and writes
 /// ATOMICALLY via a `<id>.json.tmp` temp file + rename so a crash mid-write
 /// never corrupts an existing session.
@@ -98,32 +95,30 @@ pub fn save_session_in(dir: &Path, value: &Value) -> Result<(), String> {
     Ok(())
 }
 
-/// PURE core: list every saved session in `dir`, newest-first. Reads `*.json`
-/// files (NOT `*.tmp`); SKIPS any that fail to read/parse or lack a string `id`
-/// (corrupt-tolerant, never panics). Returns `[]` when `dir` is absent. Sorted
-/// by `updatedAt` DESCENDING (ISO-8601 string compare sorts chronologically).
+/// List every saved session in `dir`, newest-first by `updatedAt` (ISO-8601
+/// strings sort chronologically). Reads only `*.json` (not in-flight `*.tmp`);
+/// SKIPS any that fail to read/parse or lack a string `id` (corrupt-tolerant,
+/// never panics). Returns `[]` when `dir` is absent.
 pub fn list_sessions_in(dir: &Path) -> Result<Vec<SessionMeta>, String> {
     let entries = match std::fs::read_dir(dir) {
         Ok(e) => e,
-        Err(_) => return Ok(Vec::new()), // no library dir yet → no sessions.
+        Err(_) => return Ok(Vec::new()),
     };
 
     let mut out: Vec<SessionMeta> = Vec::new();
     for entry in entries.filter_map(|e| e.ok()) {
         let path = entry.path();
-        // Only finalized .json files; skip in-flight .tmp and anything else.
         if path.extension().and_then(|e| e.to_str()) != Some("json") {
             continue;
         }
         let bytes = match std::fs::read(&path) {
             Ok(b) => b,
-            Err(_) => continue, // unreadable → skip, stay corrupt-tolerant.
+            Err(_) => continue,
         };
         let value: Value = match serde_json::from_slice(&bytes) {
             Ok(v) => v,
-            Err(_) => continue, // garbage / non-JSON → skip.
+            Err(_) => continue,
         };
-        // A session without a string id is unusable for the UI → skip.
         let id = match value.get("id").and_then(Value::as_str) {
             Some(id) if !id.is_empty() => id.to_string(),
             _ => continue,
@@ -139,12 +134,11 @@ pub fn list_sessions_in(dir: &Path) -> Result<Vec<SessionMeta>, String> {
             audio_available: audio_available(&audio_path),
         });
     }
-    // Newest-first; ISO-8601 timestamps sort chronologically as strings.
     out.sort_by(|a, b| b.updated_at.cmp(&a.updated_at));
     Ok(out)
 }
 
-/// PURE core: load the full session `<dir>/<id>.json`. Rejects unsafe ids,
+/// Load the full session `<dir>/<id>.json`. Rejects unsafe ids,
 /// errors if the file is absent or unparseable, and reports whether its audio
 /// file still exists. Returns the EXACT stored body untouched.
 pub fn load_session_in(dir: &Path, id: &str) -> Result<LoadedSession, String> {
@@ -163,7 +157,7 @@ pub fn load_session_in(dir: &Path, id: &str) -> Result<LoadedSession, String> {
     })
 }
 
-/// PURE core: delete `<dir>/<id>.json`. Rejects unsafe ids. A missing file is
+/// Delete `<dir>/<id>.json`. Rejects unsafe ids. A missing file is
 /// `Ok(())` (idempotent) so a double-delete never errors.
 pub fn delete_session_in(dir: &Path, id: &str) -> Result<(), String> {
     if !is_safe_id(id) {

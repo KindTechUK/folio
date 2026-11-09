@@ -6,9 +6,9 @@
 //! keeps the single auditable binary — Symphonia + Rubato are codec/DSP crates
 //! with no network dependencies (see `scripts/check-no-network.sh`).
 //!
-//! The legacy [`crate::load_wav_16k_mono`] (hound, strict 16 kHz/mono/16-bit) is
-//! intentionally KEPT for the existing integration test; the Tauri command uses
-//! `decode_to_16k_mono`, which also accepts a 16 kHz WAV (and everything else).
+//! [`crate::load_wav_16k_mono`] (hound, strict 16 kHz/mono/16-bit) is kept for
+//! the integration test and example; the Tauri command uses
+//! `decode_to_16k_mono`.
 
 use std::path::Path;
 
@@ -35,10 +35,9 @@ pub fn decode_to_16k_mono(path: impl AsRef<Path>) -> anyhow::Result<(Vec<f32>, u
     decode_to_16k_mono_with_progress(path, &|_| {})
 }
 
-/// Like [`decode_to_16k_mono`] but reports LOCAL progress in `[0, 1]` as the file
-/// is decoded and resampled — so a long file no longer shows a frozen bar. The
-/// caller maps this local fraction onto its global band (see `PROGRESS_DECODE_END`).
-/// Decode occupies the first ~85% of the local range, resampling the tail.
+/// Like [`decode_to_16k_mono`] but reports LOCAL progress in `[0, 1]`; the caller
+/// maps it onto its global band (see `PROGRESS_DECODE_END`). Decode occupies the
+/// first 85% of the local range, resampling the tail.
 pub fn decode_to_16k_mono_with_progress(
     path: impl AsRef<Path>,
     progress: &dyn Fn(f32),
