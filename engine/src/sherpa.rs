@@ -148,7 +148,8 @@ impl SherpaEngine {
             debug: false,
         };
 
-        // buffer_size_in_seconds large enough for long speech runs (spike: 100).
+        // Initial buffer size in seconds; sherpa-onnx grows it (without data
+        // loss) if a speech run exceeds it.
         let vad = VoiceActivityDetector::create(&vad_config, 100.0)
             .ok_or_else(|| EngineError::Sherpa("create VoiceActivityDetector returned None".into()))?;
 
