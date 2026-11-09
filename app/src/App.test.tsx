@@ -6,6 +6,7 @@ const invokeMock = vi.fn();
 const openMock = vi.fn();
 const listenMock = vi.fn();
 let deleteMatterReport: { deleted: string[]; failed: unknown[] };
+let pickRecording: () => Promise<unknown>;
 
 vi.mock("@tauri-apps/api/core", () => ({
   invoke: (...args: unknown[]) => invokeMock(...args),
@@ -44,6 +45,7 @@ beforeEach(() => {
   openMock.mockResolvedValue("/recordings/interview.wav");
   listenMock.mockResolvedValue(() => {});
   deleteMatterReport = { deleted: ["/recordings/interview.wav"], failed: [] };
+  pickRecording = () => Promise.resolve("/recordings/interview.wav");
   invokeMock.mockImplementation((command: string) => {
     switch (command) {
       case "volume_encryption_status":
@@ -66,7 +68,7 @@ beforeEach(() => {
       case "list_sessions":
         return Promise.resolve([]);
       case "pick_recording":
-        return Promise.resolve("/recordings/interview.wav");
+        return pickRecording();
       case "transcribe":
         return Promise.resolve(transcript);
       case "save_session":
@@ -79,7 +81,6 @@ beforeEach(() => {
         throw new Error(`unexpected command ${command}`);
     }
   });
-
 });
 
 describe("App import flow", () => {
@@ -153,29 +154,7 @@ describe("App import flow", () => {
   });
 
   it("reports backend picker errors instead of leaving an unhandled rejection", async () => {
-    invokeMock.mockImplementation((command: string) => {
-      if (command === "pick_recording") {
-        return Promise.reject(new Error("registry unavailable"));
-      }
-      if (command === "volume_encryption_status") {
-        return Promise.resolve({ state: "encrypted", detail: "test volume" });
-      }
-      if (command === "list_model_packs") {
-        return Promise.resolve([{
-          dir: "asr-small-en",
-          id: "asr-whisper-small.en",
-          version: "1.0.0",
-          engine: "sherpa-onnx",
-          task: "asr",
-          attribution: "OpenAI Whisper",
-          verified: true,
-          reason: null,
-        }]);
-      }
-      if (command === "debug_asr_model_override") return Promise.resolve(null);
-      if (command === "list_sessions") return Promise.resolve([]);
-      throw new Error(`unexpected command ${command}`);
-    });
+    pickRecording = () => Promise.reject(new Error("registry unavailable"));
 
     render(<App />);
     await screen.findByText("Import your first recording");

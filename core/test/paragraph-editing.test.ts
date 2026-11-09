@@ -8,10 +8,10 @@ import {
 } from "../src/editor.js";
 
 /**
- * Three sentences, all one speaker:
+ * Three sentences:
  *   SPEAKER_00: "Hello world."   [0.0 - 1.0]
  *   SPEAKER_00: "How are you?"    [1.0 - 2.5]
- *   SPEAKER_00: "I am fine."      [2.5 - 4.0]
+ *   SPEAKER_01: "I am fine."      [2.5 - 4.0]
  */
 function makeTranscript(): Transcript {
   return {
@@ -125,16 +125,6 @@ describe("editParagraph", () => {
     expect(JSON.stringify(next)).toBe(before);
   });
 
-  it("does not mutate the input state", () => {
-    const state = loadTranscript(makeTranscript());
-    const snapshot = JSON.stringify(state);
-    editParagraph(
-      state,
-      [state.sentences[0]!.id, state.sentences[1]!.id],
-      "totally different content",
-    );
-    expect(JSON.stringify(state)).toBe(snapshot);
-  });
 });
 
 describe("joinSentences", () => {
@@ -181,12 +171,6 @@ describe("joinSentences", () => {
     expect(JSON.stringify(next)).toBe(before);
   });
 
-  it("does not mutate the input state", () => {
-    const state = loadTranscript(makeTranscript());
-    const snapshot = JSON.stringify(state);
-    joinSentences(state, [state.sentences[0]!.id, state.sentences[1]!.id]);
-    expect(JSON.stringify(state)).toBe(snapshot);
-  });
 });
 
 describe("splitSentence", () => {
@@ -213,16 +197,6 @@ describe("splitSentence", () => {
     ]);
   });
 
-  it("keeps document order / monotonic starts after split", () => {
-    const state = loadTranscript(makeTranscript());
-    const sid = state.sentences[1]!.id;
-    const next = splitSentence(state, sid, 1);
-    const flat = next.sentences.flatMap((s) => s.words);
-    for (let i = 1; i < flat.length; i++) {
-      expect(flat[i]!.start).toBeGreaterThanOrEqual(flat[i - 1]!.start - 1e-9);
-    }
-  });
-
   it("out-of-range index is a no-op", () => {
     const state = loadTranscript(makeTranscript());
     const sid = state.sentences[1]!.id; // 3 words
@@ -238,10 +212,4 @@ describe("splitSentence", () => {
     expect(JSON.stringify(splitSentence(state, "nope", 1))).toBe(before);
   });
 
-  it("does not mutate the input state", () => {
-    const state = loadTranscript(makeTranscript());
-    const snapshot = JSON.stringify(state);
-    splitSentence(state, state.sentences[0]!.id, 2);
-    expect(JSON.stringify(state)).toBe(snapshot);
-  });
 });

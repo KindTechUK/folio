@@ -245,25 +245,22 @@ describe("buildTurns", () => {
 describe("buildTurns real-data pin (fraudster_head)", () => {
   const fixture = fraudsterHead as Transcript;
 
-  it("produces a stable, non-empty turn list", () => {
+  it("merges the recorded slice into four speaker turns", () => {
+    // "It was new, it was special." has one SPEAKER_00 word (0.161s) against
+    // 0.88s of SPEAKER_03, so it stays in SPEAKER_03's turn.
     const turns = buildTurns(fixture.segments);
-    expect(turns.length).toBeGreaterThan(0);
-    // non-decreasing start times
-    for (let i = 1; i < turns.length; i++) {
-      expect(turns[i]!.start).toBeGreaterThanOrEqual(turns[i - 1]!.start);
-    }
-    // merged same-speaker runs: no two adjacent turns share a speaker
-    for (let i = 1; i < turns.length; i++) {
-      expect(turns[i]!.speaker).not.toBe(turns[i - 1]!.speaker);
-    }
-    // every turn has text and a resolved speaker
-    for (const t of turns) {
-      expect(t.text.length).toBeGreaterThan(0);
-      expect(t.speaker.length).toBeGreaterThan(0);
-    }
-  });
-
-  it("is deterministic across runs", () => {
-    expect(buildTurns(fixture.segments)).toEqual(buildTurns(fixture.segments));
+    expect(turns.map((t) => [t.speaker, t.start, t.end])).toEqual([
+      ["SPEAKER_11", 3.445, 12.967],
+      ["SPEAKER_00", 13.988, 18.989],
+      ["SPEAKER_03", 20.289, 25.711],
+      ["SPEAKER_00", 27.111, 30.312],
+    ]);
+    expect(turns[0]!.text).toBe(
+      "I met him on Plenty of Fish. He was very complimentary. Seemed really nice. " +
+        "And that's when he started with his charm.",
+    );
+    expect(turns[2]!.text).toBe(
+      "I wasn't used to people treating me like this. It was new, it was special.",
+    );
   });
 });

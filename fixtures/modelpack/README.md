@@ -60,5 +60,6 @@ are fixed in the script). It rewrites `cases/` and `context.json` only.
 | `malformed-missing-field` | reject | missing required field |
 | `malformed-bad-semver` | reject | non-`x.y.z` version |
 | `malformed-bad-sha256` | reject | sha256 not 64 lowercase hex |
+| `malformed-uppercase-sha256` | reject | uppercase hex sha256 rejected (lowercase only) |
 | `malformed-unknown-engine` | reject | engine not in the allowed set |
 | `malformed-unknown-task` | reject | task not in the allowed set |
