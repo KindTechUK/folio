@@ -288,12 +288,10 @@ export function joinSentences(
 }
 
 /**
- * Split one sentence into TWO at `wordIndex`: words `[0, wordIndex)` stay in a sentence
- * keeping the original id, words `[wordIndex, end)` move to a new sentence with id
- * `${id}-b`. Each half keeps its existing word timings (no re-spread). Document order and
- * monotonic starts are preserved (the two halves stay adjacent in order). An out-of-range
- * `wordIndex` (<= 0 or >= word count) or an unknown id returns the state UNCHANGED.
- * Returns a NEW state; the input is not mutated.
+ * Split one sentence into TWO at `wordIndex`: words `[0, wordIndex)` keep the original id,
+ * words `[wordIndex, end)` move to a new sentence with the first free id among `${id}-b`,
+ * `${id}-b2`, …. Each half keeps its word timings (no re-spread). An out-of-range
+ * `wordIndex` (<= 0 or >= word count) or an unknown id returns the state unchanged.
  */
 export function splitSentence(
   state: EditorState,
@@ -311,8 +309,11 @@ export function splitSentence(
     id: sentence.id,
     words: sentence.words.slice(0, wordIndex),
   };
+  const taken = new Set(next.sentences.map((s) => s.id));
+  let tailId = `${sentence.id}-b`;
+  for (let n = 2; taken.has(tailId); n++) tailId = `${sentence.id}-b${n}`;
   const tail: EditorSentence = {
-    id: `${sentence.id}-b`,
+    id: tailId,
     words: sentence.words.slice(wordIndex),
   };
   next.sentences.splice(idx, 1, head, tail);

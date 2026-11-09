@@ -206,6 +206,22 @@ describe("splitSentence", () => {
     expect(JSON.stringify(splitSentence(state, sid, 99))).toBe(before);
   });
 
+  it("splitting the same sentence twice keeps sentence ids unique", () => {
+    const state = loadTranscript(makeTranscript());
+    const sid = state.sentences[1]!.id; // "How are you?"
+    const next = splitSentence(splitSentence(state, sid, 2), sid, 1);
+
+    expect(next.sentences.map((s) => s.words.map((w) => w.text).join(" "))).toEqual([
+      "Hello world.",
+      "How",
+      "are",
+      "you?",
+      "I am fine.",
+    ]);
+    const ids = next.sentences.map((s) => s.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
   it("unknown id is a no-op", () => {
     const state = loadTranscript(makeTranscript());
     const before = JSON.stringify(state);
