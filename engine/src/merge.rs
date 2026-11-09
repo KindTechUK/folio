@@ -117,23 +117,34 @@ mod tests {
         Word { word: w.into(), start: s, end: e, speaker: None }
     }
 
+    /// Speaker `merge` assigns to a single word spanning `[ws, we]`.
+    fn merged_word_speaker(ws: f64, we: f64, spans: &[SpeakerSpan]) -> Option<String> {
+        let asr = vec![AsrSegment {
+            start: ws,
+            end: we,
+            text: "x".into(),
+            words: vec![word("x", ws, we)],
+        }];
+        merge(&asr, spans).segments[0].words[0].speaker.clone()
+    }
+
     #[test]
     fn max_overlap_wins() {
         let spans = vec![span("SPEAKER_00", 0.0, 1.0), span("SPEAKER_01", 1.0, 2.0)];
         // word 0.9..1.6 overlaps S0 by 0.1, S1 by 0.6 -> S1
-        assert_eq!(speaker_for(0.9, 1.6, &spans), "SPEAKER_01");
+        assert_eq!(merged_word_speaker(0.9, 1.6, &spans).as_deref(), Some("SPEAKER_01"));
     }
 
     #[test]
     fn nearest_by_midpoint_when_no_overlap() {
         let spans = vec![span("SPEAKER_00", 0.0, 1.0), span("SPEAKER_01", 5.0, 6.0)];
         // word 2.0..2.2 (mid 2.1) is nearer S0's end (1.0) than S1's start (5.0)
-        assert_eq!(speaker_for(2.0, 2.2, &spans), "SPEAKER_00");
+        assert_eq!(merged_word_speaker(2.0, 2.2, &spans).as_deref(), Some("SPEAKER_00"));
     }
 
     #[test]
     fn unknown_when_no_spans() {
-        assert_eq!(speaker_for(0.0, 1.0, &[]), UNKNOWN_SPEAKER);
+        assert_eq!(merged_word_speaker(0.0, 1.0, &[]).as_deref(), Some(UNKNOWN_SPEAKER));
     }
 
     #[test]

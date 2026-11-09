@@ -632,10 +632,20 @@ Volume C: [OSDisk]
         );
     }
 
-    /// Heuristics are case-insensitive, but incomplete output is not enough to
-    /// claim the volume is protected.
+    /// Upper-case output with the full protection + conversion signals parses.
     #[test]
     fn parses_case_insensitively() {
+        let sample = "\
+VOLUME C: [OSDISK]
+    CONVERSION STATUS:    FULLY ENCRYPTED
+    PROTECTION STATUS:    PROTECTION ON
+";
+        assert_eq!(parse_manage_bde_status(sample), EncryptionState::Encrypted);
+    }
+
+    /// Incomplete output is not enough to claim the volume is protected.
+    #[test]
+    fn partial_status_is_unknown() {
         assert_eq!(
             parse_manage_bde_status("PROTECTION STATUS:    PROTECTION ON"),
             EncryptionState::Unknown

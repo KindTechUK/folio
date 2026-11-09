@@ -330,10 +330,11 @@ mod tests {
             "audioPath": "", "audioFilename": "", "diarized": false, "segments": 0
         });
         save_session_in(&dir, &s).unwrap();
-        assert!(dir.join("gone.json").exists());
+        assert!(load_session_in(&dir, "gone").is_ok());
 
         delete_session_in(&dir, "gone").unwrap();
-        assert!(!dir.join("gone.json").exists(), "file removed");
+        assert!(load_session_in(&dir, "gone").is_err(), "session removed");
+        assert!(list_sessions_in(&dir).unwrap().is_empty(), "session no longer listed");
 
         // Second delete of the same id is still Ok (idempotent).
         delete_session_in(&dir, "gone").expect("double delete must be Ok");

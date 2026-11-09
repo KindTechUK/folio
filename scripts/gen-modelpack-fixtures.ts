@@ -228,6 +228,16 @@ function baseManifest(overrides: Record<string, unknown> = {}): Record<string, u
   );
 }
 
+// === reject: malformed-uppercase-sha256 ====================================
+{
+  const m = baseManifest({ sha256: "A".repeat(64) });
+  writeCase(
+    "malformed-uppercase-sha256",
+    { ...m, signature: "AA==" },
+    { outcome: "reject", reasonContains: "64 lowercase hex" },
+  );
+}
+
 // === reject: malformed-unknown-engine ======================================
 {
   const m = baseManifest({ engine: "kaldi", sha256: "a".repeat(64) });

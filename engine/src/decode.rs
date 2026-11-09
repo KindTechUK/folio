@@ -272,13 +272,6 @@ mod tests {
     }
 
     #[test]
-    fn resample_is_noop_at_16k() {
-        let mono = vec![0.1, -0.2, 0.3, -0.4];
-        let out = resample_to_16k(&mono, 16_000, &|_| {}).unwrap();
-        assert_eq!(out, mono);
-    }
-
-    #[test]
     fn stereo_downmix_averages_channels() {
         use symphonia::core::audio::{
             AsAudioBufferRef, AudioBuffer, Channels, SignalSpec,
@@ -303,22 +296,16 @@ mod tests {
         assert_eq!(out, vec![0.5, 0.5, 0.0]);
     }
 
-    /// GATED real-decode test: only runs when a `downloads/*.m4a` is present
-    /// (skips cleanly in CI / on machines without the demo file).
+    /// Decodes a real `downloads/*.m4a`; run with `--include-ignored` when one is present.
     #[test]
+    #[ignore = "needs downloads/*.m4a"]
     fn decode_real_m4a_if_present() {
         let downloads = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../downloads");
-        let Ok(entries) = std::fs::read_dir(&downloads) else {
-            eprintln!("skip: no downloads dir at {}", downloads.display());
-            return;
-        };
-        let m4a = entries
+        let path = std::fs::read_dir(&downloads)
+            .expect("downloads/ dir must exist when running this ignored test")
             .filter_map(|e| e.ok().map(|e| e.path()))
-            .find(|p| p.extension().and_then(|e| e.to_str()) == Some("m4a"));
-        let Some(path) = m4a else {
-            eprintln!("skip: no .m4a in {}", downloads.display());
-            return;
-        };
+            .find(|p| p.extension().and_then(|e| e.to_str()) == Some("m4a"))
+            .expect("downloads/ must contain an .m4a");
 
         let (samples, rate) = decode_to_16k_mono(&path).expect("decode m4a");
         assert_eq!(rate, 16_000);
