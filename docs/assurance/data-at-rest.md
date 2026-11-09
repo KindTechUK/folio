@@ -31,12 +31,12 @@ matter be stored/run on an encrypted volume (`app/src-tauri/src/system.rs`,
 reports `unknown` (and still warns), never erroring the app; on macOS/Linux it
 always reports `unknown`.
 
-**Known limitations (current behaviour):** the check inspects the drive of the
-app's *current working directory*, not the drive holding the library, model
-cache, or the recording being transcribed. `manage-bde -status` normally
-requires an elevated (administrator) prompt, so for a standard user the result
-is usually `unknown` and the banner shows even on an encrypted volume. Treat the
-banner as a reminder, not as evidence of encryption state.
+**Known limitations (current behaviour):** the app asks about the path `"."`,
+from which no drive letter can be derived, so the check currently always
+reports `unknown` and the banner shows even on an encrypted volume. It also does
+not target the drive holding the library, model cache, or recording, and
+`manage-bde -status` normally requires an elevated (administrator) prompt. Treat
+the banner as a reminder, not as evidence of encryption state.
 
 This is an **advisory** prompt, not an enforcement gate — the firm should still
 enforce BitLocker through its device-management policy (Intune/SCCM) as the
