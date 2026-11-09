@@ -49,9 +49,8 @@ zip = "2"
 sha2 = "0.10"
 
 [features]
-# Default + `hardened` are BOTH network-free in PR2. `hardened` is the forward
-# guard rail: it is the feature the shipped firm build sets, reserved to compile
-# OUT any future optional networked catalog (the open-SME variant, PRD #31).
-# The CI gate runs `cargo tree` for default AND `--features hardened`.
+# Both are network-free. Release builds set `hardened` (release.yml); it is
+# reserved to compile OUT any future optional networked feature. The CI gate
+# runs `cargo tree` for default AND `--features hardened`.
 default = []
 hardened = []
