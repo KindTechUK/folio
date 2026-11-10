@@ -316,6 +316,46 @@ impl SilenceWatch {
     }
 }
 
+/// Time the microphone was unavailable while recording (not while paused),
+/// which is written to the WAV as silence when the device comes back.
+pub(crate) struct OutageClock {
+    counted: Duration,
+    since: Option<Instant>,
+}
+
+impl OutageClock {
+    pub(crate) fn start(lost_at: Instant, paused: bool) -> Self {
+        Self { counted: Duration::ZERO, since: (!paused).then_some(lost_at) }
+    }
+
+    pub(crate) fn pause(&mut self, now: Instant) {
+        if let Some(since) = self.since.take() {
+            self.counted += now.saturating_duration_since(since);
+        }
+    }
+
+    pub(crate) fn resume(&mut self, now: Instant) {
+        self.since.get_or_insert(now);
+    }
+
+    pub(crate) fn gap(&self, now: Instant) -> Duration {
+        self.counted + self.since.map_or(Duration::ZERO, |s| now.saturating_duration_since(s))
+    }
+}
+
+/// Whether a stream error means the device must be reopened. Glitches (xruns),
+/// automatic rerouting and refused real-time priority leave the stream running.
+fn needs_reopen(kind: cpal::ErrorKind) -> bool {
+    matches!(
+        kind,
+        cpal::ErrorKind::DeviceNotAvailable
+            | cpal::ErrorKind::StreamInvalidated
+            | cpal::ErrorKind::HostUnavailable
+            | cpal::ErrorKind::DeviceBusy
+            | cpal::ErrorKind::BackendError
+    )
+}
+
 struct Active {
     path: PathBuf,
     diarize: bool,
@@ -351,9 +391,11 @@ fn ms_since(t0: Instant) -> u64 {
     t0.elapsed().as_millis() as u64
 }
 
-/// Open the default microphone on the current thread and start it. Frames go
-/// to `tx`; device errors and every callback are reported for the watchdog.
+/// Open the default microphone on the current thread, not yet started (call
+/// `play` once its format has been announced). Frames go to `tx`; device
+/// errors and every callback are reported for the watchdog.
 fn open_input(
+    app: AppHandle,
     tx: Sender<Audio>,
     lost: Sender<Control>,
     last_frame: Arc<std::sync::atomic::AtomicU64>,
@@ -379,8 +421,12 @@ fn open_input(
         narrowband: bluetooth || config.sample_rate <= SAMPLE_RATE,
         name,
     };
-    let on_error = move |_e: cpal::Error| {
-        let _ = lost.send(Control::Lost);
+    let on_error = move |e: cpal::Error| {
+        if needs_reopen(e.kind()) {
+            let _ = lost.send(Control::Lost);
+        } else if e.kind() == cpal::ErrorKind::PermissionDenied {
+            let _ = app.emit("record-error", mic_error(e));
+        }
     };
     macro_rules! build {
         ($t:ty) => {{
@@ -407,8 +453,6 @@ fn open_input(
         other => return Err(format!("Unsupported microphone sample format: {other:?}")),
     }
     .map_err(mic_error)?;
-    stream.play().map_err(mic_error)?;
-    last_frame.store(ms_since(t0), Ordering::Relaxed);
     Ok((stream, input))
 }
 
@@ -439,8 +483,12 @@ fn capture_thread(
 ) {
     let t0 = Instant::now();
     let last_frame = Arc::new(std::sync::atomic::AtomicU64::new(0));
-    let open = || open_input(tx.clone(), control_tx.clone(), last_frame.clone(), t0);
-    let mut stream = match open() {
+    let open = || open_input(app.clone(), tx.clone(), control_tx.clone(), last_frame.clone(), t0);
+    let start = |s: &cpal::Stream| {
+        last_frame.store(ms_since(t0), Ordering::Relaxed);
+        s.play().map_err(mic_error)
+    };
+    let mut stream = match open().and_then(|(s, input)| start(&s).map(|()| (s, input))) {
         Ok((stream, input)) => {
             let _ = ready.send(Ok(input));
             Some(stream)
@@ -486,8 +534,9 @@ fn capture_thread(
                     continue; // already gave up
                 }
                 stream = None;
-                // Time since the last audio arrived is not in the recording.
-                let lost_at = last_frame.load(Ordering::Relaxed);
+                // Audio stopped arriving at the last callback.
+                let lost_at = t0 + Duration::from_millis(last_frame.load(Ordering::Relaxed));
+                let mut outage = OutageClock::start(lost_at, paused);
                 status(&app, Some("Microphone disconnected — reconnecting…".into()), false);
                 let mut stop = false;
                 for delay in RETRY_DELAYS {
@@ -496,21 +545,30 @@ fn capture_thread(
                             stop = true;
                             break;
                         }
-                        Ok(Control::Pause) => paused = true,
-                        Ok(Control::Resume) => paused = false,
+                        // Pause/Resume still reach the processor, so it drops or keeps
+                        // frames correctly once a device is back.
+                        Ok(Control::Pause) => {
+                            paused = true;
+                            outage.pause(Instant::now());
+                            let _ = tx.send(Audio::Pause);
+                        }
+                        Ok(Control::Resume) => {
+                            paused = false;
+                            outage.resume(Instant::now());
+                            let _ = tx.send(Audio::Resume);
+                        }
                         _ => {}
                     }
                     if let Ok((s, input)) = open() {
-                        if paused {
-                            let _ = s.pause();
-                        }
-                        let gap = if paused {
-                            0.0
-                        } else {
-                            ms_since(t0).saturating_sub(lost_at) as f64 / 1000.0
-                        };
+                        // Announce the new format before any of its frames are queued.
                         let name = input.name.clone();
-                        let _ = tx.send(Audio::Reopened(input, gap));
+                        let now = Instant::now();
+                        let _ = tx.send(Audio::Reopened(input, outage.gap(now).as_secs_f64()));
+                        // That gap is now in the recording; count afresh if this attempt fails.
+                        outage = OutageClock::start(now, paused);
+                        if !paused && start(&s).is_err() {
+                            continue;
+                        }
                         status(&app, Some(format!("Reconnected to {name}.")), true);
                         stream = Some(s);
                         break;
@@ -1063,5 +1121,22 @@ mod tests {
         for _ in 0..100 {
             assert_eq!(watch.feed(&noise), None);
         }
+    }
+
+    #[test]
+    fn a_reconnection_gap_counts_only_time_spent_recording() {
+        let t = Instant::now();
+        let at = |secs: u64| t + Duration::from_secs(secs);
+
+        // Lost while recording; paused 2 s later; resumed 10 s after that; back 1 s later.
+        let mut clock = OutageClock::start(at(0), false);
+        clock.pause(at(2));
+        clock.resume(at(12));
+        assert_eq!(clock.gap(at(13)), Duration::from_secs(3));
+
+        // Lost while paused; resumed after 5 s; back 1 s later.
+        let mut clock = OutageClock::start(at(0), true);
+        clock.resume(at(5));
+        assert_eq!(clock.gap(at(6)), Duration::from_secs(1));
     }
 }
