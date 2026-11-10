@@ -1,0 +1,55 @@
+# TEMPORARY (spike S1): measure live-transcription lag on a Windows x86 runner.
+# Lives only on spike/s1-live-lag and is deleted after the run; never merged.
+name: s1-windows
+
+on:
+  push:
+    branches: [spike/s1-live-lag]
+    paths: [.github/workflows/s1-windows.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  s1:
+    runs-on: windows-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: engine
+      - name: Machine
+        shell: pwsh
+        run: |
+          Get-CimInstance Win32_Processor | Format-List Name,NumberOfCores,NumberOfLogicalProcessors,MaxClockSpeed
+          Get-CimInstance Win32_ComputerSystem | Format-List TotalPhysicalMemory
+      - name: Fetch pinned Parakeet + VAD (hash-checked)
+        run: |
+          source scripts/modelpack-security.sh
+          M=scripts/modelpack-assets.sha256
+          D="$RUNNER_TEMP/models"; P="$D/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"; mkdir -p "$P"
+          curl -fsSL https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx -o "$D/silero_vad.onnx"
+          verify_pinned_asset "$M" "$D/silero_vad.onnx" silero_vad.onnx
+          HF=https://huggingface.co/csukuangfj/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/resolve/1ab9323565ddb038682214b292f588070a538ce2
+          for f in encoder.int8.onnx decoder.int8.onnx joiner.int8.onnx tokens.txt; do
+            curl -fsSL "$HF/$f" -o "$P/$f"
+            verify_pinned_asset "$M" "$P/$f" "parakeet-tdt-0.6b-v2-int8/$f"
+          done
+      - name: Fetch AMI IS1009a (CC-BY-4.0; already 16 kHz mono)
+        run: curl -fsSL https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/IS1009a/audio/IS1009a.Mix-Headset.wav -o "$RUNNER_TEMP/IS1009a.wav"
+      - name: Build harness
+        run: cargo build --release --example live_replay --manifest-path engine/Cargo.toml
+      - name: Sweep (simulated clock, real decode times)
+        run: |
+          engine/target/release/examples/live_replay "$RUNNER_TEMP/IS1009a.wav" \
+            --models-dir "$RUNNER_TEMP/models" --threads 2 \
+            --silence 0.5,0.8 --max-speech 10,15 --json s1-windows.jsonl
+      - uses: actions/upload-artifact@v6
+        with:
+          name: s1-windows
+          path: s1-windows.jsonl
