@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { invoke, convertFileSrc } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { loadTranscript } from "@core/editor";
@@ -15,7 +15,7 @@ import {
   canRedo,
 } from "./history";
 import type { History } from "./history";
-import { buildSession } from "./session";
+import { basename, buildSession } from "./session";
 import type { SessionJson } from "./session";
 import Editor from "./Editor";
 import Models, { selectAsrModel } from "./Models";
@@ -23,10 +23,13 @@ import type { PackStatus } from "./Models";
 import Library from "./Library";
 import Sidebar from "./Sidebar";
 import type { View } from "./Sidebar";
-import { Banner, Button, Chip } from "./ui";
+import { Banner, Button } from "./ui";
 
 const HEADINGS: Record<View, { title: string; subtitle: string }> = {
-  library: { title: "Matters", subtitle: "Recordings and transcripts stored on this device." },
+  library: {
+    title: "Transcripts",
+    subtitle: "Draft transcripts generated and stored on this device.",
+  },
   transcribe: {
     title: "Import recording",
     subtitle: "Create a private transcript without uploading the recording.",
@@ -35,6 +38,28 @@ const HEADINGS: Record<View, { title: string; subtitle: string }> = {
     title: "Models & settings",
     subtitle: "Manage the signed model packs available to Folio.",
   },
+};
+
+const MODEL_LABELS: Record<string, string> = {
+  parakeet: "Parakeet",
+  "small.en": "Whisper small (English)",
+  "medium.en": "Whisper medium (English)",
+};
+
+type SaveStatus = "saved" | "saving" | "error";
+
+interface OpenSessionMeta {
+  id: string;
+  createdAt: string;
+  audioPath: string;
+  audioFilename: string;
+  diarized: boolean;
+}
+
+const SAVE_LABELS: Record<SaveStatus, string> = {
+  saved: "Saved locally",
+  saving: "Saving locally…",
+  error: "Local save failed",
 };
 
 function newId(): string {
@@ -61,6 +86,8 @@ export default function App() {
   const onUndo = () => setHistory((h) => (h ? undo(h) : h));
   const onRedo = () => setHistory((h) => (h ? redo(h) : h));
   const [audioSrc, setAudioSrc] = useState<string | undefined>(undefined);
+  // Picked (backend-approved) recording waiting for "Create transcript".
+  const [selectedPath, setSelectedPath] = useState<string | null>(null);
   const [encryption, setEncryption] = useState<EncryptionStatus | null>(null);
   const [encryptionDismissed, setEncryptionDismissed] = useState(false);
   // Speaker detection is OPT-IN (default off): on real audio its quality hurt
@@ -74,14 +101,25 @@ export default function App() {
   const [debugAsrModel, setDebugAsrModel] = useState<string | null>(null);
   const [modelsChecked, setModelsChecked] = useState(false);
   const asrModel = debugAsrModel ?? installedAsrModel;
+  const [saveStatus, setSaveStatus] = useState<SaveStatus>("saved");
   // Metadata for the currently loaded library session (null = unsaved/none).
-  // Drives debounced auto-save and ties a loaded matter to its saved entry.
-  const [currentSessionMeta, setCurrentSessionMeta] = useState<{
-    id: string;
-    createdAt: string;
-    audioPath: string;
-    diarized: boolean;
-  } | null>(null);
+  // Drives debounced auto-save and ties a loaded transcript to its saved entry.
+  const [currentSessionMeta, setSessionMetaState] = useState<OpenSessionMeta | null>(null);
+  // Mirrors currentSessionMeta synchronously, so async saves can tell whether
+  // the transcript they started on is still the open one.
+  const metaRef = useRef<OpenSessionMeta | null>(null);
+  const setCurrentSessionMeta = (meta: OpenSessionMeta | null) => {
+    metaRef.current = meta;
+    setSessionMetaState(meta);
+  };
+  // The last snapshot written to disk, and the one on screen now (async saves
+  // read it to decide whether they are still the latest).
+  const savedStateRef = useRef<EditorState | null>(null);
+  // Bumped after each successful write so the autosave effect re-checks the
+  // screen against disk (an undo can land while a write is in flight).
+  const [saveCount, setSaveCount] = useState(0);
+  const stateRef = useRef<EditorState | null>(null);
+  stateRef.current = state;
 
   function updateModelStatus(packs: PackStatus[]) {
     setInstalledAsrModel(selectAsrModel(packs));
@@ -120,51 +158,111 @@ export default function App() {
       .catch(() => setModelsChecked(true));
   }, []);
 
-  // Debounced (800ms) auto-save; failures are swallowed so the UI never crashes.
+  // Library writes run one at a time, in order; this is the tail of that queue.
+  const writeQueueRef = useRef<Promise<unknown>>(Promise.resolve());
+  const queuedWritesRef = useRef(0);
+
+  // Queue one snapshot for the library. Never rejects; false means the save failed.
+  // A write whose transcript was closed or deleted while it waited is dropped.
+  function persist(meta: OpenSessionMeta, snapshot: EditorState): Promise<boolean> {
+    queuedWritesRef.current += 1;
+    const write = writeQueueRef.current.then(async () => {
+      if (metaRef.current?.id !== meta.id || snapshot === savedStateRef.current) {
+        queuedWritesRef.current -= 1;
+        return true;
+      }
+      setSaveStatus("saving");
+      try {
+        await invoke("save_session", {
+          session: buildSession({
+            id: meta.id,
+            createdAt: meta.createdAt,
+            updatedAt: new Date().toISOString(),
+            audioPath: meta.audioPath,
+            diarized: meta.diarized,
+            state: snapshot,
+          }),
+        });
+        queuedWritesRef.current -= 1;
+        if (metaRef.current?.id === meta.id) {
+          savedStateRef.current = snapshot;
+          setSaveCount((n) => n + 1);
+        }
+        return true;
+      } catch {
+        queuedWritesRef.current -= 1;
+        setSaveStatus("error");
+        return false;
+      }
+    });
+    writeQueueRef.current = write;
+    return write;
+  }
+
+  // Before leaving a transcript: wait for every queued write, then save the
+  // on-screen text if it still differs from disk (edits and undos can land
+  // while a write is running).
+  async function flushPendingSave(): Promise<boolean> {
+    const meta = metaRef.current;
+    if (!meta) return true;
+    for (;;) {
+      const tail = writeQueueRef.current;
+      await tail;
+      // More writes were queued while waiting (autosave keeps running): drain them too.
+      if (writeQueueRef.current !== tail) continue;
+      const latest = stateRef.current;
+      if (metaRef.current?.id !== meta.id || !latest || latest === savedStateRef.current) {
+        return true;
+      }
+      if (!(await persist(meta, latest))) return false;
+    }
+  }
+
+  // Debounced (800ms) auto-save. The header says "Saving" from the moment an
+  // edit lands until it is on disk.
   useEffect(() => {
     if (!state || !currentSessionMeta) return;
+    if (state === savedStateRef.current) {
+      // A queued write may still overwrite disk with other text; its completion
+      // re-runs this check.
+      setSaveStatus(queuedWritesRef.current > 0 ? "saving" : "saved");
+      return;
+    }
+    setSaveStatus("saving");
     const meta = currentSessionMeta;
-    const timer = setTimeout(() => {
-      void invoke("save_session", {
-        session: buildSession({
-          id: meta.id,
-          createdAt: meta.createdAt,
-          updatedAt: new Date().toISOString(),
-          audioPath: meta.audioPath,
-          diarized: meta.diarized,
-          state,
-        }),
-      }).catch(() => {});
-    }, 800);
+    const timer = setTimeout(() => void persist(meta, state), 800);
     return () => clearTimeout(timer);
-  }, [state, currentSessionMeta]);
+  }, [state, currentSessionMeta, saveCount]);
 
   // Open a saved session from the Library: load its JSON, restore the editor
   // and audio, and switch to the review view. Audio may be missing if the
   // referenced source file was moved/deleted.
   async function openSession(id: string) {
+    // Keep the open transcript on screen if its latest edit could not be saved.
+    if (!(await flushPendingSave())) {
+      setView("transcribe");
+      return;
+    }
     try {
       const res = await invoke<{ session: SessionJson; audioAvailable: boolean }>(
         "load_session",
         { id },
       );
+      savedStateRef.current = res.session.editorState;
       setHistory(initHistory(res.session.editorState));
       setDiarized(res.session.diarized);
       setCurrentSessionMeta({
         id: res.session.id,
         createdAt: res.session.createdAt,
         audioPath: res.session.audioPath,
+        audioFilename: res.session.audioFilename,
         diarized: res.session.diarized,
       });
+      setStatus("idle");
       setAudioSrc(
         res.audioAvailable ? convertFileSrc(res.session.audioPath) : undefined,
       );
       setView("transcribe");
-      setStatus(
-        res.audioAvailable
-          ? `opened ${res.session.audioFilename}`
-          : `opened ${res.session.audioFilename} (audio file not found)`,
-      );
     } catch (e) {
       setStatus(`error opening transcript: ${String(e)}`);
     }
@@ -172,51 +270,91 @@ export default function App() {
 
   // Ask the backend to confirm and delete both the source recording and saved
   // transcript, then clear the loaded UI only after the backend succeeds.
-  async function deleteMatter() {
-    try {
+  async function deleteTranscript() {
+    const id = metaRef.current?.id ?? "";
+    // Deletion joins the write queue: earlier saves finish first, and closing
+    // the session inside the queue drops any save queued after it.
+    const deletion = writeQueueRef.current.then(async () => {
       const report = await invoke<{ deleted: string[]; failed: unknown[] }>(
         "delete_matter",
-        { id: currentSessionMeta?.id ?? "" },
+        { id },
       );
+      if (report.failed.length === 0) setCurrentSessionMeta(null);
+      return report;
+    });
+    writeQueueRef.current = deletion.catch(() => {});
+    try {
+      const report = await deletion;
       if (report.failed.length > 0) {
-        setStatus("error deleting matter: source audio could not be deleted");
+        setStatus("error deleting transcript: source audio could not be deleted");
         return;
       }
       setHistory(null);
       setAudioSrc(undefined);
       setCurrentSessionMeta(null);
-      setStatus(`matter deleted — ${report.deleted.length} file(s) removed`);
+      setStatus("idle");
+      setView("library");
     } catch (e) {
-      setStatus(`error deleting matter: ${String(e)}`);
+      setStatus(`error deleting transcript: ${String(e)}`);
     }
   }
 
-  async function pickAndTranscribe() {
+  // Clear any open transcript and show an empty import card. A running
+  // transcription keeps the screen until it finishes, and an edit that cannot be
+  // saved keeps its transcript open (the header shows the failure).
+  async function startImport() {
+    const leaving = metaRef.current?.id;
+    if (progress || !(await flushPendingSave())) {
+      setView("transcribe");
+      return;
+    }
+    // Another transcript was opened while the save ran; leave it alone.
+    if (metaRef.current?.id !== leaving) return;
+    setHistory(null);
+    setAudioSrc(undefined);
+    setCurrentSessionMeta(null);
+    setSelectedPath(null);
+    setProgress(null);
+    setStatus("idle");
+    setView("transcribe");
+  }
+
+  function navigate(next: View) {
+    if (next === "transcribe") void startImport();
+    else setView(next);
+  }
+
+  async function chooseRecording() {
     if (!asrModel) {
       setStatus("error: install a verified transcription model before choosing a recording");
       return;
     }
-    setStatus("selecting file…");
-    let unlisten = () => {};
     try {
       const path = await invoke<string | null>("pick_recording");
-      if (typeof path !== "string") {
-        setStatus(state ? "review open" : "idle");
-        return;
-      }
-      setHistory(null);
-      setCurrentSessionMeta(null);
-      setProgress(null);
-      const parsedCount = parseInt(speakerCount, 10);
-      const num_speakers =
-        detectSpeakers && Number.isFinite(parsedCount) && parsedCount > 0
-          ? parsedCount
-          : undefined;
+      if (typeof path === "string") setSelectedPath(path);
+      setStatus("idle");
+    } catch (e) {
+      setStatus(`error: ${String(e)}`);
+    }
+  }
 
-      // Unlisten in `finally` so the progress listener never leaks.
-      const startedAt = Date.now();
-      setStatus("transcribing…");
-      setProgress({ fraction: 0, label: "Starting…" });
+  async function createTranscript() {
+    if (!selectedPath || !asrModel) return;
+    const path = selectedPath;
+    setHistory(null);
+    setCurrentSessionMeta(null);
+    const parsedCount = parseInt(speakerCount, 10);
+    const num_speakers =
+      detectSpeakers && Number.isFinite(parsedCount) && parsedCount > 0
+        ? parsedCount
+        : undefined;
+
+    // Unlisten in `finally` so the progress listener never leaks.
+    let unlisten = () => {};
+    const startedAt = Date.now();
+    setStatus("transcribing…");
+    setProgress({ fraction: 0, label: "Starting…" });
+    try {
       unlisten = await listen<Progress>("transcribe-progress", (event) => {
         const elapsedSec = (Date.now() - startedAt) / 1000;
         setProgress(progressView(event.payload, elapsedSec));
@@ -236,18 +374,17 @@ export default function App() {
       setHistory(initHistory(editorState));
       setDiarized(detectSpeakers);
       setAudioSrc(convertFileSrc(path));
-      setCurrentSessionMeta({ id, createdAt, audioPath: path, diarized: detectSpeakers });
-      await invoke("save_session", {
-        session: buildSession({
-          id,
-          createdAt,
-          updatedAt: createdAt,
-          audioPath: path,
-          diarized: detectSpeakers,
-          state: editorState,
-        }),
-      });
-      setStatus(`done — ${transcript.segments.length} segments`);
+      setSelectedPath(null);
+      const meta = {
+        id,
+        createdAt,
+        audioPath: path,
+        audioFilename: basename(path),
+        diarized: detectSpeakers,
+      };
+      setCurrentSessionMeta(meta);
+      setStatus("idle");
+      await persist(meta, editorState);
     } catch (e) {
       setStatus(`error: ${String(e)}`);
     } finally {
@@ -258,39 +395,52 @@ export default function App() {
 
   const showEncryptionWarning =
     encryption && encryption.state !== "encrypted" && !encryptionDismissed;
-  const heading =
-    view === "transcribe" && state
-      ? {
-          title: "Review transcript",
-          subtitle: "Listen, correct, and verify the machine-generated draft.",
-        }
-      : HEADINGS[view];
-  const statusTone = status.startsWith("error")
-    ? "danger"
-    : status.startsWith("done") || status.startsWith("opened")
-      ? "privacy"
-      : "neutral";
+  const reviewing = view === "transcribe" && state !== null;
+  const heading = HEADINGS[view];
+  const transcriptTitle =
+    currentSessionMeta?.audioFilename.replace(/\.[^.]+$/, "") || "Draft transcript";
+  const errorMessage = status.startsWith("error")
+    ? status.replace(/^error[^:]*:\s*/, "")
+    : null;
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "var(--canvas)" }}>
-      <Sidebar view={view} onNavigate={setView} />
+    <div className="app-shell">
+      {/* An open transcript belongs to Transcripts, not to Import recording. */}
+      <Sidebar view={reviewing ? "library" : view} onNavigate={navigate} />
 
-      <main
-        style={{
-          flex: 1,
-          minWidth: 0,
-          padding: "var(--space-5)",
-          overflowX: "hidden",
-        }}
-      >
-        <header style={{ maxWidth: 1040, marginBottom: "var(--space-5)" }}>
-          <h1 style={{ margin: 0, fontSize: "var(--text-2xl)" }}>
-            {heading.title}
-          </h1>
-          <p style={{ margin: "var(--space-2) 0 0", color: "var(--slate-500)" }}>
-            {heading.subtitle}
-          </p>
-        </header>
+      <main className={reviewing ? "app-main transcript-workspace" : "app-main"}>
+        {reviewing ? (
+          <header className="draft-header">
+            <div style={{ minWidth: 0 }}>
+              <h1 title={transcriptTitle}>{transcriptTitle}</h1>
+              <div className="draft-meta">
+                <span>Draft transcript</span>
+                <span aria-hidden="true">·</span>
+                <span
+                  data-testid="save-status"
+                  className={saveStatus === "error" ? "save-error" : undefined}
+                >
+                  {SAVE_LABELS[saveStatus]}
+                </span>
+              </div>
+            </div>
+            <div className="draft-header-actions">
+              <Button onClick={() => void startImport()}>Import another</Button>
+              <Button
+                variant="danger"
+                data-testid="delete-transcript"
+                onClick={() => void deleteTranscript()}
+              >
+                Delete transcript and audio
+              </Button>
+            </div>
+          </header>
+        ) : (
+          <header className="page-header">
+            <h1>{heading.title}</h1>
+            <p>{heading.subtitle}</p>
+          </header>
+        )}
 
         {showEncryptionWarning && (
           <Banner
@@ -303,27 +453,17 @@ export default function App() {
             style={{ maxWidth: 1040, marginBottom: "var(--space-4)" }}
           >
             This volume is not confirmed BitLocker-encrypted. For
-            client-confidential matters, store and run on an encrypted volume.{" "}
+            client-confidential recordings, store and run on an encrypted volume.{" "}
             <span style={{ opacity: 0.8 }}>({encryption.detail})</span>
           </Banner>
         )}
 
-        <div style={{ maxWidth: 1040 }}>
+        <div className="page-content">
           {view === "transcribe" ? (
             <>
               {!state && !progress && (
-                <section
-                  style={{
-                    padding: "var(--space-6)",
-                    background: "var(--surface)",
-                    border: "1px solid var(--slate-200)",
-                    borderRadius: "var(--radius-lg)",
-                    maxWidth: 720,
-                  }}
-                >
-                  <h2 style={{ margin: 0, fontSize: "var(--text-lg)" }}>
-                    Choose a recording to transcribe
-                  </h2>
+                <section className="import-card">
+                  <h2>Choose a recording to transcribe</h2>
                   <p
                     style={{
                       color: "var(--slate-500)",
@@ -332,7 +472,7 @@ export default function App() {
                     }}
                   >
                     Supported audio and video files are processed entirely on this
-                    Windows device and saved to Matters automatically.
+                    device and saved to Transcripts automatically.
                   </p>
                   {modelsChecked && !asrModel ? (
                     <Banner
@@ -350,24 +490,44 @@ export default function App() {
                         Open Models &amp; settings
                       </Button>
                     </Banner>
+                  ) : selectedPath ? (
+                    <div className="selected-recording">
+                      <div style={{ minWidth: 0 }}>
+                        <div className="field-label">Selected recording</div>
+                        <strong title={selectedPath}>{basename(selectedPath)}</strong>
+                      </div>
+                      <Button size="sm" onClick={() => void chooseRecording()}>
+                        Change
+                      </Button>
+                    </div>
                   ) : (
                     <Button
                       variant="primary"
-                      onClick={pickAndTranscribe}
+                      onClick={() => void chooseRecording()}
                       disabled={!modelsChecked}
                       style={{ marginBottom: "var(--space-4)" }}
                     >
                       {modelsChecked ? "Choose recording" : "Checking transcription model…"}
                     </Button>
                   )}
-                  {status.startsWith("error") && asrModel && (
+                  {errorMessage && asrModel && (
                     <Banner
                       variant="warning"
                       role="alert"
                       style={{ marginBottom: "var(--space-4)" }}
                     >
-                      {status.replace(/^error:\s*/, "")}
+                      {errorMessage}
                     </Banner>
+                  )}
+
+                  {asrModel && (
+                    <div className="model-ready">
+                      <div>
+                        <div className="field-label">Transcription model</div>
+                        <strong>{MODEL_LABELS[asrModel] ?? asrModel}</strong>
+                        <span> · Ready on this device</span>
+                      </div>
+                    </div>
                   )}
 
                   <div
@@ -379,7 +539,7 @@ export default function App() {
                     }}
                   >
                     <div style={{ fontWeight: 600, marginBottom: "var(--space-2)" }}>
-                      Optional review setup
+                      Transcript options
                     </div>
                     <label
                       style={{
@@ -420,24 +580,25 @@ export default function App() {
                       </label>
                     )}
                   </div>
+                  {selectedPath && (
+                    <Button
+                      variant="primary"
+                      onClick={() => void createTranscript()}
+                      style={{ marginTop: "var(--space-5)", minWidth: 180 }}
+                    >
+                      Create transcript
+                    </Button>
+                  )}
                 </section>
               )}
 
               {progress && (
                 <section
+                  className="progress-card"
                   data-testid="transcribe-progress"
                   aria-live="polite"
-                  style={{
-                    padding: "var(--space-6)",
-                    background: "var(--surface)",
-                    border: "1px solid var(--slate-200)",
-                    borderRadius: "var(--radius-lg)",
-                    maxWidth: 720,
-                  }}
                 >
-                  <h2 style={{ margin: 0, fontSize: "var(--text-lg)" }}>
-                    Creating local transcript
-                  </h2>
+                  <h2>Creating local transcript</h2>
                   <p style={{ margin: "var(--space-2) 0 var(--space-4)", color: "var(--slate-500)" }}>
                     Keep Folio open while this recording is processed on your device.
                   </p>
@@ -459,6 +620,7 @@ export default function App() {
                   <progress
                     value={progress.fraction}
                     max={1}
+                    aria-label="Transcription progress"
                     style={{ width: "100%", height: 12, marginTop: "var(--space-2)" }}
                   />
                 </section>
@@ -466,44 +628,33 @@ export default function App() {
 
               {state && (
                 <>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "var(--space-3)",
-                      alignItems: "center",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    <Button onClick={pickAndTranscribe}>Import another recording</Button>
-                    <Chip tone={statusTone}>{status}</Chip>
-                    <Button
-                      variant="danger"
-                      data-testid="delete-matter"
-                      onClick={() => void deleteMatter()}
-                      style={{ marginLeft: "auto" }}
-                    >
-                      Delete audio and transcript
-                    </Button>
-                  </div>
-                  <div style={{ marginTop: "var(--space-5)" }}>
-                    <Editor
-                      state={state}
-                      setState={setState}
-                      audioSrc={audioSrc}
-                      diarized={diarized}
-                      onUndo={onUndo}
-                      onRedo={onRedo}
-                      canUndo={history ? canUndo(history) : false}
-                      canRedo={history ? canRedo(history) : false}
-                    />
-                  </div>
+                  {errorMessage && (
+                    <Banner variant="warning" role="alert" style={{ marginTop: "var(--space-3)" }}>
+                      {errorMessage}
+                    </Banner>
+                  )}
+                  {!audioSrc && (
+                    <Banner variant="info" role="note" style={{ marginTop: "var(--space-3)" }}>
+                      The source recording was not found, so playback is unavailable.
+                    </Banner>
+                  )}
+                  <Editor
+                    state={state}
+                    setState={setState}
+                    audioSrc={audioSrc}
+                    diarized={diarized}
+                    onUndo={onUndo}
+                    onRedo={onRedo}
+                    canUndo={history ? canUndo(history) : false}
+                    canRedo={history ? canRedo(history) : false}
+                  />
                 </>
               )}
             </>
           ) : view === "models" ? (
             <Models onPacksChanged={updateModelStatus} />
           ) : (
-            <Library onOpen={openSession} onImport={() => setView("transcribe")} />
+            <Library onOpen={(id) => void openSession(id)} onImport={() => void startImport()} />
           )}
         </div>
       </main>

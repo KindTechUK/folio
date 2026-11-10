@@ -56,11 +56,12 @@ data-at-rest notes, and a DPIA-support template — lives in
   installed. **No Python at runtime.**
 - **Optional speaker diarization** (opt-in, default off — see
   [`engine/README.md`](engine/README.md)), with an optional speaker-count hint.
-- **Review editor**: variable-speed playback, word-synced highlight + follow,
-  click-to-seek, sentence/paragraph editing, inline speaker rename, undo/redo,
-  find & replace.
-- **Local Library**: every transcript is auto-saved on-device so past matters
-  reopen; one-click **delete-matter** purges the transcript and source audio.
+- **Review editor**: variable-speed playback with 5-second skip, word-synced
+  highlight + follow, click-to-seek, sentence/paragraph editing, inline speaker
+  rename, undo/redo, find & replace.
+- **Transcripts**: every transcript is auto-saved on-device so past transcripts
+  reopen; one-click **Delete transcript and audio** purges the transcript and
+  source audio.
 - **Exports**: DOCX / JSON / plain text, each stamped with a machine-draft
   disclaimer.
 - **Signed model packs**: weights load only from a cryptographically verified

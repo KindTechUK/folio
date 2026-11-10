@@ -3,7 +3,7 @@ import { Chip } from "./ui";
 export type View = "library" | "transcribe" | "models";
 
 const PRIMARY_NAV: { id: View; label: string; hint: string }[] = [
-  { id: "library", label: "Matters", hint: "Saved transcripts" },
+  { id: "library", label: "Transcripts", hint: "Saved drafts" },
   { id: "transcribe", label: "Import recording", hint: "Start a local transcript" },
 ];
 
@@ -57,13 +57,13 @@ export default function Sidebar({
   return (
     <aside
       style={{
-        width: 232,
+        width: 208,
         flexShrink: 0,
         background: "var(--surface)",
         borderRight: "1px solid var(--slate-200)",
         display: "flex",
         flexDirection: "column",
-        padding: "var(--space-5) var(--space-4)",
+        padding: "20px 14px",
         height: "100vh",
         position: "sticky",
         top: 0,
@@ -92,7 +92,7 @@ export default function Sidebar({
         </div>
       </div>
 
-      <nav style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      <nav aria-label="Main navigation" style={{ display: "flex", flexDirection: "column", gap: 2 }}>
         {PRIMARY_NAV.map((item) => (
           <NavigationItem
             key={item.id}

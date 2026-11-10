@@ -36,21 +36,21 @@ beforeEach(() => {
 });
 
 describe("Library", () => {
-  it("lists matters with review setup and audio availability", async () => {
+  it("lists transcripts with mode and audio availability", async () => {
     render(<Library onOpen={() => {}} onImport={() => {}} />);
 
     expect(await screen.findByText("client-interview.m4a")).toBeInTheDocument();
     expect(screen.getByText("witness-statement.wav")).toBeInTheDocument();
-    expect(screen.getByText("Speaker review")).toBeInTheDocument();
-    expect(screen.getByText("Paragraph review")).toBeInTheDocument();
+    expect(screen.getByText("Speakers")).toBeInTheDocument();
+    expect(screen.getByText("Standard")).toBeInTheDocument();
     expect(screen.getByText("Missing")).toBeInTheDocument();
   });
 
-  it("filters matters by filename", async () => {
+  it("filters transcripts by filename", async () => {
     render(<Library onOpen={() => {}} onImport={() => {}} />);
     await screen.findByText("client-interview.m4a");
 
-    fireEvent.change(screen.getByRole("searchbox", { name: "Search matters" }), {
+    fireEvent.change(screen.getByRole("searchbox", { name: "Search transcripts" }), {
       target: { value: "witness" },
     });
 
