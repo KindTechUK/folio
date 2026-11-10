@@ -14,7 +14,7 @@
 
 use std::path::{Path, PathBuf};
 use std::sync::mpsc::{self, Receiver, Sender};
-use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 use std::sync::{Arc, Mutex};
 use std::thread::JoinHandle;
 use std::time::{Duration, Instant};
@@ -48,9 +48,12 @@ pub(crate) fn recordings_dir(library: &Path) -> PathBuf {
 // ---------------------------------------------------------------------------
 
 /// A 16 kHz mono 16-bit WAV being written. The header is kept valid as it
-/// grows, so the file is readable even if `finish` never runs.
+/// grows and forced to disk every few seconds, so the file is readable even if
+/// `finish` never runs (crash, power loss).
 pub(crate) struct RecordingFile {
     writer: hound::WavWriter<std::io::BufWriter<std::fs::File>>,
+    /// Second handle on the same file, for `sync_data`.
+    sync: std::fs::File,
     since_flush: usize,
     written: usize,
 }
@@ -80,11 +83,15 @@ impl RecordingFile {
             bits_per_sample: 16,
             sample_format: hound::SampleFormat::Int,
         };
-        let mut writer = hound::WavWriter::new(std::io::BufWriter::new(file), spec)
+        let sync = file
+            .try_clone()
+            .map_err(|e| format!("cannot open {}: {e}", path.display()))?;
+        let writer = hound::WavWriter::new(std::io::BufWriter::new(file), spec)
             .map_err(|e| format!("cannot start {}: {e}", path.display()))?;
-        writer.flush().map_err(|e| format!("cannot write {}: {e}", path.display()))?;
+        let mut rec = Self { writer, sync, since_flush: 0, written: 0 };
+        rec.flush()?;
         system::approve_recording_in(library, &path)?;
-        Ok((Self { writer, since_flush: 0, written: 0 }, path))
+        Ok((rec, path))
     }
 
     /// Append 16 kHz mono samples in `[-1, 1]`.
@@ -101,10 +108,25 @@ impl RecordingFile {
         Ok(())
     }
 
-    /// Write buffered audio and update the header to cover it.
+    /// Append `seconds` of silence (time the microphone was unavailable), so
+    /// the recording stays aligned with the clock.
+    pub(crate) fn append_silence(&mut self, seconds: f64) -> Result<(), String> {
+        let mut left = (seconds.max(0.0) * SAMPLE_RATE as f64).round() as usize;
+        let zeros = vec![0.0f32; SAMPLE_RATE as usize];
+        while left > 0 {
+            let n = left.min(zeros.len());
+            self.append(&zeros[..n])?;
+            left -= n;
+        }
+        Ok(())
+    }
+
+    /// Write buffered audio, update the header to cover it, and force both to
+    /// disk.
     pub(crate) fn flush(&mut self) -> Result<(), String> {
         self.since_flush = 0;
-        self.writer.flush().map_err(|e| format!("writing recording: {e}"))
+        self.writer.flush().map_err(|e| format!("writing recording: {e}"))?;
+        self.sync.sync_data().map_err(|e| format!("writing recording: {e}"))
     }
 
     pub(crate) fn written(&self) -> usize {
@@ -112,8 +134,45 @@ impl RecordingFile {
     }
 
     pub(crate) fn finish(self) -> Result<(), String> {
-        self.writer.finalize().map_err(|e| format!("finishing recording: {e}"))
+        self.writer.finalize().map_err(|e| format!("finishing recording: {e}"))?;
+        self.sync.sync_data().map_err(|e| format!("finishing recording: {e}"))
     }
+}
+
+/// Read `len` samples starting at sample `start` from a 16-bit mono WAV that
+/// may still be being written (only what is on disk is returned).
+pub(crate) fn read_span(path: &Path, start: usize, len: usize) -> Result<Vec<f32>, String> {
+    use std::io::{Read, Seek, SeekFrom};
+    let mut f = std::fs::File::open(path).map_err(|e| format!("cannot open {}: {e}", path.display()))?;
+    let mut riff = [0u8; 12];
+    f.read_exact(&mut riff).map_err(|e| format!("reading {}: {e}", path.display()))?;
+    if &riff[0..4] != b"RIFF" || &riff[8..12] != b"WAVE" {
+        return Err(format!("not a WAV file: {}", path.display()));
+    }
+    // Walk the chunks to the audio data.
+    let mut pos = 12u64;
+    let data = loop {
+        let mut head = [0u8; 8];
+        f.read_exact(&mut head).map_err(|e| format!("reading {}: {e}", path.display()))?;
+        let size = u32::from_le_bytes([head[4], head[5], head[6], head[7]]) as u64;
+        if &head[0..4] == b"data" {
+            break pos + 8;
+        }
+        pos += 8 + size + (size & 1);
+        f.seek(SeekFrom::Start(pos)).map_err(|e| format!("reading {}: {e}", path.display()))?;
+    };
+    f.seek(SeekFrom::Start(data + 2 * start as u64))
+        .map_err(|e| format!("reading {}: {e}", path.display()))?;
+    let mut bytes = Vec::with_capacity(2 * len);
+    f.take(2 * len as u64)
+        .read_to_end(&mut bytes)
+        .map_err(|e| format!("reading {}: {e}", path.display()))?;
+    Ok(bytes
+        .as_chunks::<2>()
+        .0
+        .iter()
+        .map(|b| i16::from_le_bytes(*b) as f32 / 32768.0)
+        .collect())
 }
 
 /// Delete a recording this app created and drop its approval. Refuses paths
@@ -142,14 +201,53 @@ enum Control {
     Pause,
     Resume,
     Stop,
+    /// The device failed (error callback) or went quiet (watchdog).
+    Lost,
 }
 
 enum Audio {
     Frames(Vec<f32>),
     Pause,
     Resume,
+    /// A different (or the same) device was opened after a loss; `gap_s` of
+    /// unrecorded time passed.
+    Reopened(Input, f64),
     End,
 }
+
+/// The format of an opened input device.
+#[derive(Clone)]
+struct Input {
+    rate: u32,
+    channels: u16,
+    name: String,
+    /// Telephone-band capture: a headset in call mode (Bluetooth HFP) or any
+    /// device delivering 16 kHz or less.
+    narrowband: bool,
+}
+
+/// One closed utterance for the decoder. Past [`MAX_QUEUED`] of backlog, only
+/// its position is queued and the decoder reads the samples back from the WAV.
+enum Utterance {
+    Samples(usize, Vec<f32>),
+    Span(usize, usize),
+}
+
+impl Utterance {
+    fn len(&self) -> usize {
+        match self {
+            Utterance::Samples(_, s) => s.len(),
+            Utterance::Span(_, n) => *n,
+        }
+    }
+}
+
+/// Backlog held in memory before utterances are queued as WAV spans.
+const MAX_QUEUED: usize = 120 * SAMPLE_RATE as usize;
+/// No callbacks for this long while recording means the device is gone.
+const STALL: Duration = Duration::from_secs(3);
+/// Reconnection attempts after a device loss.
+const RETRY_DELAYS: [u64; 5] = [1, 2, 4, 8, 8];
 
 #[derive(Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -157,6 +255,65 @@ struct Level {
     level: f32,
     speaking: bool,
     elapsed_s: f64,
+    /// Seconds of speech waiting to be transcribed.
+    backlog_s: f64,
+}
+
+#[derive(Clone, Serialize, PartialEq)]
+#[serde(rename_all = "camelCase")]
+struct Warnings {
+    /// The microphone delivers digital silence (muted, blocked by privacy
+    /// settings, or a driver problem).
+    silent: bool,
+    narrowband: bool,
+}
+
+#[derive(Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct Status {
+    message: Option<String>,
+    /// Show briefly, then clear.
+    transient: bool,
+}
+
+/// Raises a warning after a run of digital silence and clears it when sound
+/// returns. Room noise, however quiet, is never exactly zero.
+pub(crate) struct SilenceWatch {
+    run: usize,
+    limit: usize,
+    warned: bool,
+}
+
+impl SilenceWatch {
+    pub(crate) fn new(limit_samples: usize) -> Self {
+        Self { run: 0, limit: limit_samples, warned: false }
+    }
+
+    /// Returns `Some(true)` when the warning starts, `Some(false)` when it clears.
+    pub(crate) fn feed(&mut self, samples: &[f32]) -> Option<bool> {
+        let mut change = None;
+        for &s in samples {
+            if s.abs() > 1e-6 {
+                self.run = 0;
+                if self.warned {
+                    self.warned = false;
+                    change = Some(false);
+                }
+            } else {
+                self.run += 1;
+                if !self.warned && self.run >= self.limit {
+                    self.warned = true;
+                    change = Some(true);
+                }
+            }
+        }
+        change
+    }
+
+    pub(crate) fn reset(&mut self) -> Option<bool> {
+        self.run = 0;
+        std::mem::replace(&mut self.warned, false).then_some(false)
+    }
 }
 
 struct Active {
@@ -169,6 +326,7 @@ struct Active {
     decode: JoinHandle<()>,
     segments: Arc<Mutex<Vec<AsrSegment>>>,
     cancel: Arc<AtomicBool>,
+    stopping: Arc<AtomicBool>,
 }
 
 #[derive(Default)]
@@ -188,29 +346,49 @@ where
     data.iter().map(|s| s.to_sample::<f32>()).collect()
 }
 
-/// Open the default microphone on the current thread. Returns the stream
-/// (paused) and its rate and channel count.
+/// Milliseconds since `t0`, for the stall watchdog.
+fn ms_since(t0: Instant) -> u64 {
+    t0.elapsed().as_millis() as u64
+}
+
+/// Open the default microphone on the current thread and start it. Frames go
+/// to `tx`; device errors and every callback are reported for the watchdog.
 fn open_input(
     tx: Sender<Audio>,
-    app: AppHandle,
-) -> Result<(cpal::Stream, u32, u16), String> {
+    lost: Sender<Control>,
+    last_frame: Arc<std::sync::atomic::AtomicU64>,
+    t0: Instant,
+) -> Result<(cpal::Stream, Input), String> {
     let device = cpal::default_host()
         .default_input_device()
         .ok_or_else(|| "No microphone found. Connect one and try again.".to_string())?;
+    let description = device.description().ok();
+    let name = description
+        .as_ref()
+        .map(|d| d.name().to_string())
+        .unwrap_or_else(|| "the default microphone".to_string());
+    let bluetooth = description
+        .as_ref()
+        .is_some_and(|d| d.interface_type() == cpal::InterfaceType::Bluetooth);
     let supported = device.default_input_config().map_err(mic_error)?;
     let format = supported.sample_format();
     let config: cpal::StreamConfig = supported.into();
-    let (rate, channels) = (config.sample_rate, config.channels);
-    let err_app = app.clone();
-    let on_error = move |e: cpal::Error| {
-        let _ = err_app.emit("record-error", format!("Microphone error: {e}"));
+    let input = Input {
+        rate: config.sample_rate,
+        channels: config.channels,
+        narrowband: bluetooth || config.sample_rate <= SAMPLE_RATE,
+        name,
+    };
+    let on_error = move |_e: cpal::Error| {
+        let _ = lost.send(Control::Lost);
     };
     macro_rules! build {
         ($t:ty) => {{
-            let tx = tx.clone();
+            let (tx, last_frame) = (tx.clone(), last_frame.clone());
             device.build_input_stream::<$t, _, _>(
                 config.clone(),
                 move |data: &[$t], _| {
+                    last_frame.store(ms_since(t0), Ordering::Relaxed);
                     let _ = tx.send(Audio::Frames(to_f32(data)));
                 },
                 on_error,
@@ -229,7 +407,9 @@ fn open_input(
         other => return Err(format!("Unsupported microphone sample format: {other:?}")),
     }
     .map_err(mic_error)?;
-    Ok((stream, rate, channels))
+    stream.play().map_err(mic_error)?;
+    last_frame.store(ms_since(t0), Ordering::Relaxed);
+    Ok((stream, input))
 }
 
 fn mic_error(e: cpal::Error) -> String {
@@ -243,37 +423,110 @@ fn mic_error(e: cpal::Error) -> String {
     format!("Cannot use the microphone: {e}.{hint}")
 }
 
-/// Capture thread: owns the stream (not `Send` on every platform) and turns
-/// control messages into stream pause/play plus markers in the audio queue.
+fn status(app: &AppHandle, message: Option<String>, transient: bool) {
+    let _ = app.emit("record-status", Status { message, transient });
+}
+
+/// Capture thread: owns the stream (not `Send` on every platform), turns
+/// control messages into stream pause/play plus markers in the audio queue,
+/// and reopens the default microphone when the device fails or goes quiet.
 fn capture_thread(
     app: AppHandle,
     tx: Sender<Audio>,
+    control_tx: Sender<Control>,
     control: Receiver<Control>,
-    ready: Sender<Result<(u32, u16), String>>,
+    ready: Sender<Result<Input, String>>,
 ) {
-    let (stream, rate, channels) = match open_input(tx.clone(), app) {
-        Ok(v) => v,
+    let t0 = Instant::now();
+    let last_frame = Arc::new(std::sync::atomic::AtomicU64::new(0));
+    let open = || open_input(tx.clone(), control_tx.clone(), last_frame.clone(), t0);
+    let mut stream = match open() {
+        Ok((stream, input)) => {
+            let _ = ready.send(Ok(input));
+            Some(stream)
+        }
         Err(e) => {
             let _ = ready.send(Err(e));
             return;
         }
     };
-    if let Err(e) = stream.play() {
-        let _ = ready.send(Err(mic_error(e)));
-        return;
-    }
-    let _ = ready.send(Ok((rate, channels)));
-    while let Ok(msg) = control.recv() {
+    let mut paused = false;
+    loop {
+        let msg = match control.recv_timeout(Duration::from_secs(1)) {
+            Ok(msg) => msg,
+            Err(mpsc::RecvTimeoutError::Timeout) => {
+                let quiet = ms_since(t0).saturating_sub(last_frame.load(Ordering::Relaxed));
+                if !paused && stream.is_some() && quiet >= STALL.as_millis() as u64 {
+                    Control::Lost
+                } else {
+                    continue;
+                }
+            }
+            Err(mpsc::RecvTimeoutError::Disconnected) => break,
+        };
         match msg {
             Control::Pause => {
-                let _ = stream.pause();
+                paused = true;
+                if let Some(s) = &stream {
+                    let _ = s.pause();
+                }
                 let _ = tx.send(Audio::Pause);
             }
             Control::Resume => {
+                paused = false;
                 let _ = tx.send(Audio::Resume);
-                let _ = stream.play();
+                if let Some(s) = &stream {
+                    let _ = s.play();
+                    last_frame.store(ms_since(t0), Ordering::Relaxed);
+                }
             }
             Control::Stop => break,
+            Control::Lost => {
+                if stream.is_none() {
+                    continue; // already gave up
+                }
+                stream = None;
+                // Time since the last audio arrived is not in the recording.
+                let lost_at = last_frame.load(Ordering::Relaxed);
+                status(&app, Some("Microphone disconnected — reconnecting…".into()), false);
+                let mut stop = false;
+                for delay in RETRY_DELAYS {
+                    match control.recv_timeout(Duration::from_secs(delay)) {
+                        Ok(Control::Stop) | Err(mpsc::RecvTimeoutError::Disconnected) => {
+                            stop = true;
+                            break;
+                        }
+                        Ok(Control::Pause) => paused = true,
+                        Ok(Control::Resume) => paused = false,
+                        _ => {}
+                    }
+                    if let Ok((s, input)) = open() {
+                        if paused {
+                            let _ = s.pause();
+                        }
+                        let gap = if paused {
+                            0.0
+                        } else {
+                            ms_since(t0).saturating_sub(lost_at) as f64 / 1000.0
+                        };
+                        let name = input.name.clone();
+                        let _ = tx.send(Audio::Reopened(input, gap));
+                        status(&app, Some(format!("Reconnected to {name}.")), true);
+                        stream = Some(s);
+                        break;
+                    }
+                }
+                if stop {
+                    break;
+                }
+                if stream.is_none() {
+                    status(&app, None, false);
+                    let _ = app.emit(
+                        "record-error",
+                        "The microphone could not be reopened. Press Stop to keep what was recorded.",
+                    );
+                }
+            }
         }
     }
     drop(stream);
@@ -285,12 +538,26 @@ fn process_thread(
     app: AppHandle,
     engine: SherpaEngine,
     file: RecordingFile,
-    mut resampler: StreamResampler,
+    input: Input,
     audio: Receiver<Audio>,
-    utterances: Sender<(usize, Vec<f32>)>,
+    utterances: Sender<Utterance>,
+    backlog: Arc<AtomicUsize>,
 ) -> Result<(), String> {
     let vad = engine.vad(VadProfile::LIVE).map_err(|e| e.to_string())?;
-    let mut p = Processor { app, file, vad, utterances, base: 0, since_level: 0, level_acc: 0.0 };
+    let mut resampler = StreamResampler::new(input.rate, input.channels).map_err(|e| e.to_string())?;
+    let mut p = Processor {
+        app,
+        file,
+        vad,
+        utterances,
+        backlog,
+        base: 0,
+        since_level: 0,
+        level_acc: 0.0,
+        silence: SilenceWatch::new(3 * SAMPLE_RATE as usize),
+        warnings: Warnings { silent: false, narrowband: input.narrowband },
+    };
+    p.emit_warnings();
     // Frames are dropped here while paused, even if the device ignores pause.
     let mut paused = false;
     while let Ok(msg) = audio.recv() {
@@ -302,22 +569,35 @@ fn process_thread(
             }
             Audio::Pause => {
                 paused = true;
-                let closed = p.vad.flush();
-                p.send(closed);
+                p.close_utterance();
                 p.file.flush()?;
+                let change = p.silence.reset();
+                p.set_silent(change);
             }
             Audio::Resume => {
                 paused = false;
-                p.vad.reset();
-                p.base = p.file.written();
+                p.restart_vad();
+            }
+            Audio::Reopened(input, gap_s) => {
+                let tail = resampler.finish().map_err(|e| e.to_string())?;
+                p.samples(&tail)?;
+                p.close_utterance();
+                p.file.append_silence(gap_s)?;
+                p.restart_vad();
+                let change = p.silence.reset();
+                p.set_silent(change);
+                resampler = StreamResampler::new(input.rate, input.channels).map_err(|e| e.to_string())?;
+                if p.warnings.narrowband != input.narrowband {
+                    p.warnings.narrowband = input.narrowband;
+                    p.emit_warnings();
+                }
             }
             Audio::End => break,
         }
     }
     let tail = resampler.finish().map_err(|e| e.to_string())?;
     p.samples(&tail)?;
-    let closed = p.vad.flush();
-    p.send(closed);
+    p.close_utterance();
     p.file.finish()
 }
 
@@ -325,17 +605,49 @@ struct Processor {
     app: AppHandle,
     file: RecordingFile,
     vad: engine::Vad,
-    utterances: Sender<(usize, Vec<f32>)>,
+    utterances: Sender<Utterance>,
+    /// Samples queued for the decoder and not yet transcribed.
+    backlog: Arc<AtomicUsize>,
     /// VAD positions restart after a pause; `base` maps them back onto the WAV.
     base: usize,
     since_level: usize,
     level_acc: f64,
+    silence: SilenceWatch,
+    warnings: Warnings,
 }
 
 impl Processor {
     fn send(&self, closed: Vec<(usize, Vec<f32>)>) {
         for (start, chunk) in closed {
-            let _ = self.utterances.send((self.base + start, chunk));
+            let start = self.base + start;
+            let queued = self.backlog.fetch_add(chunk.len(), Ordering::Relaxed);
+            let utt = if queued + chunk.len() > MAX_QUEUED {
+                Utterance::Span(start, chunk.len())
+            } else {
+                Utterance::Samples(start, chunk)
+            };
+            let _ = self.utterances.send(utt);
+        }
+    }
+
+    fn close_utterance(&mut self) {
+        let closed = self.vad.flush();
+        self.send(closed);
+    }
+
+    fn restart_vad(&mut self) {
+        self.vad.reset();
+        self.base = self.file.written();
+    }
+
+    fn emit_warnings(&self) {
+        let _ = self.app.emit("record-warnings", &self.warnings);
+    }
+
+    fn set_silent(&mut self, change: Option<bool>) {
+        if let Some(silent) = change {
+            self.warnings.silent = silent;
+            self.emit_warnings();
         }
     }
 
@@ -343,6 +655,8 @@ impl Processor {
         self.file.append(samples)?;
         let closed = self.vad.accept(samples);
         self.send(closed);
+        let change = self.silence.feed(samples);
+        self.set_silent(change);
         self.level_acc += samples.iter().map(|&s| (s as f64) * (s as f64)).sum::<f64>();
         self.since_level += samples.len();
         if self.since_level >= LEVEL_EVERY {
@@ -353,6 +667,7 @@ impl Processor {
                     level: (rms * 4.0).min(1.0),
                     speaking: self.vad.speaking(),
                     elapsed_s: self.file.written() as f64 / SAMPLE_RATE as f64,
+                    backlog_s: self.backlog.load(Ordering::Relaxed) as f64 / SAMPLE_RATE as f64,
                 },
             );
             self.since_level = 0;
@@ -362,23 +677,50 @@ impl Processor {
     }
 }
 
-/// Decoder thread: transcribe utterances in order and emit each one.
+/// Decoder thread: transcribe utterances in order and emit each one. After
+/// Stop it reports progress through the remaining backlog.
+#[allow(clippy::too_many_arguments)]
 fn decode_thread(
     app: AppHandle,
     engine: SherpaEngine,
-    utterances: Receiver<(usize, Vec<f32>)>,
+    path: PathBuf,
+    utterances: Receiver<Utterance>,
     segments: Arc<Mutex<Vec<AsrSegment>>>,
     mut recognizer: engine::Recognizer,
+    backlog: Arc<AtomicUsize>,
     cancel: Arc<AtomicBool>,
+    stopping: Arc<AtomicBool>,
 ) {
     let mut built = Instant::now();
-    while let Ok((start, chunk)) = utterances.recv() {
-        if cancel.load(Ordering::Relaxed) {
-            continue; // discarding: drain the queue without decoding
+    // Samples transcribed since Stop, for the drain progress bar.
+    let mut drained = 0usize;
+    while let Ok(utt) = utterances.recv() {
+        let len = utt.len();
+        if !cancel.load(Ordering::Relaxed) {
+            let decoded = match utt {
+                Utterance::Samples(start, chunk) => recognizer.decode_utterance(start, &chunk),
+                Utterance::Span(start, n) => read_span(&path, start, n)
+                    .ok()
+                    .and_then(|chunk| recognizer.decode_utterance(start, &chunk)),
+            };
+            if let Some(seg) = decoded {
+                let _ = app.emit("record-utterance", &seg);
+                segments.lock().unwrap().push(seg);
+            }
         }
-        if let Some(seg) = recognizer.decode_utterance(start, &chunk) {
-            let _ = app.emit("record-utterance", &seg);
-            segments.lock().unwrap().push(seg);
+        let remaining = backlog.fetch_sub(len, Ordering::Relaxed).saturating_sub(len);
+        if stopping.load(Ordering::Relaxed) && !cancel.load(Ordering::Relaxed) {
+            drained += len;
+            let total = drained + remaining;
+            let _ = app.emit(
+                "transcribe-progress",
+                engine::Progress::new(
+                    "transcribing",
+                    (drained / SAMPLE_RATE as usize) as u32,
+                    (total / SAMPLE_RATE as usize) as u32,
+                    0.9 * drained as f32 / total.max(1) as f32,
+                ),
+            );
         }
         if built.elapsed() >= RECOGNIZER_REFRESH {
             if let Ok(fresh) = engine.recognizer() {
@@ -417,15 +759,14 @@ pub async fn start_recording(
         let (audio_tx, audio_rx) = mpsc::channel();
         let (control_tx, control_rx) = mpsc::channel();
         let (ready_tx, ready_rx) = mpsc::channel();
-        let capture_app = app.clone();
+        let (capture_app, capture_control) = (app.clone(), control_tx.clone());
         let capture = std::thread::spawn(move || {
-            capture_thread(capture_app, audio_tx, control_rx, ready_tx)
+            capture_thread(capture_app, audio_tx, capture_control, control_rx, ready_tx)
         });
-        let (rate, channels) = ready_rx
+        let input = ready_rx
             .recv()
             .map_err(|_| "The microphone thread stopped unexpectedly.".to_string())??;
 
-        let resampler = StreamResampler::new(rate, channels).map_err(|e| e.to_string())?;
         let (file, path) = match RecordingFile::create_in(&library, &local_name()) {
             Ok(v) => v,
             Err(e) => {
@@ -439,15 +780,29 @@ pub async fn start_recording(
         let (utt_tx, utt_rx) = mpsc::channel();
         let decode_engine = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
         let cancel = Arc::new(AtomicBool::new(false));
-        let (decode_app, decode_segments, decode_cancel) =
-            (app.clone(), segments.clone(), cancel.clone());
-        let decode = std::thread::spawn(move || {
-            decode_thread(decode_app, decode_engine, utt_rx, decode_segments, recognizer, decode_cancel)
-        });
+        let stopping = Arc::new(AtomicBool::new(false));
+        let backlog = Arc::new(AtomicUsize::new(0));
+        let decode = {
+            let (app, path, segments) = (app.clone(), path.clone(), segments.clone());
+            let (backlog, cancel, stopping) = (backlog.clone(), cancel.clone(), stopping.clone());
+            std::thread::spawn(move || {
+                decode_thread(
+                    app, decode_engine, path, utt_rx, segments, recognizer, backlog, cancel,
+                    stopping,
+                )
+            })
+        };
         let process_app = app.clone();
         let process = std::thread::spawn(move || {
-            let result =
-                process_thread(process_app.clone(), engine, file, resampler, audio_rx, utt_tx);
+            let result = process_thread(
+                process_app.clone(),
+                engine,
+                file,
+                input,
+                audio_rx,
+                utt_tx,
+                backlog,
+            );
             if let Err(e) = &result {
                 // Report at once: capture may still be running, but nothing more is saved.
                 let _ = process_app.emit(
@@ -470,6 +825,7 @@ pub async fn start_recording(
             decode,
             segments,
             cancel,
+            stopping,
         });
         Ok(StartedRecording { audio_path: path.to_string_lossy().into_owned() })
     })
@@ -515,6 +871,8 @@ fn finish(app: &AppHandle, discarding: bool) -> Result<Finished, String> {
         .ok_or_else(|| "No recording is in progress.".to_string())?;
     if discarding {
         active.cancel.store(true, Ordering::Relaxed);
+    } else {
+        active.stopping.store(true, Ordering::Relaxed);
     }
     let _ = active.control.send(Control::Stop);
     let _ = active.capture.join();
@@ -644,5 +1002,66 @@ mod tests {
         assert!(!path.exists());
         assert!(!system::approved_recordings_in(&library).unwrap().contains(&canonical));
         let _ = std::fs::remove_dir_all(&library);
+    }
+
+    fn tone(n: usize) -> Vec<f32> {
+        (0..n).map(|i| (i as f32 * 0.05).sin() * 0.5).collect()
+    }
+
+    #[test]
+    fn silence_for_a_microphone_gap_keeps_the_recording_aligned_with_the_clock() {
+        let library = unique_tmp("gap");
+        let (mut file, path) = RecordingFile::create_in(&library, "Recording test").unwrap();
+        let first = tone(16_000);
+        file.append(&first).unwrap();
+        file.append_silence(2.5).unwrap();
+        file.append(&first).unwrap();
+        file.finish().unwrap();
+
+        let (samples, _) = load_wav_16k_mono(&path).unwrap();
+        assert_eq!(samples.len(), 72_000);
+        assert!(samples[16_000..56_000].iter().all(|&s| s == 0.0));
+        for (a, b) in samples[56_000..].iter().zip(&first) {
+            assert!((a - b).abs() < 1e-4);
+        }
+        let _ = std::fs::remove_dir_all(&library);
+    }
+
+    #[test]
+    fn read_span_returns_the_samples_written_there_from_an_unfinished_recording() {
+        let library = unique_tmp("span");
+        let (mut file, path) = RecordingFile::create_in(&library, "Recording test").unwrap();
+        let written = ramp(3 * 16_000);
+        file.append(&written).unwrap();
+        file.flush().unwrap();
+        std::mem::forget(file);
+
+        let span = read_span(&path, 16_000, 8_000).unwrap();
+
+        assert_eq!(span.len(), 8_000);
+        for (a, b) in span.iter().zip(&written[16_000..24_000]) {
+            assert!((a - b).abs() < 1e-4, "{a} vs {b}");
+        }
+        let _ = std::fs::remove_dir_all(&library);
+    }
+
+    #[test]
+    fn digital_silence_warns_once_and_clears_when_sound_returns() {
+        let mut watch = SilenceWatch::new(3 * 16_000);
+        let zeros = vec![0.0f32; 1_600];
+        let changes: Vec<bool> = (0..40).filter_map(|_| watch.feed(&zeros)).collect();
+        assert_eq!(changes, vec![true]); // 4 s of zeros: one warning
+
+        assert_eq!(watch.feed(&tone(1_600)), Some(false));
+    }
+
+    #[test]
+    fn quiet_room_noise_is_not_mistaken_for_a_silent_microphone() {
+        let mut watch = SilenceWatch::new(3 * 16_000);
+        // About -60 dBFS of noise for 10 s.
+        let noise: Vec<f32> = (0..1_600).map(|i| if i % 2 == 0 { 0.001 } else { -0.001 }).collect();
+        for _ in 0..100 {
+            assert_eq!(watch.feed(&noise), None);
+        }
     }
 }
