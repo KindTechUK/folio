@@ -1,0 +1,9 @@
+{
+  "name": "set of meeting minutes",
+  "sections": [
+    {"title": "Summary", "instruction": "Two to four sentences on the purpose and outcome of the meeting."},
+    {"title": "Discussion", "instruction": "The main topics discussed and the positions people took, attributed by speaker."},
+    {"title": "Decisions", "instruction": "Decisions actually agreed. If none were agreed, say so."},
+    {"title": "Actions", "instruction": "Each action with its owner and deadline where stated."}
+  ]
+}

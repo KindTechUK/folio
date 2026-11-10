@@ -1,0 +1,5 @@
+# Regenerable with prepare_data.py (AMI is CC-BY-4.0; derived text is not re-published here).
+data/ami/
+# Verbose llama-server logs.
+results/logs/
+__pycache__/

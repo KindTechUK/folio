@@ -1,0 +1,16 @@
+== qwen3-4b (t=4, ctx=32768)
+  qwen3-4b synthetic-care-assessment mapreduce map0: wall_s=135.07, prompt_n=3092, prompt_tps=56.4, gen_tps=18.5, peak_rss_mb=5756, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-care-assessment mapreduce map1: wall_s=154.85, prompt_n=3205, prompt_tps=55.4, gen_tps=17.7, peak_rss_mb=5213, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-care-assessment mapreduce map2: wall_s=162.8, prompt_n=3271, prompt_tps=55.7, gen_tps=17.8, peak_rss_mb=5243, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-care-assessment mapreduce map3: wall_s=159.14, prompt_n=3229, prompt_tps=55.7, gen_tps=17.1, peak_rss_mb=5213, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-care-assessment mapreduce map4: wall_s=154.8, prompt_n=3188, prompt_tps=56.7, gen_tps=18.2, peak_rss_mb=4382, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-care-assessment mapreduce map5: wall_s=154.33, prompt_n=3131, prompt_tps=57.3, gen_tps=18.2, peak_rss_mb=4348, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-care-assessment mapreduce map6: wall_s=37.51, prompt_n=618, prompt_tps=100.6, gen_tps=30.4, peak_rss_mb=4264, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-care-assessment mapreduce reduce: wall_s=394.0, prompt_n=5969, prompt_tps=38.8, gen_tps=12.2, peak_rss_mb=4706, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-care-assessment mapreduce summary: wall_s=1352.5, peak_rss_mb=5756, json_ok=True
+  qwen3-4b synthetic-care-assessment sectioned summary: wall_s=958.5, peak_rss_mb=5756, json_ok=True
+  qwen3-4b synthetic-legal-interview mapreduce map0: wall_s=127.3, prompt_n=2782, prompt_tps=60.7, gen_tps=19.2, peak_rss_mb=5007, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-legal-interview mapreduce map1: wall_s=142.24, prompt_n=2760, prompt_tps=60.9, gen_tps=19.0, peak_rss_mb=4229, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-legal-interview mapreduce map2: wall_s=144.08, prompt_n=2899, prompt_tps=59.0, gen_tps=18.8, peak_rss_mb=4337, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-legal-interview mapreduce map3: wall_s=139.25, prompt_n=2787, prompt_tps=60.7, gen_tps=19.1, peak_rss_mb=4323, json_ok=True, finish_reason=stop
+  qwen3-4b synthetic-legal-interview mapreduce map4: wall_s=119.2, prompt_n=1877, prompt_tps=70.3, gen_tps=21.6, peak_rss_mb=4158, json_ok=True, finish_reason=stop
