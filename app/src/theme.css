@@ -352,6 +352,11 @@ td {
   }
 }
 
+.recording-device {
+  color: var(--slate-500);
+  font-size: var(--text-sm);
+}
+
 .level-meter {
   flex: 1 1 120px;
   max-width: 220px;
