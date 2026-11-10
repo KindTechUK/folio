@@ -367,9 +367,9 @@ td {
   transition: width 0.1s linear;
 }
 
+/* Fixed height: new lines scroll inside, so the buttons below never move. */
 .live-transcript {
-  min-height: 180px;
-  max-height: 46vh;
+  height: clamp(180px, 42vh, 380px);
   overflow-y: auto;
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--slate-200);

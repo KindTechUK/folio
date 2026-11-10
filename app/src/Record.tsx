@@ -288,11 +288,10 @@ export default function Record({
       {confirmDiscard ? (
         <div className="recording-actions" role="group" aria-label="Confirm discard">
           <span>Delete this recording? Nothing will be saved.</span>
+          {/* The safe choice comes first, where the pointer was over Discard. */}
+          <Button onClick={() => setConfirmDiscard(false)}>Keep recording</Button>
           <Button variant="danger" onClick={() => void discard()}>
             Delete recording
-          </Button>
-          <Button variant="ghost" onClick={() => setConfirmDiscard(false)}>
-            Keep recording
           </Button>
         </div>
       ) : (
