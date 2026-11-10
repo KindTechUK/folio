@@ -1,0 +1,5284 @@
+{
+ "id": "synthetic-care-assessment",
+ "title": "Care Act needs assessment — home visit (synthetic)",
+ "template": "assessment",
+ "speakers": {
+  "S1": "Social worker (Priya Nair)",
+  "S2": "Margaret Doyle",
+  "S3": "Kevin Doyle (son)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 7.6,
+   "speaker": "S1",
+   "text": "Hello, Margaret? It's Priya. Priya Nair, from adult social care. We spoke on the phone on, um, on Monday."
+  },
+  {
+   "id": "L0002",
+   "start": 8.0,
+   "end": 15.6,
+   "speaker": "S2",
+   "text": "Oh yes, yes, come in love, come in. Mind the step, it's a bit, um, it's a bit high that one."
+  },
+  {
+   "id": "L0003",
+   "start": 16.0,
+   "end": 19.3,
+   "speaker": "S1",
+   "text": "Thank you. Oh, it's lovely and warm in here."
+  },
+  {
+   "id": "L0004",
+   "start": 19.7,
+   "end": 28.4,
+   "speaker": "S2",
+   "text": "Well I've got the heating on. I know I shouldn't, not this time of year, but I feel the cold now, I really do."
+  },
+  {
+   "id": "L0005",
+   "start": 28.8,
+   "end": 33.5,
+   "speaker": "S1",
+   "text": "No, that's completely fine. It's bitter out there today, isn't it? That wind."
+  },
+  {
+   "id": "L0006",
+   "start": 33.8,
+   "end": 41.7,
+   "speaker": "S2",
+   "text": "It's that wind off the, you know, off the fields at the back. Go through, go through to the front room."
+  },
+  {
+   "id": "L0007",
+   "start": 42.0,
+   "end": 50.2,
+   "speaker": "S2",
+   "text": "Sit anywhere. Well, not that one, that's the cat's. You can if you like but you'll get hairs all over you."
+  },
+  {
+   "id": "L0008",
+   "start": 50.8,
+   "end": 55.1,
+   "speaker": "S1",
+   "text": "Ha, I'll take the other one then. Oh, hello. Who's this?"
+  },
+  {
+   "id": "L0009",
+   "start": 55.6,
+   "end": 61.2,
+   "speaker": "S2",
+   "text": "That's Biscuit. He's eleven. He's the boss in this house, aren't you? Yes you are."
+  },
+  {
+   "id": "L0010",
+   "start": 61.7,
+   "end": 66.2,
+   "speaker": "S1",
+   "text": "He's gorgeous. Look at him, he's not bothered by me at all."
+  },
+  {
+   "id": "L0011",
+   "start": 66.6,
+   "end": 73.2,
+   "speaker": "S2",
+   "text": "No, he likes visitors. More than I do some days. Can I get you a cup of tea?"
+  },
+  {
+   "id": "L0012",
+   "start": 73.7,
+   "end": 80.4,
+   "speaker": "S1",
+   "text": "Oh, I'd love one, but only if it's not too much trouble. With your wrist, I mean."
+  },
+  {
+   "id": "L0013",
+   "start": 80.8,
+   "end": 87.3,
+   "speaker": "S2",
+   "text": "No, no, the kettle I can manage. It's the big pans I can't do. Milk and sugar?"
+  },
+  {
+   "id": "L0014",
+   "start": 87.7,
+   "end": 89.5,
+   "speaker": "S1",
+   "text": "Just milk, please. Thank you."
+  },
+  {
+   "id": "L0015",
+   "start": 89.7,
+   "end": 93.9,
+   "speaker": "S2",
+   "text": "Won't be a minute. Biscuit, get down. Get down off there."
+  },
+  {
+   "id": "L0016",
+   "start": 95.1,
+   "end": 99.6,
+   "speaker": "S1",
+   "text": "Do you want me to come and carry them through for you?"
+  },
+  {
+   "id": "L0017",
+   "start": 99.9,
+   "end": 105.7,
+   "speaker": "S2",
+   "text": "Would you? That'd be, um, yes. I don't trust myself with two cups and the frame."
+  },
+  {
+   "id": "L0018",
+   "start": 106.1,
+   "end": 111.4,
+   "speaker": "S1",
+   "text": "Of course. There we go. Where do you want yours, on the little table?"
+  },
+  {
+   "id": "L0019",
+   "start": 111.9,
+   "end": 116.2,
+   "speaker": "S2",
+   "text": "On the little table, yes, by the remote. Thank you, love."
+  },
+  {
+   "id": "L0020",
+   "start": 116.6,
+   "end": 122.1,
+   "speaker": "S2",
+   "text": "There's biscuits in the tin if you want one. Not the cat, the actual biscuits."
+  },
+  {
+   "id": "L0021",
+   "start": 122.5,
+   "end": 130.4,
+   "speaker": "S1",
+   "text": "Ha. I'm alright for now, thanks. So, um, before we start properly, can I just explain what today is about?"
+  },
+  {
+   "id": "L0022",
+   "start": 130.8,
+   "end": 137.9,
+   "speaker": "S2",
+   "text": "Yes please, because I wasn't sure. Kevin said somebody was coming but I didn't really know what for."
+  },
+  {
+   "id": "L0023",
+   "start": 138.3,
+   "end": 144.2,
+   "speaker": "S1",
+   "text": "That's alright, that's really common. So the hospital sent us a referral when you were discharged."
+  },
+  {
+   "id": "L0024",
+   "start": 144.5,
+   "end": 151.2,
+   "speaker": "S1",
+   "text": "And the reason I'm here is to do what's called a needs assessment. It's under the Care Act."
+  },
+  {
+   "id": "L0025",
+   "start": 151.7,
+   "end": 153.2,
+   "speaker": "S2",
+   "text": "The care act. Right."
+  },
+  {
+   "id": "L0026",
+   "start": 153.7,
+   "end": 165.2,
+   "speaker": "S1",
+   "text": "It basically means we have a chat, and I try and understand how you're managing day to day. What's difficult, what's working, and, most importantly, what matters to you."
+  },
+  {
+   "id": "L0027",
+   "start": 165.7,
+   "end": 166.6,
+   "speaker": "S2",
+   "text": "I see."
+  },
+  {
+   "id": "L0028",
+   "start": 167.0,
+   "end": 176.9,
+   "speaker": "S1",
+   "text": "And then towards the end we look at whether there's any support that would help, and whether you'd be eligible for support from the council."
+  },
+  {
+   "id": "L0029",
+   "start": 177.4,
+   "end": 184.4,
+   "speaker": "S2",
+   "text": "I don't want to be, um. I don't want to be put anywhere. If that's what this is."
+  },
+  {
+   "id": "L0030",
+   "start": 184.9,
+   "end": 192.8,
+   "speaker": "S1",
+   "text": "No. And that's a really important thing to say, so thank you for saying it. This isn't about putting you anywhere."
+  },
+  {
+   "id": "L0031",
+   "start": 193.0,
+   "end": 198.7,
+   "speaker": "S1",
+   "text": "It's about you, here, in your home, and what might make things easier for you."
+  },
+  {
+   "id": "L0032",
+   "start": 199.2,
+   "end": 201.0,
+   "speaker": "S2",
+   "text": "Right. Well. That's alright then."
+  },
+  {
+   "id": "L0033",
+   "start": 201.3,
+   "end": 209.1,
+   "speaker": "S1",
+   "text": "It'll probably take about an hour, if that's okay with you? And we can stop for a break whenever you want."
+  },
+  {
+   "id": "L0034",
+   "start": 209.4,
+   "end": 214.4,
+   "speaker": "S2",
+   "text": "I've got nowhere to be, love. Only my quiz programme at four o'clock."
+  },
+  {
+   "id": "L0035",
+   "start": 214.7,
+   "end": 218.3,
+   "speaker": "S1",
+   "text": "Ha, we'll be done well before four, I promise."
+  },
+  {
+   "id": "L0036",
+   "start": 218.5,
+   "end": 223.3,
+   "speaker": "S2",
+   "text": "I never get any of the answers. I shout at the telly though."
+  },
+  {
+   "id": "L0037",
+   "start": 223.5,
+   "end": 230.0,
+   "speaker": "S1",
+   "text": "That's half the fun. So, I'll be jotting a few notes as we go, is that alright?"
+  },
+  {
+   "id": "L0038",
+   "start": 231.3,
+   "end": 237.5,
+   "speaker": "S2",
+   "text": "Yes, go on. My handwriting's gone to pot since this, so you're better off doing it."
+  },
+  {
+   "id": "L0039",
+   "start": 237.9,
+   "end": 250.7,
+   "speaker": "S1",
+   "text": "And I should say, everything we talk about is confidential. But if I was worried that you or somebody else was at risk of harm, I might need to share that with other people."
+  },
+  {
+   "id": "L0040",
+   "start": 250.9,
+   "end": 256.0,
+   "speaker": "S1",
+   "text": "But I'd always try and talk to you about it first. Is that okay?"
+  },
+  {
+   "id": "L0041",
+   "start": 256.2,
+   "end": 257.7,
+   "speaker": "S2",
+   "text": "Yes. Yes, that's fine."
+  },
+  {
+   "id": "L0042",
+   "start": 258.0,
+   "end": 267.8,
+   "speaker": "S1",
+   "text": "And are you happy for me to share what we talk about with your GP, and with anyone who might be involved in your support?"
+  },
+  {
+   "id": "L0043",
+   "start": 268.0,
+   "end": 271.0,
+   "speaker": "S2",
+   "text": "Yes, I've got nothing to hide. Well. Mostly."
+  },
+  {
+   "id": "L0044",
+   "start": 271.2,
+   "end": 272.1,
+   "speaker": "S1",
+   "text": "Mostly?"
+  },
+  {
+   "id": "L0045",
+   "start": 272.7,
+   "end": 276.1,
+   "speaker": "S2",
+   "text": "Oh, nothing. Take no notice of me. Go on."
+  },
+  {
+   "id": "L0046",
+   "start": 276.4,
+   "end": 281.8,
+   "speaker": "S1",
+   "text": "Okay. We can come back to anything, anytime. And you mentioned Kevin. That's your son?"
+  },
+  {
+   "id": "L0047",
+   "start": 282.0,
+   "end": 290.7,
+   "speaker": "S2",
+   "text": "Kevin, yes. He said he'd try and come over, he's on an early shift, so he might pop in after he finishes."
+  },
+  {
+   "id": "L0048",
+   "start": 291.9,
+   "end": 293.1,
+   "speaker": "S2",
+   "text": "Half eleven maybe."
+  },
+  {
+   "id": "L0049",
+   "start": 293.3,
+   "end": 299.3,
+   "speaker": "S1",
+   "text": "Lovely. Well if he does come, we can include him, if you're happy with that."
+  },
+  {
+   "id": "L0050",
+   "start": 299.8,
+   "end": 304.0,
+   "speaker": "S2",
+   "text": "Oh he'll want to put his tuppence in, he always does."
+  },
+  {
+   "id": "L0051",
+   "start": 304.4,
+   "end": 311.4,
+   "speaker": "S1",
+   "text": "Ha. Okay. So shall we start with the fall? Can you tell me in your own words what happened?"
+  },
+  {
+   "id": "L0052",
+   "start": 311.9,
+   "end": 318.6,
+   "speaker": "S2",
+   "text": "Well. It was the third of March. A Monday. I remember because the bin men had been."
+  },
+  {
+   "id": "L0053",
+   "start": 319.2,
+   "end": 320.1,
+   "speaker": "S1",
+   "text": "Okay."
+  },
+  {
+   "id": "L0054",
+   "start": 320.5,
+   "end": 327.2,
+   "speaker": "S2",
+   "text": "And I was in the kitchen, I was going to make my tea, and I think I, um."
+  },
+  {
+   "id": "L0055",
+   "start": 327.5,
+   "end": 333.2,
+   "speaker": "S2",
+   "text": "I don't know if I tripped or if I just went dizzy. I honestly don't know."
+  },
+  {
+   "id": "L0056",
+   "start": 334.6,
+   "end": 341.9,
+   "speaker": "S2",
+   "text": "One minute I was at the sink and the next I was on the floor by the back door."
+  },
+  {
+   "id": "L0057",
+   "start": 342.1,
+   "end": 344.3,
+   "speaker": "S1",
+   "text": "That must have been really frightening."
+  },
+  {
+   "id": "L0058",
+   "start": 344.7,
+   "end": 348.4,
+   "speaker": "S2",
+   "text": "It was. It was. I couldn't get up, you see."
+  },
+  {
+   "id": "L0059",
+   "start": 348.6,
+   "end": 357.4,
+   "speaker": "S2",
+   "text": "I tried, I tried to turn over, but my wrist, I'd landed on it, and I couldn't put any weight on it at all."
+  },
+  {
+   "id": "L0060",
+   "start": 358.8,
+   "end": 363.4,
+   "speaker": "S1",
+   "text": "And do you know how long you were on the floor for?"
+  },
+  {
+   "id": "L0061",
+   "start": 363.8,
+   "end": 369.4,
+   "speaker": "S2",
+   "text": "About two hours. Well, near enough two hours. It was getting dark by the time."
+  },
+  {
+   "id": "L0062",
+   "start": 370.7,
+   "end": 371.8,
+   "speaker": "S1",
+   "text": "Gosh. Two hours."
+  },
+  {
+   "id": "L0063",
+   "start": 372.2,
+   "end": 384.0,
+   "speaker": "S2",
+   "text": "And it was Brenda next door who found me. She'd noticed my curtains weren't drawn, and the kitchen light wasn't on, and she's got a key, so she let herself in."
+  },
+  {
+   "id": "L0064",
+   "start": 384.2,
+   "end": 385.8,
+   "speaker": "S1",
+   "text": "Thank goodness for Brenda."
+  },
+  {
+   "id": "L0065",
+   "start": 386.0,
+   "end": 387.5,
+   "speaker": "S2",
+   "text": "Oh, she's a treasure."
+  },
+  {
+   "id": "L0066",
+   "start": 387.8,
+   "end": 395.7,
+   "speaker": "S2",
+   "text": "She rang the ambulance and she sat on that cold floor holding my hand till they came. At her age."
+  },
+  {
+   "id": "L0067",
+   "start": 396.2,
+   "end": 402.8,
+   "speaker": "S1",
+   "text": "That's a good neighbour. And were you able to call anyone yourself, while you were on the floor?"
+  },
+  {
+   "id": "L0068",
+   "start": 403.0,
+   "end": 407.1,
+   "speaker": "S2",
+   "text": "No. My phone was on the side, in the front room."
+  },
+  {
+   "id": "L0069",
+   "start": 407.5,
+   "end": 414.4,
+   "speaker": "S2",
+   "text": "I could hear it, actually, I could hear it ringing at one point, and I couldn't get to it."
+  },
+  {
+   "id": "L0070",
+   "start": 414.9,
+   "end": 415.8,
+   "speaker": "S1",
+   "text": "Oh, Margaret."
+  },
+  {
+   "id": "L0071",
+   "start": 416.0,
+   "end": 422.8,
+   "speaker": "S2",
+   "text": "I just kept talking to Biscuit. He came and sat with me. He knew something was up."
+  },
+  {
+   "id": "L0072",
+   "start": 423.4,
+   "end": 428.8,
+   "speaker": "S1",
+   "text": "Animals do, don't they. Did you bang your head at all, when you went down?"
+  },
+  {
+   "id": "L0073",
+   "start": 429.0,
+   "end": 431.8,
+   "speaker": "S2",
+   "text": "No. No, I didn't bang my head."
+  },
+  {
+   "id": "L0074",
+   "start": 432.2,
+   "end": 439.8,
+   "speaker": "S2",
+   "text": "They asked me that at the hospital, over and over, and they checked, and no. It was all the wrist."
+  },
+  {
+   "id": "L0075",
+   "start": 440.2,
+   "end": 447.6,
+   "speaker": "S1",
+   "text": "Okay, that's good to know. And do you remember feeling unwell before? Dizzy, or light headed, anything like that?"
+  },
+  {
+   "id": "L0076",
+   "start": 448.1,
+   "end": 455.4,
+   "speaker": "S2",
+   "text": "I might have been a bit, um, woozy. I'd not had much to eat that day, if I'm honest."
+  },
+  {
+   "id": "L0077",
+   "start": 455.8,
+   "end": 460.2,
+   "speaker": "S1",
+   "text": "Okay. We'll come back to food a bit later if that's alright."
+  },
+  {
+   "id": "L0078",
+   "start": 460.6,
+   "end": 462.6,
+   "speaker": "S2",
+   "text": "You sound like my daughter."
+  },
+  {
+   "id": "L0079",
+   "start": 462.9,
+   "end": 469.4,
+   "speaker": "S1",
+   "text": "Ha. I'll take that as a compliment. So the ambulance came, and they took you to hospital?"
+  },
+  {
+   "id": "L0080",
+   "start": 469.8,
+   "end": 473.4,
+   "speaker": "S2",
+   "text": "To St Aldhelm's, yes. I was in four days."
+  },
+  {
+   "id": "L0081",
+   "start": 473.6,
+   "end": 478.3,
+   "speaker": "S2",
+   "text": "They put me on the ward with the, you know, the orthopaedic ward."
+  },
+  {
+   "id": "L0082",
+   "start": 478.8,
+   "end": 480.6,
+   "speaker": "S1",
+   "text": "And what did they find?"
+  },
+  {
+   "id": "L0083",
+   "start": 480.9,
+   "end": 484.8,
+   "speaker": "S2",
+   "text": "I'd broken my wrist. My left wrist. Fractured, they said."
+  },
+  {
+   "id": "L0084",
+   "start": 485.1,
+   "end": 491.3,
+   "speaker": "S2",
+   "text": "And it's my good hand an all, well, it was my good hand, I'm left handed."
+  },
+  {
+   "id": "L0085",
+   "start": 492.3,
+   "end": 494.6,
+   "speaker": "S1",
+   "text": "Oh no, that makes everything harder."
+  },
+  {
+   "id": "L0086",
+   "start": 495.7,
+   "end": 498.6,
+   "speaker": "S2",
+   "text": "Everything. Opening jars, doing my buttons, the lot."
+  },
+  {
+   "id": "L0087",
+   "start": 499.0,
+   "end": 501.8,
+   "speaker": "S1",
+   "text": "And they checked your hips, I'm guessing?"
+  },
+  {
+   "id": "L0088",
+   "start": 502.1,
+   "end": 507.0,
+   "speaker": "S2",
+   "text": "They did the x-ray, yes, and there was nothing broken there, thank God."
+  },
+  {
+   "id": "L0089",
+   "start": 507.2,
+   "end": 511.0,
+   "speaker": "S2",
+   "text": "Just bruising. I was black and blue down this side."
+  },
+  {
+   "id": "L0090",
+   "start": 511.3,
+   "end": 515.8,
+   "speaker": "S1",
+   "text": "And how is the wrist now? Is it still in a cast?"
+  },
+  {
+   "id": "L0091",
+   "start": 516.2,
+   "end": 520.8,
+   "speaker": "S2",
+   "text": "The cast came off, um, last Tuesday, and now it's this splint thing."
+  },
+  {
+   "id": "L0092",
+   "start": 521.1,
+   "end": 527.9,
+   "speaker": "S2",
+   "text": "I've got to wear it most of the time. And do the exercises. Which I don't do enough."
+  },
+  {
+   "id": "L0093",
+   "start": 528.3,
+   "end": 533.0,
+   "speaker": "S1",
+   "text": "Ha. Nobody does. Did they refer you for physio for the wrist?"
+  },
+  {
+   "id": "L0094",
+   "start": 533.6,
+   "end": 543.3,
+   "speaker": "S2",
+   "text": "They said they would. I've had a letter, it's on the, um, it's on the side in the kitchen somewhere, with all the other letters."
+  },
+  {
+   "id": "L0095",
+   "start": 543.7,
+   "end": 548.9,
+   "speaker": "S1",
+   "text": "That's alright, we can have a look at it together later if you like."
+  },
+  {
+   "id": "L0096",
+   "start": 549.1,
+   "end": 555.1,
+   "speaker": "S1",
+   "text": "So, thinking about getting about, generally. How are you getting around the house at the moment?"
+  },
+  {
+   "id": "L0097",
+   "start": 555.3,
+   "end": 563.2,
+   "speaker": "S2",
+   "text": "With that. The frame. The hospital gave me it before I came home. I hate it, but I use it."
+  },
+  {
+   "id": "L0098",
+   "start": 564.4,
+   "end": 565.9,
+   "speaker": "S1",
+   "text": "Indoors all the time?"
+  },
+  {
+   "id": "L0099",
+   "start": 566.4,
+   "end": 570.5,
+   "speaker": "S2",
+   "text": "Indoors, yes, mostly. I'm supposed to use it all the time."
+  },
+  {
+   "id": "L0100",
+   "start": 570.8,
+   "end": 575.8,
+   "speaker": "S2",
+   "text": "Sometimes I, um, I hold on to the furniture instead. Don't write that down."
+  },
+  {
+   "id": "L0101",
+   "start": 576.2,
+   "end": 584.0,
+   "speaker": "S1",
+   "text": "Ha, I'm afraid I might have to. It's useful for me to know though, honestly. A lot of people do that."
+  },
+  {
+   "id": "L0102",
+   "start": 584.2,
+   "end": 590.4,
+   "speaker": "S2",
+   "text": "It's just quicker. The frame gets caught on the rug and on the doorframe and, you know."
+  },
+  {
+   "id": "L0103",
+   "start": 590.8,
+   "end": 594.8,
+   "speaker": "S1",
+   "text": "And outdoors? Have you been out much since you came home?"
+  },
+  {
+   "id": "L0104",
+   "start": 595.1,
+   "end": 599.8,
+   "speaker": "S2",
+   "text": "Hardly at all. I've got my stick, Frank's old stick actually, for outside."
+  },
+  {
+   "id": "L0105",
+   "start": 600.1,
+   "end": 609.1,
+   "speaker": "S2",
+   "text": "But I've only been out to the end of the path, really. And to the doctor's once, Kevin took me in the car."
+  },
+  {
+   "id": "L0106",
+   "start": 609.4,
+   "end": 612.8,
+   "speaker": "S1",
+   "text": "Okay. Before the fall, how far could you walk?"
+  },
+  {
+   "id": "L0107",
+   "start": 613.2,
+   "end": 617.0,
+   "speaker": "S2",
+   "text": "Oh, I'd walk to the shops. It's about ten minutes."
+  },
+  {
+   "id": "L0108",
+   "start": 617.2,
+   "end": 623.5,
+   "speaker": "S2",
+   "text": "I'd get my paper, and my bits, and walk back. Slowly, mind. But I'd do it."
+  },
+  {
+   "id": "L0109",
+   "start": 623.9,
+   "end": 626.6,
+   "speaker": "S1",
+   "text": "And now that feels like too much?"
+  },
+  {
+   "id": "L0110",
+   "start": 627.1,
+   "end": 632.6,
+   "speaker": "S2",
+   "text": "Now I'd be frightened. That's the truth of it. I'm frightened of going over again."
+  },
+  {
+   "id": "L0111",
+   "start": 632.9,
+   "end": 638.0,
+   "speaker": "S1",
+   "text": "That's completely understandable after what happened. Is this the first fall you've had?"
+  },
+  {
+   "id": "L0112",
+   "start": 638.5,
+   "end": 640.7,
+   "speaker": "S2",
+   "text": "Um. Well. Not exactly the first."
+  },
+  {
+   "id": "L0113",
+   "start": 641.0,
+   "end": 641.9,
+   "speaker": "S1",
+   "text": "Okay."
+  },
+  {
+   "id": "L0114",
+   "start": 642.1,
+   "end": 649.7,
+   "speaker": "S2",
+   "text": "I had one before Christmas, in the garden. That was nothing, I just sat down on the grass really."
+  },
+  {
+   "id": "L0115",
+   "start": 650.0,
+   "end": 656.6,
+   "speaker": "S2",
+   "text": "And then another one in, was it January? In the bathroom. I caught myself on the sink."
+  },
+  {
+   "id": "L0116",
+   "start": 657.1,
+   "end": 663.6,
+   "speaker": "S1",
+   "text": "So that's, including the one in March, three falls in the last, what, six months or so?"
+  },
+  {
+   "id": "L0117",
+   "start": 663.9,
+   "end": 671.7,
+   "speaker": "S2",
+   "text": "I suppose it is, when you put it like that. Three. I didn't count the other two, they were nothing."
+  },
+  {
+   "id": "L0118",
+   "start": 672.0,
+   "end": 676.8,
+   "speaker": "S1",
+   "text": "Did you tell anyone about the earlier two? Your GP, or Kevin?"
+  },
+  {
+   "id": "L0119",
+   "start": 677.2,
+   "end": 683.0,
+   "speaker": "S2",
+   "text": "No. Well, Kevin knows about the garden one because he found the mud on my coat."
+  },
+  {
+   "id": "L0120",
+   "start": 683.3,
+   "end": 687.6,
+   "speaker": "S2",
+   "text": "I didn't tell the doctor. I didn't want to bother him."
+  },
+  {
+   "id": "L0121",
+   "start": 688.1,
+   "end": 690.0,
+   "speaker": "S1",
+   "text": "Okay. Who's your GP, Margaret?"
+  },
+  {
+   "id": "L0122",
+   "start": 690.2,
+   "end": 693.5,
+   "speaker": "S2",
+   "text": "Dr Patel. At the Millbrook Surgery, on Church Lane."
+  },
+  {
+   "id": "L0123",
+   "start": 694.1,
+   "end": 702.0,
+   "speaker": "S1",
+   "text": "Dr Patel, lovely. And have they ever done a, um, a falls assessment with you, or referred you to the falls clinic?"
+  },
+  {
+   "id": "L0124",
+   "start": 702.5,
+   "end": 707.1,
+   "speaker": "S2",
+   "text": "No, I don't think so. Hang on. Did I say Dr Patel?"
+  },
+  {
+   "id": "L0125",
+   "start": 707.9,
+   "end": 709.1,
+   "speaker": "S1",
+   "text": "You did, yes."
+  },
+  {
+   "id": "L0126",
+   "start": 709.3,
+   "end": 715.3,
+   "speaker": "S2",
+   "text": "No, it's Dr Shah now. Dr Patel retired, oh, last summer. It's Dr Shah I see."
+  },
+  {
+   "id": "L0127",
+   "start": 715.5,
+   "end": 719.8,
+   "speaker": "S2",
+   "text": "A young woman, very nice, very thorough. I always get them muddled."
+  },
+  {
+   "id": "L0128",
+   "start": 720.2,
+   "end": 723.9,
+   "speaker": "S1",
+   "text": "No problem. Dr Shah at Millbrook Surgery. I'll correct that."
+  },
+  {
+   "id": "L0129",
+   "start": 724.3,
+   "end": 729.0,
+   "speaker": "S2",
+   "text": "Dr Patel was there thirty years. You get used to a name."
+  },
+  {
+   "id": "L0130",
+   "start": 729.5,
+   "end": 736.3,
+   "speaker": "S1",
+   "text": "Of course you do. So no one's referred you to the falls service yet, as far as you know?"
+  },
+  {
+   "id": "L0131",
+   "start": 736.8,
+   "end": 741.3,
+   "speaker": "S2",
+   "text": "Not that I know of. Unless it's in that pile of letters."
+  },
+  {
+   "id": "L0132",
+   "start": 741.7,
+   "end": 748.8,
+   "speaker": "S1",
+   "text": "Ha. We'll definitely look at that pile. Um, what about the stairs? You've got stairs here, I noticed."
+  },
+  {
+   "id": "L0133",
+   "start": 749.3,
+   "end": 756.0,
+   "speaker": "S2",
+   "text": "Yes, that's the other thing. The bedroom's upstairs, and the bathroom, the only toilet is upstairs as well."
+  },
+  {
+   "id": "L0134",
+   "start": 756.6,
+   "end": 762.8,
+   "speaker": "S1",
+   "text": "Okay. So you have to go up and down to use the toilet during the day?"
+  },
+  {
+   "id": "L0135",
+   "start": 763.1,
+   "end": 764.9,
+   "speaker": "S2",
+   "text": "I do. Or I, um."
+  },
+  {
+   "id": "L0136",
+   "start": 765.3,
+   "end": 772.1,
+   "speaker": "S2",
+   "text": "I try not to drink too much in the afternoons, so I don't have to go up so often."
+  },
+  {
+   "id": "L0137",
+   "start": 772.7,
+   "end": 780.6,
+   "speaker": "S1",
+   "text": "Right. That's something I'll want to come back to, because that can make you dehydrated, and that can make you dizzy."
+  },
+  {
+   "id": "L0138",
+   "start": 781.0,
+   "end": 783.9,
+   "speaker": "S2",
+   "text": "That's what the nurse said at the hospital."
+  },
+  {
+   "id": "L0139",
+   "start": 784.3,
+   "end": 787.2,
+   "speaker": "S1",
+   "text": "How do you manage on the stairs themselves?"
+  },
+  {
+   "id": "L0140",
+   "start": 787.8,
+   "end": 792.0,
+   "speaker": "S2",
+   "text": "There's a rail on one side. On the right going up."
+  },
+  {
+   "id": "L0141",
+   "start": 792.3,
+   "end": 800.5,
+   "speaker": "S2",
+   "text": "And I go up one at a time, like a toddler. Holding on with my good hand. Well my right hand."
+  },
+  {
+   "id": "L0142",
+   "start": 801.3,
+   "end": 802.5,
+   "speaker": "S1",
+   "text": "And coming down?"
+  },
+  {
+   "id": "L0143",
+   "start": 802.8,
+   "end": 814.0,
+   "speaker": "S2",
+   "text": "Coming down's worse because the rail's on the wrong side then, for my right hand, so I sort of go down sideways. Or on my bottom sometimes, if I'm tired."
+  },
+  {
+   "id": "L0144",
+   "start": 814.3,
+   "end": 815.4,
+   "speaker": "S1",
+   "text": "On your bottom?"
+  },
+  {
+   "id": "L0145",
+   "start": 815.7,
+   "end": 818.1,
+   "speaker": "S2",
+   "text": "It's safer. Nobody's watching. Well, Biscuit."
+  },
+  {
+   "id": "L0146",
+   "start": 818.4,
+   "end": 825.7,
+   "speaker": "S1",
+   "text": "Ha. Biscuit won't tell. Okay, and the frame, is there one upstairs as well, or do you carry it?"
+  },
+  {
+   "id": "L0147",
+   "start": 826.3,
+   "end": 833.4,
+   "speaker": "S2",
+   "text": "There's only the one. I leave it at the bottom and I hold on to the wall up top."
+  },
+  {
+   "id": "L0148",
+   "start": 834.0,
+   "end": 840.1,
+   "speaker": "S1",
+   "text": "Okay. That's really helpful. It sounds like there's a few things an occupational therapist could look at."
+  },
+  {
+   "id": "L0149",
+   "start": 840.5,
+   "end": 844.8,
+   "speaker": "S1",
+   "text": "Like a second rail, and maybe a second frame for upstairs."
+  },
+  {
+   "id": "L0150",
+   "start": 845.4,
+   "end": 846.9,
+   "speaker": "S2",
+   "text": "Could they do that?"
+  },
+  {
+   "id": "L0151",
+   "start": 847.2,
+   "end": 855.5,
+   "speaker": "S1",
+   "text": "Quite possibly, yes. I can't promise exactly what until they've been, but it's the kind of thing they do all the time."
+  },
+  {
+   "id": "L0152",
+   "start": 855.8,
+   "end": 862.2,
+   "speaker": "S2",
+   "text": "Well that would be, I'd like that. A second rail would make a lot of difference."
+  },
+  {
+   "id": "L0153",
+   "start": 862.8,
+   "end": 870.3,
+   "speaker": "S1",
+   "text": "And I noticed on the way in you've got quite a few rugs, in the hall and in here."
+  },
+  {
+   "id": "L0154",
+   "start": 870.8,
+   "end": 874.2,
+   "speaker": "S2",
+   "text": "Oh, those. They were Frank's mother's, some of them."
+  },
+  {
+   "id": "L0155",
+   "start": 874.5,
+   "end": 880.7,
+   "speaker": "S2",
+   "text": "That one in the hall I brought back from, um, from a holiday in Wales, years ago."
+  },
+  {
+   "id": "L0156",
+   "start": 881.0,
+   "end": 887.3,
+   "speaker": "S1",
+   "text": "They're lovely. The only thing is, they can be a real trip hazard, especially with a frame."
+  },
+  {
+   "id": "L0157",
+   "start": 887.6,
+   "end": 890.2,
+   "speaker": "S2",
+   "text": "Kevin's always on at me about them."
+  },
+  {
+   "id": "L0158",
+   "start": 890.5,
+   "end": 896.7,
+   "speaker": "S1",
+   "text": "I bet he is. We don't have to decide anything now. Just something to think about."
+  },
+  {
+   "id": "L0159",
+   "start": 897.1,
+   "end": 899.8,
+   "speaker": "S2",
+   "text": "I'll think about it. I'm not promising."
+  },
+  {
+   "id": "L0160",
+   "start": 900.2,
+   "end": 906.0,
+   "speaker": "S1",
+   "text": "That's fair. Do you ever get up in the night? To use the toilet, say?"
+  },
+  {
+   "id": "L0161",
+   "start": 906.3,
+   "end": 911.4,
+   "speaker": "S2",
+   "text": "Once, sometimes twice. I leave the landing light on now. I didn't used to."
+  },
+  {
+   "id": "L0162",
+   "start": 912.0,
+   "end": 917.5,
+   "speaker": "S1",
+   "text": "Good, that's a good idea. And the bathroom is right next to your bedroom?"
+  },
+  {
+   "id": "L0163",
+   "start": 918.1,
+   "end": 923.2,
+   "speaker": "S2",
+   "text": "Right next door, yes, it's only a few steps. That bit's not so bad."
+  },
+  {
+   "id": "L0164",
+   "start": 923.7,
+   "end": 932.0,
+   "speaker": "S1",
+   "text": "And do you have anything you can wear or press, if you fell again? Like a pendant alarm, one of those buttons?"
+  },
+  {
+   "id": "L0165",
+   "start": 932.4,
+   "end": 937.5,
+   "speaker": "S2",
+   "text": "A pennant? No. No, I haven't got anything like that. Kevin mentioned it."
+  },
+  {
+   "id": "L0166",
+   "start": 937.7,
+   "end": 942.7,
+   "speaker": "S2",
+   "text": "I said I'm not wearing a thing round my neck like an old woman."
+  },
+  {
+   "id": "L0167",
+   "start": 944.0,
+   "end": 946.1,
+   "speaker": "S1",
+   "text": "Ha. I hear that a lot."
+  },
+  {
+   "id": "L0168",
+   "start": 946.6,
+   "end": 951.9,
+   "speaker": "S2",
+   "text": "I know I am an old woman. I just don't want to look like one."
+  },
+  {
+   "id": "L0169",
+   "start": 952.3,
+   "end": 961.5,
+   "speaker": "S1",
+   "text": "That's fair enough. There are some that look a bit like a watch now, on your wrist, which a lot of people prefer."
+  },
+  {
+   "id": "L0170",
+   "start": 961.8,
+   "end": 964.1,
+   "speaker": "S2",
+   "text": "Oh. Well, a watch. That's different."
+  },
+  {
+   "id": "L0171",
+   "start": 964.4,
+   "end": 972.4,
+   "speaker": "S1",
+   "text": "And they can also detect a fall, some of them, and call someone for you, even if you can't press the button."
+  },
+  {
+   "id": "L0172",
+   "start": 972.9,
+   "end": 977.5,
+   "speaker": "S2",
+   "text": "Well, that might've been handy on the third of March, mightn't it."
+  },
+  {
+   "id": "L0173",
+   "start": 977.8,
+   "end": 981.8,
+   "speaker": "S1",
+   "text": "It might. You wouldn't have been lying there for two hours."
+  },
+  {
+   "id": "L0174",
+   "start": 982.1,
+   "end": 983.6,
+   "speaker": "S2",
+   "text": "No. No, I wouldn't."
+  },
+  {
+   "id": "L0175",
+   "start": 984.1,
+   "end": 987.5,
+   "speaker": "S1",
+   "text": "Can I put you down as interested? No obligation."
+  },
+  {
+   "id": "L0176",
+   "start": 987.9,
+   "end": 990.4,
+   "speaker": "S2",
+   "text": "Go on then. Interested. Put it down."
+  },
+  {
+   "id": "L0177",
+   "start": 990.9,
+   "end": 996.5,
+   "speaker": "S1",
+   "text": "Okay, so if it's alright, I'd like to talk a bit about personal care."
+  },
+  {
+   "id": "L0178",
+   "start": 996.7,
+   "end": 1000.4,
+   "speaker": "S1",
+   "text": "So washing, dressing, that kind of thing. Is that okay?"
+  },
+  {
+   "id": "L0179",
+   "start": 1000.9,
+   "end": 1006.0,
+   "speaker": "S2",
+   "text": "Yes, that's fine. I'm past being embarrassed, love. They saw everything at St Aldhelm's."
+  },
+  {
+   "id": "L0180",
+   "start": 1006.4,
+   "end": 1014.0,
+   "speaker": "S1",
+   "text": "Ha. Well, you just tell me as much as you want to. How are you managing with washing at the moment?"
+  },
+  {
+   "id": "L0181",
+   "start": 1014.4,
+   "end": 1021.5,
+   "speaker": "S2",
+   "text": "I do a strip wash. At the sink upstairs. I have a flannel and I do what I can."
+  },
+  {
+   "id": "L0182",
+   "start": 1021.8,
+   "end": 1025.1,
+   "speaker": "S1",
+   "text": "And do you use the bath or the shower?"
+  },
+  {
+   "id": "L0183",
+   "start": 1025.3,
+   "end": 1027.5,
+   "speaker": "S2",
+   "text": "There's no shower. Just the bath."
+  },
+  {
+   "id": "L0184",
+   "start": 1027.8,
+   "end": 1034.3,
+   "speaker": "S2",
+   "text": "And I haven't been in it since, oh, since before the fall. Since the one in January, really."
+  },
+  {
+   "id": "L0185",
+   "start": 1034.8,
+   "end": 1037.7,
+   "speaker": "S1",
+   "text": "So since January you've not had a bath?"
+  },
+  {
+   "id": "L0186",
+   "start": 1038.1,
+   "end": 1044.4,
+   "speaker": "S2",
+   "text": "Not a proper one, no. I daren't. Getting in's alright, well, it's not, but getting out."
+  },
+  {
+   "id": "L0187",
+   "start": 1044.8,
+   "end": 1052.7,
+   "speaker": "S2",
+   "text": "I can't push myself up with this wrist. And I think, if I get stuck in there, who's going to find me?"
+  },
+  {
+   "id": "L0188",
+   "start": 1053.1,
+   "end": 1060.7,
+   "speaker": "S1",
+   "text": "That's a really real worry. And how do you feel about that? Not being able to have a bath."
+  },
+  {
+   "id": "L0189",
+   "start": 1060.9,
+   "end": 1063.3,
+   "speaker": "S2",
+   "text": "Oh, I miss it. I do."
+  },
+  {
+   "id": "L0190",
+   "start": 1063.6,
+   "end": 1070.6,
+   "speaker": "S2",
+   "text": "I used to have a bath every night before bed, with my radio on. It was my little treat."
+  },
+  {
+   "id": "L0191",
+   "start": 1071.0,
+   "end": 1075.4,
+   "speaker": "S2",
+   "text": "Now I feel, um. I don't feel properly clean. You know?"
+  },
+  {
+   "id": "L0192",
+   "start": 1075.8,
+   "end": 1079.7,
+   "speaker": "S2",
+   "text": "My hair especially. I can't do my hair with one hand."
+  },
+  {
+   "id": "L0193",
+   "start": 1080.2,
+   "end": 1083.6,
+   "speaker": "S1",
+   "text": "How are you washing your hair at the moment?"
+  },
+  {
+   "id": "L0194",
+   "start": 1084.7,
+   "end": 1091.8,
+   "speaker": "S2",
+   "text": "Brenda did it for me last week, over the kitchen sink. Bless her. But I can't keep asking her."
+  },
+  {
+   "id": "L0195",
+   "start": 1092.2,
+   "end": 1100.3,
+   "speaker": "S1",
+   "text": "Okay. So being able to have a bath again, or at least a proper wash, is that something that matters to you?"
+  },
+  {
+   "id": "L0196",
+   "start": 1100.8,
+   "end": 1106.3,
+   "speaker": "S2",
+   "text": "It matters a great deal. I'd love to have a bath again. I'd love it."
+  },
+  {
+   "id": "L0197",
+   "start": 1106.8,
+   "end": 1112.1,
+   "speaker": "S1",
+   "text": "I'm writing that down. That's exactly the kind of thing I want to know."
+  },
+  {
+   "id": "L0198",
+   "start": 1112.5,
+   "end": 1119.4,
+   "speaker": "S1",
+   "text": "And there's equipment, there's a bath lift, or a bath board, that an OT could look at with you."
+  },
+  {
+   "id": "L0199",
+   "start": 1119.7,
+   "end": 1126.5,
+   "speaker": "S2",
+   "text": "A bath lift. Frank's sister had one of them. It went up and down. She loved it."
+  },
+  {
+   "id": "L0200",
+   "start": 1126.9,
+   "end": 1130.9,
+   "speaker": "S1",
+   "text": "That's the one. Okay. And getting dressed? How's that going?"
+  },
+  {
+   "id": "L0201",
+   "start": 1131.1,
+   "end": 1137.0,
+   "speaker": "S2",
+   "text": "Slowly. Very slowly. The buttons are the worst. And my bra, I can't do the hooks."
+  },
+  {
+   "id": "L0202",
+   "start": 1137.2,
+   "end": 1142.8,
+   "speaker": "S2",
+   "text": "I've been wearing, um, I've been wearing the same cardigan most days because it's easier."
+  },
+  {
+   "id": "L0203",
+   "start": 1143.2,
+   "end": 1144.1,
+   "speaker": "S1",
+   "text": "Okay."
+  },
+  {
+   "id": "L0204",
+   "start": 1144.3,
+   "end": 1150.5,
+   "speaker": "S2",
+   "text": "And tights. I've given up on tights. I just wear these trousers now, the elasticated ones."
+  },
+  {
+   "id": "L0205",
+   "start": 1150.9,
+   "end": 1152.3,
+   "speaker": "S1",
+   "text": "And socks and shoes?"
+  },
+  {
+   "id": "L0206",
+   "start": 1153.6,
+   "end": 1158.3,
+   "speaker": "S2",
+   "text": "Slippers mostly. I can get my slippers on. Shoes with laces, no."
+  },
+  {
+   "id": "L0207",
+   "start": 1158.7,
+   "end": 1164.2,
+   "speaker": "S2",
+   "text": "Kevin bought me some with the, um, the velcro, but they're a bit tight."
+  },
+  {
+   "id": "L0208",
+   "start": 1164.5,
+   "end": 1169.9,
+   "speaker": "S1",
+   "text": "How long does it take you to get dressed in the morning, would you say?"
+  },
+  {
+   "id": "L0209",
+   "start": 1170.2,
+   "end": 1177.2,
+   "speaker": "S2",
+   "text": "Oh, forty minutes? An hour, some days. I have to sit down in between. I get puffed out."
+  },
+  {
+   "id": "L0210",
+   "start": 1177.8,
+   "end": 1180.7,
+   "speaker": "S1",
+   "text": "That's a long time. It sounds really tiring."
+  },
+  {
+   "id": "L0211",
+   "start": 1181.2,
+   "end": 1187.5,
+   "speaker": "S2",
+   "text": "By the time I'm dressed I want to go back to bed. That's not a joke."
+  },
+  {
+   "id": "L0212",
+   "start": 1187.8,
+   "end": 1194.1,
+   "speaker": "S1",
+   "text": "No, I believe you. And do you ever not get dressed? Just stay in your nightie?"
+  },
+  {
+   "id": "L0213",
+   "start": 1194.5,
+   "end": 1202.4,
+   "speaker": "S2",
+   "text": "Some days. Some days I think, what's the point, nobody's coming. I did that, um, twice last week I think."
+  },
+  {
+   "id": "L0214",
+   "start": 1202.9,
+   "end": 1206.0,
+   "speaker": "S1",
+   "text": "Okay. Thank you for being honest with me."
+  },
+  {
+   "id": "L0215",
+   "start": 1206.3,
+   "end": 1211.3,
+   "speaker": "S2",
+   "text": "Well there's no point lying to you, is there, you'd see through me."
+  },
+  {
+   "id": "L0216",
+   "start": 1211.8,
+   "end": 1216.4,
+   "speaker": "S1",
+   "text": "Ha. And is there anything with, um, with going to the toilet?"
+  },
+  {
+   "id": "L0217",
+   "start": 1216.8,
+   "end": 1221.0,
+   "speaker": "S1",
+   "text": "You mentioned the stairs. Anything else, any accidents, anything like that?"
+  },
+  {
+   "id": "L0218",
+   "start": 1221.4,
+   "end": 1222.4,
+   "speaker": "S2",
+   "text": "Oh. Well. Um."
+  },
+  {
+   "id": "L0219",
+   "start": 1223.0,
+   "end": 1229.5,
+   "speaker": "S1",
+   "text": "Take your time. It's very common, and it's just so I can understand what help might be useful."
+  },
+  {
+   "id": "L0220",
+   "start": 1229.7,
+   "end": 1236.3,
+   "speaker": "S2",
+   "text": "Sometimes I don't make it. If I leave it too long, and then the stairs, you know."
+  },
+  {
+   "id": "L0221",
+   "start": 1236.6,
+   "end": 1240.0,
+   "speaker": "S2",
+   "text": "It's more of a rush. A bit of leaking."
+  },
+  {
+   "id": "L0222",
+   "start": 1240.4,
+   "end": 1241.3,
+   "speaker": "S1",
+   "text": "Okay."
+  },
+  {
+   "id": "L0223",
+   "start": 1241.5,
+   "end": 1246.2,
+   "speaker": "S2",
+   "text": "I wear pads at night now. I buy them from the supermarket."
+  },
+  {
+   "id": "L0224",
+   "start": 1246.5,
+   "end": 1252.1,
+   "speaker": "S2",
+   "text": "Kevin gets them for me in the big shop, I don't know what he thinks."
+  },
+  {
+   "id": "L0225",
+   "start": 1252.6,
+   "end": 1258.2,
+   "speaker": "S1",
+   "text": "Ha, I'm sure he doesn't mind. Would you be interested in seeing the continence service?"
+  },
+  {
+   "id": "L0226",
+   "start": 1258.5,
+   "end": 1266.9,
+   "speaker": "S1",
+   "text": "They can assess you and, if you're eligible, the pads can come free, and they can give you advice and exercises."
+  },
+  {
+   "id": "L0227",
+   "start": 1267.1,
+   "end": 1271.4,
+   "speaker": "S2",
+   "text": "Free? Well, I didn't know that. Yes. If it's free, yes."
+  },
+  {
+   "id": "L0228",
+   "start": 1271.7,
+   "end": 1279.5,
+   "speaker": "S1",
+   "text": "That's usually through the GP or the community nurses, so I can pass that on, as long as you're happy."
+  },
+  {
+   "id": "L0229",
+   "start": 1279.9,
+   "end": 1283.5,
+   "speaker": "S2",
+   "text": "Yes, I'm happy. Don't make a big thing of it."
+  },
+  {
+   "id": "L0230",
+   "start": 1284.1,
+   "end": 1289.2,
+   "speaker": "S1",
+   "text": "I won't. Just a quick referral. Okay, let's have a break from all that."
+  },
+  {
+   "id": "L0231",
+   "start": 1289.6,
+   "end": 1292.7,
+   "speaker": "S1",
+   "text": "Is your tea alright? Is it still warm?"
+  },
+  {
+   "id": "L0232",
+   "start": 1292.9,
+   "end": 1301.2,
+   "speaker": "S2",
+   "text": "It's gone a bit cold, but I don't mind cold tea. Frank used to say I'd drink it out the puddles."
+  },
+  {
+   "id": "L0233",
+   "start": 1301.7,
+   "end": 1303.9,
+   "speaker": "S1",
+   "text": "Ha. My nan was the same."
+  },
+  {
+   "id": "L0234",
+   "start": 1304.3,
+   "end": 1308.0,
+   "speaker": "S2",
+   "text": "Is it still blowing out there? Look at them trees."
+  },
+  {
+   "id": "L0235",
+   "start": 1308.4,
+   "end": 1313.1,
+   "speaker": "S1",
+   "text": "It is. My umbrella went inside out on the way from the car."
+  },
+  {
+   "id": "L0236",
+   "start": 1313.4,
+   "end": 1317.6,
+   "speaker": "S2",
+   "text": "You want to get one of them sturdy ones. The golf ones."
+  },
+  {
+   "id": "L0237",
+   "start": 1317.8,
+   "end": 1323.4,
+   "speaker": "S2",
+   "text": "Frank had one, it's in the cupboard under the stairs, you can have it."
+  },
+  {
+   "id": "L0238",
+   "start": 1323.9,
+   "end": 1328.8,
+   "speaker": "S1",
+   "text": "Oh, that's really kind, but I'm not allowed to accept gifts, I'm afraid."
+  },
+  {
+   "id": "L0239",
+   "start": 1329.1,
+   "end": 1330.2,
+   "speaker": "S2",
+   "text": "Even an umbrella?"
+  },
+  {
+   "id": "L0240",
+   "start": 1330.6,
+   "end": 1333.2,
+   "speaker": "S1",
+   "text": "Even an umbrella. I know, it's silly."
+  },
+  {
+   "id": "L0241",
+   "start": 1333.4,
+   "end": 1338.8,
+   "speaker": "S2",
+   "text": "Well, it's there if you change your mind. Biscuit, leave the lady's bag alone."
+  },
+  {
+   "id": "L0242",
+   "start": 1339.0,
+   "end": 1343.3,
+   "speaker": "S1",
+   "text": "He's alright. He's just nosy. He wants to see what's in there."
+  },
+  {
+   "id": "L0243",
+   "start": 1343.6,
+   "end": 1345.8,
+   "speaker": "S2",
+   "text": "He thinks everyone's brought him ham."
+  },
+  {
+   "id": "L0244",
+   "start": 1346.1,
+   "end": 1354.2,
+   "speaker": "S1",
+   "text": "Ha. Sorry Biscuit, no ham today. Okay, so, um. Moving on a little. I wanted to ask you about food. Meals."
+  },
+  {
+   "id": "L0245",
+   "start": 1355.4,
+   "end": 1356.5,
+   "speaker": "S2",
+   "text": "Here we go."
+  },
+  {
+   "id": "L0246",
+   "start": 1356.8,
+   "end": 1364.7,
+   "speaker": "S1",
+   "text": "Ha. I promise I'm not your daughter. What does a normal day of eating look like for you at the moment?"
+  },
+  {
+   "id": "L0247",
+   "start": 1365.0,
+   "end": 1370.2,
+   "speaker": "S2",
+   "text": "Well. Breakfast I have toast. One slice, with marmalade. And a cup of tea."
+  },
+  {
+   "id": "L0248",
+   "start": 1370.5,
+   "end": 1371.4,
+   "speaker": "S1",
+   "text": "Okay."
+  },
+  {
+   "id": "L0249",
+   "start": 1371.6,
+   "end": 1379.5,
+   "speaker": "S2",
+   "text": "Dinner time, um, lunch, I have soup. A tin of soup. Tomato or chicken. Sometimes with a bit of bread."
+  },
+  {
+   "id": "L0250",
+   "start": 1380.0,
+   "end": 1381.5,
+   "speaker": "S1",
+   "text": "And in the evening?"
+  },
+  {
+   "id": "L0251",
+   "start": 1382.0,
+   "end": 1389.2,
+   "speaker": "S2",
+   "text": "Not a lot. A yoghurt. Maybe some crackers and cheese if I can be bothered cutting the cheese."
+  },
+  {
+   "id": "L0252",
+   "start": 1389.4,
+   "end": 1391.8,
+   "speaker": "S2",
+   "text": "It's hard with the one hand."
+  },
+  {
+   "id": "L0253",
+   "start": 1392.4,
+   "end": 1396.7,
+   "speaker": "S1",
+   "text": "Are you cooking at all? Using the oven, or the hob?"
+  },
+  {
+   "id": "L0254",
+   "start": 1397.0,
+   "end": 1402.6,
+   "speaker": "S2",
+   "text": "No. Not since the fall. I haven't turned the cooker on since I came home."
+  },
+  {
+   "id": "L0255",
+   "start": 1403.0,
+   "end": 1406.1,
+   "speaker": "S1",
+   "text": "Can you tell me a bit about why?"
+  },
+  {
+   "id": "L0256",
+   "start": 1406.5,
+   "end": 1412.9,
+   "speaker": "S2",
+   "text": "Because I can't lift the pans. And because, if I'm honest, I don't like being in the kitchen."
+  },
+  {
+   "id": "L0257",
+   "start": 1413.3,
+   "end": 1418.4,
+   "speaker": "S2",
+   "text": "That's where it happened. I stand at that sink and I think about it."
+  },
+  {
+   "id": "L0258",
+   "start": 1418.8,
+   "end": 1423.2,
+   "speaker": "S1",
+   "text": "That makes a lot of sense, Margaret. That's a lot to carry."
+  },
+  {
+   "id": "L0259",
+   "start": 1424.7,
+   "end": 1428.8,
+   "speaker": "S2",
+   "text": "Silly, isn't it. A grown woman frightened of her own kitchen."
+  },
+  {
+   "id": "L0260",
+   "start": 1429.3,
+   "end": 1435.0,
+   "speaker": "S1",
+   "text": "It's not silly at all. It's a really normal reaction after a fall like that."
+  },
+  {
+   "id": "L0261",
+   "start": 1435.3,
+   "end": 1442.8,
+   "speaker": "S2",
+   "text": "I used to cook every day. Proper dinners. Frank liked his meat and two veg. Sunday roast, the lot."
+  },
+  {
+   "id": "L0262",
+   "start": 1443.0,
+   "end": 1445.9,
+   "speaker": "S1",
+   "text": "Have you noticed any change in your weight?"
+  },
+  {
+   "id": "L0263",
+   "start": 1446.1,
+   "end": 1454.2,
+   "speaker": "S2",
+   "text": "My clothes are hanging off me. They weighed me at the hospital and I'd lost, um, nearly a stone since Christmas."
+  },
+  {
+   "id": "L0264",
+   "start": 1454.5,
+   "end": 1457.0,
+   "speaker": "S2",
+   "text": "The nurse was quite cross about it."
+  },
+  {
+   "id": "L0265",
+   "start": 1457.9,
+   "end": 1462.9,
+   "speaker": "S1",
+   "text": "Nearly a stone since Christmas. Okay. Do you know roughly what you weigh now?"
+  },
+  {
+   "id": "L0266",
+   "start": 1463.4,
+   "end": 1470.9,
+   "speaker": "S2",
+   "text": "Eight stone something. I was always nine and a half. Nine and a half stone all my married life."
+  },
+  {
+   "id": "L0267",
+   "start": 1471.4,
+   "end": 1473.6,
+   "speaker": "S1",
+   "text": "And your appetite, how is it?"
+  },
+  {
+   "id": "L0268",
+   "start": 1474.1,
+   "end": 1481.8,
+   "speaker": "S2",
+   "text": "It comes and goes. I don't feel hungry like I used to. When you're on your own you just, you pick."
+  },
+  {
+   "id": "L0269",
+   "start": 1482.0,
+   "end": 1484.3,
+   "speaker": "S1",
+   "text": "Yeah. Who does your food shopping?"
+  },
+  {
+   "id": "L0270",
+   "start": 1485.4,
+   "end": 1495.3,
+   "speaker": "S2",
+   "text": "Kevin does a big shop on a Sunday when he comes. And Brenda gets me milk and bread in the week if I run out."
+  },
+  {
+   "id": "L0271",
+   "start": 1495.8,
+   "end": 1498.0,
+   "speaker": "S1",
+   "text": "And do you have a microwave?"
+  },
+  {
+   "id": "L0272",
+   "start": 1498.4,
+   "end": 1502.9,
+   "speaker": "S2",
+   "text": "I've got one, yes. I do a jacket potato in it sometimes."
+  },
+  {
+   "id": "L0273",
+   "start": 1503.3,
+   "end": 1510.1,
+   "speaker": "S2",
+   "text": "Kevin put some of those ready meals in the freezer but I can't get the film off the top."
+  },
+  {
+   "id": "L0274",
+   "start": 1510.6,
+   "end": 1514.6,
+   "speaker": "S1",
+   "text": "Ah, the film. Those are a nightmare even with two hands."
+  },
+  {
+   "id": "L0275",
+   "start": 1515.2,
+   "end": 1519.3,
+   "speaker": "S2",
+   "text": "I stab it with a fork and then it goes everywhere."
+  },
+  {
+   "id": "L0276",
+   "start": 1519.6,
+   "end": 1525.0,
+   "speaker": "S1",
+   "text": "Okay. So meals are something I'd definitely want to think about some support with."
+  },
+  {
+   "id": "L0277",
+   "start": 1525.4,
+   "end": 1529.1,
+   "speaker": "S1",
+   "text": "Now, medication. Can you tell me what tablets you take?"
+  },
+  {
+   "id": "L0278",
+   "start": 1529.3,
+   "end": 1536.5,
+   "speaker": "S2",
+   "text": "Oh, I've got them here, hang on. They're in the, um, the box thing. The chemist does it."
+  },
+  {
+   "id": "L0279",
+   "start": 1536.9,
+   "end": 1539.0,
+   "speaker": "S1",
+   "text": "A dosette box? A blister pack?"
+  },
+  {
+   "id": "L0280",
+   "start": 1539.3,
+   "end": 1541.2,
+   "speaker": "S2",
+   "text": "The dose set box, yes."
+  },
+  {
+   "id": "L0281",
+   "start": 1541.5,
+   "end": 1548.4,
+   "speaker": "S2",
+   "text": "The chemist on Station Road does it and they deliver it every Friday. It's got the days on."
+  },
+  {
+   "id": "L0282",
+   "start": 1549.0,
+   "end": 1554.5,
+   "speaker": "S1",
+   "text": "That's great. Can I have a look? Okay. So you've got your amlodipine here."
+  },
+  {
+   "id": "L0283",
+   "start": 1555.0,
+   "end": 1559.9,
+   "speaker": "S2",
+   "text": "The amlo-dipping, yes, that's my blood pressure. I have that in the morning."
+  },
+  {
+   "id": "L0284",
+   "start": 1560.3,
+   "end": 1567.2,
+   "speaker": "S1",
+   "text": "Five milligrams, once a day in the morning. And this one, this is alendronic acid. That's once a week."
+  },
+  {
+   "id": "L0285",
+   "start": 1567.6,
+   "end": 1570.2,
+   "speaker": "S2",
+   "text": "That's the bone one. That's a Monday."
+  },
+  {
+   "id": "L0286",
+   "start": 1570.5,
+   "end": 1579.3,
+   "speaker": "S2",
+   "text": "I have to have it first thing with a big glass of water and sit up straight for half an hour. It's a performance."
+  },
+  {
+   "id": "L0287",
+   "start": 1579.7,
+   "end": 1583.2,
+   "speaker": "S1",
+   "text": "It is, yeah. Seventy milligrams, every Monday. And anything else?"
+  },
+  {
+   "id": "L0288",
+   "start": 1583.5,
+   "end": 1591.0,
+   "speaker": "S2",
+   "text": "Paracetamol, for my wrist. Two tablets, up to four times a day, but I don't take them that often."
+  },
+  {
+   "id": "L0289",
+   "start": 1591.3,
+   "end": 1594.8,
+   "speaker": "S2",
+   "text": "Maybe once or twice a day if it's aching."
+  },
+  {
+   "id": "L0290",
+   "start": 1595.3,
+   "end": 1598.7,
+   "speaker": "S1",
+   "text": "Okay. And do you ever forget any of them?"
+  },
+  {
+   "id": "L0291",
+   "start": 1599.7,
+   "end": 1600.6,
+   "speaker": "S2",
+   "text": "Um. Well."
+  },
+  {
+   "id": "L0292",
+   "start": 1601.2,
+   "end": 1603.5,
+   "speaker": "S1",
+   "text": "It's alright. It happens to everyone."
+  },
+  {
+   "id": "L0293",
+   "start": 1603.7,
+   "end": 1607.0,
+   "speaker": "S2",
+   "text": "Last week I found two still in the box."
+  },
+  {
+   "id": "L0294",
+   "start": 1607.3,
+   "end": 1613.1,
+   "speaker": "S2",
+   "text": "The Tuesday morning and the Thursday morning. I don't know how. I must've got distracted."
+  },
+  {
+   "id": "L0295",
+   "start": 1613.6,
+   "end": 1617.3,
+   "speaker": "S1",
+   "text": "So you missed your blood pressure tablet twice last week."
+  },
+  {
+   "id": "L0296",
+   "start": 1617.9,
+   "end": 1624.1,
+   "speaker": "S2",
+   "text": "Twice. Yes. I'm not normally like that. It's since the fall, I've been all over the place."
+  },
+  {
+   "id": "L0297",
+   "start": 1624.4,
+   "end": 1629.6,
+   "speaker": "S1",
+   "text": "Okay, thank you. Do you have any trouble opening the box, with your wrist?"
+  },
+  {
+   "id": "L0298",
+   "start": 1630.1,
+   "end": 1633.5,
+   "speaker": "S2",
+   "text": "Sometimes. The little flaps. I use a butter knife."
+  },
+  {
+   "id": "L0299",
+   "start": 1633.9,
+   "end": 1638.6,
+   "speaker": "S1",
+   "text": "Okay. Maybe we can ask the chemist about a different kind of pack."
+  },
+  {
+   "id": "L0300",
+   "start": 1638.9,
+   "end": 1645.8,
+   "speaker": "S1",
+   "text": "And some people find a reminder helps, like an alarm, or somebody popping in at the right time."
+  },
+  {
+   "id": "L0301",
+   "start": 1646.4,
+   "end": 1650.7,
+   "speaker": "S2",
+   "text": "That might help. I've got an alarm clock, I could set that."
+  },
+  {
+   "id": "L0302",
+   "start": 1651.2,
+   "end": 1659.4,
+   "speaker": "S1",
+   "text": "That's a good idea too. And are your tablets the only thing that's changed recently? The GP hasn't started anything new?"
+  },
+  {
+   "id": "L0303",
+   "start": 1659.8,
+   "end": 1662.5,
+   "speaker": "S2",
+   "text": "No, just the paracetamol, from the hospital."
+  },
+  {
+   "id": "L0304",
+   "start": 1663.0,
+   "end": 1671.0,
+   "speaker": "S1",
+   "text": "Okay. Now, you mentioned the shopping. Do you manage your own money? Paying bills, getting cash out, that sort of thing?"
+  },
+  {
+   "id": "L0305",
+   "start": 1671.5,
+   "end": 1675.4,
+   "speaker": "S2",
+   "text": "Mostly. The bills go out of the bank on their own."
+  },
+  {
+   "id": "L0306",
+   "start": 1675.8,
+   "end": 1680.9,
+   "speaker": "S2",
+   "text": "The direct debits. And I get cash out for the paper and things."
+  },
+  {
+   "id": "L0307",
+   "start": 1681.2,
+   "end": 1683.4,
+   "speaker": "S1",
+   "text": "And is all that going okay?"
+  },
+  {
+   "id": "L0308",
+   "start": 1683.8,
+   "end": 1689.8,
+   "speaker": "S2",
+   "text": "Well. I've been a bit short lately. Money's been going, and I'm not sure where."
+  },
+  {
+   "id": "L0309",
+   "start": 1690.0,
+   "end": 1693.7,
+   "speaker": "S2",
+   "text": "I'm probably just not keeping track like I used to."
+  },
+  {
+   "id": "L0310",
+   "start": 1694.2,
+   "end": 1700.1,
+   "speaker": "S1",
+   "text": "Okay. Can we come back to that in a bit, when we talk about money properly?"
+  },
+  {
+   "id": "L0311",
+   "start": 1700.3,
+   "end": 1703.0,
+   "speaker": "S1",
+   "text": "I'd like to hear more about it."
+  },
+  {
+   "id": "L0312",
+   "start": 1703.5,
+   "end": 1705.7,
+   "speaker": "S2",
+   "text": "If you like. It's probably nothing."
+  },
+  {
+   "id": "L0313",
+   "start": 1706.0,
+   "end": 1708.4,
+   "speaker": "S1",
+   "text": "That's okay. Was that the door?"
+  },
+  {
+   "id": "L0314",
+   "start": 1708.8,
+   "end": 1713.0,
+   "speaker": "S2",
+   "text": "That'll be Kevin. He's got a key. Kevin? We're in here!"
+  },
+  {
+   "id": "L0315",
+   "start": 1713.5,
+   "end": 1716.5,
+   "speaker": "S3",
+   "text": "Alright Mum. Oh, hello. Sorry, am I interrupting?"
+  },
+  {
+   "id": "L0316",
+   "start": 1717.0,
+   "end": 1722.2,
+   "speaker": "S1",
+   "text": "Not at all. Hi, I'm Priya, I'm the social worker. You must be Kevin."
+  },
+  {
+   "id": "L0317",
+   "start": 1723.2,
+   "end": 1729.9,
+   "speaker": "S3",
+   "text": "That's me. Nice to meet you. Sorry, I came straight from work, I'm probably a bit, you know."
+  },
+  {
+   "id": "L0318",
+   "start": 1730.5,
+   "end": 1732.3,
+   "speaker": "S2",
+   "text": "He smells of the warehouse."
+  },
+  {
+   "id": "L0319",
+   "start": 1732.7,
+   "end": 1733.6,
+   "speaker": "S3",
+   "text": "Thanks Mum."
+  },
+  {
+   "id": "L0320",
+   "start": 1734.1,
+   "end": 1738.3,
+   "speaker": "S1",
+   "text": "Ha. Before you sit down, Margaret, I just want to check."
+  },
+  {
+   "id": "L0321",
+   "start": 1738.5,
+   "end": 1743.5,
+   "speaker": "S1",
+   "text": "Are you happy for Kevin to join us for the rest of the assessment?"
+  },
+  {
+   "id": "L0322",
+   "start": 1743.8,
+   "end": 1747.4,
+   "speaker": "S2",
+   "text": "Yes, of course. He might as well hear it."
+  },
+  {
+   "id": "L0323",
+   "start": 1747.7,
+   "end": 1756.2,
+   "speaker": "S1",
+   "text": "Okay. And if at any point you want to talk to me on your own about anything, just say, and that's absolutely fine."
+  },
+  {
+   "id": "L0324",
+   "start": 1756.7,
+   "end": 1757.6,
+   "speaker": "S2",
+   "text": "Alright, love."
+  },
+  {
+   "id": "L0325",
+   "start": 1757.8,
+   "end": 1759.4,
+   "speaker": "S3",
+   "text": "Is there tea going?"
+  },
+  {
+   "id": "L0326",
+   "start": 1760.4,
+   "end": 1762.8,
+   "speaker": "S2",
+   "text": "You know where the kettle is."
+  },
+  {
+   "id": "L0327",
+   "start": 1763.2,
+   "end": 1765.9,
+   "speaker": "S3",
+   "text": "Right. Do you want another one, Priya?"
+  },
+  {
+   "id": "L0328",
+   "start": 1766.4,
+   "end": 1777.7,
+   "speaker": "S1",
+   "text": "I'm fine, thank you. So Kevin, just to bring you up to speed, we've talked about the fall, how your mum's getting around, washing and dressing, meals and her tablets."
+  },
+  {
+   "id": "L0329",
+   "start": 1778.2,
+   "end": 1783.0,
+   "speaker": "S3",
+   "text": "Did she tell you about the tablets? Because she's been forgetting them."
+  },
+  {
+   "id": "L0330",
+   "start": 1783.5,
+   "end": 1785.8,
+   "speaker": "S2",
+   "text": "Twice, Kevin. I told her. Twice."
+  },
+  {
+   "id": "L0331",
+   "start": 1786.1,
+   "end": 1787.0,
+   "speaker": "S3",
+   "text": "Alright, alright."
+  },
+  {
+   "id": "L0332",
+   "start": 1787.4,
+   "end": 1793.9,
+   "speaker": "S1",
+   "text": "So Kevin, we were just starting to talk about the house, really. The stairs and the rugs."
+  },
+  {
+   "id": "L0333",
+   "start": 1794.2,
+   "end": 1800.6,
+   "speaker": "S3",
+   "text": "Oh, the rugs. Has she told you about the rugs? I've been telling her for years."
+  },
+  {
+   "id": "L0334",
+   "start": 1801.1,
+   "end": 1805.2,
+   "speaker": "S2",
+   "text": "I've told her. She's writing it down. I'm thinking about it."
+  },
+  {
+   "id": "L0335",
+   "start": 1806.4,
+   "end": 1809.4,
+   "speaker": "S3",
+   "text": "She's been thinking about it since about 2010."
+  },
+  {
+   "id": "L0336",
+   "start": 1809.7,
+   "end": 1815.1,
+   "speaker": "S1",
+   "text": "Ha. It's her decision, but it's definitely something the OT would probably mention too."
+  },
+  {
+   "id": "L0337",
+   "start": 1815.6,
+   "end": 1825.3,
+   "speaker": "S3",
+   "text": "Honestly though, Priya, and I've said this to Mum, I think this house is too much for her now. The stairs, the garden, all of it."
+  },
+  {
+   "id": "L0338",
+   "start": 1826.4,
+   "end": 1831.0,
+   "speaker": "S3",
+   "text": "I think she'd be better off in one of them sheltered flats."
+  },
+  {
+   "id": "L0339",
+   "start": 1831.3,
+   "end": 1835.6,
+   "speaker": "S3",
+   "text": "Or a bungalow. Everything on one level, a warden on site."
+  },
+  {
+   "id": "L0340",
+   "start": 1835.9,
+   "end": 1839.3,
+   "speaker": "S2",
+   "text": "No. I'm not moving, Kevin. We've been over this."
+  },
+  {
+   "id": "L0341",
+   "start": 1839.9,
+   "end": 1841.0,
+   "speaker": "S3",
+   "text": "I'm just saying."
+  },
+  {
+   "id": "L0342",
+   "start": 1841.9,
+   "end": 1846.0,
+   "speaker": "S2",
+   "text": "And I'm just saying no. I came here as a bride."
+  },
+  {
+   "id": "L0343",
+   "start": 1846.3,
+   "end": 1851.8,
+   "speaker": "S2",
+   "text": "Frank carried me over that step. I'm not going to some flat with strangers."
+  },
+  {
+   "id": "L0344",
+   "start": 1852.9,
+   "end": 1858.1,
+   "speaker": "S1",
+   "text": "Can I ask, Margaret, what is it about this house that matters to you?"
+  },
+  {
+   "id": "L0345",
+   "start": 1858.4,
+   "end": 1863.1,
+   "speaker": "S2",
+   "text": "It's everything. It's my home. It's where I brought the kids up."
+  },
+  {
+   "id": "L0346",
+   "start": 1863.5,
+   "end": 1869.5,
+   "speaker": "S2",
+   "text": "My garden's out there, Frank's roses. Brenda's next door. I know every creak in this house."
+  },
+  {
+   "id": "L0347",
+   "start": 1869.8,
+   "end": 1876.7,
+   "speaker": "S2",
+   "text": "I want to stay in my own home. For as long as I possibly can. That's what I want."
+  },
+  {
+   "id": "L0348",
+   "start": 1877.1,
+   "end": 1880.6,
+   "speaker": "S1",
+   "text": "Thank you. I've written that down, in your words."
+  },
+  {
+   "id": "L0349",
+   "start": 1880.8,
+   "end": 1885.6,
+   "speaker": "S3",
+   "text": "I know, Mum. I'm not trying to shove you out. I just worry."
+  },
+  {
+   "id": "L0350",
+   "start": 1885.9,
+   "end": 1887.8,
+   "speaker": "S2",
+   "text": "I know you do, love."
+  },
+  {
+   "id": "L0351",
+   "start": 1888.2,
+   "end": 1900.6,
+   "speaker": "S2",
+   "text": "And if I ever had to go into a home, one day, if it came to that, well, I'd want it to be Beechwood, because Brenda's sister was in there and they were lovely."
+  },
+  {
+   "id": "L0352",
+   "start": 1900.9,
+   "end": 1904.9,
+   "speaker": "S2",
+   "text": "But I'm not there yet. Not by a long chalk."
+  },
+  {
+   "id": "L0353",
+   "start": 1905.3,
+   "end": 1911.8,
+   "speaker": "S1",
+   "text": "That's really helpful to know for the future. But for now, the plan is about supporting you here."
+  },
+  {
+   "id": "L0354",
+   "start": 1912.2,
+   "end": 1913.1,
+   "speaker": "S2",
+   "text": "Good."
+  },
+  {
+   "id": "L0355",
+   "start": 1913.4,
+   "end": 1917.9,
+   "speaker": "S3",
+   "text": "What about selling up though, Mum, and getting somewhere smaller round here?"
+  },
+  {
+   "id": "L0356",
+   "start": 1918.3,
+   "end": 1923.7,
+   "speaker": "S2",
+   "text": "If I sold the house, and I'm not going to, where would Biscuit go?"
+  },
+  {
+   "id": "L0357",
+   "start": 1924.1,
+   "end": 1927.6,
+   "speaker": "S2",
+   "text": "Where would Frank's roses go? No. It's not happening."
+  },
+  {
+   "id": "L0358",
+   "start": 1928.2,
+   "end": 1929.8,
+   "speaker": "S3",
+   "text": "Fine. Fine. Subject closed."
+  },
+  {
+   "id": "L0359",
+   "start": 1930.2,
+   "end": 1936.8,
+   "speaker": "S1",
+   "text": "Okay, so, the house. Kevin, how do you find it? Anything else you've noticed that worries you?"
+  },
+  {
+   "id": "L0360",
+   "start": 1937.0,
+   "end": 1950.0,
+   "speaker": "S3",
+   "text": "The back step into the garden, that's a big drop. And the light at the top of the stairs is on one of those pull cords, she has to reach round for it."
+  },
+  {
+   "id": "L0361",
+   "start": 1950.5,
+   "end": 1958.0,
+   "speaker": "S1",
+   "text": "That's useful, thank you. I'll pass that on to the OT as well. And heating, is the house warm enough generally?"
+  },
+  {
+   "id": "L0362",
+   "start": 1958.2,
+   "end": 1962.7,
+   "speaker": "S2",
+   "text": "It's warm enough now. The boiler's new, Kevin sorted that last year."
+  },
+  {
+   "id": "L0363",
+   "start": 1963.0,
+   "end": 1965.8,
+   "speaker": "S3",
+   "text": "Took me three months to persuade her."
+  },
+  {
+   "id": "L0364",
+   "start": 1966.2,
+   "end": 1971.2,
+   "speaker": "S1",
+   "text": "Ha. Okay. So, can we talk a bit about who's around to help?"
+  },
+  {
+   "id": "L0365",
+   "start": 1971.6,
+   "end": 1974.8,
+   "speaker": "S1",
+   "text": "Kevin, how often are you able to come over?"
+  },
+  {
+   "id": "L0366",
+   "start": 1976.1,
+   "end": 1983.8,
+   "speaker": "S3",
+   "text": "Sundays, mainly. I do the big shop and I sit with her for a bit. Sometimes midweek if I'm on earlies."
+  },
+  {
+   "id": "L0367",
+   "start": 1984.1,
+   "end": 1991.5,
+   "speaker": "S3",
+   "text": "I'm in Northampton, so it's forty minutes in the car. And I work shifts at the warehouse, so it's hard."
+  },
+  {
+   "id": "L0368",
+   "start": 1991.9,
+   "end": 1995.4,
+   "speaker": "S1",
+   "text": "Of course. And you've got family of your own?"
+  },
+  {
+   "id": "L0369",
+   "start": 1996.0,
+   "end": 2002.2,
+   "speaker": "S3",
+   "text": "Two teenagers. And the wife works as well. So it's, yeah. I do what I can."
+  },
+  {
+   "id": "L0370",
+   "start": 2002.8,
+   "end": 2006.7,
+   "speaker": "S2",
+   "text": "He does a lot. He does more than he should."
+  },
+  {
+   "id": "L0371",
+   "start": 2006.9,
+   "end": 2009.3,
+   "speaker": "S1",
+   "text": "And Margaret, you mentioned a daughter?"
+  },
+  {
+   "id": "L0372",
+   "start": 2009.6,
+   "end": 2016.0,
+   "speaker": "S2",
+   "text": "Susan. She lives in Spain. In Alicante. She moved out there with her husband eight years ago."
+  },
+  {
+   "id": "L0373",
+   "start": 2016.4,
+   "end": 2019.0,
+   "speaker": "S1",
+   "text": "How often do you hear from Susan?"
+  },
+  {
+   "id": "L0374",
+   "start": 2019.3,
+   "end": 2025.4,
+   "speaker": "S2",
+   "text": "She rings every week. Sunday nights, regular as clockwork. And she comes over in the summer."
+  },
+  {
+   "id": "L0375",
+   "start": 2025.8,
+   "end": 2032.1,
+   "speaker": "S2",
+   "text": "She wanted to come when I had the fall but she couldn't get the time off."
+  },
+  {
+   "id": "L0376",
+   "start": 2032.6,
+   "end": 2036.3,
+   "speaker": "S3",
+   "text": "She was on the phone to me every day though."
+  },
+  {
+   "id": "L0377",
+   "start": 2036.8,
+   "end": 2039.1,
+   "speaker": "S2",
+   "text": "She was, she was worried sick."
+  },
+  {
+   "id": "L0378",
+   "start": 2039.5,
+   "end": 2043.4,
+   "speaker": "S1",
+   "text": "And Brenda next door, how often does she pop in?"
+  },
+  {
+   "id": "L0379",
+   "start": 2043.6,
+   "end": 2045.9,
+   "speaker": "S2",
+   "text": "Most days. Just for a minute."
+  },
+  {
+   "id": "L0380",
+   "start": 2046.3,
+   "end": 2052.5,
+   "speaker": "S2",
+   "text": "She knocks on the wall in the morning and I knock back, so she knows I'm alright."
+  },
+  {
+   "id": "L0381",
+   "start": 2053.0,
+   "end": 2055.7,
+   "speaker": "S1",
+   "text": "Oh, that's lovely. Like a little signal."
+  },
+  {
+   "id": "L0382",
+   "start": 2056.2,
+   "end": 2059.7,
+   "speaker": "S2",
+   "text": "We've done that for years. Since her husband passed."
+  },
+  {
+   "id": "L0383",
+   "start": 2060.5,
+   "end": 2066.2,
+   "speaker": "S2",
+   "text": "But she's seventy-six herself, Brenda, with her knees. I can't lean on her too much."
+  },
+  {
+   "id": "L0384",
+   "start": 2066.5,
+   "end": 2071.7,
+   "speaker": "S1",
+   "text": "No, that's fair. And is there anyone else? Friends, church, anything like that?"
+  },
+  {
+   "id": "L0385",
+   "start": 2072.2,
+   "end": 2078.8,
+   "speaker": "S2",
+   "text": "Well I used to go to the lunch club. At St Michael's, the church hall. Every Wednesday."
+  },
+  {
+   "id": "L0386",
+   "start": 2079.4,
+   "end": 2082.0,
+   "speaker": "S1",
+   "text": "The lunch club, lovely. What's that like?"
+  },
+  {
+   "id": "L0387",
+   "start": 2082.5,
+   "end": 2092.3,
+   "speaker": "S2",
+   "text": "Oh, it's nice. It's a proper dinner, a cooked dinner, and a pudding, and then there's bingo or a quiz or somebody comes and talks about something."
+  },
+  {
+   "id": "L0388",
+   "start": 2092.5,
+   "end": 2095.6,
+   "speaker": "S2",
+   "text": "There was a man last time with owls."
+  },
+  {
+   "id": "L0389",
+   "start": 2096.0,
+   "end": 2096.9,
+   "speaker": "S1",
+   "text": "Owls?"
+  },
+  {
+   "id": "L0390",
+   "start": 2097.2,
+   "end": 2101.6,
+   "speaker": "S2",
+   "text": "Real owls. In a box. One of them sat on my arm."
+  },
+  {
+   "id": "L0391",
+   "start": 2102.2,
+   "end": 2105.3,
+   "speaker": "S3",
+   "text": "She talked about that owl for a month."
+  },
+  {
+   "id": "L0392",
+   "start": 2105.5,
+   "end": 2111.2,
+   "speaker": "S2",
+   "text": "Well, it was lovely. Anyway. I haven't been since the fall. Did I say Wednesday?"
+  },
+  {
+   "id": "L0393",
+   "start": 2111.7,
+   "end": 2112.7,
+   "speaker": "S1",
+   "text": "You did, yes."
+  },
+  {
+   "id": "L0394",
+   "start": 2113.3,
+   "end": 2114.8,
+   "speaker": "S2",
+   "text": "No, it's Thursdays now."
+  },
+  {
+   "id": "L0395",
+   "start": 2115.0,
+   "end": 2122.1,
+   "speaker": "S2",
+   "text": "It used to be a Wednesday but they moved it when the new vicar came. Thursdays. Twelve o'clock."
+  },
+  {
+   "id": "L0396",
+   "start": 2122.6,
+   "end": 2126.8,
+   "speaker": "S1",
+   "text": "Thursdays at twelve. Okay. And how did you get there before?"
+  },
+  {
+   "id": "L0397",
+   "start": 2127.2,
+   "end": 2133.1,
+   "speaker": "S2",
+   "text": "I walked. It's only round the corner, past the shops. But I can't walk it now."
+  },
+  {
+   "id": "L0398",
+   "start": 2133.3,
+   "end": 2137.7,
+   "speaker": "S2",
+   "text": "And I wouldn't want to walk in with the frame, everyone looking."
+  },
+  {
+   "id": "L0399",
+   "start": 2138.3,
+   "end": 2141.2,
+   "speaker": "S1",
+   "text": "Would you like to go back to it?"
+  },
+  {
+   "id": "L0400",
+   "start": 2141.5,
+   "end": 2147.9,
+   "speaker": "S2",
+   "text": "I would, yes. I miss the people. I miss Joan and Pat, we always sat together."
+  },
+  {
+   "id": "L0401",
+   "start": 2148.2,
+   "end": 2154.1,
+   "speaker": "S1",
+   "text": "Okay. There might be transport, some lunch clubs have a volunteer driver or a minibus."
+  },
+  {
+   "id": "L0402",
+   "start": 2155.3,
+   "end": 2158.2,
+   "speaker": "S1",
+   "text": "I can find out about that for you."
+  },
+  {
+   "id": "L0403",
+   "start": 2158.4,
+   "end": 2162.5,
+   "speaker": "S2",
+   "text": "Could you? That would be, yes. I'd like that very much."
+  },
+  {
+   "id": "L0404",
+   "start": 2162.8,
+   "end": 2168.3,
+   "speaker": "S1",
+   "text": "So, how are you finding things generally? Being on your own in the house."
+  },
+  {
+   "id": "L0405",
+   "start": 2168.7,
+   "end": 2170.6,
+   "speaker": "S2",
+   "text": "It's quiet. It's very quiet."
+  },
+  {
+   "id": "L0406",
+   "start": 2171.0,
+   "end": 2172.6,
+   "speaker": "S1",
+   "text": "Do you get lonely?"
+  },
+  {
+   "id": "L0407",
+   "start": 2173.0,
+   "end": 2176.8,
+   "speaker": "S2",
+   "text": "Yes. I do. I'm not going to pretend I don't."
+  },
+  {
+   "id": "L0408",
+   "start": 2177.2,
+   "end": 2183.2,
+   "speaker": "S2",
+   "text": "Some days I don't speak to anybody except Biscuit and the man on the telly."
+  },
+  {
+   "id": "L0409",
+   "start": 2183.5,
+   "end": 2185.0,
+   "speaker": "S3",
+   "text": "Mum, you never said."
+  },
+  {
+   "id": "L0410",
+   "start": 2185.4,
+   "end": 2188.8,
+   "speaker": "S2",
+   "text": "You never asked, love. And you've got enough on."
+  },
+  {
+   "id": "L0411",
+   "start": 2189.0,
+   "end": 2192.6,
+   "speaker": "S1",
+   "text": "The days when nobody comes, what are they like?"
+  },
+  {
+   "id": "L0412",
+   "start": 2192.9,
+   "end": 2196.0,
+   "speaker": "S2",
+   "text": "Long. They're very long. I watch my programmes."
+  },
+  {
+   "id": "L0413",
+   "start": 2196.3,
+   "end": 2203.3,
+   "speaker": "S2",
+   "text": "I do my word search, well, I did, I can't hold the pen now. I look out the window."
+  },
+  {
+   "id": "L0414",
+   "start": 2203.8,
+   "end": 2208.1,
+   "speaker": "S1",
+   "text": "Thank you for telling me that. I know it's not easy."
+  },
+  {
+   "id": "L0415",
+   "start": 2208.6,
+   "end": 2214.5,
+   "speaker": "S2",
+   "text": "It's since Frank, really. It's two years in August. It was his heart. Very sudden."
+  },
+  {
+   "id": "L0416",
+   "start": 2214.8,
+   "end": 2215.9,
+   "speaker": "S1",
+   "text": "I'm so sorry."
+  },
+  {
+   "id": "L0417",
+   "start": 2216.4,
+   "end": 2224.6,
+   "speaker": "S3",
+   "text": "I'm going to go and get that washing out the machine, Mum, before it goes musty. And I'll put the bins round."
+  },
+  {
+   "id": "L0418",
+   "start": 2225.2,
+   "end": 2227.7,
+   "speaker": "S2",
+   "text": "Thank you, love. The blue one's full."
+  },
+  {
+   "id": "L0419",
+   "start": 2228.2,
+   "end": 2229.7,
+   "speaker": "S3",
+   "text": "Back in a bit."
+  },
+  {
+   "id": "L0420",
+   "start": 2230.3,
+   "end": 2237.9,
+   "speaker": "S1",
+   "text": "Margaret, while Kevin's out, can I ask you a few questions about how you've been feeling? In yourself, I mean."
+  },
+  {
+   "id": "L0421",
+   "start": 2238.1,
+   "end": 2239.0,
+   "speaker": "S2",
+   "text": "Go on."
+  },
+  {
+   "id": "L0422",
+   "start": 2239.4,
+   "end": 2246.3,
+   "speaker": "S1",
+   "text": "You said things have been hard since Frank died. How was your mood, back then, after he passed?"
+  },
+  {
+   "id": "L0423",
+   "start": 2247.7,
+   "end": 2253.7,
+   "speaker": "S2",
+   "text": "Oh, I was in a bad way. I won't lie. I didn't want to get up."
+  },
+  {
+   "id": "L0424",
+   "start": 2254.6,
+   "end": 2260.5,
+   "speaker": "S2",
+   "text": "I didn't want to eat. I just sat in that chair, his chair, for weeks."
+  },
+  {
+   "id": "L0425",
+   "start": 2260.7,
+   "end": 2263.9,
+   "speaker": "S1",
+   "text": "Did you get any support at that time?"
+  },
+  {
+   "id": "L0426",
+   "start": 2264.4,
+   "end": 2270.2,
+   "speaker": "S2",
+   "text": "Dr Shah, well it was Dr Patel then, he put me on some tablets. For depression."
+  },
+  {
+   "id": "L0427",
+   "start": 2270.5,
+   "end": 2277.2,
+   "speaker": "S2",
+   "text": "And I saw a lady for the bereavement, through the surgery. Six sessions, I think it was."
+  },
+  {
+   "id": "L0428",
+   "start": 2277.6,
+   "end": 2278.7,
+   "speaker": "S1",
+   "text": "Did that help?"
+  },
+  {
+   "id": "L0429",
+   "start": 2279.1,
+   "end": 2286.6,
+   "speaker": "S2",
+   "text": "The lady helped. She was very kind. She let me talk about Frank and she didn't mind if I cried."
+  },
+  {
+   "id": "L0430",
+   "start": 2286.9,
+   "end": 2289.8,
+   "speaker": "S1",
+   "text": "And the tablets, are you still taking those?"
+  },
+  {
+   "id": "L0431",
+   "start": 2290.3,
+   "end": 2294.3,
+   "speaker": "S2",
+   "text": "No. No, I came off them. Last spring, it would be."
+  },
+  {
+   "id": "L0432",
+   "start": 2294.6,
+   "end": 2300.2,
+   "speaker": "S2",
+   "text": "Dr Patel said I could come off them slowly, and I did. Sertraline, they were."
+  },
+  {
+   "id": "L0433",
+   "start": 2300.6,
+   "end": 2302.9,
+   "speaker": "S1",
+   "text": "So you're not taking sertraline anymore?"
+  },
+  {
+   "id": "L0434",
+   "start": 2303.2,
+   "end": 2310.0,
+   "speaker": "S2",
+   "text": "No, not for over a year now. I didn't like how they made me feel. Sort of, flat."
+  },
+  {
+   "id": "L0435",
+   "start": 2310.5,
+   "end": 2314.4,
+   "speaker": "S1",
+   "text": "Okay. And how would you describe your mood now? Recently?"
+  },
+  {
+   "id": "L0436",
+   "start": 2314.7,
+   "end": 2320.1,
+   "speaker": "S2",
+   "text": "Up and down. Since the fall it's been more down than up, if I'm honest."
+  },
+  {
+   "id": "L0437",
+   "start": 2320.4,
+   "end": 2324.8,
+   "speaker": "S2",
+   "text": "I get fed up. I get frustrated with myself, with this hand."
+  },
+  {
+   "id": "L0438",
+   "start": 2325.1,
+   "end": 2329.6,
+   "speaker": "S2",
+   "text": "But it's not like it was after Frank. It's not that black."
+  },
+  {
+   "id": "L0439",
+   "start": 2330.7,
+   "end": 2336.0,
+   "speaker": "S2",
+   "text": "I still get up. I still feed Biscuit and I still watch my programmes."
+  },
+  {
+   "id": "L0440",
+   "start": 2337.1,
+   "end": 2346.1,
+   "speaker": "S1",
+   "text": "That's really helpful to understand. I'm going to ask you something now that I ask everybody, so please don't be alarmed by it."
+  },
+  {
+   "id": "L0441",
+   "start": 2346.3,
+   "end": 2347.2,
+   "speaker": "S2",
+   "text": "Alright."
+  },
+  {
+   "id": "L0442",
+   "start": 2347.5,
+   "end": 2352.5,
+   "speaker": "S1",
+   "text": "Have you had any thoughts of harming yourself, or of ending your life?"
+  },
+  {
+   "id": "L0443",
+   "start": 2353.0,
+   "end": 2359.8,
+   "speaker": "S2",
+   "text": "No. No, love. Not now. Never. I wouldn't. I've got too much to live for, my grandchildren, and Biscuit."
+  },
+  {
+   "id": "L0444",
+   "start": 2360.1,
+   "end": 2361.0,
+   "speaker": "S1",
+   "text": "Okay."
+  },
+  {
+   "id": "L0445",
+   "start": 2361.5,
+   "end": 2368.3,
+   "speaker": "S2",
+   "text": "Even back then, after Frank, I was very low, but I never thought of doing anything like that."
+  },
+  {
+   "id": "L0446",
+   "start": 2368.5,
+   "end": 2371.2,
+   "speaker": "S2",
+   "text": "And I don't now. Hand on heart."
+  },
+  {
+   "id": "L0447",
+   "start": 2371.7,
+   "end": 2375.8,
+   "speaker": "S1",
+   "text": "Thank you for answering that. I know it's a big question."
+  },
+  {
+   "id": "L0448",
+   "start": 2376.3,
+   "end": 2382.5,
+   "speaker": "S2",
+   "text": "No, it's alright. You have to ask. The lady at the surgery asked me the same."
+  },
+  {
+   "id": "L0449",
+   "start": 2383.1,
+   "end": 2389.9,
+   "speaker": "S1",
+   "text": "And if things did get very low again, would you feel able to tell someone? Kevin, or Dr Shah?"
+  },
+  {
+   "id": "L0450",
+   "start": 2390.4,
+   "end": 2397.5,
+   "speaker": "S2",
+   "text": "I'd tell Dr Shah. I think I would. I'd tell Susan, she gets it out of me anyway."
+  },
+  {
+   "id": "L0451",
+   "start": 2397.7,
+   "end": 2402.6,
+   "speaker": "S1",
+   "text": "That's good. And I'll leave you some numbers as well, just in case."
+  },
+  {
+   "id": "L0452",
+   "start": 2403.0,
+   "end": 2403.9,
+   "speaker": "S2",
+   "text": "Alright."
+  },
+  {
+   "id": "L0453",
+   "start": 2404.3,
+   "end": 2407.7,
+   "speaker": "S1",
+   "text": "Can I ask, do you drink alcohol at all?"
+  },
+  {
+   "id": "L0454",
+   "start": 2408.3,
+   "end": 2415.8,
+   "speaker": "S2",
+   "text": "No. Never have. Frank liked his pint of bitter down the club, but I never touched it. Can't stand the smell."
+  },
+  {
+   "id": "L0455",
+   "start": 2416.1,
+   "end": 2417.5,
+   "speaker": "S1",
+   "text": "And do you smoke?"
+  },
+  {
+   "id": "L0456",
+   "start": 2418.0,
+   "end": 2424.1,
+   "speaker": "S2",
+   "text": "Not for thirty years. I gave up when Kevin was little. Frank carried on, silly man."
+  },
+  {
+   "id": "L0457",
+   "start": 2424.5,
+   "end": 2428.7,
+   "speaker": "S1",
+   "text": "Okay. And your memory, how is that, generally? Any worries there?"
+  },
+  {
+   "id": "L0458",
+   "start": 2429.1,
+   "end": 2434.8,
+   "speaker": "S2",
+   "text": "It's alright. Mostly. I forget where I've put my glasses, but I always did that."
+  },
+  {
+   "id": "L0459",
+   "start": 2435.2,
+   "end": 2438.8,
+   "speaker": "S2",
+   "text": "I can still tell you all the kings and queens."
+  },
+  {
+   "id": "L0460",
+   "start": 2439.1,
+   "end": 2440.1,
+   "speaker": "S1",
+   "text": "Ha. Please don't."
+  },
+  {
+   "id": "L0461",
+   "start": 2440.3,
+   "end": 2442.9,
+   "speaker": "S2",
+   "text": "Ha! I won't. I'm not showing off."
+  },
+  {
+   "id": "L0462",
+   "start": 2443.2,
+   "end": 2449.4,
+   "speaker": "S1",
+   "text": "Okay. Margaret, before Kevin comes back. Earlier, you said money's been going, and you weren't sure where."
+  },
+  {
+   "id": "L0463",
+   "start": 2449.8,
+   "end": 2455.1,
+   "speaker": "S1",
+   "text": "Is that something you want to talk about now, just the two of us?"
+  },
+  {
+   "id": "L0464",
+   "start": 2455.4,
+   "end": 2456.3,
+   "speaker": "S2",
+   "text": "Oh. Um."
+  },
+  {
+   "id": "L0465",
+   "start": 2456.8,
+   "end": 2463.1,
+   "speaker": "S1",
+   "text": "There's no pressure. Whatever you tell me, I'll talk to you about what happens with it."
+  },
+  {
+   "id": "L0466",
+   "start": 2463.4,
+   "end": 2465.8,
+   "speaker": "S2",
+   "text": "It's Jordan. My grandson. Susan's boy."
+  },
+  {
+   "id": "L0467",
+   "start": 2466.2,
+   "end": 2467.1,
+   "speaker": "S1",
+   "text": "Okay."
+  },
+  {
+   "id": "L0468",
+   "start": 2467.5,
+   "end": 2472.4,
+   "speaker": "S2",
+   "text": "He stayed here in the UK when they went to Spain. He's twenty-two."
+  },
+  {
+   "id": "L0469",
+   "start": 2472.8,
+   "end": 2481.9,
+   "speaker": "S2",
+   "text": "He lives in town, in a flat with his girlfriend. He comes round sometimes, and he's lovely with me. He's a lovely lad."
+  },
+  {
+   "id": "L0470",
+   "start": 2482.2,
+   "end": 2483.1,
+   "speaker": "S1",
+   "text": "Mm."
+  },
+  {
+   "id": "L0471",
+   "start": 2483.3,
+   "end": 2490.2,
+   "speaker": "S2",
+   "text": "And he sometimes borrows my bank card. To get me cash, or to get himself a few bits."
+  },
+  {
+   "id": "L0472",
+   "start": 2490.4,
+   "end": 2497.5,
+   "speaker": "S2",
+   "text": "And I told him the number, so he could get my shopping, when I first came out of hospital."
+  },
+  {
+   "id": "L0473",
+   "start": 2498.0,
+   "end": 2498.9,
+   "speaker": "S1",
+   "text": "Okay."
+  },
+  {
+   "id": "L0474",
+   "start": 2499.4,
+   "end": 2505.2,
+   "speaker": "S2",
+   "text": "And then I got my statement and there were, um, there were a lot of withdrawals."
+  },
+  {
+   "id": "L0475",
+   "start": 2505.4,
+   "end": 2508.6,
+   "speaker": "S2",
+   "text": "More than I'd asked him for. A lot more."
+  },
+  {
+   "id": "L0476",
+   "start": 2509.1,
+   "end": 2511.4,
+   "speaker": "S1",
+   "text": "Do you know roughly how much?"
+  },
+  {
+   "id": "L0477",
+   "start": 2511.8,
+   "end": 2515.6,
+   "speaker": "S2",
+   "text": "About four hundred pounds. No, wait. It's more than that."
+  },
+  {
+   "id": "L0478",
+   "start": 2516.0,
+   "end": 2522.9,
+   "speaker": "S2",
+   "text": "I added it up with my magnifying glass. It's about six hundred pounds. Over the last two months."
+  },
+  {
+   "id": "L0479",
+   "start": 2523.2,
+   "end": 2526.1,
+   "speaker": "S1",
+   "text": "About six hundred pounds over two months. Okay."
+  },
+  {
+   "id": "L0480",
+   "start": 2526.4,
+   "end": 2530.7,
+   "speaker": "S2",
+   "text": "I don't want him to get into trouble. He's only young."
+  },
+  {
+   "id": "L0481",
+   "start": 2531.1,
+   "end": 2538.3,
+   "speaker": "S2",
+   "text": "He's had a hard time, with his mum going off to Spain. Maybe he needed it for something."
+  },
+  {
+   "id": "L0482",
+   "start": 2538.8,
+   "end": 2542.8,
+   "speaker": "S1",
+   "text": "I can hear that you care about him a lot."
+  },
+  {
+   "id": "L0483",
+   "start": 2543.2,
+   "end": 2550.3,
+   "speaker": "S2",
+   "text": "I do. I love the bones of him. But it's my pension, you know. I've been going without."
+  },
+  {
+   "id": "L0484",
+   "start": 2550.6,
+   "end": 2553.8,
+   "speaker": "S2",
+   "text": "I don't know. Maybe I did say he could."
+  },
+  {
+   "id": "L0485",
+   "start": 2554.2,
+   "end": 2558.8,
+   "speaker": "S2",
+   "text": "I can't remember everything I said. I don't want to make a fuss."
+  },
+  {
+   "id": "L0486",
+   "start": 2559.2,
+   "end": 2564.6,
+   "speaker": "S1",
+   "text": "That's alright. You don't have to be sure. Does he still have your card now?"
+  },
+  {
+   "id": "L0487",
+   "start": 2565.0,
+   "end": 2570.2,
+   "speaker": "S2",
+   "text": "He's got it now, yes. He said he'd bring it back on Saturday."
+  },
+  {
+   "id": "L0488",
+   "start": 2570.8,
+   "end": 2578.1,
+   "speaker": "S1",
+   "text": "Okay. Would you be happy to talk about this with Kevin here? Or would you rather he didn't know?"
+  },
+  {
+   "id": "L0489",
+   "start": 2578.6,
+   "end": 2583.5,
+   "speaker": "S2",
+   "text": "He'll have to know, won't he. He'll be the one sorting it out."
+  },
+  {
+   "id": "L0490",
+   "start": 2583.8,
+   "end": 2589.0,
+   "speaker": "S2",
+   "text": "Yes. You can say it in front of Kevin. But let me tell him."
+  },
+  {
+   "id": "L0491",
+   "start": 2589.5,
+   "end": 2591.4,
+   "speaker": "S1",
+   "text": "Of course. That's absolutely fine."
+  },
+  {
+   "id": "L0492",
+   "start": 2591.8,
+   "end": 2594.8,
+   "speaker": "S2",
+   "text": "He's going to go off like a rocket."
+  },
+  {
+   "id": "L0493",
+   "start": 2595.3,
+   "end": 2600.5,
+   "speaker": "S1",
+   "text": "It's alright. We'll take it steady. Is he still out there with the bins?"
+  },
+  {
+   "id": "L0494",
+   "start": 2600.9,
+   "end": 2606.9,
+   "speaker": "S2",
+   "text": "He'll be talking to Brenda over the fence, I expect. She collars him every time."
+  },
+  {
+   "id": "L0495",
+   "start": 2607.4,
+   "end": 2611.4,
+   "speaker": "S1",
+   "text": "Ha. While we wait, what's your quiz, the one at four?"
+  },
+  {
+   "id": "L0496",
+   "start": 2611.7,
+   "end": 2616.4,
+   "speaker": "S2",
+   "text": "Oh, it's the one with the big machine and the counters, you know."
+  },
+  {
+   "id": "L0497",
+   "start": 2616.6,
+   "end": 2624.6,
+   "speaker": "S2",
+   "text": "They drop them in and they push the others off. I can never remember what it's called. I'm hopeless with names."
+  },
+  {
+   "id": "L0498",
+   "start": 2624.9,
+   "end": 2629.7,
+   "speaker": "S1",
+   "text": "I think I know the one you mean. My dad watches it."
+  },
+  {
+   "id": "L0499",
+   "start": 2630.1,
+   "end": 2635.5,
+   "speaker": "S2",
+   "text": "And then after that there's the antiques one. With the man with the bow tie."
+  },
+  {
+   "id": "L0500",
+   "start": 2635.9,
+   "end": 2642.0,
+   "speaker": "S2",
+   "text": "I like that one better. People bring in their old rubbish and it's worth a fortune."
+  },
+  {
+   "id": "L0501",
+   "start": 2642.6,
+   "end": 2646.0,
+   "speaker": "S1",
+   "text": "Have you got anything worth a fortune in here?"
+  },
+  {
+   "id": "L0502",
+   "start": 2646.2,
+   "end": 2649.3,
+   "speaker": "S2",
+   "text": "Only Biscuit. And he's not for sale. Ha."
+  },
+  {
+   "id": "L0503",
+   "start": 2649.5,
+   "end": 2657.0,
+   "speaker": "S2",
+   "text": "There was a lady last week with a teapot, an ugly old thing, and it went for two thousand pounds."
+  },
+  {
+   "id": "L0504",
+   "start": 2657.5,
+   "end": 2659.3,
+   "speaker": "S1",
+   "text": "Two thousand, for a teapot!"
+  },
+  {
+   "id": "L0505",
+   "start": 2659.9,
+   "end": 2667.6,
+   "speaker": "S2",
+   "text": "I said to Biscuit, I said, we've got that teapot's ugly sister in the cupboard. Two thousand. I ask you."
+  },
+  {
+   "id": "L0506",
+   "start": 2668.1,
+   "end": 2670.6,
+   "speaker": "S1",
+   "text": "Maybe you should get it looked at."
+  },
+  {
+   "id": "L0507",
+   "start": 2671.1,
+   "end": 2676.7,
+   "speaker": "S2",
+   "text": "I'd never part with it. It was my mother's. You don't sell your mother's teapot."
+  },
+  {
+   "id": "L0508",
+   "start": 2677.3,
+   "end": 2681.1,
+   "speaker": "S1",
+   "text": "No, you don't. That's what makes it worth something, really."
+  },
+  {
+   "id": "L0509",
+   "start": 2681.4,
+   "end": 2685.8,
+   "speaker": "S2",
+   "text": "That's what I think. Is that the back door? That'll be him."
+  },
+  {
+   "id": "L0510",
+   "start": 2686.2,
+   "end": 2691.8,
+   "speaker": "S1",
+   "text": "I think so. Are you alright? Do you want a minute before he comes in?"
+  },
+  {
+   "id": "L0511",
+   "start": 2692.0,
+   "end": 2696.6,
+   "speaker": "S2",
+   "text": "No, I'm alright. Let's get it over with. Like pulling a tooth."
+  },
+  {
+   "id": "L0512",
+   "start": 2697.0,
+   "end": 2705.7,
+   "speaker": "S3",
+   "text": "Right, that's the washing on the airer and the bins out. It's blowing a gale out there, the lid nearly took my head off."
+  },
+  {
+   "id": "L0513",
+   "start": 2706.1,
+   "end": 2708.9,
+   "speaker": "S2",
+   "text": "Did you put the brick on it?"
+  },
+  {
+   "id": "L0514",
+   "start": 2709.5,
+   "end": 2712.1,
+   "speaker": "S3",
+   "text": "I put the brick on it, Mum."
+  },
+  {
+   "id": "L0515",
+   "start": 2712.7,
+   "end": 2717.1,
+   "speaker": "S2",
+   "text": "Last time the lid went all the way down to number twelve."
+  },
+  {
+   "id": "L0516",
+   "start": 2717.6,
+   "end": 2723.2,
+   "speaker": "S3",
+   "text": "I know, I had to go and knock for it. Anyway. Where were we?"
+  },
+  {
+   "id": "L0517",
+   "start": 2723.6,
+   "end": 2730.8,
+   "speaker": "S1",
+   "text": "We were just going to talk about money, and finances. Margaret, did you want to say something to Kevin first?"
+  },
+  {
+   "id": "L0518",
+   "start": 2731.1,
+   "end": 2734.4,
+   "speaker": "S2",
+   "text": "Sit down, Kevin. Don't go off. It's about Jordan."
+  },
+  {
+   "id": "L0519",
+   "start": 2734.8,
+   "end": 2735.9,
+   "speaker": "S3",
+   "text": "What about Jordan?"
+  },
+  {
+   "id": "L0520",
+   "start": 2736.2,
+   "end": 2742.7,
+   "speaker": "S2",
+   "text": "He's been borrowing my card. And there's money gone out that I didn't ask him to take."
+  },
+  {
+   "id": "L0521",
+   "start": 2743.0,
+   "end": 2746.8,
+   "speaker": "S2",
+   "text": "About six hundred pounds. Over the last couple of months."
+  },
+  {
+   "id": "L0522",
+   "start": 2747.2,
+   "end": 2751.6,
+   "speaker": "S3",
+   "text": "You're joking. Six hundred quid? Mum, why didn't you tell me?"
+  },
+  {
+   "id": "L0523",
+   "start": 2752.2,
+   "end": 2754.9,
+   "speaker": "S2",
+   "text": "Because of this. Because of that face."
+  },
+  {
+   "id": "L0524",
+   "start": 2755.2,
+   "end": 2761.6,
+   "speaker": "S3",
+   "text": "I'm not, I'm not angry with you. I'm angry with him. Has he got your PIN?"
+  },
+  {
+   "id": "L0525",
+   "start": 2761.9,
+   "end": 2768.3,
+   "speaker": "S2",
+   "text": "I gave it him. When I came out of hospital. So he could do my shopping."
+  },
+  {
+   "id": "L0526",
+   "start": 2768.8,
+   "end": 2781.0,
+   "speaker": "S3",
+   "text": "Right. Well, I'll tell you something else, then. Brenda said to me, a few weeks back, she said she thought she'd seen Jordan at the cash machine on the high street, by the chemist."
+  },
+  {
+   "id": "L0527",
+   "start": 2781.3,
+   "end": 2788.2,
+   "speaker": "S3",
+   "text": "With a card. She wasn't sure it was him, she hasn't got her glasses on half the time."
+  },
+  {
+   "id": "L0528",
+   "start": 2788.7,
+   "end": 2794.2,
+   "speaker": "S2",
+   "text": "Brenda sees all sorts. She thought she saw the Pope in the Co-op once."
+  },
+  {
+   "id": "L0529",
+   "start": 2794.6,
+   "end": 2800.7,
+   "speaker": "S1",
+   "text": "Okay. So that's something Brenda mentioned to you, Kevin, but she wasn't sure it was him."
+  },
+  {
+   "id": "L0530",
+   "start": 2801.3,
+   "end": 2804.6,
+   "speaker": "S3",
+   "text": "That's what she said, yeah. She said she thought."
+  },
+  {
+   "id": "L0531",
+   "start": 2804.8,
+   "end": 2815.1,
+   "speaker": "S3",
+   "text": "And, um, somebody told me, one of his old mates' mums, that he's got himself into debt with the betting. On his phone. The gambling apps."
+  },
+  {
+   "id": "L0532",
+   "start": 2815.5,
+   "end": 2819.1,
+   "speaker": "S2",
+   "text": "Oh, Kevin, that's just gossip. You don't know that."
+  },
+  {
+   "id": "L0533",
+   "start": 2819.4,
+   "end": 2825.3,
+   "speaker": "S3",
+   "text": "I don't know it, no. It's just what I heard. But it'd make sense, wouldn't it."
+  },
+  {
+   "id": "L0534",
+   "start": 2825.7,
+   "end": 2832.7,
+   "speaker": "S1",
+   "text": "Okay. I'm going to note that down as something that's been said to you, not as something we know."
+  },
+  {
+   "id": "L0535",
+   "start": 2833.0,
+   "end": 2835.8,
+   "speaker": "S1",
+   "text": "It's really important I keep those separate."
+  },
+  {
+   "id": "L0536",
+   "start": 2836.1,
+   "end": 2837.0,
+   "speaker": "S3",
+   "text": "Fair enough."
+  },
+  {
+   "id": "L0537",
+   "start": 2837.3,
+   "end": 2843.6,
+   "speaker": "S3",
+   "text": "Honestly, I think we should just ring the police. That's theft, that is. Family or not."
+  },
+  {
+   "id": "L0538",
+   "start": 2844.0,
+   "end": 2849.5,
+   "speaker": "S2",
+   "text": "No. I'm not having the police round here for Jordan. I'm not. He's my grandson."
+  },
+  {
+   "id": "L0539",
+   "start": 2849.7,
+   "end": 2851.7,
+   "speaker": "S3",
+   "text": "Mum, he's taking your pension."
+  },
+  {
+   "id": "L0540",
+   "start": 2852.2,
+   "end": 2855.7,
+   "speaker": "S2",
+   "text": "I said no, Kevin. I don't want the police."
+  },
+  {
+   "id": "L0541",
+   "start": 2856.0,
+   "end": 2862.0,
+   "speaker": "S2",
+   "text": "I want him to stop, and I want my card back. That's all I want."
+  },
+  {
+   "id": "L0542",
+   "start": 2862.4,
+   "end": 2868.7,
+   "speaker": "S1",
+   "text": "Can I say something about how this works, because I think it might help you both?"
+  },
+  {
+   "id": "L0543",
+   "start": 2869.1,
+   "end": 2870.0,
+   "speaker": "S3",
+   "text": "Go on."
+  },
+  {
+   "id": "L0544",
+   "start": 2870.5,
+   "end": 2884.9,
+   "speaker": "S1",
+   "text": "So, what you've told me today, Margaret, I have a duty to take seriously. Because it sounds like somebody may be taking your money without your permission, that's something I need to raise as a safeguarding concern."
+  },
+  {
+   "id": "L0545",
+   "start": 2885.3,
+   "end": 2889.0,
+   "speaker": "S2",
+   "text": "What does that mean? Is Jordan going to be arrested?"
+  },
+  {
+   "id": "L0546",
+   "start": 2889.3,
+   "end": 2891.1,
+   "speaker": "S1",
+   "text": "No. It doesn't mean that."
+  },
+  {
+   "id": "L0547",
+   "start": 2891.4,
+   "end": 2903.1,
+   "speaker": "S1",
+   "text": "It means I'll pass what you've told me to our safeguarding adults team here at the council, and they'll look at what's happened and what would help keep you safe."
+  },
+  {
+   "id": "L0548",
+   "start": 2903.5,
+   "end": 2907.5,
+   "speaker": "S1",
+   "text": "And a really big part of that is what you want."
+  },
+  {
+   "id": "L0549",
+   "start": 2907.8,
+   "end": 2918.5,
+   "speaker": "S1",
+   "text": "You've said very clearly you don't want the police involved, and you want Jordan to stop and you want your card back. That will be at the centre of it."
+  },
+  {
+   "id": "L0550",
+   "start": 2918.8,
+   "end": 2920.6,
+   "speaker": "S2",
+   "text": "So it's not the police."
+  },
+  {
+   "id": "L0551",
+   "start": 2921.6,
+   "end": 2933.3,
+   "speaker": "S1",
+   "text": "Not unless you decide you want that, or unless there was a risk to someone else that meant we had to. And if that ever happened, I'd talk to you first."
+  },
+  {
+   "id": "L0552",
+   "start": 2933.8,
+   "end": 2937.4,
+   "speaker": "S2",
+   "text": "Alright. Alright then. As long as it's not the police."
+  },
+  {
+   "id": "L0553",
+   "start": 2938.0,
+   "end": 2941.9,
+   "speaker": "S3",
+   "text": "I still think he wants a clip round the ear."
+  },
+  {
+   "id": "L0554",
+   "start": 2942.5,
+   "end": 2943.4,
+   "speaker": "S2",
+   "text": "Kevin."
+  },
+  {
+   "id": "L0555",
+   "start": 2943.8,
+   "end": 2951.8,
+   "speaker": "S1",
+   "text": "The other thing that will really help straight away is stopping the card. Do you know which bank it is?"
+  },
+  {
+   "id": "L0556",
+   "start": 2952.3,
+   "end": 2956.5,
+   "speaker": "S2",
+   "text": "It's the Midshire. The building society. My pension goes in there."
+  },
+  {
+   "id": "L0557",
+   "start": 2957.1,
+   "end": 2967.6,
+   "speaker": "S1",
+   "text": "So the building society can cancel the card, and issue you a new one with a new PIN. And they can sometimes look into withdrawals as well."
+  },
+  {
+   "id": "L0558",
+   "start": 2968.1,
+   "end": 2971.3,
+   "speaker": "S3",
+   "text": "I can take her. I'm off on Friday."
+  },
+  {
+   "id": "L0559",
+   "start": 2971.6,
+   "end": 2979.0,
+   "speaker": "S3",
+   "text": "I'll take her into the branch on Friday morning and we'll get it cancelled and get a new one."
+  },
+  {
+   "id": "L0560",
+   "start": 2979.6,
+   "end": 2980.7,
+   "speaker": "S2",
+   "text": "Would you, love?"
+  },
+  {
+   "id": "L0561",
+   "start": 2981.0,
+   "end": 2982.2,
+   "speaker": "S3",
+   "text": "Course I will."
+  },
+  {
+   "id": "L0562",
+   "start": 2982.7,
+   "end": 2990.8,
+   "speaker": "S1",
+   "text": "That's great. So that's Kevin taking you to the Midshire branch on Friday to cancel the card and order a new one."
+  },
+  {
+   "id": "L0563",
+   "start": 2991.1,
+   "end": 2996.1,
+   "speaker": "S1",
+   "text": "And Margaret, the new PIN, it's best not to share it with anyone."
+  },
+  {
+   "id": "L0564",
+   "start": 2996.6,
+   "end": 2999.0,
+   "speaker": "S2",
+   "text": "I won't. I've learned my lesson."
+  },
+  {
+   "id": "L0565",
+   "start": 2999.4,
+   "end": 3005.9,
+   "speaker": "S1",
+   "text": "Okay. And can I check, are you happy for me to share this with the safeguarding team?"
+  },
+  {
+   "id": "L0566",
+   "start": 3006.3,
+   "end": 3008.5,
+   "speaker": "S1",
+   "text": "And for them to contact you?"
+  },
+  {
+   "id": "L0567",
+   "start": 3009.0,
+   "end": 3012.6,
+   "speaker": "S2",
+   "text": "Yes. Yes, you can. I just want it sorted."
+  },
+  {
+   "id": "L0568",
+   "start": 3013.1,
+   "end": 3017.8,
+   "speaker": "S1",
+   "text": "Thank you. I'll make that referral today, before I finish this afternoon."
+  },
+  {
+   "id": "L0569",
+   "start": 3018.0,
+   "end": 3023.5,
+   "speaker": "S1",
+   "text": "Right. So, more generally on money. Can I ask what income you have coming in?"
+  },
+  {
+   "id": "L0570",
+   "start": 3024.0,
+   "end": 3030.6,
+   "speaker": "S2",
+   "text": "My state pension. And Frank's pension, from the railway. I get half of it now, a widow's pension."
+  },
+  {
+   "id": "L0571",
+   "start": 3031.0,
+   "end": 3034.5,
+   "speaker": "S1",
+   "text": "Okay. And do you own the house, or rent?"
+  },
+  {
+   "id": "L0572",
+   "start": 3034.8,
+   "end": 3040.3,
+   "speaker": "S2",
+   "text": "We own it. Paid it off years ago. Frank was very proud of that."
+  },
+  {
+   "id": "L0573",
+   "start": 3040.7,
+   "end": 3043.3,
+   "speaker": "S1",
+   "text": "And do you have any savings, roughly?"
+  },
+  {
+   "id": "L0574",
+   "start": 3043.9,
+   "end": 3050.7,
+   "speaker": "S2",
+   "text": "There's about nine thousand in the building society. That's my funeral money, and a bit for the grandchildren."
+  },
+  {
+   "id": "L0575",
+   "start": 3051.0,
+   "end": 3058.6,
+   "speaker": "S1",
+   "text": "About nine thousand pounds. Okay. And are you getting any benefits on top of your pension? Attendance Allowance, for example?"
+  },
+  {
+   "id": "L0576",
+   "start": 3059.1,
+   "end": 3061.4,
+   "speaker": "S2",
+   "text": "I don't think so. What's that?"
+  },
+  {
+   "id": "L0577",
+   "start": 3062.0,
+   "end": 3067.4,
+   "speaker": "S1",
+   "text": "It's a benefit for people over state pension age who need help with personal care."
+  },
+  {
+   "id": "L0578",
+   "start": 3067.6,
+   "end": 3075.7,
+   "speaker": "S1",
+   "text": "It's not means tested, so your savings don't count. From what you've told me today, you might well be entitled to it."
+  },
+  {
+   "id": "L0579",
+   "start": 3076.0,
+   "end": 3078.3,
+   "speaker": "S3",
+   "text": "Nobody ever told us about that."
+  },
+  {
+   "id": "L0580",
+   "start": 3078.7,
+   "end": 3087.3,
+   "speaker": "S1",
+   "text": "A lot of people don't know. I can send you the form, and there's a service that can help you fill it in."
+  },
+  {
+   "id": "L0581",
+   "start": 3087.8,
+   "end": 3090.0,
+   "speaker": "S2",
+   "text": "I'd need help, with my hand."
+  },
+  {
+   "id": "L0582",
+   "start": 3090.2,
+   "end": 3092.5,
+   "speaker": "S3",
+   "text": "I'll do it with you, Mum."
+  },
+  {
+   "id": "L0583",
+   "start": 3093.0,
+   "end": 3098.6,
+   "speaker": "S1",
+   "text": "Lovely. And the other thing I need to explain, just so there are no surprises."
+  },
+  {
+   "id": "L0584",
+   "start": 3098.8,
+   "end": 3107.5,
+   "speaker": "S1",
+   "text": "If the council does arrange ongoing care, there's a financial assessment, to work out whether you'd need to pay something towards it."
+  },
+  {
+   "id": "L0585",
+   "start": 3108.1,
+   "end": 3110.0,
+   "speaker": "S2",
+   "text": "So I'd have to pay?"
+  },
+  {
+   "id": "L0586",
+   "start": 3110.4,
+   "end": 3115.3,
+   "speaker": "S1",
+   "text": "You might have to contribute something. It depends on your income and savings."
+  },
+  {
+   "id": "L0587",
+   "start": 3116.4,
+   "end": 3124.8,
+   "speaker": "S1",
+   "text": "The house isn't counted for care at home. Somebody from the financial assessment team will talk it through with you properly."
+  },
+  {
+   "id": "L0588",
+   "start": 3126.0,
+   "end": 3130.5,
+   "speaker": "S2",
+   "text": "Well. I'd rather pay a bit and stay here than anything else."
+  },
+  {
+   "id": "L0589",
+   "start": 3130.9,
+   "end": 3138.1,
+   "speaker": "S1",
+   "text": "Okay. We're nearly there, I promise. Can I just ask you, Margaret, if you had to sum it up."
+  },
+  {
+   "id": "L0590",
+   "start": 3138.5,
+   "end": 3144.9,
+   "speaker": "S1",
+   "text": "What matters most to you? What would a good life look like, over the next few months?"
+  },
+  {
+   "id": "L0591",
+   "start": 3145.1,
+   "end": 3146.9,
+   "speaker": "S2",
+   "text": "Oh. That's a big question."
+  },
+  {
+   "id": "L0592",
+   "start": 3147.4,
+   "end": 3148.6,
+   "speaker": "S1",
+   "text": "Take your time."
+  },
+  {
+   "id": "L0593",
+   "start": 3149.1,
+   "end": 3153.6,
+   "speaker": "S2",
+   "text": "Staying here. That's the first thing. In my own home, with Biscuit."
+  },
+  {
+   "id": "L0594",
+   "start": 3153.8,
+   "end": 3159.1,
+   "speaker": "S2",
+   "text": "And being able to have a bath. A proper bath. And wash my hair."
+  },
+  {
+   "id": "L0595",
+   "start": 3160.5,
+   "end": 3164.4,
+   "speaker": "S2",
+   "text": "And getting back to the lunch club, seeing Joan and Pat."
+  },
+  {
+   "id": "L0596",
+   "start": 3164.8,
+   "end": 3169.2,
+   "speaker": "S2",
+   "text": "And not being frightened all the time. Of falling. Of the kitchen."
+  },
+  {
+   "id": "L0597",
+   "start": 3169.6,
+   "end": 3171.4,
+   "speaker": "S1",
+   "text": "That's really clear. Anything else?"
+  },
+  {
+   "id": "L0598",
+   "start": 3171.9,
+   "end": 3176.4,
+   "speaker": "S2",
+   "text": "I'd like to be able to cook myself a proper dinner again."
+  },
+  {
+   "id": "L0599",
+   "start": 3176.7,
+   "end": 3181.8,
+   "speaker": "S2",
+   "text": "Not every day. But now and then. A bit of mince, some potatoes."
+  },
+  {
+   "id": "L0600",
+   "start": 3182.3,
+   "end": 3183.8,
+   "speaker": "S3",
+   "text": "And your roses, Mum."
+  },
+  {
+   "id": "L0601",
+   "start": 3184.4,
+   "end": 3186.2,
+   "speaker": "S2",
+   "text": "And my roses. Frank's roses."
+  },
+  {
+   "id": "L0602",
+   "start": 3186.5,
+   "end": 3194.4,
+   "speaker": "S2",
+   "text": "I'd like to see them come out this summer and be well enough to go out and look at them."
+  },
+  {
+   "id": "L0603",
+   "start": 3194.6,
+   "end": 3196.2,
+   "speaker": "S1",
+   "text": "That's lovely. Thank you."
+  },
+  {
+   "id": "L0604",
+   "start": 3196.6,
+   "end": 3203.8,
+   "speaker": "S1",
+   "text": "So, let me try and pull this together, and you can both tell me if I've got it wrong."
+  },
+  {
+   "id": "L0605",
+   "start": 3204.3,
+   "end": 3205.2,
+   "speaker": "S2",
+   "text": "Go on."
+  },
+  {
+   "id": "L0606",
+   "start": 3205.6,
+   "end": 3219.9,
+   "speaker": "S1",
+   "text": "So, since the fall on the third of March, and the two falls before that, you're finding it very hard to wash properly, especially bathing and your hair. Getting dressed takes up to an hour and wears you out."
+  },
+  {
+   "id": "L0607",
+   "start": 3221.0,
+   "end": 3227.3,
+   "speaker": "S1",
+   "text": "You're not able to prepare proper meals, you're eating very little and you've lost nearly a stone."
+  },
+  {
+   "id": "L0608",
+   "start": 3227.6,
+   "end": 3235.8,
+   "speaker": "S1",
+   "text": "You've missed some of your tablets. And you're on your own a lot, and you're feeling lonely and more low than usual."
+  },
+  {
+   "id": "L0609",
+   "start": 3236.1,
+   "end": 3238.4,
+   "speaker": "S2",
+   "text": "That's about the size of it."
+  },
+  {
+   "id": "L0610",
+   "start": 3238.6,
+   "end": 3248.9,
+   "speaker": "S1",
+   "text": "And all of that is having quite a significant impact on your wellbeing. Your physical health, your safety, your mood, and being able to see people."
+  },
+  {
+   "id": "L0611",
+   "start": 3249.3,
+   "end": 3263.1,
+   "speaker": "S1",
+   "text": "So from what I've heard today, I think it's likely that you'll meet the eligibility criteria for support. I can't confirm that on my own, it has to be agreed, but that's what I'll be recommending."
+  },
+  {
+   "id": "L0612",
+   "start": 3263.6,
+   "end": 3266.1,
+   "speaker": "S3",
+   "text": "What would the support actually be, though?"
+  },
+  {
+   "id": "L0613",
+   "start": 3266.4,
+   "end": 3283.8,
+   "speaker": "S1",
+   "text": "So what I'd like to request is something called reablement. It's short-term, it's usually free for up to six weeks, and carers come in to help, but the idea is to help your mum get her confidence back and do things for herself again."
+  },
+  {
+   "id": "L0614",
+   "start": 3284.4,
+   "end": 3286.0,
+   "speaker": "S2",
+   "text": "Carers coming in here?"
+  },
+  {
+   "id": "L0615",
+   "start": 3286.5,
+   "end": 3297.0,
+   "speaker": "S1",
+   "text": "Yes. What I'm thinking is a visit in the morning, to help with washing and dressing and your tablets, and a visit at teatime to help with a meal."
+  },
+  {
+   "id": "L0616",
+   "start": 3297.4,
+   "end": 3298.3,
+   "speaker": "S2",
+   "text": "Every day?"
+  },
+  {
+   "id": "L0617",
+   "start": 3298.8,
+   "end": 3308.5,
+   "speaker": "S1",
+   "text": "Every day to start with, and then it tapers off as you get more confident. But I need to be clear, that isn't agreed yet."
+  },
+  {
+   "id": "L0618",
+   "start": 3308.9,
+   "end": 3317.6,
+   "speaker": "S1",
+   "text": "I have to put the request in, and my manager has to approve it. I'll let you know by the end of next week."
+  },
+  {
+   "id": "L0619",
+   "start": 3319.0,
+   "end": 3320.8,
+   "speaker": "S3",
+   "text": "Okay. So it's not definite."
+  },
+  {
+   "id": "L0620",
+   "start": 3321.2,
+   "end": 3326.7,
+   "speaker": "S1",
+   "text": "Not definite, no. I don't want to promise something and then it not happen."
+  },
+  {
+   "id": "L0621",
+   "start": 3326.9,
+   "end": 3333.9,
+   "speaker": "S2",
+   "text": "Well, as long as they're not bossy. I don't want someone bossing me about in my own kitchen."
+  },
+  {
+   "id": "L0622",
+   "start": 3334.4,
+   "end": 3337.3,
+   "speaker": "S1",
+   "text": "Ha. I'll put that in. No bossy carers."
+  },
+  {
+   "id": "L0623",
+   "start": 3337.5,
+   "end": 3339.0,
+   "speaker": "S3",
+   "text": "Good luck with that."
+  },
+  {
+   "id": "L0624",
+   "start": 3339.8,
+   "end": 3349.4,
+   "speaker": "S1",
+   "text": "So, let me go through the next steps, and who's doing what. I'll write it all down and leave a copy with you as well."
+  },
+  {
+   "id": "L0625",
+   "start": 3349.7,
+   "end": 3353.1,
+   "speaker": "S2",
+   "text": "Thank you, love, because I won't remember it all."
+  },
+  {
+   "id": "L0626",
+   "start": 3353.3,
+   "end": 3357.2,
+   "speaker": "S1",
+   "text": "First, me. Today I'll make the referral to occupational therapy."
+  },
+  {
+   "id": "L0627",
+   "start": 3357.4,
+   "end": 3370.1,
+   "speaker": "S1",
+   "text": "That's for the bath, so a bath lift or a board, a second rail on the stairs, a second frame for upstairs, and they can look at the back step and that pull cord light."
+  },
+  {
+   "id": "L0628",
+   "start": 3371.4,
+   "end": 3373.3,
+   "speaker": "S3",
+   "text": "How long does that take?"
+  },
+  {
+   "id": "L0629",
+   "start": 3373.6,
+   "end": 3383.8,
+   "speaker": "S1",
+   "text": "The OT waiting list is about three weeks at the moment. I'll mark it as a priority because of the falls, but I can't promise it'll be quicker."
+  },
+  {
+   "id": "L0630",
+   "start": 3384.2,
+   "end": 3397.3,
+   "speaker": "S1",
+   "text": "Second, I'll make the safeguarding referral about the card, this afternoon, like we said. Somebody from the safeguarding team will be in touch with you, Margaret, and I'll be in touch as well."
+  },
+  {
+   "id": "L0631",
+   "start": 3398.3,
+   "end": 3399.2,
+   "speaker": "S2",
+   "text": "Alright."
+  },
+  {
+   "id": "L0632",
+   "start": 3399.7,
+   "end": 3407.4,
+   "speaker": "S1",
+   "text": "Third, I'll refer you for the alarm, the telecare. The Careline one, the watch kind that can detect a fall."
+  },
+  {
+   "id": "L0633",
+   "start": 3407.7,
+   "end": 3411.8,
+   "speaker": "S1",
+   "text": "They usually come out and fit it within about ten days."
+  },
+  {
+   "id": "L0634",
+   "start": 3412.4,
+   "end": 3414.4,
+   "speaker": "S2",
+   "text": "The Carolyn, yes. The watch."
+  },
+  {
+   "id": "L0635",
+   "start": 3414.7,
+   "end": 3425.6,
+   "speaker": "S1",
+   "text": "Fourth, I'll write to Dr Shah. I'll ask about a referral to the falls clinic, and I'll mention the weight loss, the continence service, and the missed tablets."
+  },
+  {
+   "id": "L0636",
+   "start": 3425.8,
+   "end": 3431.5,
+   "speaker": "S1",
+   "text": "And I'll ring the chemist on Station Road about a pack that's easier to open."
+  },
+  {
+   "id": "L0637",
+   "start": 3432.0,
+   "end": 3433.8,
+   "speaker": "S2",
+   "text": "Dr Shah, not Dr Patel."
+  },
+  {
+   "id": "L0638",
+   "start": 3434.3,
+   "end": 3435.8,
+   "speaker": "S1",
+   "text": "Ha. Dr Shah. Definitely."
+  },
+  {
+   "id": "L0639",
+   "start": 3436.0,
+   "end": 3445.5,
+   "speaker": "S1",
+   "text": "Fifth, I'll put in the request for reablement, the morning and teatime visits, and I'll let you know the outcome by the end of next week."
+  },
+  {
+   "id": "L0640",
+   "start": 3445.8,
+   "end": 3454.0,
+   "speaker": "S1",
+   "text": "And sixth, I'll find out about transport to the lunch club at St Michael's, on Thursdays, and let you know what's available."
+  },
+  {
+   "id": "L0641",
+   "start": 3454.2,
+   "end": 3457.0,
+   "speaker": "S2",
+   "text": "That's a lot of things for you."
+  },
+  {
+   "id": "L0642",
+   "start": 3457.3,
+   "end": 3459.1,
+   "speaker": "S1",
+   "text": "That's my job. Now, Kevin."
+  },
+  {
+   "id": "L0643",
+   "start": 3459.5,
+   "end": 3466.9,
+   "speaker": "S1",
+   "text": "You're taking your mum to the Midshire branch on Friday morning, to cancel the card and get a new one."
+  },
+  {
+   "id": "L0644",
+   "start": 3467.4,
+   "end": 3468.6,
+   "speaker": "S3",
+   "text": "Friday morning. Yes."
+  },
+  {
+   "id": "L0645",
+   "start": 3469.1,
+   "end": 3476.4,
+   "speaker": "S1",
+   "text": "And you said you'd help with the Attendance Allowance form, which I'll post out, along with the financial assessment form."
+  },
+  {
+   "id": "L0646",
+   "start": 3476.8,
+   "end": 3479.8,
+   "speaker": "S3",
+   "text": "Yep. I'll do them on Sunday with her."
+  },
+  {
+   "id": "L0647",
+   "start": 3480.2,
+   "end": 3485.1,
+   "speaker": "S2",
+   "text": "And he's going to take the rug up in the hall. This weekend."
+  },
+  {
+   "id": "L0648",
+   "start": 3485.3,
+   "end": 3489.9,
+   "speaker": "S2",
+   "text": "Just the hall one, mind. Not the one in here, that stays."
+  },
+  {
+   "id": "L0649",
+   "start": 3490.4,
+   "end": 3493.3,
+   "speaker": "S3",
+   "text": "Really? You're letting me take the rug up?"
+  },
+  {
+   "id": "L0650",
+   "start": 3493.8,
+   "end": 3496.3,
+   "speaker": "S2",
+   "text": "The hall one. Don't push your luck."
+  },
+  {
+   "id": "L0651",
+   "start": 3497.2,
+   "end": 3503.8,
+   "speaker": "S1",
+   "text": "That's a great start. And Margaret, you said you might set your alarm clock for your morning tablets?"
+  },
+  {
+   "id": "L0652",
+   "start": 3504.2,
+   "end": 3510.5,
+   "speaker": "S2",
+   "text": "I'll set it for nine o'clock. Kevin can show me how, the buttons are ever so small."
+  },
+  {
+   "id": "L0653",
+   "start": 3511.0,
+   "end": 3519.4,
+   "speaker": "S1",
+   "text": "Perfect. And I'll give you a ring on Monday to see how Friday went at the building society, and to check in."
+  },
+  {
+   "id": "L0654",
+   "start": 3519.7,
+   "end": 3520.6,
+   "speaker": "S2",
+   "text": "Monday. Alright."
+  },
+  {
+   "id": "L0655",
+   "start": 3520.9,
+   "end": 3525.2,
+   "speaker": "S1",
+   "text": "And then I'd like to come back and see you again."
+  },
+  {
+   "id": "L0656",
+   "start": 3525.6,
+   "end": 3529.9,
+   "speaker": "S1",
+   "text": "How would Tuesday the fifteenth of April be? About two o'clock?"
+  },
+  {
+   "id": "L0657",
+   "start": 3530.2,
+   "end": 3534.2,
+   "speaker": "S2",
+   "text": "Tuesday the fifteenth. Two o'clock. Is that before my quiz?"
+  },
+  {
+   "id": "L0658",
+   "start": 3534.6,
+   "end": 3536.1,
+   "speaker": "S1",
+   "text": "Well before your quiz."
+  },
+  {
+   "id": "L0659",
+   "start": 3536.4,
+   "end": 3540.6,
+   "speaker": "S3",
+   "text": "I'll try and be here for that. I'll swap a shift."
+  },
+  {
+   "id": "L0660",
+   "start": 3541.1,
+   "end": 3548.7,
+   "speaker": "S1",
+   "text": "That would be great, if you can. Is there anything you want to ask me, either of you? Anything I've missed?"
+  },
+  {
+   "id": "L0661",
+   "start": 3549.6,
+   "end": 3555.4,
+   "speaker": "S3",
+   "text": "Just, if she falls again before all this is in place. What do we do?"
+  },
+  {
+   "id": "L0662",
+   "start": 3555.7,
+   "end": 3568.1,
+   "speaker": "S1",
+   "text": "If she falls and she's hurt, or can't get up, it's an ambulance, nine nine nine. And Brenda knocking on the wall is really valuable for now, so keep that going."
+  },
+  {
+   "id": "L0663",
+   "start": 3568.7,
+   "end": 3572.9,
+   "speaker": "S2",
+   "text": "Oh, we'll keep that going. Brenda would never let me stop."
+  },
+  {
+   "id": "L0664",
+   "start": 3573.4,
+   "end": 3580.6,
+   "speaker": "S1",
+   "text": "And Margaret, keep your phone on you, in your cardigan pocket, even when you're pottering. Until the alarm's in."
+  },
+  {
+   "id": "L0665",
+   "start": 3580.9,
+   "end": 3583.2,
+   "speaker": "S2",
+   "text": "In my pocket. Yes. I'll try."
+  },
+  {
+   "id": "L0666",
+   "start": 3583.4,
+   "end": 3586.9,
+   "speaker": "S3",
+   "text": "I'll ring her every night as well. Around eight."
+  },
+  {
+   "id": "L0667",
+   "start": 3587.4,
+   "end": 3589.8,
+   "speaker": "S2",
+   "text": "You don't have to do that."
+  },
+  {
+   "id": "L0668",
+   "start": 3590.2,
+   "end": 3591.8,
+   "speaker": "S3",
+   "text": "I want to, Mum."
+  },
+  {
+   "id": "L0669",
+   "start": 3592.3,
+   "end": 3593.4,
+   "speaker": "S1",
+   "text": "Anything else, Margaret?"
+  },
+  {
+   "id": "L0670",
+   "start": 3594.7,
+   "end": 3598.8,
+   "speaker": "S2",
+   "text": "No. No, I think you've covered it. You've been very kind."
+  },
+  {
+   "id": "L0671",
+   "start": 3599.0,
+   "end": 3604.4,
+   "speaker": "S2",
+   "text": "I was dreading this, I'll be honest. I thought you'd come to take me away."
+  },
+  {
+   "id": "L0672",
+   "start": 3604.9,
+   "end": 3609.1,
+   "speaker": "S1",
+   "text": "No. I came to help you stay. That's the whole point."
+  },
+  {
+   "id": "L0673",
+   "start": 3610.4,
+   "end": 3611.9,
+   "speaker": "S2",
+   "text": "Well. That's alright then."
+  },
+  {
+   "id": "L0674",
+   "start": 3612.3,
+   "end": 3622.4,
+   "speaker": "S1",
+   "text": "I'll leave you my card, with my number, and the duty number for when I'm not in. And the numbers we talked about, for if you're feeling low."
+  },
+  {
+   "id": "L0675",
+   "start": 3623.6,
+   "end": 3627.7,
+   "speaker": "S2",
+   "text": "Put it by the phone, love. Biscuit, get off her notes."
+  },
+  {
+   "id": "L0676",
+   "start": 3628.2,
+   "end": 3636.1,
+   "speaker": "S1",
+   "text": "Ha, he wants to sign them. Thank you for the tea, Margaret, and for being so honest with me today."
+  },
+  {
+   "id": "L0677",
+   "start": 3636.4,
+   "end": 3641.9,
+   "speaker": "S2",
+   "text": "Mind how you go in that wind. And have a think about the umbrella."
+  },
+  {
+   "id": "L0678",
+   "start": 3642.5,
+   "end": 3646.4,
+   "speaker": "S1",
+   "text": "I'll be fine. Bye Kevin, nice to meet you. Bye Biscuit."
+  },
+  {
+   "id": "L0679",
+   "start": 3646.7,
+   "end": 3649.4,
+   "speaker": "S3",
+   "text": "Cheers, Priya. See you on the fifteenth."
+  },
+  {
+   "id": "L0680",
+   "start": 3650.0,
+   "end": 3651.8,
+   "speaker": "S2",
+   "text": "Bye love. Mind the step."
+  }
+ ],
+ "facts": [
+  {
+   "id": "F01",
+   "fact": "Margaret fell in her kitchen on 3 March and lay on the floor for about two hours before her neighbour Brenda, who has a key, found her and called an ambulance.",
+   "lines": [
+    "L0052",
+    "L0054",
+    "L0061",
+    "L0063"
+   ]
+  },
+  {
+   "id": "F02",
+   "fact": "She was admitted to St Aldhelm's Hospital for four days with a fractured left wrist (her dominant hand, as she is left-handed); X-ray showed no hip fracture (bruising only).",
+   "lines": [
+    "L0080",
+    "L0083",
+    "L0084",
+    "L0088"
+   ]
+  },
+  {
+   "id": "F03",
+   "fact": "She has had three falls in roughly six months: in the garden before Christmas, in the bathroom in January, and the kitchen fall in March; the earlier two were not reported to the GP.",
+   "lines": [
+    "L0114",
+    "L0115",
+    "L0116",
+    "L0120"
+   ]
+  },
+  {
+   "id": "F04",
+   "fact": "She uses a walking frame indoors (issued by the hospital), sometimes holds on to furniture instead, and uses her late husband's stick outdoors; she has barely been out since discharge.",
+   "lines": [
+    "L0097",
+    "L0099",
+    "L0100",
+    "L0104"
+   ]
+  },
+  {
+   "id": "F05",
+   "fact": "Her GP is Dr Shah at Millbrook Surgery (Dr Patel has retired).",
+   "lines": [
+    "L0126",
+    "L0128"
+   ]
+  },
+  {
+   "id": "F06",
+   "fact": "Her bedroom and the only toilet are upstairs; the stairs have a rail on one side only (right going up), she comes down sideways or on her bottom, and she limits drinks in the afternoon to avoid the stairs.",
+   "lines": [
+    "L0133",
+    "L0136",
+    "L0140",
+    "L0143"
+   ]
+  },
+  {
+   "id": "F07",
+   "fact": "She has no pendant alarm and agreed to be referred for a watch-style telecare (Careline) alarm with fall detection, usually fitted within about ten days.",
+   "lines": [
+    "L0165",
+    "L0176",
+    "L0632",
+    "L0633"
+   ]
+  },
+  {
+   "id": "F08",
+   "fact": "She strip-washes at the upstairs sink, has no shower, and has not had a bath since January because she cannot push herself out of the bath with her wrist.",
+   "lines": [
+    "L0181",
+    "L0183",
+    "L0184",
+    "L0186"
+   ]
+  },
+  {
+   "id": "F09",
+   "fact": "Getting dressed takes 40 minutes to an hour; she cannot manage buttons or bra hooks and on some days (about twice last week) stayed in her nightclothes.",
+   "lines": [
+    "L0201",
+    "L0209",
+    "L0213"
+   ]
+  },
+  {
+   "id": "F10",
+   "fact": "She has occasional urinary leakage/urgency, wears pads at night that she buys herself, and agreed to a continence service referral.",
+   "lines": [
+    "L0221",
+    "L0223",
+    "L0225",
+    "L0229"
+   ]
+  },
+  {
+   "id": "F11",
+   "fact": "She has not used the cooker since the fall (cannot lift pans and is frightened in the kitchen); she lives on toast, tinned soup and yoghurt or crackers.",
+   "lines": [
+    "L0247",
+    "L0249",
+    "L0254",
+    "L0256"
+   ]
+  },
+  {
+   "id": "F12",
+   "fact": "She has lost nearly a stone since Christmas (now about eight stone-something, previously nine and a half stone).",
+   "lines": [
+    "L0263",
+    "L0266"
+   ]
+  },
+  {
+   "id": "F13",
+   "fact": "Medication: amlodipine 5 mg once daily in the morning for blood pressure.",
+   "lines": [
+    "L0283",
+    "L0284"
+   ]
+  },
+  {
+   "id": "F14",
+   "fact": "Medication: alendronic acid 70 mg once weekly on Mondays, taken first thing with water, sitting upright for half an hour.",
+   "lines": [
+    "L0284",
+    "L0285",
+    "L0286",
+    "L0287"
+   ]
+  },
+  {
+   "id": "F15",
+   "fact": "Medication: paracetamol for the wrist, two tablets up to four times a day as needed; she takes it about once or twice a day.",
+   "lines": [
+    "L0288",
+    "L0289"
+   ]
+  },
+  {
+   "id": "F16",
+   "fact": "Her tablets come in a dosette box prepared and delivered every Friday by the chemist on Station Road; she struggles to open the flaps.",
+   "lines": [
+    "L0280",
+    "L0281",
+    "L0298"
+   ]
+  },
+  {
+   "id": "F17",
+   "fact": "She missed her morning blood-pressure tablet twice last week (Tuesday and Thursday).",
+   "lines": [
+    "L0293",
+    "L0294",
+    "L0295"
+   ]
+  },
+  {
+   "id": "F18",
+   "fact": "Her main wish is to stay in her own home, with her cat Biscuit, for as long as possible.",
+   "lines": [
+    "L0347",
+    "L0593"
+   ]
+  },
+  {
+   "id": "F19",
+   "fact": "Her other stated outcomes: to have a proper bath and wash her hair, return to lunch club, not feel frightened of falling or of the kitchen, cook a proper meal now and then, and see Frank's roses this summer.",
+   "lines": [
+    "L0196",
+    "L0594",
+    "L0595",
+    "L0598",
+    "L0602"
+   ]
+  },
+  {
+   "id": "F20",
+   "fact": "Son Kevin lives in Northampton (about 40 minutes away), works shifts at a warehouse, and visits on Sundays to do the big shop.",
+   "lines": [
+    "L0366",
+    "L0367"
+   ]
+  },
+  {
+   "id": "F21",
+   "fact": "Daughter Susan lives in Alicante, Spain, and phones every Sunday night.",
+   "lines": [
+    "L0372",
+    "L0374"
+   ]
+  },
+  {
+   "id": "F22",
+   "fact": "Neighbour Brenda (aged 76) pops in most days, and they knock on the wall each morning as an 'I'm alright' signal.",
+   "lines": [
+    "L0379",
+    "L0380",
+    "L0383"
+   ]
+  },
+  {
+   "id": "F23",
+   "fact": "She used to attend the lunch club at St Michael's church hall on Thursdays at 12, has not been since the fall, and wants to go back; Priya will look into transport.",
+   "lines": [
+    "L0385",
+    "L0394",
+    "L0395",
+    "L0400",
+    "L0640"
+   ]
+  },
+  {
+   "id": "F24",
+   "fact": "She is lonely, sometimes speaking to nobody all day; her husband Frank died suddenly of a heart problem two years ago in August.",
+   "lines": [
+    "L0407",
+    "L0408",
+    "L0415"
+   ]
+  },
+  {
+   "id": "F25",
+   "fact": "After Frank's death she had low mood, was prescribed sertraline (stopped gradually over a year ago) and had six bereavement counselling sessions; her mood is now 'up and down' and she denies any current thoughts of self-harm.",
+   "lines": [
+    "L0426",
+    "L0427",
+    "L0432",
+    "L0434",
+    "L0436",
+    "L0443",
+    "L0446"
+   ]
+  },
+  {
+   "id": "F26",
+   "fact": "Grandson Jordan (22, Susan's son) has been using her bank card, with her PIN, and about £600 more than she asked for has been withdrawn over the last two months; he currently has the card.",
+   "lines": [
+    "L0466",
+    "L0468",
+    "L0471",
+    "L0472",
+    "L0474",
+    "L0478",
+    "L0487"
+   ]
+  },
+  {
+   "id": "F27",
+   "fact": "Margaret is ambivalent (loves Jordan, does not want him in trouble), does not want the police involved, but consented to a safeguarding referral, which Priya will make that afternoon.",
+   "lines": [
+    "L0480",
+    "L0540",
+    "L0541",
+    "L0567",
+    "L0568",
+    "L0630"
+   ]
+  },
+  {
+   "id": "F28",
+   "fact": "Kevin will take Margaret to the Midshire Building Society branch on Friday morning to cancel the card and get a new one with a new PIN.",
+   "lines": [
+    "L0559",
+    "L0562",
+    "L0644"
+   ]
+  },
+  {
+   "id": "F29",
+   "fact": "Finances: state pension plus a widow's half of Frank's railway pension; she owns the house outright; about £9,000 savings in the building society.",
+   "lines": [
+    "L0570",
+    "L0572",
+    "L0574"
+   ]
+  },
+  {
+   "id": "F30",
+   "fact": "She does not currently receive Attendance Allowance; Priya will post the Attendance Allowance and financial assessment forms and Kevin will help complete them on Sunday; she may need to contribute to ongoing care costs.",
+   "lines": [
+    "L0576",
+    "L0586",
+    "L0645",
+    "L0646"
+   ]
+  },
+  {
+   "id": "F31",
+   "fact": "Priya considers she is likely eligible and will request reablement (free for up to six weeks; daily morning and teatime visits), which needs manager approval; outcome by the end of next week.",
+   "lines": [
+    "L0611",
+    "L0613",
+    "L0615",
+    "L0617",
+    "L0618",
+    "L0639"
+   ]
+  },
+  {
+   "id": "F32",
+   "fact": "Priya will refer to occupational therapy today for a bath lift or board, a second stair rail, a second frame upstairs, the back step and the pull-cord landing light; the waiting list is about three weeks.",
+   "lines": [
+    "L0626",
+    "L0627",
+    "L0629"
+   ]
+  },
+  {
+   "id": "F33",
+   "fact": "Priya will write to Dr Shah about a falls clinic referral, the weight loss, continence and missed tablets, and ask the Station Road chemist about an easier-to-open pack.",
+   "lines": [
+    "L0635",
+    "L0636"
+   ]
+  },
+  {
+   "id": "F34",
+   "fact": "Kevin will take up the hall rug this weekend (Margaret agreed to the hall rug only, not the front-room one), and Margaret will set an alarm for 9 o'clock for her morning tablets.",
+   "lines": [
+    "L0647",
+    "L0648",
+    "L0652"
+   ]
+  },
+  {
+   "id": "F35",
+   "fact": "Priya will phone on Monday and return for a review visit on Tuesday 15 April at about 2 pm.",
+   "lines": [
+    "L0653",
+    "L0656",
+    "L0657"
+   ]
+  }
+ ],
+ "traps": [
+  {
+   "id": "T01",
+   "kind": "negation",
+   "must_not_claim": "Margaret currently has thoughts of self-harm or suicide.",
+   "lines": [
+    "L0442",
+    "L0443",
+    "L0445",
+    "L0446"
+   ],
+   "note": "She explicitly denies current (and past) thoughts of self-harm; only past low mood after bereavement."
+  },
+  {
+   "id": "T02",
+   "kind": "negation",
+   "must_not_claim": "Margaret drinks alcohol.",
+   "lines": [
+    "L0453",
+    "L0454"
+   ],
+   "note": "She says she has never drunk; it was Frank who drank bitter."
+  },
+  {
+   "id": "T03",
+   "kind": "negation",
+   "must_not_claim": "Margaret hit her head in the March fall / had a head injury.",
+   "lines": [
+    "L0072",
+    "L0073",
+    "L0074"
+   ],
+   "note": "She explicitly says she did not bang her head and the hospital checked."
+  },
+  {
+   "id": "T04",
+   "kind": "negation",
+   "must_not_claim": "Margaret is currently taking sertraline / antidepressants.",
+   "lines": [
+    "L0430",
+    "L0431",
+    "L0434"
+   ],
+   "note": "She stopped sertraline over a year ago; current meds are amlodipine, alendronic acid, paracetamol."
+  },
+  {
+   "id": "T05",
+   "kind": "hypothetical",
+   "must_not_claim": "Margaret wants to / is going to move into a care home (Beechwood).",
+   "lines": [
+    "L0351",
+    "L0352"
+   ],
+   "note": "Conditional future preference only; her stated wish is to stay at home."
+  },
+  {
+   "id": "T06",
+   "kind": "hypothetical",
+   "must_not_claim": "Margaret is planning to sell her house.",
+   "lines": [
+    "L0356",
+    "L0357"
+   ],
+   "note": "Hypothetical raised to reject Kevin's suggestion."
+  },
+  {
+   "id": "T07",
+   "kind": "hearsay",
+   "must_not_claim": "Jordan was seen using Margaret's card at the high-street cash machine.",
+   "lines": [
+    "L0526",
+    "L0527",
+    "L0529",
+    "L0530"
+   ],
+   "note": "Second-hand via Kevin from Brenda, who was unsure; must be reported as uncertain hearsay, not fact."
+  },
+  {
+   "id": "T08",
+   "kind": "hearsay",
+   "must_not_claim": "Jordan has gambling debts.",
+   "lines": [
+    "L0531",
+    "L0532",
+    "L0533"
+   ],
+   "note": "Rumour Kevin heard from a friend's mother; Margaret calls it gossip; Priya records it as unverified."
+  },
+  {
+   "id": "T09",
+   "kind": "corrected",
+   "must_not_claim": "Margaret's GP is Dr Patel.",
+   "lines": [
+    "L0122",
+    "L0124",
+    "L0126"
+   ],
+   "note": "Corrected to Dr Shah; Dr Patel retired."
+  },
+  {
+   "id": "T10",
+   "kind": "corrected",
+   "must_not_claim": "About £400 is missing from Margaret's account.",
+   "lines": [
+    "L0477",
+    "L0478"
+   ],
+   "note": "She corrects herself to about £600 over two months."
+  },
+  {
+   "id": "T11",
+   "kind": "corrected",
+   "must_not_claim": "The lunch club is on Wednesdays.",
+   "lines": [
+    "L0385",
+    "L0392",
+    "L0394",
+    "L0395"
+   ],
+   "note": "Corrected to Thursdays at 12; it moved from Wednesdays."
+  },
+  {
+   "id": "T12",
+   "kind": "not_said",
+   "must_not_claim": "Margaret has a diagnosis of dementia or cognitive impairment.",
+   "lines": [
+    "L0457",
+    "L0458",
+    "L0459"
+   ],
+   "note": "No diagnosis discussed; she reports her memory is mostly fine. Cited lines are context only."
+  },
+  {
+   "id": "T13",
+   "kind": "not_said",
+   "must_not_claim": "A care package / reablement has already been agreed or approved.",
+   "lines": [
+    "L0617",
+    "L0618",
+    "L0620"
+   ],
+   "note": "Reablement is only being requested, pending manager approval; nothing is agreed."
+  },
+  {
+   "id": "T14",
+   "kind": "not_said",
+   "must_not_claim": "Kevin (or anyone) holds lasting power of attorney or manages Margaret's finances.",
+   "lines": [],
+   "note": "Power of attorney / appointeeship is never discussed; Margaret manages her own money."
+  },
+  {
+   "id": "T15",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Margaret wants to move to sheltered housing or a bungalow.",
+   "lines": [
+    "L0338",
+    "L0339",
+    "L0340",
+    "L0342"
+   ],
+   "note": "This is Kevin's view; Margaret firmly disagrees."
+  },
+  {
+   "id": "T16",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Margaret wants the police to be contacted about Jordan.",
+   "lines": [
+    "L0537",
+    "L0538",
+    "L0540"
+   ],
+   "note": "Kevin suggests police; Margaret explicitly refuses."
+  }
+ ]
+}
