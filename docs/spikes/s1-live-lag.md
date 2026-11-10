@@ -1,6 +1,6 @@
 # Spike S1: live transcription on the existing engine
 
-> Status: **GO-WITH-CONDITIONS on the Mac proxy; Windows run pending** · Recorded 2026-11-10.
+> Status: **GO-WITH-CONDITIONS** (Mac + Windows CI runner; reference laptop still to run) · Recorded 2026-11-10.
 > Plan: [`next-phase-spikes.md`](next-phase-spikes.md#s1-live-transcription-on-the-existing-engine).
 > Harness: `engine/examples/live_replay.rs`.
 
@@ -11,15 +11,22 @@ files, how far behind speech does the text appear, does the machine cope, and is
 
 ## Verdict so far
 
-On this Mac, every live profile in the sweep passes the lag target by a wide margin, and the decoder is busy only
-about 5% of the time. Accuracy against human transcripts is close to the file path. **Recommended live
-profile: 0.8 s silence / 15 s max speech.** The conditions:
+**Recommended live profile: 0.8 s silence / 15 s max speech.** It passes the lag target on both
+machines measured:
 
-1. **Repeat on the reference Windows laptop.** These are Apple M5 Pro numbers. The plan's 2–4× slower
-   assumption still leaves room (see "Windows projection"), but S1's pass criteria are for Windows.
-2. **The pass criterion "WER delta vs offline ≤ 1 point" was the wrong measure**, and is replaced here by
+- **Apple M5 Pro:** p95 end lag 1.7 s simulated, 2.3 s in real time. The decoder is busy about 5% of the time.
+- **Windows x86 CI runner** (AMD EPYC 7763, 1 core / 2 threads, 8 GB, 2 recognizer threads; weaker than
+  the reference laptop): p95 3.25 s, max 3.99 s. The decoder is busy 12.8% of the time, with no queueing.
+
+Accuracy against human transcripts is close to the file path. The conditions:
+
+1. **Repeat on the reference Windows laptop** before P1 ships. The CI runner is a pessimistic stand-in, not
+   the reference machine.
+2. **Memory grows during long sessions.** Over the 2-hour soak, the footprint rose from about 1.11 GB to 1.34 GB
+   (see "Soak"). P1 should rebuild the recognizer at a quiet moment every 30 minutes or so, and check this on Windows.
+3. **The pass criterion "WER delta vs offline ≤ 1 point" was the wrong measure**, and is replaced here by
    WER against a human reference (see "Accuracy").
-3. **Text arrives an utterance at a time.** The oldest word of an utterance can be up to about 20 s old
+4. **Text arrives an utterance at a time.** The oldest word of an utterance can be up to about 20 s old
    when it appears (start lag p95). P1's UI has to show that capture is working between utterances.
 
 ## Environment
@@ -101,11 +108,43 @@ The projected average CPU over a live session was about 1% of this 18-core machi
 Real-time lag is about 0.6 s higher than the simulated figures, because decoding shared the machine with
 the audio thread and other work. It is still well inside the 5 s target.
 
-## Results: 2-hour soak
+## Results: Windows x86 CI runner (IS1009a, simulated clock)
 
-Pending. The run is IS1009a looped 9 times (126 min) in real time at 0.8 s / 15 s. Memory is sampled
-every 10 s as the macOS physical footprint: the process RSS reported by `ps` is unusable on macOS here,
-because it dropped from 1.2 GB to 21 MB as idle pages were compressed.
+GitHub `windows-latest` for a private repo: AMD EPYC 7763, 1 core / 2 logical processors, 2.45 GHz, 8 GB.
+`--threads 2`. A temporary workflow on the spike branch ran the harness; it was removed after the run.
+Offline file path: RTF 0.158 (M5 Pro: 0.059).
+
+| Silence / max | Utterances | Median length | End lag p50 / p95 / max | Start lag p95 | Decoder busy | Queued | WER vs offline |
+|---|---|---|---|---|---|---|---|
+| 0.5 s / 10 s | 76 | 9.2 s | 1.95 / 5.55 / 6.89 s | 19.4 s | 17.4% | 5 | 9.2 |
+| 0.5 s / 15 s | 66 | 9.3 s | 2.11 / 3.24 / 4.03 s | 21.6 s | 12.8% | 1 | 8.0 |
+| 0.8 s / 10 s | 72 | 10.0 s | 1.94 / 3.14 / 4.46 s | 19.4 s | 13.6% | 2 | 8.7 |
+| **0.8 s / 15 s** | 60 | 11.5 s | 2.58 / 3.25 / 3.99 s | 21.6 s | 12.8% | 0 | 6.2 |
+
+Decoding is about 2.5× slower than on the M5 Pro, at half the threads. The 0.5 s / 10 s row is the
+outlier: a shared CI machine is noisy, and that run's decoder time was about a third higher than the
+other rows for the same audio. The WER figures match the Mac's to within about half a point, as expected for
+the same model. Process CPU wasn't sampled (the harness uses `ps`). With the decoder busy about 13% on a
+2-thread machine, the average CPU is roughly in the same range, far under the 60% limit.
+
+## Results: 2-hour soak (Mac, real time)
+
+IS1009a looped 9 times (126 min) in real time at 0.8 s / 15 s. Memory was sampled every 10 s as the macOS
+physical footprint. The process RSS from `ps` is unusable on macOS here: in the first real-time run it
+dropped from 1.2 GB to 21 MB as idle pages were compressed.
+
+| Wall time | Utterances | End lag p50 / p95 / max | Start lag p95 | Decoder busy | Footprint first → last (min / max) |
+|---|---|---|---|---|---|
+| 7,542 s | 515 | 1.37 / 2.70 / 10.97 s | 22.3 s | 5.9% | 1,127 → 1,335 MB (797 / 1,335) |
+
+- **Lag held** over 2 hours. The single 11 s maximum was one utterance that waited behind others while the
+  machine was busy.
+- **Memory is not flat.** After the first minute, the footprint climbed steadily from about 1,110 MB to
+  1,335 MB, roughly 100 MB an hour, slowing slightly. That misses the "±5% over 2 h" criterion. The
+  harness keeps only a few kilobytes of state, so the growth is most likely in the ONNX Runtime allocator
+  as one recognizer handles hundreds of differently sized inputs. The file path never shows this, because it builds a
+  recognizer per transcription. Mitigation for P1: rebuild the recognizer at a quiet moment, every 30
+  minutes or so. That takes about 1–2 s and can run while the VAD has no open utterance. Check on Windows with private bytes.
 
 ## Accuracy
 
@@ -127,17 +166,18 @@ where cutting at short pauses breaks sentences apart.
 The absolute WER (21–26%) is high because AMI meetings have overlapping speech and fillers that the
 reference keeps and Parakeet drops. Both paths are scored the same way, so the comparison is fair.
 
-## Windows projection (to be replaced by measurements)
+## Headroom
 
-At 0.8 s / 15 s the mean decode is about 0.7 s per utterance at 4 threads, and the decoder is idle about
-95% of the time. If the reference laptop is 4× slower, a typical utterance takes about 3 s to decode and the
-decoder is busy about 20–30%. End lag would then be about 4 s at p50, with p95 near the 5 s limit. If
-Windows misses, the next step is 0.5 s / 10 s (shorter utterances, faster decodes), before S7.
+The CI runner shows what a weak machine does: decodes 2.5× slower than the M5 Pro, with p95 lag still 1.75 s
+under the limit. A 12th/13th-gen U-series laptop has more and faster cores than one EPYC core, so it should
+land between the two. If the reference laptop still misses, try 0.8 s / 10 s next (p95 3.14 s on the runner),
+before S7.
 
 ## What changes in the PRD
 
 - **Live VAD profile:** 0.8 s silence / 15 s max speech, alongside the offline 0.8 s / 120 s profile.
-  Fallback 0.5 s / 10 s.
+  Fallback 0.8 s / 10 s.
+- **Long sessions:** rebuild the recognizer periodically (see "Soak").
 - **No new model or crate is needed for live text** (subject to the Windows run). S7 (Nemotron streaming)
   stays a fallback only.
 - **UI:** text appears an utterance at a time, typically 5–12 s of speech at once, and up to about
@@ -150,8 +190,8 @@ Windows misses, the next step is 0.5 s / 10 s (shorter utterances, faster decode
 
 ## Still to do
 
-1. 2-hour soak result (running).
-2. The same sweep, real-time run and soak on the reference Windows laptop, with Task Manager-equivalent
+1. The same sweep, real-time run and soak on the reference Windows laptop, with Task Manager-equivalent
    CPU and private bytes.
+2. Confirm that periodic recognizer rebuilds hold memory flat over 2 hours.
 3. A real-microphone run (`cpal`) to check the capture path adds no lag. This belongs in the P1 build, as the
    recorder is part of it.
