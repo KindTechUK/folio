@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import type { Transcript } from "@core/types";
+import { loadTranscript } from "@core/editor";
 
 const invokeMock = vi.fn();
 const openMock = vi.fn();
@@ -9,6 +10,7 @@ let deleteMatterReport: { deleted: string[]; failed: unknown[] };
 let pickRecording: () => Promise<unknown>;
 let saveSession: () => Promise<unknown>;
 let transcribe: () => Promise<unknown>;
+let sessions: unknown[];
 
 vi.mock("@tauri-apps/api/core", () => ({
   invoke: (...args: unknown[]) => invokeMock(...args),
@@ -50,6 +52,7 @@ beforeEach(() => {
   pickRecording = () => Promise.resolve("/recordings/interview.wav");
   saveSession = () => Promise.resolve();
   transcribe = () => Promise.resolve(transcript);
+  sessions = [];
   invokeMock.mockImplementation((command: string) => {
     switch (command) {
       case "volume_encryption_status":
@@ -70,7 +73,9 @@ beforeEach(() => {
       case "debug_asr_model_override":
         return Promise.resolve(null);
       case "list_sessions":
-        return Promise.resolve([]);
+        return Promise.resolve(sessions);
+      case "load_session":
+        return Promise.resolve({ session: SECOND_SESSION, audioAvailable: true });
       case "pick_recording":
         return pickRecording();
       case "transcribe":
@@ -94,6 +99,29 @@ async function importAndCreate(): Promise<void> {
   fireEvent.click(await screen.findByRole("button", { name: "Create transcript" }));
   await screen.findByTestId("paragraph");
 }
+
+const SECOND_SESSION = {
+  id: "second",
+  createdAt: "2026-11-01T09:00:00Z",
+  updatedAt: "2026-11-01T09:00:00Z",
+  audioPath: "/recordings/second.wav",
+  audioFilename: "second.wav",
+  diarized: false,
+  segments: 1,
+  editorState: loadTranscript({
+    segments: [
+      {
+        start: 0,
+        end: 1,
+        text: "Second recording.",
+        words: [
+          { word: "Second", start: 0, end: 0.5 },
+          { word: "recording.", start: 0.5, end: 1 },
+        ],
+      },
+    ],
+  }),
+};
 
 function savedTexts(): string[] {
   return invokeMock.mock.calls
@@ -316,5 +344,38 @@ describe("App import flow", () => {
     finishSave[0]!();
 
     await waitFor(() => expect(savedTexts()).toContain("Second correction."));
+  });
+
+  it("never writes another transcript's text under the one being left", async () => {
+    render(<App />);
+    await importAndCreate();
+    await screen.findByText("Saved locally");
+    const firstId = invokeMock.mock.calls.find(([c]) => c === "save_session")?.[1]?.session?.id;
+    sessions = [{ ...SECOND_SESSION, audioAvailable: true }];
+    const finishSave: (() => void)[] = [];
+    saveSession = () => new Promise((resolve) => finishSave.push(() => resolve(undefined)));
+
+    correctTo("First correction.");
+    fireEvent.click(screen.getByRole("button", { name: "Import another" }));
+    await waitFor(() => expect(finishSave).toHaveLength(1));
+    fireEvent.click(screen.getByTestId("undo"));
+    fireEvent.click(screen.getByRole("button", { name: /Transcripts/ }));
+    fireEvent.click(await screen.findByTestId("open-second"));
+    await waitFor(() =>
+      expect(screen.getByTestId("paragraph")).toHaveTextContent("Second recording."),
+    );
+    correctTo("Edited second.");
+    saveSession = () => Promise.resolve();
+    finishSave[0]!();
+
+    await waitFor(() => expect(savedTexts()).toContain("Edited second."), { timeout: 2000 });
+    expect(screen.getByTestId("paragraph")).toHaveTextContent("Edited second.");
+    const wrong = invokeMock.mock.calls.filter(
+      ([c, args]) =>
+        c === "save_session" &&
+        (args as { session: { id: string } }).session.id === firstId &&
+        JSON.stringify(args).includes("second"),
+    );
+    expect(wrong).toEqual([]);
   });
 });

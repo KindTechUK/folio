@@ -104,7 +104,14 @@ export default function App() {
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("saved");
   // Metadata for the currently loaded library session (null = unsaved/none).
   // Drives debounced auto-save and ties a loaded transcript to its saved entry.
-  const [currentSessionMeta, setCurrentSessionMeta] = useState<OpenSessionMeta | null>(null);
+  const [currentSessionMeta, setSessionMetaState] = useState<OpenSessionMeta | null>(null);
+  // Mirrors currentSessionMeta synchronously, so async saves can tell whether
+  // the transcript they started on is still the open one.
+  const metaRef = useRef<OpenSessionMeta | null>(null);
+  const setCurrentSessionMeta = (meta: OpenSessionMeta | null) => {
+    metaRef.current = meta;
+    setSessionMetaState(meta);
+  };
   // The last snapshot written to disk, and the one on screen now (async saves
   // read it to decide whether they are still the latest).
   const savedStateRef = useRef<EditorState | null>(null);
@@ -166,8 +173,10 @@ export default function App() {
           state: snapshot,
         }),
       });
-      savedStateRef.current = snapshot;
-      setSaveCount((n) => n + 1);
+      if (metaRef.current?.id === meta.id) {
+        savedStateRef.current = snapshot;
+        setSaveCount((n) => n + 1);
+      }
       return true;
     } catch {
       setSaveStatus("error");
@@ -180,7 +189,11 @@ export default function App() {
   async function flushPendingSave(): Promise<boolean> {
     const meta = currentSessionMeta;
     if (!meta) return true;
-    while (stateRef.current && stateRef.current !== savedStateRef.current) {
+    while (
+      metaRef.current?.id === meta.id &&
+      stateRef.current &&
+      stateRef.current !== savedStateRef.current
+    ) {
       if (!(await persist(meta, stateRef.current))) return false;
     }
     return true;
@@ -260,10 +273,13 @@ export default function App() {
   // transcription keeps the screen until it finishes, and an edit that cannot be
   // saved keeps its transcript open (the header shows the failure).
   async function startImport() {
+    const leaving = metaRef.current?.id;
     if (progress || !(await flushPendingSave())) {
       setView("transcribe");
       return;
     }
+    // Another transcript was opened while the save ran; leave it alone.
+    if (metaRef.current?.id !== leaving) return;
     setHistory(null);
     setAudioSrc(undefined);
     setCurrentSessionMeta(null);

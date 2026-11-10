@@ -216,6 +216,18 @@ td {
   background: var(--canvas);
 }
 
+.draft-header {
+  flex-wrap: wrap;
+}
+
+.draft-header > :first-child {
+  flex: 1 1 240px;
+}
+
+.draft-meta {
+  white-space: nowrap;
+}
+
 .draft-header h1 {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -380,6 +392,7 @@ td {
   bottom: 0;
   z-index: 8;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--space-2);
   margin: auto calc(var(--space-5) * -1) 0;
@@ -396,7 +409,7 @@ td {
 
 .transport-progress {
   min-width: 120px;
-  flex: 1;
+  flex: 1 1 160px;
   accent-color: var(--accent);
 }
 
