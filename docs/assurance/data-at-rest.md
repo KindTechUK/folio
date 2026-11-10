@@ -1,7 +1,7 @@
 # Data at rest
 
 > Part of the assurance pack. Covers how stored data is protected, temp-file
-> hygiene, and disposal (including delete-matter and the BitLocker warning).
+> hygiene, and disposal (including one-click "Delete transcript and audio" and the BitLocker warning).
 
 ## Encryption model: rely on the firm's BitLocker (documented dependency)
 
@@ -48,7 +48,7 @@ primary control; the in-app banner is a backstop, not a substitute.
 | --- | --- | --- |
 | Input audio | Wherever the user keeps it | Read in place; not copied to a vendor-controlled location. |
 | Working/decoded audio | **In memory** during a run | Current engine decodes to in-memory `f32` samples (`engine/src/decode.rs`); see temp-file note below. |
-| **Saved transcripts (library)** | Per-user app-data dir, on the BitLocker volume | ✅ Each transcript is **auto-saved** as a local JSON file (`app_data/library/<id>.json`, `app/src-tauri/src/library.rs`) so past matters reappear on reopen. It stores the transcript text/edits + metadata and a **reference (path) to the source audio** — the audio itself is NOT copied into the library (one copy on disk). Purged by one-click delete-matter. Never leaves the device. |
+| **Saved transcripts (library)** | Per-user app-data dir, on the BitLocker volume | ✅ Each transcript is **auto-saved** as a local JSON file (`app_data/library/<id>.json`, `app/src-tauri/src/library.rs`) so past transcripts reappear on reopen. It stores the transcript text/edits + metadata and a **reference (path) to the source audio** — the audio itself is NOT copied into the library (one copy on disk). Purged by one-click "Delete transcript and audio". Never leaves the device. |
 | Models / model packs | Verified, signed packs only | ✅ Imported packs live in `app_data/packs/`. The transcribe path loads weights ONLY from a cryptographically verified signed pack, extracted into a per-user content-addressed cache (`app_data/verified-models/`). Release builds always enforce this; a debug-only `KINDTECH_MODELS_DIR` override exists for the dev/demo. See `non-processor-statement.md` / `third-party-components.md`. |
 | Exports (DOCX/JSON/text) | DOCX: the path chosen in a native save dialog. JSON/text: the webview's download location (typically the user's Downloads folder; behaviour depends on the OS webview) | Expected to be on the BitLocker volume; carries the draft disclaimer. |
 
@@ -79,10 +79,10 @@ stronger position than a wipe-on-completion routine. However:
   and "explicit app-owned scratch + wipe" as committed direction — not claim the
   wipe routine exists.
 
-## Disposal: one-click "delete this matter" — ✅ implemented
+## Disposal: one-click "Delete transcript and audio" — ✅ implemented
 
 A one-click action removes the audio and transcript for a matter when the
-fee-earner is done. **Implemented:** a "Delete matter" button (shown once a transcript is loaded) calls the backend, which
+fee-earner is done. **Implemented:** a "Delete transcript and audio" button (in the header of an open transcript) calls the backend, which
 resolves the saved source path, restricts it to approved user-media folders,
 rejects escaping symlinks, and displays the canonical path in a native
 confirmation dialog before deletion. It then **purges the saved library entry**
@@ -93,10 +93,10 @@ genuine failure rather than crashing.
 
 **Honest scope:** the on-disk footprint of a matter is the **source audio** (the
 user's own file, referenced not copied) plus the **saved transcript JSON** in the
-library — delete-matter removes both. The engine writes no temp/scratch file
+library — "Delete transcript and audio" removes both. The engine writes no temp/scratch file
 (in-memory decode, above) and there is no vendor-side copy. Exports the user
 separately saved elsewhere are deleted by the user through the OS. A saved
-transcript can also be deleted from the Library view (this leaves the source
+transcript can also be removed from the Transcripts view (this leaves the source
 audio in place). Because the vendor never receives the data, there is no vendor-side deletion to request or verify.
 
 ## Summary for the reviewer
@@ -109,7 +109,7 @@ audio in place). Because the vendor never receives the data, there is no vendor-
 - ✅ Exports carry the machine-draft disclaimer.
 - ✅ Transcripts are auto-saved to a local on-device library (app-data dir, on
   the BitLocker volume); the source audio is referenced by path, not copied.
-- ✅ Launch-time BitLocker-status banner (advisory) and one-click delete-matter
+- ✅ Launch-time BitLocker-status banner (advisory) and one-click "Delete transcript and audio"
   (removes the source audio + purges the saved library entry + clears the
   transcript) are implemented.
 - ✅ Models load ONLY from cryptographically verified signed packs at

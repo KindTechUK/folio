@@ -53,7 +53,7 @@
 | DPO question | Vendor-supplied answer |
 | --- | --- |
 | Who controls retention? | **The firm / fee-earner.** Transcripts are auto-saved to a local on-device library (app-data dir) until the user deletes them; exports persist where the user saves them. The vendor holds nothing. |
-| How is data deleted? | One-click "delete this matter" removes the source audio and the saved library entry; a saved transcript can also be deleted from the Library view. Exports saved elsewhere are deleted via the OS. No vendor copy, no automatic temp spill. ✅ |
+| How is data deleted? | One-click "Delete transcript and audio" removes the source audio and the saved library entry; a saved transcript can also be removed from the Transcripts view. Exports saved elsewhere are deleted via the OS. No vendor copy, no automatic temp spill. ✅ |
 | Can a subject-access / erasure request be met? | Yes, entirely within the firm — all copies are the firm's own local files. The vendor has nothing to search or erase. |
 | Automated decision-making / profiling? | None. Output is a **machine-generated draft** explicitly requiring human verification; the review/edit step is the expected control. The disclaimer is stamped on every export (`app/src/draft.ts`). ✅ |
 
@@ -64,7 +64,7 @@
 | Audio/transcript leaks to a third party or vendor | Zero egress by construction; CI gate; strict CSP; no telemetry. | ✅ |
 | Device theft exposes stored data | Firm BitLocker full-disk encryption + in-app advisory BitLocker-off warning banner on launch. | ✅ (firm-operated; in-app banner implemented) |
 | Tampered/untrusted model injected | Fail-closed signed model-pack verification at the Rust trust boundary; the transcribe path loads weights ONLY from a verified pack (enforced in release builds). | ✅ |
-| Persisted transcript exposed after a matter ends | Transcripts auto-save to a local on-device library (BitLocker volume, never leaves device); one-click "delete matter" purges the saved entry + source audio, and a saved transcript (not the audio) can be deleted from the Library view. | ✅ |
+| Persisted transcript exposed after a matter ends | Transcripts auto-save to a local on-device library (BitLocker volume, never leaves device); one-click "Delete transcript and audio" purges the saved entry + source audio, and a saved transcript (not the audio) can be removed from the Transcripts view. | ✅ |
 | Over-reliance on an inaccurate transcript | Machine-draft disclaimer in UI + every export; human review is a first-class step; speaker labels off by default. | ✅ |
 | Speaker mislabelling (diarization over-segmentation) | Diarization opt-in + optional speaker-count hint + human relabel backstop. | ✅ |
 | Residual data left in temp files | In-memory decode writes no scratch file today. | ✅ (today) — 🚧 explicit app-owned scratch + wipe routine |
