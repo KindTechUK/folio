@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath } from "node:url";
@@ -9,7 +10,7 @@ const coreSrc = fileURLToPath(new URL("../core/src", import.meta.url));
 
 // Core's relative imports are written with a `.js` suffix (NodeNext style) but the
 // files on disk are `.ts`. This plugin rewrites those `.js` specifiers to `.ts` for
-// anything resolved under core/src, mirroring what vite-node did for the e2e harness.
+// anything resolved under core/src.
 function coreJsToTs() {
   return {
     name: "core-js-to-ts",
@@ -55,5 +56,10 @@ export default defineConfig({
     // Keep the bundle inspectable for the assurance pack.
     target: "es2021",
     sourcemap: true,
+  },
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: ["./src/test/setup.ts"],
   },
 });

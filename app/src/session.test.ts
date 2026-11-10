@@ -39,7 +39,7 @@ describe("buildSession", () => {
     renameMap: {},
   };
 
-  it("assembles a SessionJson from its inputs", () => {
+  it("assembles a SessionJson, deriving the filename and segment count", () => {
     const session = buildSession({
       id: "sess-123",
       createdAt: "2026-06-15T10:00:00.000Z",
@@ -49,38 +49,15 @@ describe("buildSession", () => {
       state,
     });
 
-    expect(session.id).toBe("sess-123");
-    expect(session.createdAt).toBe("2026-06-15T10:00:00.000Z");
-    expect(session.updatedAt).toBe("2026-06-15T10:05:00.000Z");
-    expect(session.audioPath).toBe("/Users/x/clip.m4a");
-    expect(session.diarized).toBe(true);
-  });
-
-  it("derives audioFilename from the audioPath basename", () => {
-    const session = buildSession({
+    expect(session).toEqual({
       id: "sess-123",
       createdAt: "2026-06-15T10:00:00.000Z",
       updatedAt: "2026-06-15T10:05:00.000Z",
       audioPath: "/Users/x/clip.m4a",
-      diarized: false,
-      state,
+      audioFilename: "clip.m4a",
+      diarized: true,
+      segments: 2,
+      editorState: state,
     });
-
-    expect(session.audioFilename).toBe("clip.m4a");
-  });
-
-  it("counts sentences into segments and carries the editor state", () => {
-    const session = buildSession({
-      id: "sess-123",
-      createdAt: "2026-06-15T10:00:00.000Z",
-      updatedAt: "2026-06-15T10:05:00.000Z",
-      audioPath: "/Users/x/clip.m4a",
-      diarized: false,
-      state,
-    });
-
-    expect(session.segments).toBe(2);
-    expect(session.editorState).toBe(state);
-    expect(session.editorState).toEqual(state);
   });
 });

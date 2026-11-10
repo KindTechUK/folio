@@ -2,20 +2,18 @@
 #
 # e2e.sh — reusable end-to-end verification harness for the transcription pipeline.
 #
-#   scripts/e2e.sh <audio> [--speakers N] [--model small.en|medium.en]
+#   scripts/e2e.sh <audio> [--diarize] [--speakers N] [--model parakeet|small.en|medium.en]
 #
 # Steps:
 #   1. If <audio> is not already a 16 kHz mono 16-bit WAV, decode it via ffmpeg to a
 #      temp WAV.
 #   2. Build (release) + run the engine example `transcribe_file`, which loads the WAV,
-#      runs ASR + diarization + merge, and writes the `{segments:[...]}` sidecar to
-#      out/<name>.engine.json. SHERPA_ONNX_LIB_DIR is pointed at the PR1-vendored
+#      runs ASR (+ diarization with --diarize/--speakers), and writes the `{segments:[...]}` sidecar to
+#      out/<name>.engine.json. SHERPA_ONNX_LIB_DIR is pointed at the vendored
 #      prebuilt libs so the sherpa-onnx-sys build script does NOT re-download.
 #   3. Run the core harness (scripts/e2e_core.mjs) over that sidecar: buildTurns +
 #      a full editor round-trip with invariant assertions, and write a human-readable
-#      speaker-labelled transcript to out/e2e_transcript.txt.
-#
-# ADDITIVE: does not modify any committed source under core/ or engine/src/.
+#      readable transcript to out/e2e_transcript.txt.
 
 set -euo pipefail
 
@@ -29,16 +27,18 @@ OUT_DIR="$ROOT/out"
 
 # ---- args ----
 if [[ $# -lt 1 ]]; then
-  echo "usage: e2e.sh <audio> [--speakers N] [--model small.en|medium.en]" >&2
+  echo "usage: e2e.sh <audio> [--diarize] [--speakers N] [--model parakeet|small.en|medium.en]" >&2
   exit 2
 fi
 
 AUDIO="$1"; shift
 
+DIARIZE=""
 SPEAKERS=""
-MODEL="small.en"
+MODEL="parakeet"
 while [[ $# -gt 0 ]]; do
   case "$1" in
+    --diarize)  DIARIZE=1; shift ;;
     --speakers) SPEAKERS="$2"; shift 2 ;;
     --model)    MODEL="$2"; shift 2 ;;
     *) echo "unknown argument: $1" >&2; exit 2 ;;
@@ -59,7 +59,6 @@ mkdir -p "$OUT_DIR"
 # ---- derive sidecar output name from the input basename ----
 BASE="$(basename "$AUDIO")"
 STEM="${BASE%.*}"
-# sanitize the stem for a filesystem-friendly sidecar name (keep it readable)
 SAFE_STEM="$(printf '%s' "$STEM" | tr -c 'A-Za-z0-9._-' '_')"
 SIDECAR="$OUT_DIR/${SAFE_STEM}.engine.json"
 TRANSCRIPT="$OUT_DIR/e2e_transcript.txt"
@@ -97,7 +96,7 @@ else
 fi
 
 # ---- step 2: engine release example ----
-# Point the sherpa-onnx-sys build script at the PR1-vendored prebuilt libs so it
+# Point the sherpa-onnx-sys build script at the vendored prebuilt libs so it
 # does NOT re-download (see engine/README.md). Auto-detect the lib dir.
 PREBUILT_ROOT="$ENGINE_DIR/target/sherpa-onnx-prebuilt"
 if [[ -z "${SHERPA_ONNX_LIB_DIR:-}" ]]; then
@@ -113,6 +112,9 @@ else
 fi
 
 ENGINE_ARGS=("$WAV" "$SIDECAR" "--model" "$MODEL")
+if [[ -n "$DIARIZE" ]]; then
+  ENGINE_ARGS+=("--diarize")
+fi
 if [[ -n "$SPEAKERS" ]]; then
   ENGINE_ARGS+=("--speakers" "$SPEAKERS")
 fi
@@ -130,8 +132,7 @@ fi
 echo "[e2e] sidecar: $SIDECAR" >&2
 
 # ---- step 3: core harness ----
-# Run the .mjs through vite-node (installed under core/node_modules) so the on-the-fly
-# TS import of core/src/index.ts works without adding a dep or touching core/test/.
+# vite-node (from core/node_modules) transpiles the core TS imports on the fly.
 VITE_NODE="$CORE_DIR/node_modules/.bin/vite-node"
 if [[ ! -x "$VITE_NODE" ]]; then
   echo "[e2e] vite-node not found at $VITE_NODE (run 'npm install' in core/)" >&2

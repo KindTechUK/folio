@@ -1,14 +1,6 @@
 /**
- * Editor — the review-editor VIEW. It renders an EditorState (from core) and
- * dispatches every edit back through the core reducer; it never reimplements
- * edit/rename/reassign logic itself. The component is a thin render + event +
- * audio-playback layer over the tested `core/src/editor.ts`.
- *
- * NOTE: audio playback and the requestAnimationFrame highlight loop cannot run
- * in jsdom — they need a real webview. Verify those manually via
- * `npm run tauri dev`. The highlight INDEX selection is unit-tested via the pure
- * `activeWordIndex` in highlight.ts; everything else (edit/rename/reassign/export
- * wiring) is covered by the jsdom component test.
+ * Review-editor view: renders an EditorState and dispatches every edit through
+ * the core reducer (core/src/editor.ts).
  */
 
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -32,18 +24,13 @@ import {
   exportTextWithDisclaimer,
 } from "./draft";
 import { saveDocx } from "./docx";
+import { displayName, mmss } from "./format";
 import { Banner, Button } from "./ui";
 import { Toolbar, ToolbarGroup } from "./ui/Toolbar";
 
 const SPEEDS = [0.75, 1, 1.25, 1.5, 2] as const;
 
-function mmss(t: number): string {
-  const s = Math.max(0, t);
-  const m = Math.floor(s / 60);
-  return `${m}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
-}
-
-/** Deterministic per-speaker colour, ported from the prototype. */
+/** Deterministic per-speaker colour. */
 function speakerColor(id: string): string {
   let h = 0;
   for (const c of id || "") h = (h * 31 + c.charCodeAt(0)) % 360;
@@ -70,10 +57,6 @@ function groupTurns(state: EditorState): TurnGroup[] {
   return turns;
 }
 
-function displayName(state: EditorState, id: string): string {
-  return state.renameMap[id] ?? id;
-}
-
 function download(content: string, name: string, type: string): void {
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([content], { type }));
@@ -94,8 +77,7 @@ export interface EditorProps {
    * speaker-turn view. Karaoke highlight + double-click edit work in both.
    */
   diarized?: boolean;
-  /** Step back/forward in the App-owned edit history (F2). Optional so the
-   * test Harness can render the Editor without history plumbing. */
+  /** App-owned edit history. Optional so the Editor can render without it. */
   onUndo?: () => void;
   onRedo?: () => void;
   canUndo?: boolean;
@@ -119,15 +101,14 @@ export default function Editor({
   const [speed, setSpeed] = useState(1);
   const [playing, setPlaying] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
-  // F1: which speaker chip is being inline-renamed (positional id), or null.
+  // Positional id of the speaker chip being renamed, or null.
   const [renamingSpeaker, setRenamingSpeaker] = useState<string | null>(null);
-  // F3: find & replace UI state.
   const [findOpen, setFindOpen] = useState(false);
   const [findText, setFindText] = useState("");
   const [replaceText, setReplaceText] = useState("");
   const [findCase, setFindCase] = useState(false);
   const [findWhole, setFindWhole] = useState(false);
-  // F4: karaoke auto-follow toggle (scroll the active word into view).
+  const [exportOpen, setExportOpen] = useState(false);
   const [follow, setFollow] = useState(true);
 
   const turns = useMemo(() => groupTurns(state), [state]);
@@ -137,8 +118,7 @@ export default function Editor({
   );
   const starts = useMemo(() => flatWords(state).map((w) => w.start), [state]);
 
-  // F3: live match options + count. We discard the returned state here and only
-  // read `.count`; the actual replacement runs on the "Replace all" click.
+  // Dry-run replaceAll for the live match count; the real replace runs on "Replace all".
   const findOpts = useMemo(
     () => ({ caseSensitive: findCase, wholeWord: findWhole }),
     [findCase, findWhole],
@@ -148,9 +128,7 @@ export default function Editor({
     [state, findText, replaceText, findOpts],
   );
 
-  // rAF highlight loop. Cannot run headlessly (no real <audio>), so this is the
-  // manually-verified path; the index logic itself is the unit-tested
-  // activeWordIndex.
+  // rAF playback-highlight loop; the highlight is frozen while a sentence is being edited.
   useEffect(() => {
     let raf = 0;
     const loop = () => {
@@ -169,9 +147,7 @@ export default function Editor({
     return () => cancelAnimationFrame(raf);
   }, [starts, editingId]);
 
-  // F4: karaoke auto-follow. Scroll the active word into view during playback
-  // when Follow is on. block:"nearest" only — smooth scroll lags at high speed.
-  // Not jsdom-testable (no layout/scroll); verified manually in `tauri dev`.
+  // Auto-follow: block:"nearest" only — smooth scroll lags at high playback speed.
   useEffect(() => {
     if (playing && follow && activeIdx >= 0) {
       document
@@ -180,14 +156,10 @@ export default function Editor({
     }
   }, [activeIdx, playing, follow]);
 
-  // F2 + F4 global keyboard shortcuts (on document):
-  //   Cmd/Ctrl-Z          -> undo
-  //   Cmd/Ctrl-Shift-Z, Ctrl-Y -> redo
-  //   Space               -> play/pause
-  // Guard: while a sentence/paragraph is being edited (editingId !== null) OR a
-  // text field is focused, let native text editing win — we do nothing. Space is
-  // additionally ignored when a BUTTON is focused so clicking transport buttons
-  // with the keyboard still works. The audio/Space path is verified manually.
+  // Global shortcuts: Cmd/Ctrl-Z undo, Cmd/Ctrl-Shift-Z or Ctrl-Y redo, Space
+  // play/pause. Ignored while editing or when a text field is focused (native
+  // editing wins); Space is also ignored on a focused BUTTON so keyboard
+  // activation still works.
   useEffect(() => {
     function isTextTarget(el: Element | null, includeButton: boolean): boolean {
       if (!el) return false;
@@ -229,9 +201,33 @@ export default function Editor({
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [editingId, canUndo, canRedo, onUndo, onRedo]);
 
+  useEffect(() => {
+    if (!exportOpen) return;
+    function onPointerDown(e: PointerEvent): void {
+      if (!(e.target as Element | null)?.closest(".export-menu")) setExportOpen(false);
+    }
+    function onKeyDown(e: KeyboardEvent): void {
+      if (e.key === "Escape") setExportOpen(false);
+    }
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [exportOpen]);
+
+  // Clamped to [0, duration]; duration is NaN until metadata loads.
   function seek(t: number): void {
     const a = audioRef.current;
-    if (a) a.currentTime = t;
+    if (!a) return;
+    const end = Number.isFinite(a.duration) ? a.duration : Infinity;
+    a.currentTime = Math.max(0, Math.min(t, end));
+  }
+
+  function skip(seconds: number): void {
+    const a = audioRef.current;
+    if (a) seek(a.currentTime + seconds);
   }
 
   function togglePlay(): void {
@@ -252,26 +248,20 @@ export default function Editor({
     setEditingId(null);
   }
 
-  // Paragraph-mode commit: re-spread the whole paragraph's text across its
-  // anchor span and collapse the run to one sentence (core `editParagraph`).
   function commitParagraphEdit(sentenceIds: string[], text: string): void {
     setState(editParagraph(state, sentenceIds, text));
     setEditingId(null);
   }
 
-  // Merge this paragraph's sentences with the next paragraph's into one run
-  // (core `joinSentences`); timings unchanged.
   function joinWithNext(para: EditorSentence[], nextPara: EditorSentence[]): void {
     setState(joinSentences(state, [...para, ...nextPara].map((s) => s.id)));
   }
 
-  // Split a sentence at a word boundary (core `splitSentence`); timings intact.
   function splitAt(sentenceId: string, wordIndex: number): void {
     setState(splitSentence(state, sentenceId, wordIndex));
   }
 
-  // F1: commit an inline speaker rename. Empty input falls back to the original
-  // positional id (a no-op rename). Always clears the renaming state.
+  // Empty input renames back to the positional id.
   function commitRename(origId: string, value: string): void {
     setState(renameSpeaker(state, origId, value.trim() || origId));
     setRenamingSpeaker(null);
@@ -282,15 +272,9 @@ export default function Editor({
     setState(reassignSentenceSpeaker(state, sentenceId, newId.trim()));
   }
 
-  // Flat index bookkeeping so each rendered word knows its document position
-  // (for highlight). Built in the same document order as flatWords/starts —
-  // both views walk state.sentences in order, so the cursor stays consistent.
+  // Advances in document order so each word's index matches `starts` (flatWords order).
   let flatCursor = 0;
 
-  // Render the words of a sentence as click-to-seek, highlight-aware spans.
-  // `flatCursor` advances in document order so the flat highlight index stays
-  // aligned with flatWords/starts (the karaoke engine is untouched). Shared by
-  // the per-sentence (speaker) view and the per-paragraph (plain) read view.
   function renderWords(
     sent: EditorSentence,
     onSplitBefore?: (wordIndex: number) => void,
@@ -319,8 +303,12 @@ export default function Editor({
           style={{
             cursor: "pointer",
             borderRadius: 4,
-            background: active ? "#fde047" : undefined,
-            color: active ? "#422006" : played ? "#999" : undefined,
+            background: active ? "var(--highlight-active)" : undefined,
+            color: active
+              ? "var(--highlight-active-text)"
+              : played
+                ? "var(--slate-400)"
+                : undefined,
           }}
         >
           {w.text}{" "}
@@ -329,8 +317,6 @@ export default function Editor({
     });
   }
 
-  // Render ONE sentence (editable on double-click; per-word highlight). Used by
-  // the speaker-turn view so per-sentence editing + reassign stay as-is.
   function renderSentence(sent: EditorSentence): JSX.Element {
     const isEditing = editingId === sent.id;
     if (isEditing) {
@@ -358,90 +344,19 @@ export default function Editor({
 
   return (
     <div className="editor">
-      <Banner
-        variant="info"
-        role="note"
-        aria-label="machine-generated draft disclaimer"
-        style={{ marginBottom: "var(--space-3)" }}
-      >
-        {DRAFT_DISCLAIMER}
-      </Banner>
+      {audioSrc && (
+        <audio
+          ref={audioRef}
+          src={audioSrc}
+          preload="metadata"
+          data-testid="audio"
+          onLoadedMetadata={(e) => setDur(e.currentTarget.duration)}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+        />
+      )}
 
-      <Toolbar sticky>
-        {audioSrc && (
-          // eslint-disable-next-line jsx-a11y/media-has-caption
-          <audio
-            ref={audioRef}
-            src={audioSrc}
-            preload="metadata"
-            data-testid="audio"
-            onLoadedMetadata={(e) => setDur(e.currentTarget.duration)}
-            onPlay={() => setPlaying(true)}
-            onPause={() => setPlaying(false)}
-          />
-        )}
-        <ToolbarGroup>
-          <Button variant="primary" size="sm" onClick={togglePlay} data-testid="play">
-            {playing ? "Pause" : "Play"}
-          </Button>
-          <span className="tabular" style={{ color: "var(--slate-500)", fontSize: "var(--text-sm)" }}>
-            {mmss(cur)} / {mmss(dur)}
-          </span>
-        </ToolbarGroup>
-
-        <ToolbarGroup>
-          <span style={{ fontSize: "var(--text-xs)", color: "var(--slate-400)" }}>speed</span>
-          {SPEEDS.map((s) => (
-            <Button
-              key={s}
-              size="sm"
-              variant={speed === s ? "primary" : "ghost"}
-              onClick={() => applySpeed(s)}
-              aria-pressed={speed === s}
-            >
-              {s}x
-            </Button>
-          ))}
-        </ToolbarGroup>
-
-        <ToolbarGroup>
-          <Button
-            size="sm"
-            data-testid="export-json"
-            onClick={() =>
-              download(
-                JSON.stringify(exportJSONWithDisclaimer(state), null, 2),
-                "transcript_edited.json",
-                "application/json",
-              )
-            }
-          >
-            Export JSON
-          </Button>
-          <Button
-            size="sm"
-            data-testid="export-text"
-            onClick={() =>
-              download(
-                exportTextWithDisclaimer(state),
-                "transcript_edited.txt",
-                "text/plain",
-              )
-            }
-          >
-            Export Script
-          </Button>
-          <Button
-            size="sm"
-            data-testid="export-docx"
-            onClick={() => {
-              void saveDocx(state, { diarized });
-            }}
-          >
-            Export DOCX
-          </Button>
-        </ToolbarGroup>
-
+      <Toolbar sticky style={{ justifyContent: "flex-end", padding: "8px 0" }}>
         <ToolbarGroup>
           <Button size="sm" data-testid="undo" onClick={() => onUndo?.()} disabled={!canUndo}>
             Undo
@@ -450,8 +365,7 @@ export default function Editor({
             Redo
           </Button>
         </ToolbarGroup>
-
-        <ToolbarGroup divider={false}>
+        <ToolbarGroup>
           <Button
             size="sm"
             variant={findOpen ? "primary" : "ghost"}
@@ -461,15 +375,62 @@ export default function Editor({
           >
             Find &amp; replace
           </Button>
-          <Button
-            size="sm"
-            variant={follow ? "primary" : "ghost"}
-            data-testid="toggle-follow"
-            onClick={() => setFollow((v) => !v)}
-            aria-pressed={follow}
-          >
-            Follow
-          </Button>
+        </ToolbarGroup>
+        <ToolbarGroup divider={false}>
+          <div className="export-menu">
+            <Button
+              size="sm"
+              variant="primary"
+              data-testid="export-menu"
+              aria-haspopup="menu"
+              aria-expanded={exportOpen}
+              onClick={() => setExportOpen((open) => !open)}
+            >
+              Export
+            </Button>
+            {exportOpen && (
+              <div className="export-menu-popover" role="menu">
+                <button
+                  role="menuitem"
+                  data-testid="export-docx"
+                  onClick={() => {
+                    setExportOpen(false);
+                    void saveDocx(state, { diarized });
+                  }}
+                >
+                  Word document (.docx)
+                </button>
+                <button
+                  role="menuitem"
+                  data-testid="export-text"
+                  onClick={() => {
+                    setExportOpen(false);
+                    download(
+                      exportTextWithDisclaimer(state),
+                      "transcript_edited.txt",
+                      "text/plain",
+                    );
+                  }}
+                >
+                  Plain text (.txt)
+                </button>
+                <button
+                  role="menuitem"
+                  data-testid="export-json"
+                  onClick={() => {
+                    setExportOpen(false);
+                    download(
+                      JSON.stringify(exportJSONWithDisclaimer(state), null, 2),
+                      "transcript_edited.json",
+                      "application/json",
+                    );
+                  }}
+                >
+                  Transcript data (.json)
+                </button>
+              </div>
+            )}
+          </div>
         </ToolbarGroup>
       </Toolbar>
 
@@ -482,7 +443,7 @@ export default function Editor({
             alignItems: "center",
             flexWrap: "wrap",
             padding: "8px 0",
-            borderBottom: "1px solid #eee",
+            borderBottom: "1px solid var(--slate-200)",
           }}
         >
           <input
@@ -534,19 +495,27 @@ export default function Editor({
         </div>
       )}
 
-      {/* Background clicks toggle play (F4). Word/chip/edit/button handlers all
-          stopPropagation, so only empty-space clicks reach here. */}
+      <div className="draft-guidance">
+        <Banner variant="info" role="note" aria-label="machine-generated draft disclaimer">
+          {DRAFT_DISCLAIMER}
+        </Banner>
+        <div className="correction-hint">
+          <strong>Quick correction</strong>
+          <span>Click a word to replay · Double-click a paragraph to edit · Space to play or pause</span>
+        </div>
+      </div>
+
+      {/* Empty-space clicks toggle play; word, chip, button and editor handlers
+          stopPropagation. */}
       <div
         className="doc"
         onClick={togglePlay}
-        style={{ maxWidth: 820, margin: "16px auto" }}
+        style={{ margin: "16px auto 28px" }}
       >
         {!diarized
           ? paragraphs.map((para, pi) => {
-              // A paragraph collapses to one sentence on edit (id = first
-              // sentence's id), so we key paragraph edit state on that id. This
-              // shares the same `editingId` gate as the speaker view, so the
-              // rAF highlight freezes/resumes identically.
+              // Edit state is keyed on the first sentence's id — the id the
+              // collapsed sentence keeps.
               const paraId = para[0]!.id;
               const isEditing = editingId === paraId;
               if (isEditing) {
@@ -595,9 +564,9 @@ export default function Editor({
                       style={{
                         marginLeft: 6,
                         fontSize: 11,
-                        color: "#888",
+                        color: "var(--slate-500)",
                         background: "none",
-                        border: "1px solid #ddd",
+                        border: "1px solid var(--slate-200)",
                         borderRadius: 4,
                         cursor: "pointer",
                       }}
@@ -654,6 +623,13 @@ export default function Editor({
                       e.stopPropagation();
                       setRenamingSpeaker(turn.speaker);
                     }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setRenamingSpeaker(turn.speaker);
+                      }
+                    }}
                     style={{
                       fontWeight: 700,
                       cursor: "pointer",
@@ -668,7 +644,7 @@ export default function Editor({
                   </span>
                 )}
                 {first && (
-                  <span style={{ color: "#888", fontSize: 12 }}>
+                  <span style={{ color: "var(--slate-500)", fontSize: 12 }}>
                     {mmss(first.start)}
                   </span>
                 )}
@@ -707,16 +683,57 @@ export default function Editor({
           );
             })}
       </div>
+
+      <div className="transport-bar" role="group" aria-label="Transcript playback">
+        <Button variant="primary" size="sm" onClick={togglePlay} data-testid="play">
+          {playing ? "Pause" : "Play"}
+        </Button>
+        <Button size="sm" variant="ghost" onClick={() => skip(-5)} aria-label="Back 5 seconds">
+          −5s
+        </Button>
+        <Button size="sm" variant="ghost" onClick={() => skip(5)} aria-label="Forward 5 seconds">
+          +5s
+        </Button>
+        <span className="tabular transport-time">
+          {mmss(cur)} / {mmss(dur)}
+        </span>
+        <input
+          className="transport-progress"
+          type="range"
+          min={0}
+          max={dur || 0}
+          step={0.1}
+          value={Math.min(cur, dur || 0)}
+          onChange={(event) => seek(Number(event.target.value))}
+          aria-label="Playback position"
+          disabled={!audioSrc || dur === 0}
+        />
+        <select
+          aria-label="Playback speed"
+          value={speed}
+          onChange={(event) => applySpeed(Number(event.target.value))}
+        >
+          {SPEEDS.map((option) => (
+            <option key={option} value={option}>
+              {option}x
+            </option>
+          ))}
+        </select>
+        <Button
+          size="sm"
+          variant={follow ? "primary" : "ghost"}
+          data-testid="toggle-follow"
+          onClick={() => setFollow((value) => !value)}
+          aria-pressed={follow}
+        >
+          Follow
+        </Button>
+      </div>
     </div>
   );
 }
 
-/**
- * Inline editable text for a WHOLE paragraph (paragraph mode). Seeded with the
- * paragraph's joined text; Enter/blur commits via `editParagraph`, Esc cancels.
- * Keyed (testid) on the paragraph's first-sentence id, which is also the id the
- * collapsed sentence keeps, so the highlight/edit id stays stable.
- */
+/** Inline paragraph editor. Enter/blur commits via `editParagraph`, Esc cancels. */
 function ParagraphEditor({
   para,
   onCommit,
@@ -744,6 +761,7 @@ function ParagraphEditor({
         value={text}
         rows={4}
         onChange={(e) => setText(e.target.value)}
+        onClick={(e) => e.stopPropagation()}
         onBlur={() => onCommit(text)}
         onKeyDown={(e) => {
           if (e.key === "Enter" && !e.shiftKey) {
@@ -761,7 +779,7 @@ function ParagraphEditor({
           lineHeight: 1.6,
           padding: "6px 8px",
           boxSizing: "border-box",
-          boxShadow: "0 0 0 2px #38bdf8",
+          boxShadow: "var(--ring)",
           borderRadius: 6,
         }}
       />
@@ -770,10 +788,8 @@ function ParagraphEditor({
 }
 
 /**
- * F1: inline speaker-rename input rendered in the chip's place. Seeded with the
- * current display name; Enter OR blur commits, Escape cancels. Autofocus +
- * select on mount, mirroring SentenceEditor. stopPropagation on click/keydown so
- * the background play-toggle and the global shortcut handler stay out of the way.
+ * Inline speaker-rename input shown in place of the chip. Enter/blur commits, Esc
+ * cancels. Click stopPropagation keeps the background play-toggle out of the way.
  */
 function SpeakerRenameInput({
   initial,
@@ -827,7 +843,7 @@ function SpeakerRenameInput({
         fontSize: 13,
         padding: "1px 6px",
         borderRadius: 6,
-        boxShadow: "0 0 0 2px #38bdf8",
+        boxShadow: "var(--ring)",
       }}
     />
   );
@@ -858,6 +874,7 @@ function SentenceEditor({
       value={text}
       rows={2}
       onChange={(e) => setText(e.target.value)}
+      onClick={(e) => e.stopPropagation()}
       onBlur={() => onCommit(text)}
       onKeyDown={(e) => {
         if (e.key === "Enter" && !e.shiftKey) {
@@ -874,7 +891,7 @@ function SentenceEditor({
         font: "inherit",
         padding: "6px 8px",
         boxSizing: "border-box",
-        boxShadow: "0 0 0 2px #38bdf8",
+        boxShadow: "var(--ring)",
         borderRadius: 6,
       }}
     />

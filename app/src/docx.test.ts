@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import JSZip from "jszip";
 import { buildDocx } from "./docx";
 import { loadTranscript } from "@core/editor";
 import type { Transcript } from "@core/types";
@@ -30,25 +31,30 @@ const FIXTURE: Transcript = {
   ],
 };
 
-/** First two bytes of a zip (and thus a .docx) are "PK". */
-async function startsWithPK(blob: Blob): Promise<boolean> {
-  const head = new Uint8Array(await blob.slice(0, 2).arrayBuffer());
-  return head[0] === 0x50 && head[1] === 0x4b;
+/** Concatenated text of every run in word/document.xml. */
+async function documentText(blob: Blob): Promise<string> {
+  const zip = await JSZip.loadAsync(await blob.arrayBuffer());
+  const xml = await zip.file("word/document.xml")!.async("string");
+  return [...xml.matchAll(/<w:t(?:\s[^>]*)?>([^<]*)<\/w:t>/g)].map((m) => m[1]).join("");
 }
 
 describe("buildDocx", () => {
   const state = loadTranscript(FIXTURE);
 
-  it("returns a non-empty .docx (PK zip) in diarized mode", async () => {
-    const blob = await buildDocx(state, { diarized: true });
-    expect(blob.size).toBeGreaterThan(0);
-    expect(await startsWithPK(blob)).toBe(true);
+  it("writes speaker-labelled turns in diarized mode", async () => {
+    const text = await documentText(await buildDocx(state, { diarized: true }));
+    expect(text).toContain("MACHINE-GENERATED DRAFT");
+    expect(text).toContain("SPEAKER_00");
+    expect(text).toContain("The witness arrived.");
+    expect(text).toContain("SPEAKER_01");
+    expect(text).toContain("I object loudly.");
   });
 
-  it("returns a non-empty .docx (PK zip) in paragraph mode", async () => {
-    const blob = await buildDocx(state, { diarized: false });
-    expect(blob.size).toBeGreaterThan(0);
-    expect(await startsWithPK(blob)).toBe(true);
+  it("writes plain paragraphs with no speaker labels in paragraph mode", async () => {
+    const text = await documentText(await buildDocx(state, { diarized: false }));
+    expect(text).toContain("MACHINE-GENERATED DRAFT");
+    expect(text).toContain("The witness arrived. I object loudly.");
+    expect(text).not.toContain("SPEAKER_");
   });
 
   it("does not throw on empty state", async () => {

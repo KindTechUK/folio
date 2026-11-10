@@ -1,26 +1,12 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "Main-window capability for the hardened build: open audio + read/write user files only. Grants NO network permission — Tauri v2 has no network capability without the http plugin, which this app omits by design (zero-egress).",
+  "description": "Main-window capability for the hardened build: open/save dialogs + write to dialog-scoped user files only. Backend-owned application data is excluded. Grants NO network permission — Tauri v2 has no network capability without the http plugin, which this app omits by design (zero-egress).",
   "windows": ["main"],
   "permissions": [
     "core:default",
     "dialog:allow-open",
     "dialog:allow-save",
-    "fs:allow-read-file",
-    "fs:allow-write-file",
-    "fs:allow-read-text-file",
-    "fs:allow-write-text-file",
-    {
-      "identifier": "fs:scope",
-      "allow": [
-        { "path": "$APPDATA/**" },
-        { "path": "$APPLOCALDATA/**" },
-        { "path": "$AUDIO/**" },
-        { "path": "$DOCUMENT/**" },
-        { "path": "$DESKTOP/**" },
-        { "path": "$DOWNLOAD/**" }
-      ]
-    }
+    "fs:allow-write-file"
   ]
 }

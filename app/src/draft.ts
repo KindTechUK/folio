@@ -1,19 +1,11 @@
 /**
- * draft — the machine-generated-draft disclaimer (liability control).
- *
- * Per the PRD, the disclaimer must appear in the UI AND in the header of every
- * export. Core's exporters stay pure/untouched; these thin wrappers add the
- * disclaimer at the app boundary: prepended to the text export, and as a
- * `disclaimer` field on the JSON export.
+ * Machine-draft disclaimer (liability control). It must appear in the UI and in
+ * the header of every export, so these wrappers add it at the app boundary.
  */
 
 import { exportJSON, exportText } from "@core/editor";
 import type { EditorState } from "@core/editor";
 
-/**
- * Shown persistently in the editor UI and stamped onto every export so a reader
- * is never handed a machine draft that looks authoritative without warning.
- */
 export const DRAFT_DISCLAIMER =
   "MACHINE-GENERATED DRAFT — automatically transcribed and diarized. " +
   "Verify against the source audio before relying on it. Speaker labels and " +

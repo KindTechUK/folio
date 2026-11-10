@@ -3,11 +3,7 @@ import { invoke } from "@tauri-apps/api/core";
 import type { SessionMeta } from "./session";
 import { Button, Chip } from "./ui";
 
-// The persisted transcript Library. Lists the saved sessions returned by the
-// Rust `list_sessions` command (newest-first) and offers per-row Open/Delete.
-// Like Models.tsx, this is a thin command-backed list: the Tauri `invoke`
-// wiring is verified manually (not jsdom-tested); the pure logic lives in the
-// tested `session.ts` / Rust `library.rs`.
+// Saved-transcript list from Rust `list_sessions` (newest first), with per-row Open/Remove.
 
 interface LibraryProps {
   onOpen: (id: string) => void;
@@ -42,7 +38,7 @@ export default function Library({ onOpen, onImport }: LibraryProps) {
   async function remove(id: string) {
     if (
       !window.confirm(
-        "Remove this saved transcript from Matters? The source recording will not be deleted.",
+        "Remove this saved transcript? The source recording will not be deleted.",
       )
     ) {
       return;
@@ -56,29 +52,15 @@ export default function Library({ onOpen, onImport }: LibraryProps) {
   }
 
   return (
-    <section>
-      <div
-        style={{
-          display: "flex",
-          gap: "var(--space-3)",
-          alignItems: "center",
-          marginBottom: "var(--space-4)",
-          flexWrap: "wrap",
-        }}
-      >
-        <label
-          style={{
-            position: "relative",
-            flex: "1 1 260px",
-            maxWidth: 420,
-          }}
-        >
-          <span className="sr-only">Search matters</span>
+    <section className="transcript-library">
+      <div className="library-toolbar">
+        <label className="library-search-label">
+          <span className="sr-only">Search transcripts</span>
           <input
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search matters"
+            placeholder="Search transcripts"
             style={{ width: "100%", padding: "8px 10px" }}
           />
         </label>
@@ -134,60 +116,62 @@ export default function Library({ onOpen, onImport }: LibraryProps) {
             borderRadius: "var(--radius)",
           }}
         >
-          No matters match “{query.trim()}”.
+          No transcripts match “{query.trim()}”.
         </div>
       ) : (
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Matter</th>
-              <th scope="col">Last updated</th>
-              <th scope="col">Review setup</th>
-              <th scope="col">Audio</th>
-              <th scope="col" aria-label="Actions" />
-            </tr>
-          </thead>
-          <tbody>
-            {visibleSessions.map((s) => (
-              <tr key={s.id}>
-                <td style={{ color: "var(--ink)", fontWeight: 600 }}>
-                  {s.audioFilename}
-                </td>
-                <td className="tabular" style={{ whiteSpace: "nowrap" }}>
-                  {new Date(s.updatedAt).toLocaleString()}
-                </td>
-                <td>
-                  <Chip tone={s.diarized ? "accent" : "neutral"}>
-                    {s.diarized ? "Speaker review" : "Paragraph review"}
-                  </Chip>
-                </td>
-                <td>
-                  <Chip tone={s.audioAvailable ? "privacy" : "danger"}>
-                    {s.audioAvailable ? "Available" : "Missing"}
-                  </Chip>
-                </td>
-                <td style={{ whiteSpace: "nowrap" }}>
-                  <Button
-                    size="sm"
-                    data-testid={`open-${s.id}`}
-                    onClick={() => onOpen(s.id)}
-                    style={{ marginRight: 8 }}
-                  >
-                    Open
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    data-testid={`delete-${s.id}`}
-                    onClick={() => void remove(s.id)}
-                  >
-                    Remove transcript
-                  </Button>
-                </td>
+        <div className="transcript-list">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Transcript</th>
+                <th scope="col">Modified</th>
+                <th scope="col">Mode</th>
+                <th scope="col">Audio</th>
+                <th scope="col" aria-label="Actions" />
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {visibleSessions.map((s) => (
+                <tr key={s.id}>
+                  <td style={{ color: "var(--ink)", fontWeight: 600 }}>
+                    {s.audioFilename}
+                  </td>
+                  <td className="tabular" style={{ whiteSpace: "nowrap" }}>
+                    {new Date(s.updatedAt).toLocaleString()}
+                  </td>
+                  <td>
+                    <Chip tone={s.diarized ? "accent" : "neutral"}>
+                      {s.diarized ? "Speakers" : "Standard"}
+                    </Chip>
+                  </td>
+                  <td>
+                    <Chip tone={s.audioAvailable ? "privacy" : "danger"}>
+                      {s.audioAvailable ? "Available" : "Missing"}
+                    </Chip>
+                  </td>
+                  <td style={{ whiteSpace: "nowrap" }}>
+                    <Button
+                      size="sm"
+                      data-testid={`open-${s.id}`}
+                      onClick={() => onOpen(s.id)}
+                      style={{ marginRight: 8 }}
+                    >
+                      Open
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      data-testid={`delete-${s.id}`}
+                      onClick={() => void remove(s.id)}
+                    >
+                      Remove transcript
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </section>
   );

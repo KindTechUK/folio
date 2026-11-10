@@ -8,11 +8,9 @@ import Sidebar from "./Sidebar";
 // always-visible privacy signal.
 
 describe("Sidebar", () => {
-  it("renders the wordmark, the three nav items, and the privacy chip", () => {
+  it("renders the three nav items and the privacy chip", () => {
     render(<Sidebar view="library" onNavigate={() => {}} />);
-    expect(screen.getByText("Folio")).toBeInTheDocument();
-    expect(screen.getByText(/© 2026 KindTech/)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /Matters/ })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Transcripts/ })).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: /Import recording/ }),
     ).toBeInTheDocument();
@@ -26,7 +24,7 @@ describe("Sidebar", () => {
       "aria-current",
       "page",
     );
-    expect(screen.getByRole("button", { name: /Matters/ })).not.toHaveAttribute("aria-current");
+    expect(screen.getByRole("button", { name: /Transcripts/ })).not.toHaveAttribute("aria-current");
   });
 
   it("calls onNavigate with the clicked view id", () => {
