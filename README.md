@@ -54,6 +54,10 @@ data-at-rest notes, and a DPIA-support template — lives in
   NVIDIA **Parakeet-TDT-0.6B-v2** (int8, English, native word timestamps) by
   default, or Whisper `small.en` / `medium.en` (int8) when only those packs are
   installed. **No Python at runtime.**
+- **Record in the app**: capture a conversation from the microphone and watch
+  the transcript build as people speak (a few seconds behind), with pause and
+  discard. The recording is saved as a WAV on the device, written so a crash
+  keeps all but the last few seconds, and opens in the editor when you stop.
 - **Optional speaker diarization** (opt-in, default off — see
   [`engine/README.md`](engine/README.md)), with an optional speaker-count hint.
 - **Review editor**: variable-speed playback with 5-second skip, word-synced

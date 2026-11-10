@@ -12,7 +12,7 @@
 
 | DPO question | Vendor-supplied answer |
 | --- | --- |
-| What does the processing do? | Transcribes (and optionally diarizes) audio files into a reviewable, editable text transcript, entirely on the user's device. |
+| What does the processing do? | Transcribes (and optionally diarizes) audio files, or conversations recorded in the app, into a reviewable, editable text transcript, entirely on the user's device. |
 | What personal data is involved? | Audio of individuals (potentially special-category and legally privileged), and the derived transcript and speaker labels. |
 | Whose data? | Data subjects recorded in the firm's audio (clients, witnesses, staff). |
 | Is the data special-category / privileged? | Likely yes. Treat accordingly. The product is designed for exactly this sensitivity. |
@@ -67,7 +67,8 @@
 | Persisted transcript exposed after a matter ends | Transcripts auto-save to a local on-device library (BitLocker volume, never leaves device); one-click "Delete transcript and audio" purges the saved entry + source audio, and a saved transcript (not the audio) can be removed from the Transcripts view. | ✅ |
 | Over-reliance on an inaccurate transcript | Machine-draft disclaimer in UI + every export; human review is a first-class step; speaker labels off by default. | ✅ |
 | Speaker mislabelling (diarization over-segmentation) | Diarization opt-in + optional speaker-count hint + human relabel backstop. | ✅ |
-| Residual data left in temp files | In-memory decode writes no scratch file today. | ✅ (today) — 🚧 explicit app-owned scratch + wipe routine |
+| Residual data left in temp files | In-memory decode writes no scratch file today. The recorder writes only the recording WAV (app data, BitLocker volume), which "Delete transcript and audio" or Discard removes. | ✅ (today) — 🚧 explicit app-owned scratch + wipe routine |
+| People recorded without knowing | The Record page reminds the user to tell everyone present, shows a recording indicator and elapsed time, and supports pause. Consent and notice remain the firm's responsibility. | ✅ |
 | Tampered/unauthentic installer | OV Authenticode code signing of installer + DLLs. | 🚧 roadmap |
 
 ## G. Outstanding items for the firm's DPIA file

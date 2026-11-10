@@ -3,7 +3,7 @@
 //! A firm running client-confidential matters can (a) be warned when the
 //! storage volume is NOT confirmed encrypted (BitLocker on Windows) and (b)
 //! delete a matter's source audio and saved transcript. The engine writes no
-//! temp files.
+//! temp files; the recorder writes only the recording itself (`recorder.rs`).
 //!
 //! Everything is network-free. [`parse_manage_bde_status`] and
 //! [`delete_matter_authorized_in`] are the unit-tested cores (never panic); the
