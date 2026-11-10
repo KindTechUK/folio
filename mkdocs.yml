@@ -51,6 +51,13 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
+# Internal planning (PRDs, spikes, market research) lives in the repo for review
+# on GitHub but is not part of the published user docs.
+exclude_docs: |
+  prd/
+  research/
+  spikes/
+
 # Cross-repo links (to source files outside docs/) are expected; keep them as
 # warnings so a stray link never breaks the published site.
 validation:
