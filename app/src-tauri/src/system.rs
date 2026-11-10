@@ -145,7 +145,7 @@ pub fn delete_paths(paths: &[String]) -> DeleteReport {
 
 const APPROVED_RECORDINGS_FILE: &str = ".approved-recordings";
 
-fn approved_recordings_in(library_dir: &Path) -> Result<BTreeSet<PathBuf>, String> {
+pub(crate) fn approved_recordings_in(library_dir: &Path) -> Result<BTreeSet<PathBuf>, String> {
     let path = library_dir.join(APPROVED_RECORDINGS_FILE);
     let bytes = match std::fs::read(&path) {
         Ok(bytes) => bytes,
@@ -252,7 +252,7 @@ fn recording_is_approved_in(library_dir: &Path, path: &Path) -> Result<bool, Str
     Ok(approved_recordings_in(library_dir)?.contains(&canonical))
 }
 
-fn forget_approved_recording_in(library_dir: &Path, path: &Path) {
+pub(crate) fn forget_approved_recording_in(library_dir: &Path, path: &Path) {
     let Ok(mut approved) = approved_recordings_in(library_dir) else {
         return;
     };
