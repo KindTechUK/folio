@@ -22,16 +22,7 @@ import { groupParagraphs } from "@core/editor";
 import type { EditorState } from "@core/editor";
 import { UNKNOWN_SPEAKER } from "@core/types";
 import { DRAFT_DISCLAIMER } from "./draft";
-
-function mmss(t: number): string {
-  const s = Math.max(0, t);
-  const m = Math.floor(s / 60);
-  return `${m}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
-}
-
-function displayName(state: EditorState, id: string): string {
-  return state.renameMap[id] ?? id;
-}
+import { displayName, mmss } from "./format";
 
 function sentenceText(words: { text: string }[]): string {
   return words.map((w) => w.text).join(" ");
@@ -126,10 +117,9 @@ function browserDownload(blob: Blob, name: string): void {
 }
 
 /**
- * Build the .docx and save it. In the Tauri app, open the native save dialog
- * and write via plugin-fs (the dialog grants the chosen path's scope). In a
- * plain browser (dev/tests) fall back to a download. Returns the chosen path,
- * or `null` if the user cancelled.
+ * Build and save the .docx: native save dialog + plugin-fs in Tauri (the dialog
+ * grants the chosen path's scope), download fallback in a plain browser. Returns
+ * the saved path, or `null` if cancelled or in browser mode.
  */
 export async function saveDocx(
   state: EditorState,

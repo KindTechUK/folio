@@ -3,14 +3,15 @@
 > Audience: a UK law firm's IT, DPO, and security reviewers clearing this
 > product through procurement and a DPIA.
 > Vendor: Kindtech (the developer of *Folio*).
-> Status of this pack: drafted 2026-06-12 against the live source tree. Every
+> Status of this pack: drafted 2026-06-12, revised 2026-11-09 against the live source tree. Every
 > capability claim carries a status tag — **✅ implemented and verifiable
 > today** or **🚧 planned / roadmap** — so a reviewer can tell what they can
 > verify now from what is committed direction.
 
 ## Executive summary (the privacy posture in one paragraph)
 
-*Folio* is a self-contained Windows desktop application that
+*Folio* is a self-contained desktop application (this pack targets the Windows
+build; the macOS and Linux builds share the same engine, gate, and CSP) that
 transcribes and (optionally) diarizes sensitive audio **entirely on the
 device**. It is engineered so that **audio, transcripts, and any derived
 personal data never leave the laptop, and the vendor never receives any of it**.
@@ -34,17 +35,17 @@ data-at-rest dependency note, and a pre-filled DPIA-support template.
 | Strict CSP (`connect-src 'none'`) + network-free Tauri capabilities | ✅ implemented |
 | Fully-local, CPU-only, Python-free ASR + diarization engine (sherpa-onnx, in-process) | ✅ implemented |
 | In-app decode with no bundled ffmpeg / no sidecar HTTP | ✅ implemented |
-| Signed model-pack verification (ed25519 + sha256, fail-closed) at the Rust trust boundary | ✅ implemented (against a **TEST** key) |
-| Model weights loaded **ONLY from a verified signed pack** at transcription time (enforced in release/hardened builds; fail-closed) | ✅ implemented (against a **TEST** key) |
+| Signed model-pack verification (ed25519 + sha256, fail-closed) at the Rust trust boundary | ✅ implemented |
+| Model weights loaded **ONLY from a verified signed pack** at transcription time (enforced in release builds; fail-closed) | ✅ implemented |
+| Release packs signed with a CI-held vendor key; release builds refuse to compile against the committed **TEST** key | ✅ implemented |
 | Producer-side signing CLI to build signed packs (`tools/modelpack-sign`; reuses the verifier's canonicalization) | ✅ implemented |
 | DOCX / JSON / text export, each carrying a machine-generated-draft disclaimer | ✅ implemented |
-| Local transcript library — transcripts auto-saved on-device (BitLocker volume), zero-egress, purged by delete-matter | ✅ implemented |
-| All bundled components / models permissive (MIT / Apache-2.0) | ✅ verified from manifests |
+| Local transcript library — transcripts auto-saved on-device (BitLocker volume), zero-egress, purged by "Delete transcript and audio" | ✅ implemented |
+| All bundled components / models under permissive licences (MIT / Apache-2.0 / BSD-3-Clause / CC-BY-4.0; MPL-2.0 for `symphonia`) | ✅ verified from manifests |
 | Launch-time BitLocker-status check + warning (advisory banner) | ✅ implemented |
-| One-click "delete this matter" (removes source audio + clears transcript) | ✅ implemented |
+| One-click "Delete transcript and audio" (removes source audio + saved transcript) | ✅ implemented |
 | OV Authenticode code signing of the installer + DLLs | 🚧 roadmap |
 | MSI (WiX) packaging for Intune/SCCM + per-user no-admin NSIS | 🚧 roadmap (NSIS target only today) |
-| Production vendor signing key (fixtures use a committed **TEST** key) | 🚧 roadmap |
 | Temp/scratch-file wipe-on-completion | 🚧 roadmap (current engine decodes in-memory — see `data-at-rest.md`) |
 
 ## Contents
@@ -55,7 +56,7 @@ data-at-rest dependency note, and a pre-filled DPIA-support template.
 | [`non-processor-statement.md`](non-processor-statement.md) | The UK GDPR / DPA 2018 reasoning that the vendor is not a data processor. Vendor assertion, to be confirmed by the firm's counsel. |
 | [`airplane-mode-verification.md`](airplane-mode-verification.md) | Independently runnable steps to verify zero egress (CI gate, `cargo tree`, CSP, airplane-mode smoke, hardened build). |
 | [`third-party-components.md`](third-party-components.md) | Bundled crates, npm deps, and ONNX models with version + licence + attribution. |
-| [`data-at-rest.md`](data-at-rest.md) | BitLocker dependency + implemented launch-time encryption banner, temp-file hygiene, implemented one-click delete-matter, verified-pack model storage. |
+| [`data-at-rest.md`](data-at-rest.md) | BitLocker dependency + implemented launch-time encryption banner, temp-file hygiene, implemented one-click "Delete transcript and audio", verified-pack model storage. |
 | [`dpia-support.md`](dpia-support.md) | DPIA-support template: typical DPO questions, pre-filled with this product's answers. |
 
 ## How to read this pack as a reviewer
@@ -70,10 +71,8 @@ go-live decision until the corresponding artifact ships.
 ## Source of truth
 
 This pack is grounded in:
-`docs/prd/local-private-transcription.md`,
-`docs/plans/vibe-fork-plan.md`,
 `scripts/check-no-network.sh`,
-`.github/workflows/zero-egress.yml`,
+`.github/workflows/ci.yml` (job `gate`), `.github/workflows/release.yml`,
 `app/src-tauri/{Cargo.toml,tauri.conf.json,capabilities/default.json}`,
 `engine/{Cargo.toml,README.md}`, `modelpack/`, `core/`, and
 `fixtures/modelpack/`. The full source is open and auditable.

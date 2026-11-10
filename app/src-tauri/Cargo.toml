@@ -1,6 +1,6 @@
 [package]
 name = "kindtech-transcribe-app"
-version = "0.2.0"
+version = "0.2.1"
 description = "Hardened, zero-egress local transcription app shell (Tauri v2)."
 edition = "2021"
 license = "Apache-2.0"
@@ -13,24 +13,25 @@ crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
 tauri-build = { version = "2", features = [] }
+ed25519-dalek = { version = "2", features = ["pem"] }
+
+[dev-dependencies]
+ed25519-dalek = { version = "2", features = ["pem"] }
 
 [dependencies]
-# In-process engine (committed in PR1) via a PATH dependency — NOT a network
-# crate, NOT a registry fetch. This pulls sherpa-onnx in transitively and is
-# what we link the app against.
+# In-process engine via a PATH dependency — NOT a registry fetch. Pulls
+# sherpa-onnx in transitively.
 engine = { path = "../../engine" }
 
-# Model-pack verification crate (PR #3a) via a PATH dependency — network-free
-# (ed25519-dalek/sha2/serde). PR #3c wires it at the trust boundary so the app
-# verifies signed packs before trusting/importing them. The zero-egress gate
-# already scans modelpack (scripts/check-no-network.sh).
+# Model-pack verification crate via a PATH dependency — network-free; scanned
+# by scripts/check-no-network.sh.
 modelpack = { path = "../../modelpack" }
 
 # Tauri v2 with ONLY the plugins this app needs. Deliberately ABSENT (the
-# product's zero-egress differentiator — see docs/plans/vibe-fork-plan.md §4):
+# product's zero-egress differentiator):
 #   tauri-plugin-http, tauri-plugin-updater, tauri-plugin-aptabase,
 #   tauri-plugin-deep-link, and any HTTP client (reqwest/ureq/hyper/isahc/surf).
-# scripts/check-no-network.sh + .github/workflows/zero-egress.yml enforce this.
+# scripts/check-no-network.sh (run by .github/workflows/ci.yml) enforces this.
 tauri = { version = "2", features = ["protocol-asset"] }
 tauri-plugin-dialog = "2"
 tauri-plugin-fs = "2"
@@ -38,16 +39,14 @@ tauri-plugin-fs = "2"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 
-# Verified-pack resolution (PR #3d): extract verified packs' `weights.bin` zips
-# into a content-addressed cache and SHA-256 the manifest set for the cache key.
-# Both are network-free (the zero-egress gate scans this manifest).
+# Verified-pack resolution: extract verified packs' `weights.bin` zips into a
+# content-addressed cache. Network-free (scanned by the zero-egress gate).
 zip = "2"
 sha2 = "0.10"
 
 [features]
-# Default + `hardened` are BOTH network-free in PR2. `hardened` is the forward
-# guard rail: it is the feature the shipped firm build sets, reserved to compile
-# OUT any future optional networked catalog (the open-SME variant, PRD #31).
-# The CI gate runs `cargo tree` for default AND `--features hardened`.
+# Both are network-free. Release builds set `hardened` (release.yml); it is
+# reserved to compile OUT any future optional networked feature. The CI gate
+# runs `cargo tree` for default AND `--features hardened`.
 default = []
 hardened = []

@@ -6,8 +6,6 @@ description = "Vendor-side producer CLI that creates signed model packs. Reuses 
 license = "Apache-2.0"
 
 [dependencies]
-# Reuse the verifier's Manifest + canonicalize + validate_manifest + verify_model_pack
-# so the signing pipeline is byte-for-byte the same shape the app verifies.
 modelpack = { path = "../../modelpack" }
 ed25519-dalek = { version = "2", features = ["rand_core", "pkcs8", "pem"] }
 rand_core = { version = "0.6", features = ["getrandom"] }

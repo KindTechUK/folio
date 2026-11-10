@@ -2,8 +2,8 @@
  * The transcript JSON sidecar contract — the stable interface between the ASR/diarization
  * engine and everything downstream (turn builder, editor, exporters).
  *
- * This mirrors the shape produced by the existing Python pipeline (`transcribe.py` ->
- * `out/*.json`) so real recorded sidecars work as test fixtures unchanged.
+ * Same shape as the retired Python pipeline's sidecars, so real recorded sidecars
+ * work as test fixtures unchanged.
  *
  * Word-level timestamps are a PLAYBACK AID ONLY, not an edit surface. Native engine
  * timestamps (±200-500ms) are sufficient; forced alignment is not required.
@@ -36,11 +36,7 @@ export interface Transcript {
   segments: Segment[];
 }
 
-/**
- * A flattened, document-ordered word. Every word carries a resolved (non-null) speaker:
- * words missing a speaker/timestamp inherit from their segment or the previous word, so
- * nothing is silently dropped. `UNKNOWN` is the fallback when no speaker is ever seen.
- */
+/** A flattened word with a resolved speaker and timestamps (see `flattenWords`). */
 export interface FlatWord {
   text: string;
   start: number;

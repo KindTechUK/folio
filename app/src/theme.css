@@ -4,7 +4,7 @@
  * Calm Windows-professional direction for a UK law-firm buyer: a restrained
  * slate/ink neutral ramp, one deep blue-slate accent, and familiar Segoe UI
  * typography. ZERO-EGRESS: only system font stacks — no web fonts or external
- * CSS. Bundled by Vite and allowed by the CSP (`style-src 'self'`).
+ * CSS (CSP: `style-src 'self' 'unsafe-inline'`).
  */
 
 :root {
@@ -38,6 +38,8 @@
   --danger-soft: #fbe9e9;
   --danger-border: #d99a9a;
   --info-soft: #eef1f6;
+  --highlight-active: #fff0a8;
+  --highlight-active-text: #443500;
 
   /* Spacing scale */
   --space-1: 4px;
@@ -123,7 +125,6 @@ a {
   border: 0;
 }
 
-/* Sensible defaults so per-element inline styling can be dropped. */
 input,
 select,
 textarea {
@@ -159,4 +160,309 @@ td {
   padding: 10px;
   border-bottom: 1px solid var(--slate-100);
   color: var(--slate-700);
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--canvas);
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-5);
+  /* clip, not hidden: hidden makes this a scroll container, which stops the
+     sticky toolbar and transport bar from pinning to the window. */
+  overflow-x: clip;
+}
+
+.page-header {
+  max-width: 1040px;
+  margin-bottom: var(--space-5);
+}
+
+.page-header h1,
+.draft-header h1 {
+  margin: 0;
+  font-size: var(--text-2xl);
+}
+
+.page-header p {
+  margin: var(--space-2) 0 0;
+  color: var(--slate-500);
+}
+
+.page-content {
+  max-width: 1040px;
+}
+
+.transcript-workspace {
+  padding: 0 var(--space-5);
+}
+
+.transcript-workspace .page-content {
+  max-width: none;
+}
+
+.draft-header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 14px 0 12px;
+  border-bottom: 1px solid var(--slate-200);
+  background: var(--canvas);
+}
+
+.draft-header {
+  flex-wrap: wrap;
+}
+
+.draft-header > :first-child {
+  flex: 1 1 240px;
+}
+
+.draft-meta {
+  white-space: nowrap;
+}
+
+.draft-header h1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.draft-meta,
+.draft-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.draft-meta {
+  margin-top: 3px;
+  color: var(--slate-500);
+  font-size: var(--text-xs);
+}
+
+.save-error {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.transcript-library {
+  background: var(--surface);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.library-toolbar {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  flex-wrap: wrap;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--slate-200);
+}
+
+.library-search-label {
+  position: relative;
+  flex: 1 1 260px;
+  max-width: 420px;
+}
+
+.transcript-list {
+  overflow-x: auto;
+}
+
+.transcript-list tbody tr {
+  transition: background 100ms ease;
+}
+
+.transcript-list tbody tr:hover {
+  background: var(--slate-50);
+}
+
+.import-card,
+.progress-card {
+  margin: 0 auto;
+  padding: var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-lg);
+  max-width: 720px;
+}
+
+.import-card > h2,
+.progress-card > h2 {
+  margin: 0;
+  font-size: var(--text-xl);
+}
+
+.selected-recording,
+.model-ready {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius);
+  background: var(--slate-50);
+  color: var(--slate-600);
+  font-size: var(--text-sm);
+}
+
+.selected-recording strong {
+  display: block;
+  overflow: hidden;
+  color: var(--ink);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.model-ready {
+  margin-bottom: var(--space-4);
+  background: var(--privacy-soft);
+  border-color: transparent;
+  color: var(--privacy);
+}
+
+.field-label {
+  margin-bottom: 2px;
+  color: var(--slate-500);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.editor {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  flex-direction: column;
+}
+
+.draft-guidance {
+  width: min(820px, 100%);
+  margin: var(--space-3) auto 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  align-items: stretch;
+}
+
+.correction-hint {
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 14px;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--slate-500);
+  font-size: var(--text-xs);
+}
+
+.correction-hint strong {
+  color: var(--slate-700);
+}
+
+.doc {
+  width: min(820px, 100%);
+  min-height: 420px;
+  padding: 34px 44px 48px;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--slate-900);
+}
+
+.doc .paragraph {
+  font-size: 16px;
+  line-height: 1.75 !important;
+}
+
+.transport-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 8;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin: auto calc(var(--space-5) * -1) 0;
+  padding: 10px var(--space-5);
+  border-top: 1px solid var(--slate-200);
+  background: var(--surface);
+}
+
+.transport-time {
+  min-width: 82px;
+  color: var(--slate-500);
+  font-size: var(--text-xs);
+}
+
+.transport-progress {
+  min-width: 120px;
+  flex: 1 1 160px;
+  accent-color: var(--accent);
+}
+
+.export-menu {
+  position: relative;
+}
+
+.export-menu-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 20;
+  min-width: 210px;
+  padding: 4px;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgba(28, 34, 48, 0.12);
+}
+
+.export-menu-popover button {
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--slate-700);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--text-sm);
+  text-align: left;
+}
+
+.export-menu-popover button:hover {
+  background: var(--slate-100);
+}
+
+@media (max-width: 900px) {
+  .draft-guidance {
+    grid-template-columns: 1fr;
+  }
+
+  .correction-hint {
+    max-width: none;
+  }
+
+  .doc {
+    padding: 28px;
+  }
+}
+
+/* Keep the followed word clear of the sticky toolbar and playback bar. */
+.doc [data-flat-index] {
+  scroll-margin-top: 72px;
+  scroll-margin-bottom: 128px;
 }

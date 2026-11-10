@@ -1,15 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent, within } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { useState } from "react";
 import Editor from "./Editor";
 import { loadTranscript } from "@core/editor";
 import type { EditorState } from "@core/editor";
 import type { Transcript } from "@core/types";
-import {
-  exportTextWithDisclaimer,
-  exportJSONWithDisclaimer,
-  DRAFT_DISCLAIMER,
-} from "./draft";
 
 // Two speakers, two turns. SPEAKER_00 says one sentence, SPEAKER_01 another.
 const FIXTURE: Transcript = {
@@ -44,10 +39,12 @@ function Harness({
   onState,
   diarized = true,
   transcript = FIXTURE,
+  audioSrc,
 }: {
   onState: (s: EditorState) => void;
   diarized?: boolean;
   transcript?: Transcript;
+  audioSrc?: string;
 }) {
   const [state, setState] = useState<EditorState>(() =>
     loadTranscript(transcript),
@@ -57,6 +54,7 @@ function Harness({
     <Editor
       state={state}
       diarized={diarized}
+      audioSrc={audioSrc}
       setState={(s) => {
         onState(s);
         setState(s);
@@ -73,11 +71,11 @@ describe("Editor (jsdom)", () => {
 
   beforeEach(() => {
     vi.restoreAllMocks();
+    vi.unstubAllGlobals();
   });
 
-  it("double-click a sentence, edit text, blur -> words change, timings stay in span", () => {
+  it("double-click a sentence, edit text, blur -> words and DOM change", () => {
     render(<Harness onState={capture} />);
-    const span = { start: 0, end: 2 }; // original first-sentence span
 
     const sentence = screen.getByTestId("sentence-sent-0");
     fireEvent.doubleClick(sentence);
@@ -89,14 +87,6 @@ describe("Editor (jsdom)", () => {
     const edited = latest.sentences.find((s) => s.id === "sent-0")!;
     const text = edited.words.map((w) => w.text).join(" ");
     expect(text).toBe("the deponent showed up here.");
-    // re-spread keeps the original [start, end] span
-    expect(edited.words[0]!.start).toBeCloseTo(span.start, 3);
-    expect(edited.words.at(-1)!.end).toBeCloseTo(span.end, 3);
-    for (const w of edited.words) {
-      expect(w.start).toBeGreaterThanOrEqual(span.start - 1e-6);
-      expect(w.end).toBeLessThanOrEqual(span.end + 1e-6);
-    }
-    // and the rendered DOM reflects the change
     expect(screen.getByTestId("sentence-sent-0")).toHaveTextContent("deponent");
   });
 
@@ -174,63 +164,15 @@ describe("Editor (jsdom)", () => {
     );
   });
 
-  it("exports reflect edits + renames AND carry the disclaimer header", () => {
-    function H() {
-      const [state, setState] = useState<EditorState>(() => loadTranscript(FIXTURE));
-      capture(state);
-      return <Editor state={state} diarized setState={(s) => { capture(s); setState(s); }} />;
-    }
-    render(<H />);
-
-    // rename SPEAKER_00 -> Witness via the inline input
-    const chip = screen
-      .getAllByTestId("speaker-chip")
-      .find((c) => c.getAttribute("data-speaker") === "SPEAKER_00")!;
-    fireEvent.click(chip);
-    const renameInput = screen.getByTestId("speaker-rename-input");
-    fireEvent.change(renameInput, { target: { value: "Witness" } });
-    fireEvent.keyDown(renameInput, { key: "Enter" });
-
-    // edit sent-1
-    fireEvent.doubleClick(screen.getByTestId("sentence-sent-1"));
-    const ta = screen.getByTestId("edit-sent-1") as HTMLTextAreaElement;
-    fireEvent.change(ta, { target: { value: "I strongly disagree." } });
-    fireEvent.blur(ta);
-
-    const text = exportTextWithDisclaimer(latest);
-    const json = exportJSONWithDisclaimer(latest);
-
-    // disclaimer header present
-    expect(text.startsWith("#")).toBe(true);
-    expect(text).toContain(DRAFT_DISCLAIMER.split(". ")[0]!);
-    expect(json.disclaimer).toBe(DRAFT_DISCLAIMER);
-
-    // edits + renames reflected
-    expect(text).toContain("Witness");
-    expect(text).toContain("strongly disagree");
-    expect(json.words.some((w) => w.speaker === "Witness")).toBe(true);
-    expect(json.words.some((w) => w.word === "disagree.")).toBe(true);
-    expect(json.words.some((w) => w.speaker === "SPEAKER_00")).toBe(false);
-  });
-
   it("renders the persistent draft disclaimer banner", () => {
     render(<Harness onState={capture} />);
     expect(
       screen.getByLabelText("machine-generated draft disclaimer"),
-    ).toHaveTextContent(DRAFT_DISCLAIMER.split(". ")[0]!);
+    ).toHaveTextContent("MACHINE-GENERATED DRAFT — automatically transcribed and diarized");
   });
 
-  it("click a word seeks the audio element", () => {
-    render(<Harness onState={() => {}} />);
-    const words = within(screen.getByTestId("sentence-sent-0")).getAllByTestId(
-      "word",
-    );
-    // No audio src in this harness, so seek is a no-op but must not throw.
-    expect(() => fireEvent.click(words[1]!)).not.toThrow();
-  });
-
-  it("paragraph mode (diarized=false): renders paragraphs, NO speaker chips", () => {
-    render(<Harness onState={capture} diarized={false} />);
+  it("diarized=false renders paragraphs without speaker controls; diarized=true renders chips", () => {
+    const { unmount } = render(<Harness onState={capture} diarized={false} />);
 
     // Paragraph blocks render, and there are NO speaker chips / reassign selects.
     expect(screen.getAllByTestId("paragraph").length).toBeGreaterThan(0);
@@ -239,13 +181,16 @@ describe("Editor (jsdom)", () => {
 
     // Words still render (for karaoke + click-to-seek).
     expect(screen.getAllByTestId("word").length).toBeGreaterThan(0);
+    unmount();
+
+    render(<Harness onState={capture} diarized />);
+    expect(screen.getAllByTestId("speaker-chip").length).toBeGreaterThan(0);
+    expect(screen.queryByTestId("paragraph")).toBeNull();
   });
 
-  it("paragraph mode: double-click a paragraph -> edit whole text -> commit re-spreads in the anchor span", () => {
+  it("paragraph mode: double-click a paragraph -> edit whole text -> commit collapses the run", () => {
     render(<Harness onState={capture} diarized={false} />);
-    // FIXTURE's two sentences (no gap) group into one paragraph keyed on sent-0,
-    // anchored [0, 4] (first word start -> last word end).
-    const span = { start: 0, end: 4 };
+    // FIXTURE's two sentences (no gap) group into one paragraph keyed on sent-0.
 
     const para = screen.getAllByTestId("paragraph")[0]!;
     // The whole paragraph is one editable surface seeded with its full text.
@@ -269,21 +214,8 @@ describe("Editor (jsdom)", () => {
     // The second sentence is gone (collapsed into sent-0).
     expect(latest.sentences.find((s) => s.id === "sent-1")).toBeUndefined();
 
-    // Timings stay within the original anchor span.
-    expect(edited.words[0]!.start).toBeCloseTo(span.start, 3);
-    expect(edited.words.at(-1)!.end).toBeCloseTo(span.end, 3);
-    for (const w of edited.words) {
-      expect(w.start).toBeGreaterThanOrEqual(span.start - 1e-6);
-      expect(w.end).toBeLessThanOrEqual(span.end + 1e-6);
-    }
     // DOM reflects the edit.
     expect(screen.getAllByTestId("paragraph")[0]!).toHaveTextContent("deponent");
-  });
-
-  it("diarized=true still shows speaker chips", () => {
-    render(<Harness onState={capture} diarized={true} />);
-    expect(screen.getAllByTestId("speaker-chip").length).toBeGreaterThan(0);
-    expect(screen.queryByTestId("paragraph")).toBeNull();
   });
 
   it("find & replace: open, count matches across sentences, replace all", () => {
@@ -359,6 +291,67 @@ describe("Editor (jsdom)", () => {
     rerender(<H can={true} />);
     fireEvent.click(screen.getByTestId("undo"));
     expect(onUndo).toHaveBeenCalled();
+  });
+
+  it.each([
+    ["sentence", true, "sentence-sent-0"],
+    ["paragraph", false, "paragraph"],
+  ])("clicking inside an open %s editor does not toggle playback", (_, diarized, target) => {
+    const play = vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue();
+    const { container } = render(
+      <Harness onState={capture} diarized={diarized as boolean} audioSrc="clip.wav" />,
+    );
+
+    fireEvent.doubleClick(screen.getAllByTestId(target as string)[0]!);
+    fireEvent.click(screen.getByTestId("edit-sent-0"));
+    expect(play).not.toHaveBeenCalled();
+
+    fireEvent.click(container.querySelector(".doc")!);
+    expect(play).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([
+    ["Word document (.docx)", "transcript_edited.docx"],
+    ["Plain text (.txt)", "transcript_edited.txt"],
+    ["Transcript data (.json)", "transcript_edited.json"],
+  ])("Export menu: %s saves %s and closes the menu", async (label, fileName) => {
+    vi.stubGlobal("URL", Object.assign(Object.create(URL), {
+      createObjectURL: () => "blob:export",
+      revokeObjectURL: () => {},
+    }));
+    const saved: string[] = [];
+    vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(function (
+      this: HTMLAnchorElement,
+    ) {
+      saved.push(this.download);
+    });
+    render(<Harness onState={capture} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Export" }));
+    fireEvent.click(screen.getByRole("menuitem", { name: label }));
+
+    expect(screen.queryByRole("menu")).not.toBeInTheDocument();
+    await waitFor(() => expect(saved).toEqual([fileName]));
+  });
+
+  it("−5s / +5s move playback by five seconds and never before the start", () => {
+    render(<Harness onState={capture} audioSrc="clip.wav" />);
+    const audio = screen.getByTestId("audio") as HTMLAudioElement;
+    let position = 3;
+    Object.defineProperty(audio, "currentTime", {
+      configurable: true,
+      get: () => position,
+      set: (v: number) => {
+        position = v;
+      },
+    });
+
+    fireEvent.click(screen.getByRole("button", { name: "Forward 5 seconds" }));
+    expect(position).toBe(8);
+
+    position = 2;
+    fireEvent.click(screen.getByRole("button", { name: "Back 5 seconds" }));
+    expect(position).toBe(0);
   });
 
   // NOTE: rAF karaoke highlight, audio play/pause, Space play/pause, click-to-

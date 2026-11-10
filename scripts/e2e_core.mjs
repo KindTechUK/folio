@@ -2,12 +2,9 @@
  * End-to-end core harness: run a REAL engine-produced sidecar through the TS
  * `core` pipeline and assert the full chain composes on real data.
  *
- * Run via `npx tsx scripts/e2e_core.mjs` (tsx transpiles the `core/src/*.ts`
- * imports on the fly). The sidecar path comes from $E2E_SIDECAR; a human-
- * readable transcript is written to $E2E_TRANSCRIPT (default out/e2e_transcript.txt).
- *
- * ADDITIVE: this lives outside `core/test/`, so the committed vitest count
- * (69) is untouched. It imports the SAME public API the app uses.
+ * Run by scripts/e2e.sh via core's vite-node (transpiles core/src/*.ts on the
+ * fly). Reads the sidecar from $E2E_SIDECAR; writes a human-readable transcript
+ * to $E2E_TRANSCRIPT (default out/e2e_transcript.txt).
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";

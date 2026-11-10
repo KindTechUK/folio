@@ -1,32 +1,40 @@
 # Continuous integration: tests + the zero-egress assurance gate.
 #
-# Runs on every push and PR. Jobs:
+# Runs on pushes to main and on every PR. Jobs:
 #   gate          — network-crate denylist gate (the zero-egress guarantee).
 #   core          — shared TS core: tsc --noEmit + vitest.
 #   frontend      — React/Vite frontend build + app vitest.
 #   engine        — Rust engine unit tests (links sherpa-onnx; build-time lib fetch).
+#   app-backend   — Tauri backend tests on Linux (incl. the unix-only symlink tests).
 #   modelpack     — model-pack verifier cross-language conformance.
 #   modelpack-sign— producer signer conformance (Rust signer == TS signature).
-#   windows-link  — MSVC static-link of sherpa-onnx for engine + Tauri app.
+#   windows       — MSVC static-link of sherpa-onnx + engine/app tests on Windows.
 #
 # The same gate is provable locally any time via scripts/check-no-network.sh.
 name: ci
 
 on:
   push:
-    branches: ["**"]
+    branches: [main]
   pull_request:
+  workflow_call: # release.yml runs the full suite before building
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   gate:
     name: network-crate gate (cargo tree denylist)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
-      # SHERPA_ONNX_LIB_DIR is NOT set here on purpose: `cargo tree` resolves the
-      # dependency graph from manifests/lockfiles WITHOUT building, so no
-      # sherpa-onnx C-lib download happens. The gate inspects linked crates only.
+      # `cargo tree` resolves the graph from manifests/lockfiles without building,
+      # so no sherpa-onnx lib download happens here.
       - name: Run zero-egress gate
         run: bash scripts/check-no-network.sh
 
@@ -37,12 +45,12 @@ jobs:
       run:
         working-directory: core
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "22"
       - run: npm ci
-      - run: npm run verify # tsc --noEmit && vitest run
+      - run: npm run verify
 
   frontend:
     name: frontend build (React + Vite) + app tests
@@ -51,10 +59,10 @@ jobs:
       run:
         working-directory: app
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "22"
       - run: npm ci
       - run: npm run build
       - run: npx vitest run
@@ -63,23 +71,44 @@ jobs:
     name: engine unit tests (sherpa-onnx linked)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
-      # The model-gated integration test is #[ignore]d, so this runs the pure
-      # unit tests. The crate still links sherpa-onnx; its build script performs
-      # the one-time BUILD-TIME lib fetch (not runtime egress).
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: engine
+      # The model-gated integration test is #[ignore]d (needs local models).
       - name: Run engine unit tests
         run: cargo test --manifest-path engine/Cargo.toml
+
+  app-backend:
+    name: app backend tests (Linux)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: app/src-tauri
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - name: Install Tauri Linux deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev
+      # tauri-build embeds frontendDist (../dist) at compile time.
+      - name: Build frontend
+        working-directory: app
+        run: npm ci && npm run build
+      - name: Test app backend
+        run: cargo test --manifest-path app/src-tauri/Cargo.toml
 
   modelpack:
     name: modelpack verify (cross-language conformance)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
-      # Standalone verification crate (no workspace). tests/conformance.rs reads
-      # the shared fixtures under fixtures/modelpack/ and asserts identical trust
-      # decisions to the TS oracle.
       - name: Run modelpack tests
         run: cargo test --manifest-path modelpack/Cargo.toml
 
@@ -87,33 +116,36 @@ jobs:
     name: modelpack-sign (producer signer conformance)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
-      # The vendor-side producer CLI (standalone crate, not shipped). It links NO
-      # sherpa-onnx, so it builds/tests on plain ubuntu. Its cross-tool test proves
-      # the Rust signer reproduces the committed TS-generated signature byte-for-byte.
+      - name: Run model-pack supply-chain tests
+        run: bash scripts/test-modelpack-security.sh
       - name: Run modelpack-sign tests
         run: cargo test --manifest-path tools/modelpack-sign/Cargo.toml
 
-  windows-link:
-    name: windows MSVC static-link (engine + app)
+  windows:
+    name: windows MSVC static-link + tests (engine + app)
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
-      - uses: actions/setup-node@v4
+      - uses: Swatinem/rust-cache@v2
         with:
-          node-version: "20"
-      # Vendored sherpa-onnx Windows static libs make the build provably offline.
-      # Until the vendored libs are wired into CI artifacts/cache, the build
-      # script performs its one-time BUILD-TIME fetch (not runtime egress).
-      - name: Build engine (MSVC static link)
-        run: cargo build --manifest-path engine/Cargo.toml
+          workspaces: |
+            engine
+            app/src-tauri
+            tools/modelpack-sign
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - name: Test engine (MSVC static link)
+        run: cargo test --manifest-path engine/Cargo.toml
+      - name: Test modelpack signer key handling on Windows
+        run: cargo test --manifest-path tools/modelpack-sign/Cargo.toml
       # tauri-build embeds frontendDist (../dist) at compile time, and
-      # beforeBuildCommand only runs under `tauri build` — so the dist must be
-      # built explicitly before a plain `cargo build` of the Tauri backend.
+      # beforeBuildCommand only runs under `tauri build`.
       - name: Build frontend (so tauri-build can embed dist)
         working-directory: app
         run: npm ci && npm run build
-      - name: Build app backend (engine + sherpa-onnx linked into Tauri)
-        run: cargo build --manifest-path app/src-tauri/Cargo.toml
+      - name: Test app backend (engine + sherpa-onnx linked into Tauri)
+        run: cargo test --manifest-path app/src-tauri/Cargo.toml

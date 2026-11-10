@@ -1,8 +1,6 @@
 import type { ButtonHTMLAttributes } from "react";
 
-// Presentational button primitive. Variants map to the token palette; styling is
-// driven by a tiny inline style table (no CSS-module pipeline in this app), but
-// every value comes from the design tokens in theme.css via CSS variables.
+// Button primitive; inline styles drawn from theme.css tokens.
 
 type Variant = "primary" | "secondary" | "ghost" | "danger";
 type Size = "sm" | "md";

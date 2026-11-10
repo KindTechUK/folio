@@ -3,11 +3,16 @@ import type { Transcript } from "../src/types.js";
 import {
   loadTranscript,
   editSentence,
+  editParagraph,
+  joinSentences,
+  splitSentence,
+  replaceAll,
   renameSpeaker,
   reassignSentenceSpeaker,
   exportJSON,
   exportText,
 } from "../src/editor.js";
+import type { EditorState } from "../src/editor.js";
 
 /**
  * A small synthetic transcript with two speakers and three sentences:
@@ -112,17 +117,15 @@ describe("editSentence", () => {
       expect(w.start).toBeGreaterThanOrEqual(0.0 - 1e-9);
       expect(w.end).toBeLessThanOrEqual(1.0 + 1e-9);
     }
-  });
 
-  it("adding a missed word increases word count and keeps timing in span", () => {
-    const state = loadTranscript(makeTranscript());
-    const sid = state.sentences[1]!.id; // "How are you?" span [1.0, 2.5]
-    const before = state.sentences[1]!.words.length;
-    const next = editSentence(state, sid, "How are you doing?");
-    const sent = next.sentences.find((s) => s.id === sid)!;
-    expect(sent.words.length).toBe(before + 1);
-    expect(sent.words[0]!.start).toBeCloseTo(1.0, 9);
-    expect(sent.words[sent.words.length - 1]!.end).toBeCloseTo(2.5, 9);
+    // Adding a missed word to "How are you?" [1.0, 2.5] keeps that span.
+    const sid2 = state.sentences[1]!.id;
+    const grown = editSentence(state, sid2, "How are you doing?").sentences.find(
+      (s) => s.id === sid2,
+    )!;
+    expect(grown.words.map((w) => w.text)).toEqual(["How", "are", "you", "doing?"]);
+    expect(grown.words[0]!.start).toBeCloseTo(1.0, 9);
+    expect(grown.words.at(-1)!.end).toBeCloseTo(2.5, 9);
   });
 
   it("emptying a sentence removes it, neighbors intact", () => {
@@ -132,13 +135,6 @@ describe("editSentence", () => {
     expect(next.sentences.length).toBe(2);
     expect(next.sentences.map((s) => s.id)).not.toContain(sid);
     expect(wordTexts(next)).toEqual(["Hello", "world.", "I", "am", "fine."]);
-  });
-
-  it("does not mutate the input state", () => {
-    const state = loadTranscript(makeTranscript());
-    const snapshot = JSON.stringify(state);
-    editSentence(state, state.sentences[0]!.id, "Totally different text.");
-    expect(JSON.stringify(state)).toBe(snapshot);
   });
 });
 
@@ -151,14 +147,6 @@ describe("renameSpeaker", () => {
     expect(spk00Words.every((w) => w.speaker === "Alice")).toBe(true);
     // SPEAKER_01 untouched
     expect(json.words[json.words.length - 1]!.speaker).toBe("SPEAKER_01");
-  });
-
-  it("returns a new state and does not mutate input", () => {
-    const state = loadTranscript(makeTranscript());
-    const snapshot = JSON.stringify(state);
-    const next = renameSpeaker(state, "SPEAKER_00", "Alice");
-    expect(next).not.toBe(state);
-    expect(JSON.stringify(state)).toBe(snapshot);
   });
 });
 
@@ -177,13 +165,6 @@ describe("reassignSentenceSpeaker", () => {
     expect(json.words[json.words.length - 1]!.speaker).toBe("SPEAKER_01");
   });
 
-  it("does not mutate input", () => {
-    const state = loadTranscript(makeTranscript());
-    const snapshot = JSON.stringify(state);
-    reassignSentenceSpeaker(state, state.sentences[0]!.id, "SPEAKER_09");
-    expect(JSON.stringify(state)).toBe(snapshot);
-  });
-
   it("honors a prior rename when reassigning to a renamed positional id", () => {
     let state = loadTranscript(makeTranscript());
     state = renameSpeaker(state, "SPEAKER_01", "Bob");
@@ -195,18 +176,17 @@ describe("reassignSentenceSpeaker", () => {
 });
 
 describe("exportJSON", () => {
-  it("reflects edited text + renamed speakers and rounds to 3 decimals", () => {
+  it("reflects edited text + renamed speakers and rounds times to 3 decimals", () => {
     let state = loadTranscript(makeTranscript());
     state = renameSpeaker(state, "SPEAKER_00", "Alice");
-    state = editSentence(state, state.sentences[0]!.id, "Hey world.");
+    // Three equal-length words over [0, 1] land on thirds of a second.
+    state = editSentence(state, state.sentences[0]!.id, "one two six");
     const json = exportJSON(state);
-    expect(json.words[0]!.word).toBe("Hey");
-    expect(json.words[0]!.speaker).toBe("Alice");
-    for (const w of json.words) {
-      // rounded to 3 decimals -> at most 3 fractional digits
-      expect(w.start).toBe(+w.start.toFixed(3));
-      expect(w.end).toBe(+w.end.toFixed(3));
-    }
+    expect(json.words.slice(0, 3)).toEqual([
+      { word: "one", start: 0, end: 0.333, speaker: "Alice" },
+      { word: "two", start: 0.333, end: 0.667, speaker: "Alice" },
+      { word: "six", start: 0.667, end: 1, speaker: "Alice" },
+    ]);
   });
 });
 
@@ -217,19 +197,9 @@ describe("exportText", () => {
     state = renameSpeaker(state, "SPEAKER_01", "Bob");
     const text = exportText(state);
 
-    // Two distinct speakers -> exactly two headers.
-    const aliceHeaders = (text.match(/\bAlice\b\s+\[/g) ?? []).length;
-    const bobHeaders = (text.match(/\bBob\b\s+\[/g) ?? []).length;
-    expect(aliceHeaders).toBe(1);
-    expect(bobHeaders).toBe(1);
-
-    // Alice's header carries the [mm:ss] timestamp of her first word.
-    expect(text).toMatch(/Alice\s+\[00:00\]/);
-    // ends with a newline
-    expect(text.endsWith("\n")).toBe(true);
-    // contains the live word content
-    expect(text).toContain("Hello world.");
-    expect(text).toContain("I am fine.");
+    expect(text).toBe(
+      "Alice  [00:00]\nHello world. How are you?\n\nBob  [00:02]\nI am fine.\n",
+    );
   });
 
   it("inserts a new header when a mid-stream sentence is reassigned to a different speaker", () => {
@@ -240,5 +210,27 @@ describe("exportText", () => {
     const text = exportText(state);
     const headerCount = (text.match(/\[\d\d:\d\d\]/g) ?? []).length;
     expect(headerCount).toBe(3);
+  });
+});
+
+describe("reducers", () => {
+  const ops: [string, (s: EditorState) => unknown][] = [
+    ["editSentence", (s) => editSentence(s, s.sentences[0]!.id, "Totally different text.")],
+    [
+      "editParagraph",
+      (s) => editParagraph(s, [s.sentences[0]!.id, s.sentences[1]!.id], "totally different"),
+    ],
+    ["joinSentences", (s) => joinSentences(s, [s.sentences[0]!.id, s.sentences[1]!.id])],
+    ["splitSentence", (s) => splitSentence(s, s.sentences[1]!.id, 1)],
+    ["replaceAll", (s) => replaceAll(s, "world", "earth")],
+    ["renameSpeaker", (s) => renameSpeaker(s, "SPEAKER_00", "Alice")],
+    ["reassignSentenceSpeaker", (s) => reassignSentenceSpeaker(s, s.sentences[0]!.id, "SPEAKER_09")],
+  ];
+
+  it.each(ops)("%s does not mutate its input state", (_name, op) => {
+    const state = loadTranscript(makeTranscript());
+    const snapshot = JSON.stringify(state);
+    op(state);
+    expect(JSON.stringify(state)).toBe(snapshot);
   });
 });

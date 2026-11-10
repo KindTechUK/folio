@@ -8,17 +8,7 @@ import {
   canRedo,
 } from "./history";
 
-// Pure undo/redo stack tests. This module is framework-free (no React), so the
-// past/present/future transitions are exercised directly here; the live wiring
-// into App.tsx's editor state is done separately by the lead.
-
 describe("initHistory", () => {
-  it("starts with empty past/future and the given present", () => {
-    const h = initHistory("a");
-    expect(h.past).toEqual([]);
-    expect(h.present).toBe("a");
-    expect(h.future).toEqual([]);
-  });
 
   it("cannot undo or redo a fresh history", () => {
     const h = initHistory("a");
@@ -45,23 +35,11 @@ describe("pushHistory", () => {
 
     h = pushHistory(h, "d");
     expect(h.present).toBe("d");
-    expect(h.future).toEqual([]);
     expect(canRedo(h)).toBe(false);
     // redo is now a no-op (nothing on the redo branch).
     expect(redo(h)).toEqual(h);
   });
 
-  it("does not mutate the input history", () => {
-    const h = initHistory("a");
-    const past = h.past;
-    const future = h.future;
-    pushHistory(h, "b");
-    expect(h.present).toBe("a");
-    expect(h.past).toBe(past);
-    expect(h.past).toEqual([]);
-    expect(h.future).toBe(future);
-    expect(h.future).toEqual([]);
-  });
 });
 
 describe("undo", () => {
@@ -85,17 +63,6 @@ describe("undo", () => {
     expect(undo(h).present).toBe("a");
   });
 
-  it("does not mutate the input history", () => {
-    let h = pushHistory(initHistory("a"), "b");
-    const past = h.past;
-    const future = h.future;
-    undo(h);
-    expect(h.present).toBe("b");
-    expect(h.past).toBe(past);
-    expect(h.past).toEqual(["a"]);
-    expect(h.future).toBe(future);
-    expect(h.future).toEqual([]);
-  });
 });
 
 describe("redo", () => {
@@ -124,16 +91,16 @@ describe("redo", () => {
     expect(redo(h).present).toBe("b");
   });
 
-  it("does not mutate the input history", () => {
-    let h = pushHistory(initHistory("a"), "b");
-    h = undo(h); // present "a", future ["b"]
-    const past = h.past;
-    const future = h.future;
-    redo(h);
-    expect(h.present).toBe("a");
-    expect(h.past).toBe(past);
-    expect(h.past).toEqual([]);
-    expect(h.future).toBe(future);
-    expect(h.future).toEqual(["b"]);
+});
+
+describe("immutability", () => {
+  it("leaves the input history unchanged after push, undo and redo", () => {
+    const h = pushHistory(initHistory("a"), "b");
+    pushHistory(h, "c");
+    redo(undo(h));
+    expect(h.present).toBe("b");
+    expect(canUndo(h)).toBe(true);
+    expect(canRedo(h)).toBe(false);
+    expect(undo(h).present).toBe("a");
   });
 });

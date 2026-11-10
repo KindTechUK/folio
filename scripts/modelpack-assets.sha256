@@ -1,0 +1,15 @@
+# Pinned upstream assets used by build-model-packs.sh. Update a hash only after
+# independently verifying the corresponding upstream file.
+9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6  silero_vad.onnx
+a32b12d17bbbc309d0686fbbcc2987b5e9b8333a7da83fa6b089f0a2acd651ab  parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx
+b6bb64963457237b900e496ee9994b59294526439fbcc1fecf705b31a15c6b4e  parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx
+7946164367946e7f9f29a122407c3252b680dbae9a51343eb2488d057c3c43d2  parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx
+ec182b70dd42113aff6c5372c75cac58c952443eb22322f57bbd7f53977d497d  parakeet-tdt-0.6b-v2-int8/tokens.txt
+8bdac288f369aa94ee2194059238c465ed82ea9d47ee8fa4a8c0a891873e462f  whisper-small.en/small.en-encoder.int8.onnx
+710ccf890e10f3faa15f51ec346081a2723c9f3adb6e4da81c6573a5a6f877fb  whisper-small.en/small.en-decoder.int8.onnx
+306cd27f03c1a714eca7108e03d66b7dc042abe8c258b44c199a7ed9838dd930  whisper-small.en/small.en-tokens.txt
+5a8e3a36619e0b67db9320eef3152db59d4b440f5ce0212d2c162a61b750bf80  whisper-medium.en/medium.en-encoder.int8.onnx
+7303be339ed4e51f4ffb7ae84f3803b10cf8e67e1dcf8a98cb4d843f0dea0141  whisper-medium.en/medium.en-decoder.int8.onnx
+306cd27f03c1a714eca7108e03d66b7dc042abe8c258b44c199a7ed9838dd930  whisper-medium.en/medium.en-tokens.txt
+220ad67ca923bef2fa91f2390c786097bf305bceb5e261d4af67b38e938e1079  pyannote-segmentation-3-0/model.onnx
+357a834f702b80161e5b981182c038e18553c1f2ca752ed6cec2052365d4129b  3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx
