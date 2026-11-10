@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-# check-no-network.sh — the zero-egress guard rail (the heart of PR2).
+# check-no-network.sh — the zero-egress guard rail.
 #
 # Fails (non-zero exit) if ANY known networking crate appears in the LINKED
 # dependency graph of the hardened app or the engine. The product's core
-# commercial differentiator is that outbound network is absent BY CONSTRUCTION
-# (see docs/prd/local-private-transcription.md and docs/plans/vibe-fork-plan.md
-# §4). This script proves it locally; .github/workflows/zero-egress.yml runs the
-# same check in CI.
+# commercial differentiator is that outbound network is absent BY CONSTRUCTION.
+# This script proves it locally; the `gate` job in .github/workflows/ci.yml runs
+# the same check in CI.
 #
 # Scope / allowlist note:
 #   sherpa-onnx's build script downloads prebuilt C libs at BUILD time
@@ -23,14 +22,20 @@ APP_MANIFEST="$REPO_ROOT/app/src-tauri/Cargo.toml"
 ENGINE_MANIFEST="$REPO_ROOT/engine/Cargo.toml"
 MODELPACK_MANIFEST="$REPO_ROOT/modelpack/Cargo.toml"
 
-# Denylist: HTTP clients, low-level HTTP/2, and the Vibe network plugins we must
-# never reintroduce. Matched as whole crate names at the start of a `cargo tree
-# --prefix none` line (so e.g. `hyper` matches `hyper`/`hyper-util` but not an
-# unrelated `hyperlocal-ish` false positive mid-string).
+# Denylist: HTTP/WebSocket clients, TLS stacks, and Tauri plugins that open
+# network connections or external URLs. Matched as whole crate names at the
+# start of a `cargo tree --prefix none` line followed by a space (so `hyper`
+# matches `hyper v1.x` but not `hyper-util`, which is listed separately).
 DENYLIST=(
   reqwest
   hyper
+  hyper-util
   h2
+  tungstenite
+  tokio-tungstenite
+  native-tls
+  rustls
+  openssl
   ureq
   isahc
   surf
@@ -38,6 +43,9 @@ DENYLIST=(
   curl
   tauri-plugin-http
   tauri-plugin-updater
+  tauri-plugin-websocket
+  tauri-plugin-upload
+  tauri-plugin-deep-link
   tauri-plugin-aptabase
   aptabase
 )
@@ -53,7 +61,7 @@ scan() {
   # Remaining args are extra `cargo tree` flags (e.g. --features hardened).
   echo "== Scanning: $label =="
   local tree
-  if ! tree="$(cargo tree --manifest-path "$manifest" -e normal --prefix none "$@" 2>/dev/null)"; then
+  if ! tree="$(cargo tree --manifest-path "$manifest" -e normal --prefix none "$@")"; then
     echo "ERROR: cargo tree failed for $label" >&2
     FAIL=1
     return

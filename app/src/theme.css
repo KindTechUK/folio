@@ -4,7 +4,7 @@
  * Calm Windows-professional direction for a UK law-firm buyer: a restrained
  * slate/ink neutral ramp, one deep blue-slate accent, and familiar Segoe UI
  * typography. ZERO-EGRESS: only system font stacks — no web fonts or external
- * CSS. Bundled by Vite and allowed by the CSP (`style-src 'self'`).
+ * CSS (CSP: `style-src 'self' 'unsafe-inline'`).
  */
 
 :root {
@@ -123,7 +123,6 @@ a {
   border: 0;
 }
 
-/* Sensible defaults so per-element inline styling can be dropped. */
 input,
 select,
 textarea {

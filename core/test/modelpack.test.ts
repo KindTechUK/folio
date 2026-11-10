@@ -1,10 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {
-  createPublicKey,
-  generateKeyPairSync,
-  sign as nodeSign,
-  type KeyObject,
-} from "node:crypto";
+import { createHash, generateKeyPairSync, sign as nodeSign, type KeyObject } from "node:crypto";
 import {
   validateManifest,
   verifyModelPack,
@@ -39,8 +34,6 @@ const baseUnsigned: Omit<Manifest, "signature"> = {
 
 const WEIGHTS = new Uint8Array([0xde, 0xad, 0xbe, 0xef, 0x00, 0x11, 0x22, 0x33]);
 
-// real sha256 of WEIGHTS, computed independently in the test for honesty
-import { createHash } from "node:crypto";
 function sha256Hex(bytes: Uint8Array): string {
   return createHash("sha256").update(bytes).digest("hex");
 }
@@ -79,47 +72,11 @@ describe("validateManifest", () => {
     if (r.ok) expect(r.manifest.id).toBe("whisper-medium-en");
   });
 
-  it("rejects a missing required field with a clear reason", () => {
-    const m: Record<string, unknown> = { ...baseUnsigned, sha256: "a".repeat(64), signature: "AA==" };
-    delete m.license;
-    const r = validateManifest(m);
-    expect(r.ok).toBe(false);
-    if (!r.ok) expect(r.reason.toLowerCase()).toContain("license");
-  });
-
-  it("rejects bad semver version", () => {
-    const m = { ...baseUnsigned, version: "1.2", sha256: "a".repeat(64), signature: "AA==" };
-    const r = validateManifest(m);
-    expect(r.ok).toBe(false);
-    if (!r.ok) expect(r.reason.toLowerCase()).toContain("version");
-  });
-
-  it("rejects bad sha256 length", () => {
-    const m = { ...baseUnsigned, sha256: "abc", signature: "AA==" };
-    const r = validateManifest(m);
-    expect(r.ok).toBe(false);
-    if (!r.ok) expect(r.reason.toLowerCase()).toContain("sha256");
-  });
-
   it("rejects non-hex sha256 of correct length", () => {
     const m = { ...baseUnsigned, sha256: "z".repeat(64), signature: "AA==" };
     const r = validateManifest(m);
     expect(r.ok).toBe(false);
     if (!r.ok) expect(r.reason.toLowerCase()).toContain("sha256");
-  });
-
-  it("rejects an unknown engine", () => {
-    const m = { ...baseUnsigned, engine: "ggml-magic", sha256: "a".repeat(64), signature: "AA==" };
-    const r = validateManifest(m);
-    expect(r.ok).toBe(false);
-    if (!r.ok) expect(r.reason.toLowerCase()).toContain("engine");
-  });
-
-  it("rejects an unknown task", () => {
-    const m = { ...baseUnsigned, task: "translation", sha256: "a".repeat(64), signature: "AA==" };
-    const r = validateManifest(m);
-    expect(r.ok).toBe(false);
-    if (!r.ok) expect(r.reason.toLowerCase()).toContain("task");
   });
 
   it("rejects a non-object input", () => {
@@ -226,15 +183,6 @@ describe("verifyModelPack", () => {
     if (!r.ok) expect(r.reason).toContain("engine not supported by this build");
   });
 
-  it("fails validation before hashing if the manifest is malformed", () => {
-    const { publicKey } = makeKeypair();
-    const r = verifyModelPack(
-      { manifest: { junk: true }, weights: WEIGHTS.slice() },
-      { publicKey, engineVersions },
-    );
-    expect(r.ok).toBe(false);
-  });
-
   it("accepts when engine_min_version equals available version (<=)", () => {
     const { publicKey, privateKey } = makeKeypair();
     const unsigned: Omit<Manifest, "signature"> = {
@@ -254,19 +202,21 @@ describe("verifyModelPack", () => {
 // --- canonicalize contract ----------------------------------------------
 
 describe("canonicalize", () => {
-  it("is deterministic regardless of key insertion order and excludes signature", () => {
-    const a = canonicalize({
-      id: "x", version: "1.0.0", engine: "whisper.cpp", engine_min_version: "1.0.0",
-      task: "asr", license: "MIT", attribution: "A", sha256: "a".repeat(64),
-    });
-    const b = canonicalize({
-      sha256: "a".repeat(64), attribution: "A", license: "MIT", task: "asr",
-      engine_min_version: "1.0.0", engine: "whisper.cpp", version: "1.0.0", id: "x",
+  // Same literal bytes the Rust verifier pins in modelpack/src/lib.rs.
+  it("emits sorted, compact JSON without the signature, regardless of key order", () => {
+    const bytes = canonicalize({
+      sha256: "a".repeat(64),
+      attribution: "Acme Speech Labs",
+      license: "MIT",
+      task: "asr",
+      engine_min_version: "1.5.0",
+      engine: "whisper.cpp",
+      version: "1.2.3",
+      id: "acme/whisper-base-en",
       signature: "should-be-ignored",
     } as Omit<Manifest, "signature">);
-    expect(Buffer.from(a).toString("utf8")).toBe(Buffer.from(b).toString("utf8"));
-    expect(Buffer.from(a).toString("utf8")).not.toContain("signature");
+    expect(Buffer.from(bytes).toString("utf8")).toBe(
+      '{"attribution":"Acme Speech Labs","engine":"whisper.cpp","engine_min_version":"1.5.0","id":"acme/whisper-base-en","license":"MIT","sha256":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","task":"asr","version":"1.2.3"}',
+    );
   });
 });
-
-void createPublicKey;

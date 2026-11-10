@@ -59,16 +59,16 @@ If the firm's own counsel agrees with the above, the following follow:
 ## Important scoping caveats (read these before relying on the assertion)
 
 - **The assertion is specific to the on-device, zero-egress product as built
-  and verified.** It does **not** cover any optional, off-by-default model
-  catalog intended for the non-firm "open SME" segment (PRD #31), which would
-  fetch from a vendor server. The firm's build is the **hardened, zero-egress
-  variant** with networking compiled out; the non-processor assertion is scoped
-  to that variant. Confirm with the vendor which build you are receiving.
-- **Support diagnostics are local-only and user-initiated** (PRD #27): the user
-  exports diagnostics to a local file they can inspect before choosing to send
-  it. If the firm later chooses to send a diagnostic file (or any audio) to the
-  vendor for support, **that specific, deliberate transfer is outside this
-  assertion** and would need its own handling. The product does not do this
+  and verified.** It would **not** cover any future optional, off-by-default
+  networked feature (for example a model catalog fetched from a vendor server
+  for a non-firm edition); none exists today. Release installers are built
+  with the `hardened` feature reserved to keep any such surface compiled out;
+  the non-processor assertion is scoped to that zero-egress build. Confirm with
+  the vendor which build you are receiving.
+- **The app has no diagnostics export or support upload.** If the firm
+  chooses to send any file (a transcript, audio, or a screenshot) to the vendor
+  for support, **that specific, deliberate transfer is outside this
+  assertion** and would need its own handling. The product never does this
   automatically.
 - **Code-signing and packaging (OV Authenticode, MSI) are 🚧 roadmap.** They do
   not affect the data-flow / non-processor analysis (they concern integrity and

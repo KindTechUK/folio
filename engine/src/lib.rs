@@ -3,11 +3,6 @@
 //! Wraps the official k2-fsa `sherpa-onnx` Rust crate and emits the project's
 //! JSON transcript contract (`core/src/types.ts`): `{ segments: [{ start, end,
 //! text, speaker, words: [{ word, start, end, speaker }] }] }`.
-//!
-//! This is a Rust port of the validated Python spike scripts under `models/`
-//! (`asr_spike.py`, `diar_spike.py`, `merge_spike.py`). Parameters are matched
-//! verbatim — the de-risk for the eventual Windows-CPU build is proving the
-//! native linking and the contract, not re-tuning the pipeline.
 
 use serde::{Deserialize, Serialize};
 use std::path::{Path, PathBuf};
@@ -26,7 +21,7 @@ pub use sherpa::SherpaEngine;
 /// `transcribe-progress` event payload).
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct Progress {
-    /// One of `"decoding" | "transcribing" | "diarizing" | "done"`.
+    /// One of `"decoding" | "loading" | "segmenting" | "transcribing" | "diarizing" | "done"`.
     pub stage: String,
     /// Units completed so far within the current stage.
     pub done: u32,
@@ -53,21 +48,20 @@ impl Progress {
 pub type ProgressSink<'a> = dyn Fn(Progress) + Sync + 'a;
 
 /// Progress-bar fraction bands, so the pipeline's phases map onto ONE monotonic
-/// [0,1] bar with honest per-phase advancement (see the `transcribe` command and
+/// `[0, 1]` bar with honest per-phase advancement (see the `transcribe` command and
 /// [`sherpa::SherpaEngine::transcribe`]): decode → `[0, DECODE_END]`, model load
 /// holds at `DECODE_END` ("loading"), VAD → `[DECODE_END, VAD_END]`
 /// ("segmenting"), transcription → `[VAD_END, TRANSCRIBE_END]`, then
-/// diarize/done fill the remainder. Before this, the whole prefix showed a
-/// single frozen "decoding 0%".
+/// diarize/done fill the remainder.
 pub const PROGRESS_DECODE_END: f32 = 0.15;
 pub const PROGRESS_VAD_END: f32 = 0.30;
 pub const PROGRESS_TRANSCRIBE_END: f32 = 0.95;
 
 /// A single recognized word with timing and (optionally) its diarized speaker.
 ///
-/// Mirrors `Word` in `core/src/types.ts`. `speaker` serializes to `null` when
-/// absent. Word-level timestamps are a PLAYBACK AID ONLY (per the PRD), not an
-/// edit surface.
+/// Mirrors `Word` in `core/src/types.ts`. `speaker` is omitted from the JSON
+/// when absent. Word-level timestamps are a PLAYBACK AID ONLY, not an edit
+/// surface.
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct Word {
     pub word: String,
@@ -114,26 +108,18 @@ pub struct AsrSegment {
     pub words: Vec<Word>,
 }
 
-/// Which ASR model to use. Default is `ParakeetV2` (English): on CPU it is the
-/// fastest by far and the only one of our models that emits native word-level
-/// timestamps. `SmallEn`/`MediumEn` (Whisper) remain available for non-English
-/// or hard/noisy audio.
-///
-/// Two families are supported through the SAME sherpa-onnx `OfflineRecognizer`:
-/// the Whisper encoder/decoder models (`SmallEn`/`MediumEn`) and the NeMo
-/// transducer `ParakeetV2`. They differ only in the recognizer config and the
-/// on-disk file layout (see [`AsrModel::asr_files`] and
-/// [`sherpa::SherpaEngine::build_recognizer`]).
+/// Which ASR model to use. All run through the same sherpa-onnx
+/// `OfflineRecognizer`; Whisper (`SmallEn`/`MediumEn`) and the NeMo transducer
+/// (`ParakeetV2`) differ only in recognizer config and on-disk layout (see
+/// [`AsrModel::asr_files`]).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub enum AsrModel {
     SmallEn,
     MediumEn,
-    /// NVIDIA Parakeet-TDT-0.6B-v2 (English), an int8 NeMo transducer run via
-    /// sherpa-onnx. On CPU it is ~6x faster than `small.en` and ~24x faster than
-    /// `medium.en` (see `models/run_asr_bench.sh`) and emits NATIVE word-level
-    /// timestamps — unlike our int8 Whisper decoders, which lack cross-attention
-    /// outputs and fall back to spread timings. The default. Trade-off:
-    /// English-only, so callers handling other languages must select Whisper.
+    /// NVIDIA Parakeet-TDT-0.6B-v2 (English), int8 NeMo transducer. The default:
+    /// on CPU ~6x faster than `small.en` and ~24x faster than `medium.en`, and
+    /// emits native word timestamps (our int8 Whisper decoders lack
+    /// cross-attention outputs and fall back to spread timings).
     #[default]
     ParakeetV2,
 }
@@ -193,23 +179,20 @@ impl AsrModel {
     }
 }
 
-/// Engine configuration. `num_threads` defaults to 4 and `asr_model` to
-/// `ParakeetV2` (the fastest CPU model with native word timestamps; select a
-/// Whisper model for non-English audio).
+/// Engine configuration.
 #[derive(Debug, Clone)]
 pub struct EngineConfig {
-    /// Directory holding all model files (the project's `models/`).
+    /// Directory holding all model files; [`required_model_files`] paths are
+    /// relative to it.
     pub models_dir: PathBuf,
     pub asr_model: AsrModel,
     pub num_threads: i32,
     /// Fixed speaker count, or `None` to auto-detect via the clustering
     /// threshold.
     pub num_speakers: Option<u32>,
-    /// When `true`, run speaker diarization and merge speakers into the
-    /// transcript. When `false` (the DEFAULT — see PR #4 / the PRD), transcribe
-    /// only and emit speaker-less segments/words for plain "paragraph QA" mode.
-    /// Measured speaker quality on real audio was poor enough that labels hurt,
-    /// so diarization is opt-in; the code path is kept for multi-party use.
+    /// Run speaker diarization and merge speakers into the transcript. Off by
+    /// default: measured speaker quality on real audio was poor enough that
+    /// labels hurt; when off, segments/words are speaker-less.
     pub diarize: bool,
 }
 
@@ -239,11 +222,6 @@ pub const EMB_MODEL: &str = "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx";
 /// `asr_model` / `diarize` combination. The single source of truth shared by
 /// [`SherpaEngine::new`]'s existence check and the verified-pack resolver, so
 /// the two can never drift.
-///
-/// Always: the model's ASR files (via [`AsrModel::asr_files`] — Whisper's
-/// encoder/decoder/tokens, or a transducer's encoder/decoder/joiner/tokens) and
-/// the Silero VAD model. When `diarize`: also the pyannote segmentation and
-/// 3D-Speaker embedding models.
 pub fn required_model_files(asr_model: AsrModel, diarize: bool) -> Vec<String> {
     let mut files = asr_model.asr_files();
     files.push(VAD_MODEL.to_string());
@@ -264,7 +242,7 @@ pub enum EngineError {
     Sherpa(String),
 }
 
-/// The stable adapter interface (PRD user story #30). An implementation does the
+/// The stable adapter interface. An implementation does the
 /// two heavy steps; `process` stitches their outputs into the contract via
 /// [`merge`].
 pub trait TranscriptionEngine {
@@ -296,10 +274,9 @@ pub trait TranscriptionEngine {
 /// When `false` (the default): transcribe ONLY and build a speaker-less
 /// transcript (segment + word `speaker: None`) for plain paragraph QA mode —
 /// `diarize` is never called.
-/// `progress` is the sink for [`Progress`] events: `process` emits `decoding`
-/// (0%) up front, forwards the engine's per-chunk `transcribing` updates,
-/// brackets the diarize step with `diarizing`, and emits `done` (100%) last.
-/// Pass `&|_| {}` to ignore progress.
+/// `progress` receives the engine's per-chunk updates, a `diarizing` event
+/// before diarization, and `done` (100%) last; decode progress is the caller's
+/// job. Pass `&|_| {}` to ignore progress.
 pub fn process<E: TranscriptionEngine>(
     engine: &E,
     samples: &[f32],
@@ -307,10 +284,6 @@ pub fn process<E: TranscriptionEngine>(
     cfg: &EngineConfig,
     progress: &ProgressSink<'_>,
 ) -> anyhow::Result<Transcript> {
-    // Decode progress is emitted by the caller (it owns the file→samples step)
-    // and model-load/VAD/transcription progress by the engine, all onto the
-    // shared PROGRESS_* bands. `process` just forwards those and brackets the
-    // optional diarize step, then emits `done`.
     let asr = engine.transcribe(samples, sample_rate, progress)?;
 
     let transcript = if cfg.diarize {
@@ -327,8 +300,8 @@ pub fn process<E: TranscriptionEngine>(
 
 /// Load a WAV as 16 kHz mono `f32` samples in `[-1, 1)`.
 ///
-/// Asserts 16 kHz, single channel, 16-bit PCM (matching the spike's
-/// `i16 / 32768.0` normalization). Returns `(samples, sample_rate)`.
+/// Asserts 16 kHz, single channel, 16-bit PCM (normalized as `i16 / 32768.0`).
+/// Returns `(samples, sample_rate)`.
 pub fn load_wav_16k_mono(path: impl AsRef<Path>) -> anyhow::Result<(Vec<f32>, u32)> {
     let path = path.as_ref();
     let mut reader = hound::WavReader::open(path)
@@ -418,7 +391,7 @@ mod process_tests {
     #[test]
     fn process_without_diarize_emits_no_speakers_and_skips_diarize() {
         let engine = MockEngine::new();
-        let cfg = EngineConfig::new("models"); // diarize defaults to false
+        let cfg = EngineConfig::new("models");
         assert!(!cfg.diarize, "diarize must default to false");
 
         let t = process(&engine, &[0.0_f32; 16], 16_000, &cfg, &|_| {}).unwrap();

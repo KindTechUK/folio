@@ -41,7 +41,11 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.tabbed:
@@ -71,8 +75,3 @@ nav:
       - DPIA support: assurance/dpia-support.md
       - Non-processor statement: assurance/non-processor-statement.md
       - Third-party components: assurance/third-party-components.md
-  - Design & planning:
-      - Paragraph editing UX: design/paragraph-editing-ux.md
-      - PRD — local private transcription: prd/local-private-transcription.md
-      - sherpa-onnx spike: spikes/sherpa-onnx-spike.md
-      - Vibe fork plan: plans/vibe-fork-plan.md

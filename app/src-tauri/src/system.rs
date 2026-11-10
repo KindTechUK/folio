@@ -1,15 +1,13 @@
-//! Data-at-rest helpers (PR-A): volume-encryption status + one-click
-//! "delete matter".
+//! Data-at-rest helpers: volume-encryption status + "delete matter".
 //!
-//! Both features exist so a firm running client-confidential matters can (a) be
-//! warned when the storage volume is NOT confirmed encrypted (BitLocker on
-//! Windows) and (b) wipe a matter's only on-disk artifact — the source audio —
-//! in one click. The engine writes no temp files, so the picked audio path is
-//! the entire footprint to remove.
+//! A firm running client-confidential matters can (a) be warned when the
+//! storage volume is NOT confirmed encrypted (BitLocker on Windows) and (b)
+//! delete a matter's source audio and saved transcript. The engine writes no
+//! temp files.
 //!
-//! Everything is network-free. The PURE cores — [`parse_manage_bde_status`]
-//! and [`delete_matter_authorized_in`] — are unit-tested and never panic; the
-//! `#[tauri::command]` wrappers resolve platform paths and native confirmation.
+//! Everything is network-free. [`parse_manage_bde_status`] and
+//! [`delete_matter_authorized_in`] are the unit-tested cores (never panic); the
+//! `#[tauri::command]` wrappers add platform paths and native confirmation.
 //! Encryption checks fail SOFT (`Unknown`, never an app error).
 
 use serde::Serialize;
@@ -64,25 +62,17 @@ pub struct DeleteReport {
     pub failed: Vec<DeleteFailure>,
 }
 
-/// PURE, testable parser over Windows `manage-bde -status <drive>` text. Applies
-/// case-insensitive heuristics and NEVER panics on garbage/empty input.
+/// Parse `manage-bde -status <drive>` text (case-insensitive,
+/// whitespace-collapsed; never panics).
 ///
-/// Encrypted when the text shows any of:
-///   - `Protection Status: Protection On`
-///   - `Conversion Status: Fully Encrypted`
-///   - `Percentage Encrypted: 100%` / `100.0%`
+/// Encrypted only when `Protection Status: Protection On` AND conversion is
+/// complete (`Conversion Status: Fully Encrypted` or `Percentage Encrypted:
+/// 100%`/`100.0%`); suspended protection must never inherit a green status from
+/// the conversion fields.
 ///
-/// Unencrypted when it shows any of:
-///   - `Fully Decrypted`
-///   - `Percentage Encrypted: 0%` / `0.0%`
-///   - `Protection Status: Protection Off`
-///
-/// Otherwise [`EncryptionState::Unknown`]. A volume is reported as encrypted
-/// only when conversion is complete AND BitLocker protection is on; suspended
-/// protection must never inherit a green status from the conversion fields.
-///
-/// Consumed by the Windows `manage-bde` worker and the unit tests; allow
-/// dead-code on non-Windows dev builds where only the tests exercise it.
+/// Unencrypted on any of `Fully Decrypted`, `Percentage Encrypted: 0%`/`0.0%`,
+/// or `Protection Status: Protection Off`. Otherwise
+/// [`EncryptionState::Unknown`].
 #[cfg_attr(not(windows), allow(dead_code))]
 pub fn parse_manage_bde_status(output: &str) -> EncryptionState {
     // Lowercase + collapse runs of whitespace to single spaces so the field
@@ -126,7 +116,7 @@ pub fn parse_manage_bde_status(output: &str) -> EncryptionState {
     EncryptionState::Unknown
 }
 
-/// PURE, testable delete helper. For each path: if it exists, remove the file
+/// For each path: if it exists, remove the file
 /// (`remove_file`); a path that is already gone counts as `deleted` (idempotent,
 /// not a failure); anything that genuinely fails to remove lands in `failed`
 /// with its error string. Never panics.
@@ -642,10 +632,20 @@ Volume C: [OSDisk]
         );
     }
 
-    /// Heuristics are case-insensitive, but incomplete output is not enough to
-    /// claim the volume is protected.
+    /// Upper-case output with the full protection + conversion signals parses.
     #[test]
     fn parses_case_insensitively() {
+        let sample = "\
+VOLUME C: [OSDISK]
+    CONVERSION STATUS:    FULLY ENCRYPTED
+    PROTECTION STATUS:    PROTECTION ON
+";
+        assert_eq!(parse_manage_bde_status(sample), EncryptionState::Encrypted);
+    }
+
+    /// Incomplete output is not enough to claim the volume is protected.
+    #[test]
+    fn partial_status_is_unknown() {
         assert_eq!(
             parse_manage_bde_status("PROTECTION STATUS:    PROTECTION ON"),
             EncryptionState::Unknown
@@ -702,7 +702,6 @@ Volume C: [OSDisk]
     #[test]
     fn delete_paths_reports_undeletable_in_failed() {
         let dir = unique_tmp("undeletable");
-        // A directory exists() == true but remove_file() errors → failed.
         fs::create_dir_all(&dir).unwrap();
         let paths = vec![dir.to_string_lossy().into_owned()];
 

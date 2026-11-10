@@ -1,0 +1,4 @@
+{
+  "outcome": "reject",
+  "reasonContains": "64 lowercase hex"
+}

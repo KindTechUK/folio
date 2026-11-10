@@ -4,8 +4,6 @@ This document is part of the **assurance pack**. It lets an independent reviewer
 (e.g. a law firm's IT / a security auditor) verify for themselves that the
 Folio application makes **no outbound network connections** — that
 networking is absent **by construction**, not merely disabled by configuration.
-It addresses PRD user story #24 (compliance officer wants independent
-airplane-mode verification steps).
 
 The verification rests on three independent, layered checks:
 
@@ -33,9 +31,14 @@ Expected: it prints `PASS` and exits `0`. It runs `cargo tree -e normal` over
 `modelpack`, and fails if any of these crate names appear as a linked
 dependency:
 
-> `reqwest`, `hyper`, `h2`, `ureq`, `isahc`, `surf`, `attohttpc`, `curl`,
-> `tauri-plugin-http`, `tauri-plugin-updater`, `tauri-plugin-aptabase`,
+> HTTP / WebSocket clients: `reqwest`, `hyper`, `hyper-util`, `h2`, `ureq`,
+> `isahc`, `surf`, `attohttpc`, `curl`, `tungstenite`, `tokio-tungstenite`;
+> TLS stacks: `native-tls`, `rustls`, `openssl`; networked Tauri plugins:
+> `tauri-plugin-http`, `tauri-plugin-updater`, `tauri-plugin-websocket`,
+> `tauri-plugin-upload`, `tauri-plugin-deep-link`, `tauri-plugin-aptabase`,
 > `aptabase`.
+>
+> (The `DENYLIST` array in the script is authoritative.)
 
 To inspect the full graph manually:
 
@@ -46,18 +49,16 @@ cargo tree --manifest-path engine/Cargo.toml -e normal | less
 cargo tree --manifest-path modelpack/Cargo.toml -e normal | less
 ```
 
-The same gate runs in CI (`.github/workflows/zero-egress.yml`, job `gate`) on
-every push, so a network crate cannot be merged in without turning the build
-red. The workflow is **live** and currently passing on both Linux (the gate +
-frontend) and a real **Windows x64** runner (the MSVC static-link job), so the
-zero-egress property is enforced on every change — and it is also provable
-locally at any time via the `scripts/check-no-network.sh` script above.
+The same gate runs in CI (`.github/workflows/ci.yml`, job `gate`) on every pull
+request and every push to `main`, and the release workflow runs the full CI
+suite before building installers, so a network crate cannot be merged or
+released without turning the build red. It is also provable locally at any time
+via the `scripts/check-no-network.sh` script above.
 
-**Crates deliberately absent** (the egress points stripped from the upstream
-Vibe app — see `docs/plans/vibe-fork-plan.md` §4): the auto-updater
-(`tauri-plugin-updater`), telemetry (`tauri-plugin-aptabase`), the generic HTTP
-plugin / client (`tauri-plugin-http`, `reqwest`), URL/YouTube ingestion, and
-cloud summaries. None are present. The app's `Cargo.toml` links **only**
+**Deliberately absent:** the auto-updater (`tauri-plugin-updater`), telemetry
+(`tauri-plugin-aptabase`), the generic HTTP plugin / client
+(`tauri-plugin-http`, `reqwest`), URL/YouTube ingestion, and cloud summaries.
+None are present. The app's `Cargo.toml` links **only**
 `tauri` (with `protocol-asset`), `tauri-plugin-dialog`, `tauri-plugin-fs`, the
 in-process `engine`, and `modelpack` — confirm by reading
 `app/src-tauri/Cargo.toml`.
@@ -72,8 +73,8 @@ linked network crate and **not** something the shipped client binary does at
 runtime. The shipped binary contains the libraries statically; it opens no
 sockets. The gate therefore scopes to *linked runtime crates*. For a
 **provably-offline build** (not just runtime), vendor the libs and set
-`SHERPA_ONNX_LIB_DIR` so even the build performs no fetch (🚧 the CI
-`windows-link` job is wired to do this once the vendored libs are cached).
+`SHERPA_ONNX_LIB_DIR` so even the build performs no fetch (🚧 CI does not yet
+vendor the libs; CI builds perform the one-time build-time fetch).
 
 ---
 
@@ -91,8 +92,9 @@ in `app/src-tauri/tauri.conf.json`:
   - No remote origins are permitted for scripts/styles/images/media — only
     app-local and the `asset:`/`data:`/`blob:` protocols.
 - **Capabilities** (`app/src-tauri/capabilities/default.json`) grant only
-  `core:default`, scoped `dialog` (open/save), and scoped `fs` (read/write under
-  the user data + document/audio/desktop/download dirs). There is **no network
+  `core:default`, `dialog:allow-open`, `dialog:allow-save`, and
+  `fs:allow-write-file` (no fs read). The asset protocol used for audio
+  playback is scoped to `$AUDIO/*` and `$DOCUMENT/*`. There is **no network
   capability** — Tauri v2 exposes none without the `http` plugin, which this app
   omits.
 
@@ -118,17 +120,17 @@ the structural (gate) and configuration (CSP) evidence.
 
 ---
 
-## 4. The hardened build variant ✅ scaffolded / 🚧 finalised
+## 4. The hardened build variant ✅ scaffolded
 
-The shipped firm build is the **hardened variant**, driven by the `hardened`
-Cargo feature (`app/src-tauri/Cargo.toml`). In PR2, **both** the default and
-`hardened` builds are already network-free — the gate scans both. `hardened` is
-the forward guard rail: it is reserved to compile **out** any future optional,
-off-by-default networked model catalog (the non-firm "open SME" variant,
-PRD #31), so that the firm's binary can never contain that surface even as the
-codebase grows. Reviewers receiving the firm build should confirm it is built
-with `--features hardened` and that the gate passes for that feature set (it
-does, in CI's `gate` job and the local script).
+Release installers are built with the `hardened` Cargo feature
+(`app/src-tauri/Cargo.toml`; `release.yml` passes `--features hardened`). Today
+the feature is a reserved no-op: **both** the default and `hardened` builds are
+network-free, and the gate scans both. It exists as a forward guard rail, so
+that any future optional networked surface (for example a model catalog for a
+non-firm edition) can be compiled **out** of the firm's binary. Reviewers
+building from source should build with `--features hardened` and confirm the
+gate passes for that feature set (it does, in CI's `gate` job and the local
+script).
 
 ---
 

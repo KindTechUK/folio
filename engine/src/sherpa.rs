@@ -1,9 +1,6 @@
 //! `SherpaEngine`: the concrete [`TranscriptionEngine`] backed by the official
-//! k2-fsa `sherpa-onnx` Rust crate.
-//!
-//! Ports `models/asr_spike.py` (Whisper int8 + Silero VAD chunking +
-//! token-timestamp word grouping) and `models/diar_spike.py` (pyannote
-//! segmentation + 3D-Speaker embedding + FastClustering) verbatim.
+//! k2-fsa `sherpa-onnx` Rust crate — Whisper or Parakeet ASR over Silero VAD
+//! chunks, plus pyannote + 3D-Speaker + FastClustering diarization.
 
 use crate::{
     AsrSegment, EngineConfig, EngineError, Progress, ProgressSink, SpeakerSpan,
@@ -20,9 +17,6 @@ use sherpa_onnx::{
     VadModelConfig, VoiceActivityDetector,
 };
 
-// Model file names — the single source of truth lives in `crate` (lib.rs), so
-// the runtime path-building here and the resolver's required-file list can
-// never drift.
 use crate::{EMB_MODEL, SEG_MODEL, VAD_MODEL};
 
 /// VAD segmentation tuning per model family, as
@@ -44,7 +38,7 @@ fn vad_params(is_transducer: bool) -> (f32, f32) {
         // still bounding memory and keeping progress ticks flowing.
         (0.8, 120.0)
     } else {
-        // Whisper: keep under the 30 s window (the original spike params).
+        // Whisper: stay under the 30 s decode window.
         (0.25, 25.0)
     }
 }
@@ -109,7 +103,7 @@ impl SherpaEngine {
                 language: Some(String::new()), // .en models: empty == default
                 task: Some("transcribe".to_string()),
                 tail_paddings: 0,
-                enable_token_timestamps: true, // spike: word-level timing source
+                enable_token_timestamps: true, // word-level timing source
                 enable_segment_timestamps: false,
             };
             config.model_config.tokens = Some(p(&format!("{stem}-tokens.txt")));
@@ -122,10 +116,8 @@ impl SherpaEngine {
             .ok_or_else(|| EngineError::Sherpa("create OfflineRecognizer returned None".into()).into())
     }
 
-    /// VAD-chunk `samples` into `(start_sample, chunk_samples)` speech segments.
-    /// Silence/max-length params are model-aware (see [`vad_params`]): Whisper
-    /// stays under its 30 s window; the offline transducer path bridges pauses
-    /// into longer, coherent segments.
+    /// VAD-chunk `samples` into `(start_sample, chunk_samples)` speech segments,
+    /// with model-aware params (see [`vad_params`]).
     fn vad_chunks(
         &self,
         samples: &[f32],
@@ -156,7 +148,8 @@ impl SherpaEngine {
             debug: false,
         };
 
-        // buffer_size_in_seconds large enough for long speech runs (spike: 100).
+        // Initial buffer size in seconds; sherpa-onnx grows it (without data
+        // loss) if a speech run exceeds it.
         let vad = VoiceActivityDetector::create(&vad_config, 100.0)
             .ok_or_else(|| EngineError::Sherpa("create VoiceActivityDetector returned None".into()))?;
 
@@ -191,9 +184,10 @@ impl SherpaEngine {
     }
 }
 
-/// Group BPE-ish whisper tokens into words on the leading-space / `Ġ` marker,
-/// converting per-token chunk-relative timestamps to absolute seconds via
-/// `offset`. Mirrors `asr_spike.py`.
+/// Group tokens into words on the word-start marker (leading space, `Ġ`, or
+/// `▁`), converting chunk-relative token timestamps to absolute seconds via
+/// `offset`; falls back to spreading the chunk span uniformly when timestamps
+/// are missing.
 fn group_tokens_to_words(
     tokens: &[String],
     timestamps: &[f32],
@@ -267,9 +261,8 @@ impl TranscriptionEngine for SherpaEngine {
         sample_rate: u32,
         progress: &ProgressSink<'_>,
     ) -> anyhow::Result<Vec<AsrSegment>> {
-        // Loading the model (esp. the ~600 MB Parakeet encoder) is a real, silent
-        // wait; surface it as its own "loading" step holding at the decode/VAD
-        // boundary instead of a frozen "decoding 0%".
+        // Model load (esp. the ~600 MB Parakeet encoder) is a real wait; surface
+        // it as its own "loading" step.
         progress(Progress::new("loading", 0, 0, crate::PROGRESS_DECODE_END));
         let recognizer = self.build_recognizer()?;
         let chunks = self
@@ -417,7 +410,8 @@ mod new_tests {
         }
     }
 
-    /// `new()` does fs-existence checks only: with the 4 ASR+VAD files present
+    /// `new()` does fs-existence checks only: with the default model's ASR+VAD
+    /// files present
     /// and `diarize=false` it succeeds, but `diarize=true` fails closed with a
     /// `ModelNotFound` pointing at a missing diarization model.
     #[test]

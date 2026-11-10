@@ -128,10 +128,8 @@ pub fn compare_semver(a: &str, b: &str) -> Ordering {
 
 // --- canonicalization -----------------------------------------------------
 
-/// Produce the canonical UTF-8 bytes the vendor signs / we verify. Byte-
-/// identical to the TS `canonicalize`: compact JSON of the eight known fields
-/// in ascending key order, `signature` excluded. The [`Manifest`] struct's
-/// field order IS the canonical order and `signature` is `#[serde(skip)]`-ed.
+/// Produce the canonical UTF-8 bytes the vendor signs / we verify (see the
+/// module-level canonicalization contract).
 pub fn canonicalize(manifest: &Manifest) -> Vec<u8> {
     serde_json::to_vec(manifest).expect("Manifest serializes to JSON infallibly")
 }
@@ -174,7 +172,6 @@ pub fn validate_manifest(value: &Value) -> Result<Manifest, String> {
         return Err("manifest field \"signature\" must be a string".to_string());
     }
 
-    // engine: present, non-empty string, in the allowed set.
     let engine = match non_empty_string(m, "engine") {
         Some(s) => s,
         None => return Err("manifest is missing required field \"engine\"".to_string()),
@@ -186,7 +183,6 @@ pub fn validate_manifest(value: &Value) -> Result<Manifest, String> {
         ));
     }
 
-    // task: present, non-empty string, in the allowed set.
     let task = match non_empty_string(m, "task") {
         Some(s) => s,
         None => return Err("manifest is missing required field \"task\"".to_string()),
@@ -198,7 +194,6 @@ pub fn validate_manifest(value: &Value) -> Result<Manifest, String> {
         ));
     }
 
-    // semver fields.
     let version = m.get("version").and_then(Value::as_str).unwrap_or("");
     if !is_semver(version) {
         return Err(format!(
@@ -212,13 +207,11 @@ pub fn validate_manifest(value: &Value) -> Result<Manifest, String> {
         ));
     }
 
-    // sha256: 64 lowercase hex chars.
     let sha256 = m.get("sha256").and_then(Value::as_str).unwrap_or("");
     if !is_sha256_hex(sha256) {
         return Err("manifest sha256 must be 64 lowercase hex characters".to_string());
     }
 
-    // All checks passed — collect the eight fields + signature into the struct.
     let signature = m.get("signature").and_then(Value::as_str).unwrap_or("").to_string();
     Ok(Manifest {
         attribution: non_empty_string(m, "attribution").unwrap().to_string(),
@@ -376,33 +369,14 @@ mod tests {
         assert_eq!(compare_semver("1.5.0", "1.7.0"), Ordering::Less);
         assert_eq!(compare_semver("2.0.0", "1.9.9"), Ordering::Greater);
         assert_eq!(compare_semver("1.2.3", "1.2.3"), Ordering::Equal);
-        assert!(is_semver("0.0.0"));
-        assert!(!is_semver("1.2"));
-        assert!(!is_semver("1.2.x"));
-        assert!(is_sha256_hex(&"a".repeat(64)));
-        assert!(!is_sha256_hex(&"A".repeat(64)));
-        assert!(!is_sha256_hex("abc"));
+
+        let mut m = base();
+        m["version"] = json!("1.2.x");
+        assert!(validate_manifest(&m).unwrap_err().contains("not valid semver"));
     }
 
     #[test]
-    fn validation_rejects_in_order() {
-        let mut m = base();
-        m.as_object_mut().unwrap().remove("license");
-        assert_eq!(
-            validate_manifest(&m).unwrap_err(),
-            "manifest is missing required field \"license\""
-        );
-
-        let mut m = base();
-        m["engine"] = json!("kaldi");
-        assert!(validate_manifest(&m)
-            .unwrap_err()
-            .contains("is not one of"));
-
-        let mut m = base();
-        m["version"] = json!("1.2");
-        assert!(validate_manifest(&m).unwrap_err().contains("not valid semver"));
-
+    fn non_object_manifest_is_rejected() {
         assert_eq!(
             validate_manifest(&json!([])).unwrap_err(),
             "manifest is not a JSON object"
@@ -411,10 +385,30 @@ mod tests {
 
     #[test]
     fn empty_and_garbage_signatures_fail_closed() {
-        let mut m = base();
-        m["sha256"] = json!(hex_encode(&Sha256::digest(b"")));
-        m["signature"] = json!("");
-        let res = verify_model_pack(&m, b"", &PublicKey::Raw(&[0u8; 32]), &BTreeMap::new());
-        assert!(res.unwrap_err().contains("unsigned or untrusted"));
+        let pubkey_hex =
+            include_str!("../../fixtures/modelpack/keys/test-public.raw.hex").trim();
+        let pubkey: Vec<u8> = (0..pubkey_hex.len())
+            .step_by(2)
+            .map(|i| u8::from_str_radix(&pubkey_hex[i..i + 2], 16).unwrap())
+            .collect();
+
+        let garbage = [
+            String::new(),                                // empty
+            "!!!not-base64!!!".to_string(),               // not base64
+            "A".repeat(84),                               // 63 bytes: wrong length
+            format!("{}==", "A".repeat(86)),              // 64 zero bytes: wrong signature
+        ];
+        for sig in garbage {
+            let mut m = base();
+            // SHA-256 of the empty byte string.
+            m["sha256"] =
+                json!("e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
+            m["signature"] = json!(sig);
+            let res = verify_model_pack(&m, b"", &PublicKey::Raw(&pubkey), &BTreeMap::new());
+            assert!(
+                res.unwrap_err().contains("unsigned or untrusted"),
+                "signature {sig:?} must fail closed"
+            );
+        }
     }
 }

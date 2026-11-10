@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 
-// Small pill/badge. `tone` selects the colour pairing; used for mode badges
-// (speakers/paragraphs), the persistent sidebar privacy chip, and status pills.
+// Small pill/badge; `tone` selects the colour pairing.
 
 type Tone = "privacy" | "neutral" | "accent" | "danger";
 

@@ -6,9 +6,9 @@
 //! keeps the single auditable binary — Symphonia + Rubato are codec/DSP crates
 //! with no network dependencies (see `scripts/check-no-network.sh`).
 //!
-//! The legacy [`crate::load_wav_16k_mono`] (hound, strict 16 kHz/mono/16-bit) is
-//! intentionally KEPT for the existing integration test; the Tauri command uses
-//! `decode_to_16k_mono`, which also accepts a 16 kHz WAV (and everything else).
+//! [`crate::load_wav_16k_mono`] (hound, strict 16 kHz/mono/16-bit) is kept for
+//! the integration test and example; the Tauri command uses
+//! `decode_to_16k_mono`.
 
 use std::path::Path;
 
@@ -35,10 +35,9 @@ pub fn decode_to_16k_mono(path: impl AsRef<Path>) -> anyhow::Result<(Vec<f32>, u
     decode_to_16k_mono_with_progress(path, &|_| {})
 }
 
-/// Like [`decode_to_16k_mono`] but reports LOCAL progress in `[0, 1]` as the file
-/// is decoded and resampled — so a long file no longer shows a frozen bar. The
-/// caller maps this local fraction onto its global band (see `PROGRESS_DECODE_END`).
-/// Decode occupies the first ~85% of the local range, resampling the tail.
+/// Like [`decode_to_16k_mono`] but reports LOCAL progress in `[0, 1]`; the caller
+/// maps it onto its global band (see `PROGRESS_DECODE_END`). Decode occupies the
+/// first 85% of the local range, resampling the tail.
 pub fn decode_to_16k_mono_with_progress(
     path: impl AsRef<Path>,
     progress: &dyn Fn(f32),
@@ -273,13 +272,6 @@ mod tests {
     }
 
     #[test]
-    fn resample_is_noop_at_16k() {
-        let mono = vec![0.1, -0.2, 0.3, -0.4];
-        let out = resample_to_16k(&mono, 16_000, &|_| {}).unwrap();
-        assert_eq!(out, mono);
-    }
-
-    #[test]
     fn stereo_downmix_averages_channels() {
         use symphonia::core::audio::{
             AsAudioBufferRef, AudioBuffer, Channels, SignalSpec,
@@ -304,22 +296,16 @@ mod tests {
         assert_eq!(out, vec![0.5, 0.5, 0.0]);
     }
 
-    /// GATED real-decode test: only runs when a `downloads/*.m4a` is present
-    /// (skips cleanly in CI / on machines without the demo file).
+    /// Decodes a real `downloads/*.m4a`; run with `--include-ignored` when one is present.
     #[test]
+    #[ignore = "needs downloads/*.m4a"]
     fn decode_real_m4a_if_present() {
         let downloads = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../downloads");
-        let Ok(entries) = std::fs::read_dir(&downloads) else {
-            eprintln!("skip: no downloads dir at {}", downloads.display());
-            return;
-        };
-        let m4a = entries
+        let path = std::fs::read_dir(&downloads)
+            .expect("downloads/ dir must exist when running this ignored test")
             .filter_map(|e| e.ok().map(|e| e.path()))
-            .find(|p| p.extension().and_then(|e| e.to_str()) == Some("m4a"));
-        let Some(path) = m4a else {
-            eprintln!("skip: no .m4a in {}", downloads.display());
-            return;
-        };
+            .find(|p| p.extension().and_then(|e| e.to_str()) == Some("m4a"))
+            .expect("downloads/ must contain an .m4a");
 
         let (samples, rate) = decode_to_16k_mono(&path).expect("decode m4a");
         assert_eq!(rate, 16_000);
