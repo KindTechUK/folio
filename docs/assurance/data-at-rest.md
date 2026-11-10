@@ -25,8 +25,8 @@ The app checks BitLocker status on launch and **warns the fee-earner if
 encryption is not confirmed**, so privileged data is not stored unprotected.
 **Implemented:** on launch the app calls the `volume_encryption_status` command,
 which on Windows derives the drive and parses `manage-bde -status`; unless the
-volume is confirmed encrypted it shows a dismissible amber banner advising the
-matter be stored/run on an encrypted volume (`app/src-tauri/src/system.rs`,
+volume is confirmed encrypted it shows a dismissible amber banner advising that
+recordings and transcripts be stored on an encrypted volume (`app/src-tauri/src/system.rs`,
 `app/src/App.tsx`). The check **fails soft** — if `manage-bde` cannot be run it
 reports `unknown` (and still warns), never erroring the app; on macOS/Linux it
 always reports `unknown`.
@@ -85,17 +85,17 @@ not a scratch file. However:
 
 ## Disposal: one-click "Delete transcript and audio" — ✅ implemented
 
-A one-click action removes the audio and transcript for a matter when the
+A one-click action removes a transcript and its audio when the
 fee-earner is done. **Implemented:** a "Delete transcript and audio" button (in the header of an open transcript) calls the backend, which
 resolves the saved source path, requires it to be exactly a file the user
 picked in the native file dialog or a recording Folio made, rejects symlinks,
 and displays the path in a native confirmation dialog before deletion. It then **purges the saved library entry**
-for that matter (`delete_session`) and clears the in-memory transcript
+for that transcript (`delete_session`) and clears the in-memory transcript
 (`app/src-tauri/src/system.rs`, `library.rs`, `app/src/App.tsx`). The deletion
 helper is idempotent (an already-gone file counts as deleted) and reports any
 genuine failure rather than crashing.
 
-**Honest scope:** the on-disk footprint of a matter is the **source audio** (the
+**Honest scope:** the on-disk footprint of a transcript is the **source audio** (the
 user's own file, referenced not copied, or the recording Folio made) plus the
 **saved transcript JSON** in the library — "Delete transcript and audio" removes both. The engine writes no temp/scratch file
 (in-memory decode, above) and there is no vendor-side copy. Exports the user

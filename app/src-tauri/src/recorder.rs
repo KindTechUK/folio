@@ -203,6 +203,8 @@ enum Control {
     Stop,
     /// The device failed (error callback) or went quiet (watchdog).
     Lost,
+    /// The system's default microphone changed; follow it.
+    Switch,
 }
 
 enum Audio {
@@ -467,6 +469,17 @@ fn mic_error(e: cpal::Error) -> String {
     format!("Cannot use the microphone: {e}.{hint}")
 }
 
+/// The name of the system's current default microphone.
+fn default_input_name() -> Option<String> {
+    let device = cpal::default_host().default_input_device()?;
+    device.description().ok().map(|d| d.name().to_string())
+}
+
+/// Tell the UI which microphone is recording.
+fn announce_device(app: &AppHandle, name: &str) {
+    let _ = app.emit("record-device", name);
+}
+
 fn status(app: &AppHandle, message: Option<String>, transient: bool) {
     let _ = app.emit("record-status", Status { message, transient });
 }
@@ -488,17 +501,22 @@ fn capture_thread(
         last_frame.store(ms_since(t0), Ordering::Relaxed);
         s.play().map_err(mic_error)
     };
-    let mut stream = match open().and_then(|(s, input)| start(&s).map(|()| (s, input))) {
-        Ok((stream, input)) => {
-            let _ = ready.send(Ok(input));
-            Some(stream)
-        }
-        Err(e) => {
-            let _ = ready.send(Err(e));
-            return;
-        }
-    };
+    let (mut stream, mut device_name) =
+        match open().and_then(|(s, input)| start(&s).map(|()| (s, input))) {
+            Ok((stream, input)) => {
+                let name = input.name.clone();
+                let _ = ready.send(Ok(input));
+                announce_device(&app, &name);
+                (Some(stream), name)
+            }
+            Err(e) => {
+                let _ = ready.send(Err(e));
+                return;
+            }
+        };
     let mut paused = false;
+    // Every reconnection attempt failed; a new default microphone can still recover.
+    let mut gave_up = false;
     loop {
         let msg = match control.recv_timeout(Duration::from_secs(1)) {
             Ok(msg) => msg,
@@ -506,6 +524,10 @@ fn capture_thread(
                 let quiet = ms_since(t0).saturating_sub(last_frame.load(Ordering::Relaxed));
                 if !paused && stream.is_some() && quiet >= STALL.as_millis() as u64 {
                     Control::Lost
+                } else if (stream.is_some() || gave_up)
+                    && default_input_name().is_some_and(|name| name != device_name)
+                {
+                    Control::Switch
                 } else {
                     continue;
                 }
@@ -529,9 +551,33 @@ fn capture_thread(
                 }
             }
             Control::Stop => break,
+            Control::Switch => {
+                // Stop the old device first, so its last frames are queued before
+                // the new format is announced.
+                stream = None;
+                let switched_at = Instant::now();
+                match open() {
+                    Ok((s, input)) => {
+                        let gap = if paused { 0.0 } else { switched_at.elapsed().as_secs_f64() };
+                        device_name = input.name.clone();
+                        let _ = tx.send(Audio::Reopened(input, gap));
+                        if !paused && start(&s).is_err() {
+                            let _ = control_tx.send(Control::Lost);
+                        }
+                        stream = Some(s);
+                        gave_up = false;
+                        announce_device(&app, &device_name);
+                        status(&app, Some(format!("Switched to {device_name}.")), true);
+                    }
+                    // The new default can't be opened: treat it like a lost device.
+                    Err(_) => {
+                        let _ = control_tx.send(Control::Lost);
+                    }
+                }
+            }
             Control::Lost => {
-                if stream.is_none() {
-                    continue; // already gave up
+                if gave_up {
+                    continue;
                 }
                 stream = None;
                 // Audio stopped arriving at the last callback.
@@ -562,6 +608,7 @@ fn capture_thread(
                     if let Ok((s, input)) = open() {
                         // Announce the new format before any of its frames are queued.
                         let name = input.name.clone();
+                        device_name = name.clone();
                         let now = Instant::now();
                         let _ = tx.send(Audio::Reopened(input, outage.gap(now).as_secs_f64()));
                         // That gap is now in the recording; count afresh if this attempt fails.
@@ -569,7 +616,9 @@ fn capture_thread(
                         if !paused && start(&s).is_err() {
                             continue;
                         }
+                        announce_device(&app, &name);
                         status(&app, Some(format!("Reconnected to {name}.")), true);
+                        gave_up = false;
                         stream = Some(s);
                         break;
                     }
@@ -578,6 +627,7 @@ fn capture_thread(
                     break;
                 }
                 if stream.is_none() {
+                    gave_up = true;
                     status(&app, None, false);
                     let _ = app.emit(
                         "record-error",
@@ -1040,7 +1090,7 @@ mod tests {
         )
         .unwrap();
 
-        let report = system::delete_matter_authorized_in(&library, "s1", |_, _| true).unwrap();
+        let report = system::delete_transcript_authorized_in(&library, "s1", |_, _| true).unwrap();
 
         assert!(report.failed.is_empty(), "{:?}", report.failed);
         assert!(!path.exists());

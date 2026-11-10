@@ -81,6 +81,7 @@ export default function Record({
   const [level, setLevel] = useState<Level>(IDLE_LEVEL);
   const [warnings, setWarnings] = useState<Warnings>(NO_WARNINGS);
   const [deviceStatus, setDeviceStatus] = useState<string | null>(null);
+  const [deviceName, setDeviceName] = useState<string | null>(null);
   const statusTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [confirmDiscard, setConfirmDiscard] = useState(false);
@@ -121,6 +122,7 @@ export default function Record({
     setLevel(IDLE_LEVEL);
     setWarnings(NO_WARNINGS);
     setDeviceStatus(null);
+    setDeviceName(null);
     setConfirmDiscard(false);
     setProgress(null);
     setPhase("idle");
@@ -140,6 +142,7 @@ export default function Record({
         listen<string>("record-error", (e) => setError(e.payload)),
         listen<Warnings>("record-warnings", (e) => setWarnings(e.payload)),
         listen<Status>("record-status", (e) => showStatus(e.payload)),
+        listen<string>("record-device", (e) => setDeviceName(e.payload)),
       ]);
       const started = await invoke<{ audioPath: string }>("start_recording", {
         model: asrModel,
@@ -279,6 +282,11 @@ export default function Record({
           aria-hidden="true"
         />
         <strong data-testid="recording-state">{stateLabel}</strong>
+        {deviceName && (
+          <span className="recording-device" data-testid="recording-device" title="Microphone">
+            {deviceName}
+          </span>
+        )}
         <span className="tabular" data-testid="recording-elapsed">
           {mmss(level.elapsedS)}
         </span>

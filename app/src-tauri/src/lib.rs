@@ -45,7 +45,7 @@ pub fn run() {
             library::delete_session,
             system::volume_encryption_status,
             system::pick_recording,
-            system::delete_matter,
+            system::delete_transcript,
             recorder::start_recording,
             recorder::pause_recording,
             recorder::resume_recording,
