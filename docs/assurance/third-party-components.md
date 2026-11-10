@@ -28,7 +28,7 @@ crates/packages are resolvable from the committed lockfiles
 
 | Role | Model | Version / tag | Licence | Attribution (required) |
 | --- | --- | --- | --- | --- |
-| ASR (default) | NVIDIA Parakeet-TDT-0.6B-v2 (int8, sherpa-onnx) | k2-fsa `asr-models` | **CC-BY-4.0** | NVIDIA |
+| ASR (default) | NVIDIA Parakeet-TDT-0.6B-v2 (int8, sherpa-onnx) | k2-fsa Hugging Face (`csukuangfj/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8`, pinned revision) | **CC-BY-4.0** | NVIDIA |
 | ASR (alternative) | Whisper `small.en` (int8) | k2-fsa `asr-models` | **MIT** | OpenAI Whisper |
 | ASR (alternative, slower) | Whisper `medium.en` (int8) | k2-fsa `asr-models` | **MIT** | OpenAI Whisper |
 | Diarization — segmentation | pyannote/segmentation-3.0 (ONNX) | k2-fsa `speaker-segmentation-models` | **MIT** | pyannote / segmentation-3.0 (CNRS) |
