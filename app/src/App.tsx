@@ -334,7 +334,19 @@ export default function App() {
       return;
     }
     if (next === "transcribe") void startImport();
+    else if (next === "record") void startRecordView();
     else setView(next);
+  }
+
+  // Show the Record page. An open transcript is saved first; if its latest edit
+  // can't be saved it stays open (the header shows the failure), because the
+  // recording will replace it when it stops.
+  async function startRecordView() {
+    if (!(await flushPendingSave())) {
+      setView("transcribe");
+      return;
+    }
+    setView("record");
   }
 
   // Open a just-created transcript in the editor and save it at once.
@@ -378,7 +390,7 @@ export default function App() {
     const path = selectedPath;
     setHistory(null);
     setCurrentSessionMeta(null);
-    const num_speakers = requestedSpeakers(detectSpeakers, speakerCount);
+    const numSpeakers = requestedSpeakers(detectSpeakers, speakerCount);
 
     // Unlisten in `finally` so the progress listener never leaks.
     let unlisten = () => {};
@@ -394,7 +406,7 @@ export default function App() {
       const transcript = await invoke<Transcript>("transcribe", {
         path,
         diarize: detectSpeakers,
-        num_speakers,
+        numSpeakers,
         model: asrModel,
       });
       await openNewTranscript(transcript, path, detectSpeakers);
@@ -631,6 +643,7 @@ export default function App() {
               speakerCount={speakerCount}
               onSpeakerCount={setSpeakerCount}
               leaveBlocked={leaveBlocked}
+              importRunning={progress !== null}
               onActiveChange={(active) => {
                 setRecordingActive(active);
                 if (!active) setLeaveBlocked(false);

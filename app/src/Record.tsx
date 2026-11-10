@@ -34,6 +34,7 @@ export default function Record({
   speakerCount,
   onSpeakerCount,
   leaveBlocked,
+  importRunning,
   onActiveChange,
   onFinished,
 }: {
@@ -47,6 +48,8 @@ export default function Record({
   onSpeakerCount: (count: string) => void;
   /** Someone tried to leave the page while recording. */
   leaveBlocked: boolean;
+  /** An imported file is still being transcribed. */
+  importRunning: boolean;
   onActiveChange: (active: boolean) => void;
   onFinished: (transcript: Transcript, audioPath: string, diarized: boolean) => void;
 }) {
@@ -137,7 +140,7 @@ export default function Record({
         ),
       );
       const transcript = await invoke<Transcript>("stop_recording", {
-        num_speakers: requestedSpeakers(detectSpeakers, speakerCount),
+        numSpeakers: requestedSpeakers(detectSpeakers, speakerCount),
       });
       reset();
       onFinished(transcript, audioPath, detectSpeakers);
@@ -148,6 +151,7 @@ export default function Record({
   }
 
   async function discard() {
+    if (phase !== "recording" && phase !== "paused") return;
     setPhase("discarding");
     try {
       await invoke("discard_recording");
@@ -178,10 +182,16 @@ export default function Record({
             <Banner variant="info" role="note" style={{ marginBottom: "var(--space-4)" }}>
               Tell everyone present that you are recording.
             </Banner>
+            {importRunning && (
+              <Banner variant="info" role="note" style={{ marginBottom: "var(--space-4)" }}>
+                An imported recording is still being transcribed. You can record when it
+                finishes.
+              </Banner>
+            )}
             <Button
               variant="primary"
               onClick={() => void start()}
-              disabled={!modelsChecked}
+              disabled={!modelsChecked || importRunning}
               style={{ marginBottom: "var(--space-4)" }}
             >
               {modelsChecked ? "Start recording" : "Checking transcription model…"}
@@ -289,8 +299,10 @@ export default function Record({
         <div className="recording-actions" role="group" aria-label="Confirm discard">
           <span>Delete this recording? Nothing will be saved.</span>
           {/* The safe choice comes first, where the pointer was over Discard. */}
-          <Button onClick={() => setConfirmDiscard(false)}>Keep recording</Button>
-          <Button variant="danger" onClick={() => void discard()}>
+          <Button onClick={() => setConfirmDiscard(false)} disabled={busy}>
+            Keep recording
+          </Button>
+          <Button variant="danger" onClick={() => void discard()} disabled={busy}>
             Delete recording
           </Button>
         </div>

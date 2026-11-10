@@ -14,6 +14,7 @@
 
 use std::path::{Path, PathBuf};
 use std::sync::mpsc::{self, Receiver, Sender};
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 use std::thread::JoinHandle;
 use std::time::{Duration, Instant};
@@ -167,6 +168,7 @@ struct Active {
     process: JoinHandle<Result<(), String>>,
     decode: JoinHandle<()>,
     segments: Arc<Mutex<Vec<AsrSegment>>>,
+    cancel: Arc<AtomicBool>,
 }
 
 #[derive(Default)]
@@ -289,18 +291,23 @@ fn process_thread(
 ) -> Result<(), String> {
     let vad = engine.vad(VadProfile::LIVE).map_err(|e| e.to_string())?;
     let mut p = Processor { app, file, vad, utterances, base: 0, since_level: 0, level_acc: 0.0 };
+    // Frames are dropped here while paused, even if the device ignores pause.
+    let mut paused = false;
     while let Ok(msg) = audio.recv() {
         match msg {
+            Audio::Frames(_) if paused => {}
             Audio::Frames(frames) => {
                 let out = resampler.push(&frames).map_err(|e| e.to_string())?;
                 p.samples(&out)?;
             }
             Audio::Pause => {
+                paused = true;
                 let closed = p.vad.flush();
                 p.send(closed);
                 p.file.flush()?;
             }
             Audio::Resume => {
+                paused = false;
                 p.vad.reset();
                 p.base = p.file.written();
             }
@@ -362,9 +369,13 @@ fn decode_thread(
     utterances: Receiver<(usize, Vec<f32>)>,
     segments: Arc<Mutex<Vec<AsrSegment>>>,
     mut recognizer: engine::Recognizer,
+    cancel: Arc<AtomicBool>,
 ) {
     let mut built = Instant::now();
     while let Ok((start, chunk)) = utterances.recv() {
+        if cancel.load(Ordering::Relaxed) {
+            continue; // discarding: drain the queue without decoding
+        }
         if let Some(seg) = recognizer.decode_utterance(start, &chunk) {
             let _ = app.emit("record-utterance", &seg);
             segments.lock().unwrap().push(seg);
@@ -427,13 +438,26 @@ pub async fn start_recording(
         let segments = Arc::new(Mutex::new(Vec::new()));
         let (utt_tx, utt_rx) = mpsc::channel();
         let decode_engine = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
-        let (decode_app, decode_segments) = (app.clone(), segments.clone());
+        let cancel = Arc::new(AtomicBool::new(false));
+        let (decode_app, decode_segments, decode_cancel) =
+            (app.clone(), segments.clone(), cancel.clone());
         let decode = std::thread::spawn(move || {
-            decode_thread(decode_app, decode_engine, utt_rx, decode_segments, recognizer)
+            decode_thread(decode_app, decode_engine, utt_rx, decode_segments, recognizer, decode_cancel)
         });
         let process_app = app.clone();
         let process = std::thread::spawn(move || {
-            process_thread(process_app, engine, file, resampler, audio_rx, utt_tx)
+            let result =
+                process_thread(process_app.clone(), engine, file, resampler, audio_rx, utt_tx);
+            if let Err(e) = &result {
+                // Report at once: capture may still be running, but nothing more is saved.
+                let _ = process_app.emit(
+                    "record-error",
+                    format!(
+                        "Recording stopped saving: {e}. What was recorded so far is kept; press Stop to create the transcript."
+                    ),
+                );
+            }
+            result
         });
 
         *state.0.lock().unwrap() = Some(Active {
@@ -445,6 +469,7 @@ pub async fn start_recording(
             process,
             decode,
             segments,
+            cancel,
         });
         Ok(StartedRecording { audio_path: path.to_string_lossy().into_owned() })
     })
@@ -476,9 +501,11 @@ struct Finished {
     segments: Vec<AsrSegment>,
 }
 
-/// Stop capture and wait until the file is finished and every utterance is
-/// transcribed. Returns the utterances in time order.
-fn finish(app: &AppHandle) -> Result<Finished, String> {
+/// Stop capture and wait for the worker threads. Always returns the recording
+/// (the WAV stays readable up to its last header update even if writing
+/// failed); a processing failure was already reported to the UI as it
+/// happened. `discarding` skips transcription of any queued utterances.
+fn finish(app: &AppHandle, discarding: bool) -> Result<Finished, String> {
     let active = app
         .state::<RecorderState>()
         .0
@@ -486,14 +513,15 @@ fn finish(app: &AppHandle) -> Result<Finished, String> {
         .unwrap()
         .take()
         .ok_or_else(|| "No recording is in progress.".to_string())?;
+    if discarding {
+        active.cancel.store(true, Ordering::Relaxed);
+    }
     let _ = active.control.send(Control::Stop);
     let _ = active.capture.join();
-    let written = active
-        .process
-        .join()
-        .map_err(|_| "The recording thread failed.".to_string())?;
+    if let Ok(Err(e)) | Err(e) = active.process.join().map_err(|_| "panicked".to_string()) {
+        eprintln!("recording processing failed: {e}");
+    }
     let _ = active.decode.join();
-    written?;
     let mut segments = active.segments.lock().unwrap().clone();
     segments.sort_by(|a, b| a.start.partial_cmp(&b.start).unwrap_or(std::cmp::Ordering::Equal));
     Ok(Finished { path: active.path, diarize: active.diarize, cfg: active.cfg, segments })
@@ -507,7 +535,7 @@ pub async fn stop_recording(
     num_speakers: Option<u32>,
 ) -> Result<engine::Transcript, String> {
     tauri::async_runtime::spawn_blocking(move || {
-        let done = finish(&app)?;
+        let done = finish(&app, false)?;
         if !done.diarize {
             let _ = app.emit("transcribe-progress", engine::Progress::new("done", 1, 1, 1.0));
             return Ok(merge::from_asr(&done.segments));
@@ -528,7 +556,7 @@ pub async fn stop_recording(
 pub async fn discard_recording(app: AppHandle) -> Result<(), String> {
     let library = crate::library::library_dir(&app)?;
     tauri::async_runtime::spawn_blocking(move || {
-        let done = finish(&app)?;
+        let done = finish(&app, true)?;
         discard_recording_in(&library, &done.path)
     })
     .await
@@ -538,7 +566,7 @@ pub async fn discard_recording(app: AppHandle) -> Result<(), String> {
 /// On app exit, finish the WAV so the audio is kept intact. No transcript is
 /// created; the recording stays in the recordings folder.
 pub(crate) fn finish_on_exit(app: &AppHandle) {
-    let _ = finish(app);
+    let _ = finish(app, false);
 }
 
 /// Let the asset protocol serve recordings for playback. Granted at runtime,
