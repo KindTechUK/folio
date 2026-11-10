@@ -95,6 +95,23 @@ async function importAndCreate(): Promise<void> {
   await screen.findByTestId("paragraph");
 }
 
+function savedTexts(): string[] {
+  return invokeMock.mock.calls
+    .filter(([command]) => command === "save_session")
+    .map(([, args]) =>
+      (args as { session: { editorState: { sentences: { words: { text: string }[] }[] } } })
+        .session.editorState.sentences.flatMap((s) => s.words.map((w) => w.text))
+        .join(" "),
+    );
+}
+
+function correctTo(text: string): void {
+  fireEvent.doubleClick(screen.getByTestId("paragraph"));
+  const editor = screen.getByTestId("edit-sent-0");
+  fireEvent.change(editor, { target: { value: text } });
+  fireEvent.blur(editor);
+}
+
 describe("App import flow", () => {
   it("opens a recording, transcribes it with the installed model, and renders the editor", async () => {
     render(<App />);
@@ -263,5 +280,41 @@ describe("App import flow", () => {
 
     expect(screen.getByTestId("transcribe-progress")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Choose recording" })).not.toBeInTheDocument();
+  });
+
+  it("rewrites the on-screen text when an undo lands during a slow save", async () => {
+    render(<App />);
+    await importAndCreate();
+    await screen.findByText("Saved locally");
+    const finishSave: (() => void)[] = [];
+    saveSession = () => new Promise((resolve) => finishSave.push(() => resolve(undefined)));
+
+    correctTo("A corrected draft.");
+    await waitFor(() => expect(finishSave).toHaveLength(1), { timeout: 2000 });
+    fireEvent.click(screen.getByTestId("undo"));
+    saveSession = () => Promise.resolve();
+    finishSave[0]!();
+
+    await waitFor(
+      () => expect(savedTexts().at(-1)).toBe("The local transcript is ready."),
+      { timeout: 2000 },
+    );
+  });
+
+  it("saves a correction made while Import another waits on a slow save", async () => {
+    render(<App />);
+    await importAndCreate();
+    await screen.findByText("Saved locally");
+    const finishSave: (() => void)[] = [];
+    saveSession = () => new Promise((resolve) => finishSave.push(() => resolve(undefined)));
+
+    correctTo("First correction.");
+    fireEvent.click(screen.getByRole("button", { name: "Import another" }));
+    await waitFor(() => expect(finishSave).toHaveLength(1));
+    correctTo("Second correction.");
+    saveSession = () => Promise.resolve();
+    finishSave[0]!();
+
+    await waitFor(() => expect(savedTexts()).toContain("Second correction."));
   });
 });

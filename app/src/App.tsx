@@ -108,6 +108,9 @@ export default function App() {
   // The last snapshot written to disk, and the one on screen now (async saves
   // read it to decide whether they are still the latest).
   const savedStateRef = useRef<EditorState | null>(null);
+  // Bumped after each successful write so the autosave effect re-checks the
+  // screen against disk (an undo can land while a write is in flight).
+  const [saveCount, setSaveCount] = useState(0);
   const stateRef = useRef<EditorState | null>(null);
   stateRef.current = state;
 
@@ -164,7 +167,7 @@ export default function App() {
         }),
       });
       savedStateRef.current = snapshot;
-      if (stateRef.current === snapshot) setSaveStatus("saved");
+      setSaveCount((n) => n + 1);
       return true;
     } catch {
       setSaveStatus("error");
@@ -172,10 +175,15 @@ export default function App() {
     }
   }
 
-  // Write any edit still waiting for the autosave timer.
-  function flushPendingSave(): Promise<boolean> {
-    if (!state || !currentSessionMeta) return Promise.resolve(true);
-    return persist(currentSessionMeta, state);
+  // Write any edit still waiting for the autosave timer, including edits made
+  // while an earlier write was in flight.
+  async function flushPendingSave(): Promise<boolean> {
+    const meta = currentSessionMeta;
+    if (!meta) return true;
+    while (stateRef.current && stateRef.current !== savedStateRef.current) {
+      if (!(await persist(meta, stateRef.current))) return false;
+    }
+    return true;
   }
 
   // Debounced (800ms) auto-save. The header says "Saving" from the moment an
@@ -190,7 +198,7 @@ export default function App() {
     const meta = currentSessionMeta;
     const timer = setTimeout(() => void persist(meta, state), 800);
     return () => clearTimeout(timer);
-  }, [state, currentSessionMeta]);
+  }, [state, currentSessionMeta, saveCount]);
 
   // Open a saved session from the Library: load its JSON, restore the editor
   // and audio, and switch to the review view. Audio may be missing if the
