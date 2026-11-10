@@ -24,16 +24,11 @@ import {
   exportTextWithDisclaimer,
 } from "./draft";
 import { saveDocx } from "./docx";
+import { displayName, mmss } from "./format";
 import { Banner, Button } from "./ui";
 import { Toolbar, ToolbarGroup } from "./ui/Toolbar";
 
 const SPEEDS = [0.75, 1, 1.25, 1.5, 2] as const;
-
-function mmss(t: number): string {
-  const s = Math.max(0, t);
-  const m = Math.floor(s / 60);
-  return `${m}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
-}
 
 /** Deterministic per-speaker colour. */
 function speakerColor(id: string): string {
@@ -60,10 +55,6 @@ function groupTurns(state: EditorState): TurnGroup[] {
     }
   }
   return turns;
-}
-
-function displayName(state: EditorState, id: string): string {
-  return state.renameMap[id] ?? id;
 }
 
 function download(content: string, name: string, type: string): void {

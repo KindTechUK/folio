@@ -22,16 +22,7 @@ import { groupParagraphs } from "@core/editor";
 import type { EditorState } from "@core/editor";
 import { UNKNOWN_SPEAKER } from "@core/types";
 import { DRAFT_DISCLAIMER } from "./draft";
-
-function mmss(t: number): string {
-  const s = Math.max(0, t);
-  const m = Math.floor(s / 60);
-  return `${m}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
-}
-
-function displayName(state: EditorState, id: string): string {
-  return state.renameMap[id] ?? id;
-}
+import { displayName, mmss } from "./format";
 
 function sentenceText(words: { text: string }[]): string {
   return words.map((w) => w.text).join(" ");

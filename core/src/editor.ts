@@ -423,16 +423,15 @@ function mmss(t: number): string {
 
 /** Script export: a `<speaker>  [mm:ss]` header at each display-speaker change, then the words. */
 export function exportText(state: EditorState): string {
-  const words = orderedWords(state);
-  let out = "";
+  const blocks: { header: string; words: string[] }[] = [];
   let cur: string | null = null;
-  for (const w of words) {
+  for (const w of orderedWords(state)) {
     const spk = displayName(state.renameMap, w.speaker);
     if (spk !== cur) {
-      out += `\n\n${spk}  [${mmss(w.start)}]\n`;
+      blocks.push({ header: `${spk}  [${mmss(w.start)}]`, words: [] });
       cur = spk;
     }
-    out += w.text + " ";
+    blocks[blocks.length - 1]!.words.push(w.text);
   }
-  return out.trim() + "\n";
+  return blocks.map((b) => `${b.header}\n${b.words.join(" ")}\n`).join("\n");
 }
