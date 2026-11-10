@@ -3,7 +3,7 @@
 > Status: planned · Recorded 2026-09-25.
 > Gates the phases in `docs/prd/folio-next-live-capture-and-notes.md`.
 > Evidence base: `docs/research/scribe-landscape-2026-09.md`.
-> Format follows `docs/spikes/sherpa-onnx-spike.md`: each spike ends with a written
+> Format follows the original sherpa-onnx spike (removed from the tree in 59ba8a8; see git history): each spike ends with a written
 > **GO / NO-GO / GO-WITH-CONDITIONS** verdict, exact commands and raw numbers.
 
 ## Ground rules
@@ -26,7 +26,7 @@
 | **S3** | Can a small model **cite its sources** reliably, and how often does it fabricate? | ≥ 95% of note sentences have valid citations; 0 fabrications in blind review | 3 days | P3 |
 | **S4** | Does the local model **refuse or soften** safeguarding content? | 0 refusals, 0 softened facts on the sensitive set | 1 day | P2 (social care) |
 | **S5** | Can we **package** llama.cpp + weights without breaking zero-egress or licensing? | Gate green; static build; licence-clean pick; signed pack verifies | 2 days | P2 |
-| **S6** | Is **crash-safe recording** simple and does delete-matter still purge everything? | ≤ 1 chunk lost on `kill`; full purge | 1 day | P1, assurance |
+| **S6** | Is **crash-safe recording** simple and does "Delete transcript and audio" still purge everything? | ≤ 1 chunk lost on `kill`; full purge | 1 day | P1, assurance |
 | S7 | *(only if S1 fails)* Does **Nemotron Streaming** fix live lag on CPU? | Word lag ≤ 1 s at ≤ 60% CPU | 2 days | P1 fallback |
 | S8 | *(deferred to P4)* Can we capture **call audio** without echo or duplicates? | No duplicated or echoed text with speakers on | 3 days | P4 |
 
@@ -58,6 +58,8 @@ offline path ≤ 1 point.
 **If it fails.** Shorter chunks, fewer threads, then S7.
 
 ## S2: Local LLM on long transcripts, the headline question
+
+> **Interim (one model, partial run):** see [`s2-local-llm-notes.md`](s2-local-llm-notes.md). Harness: `spikes/s2-llm-notes/`.
 
 **Question.** On the reference laptop, how long does a local 3–4B model take to produce a template note from
 transcripts of **15, 45, 60 and 90 minutes**, and does quality hold at those lengths?
@@ -149,14 +151,14 @@ as a signed model pack, without adding a network crate or a licence we can't red
 
 ## S6: Crash-safe recording
 
-**Question.** Does chunked recording to the app-data directory survive crashes, and does delete-matter still
-remove everything?
+**Question.** Does chunked recording to the app-data directory survive crashes, and does "Delete transcript and audio"
+still remove everything?
 
 **Method.** Record into rolling WAV chunks of 5–10 s, finalised and concatenated on stop. `kill -9` and pull the power
-mid-recording, restart, and check recovery. Run delete-matter on finalised and partial recordings and inspect the
+mid-recording, restart, and check recovery. Run "Delete transcript and audio" on finalised and partial recordings and inspect the
 filesystem. Draft the wording changes to `docs/assurance/data-at-rest.md`.
 
-**Pass.** At most the last chunk is lost. Recovery is offered on restart. No residual files after delete-matter.
+**Pass.** At most the last chunk is lost. Recovery is offered on restart. No residual files after deletion.
 
 ## S7: Streaming ASR fallback (conditional)
 
@@ -183,4 +185,4 @@ Each spike ends with a write-up in this folder (`docs/spikes/<name>.md`) contain
 - raw numbers
 - what changes in the PRD
 
-This follows `docs/spikes/sherpa-onnx-spike.md`.
+This follows the original sherpa-onnx spike write-up.
