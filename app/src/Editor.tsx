@@ -108,6 +108,7 @@ export default function Editor({
   const [replaceText, setReplaceText] = useState("");
   const [findCase, setFindCase] = useState(false);
   const [findWhole, setFindWhole] = useState(false);
+  const [exportOpen, setExportOpen] = useState(false);
   const [follow, setFollow] = useState(true);
 
   const turns = useMemo(() => groupTurns(state), [state]);
@@ -200,9 +201,33 @@ export default function Editor({
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [editingId, canUndo, canRedo, onUndo, onRedo]);
 
+  useEffect(() => {
+    if (!exportOpen) return;
+    function onPointerDown(e: PointerEvent): void {
+      if (!(e.target as Element | null)?.closest(".export-menu")) setExportOpen(false);
+    }
+    function onKeyDown(e: KeyboardEvent): void {
+      if (e.key === "Escape") setExportOpen(false);
+    }
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [exportOpen]);
+
+  // Clamped to [0, duration]; duration is NaN until metadata loads.
   function seek(t: number): void {
     const a = audioRef.current;
-    if (a) a.currentTime = t;
+    if (!a) return;
+    const end = Number.isFinite(a.duration) ? a.duration : Infinity;
+    a.currentTime = Math.max(0, Math.min(t, end));
+  }
+
+  function skip(seconds: number): void {
+    const a = audioRef.current;
+    if (a) seek(a.currentTime + seconds);
   }
 
   function togglePlay(): void {
@@ -278,8 +303,12 @@ export default function Editor({
           style={{
             cursor: "pointer",
             borderRadius: 4,
-            background: active ? "#fde047" : undefined,
-            color: active ? "#422006" : played ? "#999" : undefined,
+            background: active ? "var(--highlight-active)" : undefined,
+            color: active
+              ? "var(--highlight-active-text)"
+              : played
+                ? "var(--slate-400)"
+                : undefined,
           }}
         >
           {w.text}{" "}
@@ -315,89 +344,19 @@ export default function Editor({
 
   return (
     <div className="editor">
-      <Banner
-        variant="info"
-        role="note"
-        aria-label="machine-generated draft disclaimer"
-        style={{ marginBottom: "var(--space-3)" }}
-      >
-        {DRAFT_DISCLAIMER}
-      </Banner>
+      {audioSrc && (
+        <audio
+          ref={audioRef}
+          src={audioSrc}
+          preload="metadata"
+          data-testid="audio"
+          onLoadedMetadata={(e) => setDur(e.currentTarget.duration)}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+        />
+      )}
 
-      <Toolbar sticky>
-        {audioSrc && (
-          <audio
-            ref={audioRef}
-            src={audioSrc}
-            preload="metadata"
-            data-testid="audio"
-            onLoadedMetadata={(e) => setDur(e.currentTarget.duration)}
-            onPlay={() => setPlaying(true)}
-            onPause={() => setPlaying(false)}
-          />
-        )}
-        <ToolbarGroup>
-          <Button variant="primary" size="sm" onClick={togglePlay} data-testid="play">
-            {playing ? "Pause" : "Play"}
-          </Button>
-          <span className="tabular" style={{ color: "var(--slate-500)", fontSize: "var(--text-sm)" }}>
-            {mmss(cur)} / {mmss(dur)}
-          </span>
-        </ToolbarGroup>
-
-        <ToolbarGroup>
-          <span style={{ fontSize: "var(--text-xs)", color: "var(--slate-400)" }}>speed</span>
-          {SPEEDS.map((s) => (
-            <Button
-              key={s}
-              size="sm"
-              variant={speed === s ? "primary" : "ghost"}
-              onClick={() => applySpeed(s)}
-              aria-pressed={speed === s}
-            >
-              {s}x
-            </Button>
-          ))}
-        </ToolbarGroup>
-
-        <ToolbarGroup>
-          <Button
-            size="sm"
-            data-testid="export-json"
-            onClick={() =>
-              download(
-                JSON.stringify(exportJSONWithDisclaimer(state), null, 2),
-                "transcript_edited.json",
-                "application/json",
-              )
-            }
-          >
-            Export JSON
-          </Button>
-          <Button
-            size="sm"
-            data-testid="export-text"
-            onClick={() =>
-              download(
-                exportTextWithDisclaimer(state),
-                "transcript_edited.txt",
-                "text/plain",
-              )
-            }
-          >
-            Export Script
-          </Button>
-          <Button
-            size="sm"
-            data-testid="export-docx"
-            onClick={() => {
-              void saveDocx(state, { diarized });
-            }}
-          >
-            Export DOCX
-          </Button>
-        </ToolbarGroup>
-
+      <Toolbar sticky style={{ justifyContent: "flex-end", padding: "8px 0" }}>
         <ToolbarGroup>
           <Button size="sm" data-testid="undo" onClick={() => onUndo?.()} disabled={!canUndo}>
             Undo
@@ -406,8 +365,7 @@ export default function Editor({
             Redo
           </Button>
         </ToolbarGroup>
-
-        <ToolbarGroup divider={false}>
+        <ToolbarGroup>
           <Button
             size="sm"
             variant={findOpen ? "primary" : "ghost"}
@@ -417,15 +375,62 @@ export default function Editor({
           >
             Find &amp; replace
           </Button>
-          <Button
-            size="sm"
-            variant={follow ? "primary" : "ghost"}
-            data-testid="toggle-follow"
-            onClick={() => setFollow((v) => !v)}
-            aria-pressed={follow}
-          >
-            Follow
-          </Button>
+        </ToolbarGroup>
+        <ToolbarGroup divider={false}>
+          <div className="export-menu">
+            <Button
+              size="sm"
+              variant="primary"
+              data-testid="export-menu"
+              aria-haspopup="menu"
+              aria-expanded={exportOpen}
+              onClick={() => setExportOpen((open) => !open)}
+            >
+              Export
+            </Button>
+            {exportOpen && (
+              <div className="export-menu-popover" role="menu">
+                <button
+                  role="menuitem"
+                  data-testid="export-docx"
+                  onClick={() => {
+                    setExportOpen(false);
+                    void saveDocx(state, { diarized });
+                  }}
+                >
+                  Word document (.docx)
+                </button>
+                <button
+                  role="menuitem"
+                  data-testid="export-text"
+                  onClick={() => {
+                    setExportOpen(false);
+                    download(
+                      exportTextWithDisclaimer(state),
+                      "transcript_edited.txt",
+                      "text/plain",
+                    );
+                  }}
+                >
+                  Plain text (.txt)
+                </button>
+                <button
+                  role="menuitem"
+                  data-testid="export-json"
+                  onClick={() => {
+                    setExportOpen(false);
+                    download(
+                      JSON.stringify(exportJSONWithDisclaimer(state), null, 2),
+                      "transcript_edited.json",
+                      "application/json",
+                    );
+                  }}
+                >
+                  Transcript data (.json)
+                </button>
+              </div>
+            )}
+          </div>
         </ToolbarGroup>
       </Toolbar>
 
@@ -438,7 +443,7 @@ export default function Editor({
             alignItems: "center",
             flexWrap: "wrap",
             padding: "8px 0",
-            borderBottom: "1px solid #eee",
+            borderBottom: "1px solid var(--slate-200)",
           }}
         >
           <input
@@ -490,12 +495,22 @@ export default function Editor({
         </div>
       )}
 
+      <div className="draft-guidance">
+        <Banner variant="info" role="note" aria-label="machine-generated draft disclaimer">
+          {DRAFT_DISCLAIMER}
+        </Banner>
+        <div className="correction-hint">
+          <strong>Quick correction</strong>
+          <span>Click a word to replay · Double-click a paragraph to edit · Space to play or pause</span>
+        </div>
+      </div>
+
       {/* Empty-space clicks toggle play; word, chip, button and editor handlers
           stopPropagation. */}
       <div
         className="doc"
         onClick={togglePlay}
-        style={{ maxWidth: 820, margin: "16px auto" }}
+        style={{ margin: "16px auto 28px" }}
       >
         {!diarized
           ? paragraphs.map((para, pi) => {
@@ -549,9 +564,9 @@ export default function Editor({
                       style={{
                         marginLeft: 6,
                         fontSize: 11,
-                        color: "#888",
+                        color: "var(--slate-500)",
                         background: "none",
-                        border: "1px solid #ddd",
+                        border: "1px solid var(--slate-200)",
                         borderRadius: 4,
                         cursor: "pointer",
                       }}
@@ -608,6 +623,13 @@ export default function Editor({
                       e.stopPropagation();
                       setRenamingSpeaker(turn.speaker);
                     }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setRenamingSpeaker(turn.speaker);
+                      }
+                    }}
                     style={{
                       fontWeight: 700,
                       cursor: "pointer",
@@ -622,7 +644,7 @@ export default function Editor({
                   </span>
                 )}
                 {first && (
-                  <span style={{ color: "#888", fontSize: 12 }}>
+                  <span style={{ color: "var(--slate-500)", fontSize: 12 }}>
                     {mmss(first.start)}
                   </span>
                 )}
@@ -660,6 +682,52 @@ export default function Editor({
             </div>
           );
             })}
+      </div>
+
+      <div className="transport-bar" role="group" aria-label="Transcript playback">
+        <Button variant="primary" size="sm" onClick={togglePlay} data-testid="play">
+          {playing ? "Pause" : "Play"}
+        </Button>
+        <Button size="sm" variant="ghost" onClick={() => skip(-5)} aria-label="Back 5 seconds">
+          −5s
+        </Button>
+        <Button size="sm" variant="ghost" onClick={() => skip(5)} aria-label="Forward 5 seconds">
+          +5s
+        </Button>
+        <span className="tabular transport-time">
+          {mmss(cur)} / {mmss(dur)}
+        </span>
+        <input
+          className="transport-progress"
+          type="range"
+          min={0}
+          max={dur || 0}
+          step={0.1}
+          value={Math.min(cur, dur || 0)}
+          onChange={(event) => seek(Number(event.target.value))}
+          aria-label="Playback position"
+          disabled={!audioSrc || dur === 0}
+        />
+        <select
+          aria-label="Playback speed"
+          value={speed}
+          onChange={(event) => applySpeed(Number(event.target.value))}
+        >
+          {SPEEDS.map((option) => (
+            <option key={option} value={option}>
+              {option}x
+            </option>
+          ))}
+        </select>
+        <Button
+          size="sm"
+          variant={follow ? "primary" : "ghost"}
+          data-testid="toggle-follow"
+          onClick={() => setFollow((value) => !value)}
+          aria-pressed={follow}
+        >
+          Follow
+        </Button>
       </div>
     </div>
   );
@@ -711,7 +779,7 @@ function ParagraphEditor({
           lineHeight: 1.6,
           padding: "6px 8px",
           boxSizing: "border-box",
-          boxShadow: "0 0 0 2px #38bdf8",
+          boxShadow: "var(--ring)",
           borderRadius: 6,
         }}
       />
@@ -775,7 +843,7 @@ function SpeakerRenameInput({
         fontSize: 13,
         padding: "1px 6px",
         borderRadius: 6,
-        boxShadow: "0 0 0 2px #38bdf8",
+        boxShadow: "var(--ring)",
       }}
     />
   );
@@ -823,7 +891,7 @@ function SentenceEditor({
         font: "inherit",
         padding: "6px 8px",
         boxSizing: "border-box",
-        boxShadow: "0 0 0 2px #38bdf8",
+        boxShadow: "var(--ring)",
         borderRadius: 6,
       }}
     />
