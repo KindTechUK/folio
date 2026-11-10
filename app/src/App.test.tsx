@@ -361,12 +361,13 @@ describe("App import flow", () => {
     fireEvent.click(screen.getByTestId("undo"));
     fireEvent.click(screen.getByRole("button", { name: /Transcripts/ }));
     fireEvent.click(await screen.findByTestId("open-second"));
+    // Opening waits for the first transcript's write to finish.
+    saveSession = () => Promise.resolve();
+    finishSave[0]!();
     await waitFor(() =>
       expect(screen.getByTestId("paragraph")).toHaveTextContent("Second recording."),
     );
     correctTo("Edited second.");
-    saveSession = () => Promise.resolve();
-    finishSave[0]!();
 
     await waitFor(() => expect(savedTexts()).toContain("Edited second."), { timeout: 2000 });
     expect(screen.getByTestId("paragraph")).toHaveTextContent("Edited second.");
@@ -377,5 +378,23 @@ describe("App import flow", () => {
         JSON.stringify(args).includes("second"),
     );
     expect(wrong).toEqual([]);
+  });
+
+  it("keeps an undo made while an autosave is still writing, when leaving", async () => {
+    render(<App />);
+    await importAndCreate();
+    await screen.findByText("Saved locally");
+    const finishSave: (() => void)[] = [];
+    saveSession = () => new Promise((resolve) => finishSave.push(() => resolve(undefined)));
+
+    correctTo("A corrected draft.");
+    await waitFor(() => expect(finishSave).toHaveLength(1), { timeout: 2000 });
+    fireEvent.click(screen.getByTestId("undo"));
+    fireEvent.click(screen.getByRole("button", { name: "Import another" }));
+    saveSession = () => Promise.resolve();
+    finishSave[0]!();
+
+    await screen.findByRole("button", { name: "Choose recording" });
+    expect(savedTexts().at(-1)).toBe("The local transcript is ready.");
   });
 });

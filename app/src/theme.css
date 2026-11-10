@@ -460,3 +460,9 @@ td {
     padding: 28px;
   }
 }
+
+/* Keep the followed word clear of the sticky toolbar and playback bar. */
+.doc [data-flat-index] {
+  scroll-margin-top: 72px;
+  scroll-margin-bottom: 128px;
+}
