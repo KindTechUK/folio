@@ -46,7 +46,9 @@ verified before load (see `data-flow.md` and the modelpack section below).
 | `sherpa-onnx` (k2-fsa, official) | 1.13.2 | **Apache-2.0** | In-process ASR + `OfflineSpeakerDiarization`. (NOT the deprecated `sherpa-rs`.) |
 | `symphonia` | 0.5.x | **MPL-2.0** | Pure-Rust audio demux/decode (mp3/AAC/FLAC/WAV/OGG). See note below. |
 | `rubato` | 0.16.x | **MIT** | Sample-rate conversion to 16 kHz. |
-| `hound` | 3.5.x | **Apache-2.0 / MIT** | WAV read (legacy/test path). |
+| `hound` | 3.5.x | **Apache-2.0** | WAV read, and writing recordings made in the app. |
+| `cpal` | 0.18.x | **Apache-2.0** | Microphone capture for the Record page (CoreAudio on macOS, WASAPI on Windows, ALSA on Linux). No network code. |
+| `chrono` | 0.4.x | **Apache-2.0 / MIT** | Local date and time for recording file names. |
 | `serde` / `serde_json` | 1.x | **Apache-2.0 / MIT** | Serialization. |
 | `anyhow` | 1.x | **Apache-2.0 / MIT** | Error handling. |
 | `thiserror` | 2.x | **Apache-2.0 / MIT** | Error types. |
