@@ -206,7 +206,10 @@ export default function App() {
     const meta = metaRef.current;
     if (!meta) return true;
     for (;;) {
-      await writeQueueRef.current;
+      const tail = writeQueueRef.current;
+      await tail;
+      // More writes were queued while waiting (autosave keeps running): drain them too.
+      if (writeQueueRef.current !== tail) continue;
       const latest = stateRef.current;
       if (metaRef.current?.id !== meta.id || !latest || latest === savedStateRef.current) {
         return true;

@@ -431,4 +431,24 @@ describe("App import flow", () => {
 
     expect(screen.getByTestId("save-status")).toHaveTextContent("Saving locally…");
   });
+
+  it("waits for saves queued during Import another before leaving", async () => {
+    render(<App />);
+    await importAndCreate();
+    await screen.findByText("Saved locally");
+    const finishSave: (() => void)[] = [];
+    saveSession = () => new Promise((resolve) => finishSave.push(() => resolve(undefined)));
+
+    correctTo("First correction.");
+    await waitFor(() => expect(finishSave).toHaveLength(1), { timeout: 2000 });
+    fireEvent.click(screen.getByRole("button", { name: "Import another" }));
+    correctTo("Second correction.");
+    await new Promise((resolve) => setTimeout(resolve, 900));
+    fireEvent.click(screen.getByTestId("undo"));
+    saveSession = () => Promise.resolve();
+    finishSave[0]!();
+
+    await screen.findByRole("button", { name: "Choose recording" });
+    expect(savedTexts().at(-1)).toBe("First correction.");
+  });
 });
