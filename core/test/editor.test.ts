@@ -197,15 +197,9 @@ describe("exportText", () => {
     state = renameSpeaker(state, "SPEAKER_01", "Bob");
     const text = exportText(state);
 
-    expect(text.endsWith("\n")).toBe(true);
-    expect(text.split("\n").map((line) => line.trimEnd())).toEqual([
-      "Alice  [00:00]",
-      "Hello world. How are you?",
-      "",
-      "Bob  [00:02]",
-      "I am fine.",
-      "",
-    ]);
+    expect(text).toBe(
+      "Alice  [00:00]\nHello world. How are you?\n\nBob  [00:02]\nI am fine.\n",
+    );
   });
 
   it("inserts a new header when a mid-stream sentence is reassigned to a different speaker", () => {

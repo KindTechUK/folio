@@ -1,14 +1,6 @@
 // View-model for the progress bar: maps the latest Rust `transcribe-progress`
 // event + elapsed time to a clamped fraction, label and ETA.
 
-export type ProgressStage =
-  | "decoding"
-  | "loading"
-  | "segmenting"
-  | "transcribing"
-  | "diarizing"
-  | "done";
-
 export interface Progress {
   stage: string;
   done: number;
