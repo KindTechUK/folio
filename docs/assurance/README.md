@@ -40,10 +40,10 @@ data-at-rest dependency note, and a pre-filled DPIA-support template.
 | Release packs signed with a CI-held vendor key; release builds refuse to compile against the committed **TEST** key | ✅ implemented |
 | Producer-side signing CLI to build signed packs (`tools/modelpack-sign`; reuses the verifier's canonicalization) | ✅ implemented |
 | DOCX / JSON / text export, each carrying a machine-generated-draft disclaimer | ✅ implemented |
-| Local transcript library — transcripts auto-saved on-device (BitLocker volume), zero-egress, purged by delete-matter | ✅ implemented |
+| Local transcript library — transcripts auto-saved on-device (BitLocker volume), zero-egress, purged by "Delete transcript and audio" | ✅ implemented |
 | All bundled components / models under permissive licences (MIT / Apache-2.0 / BSD-3-Clause / CC-BY-4.0; MPL-2.0 for `symphonia`) | ✅ verified from manifests |
 | Launch-time BitLocker-status check + warning (advisory banner) | ✅ implemented |
-| One-click "delete this matter" (removes source audio + clears transcript) | ✅ implemented |
+| One-click "Delete transcript and audio" (removes source audio + saved transcript) | ✅ implemented |
 | OV Authenticode code signing of the installer + DLLs | 🚧 roadmap |
 | MSI (WiX) packaging for Intune/SCCM + per-user no-admin NSIS | 🚧 roadmap (NSIS target only today) |
 | Temp/scratch-file wipe-on-completion | 🚧 roadmap (current engine decodes in-memory — see `data-at-rest.md`) |
@@ -56,7 +56,7 @@ data-at-rest dependency note, and a pre-filled DPIA-support template.
 | [`non-processor-statement.md`](non-processor-statement.md) | The UK GDPR / DPA 2018 reasoning that the vendor is not a data processor. Vendor assertion, to be confirmed by the firm's counsel. |
 | [`airplane-mode-verification.md`](airplane-mode-verification.md) | Independently runnable steps to verify zero egress (CI gate, `cargo tree`, CSP, airplane-mode smoke, hardened build). |
 | [`third-party-components.md`](third-party-components.md) | Bundled crates, npm deps, and ONNX models with version + licence + attribution. |
-| [`data-at-rest.md`](data-at-rest.md) | BitLocker dependency + implemented launch-time encryption banner, temp-file hygiene, implemented one-click delete-matter, verified-pack model storage. |
+| [`data-at-rest.md`](data-at-rest.md) | BitLocker dependency + implemented launch-time encryption banner, temp-file hygiene, implemented one-click "Delete transcript and audio", verified-pack model storage. |
 | [`dpia-support.md`](dpia-support.md) | DPIA-support template: typical DPO questions, pre-filled with this product's answers. |
 
 ## How to read this pack as a reviewer

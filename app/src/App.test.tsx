@@ -7,6 +7,7 @@ const openMock = vi.fn();
 const listenMock = vi.fn();
 let deleteMatterReport: { deleted: string[]; failed: unknown[] };
 let pickRecording: () => Promise<unknown>;
+let saveSession: () => Promise<unknown>;
 
 vi.mock("@tauri-apps/api/core", () => ({
   invoke: (...args: unknown[]) => invokeMock(...args),
@@ -46,6 +47,7 @@ beforeEach(() => {
   listenMock.mockResolvedValue(() => {});
   deleteMatterReport = { deleted: ["/recordings/interview.wav"], failed: [] };
   pickRecording = () => Promise.resolve("/recordings/interview.wav");
+  saveSession = () => Promise.resolve();
   invokeMock.mockImplementation((command: string) => {
     switch (command) {
       case "volume_encryption_status":
@@ -72,7 +74,7 @@ beforeEach(() => {
       case "transcribe":
         return Promise.resolve(transcript);
       case "save_session":
-        return Promise.resolve();
+        return saveSession();
       case "delete_matter":
         return Promise.resolve(deleteMatterReport);
       case "delete_session":
@@ -83,6 +85,14 @@ beforeEach(() => {
   });
 });
 
+async function importAndCreate(): Promise<void> {
+  await screen.findByText("Import your first recording");
+  fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+  fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+  fireEvent.click(await screen.findByRole("button", { name: "Create transcript" }));
+  await screen.findByTestId("paragraph");
+}
+
 describe("App import flow", () => {
   it("opens a recording, transcribes it with the installed model, and renders the editor", async () => {
     render(<App />);
@@ -91,11 +101,11 @@ describe("App import flow", () => {
     fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
     const choose = await screen.findByRole("button", { name: "Choose recording" });
     fireEvent.click(choose);
+    fireEvent.click(await screen.findByRole("button", { name: "Create transcript" }));
 
     expect(await screen.findByTestId("paragraph")).toHaveTextContent(
       "The local transcript is ready.",
     );
-    expect(screen.getByRole("heading", { name: "Review transcript" })).toBeInTheDocument();
     expect(invokeMock).toHaveBeenCalledWith("pick_recording");
     expect(openMock).not.toHaveBeenCalled();
     expect(invokeMock).toHaveBeenCalledWith("transcribe", {
@@ -112,18 +122,14 @@ describe("App import flow", () => {
     );
   });
 
-  it("deletes matter audio by backend-owned session id, not a renderer path", async () => {
+  it("deletes transcript audio by backend-owned session id, not a renderer path", async () => {
     render(<App />);
-    await screen.findByText("Import your first recording");
-
-    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
-    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
-    await screen.findByTestId("paragraph");
+    await importAndCreate();
     const saveCall = invokeMock.mock.calls.find(([command]) => command === "save_session");
     const sessionId = saveCall?.[1]?.session?.id;
     expect(sessionId).toEqual(expect.any(String));
 
-    fireEvent.click(screen.getByTestId("delete-matter"));
+    fireEvent.click(screen.getByTestId("delete-transcript"));
 
     await waitFor(() =>
       expect(invokeMock).toHaveBeenCalledWith("delete_matter", { id: sessionId }),
@@ -142,11 +148,8 @@ describe("App import flow", () => {
     };
 
     render(<App />);
-    await screen.findByText("Import your first recording");
-    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
-    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
-    await screen.findByTestId("paragraph");
-    fireEvent.click(screen.getByTestId("delete-matter"));
+    await importAndCreate();
+    fireEvent.click(screen.getByTestId("delete-transcript"));
 
     expect(await screen.findByText(/source audio could not be deleted/i)).toBeInTheDocument();
     expect(screen.getByTestId("paragraph")).toHaveTextContent("The local transcript is ready.");
@@ -162,5 +165,40 @@ describe("App import flow", () => {
     fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
 
     expect(await screen.findByText(/registry unavailable/i)).toBeInTheDocument();
+  });
+
+  it("waits for Create transcript before transcribing the chosen recording", async () => {
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+
+    expect(await screen.findByText("interview.wav")).toBeInTheDocument();
+    expect(invokeMock).not.toHaveBeenCalledWith("transcribe", expect.anything());
+
+    fireEvent.click(screen.getByRole("button", { name: "Create transcript" }));
+    await waitFor(() =>
+      expect(invokeMock).toHaveBeenCalledWith(
+        "transcribe",
+        expect.objectContaining({ path: "/recordings/interview.wav" }),
+      ),
+    );
+  });
+
+  it("titles the draft with the recording name and shows it was saved locally", async () => {
+    render(<App />);
+    await importAndCreate();
+
+    expect(screen.getByRole("heading", { name: "interview" })).toBeInTheDocument();
+    expect(await screen.findByText("Saved locally")).toBeInTheDocument();
+  });
+
+  it("shows a failed local save in the header", async () => {
+    saveSession = () => Promise.reject(new Error("disk full"));
+
+    render(<App />);
+    await importAndCreate();
+
+    expect(await screen.findByText("Local save failed")).toBeInTheDocument();
   });
 });

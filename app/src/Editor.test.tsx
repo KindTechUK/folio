@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { useState } from "react";
 import Editor from "./Editor";
 import { loadTranscript } from "@core/editor";
@@ -71,6 +71,7 @@ describe("Editor (jsdom)", () => {
 
   beforeEach(() => {
     vi.restoreAllMocks();
+    vi.unstubAllGlobals();
   });
 
   it("double-click a sentence, edit text, blur -> words and DOM change", () => {
@@ -307,6 +308,50 @@ describe("Editor (jsdom)", () => {
 
     fireEvent.click(container.querySelector(".doc")!);
     expect(play).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([
+    ["Word document (.docx)", "transcript_edited.docx"],
+    ["Plain text (.txt)", "transcript_edited.txt"],
+    ["Transcript data (.json)", "transcript_edited.json"],
+  ])("Export menu: %s saves %s and closes the menu", async (label, fileName) => {
+    vi.stubGlobal("URL", Object.assign(Object.create(URL), {
+      createObjectURL: () => "blob:export",
+      revokeObjectURL: () => {},
+    }));
+    const saved: string[] = [];
+    vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(function (
+      this: HTMLAnchorElement,
+    ) {
+      saved.push(this.download);
+    });
+    render(<Harness onState={capture} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Export" }));
+    fireEvent.click(screen.getByRole("menuitem", { name: label }));
+
+    expect(screen.queryByRole("menu")).not.toBeInTheDocument();
+    await waitFor(() => expect(saved).toEqual([fileName]));
+  });
+
+  it("−5s / +5s move playback by five seconds and never before the start", () => {
+    render(<Harness onState={capture} audioSrc="clip.wav" />);
+    const audio = screen.getByTestId("audio") as HTMLAudioElement;
+    let position = 3;
+    Object.defineProperty(audio, "currentTime", {
+      configurable: true,
+      get: () => position,
+      set: (v: number) => {
+        position = v;
+      },
+    });
+
+    fireEvent.click(screen.getByRole("button", { name: "Forward 5 seconds" }));
+    expect(position).toBe(8);
+
+    position = 2;
+    fireEvent.click(screen.getByRole("button", { name: "Back 5 seconds" }));
+    expect(position).toBe(0);
   });
 
   // NOTE: rAF karaoke highlight, audio play/pause, Space play/pause, click-to-
