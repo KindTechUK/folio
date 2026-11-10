@@ -7,6 +7,7 @@
 mod commands;
 mod library;
 mod models;
+mod recorder;
 mod system;
 
 #[cfg(test)]
@@ -15,9 +16,24 @@ mod build_support;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+    use tauri::Manager;
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_fs::init())
+        .manage(recorder::RecorderState::default())
+        .setup(|app| {
+            // Recordings live in app data; playback is granted for that folder
+            // only, at runtime (the static config never names app data).
+            if let Err(e) = recorder::allow_playback(app.handle()) {
+                eprintln!("{e}");
+            }
+            Ok(())
+        })
+        .on_window_event(|window, event| {
+            if let tauri::WindowEvent::CloseRequested { .. } = event {
+                recorder::finish_on_exit(window.app_handle());
+            }
+        })
         .invoke_handler(tauri::generate_handler![
             commands::transcribe,
             commands::debug_asr_model_override,
@@ -29,7 +45,12 @@ pub fn run() {
             library::delete_session,
             system::volume_encryption_status,
             system::pick_recording,
-            system::delete_matter
+            system::delete_matter,
+            recorder::start_recording,
+            recorder::pause_recording,
+            recorder::resume_recording,
+            recorder::stop_recording,
+            recorder::discard_recording
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
