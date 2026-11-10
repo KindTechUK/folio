@@ -1,9 +1,10 @@
 import { Chip } from "./ui";
 
-export type View = "library" | "transcribe" | "models";
+export type View = "library" | "record" | "transcribe" | "models";
 
 const PRIMARY_NAV: { id: View; label: string; hint: string }[] = [
   { id: "library", label: "Transcripts", hint: "Saved drafts" },
+  { id: "record", label: "Record", hint: "Capture a conversation" },
   { id: "transcribe", label: "Import recording", hint: "Start a local transcript" },
 ];
 
