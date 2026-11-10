@@ -80,22 +80,20 @@ build_asr() {
 # Parakeet-TDT-0.6B-v2 (English) — the DEFAULT ASR model. NeMo transducer, so
 # the layout is encoder/decoder/joiner + tokens (no `<stem>-` prefix). Same
 # sherpa-onnx engine as the Whisper packs; license is CC-BY-4.0 (NVIDIA).
+# Fetched per file from Hugging Face at a fixed revision: the GitHub release
+# tarball is mutable (upstream re-exported it on 2026-11-07 with different
+# weights). This revision holds the weights shipped since v0.2.0.
+PARAKEET_HF="https://huggingface.co/csukuangfj/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/resolve/1ab9323565ddb038682214b292f588070a538ce2"
+
 build_parakeet() {
   local dir="sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
   echo "==> ASR pack: parakeet-tdt-0.6b-v2 (int8, default)"
-  dl "$BASE/asr-models/${dir}.tar.bz2" "$work/${dir}.tar.bz2" "${dir}.tar.bz2"
-  tar xjf "$work/${dir}.tar.bz2" -C "$work"
-  reject_archive_links "$work/$dir"
   local stage="$work/stage-parakeet"
   mkdir -p "$stage/${dir}"
-  require_regular_file "$work/${dir}/encoder.int8.onnx"
-  require_regular_file "$work/${dir}/decoder.int8.onnx"
-  require_regular_file "$work/${dir}/joiner.int8.onnx"
-  require_regular_file "$work/${dir}/tokens.txt"
-  cp "$work/${dir}/encoder.int8.onnx" "$stage/${dir}/"
-  cp "$work/${dir}/decoder.int8.onnx" "$stage/${dir}/"
-  cp "$work/${dir}/joiner.int8.onnx"  "$stage/${dir}/"
-  cp "$work/${dir}/tokens.txt"        "$stage/${dir}/"
+  local f
+  for f in encoder.int8.onnx decoder.int8.onnx joiner.int8.onnx tokens.txt; do
+    dl "$PARAKEET_HF/$f" "$stage/${dir}/$f" "parakeet-tdt-0.6b-v2-int8/$f"
+  done
   cp "$work/silero_vad.onnx" "$stage/"
   "${SIGN[@]}" pack \
     --model-dir "$stage" --out "$OUT/asr-parakeet-tdt-0.6b-v2" --key "$KEY" \
