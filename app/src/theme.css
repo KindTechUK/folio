@@ -391,6 +391,12 @@ td {
   font-size: var(--text-sm);
 }
 
+.live-backlog {
+  margin: 0;
+  color: var(--slate-600);
+  font-size: var(--text-sm);
+}
+
 .live-empty,
 .live-listening {
   margin: 0;

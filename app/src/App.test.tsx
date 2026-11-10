@@ -638,4 +638,32 @@ describe("Record", () => {
       invokeMock.mock.calls.filter(([command]) => command === "discard_recording"),
     ).toHaveLength(1);
   });
+
+  it("warns while the microphone delivers no sound, and clears when it does", async () => {
+    await startRecordingFromSidebar();
+
+    emit("record-warnings", { silent: true, narrowband: false });
+    expect(screen.getByText(/receiving no sound from the microphone/)).toBeInTheDocument();
+
+    emit("record-warnings", { silent: false, narrowband: false });
+    expect(screen.queryByText(/receiving no sound from the microphone/)).not.toBeInTheDocument();
+  });
+
+  it("shows that the microphone is reconnecting", async () => {
+    await startRecordingFromSidebar();
+
+    emit("record-status", { message: "Microphone disconnected — reconnecting…", transient: false });
+
+    expect(screen.getByText("Microphone disconnected — reconnecting…")).toBeInTheDocument();
+  });
+
+  it("says when live text is falling behind", async () => {
+    await startRecordingFromSidebar();
+
+    emit("record-level", { level: 0.2, speaking: false, elapsedS: 60, backlogS: 40 });
+    expect(screen.getByText(/Live text is catching up \(about 40 s behind\)/)).toBeInTheDocument();
+
+    emit("record-level", { level: 0.2, speaking: false, elapsedS: 61, backlogS: 2 });
+    expect(screen.queryByText(/Live text is catching up/)).not.toBeInTheDocument();
+  });
 });

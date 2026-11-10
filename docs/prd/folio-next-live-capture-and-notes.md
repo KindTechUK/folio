@@ -134,9 +134,21 @@ Delivered in phases, each gated by spikes:
 - **Verbatim-first stays the rule:** the note is always derived from the (optionally corrected)
   transcript and never replaces it. Exports can include both.
 
-**Call capture (P4)** is deferred. On Windows it means WASAPI **process loopback** (excluding Folio's
-own output) plus acoustic echo cancellation. On macOS it means a CoreAudio process tap. The open-source clones
-struggle here most (echo, duplicated text), so it gets its own spike and phase.
+**Call capture (P4)** is deferred. The open-source apps struggle here most (echo, duplicated text), so it
+gets its own spike and phase. Lessons from their source and issue trackers
+(`docs/research/live-capture-landscape-2026-11.md`):
+- **Windows: endpoint loopback, not process loopback.** Anarlog shipped WASAPI process loopback (excluding
+  its own process tree) and removed it, because new Teams produced all-zero buffers on that path (their PRs
+  #7283 → #7590). It now loops back the output endpoint that another app is actually rendering to,
+  re-checked every 2 s. macOS: a CoreAudio process tap.
+- **Keep the microphone and call audio as separate channels.** Meetily mixes them before transcription and
+  lost who said what, with ±60 ms drift (their issues #642, #851).
+- **Pad loopback silence.** WASAPI loopback delivers no packets while nothing plays, so the call channel
+  drifts against the mic unless gaps are filled (Vibe #1592).
+- **Echo cancellation only when the output isn't headphones.** AEC removed the user's own voice with
+  headphones in OpenWhispr (#1025); Anarlog skips AEC when every active output is headphones (#7273).
+- **Watch the call channel for silence:** a loopback helper can report healthy while capturing zeros
+  (OpenWhispr #1891).
 
 **Assurance-pack changes (ship with each phase)**
 - `docs/assurance/data-at-rest.md`: recordings are now created by Folio (previously only referenced), and the

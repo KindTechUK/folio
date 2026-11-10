@@ -169,10 +169,13 @@ would need a new runtime path.
 
 ## S8: Call capture (deferred to P4)
 
-On Windows, WASAPI **process loopback in EXCLUDE mode** (all system audio except Folio's own), plus
-acoustic echo cancellation. On macOS, a CoreAudio process tap. Test a Teams call on laptop speakers: the other
-party's words must appear once, and our own words must not appear twice. Prior art to study: OpenWhispr's loopback
-and AEC helpers, and anarlog's AEC (both MIT).
+On Windows, WASAPI **endpoint loopback** of the device the call app is actually rendering to, kept as a
+separate channel from the mic, with silence gaps padded; acoustic echo cancellation only when the output is
+not headphones. On macOS, a CoreAudio process tap. (Process loopback in EXCLUDE mode was the first idea, but
+Anarlog found new Teams gives all-zero buffers on it; see the PRD and
+`docs/research/live-capture-landscape-2026-11.md`.) Test a Teams call on laptop speakers and on headphones:
+the other party's words must appear once, and our own words must not appear twice. Prior art to study:
+OpenWhispr's AEC helper and Anarlog's endpoint-following loopback and AEC.
 
 ---
 
