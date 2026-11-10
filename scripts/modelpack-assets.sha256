@@ -1,7 +1,10 @@
-# Pinned upstream release assets used by build-model-packs.sh. Update a hash
-# only after independently verifying the corresponding k2-fsa release asset.
+# Pinned upstream assets used by build-model-packs.sh. Update a hash only after
+# independently verifying the corresponding upstream file.
 9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6  silero_vad.onnx
-157c157bc51155e03e37d2466522a3a737dd9c72bb25f36eb18912964161e1ad  sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+a32b12d17bbbc309d0686fbbcc2987b5e9b8333a7da83fa6b089f0a2acd651ab  parakeet-tdt-0.6b-v2-int8/encoder.int8.onnx
+b6bb64963457237b900e496ee9994b59294526439fbcc1fecf705b31a15c6b4e  parakeet-tdt-0.6b-v2-int8/decoder.int8.onnx
+7946164367946e7f9f29a122407c3252b680dbae9a51343eb2488d057c3c43d2  parakeet-tdt-0.6b-v2-int8/joiner.int8.onnx
+ec182b70dd42113aff6c5372c75cac58c952443eb22322f57bbd7f53977d497d  parakeet-tdt-0.6b-v2-int8/tokens.txt
 0cdba2b8aaab69e04847f3427cc9709574112e67913a1a84b7fec3a8729faa9a  sherpa-onnx-whisper-small.en.tar.bz2
 73d95c169a410b5f23a79f8901374b26e0a16a09ea7f02b5e1db983f4cdfdd67  sherpa-onnx-whisper-medium.en.tar.bz2
 24615ee884c897d9d2ba09bb4d30da6bb1b15e685065962db5b02e76e4996488  sherpa-onnx-pyannote-segmentation-3-0.tar.bz2
