@@ -397,4 +397,38 @@ describe("App import flow", () => {
     await screen.findByRole("button", { name: "Choose recording" });
     expect(savedTexts().at(-1)).toBe("The local transcript is ready.");
   });
+
+  it("does not write a transcript back after deleting it", async () => {
+    render(<App />);
+    await importAndCreate();
+    await screen.findByText("Saved locally");
+    const finishSave: (() => void)[] = [];
+    saveSession = () => new Promise((resolve) => finishSave.push(() => resolve(undefined)));
+
+    correctTo("First correction.");
+    await waitFor(() => expect(finishSave).toHaveLength(1), { timeout: 2000 });
+    correctTo("Second correction.");
+    await new Promise((resolve) => setTimeout(resolve, 900));
+    fireEvent.click(screen.getByTestId("delete-transcript"));
+    saveSession = () => Promise.resolve();
+    finishSave[0]!();
+
+    await screen.findByText("Import your first recording");
+    const commands = invokeMock.mock.calls.map(([command]) => command);
+    expect(commands.lastIndexOf("save_session")).toBeLessThan(commands.indexOf("delete_matter"));
+  });
+
+  it("shows an undo during a running save as not yet saved", async () => {
+    render(<App />);
+    await importAndCreate();
+    await screen.findByText("Saved locally");
+    const finishSave: (() => void)[] = [];
+    saveSession = () => new Promise((resolve) => finishSave.push(() => resolve(undefined)));
+
+    correctTo("A corrected draft.");
+    await waitFor(() => expect(finishSave).toHaveLength(1), { timeout: 2000 });
+    fireEvent.click(screen.getByTestId("undo"));
+
+    expect(screen.getByTestId("save-status")).toHaveTextContent("Saving locally…");
+  });
 });

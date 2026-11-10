@@ -160,11 +160,17 @@ export default function App() {
 
   // Library writes run one at a time, in order; this is the tail of that queue.
   const writeQueueRef = useRef<Promise<unknown>>(Promise.resolve());
+  const queuedWritesRef = useRef(0);
 
   // Queue one snapshot for the library. Never rejects; false means the save failed.
+  // A write whose transcript was closed or deleted while it waited is dropped.
   function persist(meta: OpenSessionMeta, snapshot: EditorState): Promise<boolean> {
+    queuedWritesRef.current += 1;
     const write = writeQueueRef.current.then(async () => {
-      if (snapshot === savedStateRef.current) return true;
+      if (metaRef.current?.id !== meta.id || snapshot === savedStateRef.current) {
+        queuedWritesRef.current -= 1;
+        return true;
+      }
       setSaveStatus("saving");
       try {
         await invoke("save_session", {
@@ -177,12 +183,14 @@ export default function App() {
             state: snapshot,
           }),
         });
+        queuedWritesRef.current -= 1;
         if (metaRef.current?.id === meta.id) {
           savedStateRef.current = snapshot;
           setSaveCount((n) => n + 1);
         }
         return true;
       } catch {
+        queuedWritesRef.current -= 1;
         setSaveStatus("error");
         return false;
       }
@@ -212,7 +220,9 @@ export default function App() {
   useEffect(() => {
     if (!state || !currentSessionMeta) return;
     if (state === savedStateRef.current) {
-      setSaveStatus("saved");
+      // A queued write may still overwrite disk with other text; its completion
+      // re-runs this check.
+      setSaveStatus(queuedWritesRef.current > 0 ? "saving" : "saved");
       return;
     }
     setSaveStatus("saving");
@@ -258,11 +268,20 @@ export default function App() {
   // Ask the backend to confirm and delete both the source recording and saved
   // transcript, then clear the loaded UI only after the backend succeeds.
   async function deleteTranscript() {
-    try {
+    const id = metaRef.current?.id ?? "";
+    // Deletion joins the write queue: earlier saves finish first, and closing
+    // the session inside the queue drops any save queued after it.
+    const deletion = writeQueueRef.current.then(async () => {
       const report = await invoke<{ deleted: string[]; failed: unknown[] }>(
         "delete_matter",
-        { id: currentSessionMeta?.id ?? "" },
+        { id },
       );
+      if (report.failed.length === 0) setCurrentSessionMeta(null);
+      return report;
+    });
+    writeQueueRef.current = deletion.catch(() => {});
+    try {
+      const report = await deletion;
       if (report.failed.length > 0) {
         setStatus("error deleting transcript: source audio could not be deleted");
         return;
