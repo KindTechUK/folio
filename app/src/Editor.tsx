@@ -1,14 +1,6 @@
 /**
- * Editor — the review-editor VIEW. It renders an EditorState (from core) and
- * dispatches every edit back through the core reducer; it never reimplements
- * edit/rename/reassign logic itself. The component is a thin render + event +
- * audio-playback layer over the tested `core/src/editor.ts`.
- *
- * NOTE: audio playback and the requestAnimationFrame highlight loop cannot run
- * in jsdom — they need a real webview. Verify those manually via
- * `npm run tauri dev`. The highlight INDEX selection is unit-tested via the pure
- * `activeWordIndex` in highlight.ts; everything else (edit/rename/reassign/export
- * wiring) is covered by the jsdom component test.
+ * Review-editor view: renders an EditorState and dispatches every edit through
+ * the core reducer (core/src/editor.ts).
  */
 
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -43,7 +35,7 @@ function mmss(t: number): string {
   return `${m}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 }
 
-/** Deterministic per-speaker colour, ported from the prototype. */
+/** Deterministic per-speaker colour. */
 function speakerColor(id: string): string {
   let h = 0;
   for (const c of id || "") h = (h * 31 + c.charCodeAt(0)) % 360;
@@ -94,8 +86,7 @@ export interface EditorProps {
    * speaker-turn view. Karaoke highlight + double-click edit work in both.
    */
   diarized?: boolean;
-  /** Step back/forward in the App-owned edit history (F2). Optional so the
-   * test Harness can render the Editor without history plumbing. */
+  /** App-owned edit history. Optional so the Editor can render without it. */
   onUndo?: () => void;
   onRedo?: () => void;
   canUndo?: boolean;
@@ -119,15 +110,13 @@ export default function Editor({
   const [speed, setSpeed] = useState(1);
   const [playing, setPlaying] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
-  // F1: which speaker chip is being inline-renamed (positional id), or null.
+  // Positional id of the speaker chip being renamed, or null.
   const [renamingSpeaker, setRenamingSpeaker] = useState<string | null>(null);
-  // F3: find & replace UI state.
   const [findOpen, setFindOpen] = useState(false);
   const [findText, setFindText] = useState("");
   const [replaceText, setReplaceText] = useState("");
   const [findCase, setFindCase] = useState(false);
   const [findWhole, setFindWhole] = useState(false);
-  // F4: karaoke auto-follow toggle (scroll the active word into view).
   const [follow, setFollow] = useState(true);
 
   const turns = useMemo(() => groupTurns(state), [state]);
@@ -137,8 +126,7 @@ export default function Editor({
   );
   const starts = useMemo(() => flatWords(state).map((w) => w.start), [state]);
 
-  // F3: live match options + count. We discard the returned state here and only
-  // read `.count`; the actual replacement runs on the "Replace all" click.
+  // Dry-run replaceAll for the live match count; the real replace runs on "Replace all".
   const findOpts = useMemo(
     () => ({ caseSensitive: findCase, wholeWord: findWhole }),
     [findCase, findWhole],
@@ -148,9 +136,7 @@ export default function Editor({
     [state, findText, replaceText, findOpts],
   );
 
-  // rAF highlight loop. Cannot run headlessly (no real <audio>), so this is the
-  // manually-verified path; the index logic itself is the unit-tested
-  // activeWordIndex.
+  // rAF playback-highlight loop; the highlight is frozen while a sentence is being edited.
   useEffect(() => {
     let raf = 0;
     const loop = () => {
@@ -169,9 +155,7 @@ export default function Editor({
     return () => cancelAnimationFrame(raf);
   }, [starts, editingId]);
 
-  // F4: karaoke auto-follow. Scroll the active word into view during playback
-  // when Follow is on. block:"nearest" only — smooth scroll lags at high speed.
-  // Not jsdom-testable (no layout/scroll); verified manually in `tauri dev`.
+  // Auto-follow: block:"nearest" only — smooth scroll lags at high playback speed.
   useEffect(() => {
     if (playing && follow && activeIdx >= 0) {
       document
@@ -180,14 +164,10 @@ export default function Editor({
     }
   }, [activeIdx, playing, follow]);
 
-  // F2 + F4 global keyboard shortcuts (on document):
-  //   Cmd/Ctrl-Z          -> undo
-  //   Cmd/Ctrl-Shift-Z, Ctrl-Y -> redo
-  //   Space               -> play/pause
-  // Guard: while a sentence/paragraph is being edited (editingId !== null) OR a
-  // text field is focused, let native text editing win — we do nothing. Space is
-  // additionally ignored when a BUTTON is focused so clicking transport buttons
-  // with the keyboard still works. The audio/Space path is verified manually.
+  // Global shortcuts: Cmd/Ctrl-Z undo, Cmd/Ctrl-Shift-Z or Ctrl-Y redo, Space
+  // play/pause. Ignored while editing or when a text field is focused (native
+  // editing wins); Space is also ignored on a focused BUTTON so keyboard
+  // activation still works.
   useEffect(() => {
     function isTextTarget(el: Element | null, includeButton: boolean): boolean {
       if (!el) return false;
@@ -252,26 +232,20 @@ export default function Editor({
     setEditingId(null);
   }
 
-  // Paragraph-mode commit: re-spread the whole paragraph's text across its
-  // anchor span and collapse the run to one sentence (core `editParagraph`).
   function commitParagraphEdit(sentenceIds: string[], text: string): void {
     setState(editParagraph(state, sentenceIds, text));
     setEditingId(null);
   }
 
-  // Merge this paragraph's sentences with the next paragraph's into one run
-  // (core `joinSentences`); timings unchanged.
   function joinWithNext(para: EditorSentence[], nextPara: EditorSentence[]): void {
     setState(joinSentences(state, [...para, ...nextPara].map((s) => s.id)));
   }
 
-  // Split a sentence at a word boundary (core `splitSentence`); timings intact.
   function splitAt(sentenceId: string, wordIndex: number): void {
     setState(splitSentence(state, sentenceId, wordIndex));
   }
 
-  // F1: commit an inline speaker rename. Empty input falls back to the original
-  // positional id (a no-op rename). Always clears the renaming state.
+  // Empty input renames back to the positional id.
   function commitRename(origId: string, value: string): void {
     setState(renameSpeaker(state, origId, value.trim() || origId));
     setRenamingSpeaker(null);
@@ -282,15 +256,9 @@ export default function Editor({
     setState(reassignSentenceSpeaker(state, sentenceId, newId.trim()));
   }
 
-  // Flat index bookkeeping so each rendered word knows its document position
-  // (for highlight). Built in the same document order as flatWords/starts —
-  // both views walk state.sentences in order, so the cursor stays consistent.
+  // Advances in document order so each word's index matches `starts` (flatWords order).
   let flatCursor = 0;
 
-  // Render the words of a sentence as click-to-seek, highlight-aware spans.
-  // `flatCursor` advances in document order so the flat highlight index stays
-  // aligned with flatWords/starts (the karaoke engine is untouched). Shared by
-  // the per-sentence (speaker) view and the per-paragraph (plain) read view.
   function renderWords(
     sent: EditorSentence,
     onSplitBefore?: (wordIndex: number) => void,
@@ -329,8 +297,6 @@ export default function Editor({
     });
   }
 
-  // Render ONE sentence (editable on double-click; per-word highlight). Used by
-  // the speaker-turn view so per-sentence editing + reassign stay as-is.
   function renderSentence(sent: EditorSentence): JSX.Element {
     const isEditing = editingId === sent.id;
     if (isEditing) {
@@ -369,7 +335,6 @@ export default function Editor({
 
       <Toolbar sticky>
         {audioSrc && (
-          // eslint-disable-next-line jsx-a11y/media-has-caption
           <audio
             ref={audioRef}
             src={audioSrc}
@@ -534,8 +499,8 @@ export default function Editor({
         </div>
       )}
 
-      {/* Background clicks toggle play (F4). Word/chip/edit/button handlers all
-          stopPropagation, so only empty-space clicks reach here. */}
+      {/* Empty-space clicks toggle play; word, chip, button and editor handlers
+          stopPropagation. */}
       <div
         className="doc"
         onClick={togglePlay}
@@ -543,10 +508,8 @@ export default function Editor({
       >
         {!diarized
           ? paragraphs.map((para, pi) => {
-              // A paragraph collapses to one sentence on edit (id = first
-              // sentence's id), so we key paragraph edit state on that id. This
-              // shares the same `editingId` gate as the speaker view, so the
-              // rAF highlight freezes/resumes identically.
+              // Edit state is keyed on the first sentence's id — the id the
+              // collapsed sentence keeps.
               const paraId = para[0]!.id;
               const isEditing = editingId === paraId;
               if (isEditing) {
@@ -711,12 +674,7 @@ export default function Editor({
   );
 }
 
-/**
- * Inline editable text for a WHOLE paragraph (paragraph mode). Seeded with the
- * paragraph's joined text; Enter/blur commits via `editParagraph`, Esc cancels.
- * Keyed (testid) on the paragraph's first-sentence id, which is also the id the
- * collapsed sentence keeps, so the highlight/edit id stays stable.
- */
+/** Inline paragraph editor. Enter/blur commits via `editParagraph`, Esc cancels. */
 function ParagraphEditor({
   para,
   onCommit,
@@ -744,6 +702,7 @@ function ParagraphEditor({
         value={text}
         rows={4}
         onChange={(e) => setText(e.target.value)}
+        onClick={(e) => e.stopPropagation()}
         onBlur={() => onCommit(text)}
         onKeyDown={(e) => {
           if (e.key === "Enter" && !e.shiftKey) {
@@ -770,10 +729,8 @@ function ParagraphEditor({
 }
 
 /**
- * F1: inline speaker-rename input rendered in the chip's place. Seeded with the
- * current display name; Enter OR blur commits, Escape cancels. Autofocus +
- * select on mount, mirroring SentenceEditor. stopPropagation on click/keydown so
- * the background play-toggle and the global shortcut handler stay out of the way.
+ * Inline speaker-rename input shown in place of the chip. Enter/blur commits, Esc
+ * cancels. Click stopPropagation keeps the background play-toggle out of the way.
  */
 function SpeakerRenameInput({
   initial,
@@ -858,6 +815,7 @@ function SentenceEditor({
       value={text}
       rows={2}
       onChange={(e) => setText(e.target.value)}
+      onClick={(e) => e.stopPropagation()}
       onBlur={() => onCommit(text)}
       onKeyDown={(e) => {
         if (e.key === "Enter" && !e.shiftKey) {

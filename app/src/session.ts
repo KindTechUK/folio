@@ -1,11 +1,5 @@
-// Pure session-builder for the persisted local transcript library.
-//
-// The app stores one JSON file per saved transcript. The frontend (App.tsx)
-// assembles a `SessionJson` here and hands it to the Rust `save_session`
-// command; reopening reads it back. This module is the framework-free builder
-// plus the shared TS types, kept side-effect-free so it is unit-testable under
-// vitest without Tauri/jsdom (the live IPC wiring is verified manually with
-// `tauri dev`).
+// Persisted-session types and builder (one JSON file per transcript, written by
+// the Rust `save_session` command).
 
 import type { EditorState } from "@core/editor";
 
@@ -38,12 +32,7 @@ export function basename(path: string): string {
   return lastSlash === -1 ? path : path.slice(lastSlash + 1);
 }
 
-/**
- * Pure: assemble a `SessionJson` from the editor state plus the metadata the
- * caller supplies. `id` and the timestamps are passed in (rather than generated
- * here) so the function stays pure and deterministic for tests; `audioFilename`
- * is derived from `audioPath` and `segments` from the sentence count.
- */
+/** Assemble a `SessionJson`; id and timestamps are caller-supplied to keep this deterministic. */
 export function buildSession(input: {
   id: string;
   createdAt: string;

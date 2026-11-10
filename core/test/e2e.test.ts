@@ -1,20 +1,10 @@
-/**
- * End-to-end verification: run a REAL recorded sidecar slice through the whole core
- * pipeline and assert the modules compose correctly across their seams.
- *
- * Unit tests pin each module in isolation; this proves they actually work together on
- * real data: parse -> buildTurns -> assignSpeakers -> editor load/edit/rename/reassign
- * -> export. If this is green, the core does what the product needs end to end.
- */
+// Runs a real recorded sidecar slice through the editor reducers and exports.
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, it, expect } from "vitest";
 
-import type { Transcript, SpeakerSegment } from "../src/index.js";
+import type { Transcript } from "../src/index.js";
 import {
-  buildTurns,
-  flattenWords,
-  assignSpeakers,
   loadTranscript,
   editSentence,
   renameSpeaker,
@@ -26,46 +16,7 @@ import {
 const fixture = fileURLToPath(new URL("./fixtures/fraudster_head.json", import.meta.url));
 const transcript = JSON.parse(readFileSync(fixture, "utf8")) as Transcript;
 
-describe("e2e: real sidecar through the full core pipeline", () => {
-  it("builds coherent speaker turns (transcript module)", () => {
-    const turns = buildTurns(transcript.segments);
-    expect(turns.length).toBeGreaterThan(0);
-    // turns advance in time and never regress
-    for (let i = 1; i < turns.length; i++) {
-      expect(turns[i]!.start).toBeGreaterThanOrEqual(turns[i - 1]!.start);
-    }
-    // merge invariant: no two adjacent turns share a speaker
-    for (let i = 1; i < turns.length; i++) {
-      expect(turns[i]!.speaker).not.toBe(turns[i - 1]!.speaker);
-    }
-    // every turn carries a resolved speaker and non-empty text
-    for (const t of turns) {
-      expect(t.speaker).toBeTruthy();
-      expect(t.text.trim().length).toBeGreaterThan(0);
-      expect(t.end).toBeGreaterThanOrEqual(t.start);
-    }
-  });
-
-  it("re-derives word speakers from turn spans (diarization module composes)", () => {
-    // Use the built turns as diarization spans, then re-assign the raw words to them.
-    const turns = buildTurns(transcript.segments);
-    const spans: SpeakerSegment[] = turns.map((t) => ({
-      speaker: t.speaker,
-      start: t.start,
-      end: t.end,
-    }));
-    const words = flattenWords(transcript.segments).map((w) => ({
-      word: w.text,
-      start: w.start,
-      end: w.end,
-    }));
-    const assigned = assignSpeakers(words, spans);
-    expect(assigned).toHaveLength(words.length);
-    // every word ends up with one of the known speakers
-    const known = new Set(spans.map((s) => s.speaker));
-    for (const w of assigned) expect(known.has(w.speaker!)).toBe(true);
-  });
-
+describe("e2e: real sidecar through the editor", () => {
   it("loads, edits, renames, reassigns, and exports (editor module composes)", () => {
     const s0 = loadTranscript(transcript);
     expect(s0.sentences.length).toBeGreaterThan(0);

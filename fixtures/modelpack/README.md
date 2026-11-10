@@ -23,9 +23,9 @@ Each keypair is provided as:
 - `*-public.raw.hex` — the raw 32-byte ed25519 public key, hex-encoded.
 
 **These private keys are committed deliberately and are worthless: they sign
-nothing real.** The real vendor signing key and the producer-side signing CLI
-are out of scope for this PR (a later PR). Never load a production model pack
-against these keys.
+nothing real.** The real vendor signing key is held as a CI secret and release packs
+are produced by `tools/modelpack-sign`; release app builds refuse to compile against
+the `test` key. Never load a production model pack against these keys.
 
 ## Regenerating (deterministic)
 
@@ -60,5 +60,6 @@ are fixed in the script). It rewrites `cases/` and `context.json` only.
 | `malformed-missing-field` | reject | missing required field |
 | `malformed-bad-semver` | reject | non-`x.y.z` version |
 | `malformed-bad-sha256` | reject | sha256 not 64 lowercase hex |
+| `malformed-uppercase-sha256` | reject | uppercase hex sha256 rejected (lowercase only) |
 | `malformed-unknown-engine` | reject | engine not in the allowed set |
 | `malformed-unknown-task` | reject | task not in the allowed set |

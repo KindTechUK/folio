@@ -1,6 +1,6 @@
 /**
- * Signed/versioned model-pack validation & verification — the security-critical
- * core of the model-update system for a privacy-first, zero-egress product.
+ * Model-pack validation & verification — the TS reference oracle for the Rust
+ * `modelpack` crate (both run the same conformance fixtures). The app verifies in Rust.
  *
  * The app FAILS CLOSED: any unsigned, tampered, malformed, or unsupported model
  * pack is rejected with a single, clear, human-readable reason (surfaced to firm
@@ -24,10 +24,8 @@
  * (keys in that sorted order, signature absent). Ed25519 signs/verifies these
  * raw UTF-8 bytes with `crypto.sign(null, ...)` / `crypto.verify(null, ...)`.
  *
- * Only the eight known manifest fields are serialized; any extra/unknown keys on
- * the input object are ignored by canonicalization (and rejected earlier by
- * validation in practice), so an attacker cannot smuggle signed-but-unvalidated
- * data into the canonical bytes.
+ * Only the eight known manifest fields are serialized; extra keys are ignored, so
+ * unvalidated data can never enter the signed bytes.
  */
 import { createHash, verify as nodeVerify, createPublicKey } from "node:crypto";
 import type { KeyObject } from "node:crypto";
@@ -79,8 +77,6 @@ export type VerifyResult =
   | { ok: true; manifest: Manifest; attribution: string }
   | { ok: false; reason: string };
 
-// --- semver --------------------------------------------------------------
-
 const SEMVER_RE = /^\d+\.\d+\.\d+$/;
 
 /**
@@ -98,8 +94,6 @@ export function compareSemver(a: string, b: string): number {
   return 0;
 }
 
-// --- canonicalization ----------------------------------------------------
-
 /** The signed fields, in sorted order. `signature` is intentionally absent. */
 const CANONICAL_KEYS = [
   "attribution",
@@ -112,11 +106,7 @@ const CANONICAL_KEYS = [
   "version",
 ] as const;
 
-/**
- * Produce the canonical UTF-8 bytes that the vendor signs / we verify.
- * See the module-level contract for the exact scheme. The `signature` field is
- * excluded; only the eight known fields are serialized, in sorted key order.
- */
+/** Canonical signed bytes — see the module-level contract. */
 export function canonicalize(manifest: Omit<Manifest, "signature"> | Manifest): Uint8Array {
   const src = manifest as Record<string, unknown>;
   const ordered: Record<string, unknown> = {};
@@ -125,8 +115,6 @@ export function canonicalize(manifest: Omit<Manifest, "signature"> | Manifest): 
   }
   return new TextEncoder().encode(JSON.stringify(ordered));
 }
-
-// --- validation ----------------------------------------------------------
 
 const SHA256_RE = /^[0-9a-f]{64}$/;
 
@@ -164,7 +152,6 @@ export function validateManifest(obj: unknown): ValidateResult {
     return { ok: false, reason: `manifest field "signature" must be a string` };
   }
 
-  // engine: present, string, in the allowed set.
   if (!("engine" in m) || !isNonEmptyString(m.engine)) {
     return { ok: false, reason: `manifest is missing required field "engine"` };
   }
@@ -175,7 +162,6 @@ export function validateManifest(obj: unknown): ValidateResult {
     };
   }
 
-  // task: present, string, in the allowed set.
   if (!("task" in m) || !isNonEmptyString(m.task)) {
     return { ok: false, reason: `manifest is missing required field "task"` };
   }
@@ -186,7 +172,6 @@ export function validateManifest(obj: unknown): ValidateResult {
     };
   }
 
-  // semver fields.
   if (!SEMVER_RE.test(m.version as string)) {
     return { ok: false, reason: `manifest version "${m.version as string}" is not valid semver (expected x.y.z)` };
   }
@@ -197,15 +182,12 @@ export function validateManifest(obj: unknown): ValidateResult {
     };
   }
 
-  // sha256: 64 lowercase hex chars.
   if (!SHA256_RE.test(m.sha256 as string)) {
     return { ok: false, reason: `manifest sha256 must be 64 lowercase hex characters` };
   }
 
   return { ok: true, manifest: m as unknown as Manifest };
 }
-
-// --- verification --------------------------------------------------------
 
 function toPublicKey(key: KeyObject | string): KeyObject {
   return typeof key === "string" ? createPublicKey(key) : key;
@@ -220,23 +202,19 @@ function toPublicKey(key: KeyObject | string): KeyObject {
  *   4. manifest.engine_min_version <= this build's engine version.
  */
 export function verifyModelPack(pack: ModelPack, opts: VerifyOptions): VerifyResult {
-  // 1. structural validation
   const v = validateManifest(pack.manifest);
   if (!v.ok) return { ok: false, reason: v.reason };
   const manifest = v.manifest;
 
-  // 2. weights integrity
   const actual = createHash("sha256").update(pack.weights).digest("hex");
   if (!timingSafeHexEqual(actual, manifest.sha256)) {
     return { ok: false, reason: "weights hash mismatch (tampered or corrupt)" };
   }
 
-  // 3. signature over the canonical manifest
   let signatureOk = false;
   try {
     const sig = Buffer.from(manifest.signature, "base64");
-    // Reject base64 that round-trips to something other than the input (garbage),
-    // and empty signatures, before bothering the crypto layer.
+    // An empty (or entirely non-base64) signature fails closed without calling verify.
     if (sig.length > 0) {
       const data = canonicalize(manifest);
       signatureOk = nodeVerify(null, data, toPublicKey(opts.publicKey), sig);
@@ -248,7 +226,6 @@ export function verifyModelPack(pack: ModelPack, opts: VerifyOptions): VerifyRes
     return { ok: false, reason: "signature invalid (unsigned or untrusted pack)" };
   }
 
-  // 4. engine version gate
   const available = opts.engineVersions[manifest.engine];
   if (available === undefined) {
     return { ok: false, reason: `engine not supported by this build (no "${manifest.engine}" engine available)` };

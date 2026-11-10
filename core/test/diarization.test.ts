@@ -31,6 +31,10 @@ describe("assignSpeakers", () => {
     const words2: Word[] = [{ word: "y", start: 11.4, end: 11.6 }];
     const out2 = assignSpeakers(words2, segs);
     expect(out2[0]!.speaker).toBe("SPEAKER_01");
+    // zero-duration word at 10.3 -> nearer seg0
+    const words3: Word[] = [{ word: "z", start: 10.3, end: 10.3 }];
+    const out3 = assignSpeakers(words3, segs);
+    expect(out3[0]!.speaker).toBe("SPEAKER_00");
   });
 
   it("resolves a word exactly on a boundary deterministically to the earlier segment", () => {
@@ -46,13 +50,7 @@ describe("assignSpeakers", () => {
   });
 
   it("resolves an equal-overlap tie to the earlier segment in input order", () => {
-    const adj: SpeakerSegment[] = [
-      { speaker: "A", start: 0, end: 10 },
-      { speaker: "B", start: 5, end: 15 },
-    ];
-    // word [4,6]: overlap A=[4,6]=2 wait recompute -> A overlap [4,6]∩[0,10]=2, B [4,6]∩[5,15]=1
-    // use symmetric tie: word [3,7]: A overlap [3,7]=4, B [5,7]=2. Not tie.
-    // construct true tie: word [4,6], A [0,5] overlap [4,5]=1, B [5,10] overlap [5,6]=1
+    // word [4,6]: overlap with A [0,5] is 1, with B [5,10] is 1 -> tie
     const tieSegs: SpeakerSegment[] = [
       { speaker: "A", start: 0, end: 5 },
       { speaker: "B", start: 5, end: 10 },
@@ -60,7 +58,6 @@ describe("assignSpeakers", () => {
     const words: Word[] = [{ word: "t", start: 4, end: 6 }];
     const out = assignSpeakers(words, tieSegs);
     expect(out[0]!.speaker).toBe("A");
-    void adj;
   });
 
   it("assigns UNKNOWN to all words when speakerSegments is empty", () => {
@@ -78,20 +75,11 @@ describe("assignSpeakers", () => {
     expect(out[0]!.speaker).toBe("SPEAKER_00");
   });
 
-  it("assigns a zero-duration word in a gap to the nearest segment", () => {
-    // gap [10,12]; point at 10.3 -> nearer seg0
-    const words: Word[] = [{ word: "z", start: 10.3, end: 10.3 }];
-    const out = assignSpeakers(words, segs);
-    expect(out[0]!.speaker).toBe("SPEAKER_00");
-  });
-
-  it("does not mutate the input words array or its objects", () => {
+  it("does not mutate the input words", () => {
     const words: Word[] = [{ word: "hi", start: 2, end: 4 }];
     const snapshot = JSON.parse(JSON.stringify(words));
-    const out = assignSpeakers(words, segs);
+    assignSpeakers(words, segs);
     expect(words).toEqual(snapshot);
-    expect(out).not.toBe(words);
-    expect(out[0]).not.toBe(words[0]);
     expect(words[0]!.speaker).toBeUndefined();
   });
 

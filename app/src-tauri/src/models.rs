@@ -1,17 +1,12 @@
-//! Model-pack trust boundary (PR #3c): the running app's wrapper around the
-//! `modelpack` verification crate. This is the security-visible piece firm
-//! IT/DPO see — the app enumerates a packs folder, VERIFIES every pack before
-//! it is trusted, and REFUSES to import unsigned/tampered/untrusted/too-new
-//! packs. Verify + import + display ONLY; the engine/transcribe path is NOT
-//! rewired to consume verified packs here (that is PR #3d).
+//! Model-pack trust boundary: the app's wrapper around the `modelpack`
+//! verification crate. The app enumerates a packs folder, VERIFIES every pack
+//! before it is trusted, REFUSES to import unsigned/tampered/untrusted/too-new
+//! packs, and resolves verified packs into the model dir the transcribe path
+//! uses.
 //!
 //! A model pack is a DIRECTORY containing `manifest.json` + a single
 //! `weights.bin` (matching the `modelpack` crate's one-sha256-per-pack model and
 //! the `fixtures/modelpack/cases/*` layout, which double as test packs).
-//!
-//! Fail closed: any unsigned/tampered/untrusted/too-new/malformed pack is never
-//! imported nor listed as verified. The pure `verify_pack_dir` never panics on
-//! missing or garbage files — it maps every failure to a human-readable reason.
 
 use std::collections::BTreeMap;
 use std::io::Read;
@@ -23,11 +18,8 @@ use serde_json::Value;
 use sha2::{Digest, Sha256};
 use tauri::Manager;
 
-/// DEV/TEST KEY — the production build injects the real vendor key via the
-/// `VENDOR_PUBKEY_SPKI_PEM` build-time env var (`option_env!`). This fallback is
-/// the TEST SPKI key from `fixtures/modelpack/context.json`, used only in
-/// dev/CI builds so the committed fixture packs verify. It must NEVER be the key
-/// that signs production packs.
+/// Committed dev/test SPKI key; never the production signing key (release
+/// builds reject it, see `vendor_pubkey_pem`).
 const DEV_TEST_PUBKEY_SPKI_PEM: &str =
     include_str!("../../../fixtures/modelpack/keys/test-public.spki.pem");
 
@@ -80,11 +72,9 @@ impl PackStatus {
     }
 }
 
-/// PURE, testable core: verify a single pack directory and map the outcome to a
-/// [`PackStatus`]. Reads `manifest.json` (rejecting unreadable/garbage files)
-/// and `weights.bin` if present (else empty bytes → hash-mismatch reject), then
-/// calls [`modelpack::verify_model_pack`]. Never panics on missing/garbage
-/// files; every failure is a human-readable `reason`.
+/// Verify a single pack directory and map the outcome to a [`PackStatus`]. A
+/// missing `weights.bin` reads as empty bytes (→ hash-mismatch reject). Never
+/// panics on missing/garbage files; every failure is a human-readable `reason`.
 pub fn verify_pack_dir(
     dir: &Path,
     pubkey: &PublicKey<'_>,
@@ -95,7 +85,6 @@ pub fn verify_pack_dir(
         .map(|n| n.to_string_lossy().into_owned())
         .unwrap_or_else(|| dir.to_string_lossy().into_owned());
 
-    // manifest.json — must be readable and parse as JSON.
     let manifest_bytes = match std::fs::read(dir.join("manifest.json")) {
         Ok(b) => b,
         Err(e) => {
@@ -109,8 +98,6 @@ pub fn verify_pack_dir(
         }
     };
 
-    // weights.bin — empty bytes when absent (verification then rejects on the
-    // hash mismatch, fail closed).
     let weights = std::fs::read(dir.join("weights.bin")).unwrap_or_default();
 
     match verify_model_pack(&manifest_value, &weights, pubkey, engine_versions) {
@@ -198,7 +185,6 @@ pub fn import_model_pack(app: tauri::AppHandle, src_dir: String) -> Result<PackS
         return Ok(status); // rejected → surface reason, install nothing.
     }
 
-    // Verified — copy manifest.json + weights.bin into <packs>/<name>/.
     let dir = packs_dir(&app)?;
     let name = src
         .file_name()
@@ -217,7 +203,7 @@ pub fn import_model_pack(app: tauri::AppHandle, src_dir: String) -> Result<PackS
     Ok(status)
 }
 
-// --- verified-pack resolver (PR #3d) ---------------------------------------
+// --- verified-pack resolver -----------------------------------------------
 
 /// Lowercase-hex SHA-256 of `bytes`.
 fn sha256_hex(bytes: &[u8]) -> String {
@@ -242,9 +228,7 @@ fn zip_entry_is_safe(name: &str) -> bool {
 }
 
 /// Extract every file entry of the zip `weights` into `dest`, creating parent
-/// dirs as needed. Skips entries whose normalized path would escape `dest`.
-/// Returns `Err` only on genuine I/O failure (NOT on "not a zip" — the caller
-/// decides that). The caller pre-checks zip validity.
+/// dirs and skipping entries whose path would escape `dest`.
 fn extract_zip_into(weights: &[u8], dest: &Path) -> Result<(), String> {
     let reader = std::io::Cursor::new(weights);
     let mut archive = zip::ZipArchive::new(reader)
@@ -253,11 +237,10 @@ fn extract_zip_into(weights: &[u8], dest: &Path) -> Result<(), String> {
         let mut entry = archive
             .by_index(i)
             .map_err(|e| format!("reading zip entry {i}: {e}"))?;
-        // Prefer the archive's own sanitized name; fall back to the raw name.
+        // enclosed_name() is None for unsafe paths — skip those.
         let rel = match entry.enclosed_name() {
             Some(p) => p.to_path_buf(),
             None => {
-                // enclosed_name() rejected it as unsafe — skip.
                 continue;
             }
         };
@@ -285,7 +268,7 @@ fn extract_zip_into(weights: &[u8], dest: &Path) -> Result<(), String> {
     Ok(())
 }
 
-/// PURE, testable verified-pack resolver. Enumerates `packs_dir`, VERIFIES every
+/// Verified-pack resolver. Enumerates `packs_dir`, VERIFIES every
 /// pack, extracts ONLY verified packs' `weights.bin` zips into a content-
 /// addressed cache under `cache_base`, and returns the cache dir IFF it provides
 /// every model file the engine requires for `(asr_model, diarize)`. Fails closed
@@ -302,7 +285,6 @@ pub fn resolve_verified_models_dir_in(
     asr_model: engine::AsrModel,
     diarize: bool,
 ) -> Result<PathBuf, String> {
-    // 1. Enumerate + verify; keep verified pack dirs.
     let mut verified_dirs: Vec<PathBuf> = match std::fs::read_dir(packs_dir) {
         Ok(entries) => entries
             .filter_map(|e| e.ok())
@@ -320,7 +302,6 @@ pub fn resolve_verified_models_dir_in(
         ));
     }
 
-    // 2. Deterministic combined key from the verified packs' manifest sha256s.
     let mut sha_list: Vec<String> = Vec::new();
     for dir in &verified_dirs {
         let bytes = std::fs::read(dir.join("manifest.json"))
@@ -337,12 +318,11 @@ pub fn resolve_verified_models_dir_in(
     sha_list.sort();
     let combined_key = sha256_hex(sha_list.join("\n").as_bytes());
 
-    // 3. Composed cache dir; reuse if already extracted (idempotent).
     let composed = cache_base.join("verified-models").join(&combined_key);
     let complete_marker = composed.join(".complete");
     if !complete_marker.exists() {
-        // 4. Fresh extraction: clear any partial dir, recreate, extract each
-        //    verified pack's zip-valid weights.bin (skip non-zip packs).
+        // Fresh extraction: clear any partial dir, recreate, extract each
+        // verified pack's zip-valid weights.bin (skip non-zip packs).
         if composed.exists() {
             std::fs::remove_dir_all(&composed)
                 .map_err(|e| format!("clearing partial cache {}: {e}", composed.display()))?;
@@ -361,7 +341,7 @@ pub fn resolve_verified_models_dir_in(
             .map_err(|e| format!("writing completion marker {}: {e}", complete_marker.display()))?;
     }
 
-    // 5. Fail closed unless EVERY required file is present.
+    // Fail closed unless EVERY required file is present.
     let missing: Vec<String> = engine::required_model_files(asr_model, diarize)
         .into_iter()
         .filter(|rel| !composed.join(rel).exists())
@@ -374,9 +354,7 @@ pub fn resolve_verified_models_dir_in(
     Ok(composed)
 }
 
-/// AppHandle wrapper used by the `transcribe` command: resolves `packs_dir(app)`
-/// and the app-data cache base, builds the trusted vendor key + engine versions,
-/// and delegates to [`resolve_verified_models_dir_in`].
+/// AppHandle wrapper around [`resolve_verified_models_dir_in`].
 pub fn resolve_verified_models_dir(
     app: &tauri::AppHandle,
     asr_model: engine::AsrModel,
@@ -419,7 +397,7 @@ mod tests {
         (pem, versions)
     }
 
-    /// `verify_pack_dir` over the PR #3a fixture cases agrees with each case's
+    /// `verify_pack_dir` over the fixture cases agrees with each case's
     /// `expected.json` — the app's folder-reading wrapper reaches the SAME
     /// verified/rejected outcomes as the cross-language conformance suite.
     #[test]

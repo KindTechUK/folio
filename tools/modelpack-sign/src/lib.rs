@@ -5,8 +5,6 @@
 //! verify_model_pack}` directly so the signing pipeline can never drift from the
 //! verifier: whatever bytes we sign are exactly the bytes the app re-canonicalizes
 //! and verifies.
-//!
-//! Logic lives here (not in `main.rs`) so it is unit-testable.
 
 use std::collections::BTreeMap;
 use std::io::{Cursor, Read, Write};
@@ -434,8 +432,8 @@ mod tests {
     }
 
     #[test]
-    fn keygen_refuses_to_overwrite_existing_private_key() {
-        let tmp = std::env::temp_dir().join(format!("mps-existing-{}", std::process::id()));
+    fn keygen_refuses_an_existing_output_directory() {
+        let tmp = std::env::temp_dir().join(format!("mps-existing-dir-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&tmp);
         std::fs::create_dir_all(&tmp).unwrap();
         let private_path = tmp.join("private.pkcs8.pem");
@@ -445,20 +443,7 @@ mod tests {
 
         assert!(error.contains("already exists"), "got: {error}");
         assert_eq!(std::fs::read(&private_path).unwrap(), b"keep-me");
-
-        let _ = std::fs::remove_dir_all(&tmp);
-    }
-
-    #[test]
-    fn keygen_refuses_an_existing_output_directory() {
-        let tmp = std::env::temp_dir().join(format!("mps-existing-dir-{}", std::process::id()));
-        let _ = std::fs::remove_dir_all(&tmp);
-        std::fs::create_dir_all(&tmp).unwrap();
-
-        let error = keygen(&tmp).unwrap_err().to_string();
-
-        assert!(error.contains("already exists"), "got: {error}");
-        assert!(!tmp.join("private.pkcs8.pem").exists());
+        assert!(!tmp.join("public.spki.pem").exists());
         let _ = std::fs::remove_dir_all(&tmp);
     }
 

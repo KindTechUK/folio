@@ -20,11 +20,16 @@ permissions:
   contents: write
 
 jobs:
+  ci:
+    name: tests
+    uses: ./.github/workflows/ci.yml
+
   create-release:
     name: create draft release
     runs-on: ubuntu-latest
+    needs: ci
     steps:
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@28ab305d0ffa26d60ec4bd614126329e26c7a0ec # v3.0.4
         with:
           tag_name: ${{ github.ref_name }}
           name: ${{ github.ref_name }}
@@ -36,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: create-release
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
       - name: Write vendor signing key
         env:
@@ -55,7 +60,7 @@ jobs:
           export OUT="$GITHUB_WORKSPACE/dist-packs"
           bash scripts/build-model-packs.sh
       - name: Upload packs to release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@28ab305d0ffa26d60ec4bd614126329e26c7a0ec # v3.0.4
         with:
           tag_name: ${{ github.ref_name }}
           draft: true
@@ -69,14 +74,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macos-latest, windows-latest, ubuntu-latest]
+        include:
+          - platform: macos-latest
+            bundles: app/src-tauri/target/release/bundle/dmg/*.dmg
+          - platform: windows-latest
+            bundles: app/src-tauri/target/release/bundle/nsis/*.exe
+          - platform: ubuntu-latest
+            bundles: |
+              app/src-tauri/target/release/bundle/appimage/*.AppImage
+              app/src-tauri/target/release/bundle/deb/*.deb
     runs-on: ${{ matrix.platform }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "22"
       # Install the frontend deps (incl. @tauri-apps/cli) so `npm run tauri build`
       # — which tauri-action invokes — can find the `tauri` binary. Without this
       # the build dies with "tauri: command not found" (exit 127).
@@ -93,7 +106,7 @@ jobs:
       # Build the installers. No tagName is passed, so tauri-action only BUILDS
       # (it does not manage the release); we attach the bundles ourselves below so
       # they land on the single draft release alongside the model packs.
-      - uses: tauri-apps/tauri-action@v0
+      - uses: tauri-apps/tauri-action@1deb371b0cd8bd54025b384f1cd735e725c4060f # action-v1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Compile the real vendor public key into the app so it trusts the
@@ -102,17 +115,14 @@ jobs:
           VENDOR_PUBKEY_SPKI_PEM: ${{ secrets.VENDOR_PUBKEY_SPKI_PEM }}
         with:
           projectPath: app
+          args: --features hardened
       - name: Upload installers to release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@28ab305d0ffa26d60ec4bd614126329e26c7a0ec # v3.0.4
         with:
           tag_name: ${{ github.ref_name }}
           draft: true
-          fail_on_unmatched_files: false
-          files: |
-            app/src-tauri/target/release/bundle/dmg/*.dmg
-            app/src-tauri/target/release/bundle/nsis/*.exe
-            app/src-tauri/target/release/bundle/appimage/*.AppImage
-            app/src-tauri/target/release/bundle/deb/*.deb
+          fail_on_unmatched_files: true
+          files: ${{ matrix.bundles }}
 
   publish-release:
     name: publish release
@@ -120,7 +130,7 @@ jobs:
     needs: [model-packs, app]
     steps:
       - name: Flip draft → published
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@28ab305d0ffa26d60ec4bd614126329e26c7a0ec # v3.0.4
         with:
           tag_name: ${{ github.ref_name }}
           draft: false

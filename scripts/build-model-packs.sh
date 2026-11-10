@@ -20,8 +20,6 @@
 # Usage:
 #   VERSION=0.1.0 KEY=/path/to/private.pkcs8.pem OUT=dist-packs \
 #     bash scripts/build-model-packs.sh
-#
-# Upstream URLs are documented in docs/spikes/sherpa-onnx-spike.md.
 set -euo pipefail
 
 VERSION="${VERSION:?set VERSION (e.g. 0.1.0; must match ^\d+\.\d+\.\d+$)}"
@@ -52,7 +50,7 @@ dl() {
 # Build the producer once up front so per-pack runs don't interleave build logs.
 ( cd "$REPO_ROOT" && cargo build --release --quiet --manifest-path tools/modelpack-sign/Cargo.toml )
 
-# Silero VAD is shared by both ASR packs (the engine always needs it).
+# Silero VAD is shared by all ASR packs (the engine always needs it).
 dl "$BASE/asr-models/silero_vad.onnx" "$work/silero_vad.onnx" "silero_vad.onnx"
 
 build_asr() {

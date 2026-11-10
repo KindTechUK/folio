@@ -1,7 +1,7 @@
 {
   "name": "@kindtech/core",
   "version": "0.1.0",
-  "description": "Framework-independent core logic for the privacy-first local transcription app: turn building, diarization assignment, editor reducer, and model-pack validation. Drops into the Tauri/Vibe frontend.",
+  "description": "Framework-independent core logic for the privacy-first local transcription app: turn building, diarization assignment, editor reducer, and model-pack validation.",
   "type": "module",
   "private": true,
   "scripts": {

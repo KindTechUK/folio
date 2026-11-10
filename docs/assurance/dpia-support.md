@@ -1,7 +1,7 @@
 # DPIA-support template
 
-> Part of the assurance pack. Addresses PRD user story #23 (DPO wants material
-> to complete a DPIA / risk file).
+> Part of the assurance pack. Gives a DPO material to complete a DPIA / risk
+> file.
 >
 > **This is a template of vendor-provided answers to the questions a firm DPO
 > typically asks. It supports — it does not replace — the firm's own DPIA. The
@@ -45,15 +45,15 @@
 | Telemetry / analytics / crash reporting? | **None.** ✅ |
 | Auto-updater / update pings? | **None** — IT pushes a new signed installer. ✅ (no updater linked) |
 | How is data protected at rest? | Relies on the firm's **BitLocker** full-disk encryption (documented dependency). No app-level crypto by design. See `data-at-rest.md`. |
-| Are model/software updates trustworthy? | Models are **signed, versioned packs**; the app verifies ed25519 signature + sha256 + engine-version and **refuses unsigned/tampered/too-new packs (fail-closed)**. ✅ implemented (against a TEST key; 🚧 production signing key + installer code-signing are roadmap). |
+| Are model/software updates trustworthy? | Models are **signed, versioned packs**; the app verifies ed25519 signature + sha256 + engine-version and **refuses unsigned/tampered/too-new packs (fail-closed)**. ✅ implemented (release packs are signed with a CI-held vendor key; release builds refuse the committed test key). 🚧 Installer code-signing is roadmap. |
 | Is the software auditable? | Yes — the source is open; this pack points to the exact files. ✅ |
 
 ## E. Data subject rights & retention
 
 | DPO question | Vendor-supplied answer |
 | --- | --- |
-| Who controls retention? | **The firm / fee-earner.** Files persist only where the user saves them; the vendor holds nothing. |
-| How is data deleted? | Today: manual deletion of audio + exports via the OS (no vendor copy, no automatic temp spill). 🚧 A one-click "delete this matter" is roadmap (PRD #14). |
+| Who controls retention? | **The firm / fee-earner.** Transcripts are auto-saved to a local on-device library (app-data dir) until the user deletes them; exports persist where the user saves them. The vendor holds nothing. |
+| How is data deleted? | One-click "delete this matter" removes the source audio and the saved library entry; a saved transcript can also be deleted from the Library view. Exports saved elsewhere are deleted via the OS. No vendor copy, no automatic temp spill. ✅ |
 | Can a subject-access / erasure request be met? | Yes, entirely within the firm — all copies are the firm's own local files. The vendor has nothing to search or erase. |
 | Automated decision-making / profiling? | None. Output is a **machine-generated draft** explicitly requiring human verification; the review/edit step is the expected control. The disclaimer is stamped on every export (`app/src/draft.ts`). ✅ |
 
@@ -63,8 +63,8 @@
 | --- | --- | --- |
 | Audio/transcript leaks to a third party or vendor | Zero egress by construction; CI gate; strict CSP; no telemetry. | ✅ |
 | Device theft exposes stored data | Firm BitLocker full-disk encryption + in-app advisory BitLocker-off warning banner on launch. | ✅ (firm-operated; in-app banner implemented) |
-| Tampered/untrusted model injected | Fail-closed signed model-pack verification at the Rust trust boundary; the transcribe path loads weights ONLY from a verified pack (enforced in release/hardened builds). | ✅ (TEST key) — 🚧 production key |
-| Persisted transcript exposed after a matter ends | Transcripts auto-save to a local on-device library (BitLocker volume, never leaves device); one-click "delete matter" purges the saved entry + source audio, and a matter can be deleted from the Library view. | ✅ |
+| Tampered/untrusted model injected | Fail-closed signed model-pack verification at the Rust trust boundary; the transcribe path loads weights ONLY from a verified pack (enforced in release builds). | ✅ |
+| Persisted transcript exposed after a matter ends | Transcripts auto-save to a local on-device library (BitLocker volume, never leaves device); one-click "delete matter" purges the saved entry + source audio, and a saved transcript (not the audio) can be deleted from the Library view. | ✅ |
 | Over-reliance on an inaccurate transcript | Machine-draft disclaimer in UI + every export; human review is a first-class step; speaker labels off by default. | ✅ |
 | Speaker mislabelling (diarization over-segmentation) | Diarization opt-in + optional speaker-count hint + human relabel backstop. | ✅ |
 | Residual data left in temp files | In-memory decode writes no scratch file today. | ✅ (today) — 🚧 explicit app-owned scratch + wipe routine |
@@ -74,8 +74,8 @@
 
 - Confirm the non-processor assertion with the firm's counsel
   (`non-processor-statement.md`).
-- Confirm BitLocker is enforced on target laptops via the firm's MDM (until the
-  in-app check ships).
+- Confirm BitLocker is enforced on target laptops via the firm's MDM (the
+  in-app banner is advisory only — see `data-at-rest.md` for its limitations).
 - Record which build variant is deployed (the **hardened, zero-egress** build —
   the non-processor assertion is scoped to it).
 - Note the roadmap items (🚧) above and obtain a delivery date from the vendor
