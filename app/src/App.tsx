@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { invoke, convertFileSrc } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { loadTranscript } from "@core/editor";
@@ -48,6 +48,14 @@ const MODEL_LABELS: Record<string, string> = {
 
 type SaveStatus = "saved" | "saving" | "error";
 
+interface OpenSessionMeta {
+  id: string;
+  createdAt: string;
+  audioPath: string;
+  audioFilename: string;
+  diarized: boolean;
+}
+
 const SAVE_LABELS: Record<SaveStatus, string> = {
   saved: "Saved locally",
   saving: "Saving locally…",
@@ -96,13 +104,12 @@ export default function App() {
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("saved");
   // Metadata for the currently loaded library session (null = unsaved/none).
   // Drives debounced auto-save and ties a loaded transcript to its saved entry.
-  const [currentSessionMeta, setCurrentSessionMeta] = useState<{
-    id: string;
-    createdAt: string;
-    audioPath: string;
-    audioFilename: string;
-    diarized: boolean;
-  } | null>(null);
+  const [currentSessionMeta, setCurrentSessionMeta] = useState<OpenSessionMeta | null>(null);
+  // The last snapshot written to disk, and the one on screen now (async saves
+  // read it to decide whether they are still the latest).
+  const savedStateRef = useRef<EditorState | null>(null);
+  const stateRef = useRef<EditorState | null>(null);
+  stateRef.current = state;
 
   function updateModelStatus(packs: PackStatus[]) {
     setInstalledAsrModel(selectAsrModel(packs));
@@ -141,25 +148,47 @@ export default function App() {
       .catch(() => setModelsChecked(true));
   }, []);
 
-  // Debounced (800ms) auto-save; a failure is shown in the header, never thrown.
-  useEffect(() => {
-    if (!state || !currentSessionMeta) return;
-    const meta = currentSessionMeta;
-    const timer = setTimeout(() => {
-      setSaveStatus("saving");
-      void invoke("save_session", {
+  // Write one snapshot to the library. Never throws; false means the save failed.
+  async function persist(meta: OpenSessionMeta, snapshot: EditorState): Promise<boolean> {
+    if (snapshot === savedStateRef.current) return true;
+    setSaveStatus("saving");
+    try {
+      await invoke("save_session", {
         session: buildSession({
           id: meta.id,
           createdAt: meta.createdAt,
           updatedAt: new Date().toISOString(),
           audioPath: meta.audioPath,
           diarized: meta.diarized,
-          state,
+          state: snapshot,
         }),
-      })
-        .then(() => setSaveStatus("saved"))
-        .catch(() => setSaveStatus("error"));
-    }, 800);
+      });
+      savedStateRef.current = snapshot;
+      if (stateRef.current === snapshot) setSaveStatus("saved");
+      return true;
+    } catch {
+      setSaveStatus("error");
+      return false;
+    }
+  }
+
+  // Write any edit still waiting for the autosave timer.
+  function flushPendingSave(): Promise<boolean> {
+    if (!state || !currentSessionMeta) return Promise.resolve(true);
+    return persist(currentSessionMeta, state);
+  }
+
+  // Debounced (800ms) auto-save. The header says "Saving" from the moment an
+  // edit lands until it is on disk.
+  useEffect(() => {
+    if (!state || !currentSessionMeta) return;
+    if (state === savedStateRef.current) {
+      setSaveStatus("saved");
+      return;
+    }
+    setSaveStatus("saving");
+    const meta = currentSessionMeta;
+    const timer = setTimeout(() => void persist(meta, state), 800);
     return () => clearTimeout(timer);
   }, [state, currentSessionMeta]);
 
@@ -167,11 +196,17 @@ export default function App() {
   // and audio, and switch to the review view. Audio may be missing if the
   // referenced source file was moved/deleted.
   async function openSession(id: string) {
+    // Keep the open transcript on screen if its latest edit could not be saved.
+    if (!(await flushPendingSave())) {
+      setView("transcribe");
+      return;
+    }
     try {
       const res = await invoke<{ session: SessionJson; audioAvailable: boolean }>(
         "load_session",
         { id },
       );
+      savedStateRef.current = res.session.editorState;
       setHistory(initHistory(res.session.editorState));
       setDiarized(res.session.diarized);
       setCurrentSessionMeta({
@@ -181,7 +216,6 @@ export default function App() {
         audioFilename: res.session.audioFilename,
         diarized: res.session.diarized,
       });
-      setSaveStatus("saved");
       setStatus("idle");
       setAudioSrc(
         res.audioAvailable ? convertFileSrc(res.session.audioPath) : undefined,
@@ -214,8 +248,14 @@ export default function App() {
     }
   }
 
-  // Clear any open transcript and show an empty import card.
-  function startImport() {
+  // Clear any open transcript and show an empty import card. A running
+  // transcription keeps the screen until it finishes, and an edit that cannot be
+  // saved keeps its transcript open (the header shows the failure).
+  async function startImport() {
+    if (progress || !(await flushPendingSave())) {
+      setView("transcribe");
+      return;
+    }
     setHistory(null);
     setAudioSrc(undefined);
     setCurrentSessionMeta(null);
@@ -226,7 +266,7 @@ export default function App() {
   }
 
   function navigate(next: View) {
-    if (next === "transcribe") startImport();
+    if (next === "transcribe") void startImport();
     else setView(next);
   }
 
@@ -281,30 +321,16 @@ export default function App() {
       setDiarized(detectSpeakers);
       setAudioSrc(convertFileSrc(path));
       setSelectedPath(null);
-      setCurrentSessionMeta({
+      const meta = {
         id,
         createdAt,
         audioPath: path,
         audioFilename: basename(path),
         diarized: detectSpeakers,
-      });
+      };
+      setCurrentSessionMeta(meta);
       setStatus("idle");
-      setSaveStatus("saving");
-      try {
-        await invoke("save_session", {
-          session: buildSession({
-            id,
-            createdAt,
-            updatedAt: createdAt,
-            audioPath: path,
-            diarized: detectSpeakers,
-            state: editorState,
-          }),
-        });
-        setSaveStatus("saved");
-      } catch {
-        setSaveStatus("error");
-      }
+      await persist(meta, editorState);
     } catch (e) {
       setStatus(`error: ${String(e)}`);
     } finally {
@@ -345,7 +371,7 @@ export default function App() {
               </div>
             </div>
             <div className="draft-header-actions">
-              <Button onClick={startImport}>Import another</Button>
+              <Button onClick={() => void startImport()}>Import another</Button>
               <Button
                 variant="danger"
                 data-testid="delete-transcript"
@@ -574,7 +600,7 @@ export default function App() {
           ) : view === "models" ? (
             <Models onPacksChanged={updateModelStatus} />
           ) : (
-            <Library onOpen={openSession} onImport={startImport} />
+            <Library onOpen={(id) => void openSession(id)} onImport={() => void startImport()} />
           )}
         </div>
       </main>

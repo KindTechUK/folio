@@ -8,6 +8,7 @@ const listenMock = vi.fn();
 let deleteMatterReport: { deleted: string[]; failed: unknown[] };
 let pickRecording: () => Promise<unknown>;
 let saveSession: () => Promise<unknown>;
+let transcribe: () => Promise<unknown>;
 
 vi.mock("@tauri-apps/api/core", () => ({
   invoke: (...args: unknown[]) => invokeMock(...args),
@@ -48,6 +49,7 @@ beforeEach(() => {
   deleteMatterReport = { deleted: ["/recordings/interview.wav"], failed: [] };
   pickRecording = () => Promise.resolve("/recordings/interview.wav");
   saveSession = () => Promise.resolve();
+  transcribe = () => Promise.resolve(transcript);
   invokeMock.mockImplementation((command: string) => {
     switch (command) {
       case "volume_encryption_status":
@@ -72,7 +74,7 @@ beforeEach(() => {
       case "pick_recording":
         return pickRecording();
       case "transcribe":
-        return Promise.resolve(transcript);
+        return transcribe();
       case "save_session":
         return saveSession();
       case "delete_matter":
@@ -200,5 +202,66 @@ describe("App import flow", () => {
     await importAndCreate();
 
     expect(await screen.findByText("Local save failed")).toBeInTheDocument();
+  });
+
+  it("saves a fresh correction before Import another clears it", async () => {
+    render(<App />);
+    await importAndCreate();
+    await screen.findByText("Saved locally");
+    invokeMock.mockClear();
+
+    fireEvent.doubleClick(screen.getByTestId("paragraph"));
+    const editor = screen.getByTestId("edit-sent-0");
+    fireEvent.change(editor, { target: { value: "The corrected transcript." } });
+    fireEvent.blur(editor);
+    fireEvent.click(screen.getByRole("button", { name: "Import another" }));
+
+    await waitFor(() =>
+      expect(invokeMock).toHaveBeenCalledWith(
+        "save_session",
+        expect.objectContaining({
+          session: expect.objectContaining({
+            editorState: expect.objectContaining({
+              sentences: [
+                expect.objectContaining({
+                  words: expect.arrayContaining([
+                    expect.objectContaining({ text: "corrected" }),
+                  ]),
+                }),
+              ],
+            }),
+          }),
+        }),
+      ),
+    );
+  });
+
+  it("shows an edit as not yet saved until the save completes", async () => {
+    render(<App />);
+    await importAndCreate();
+    await screen.findByText("Saved locally");
+
+    fireEvent.doubleClick(screen.getByTestId("paragraph"));
+    const editor = screen.getByTestId("edit-sent-0");
+    fireEvent.change(editor, { target: { value: "The corrected transcript." } });
+    fireEvent.blur(editor);
+
+    expect(screen.getByTestId("save-status")).toHaveTextContent("Saving locally…");
+  });
+
+  it("keeps the running transcription when Import recording is clicked again", async () => {
+    transcribe = () => new Promise(() => {});
+
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Create transcript" }));
+    await screen.findByTestId("transcribe-progress");
+
+    fireEvent.click(screen.getByRole("button", { name: /Import recording/ }));
+
+    expect(screen.getByTestId("transcribe-progress")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Choose recording" })).not.toBeInTheDocument();
   });
 });
