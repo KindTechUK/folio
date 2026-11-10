@@ -122,8 +122,8 @@ Offline file path: RTF 0.158 (M5 Pro: 0.059).
 | **0.8 s / 15 s** | 60 | 11.5 s | 2.58 / 3.25 / 3.99 s | 21.6 s | 12.8% | 0 | 6.2 |
 
 Decoding is about 2.5× slower than on the M5 Pro, at half the threads. The 0.5 s / 10 s row is the
-outlier: a shared CI machine is noisy, and that run's decoder time was about a third higher than the
-other rows for the same audio. The WER figures match the Mac's to within about half a point, as expected for
+outlier: its total decode time was about a third higher than the other rows for the same audio. That is
+probably runner noise, since on the Mac the same row cost no more than the others. The WER figures match the Mac's to within about half a point, as expected for
 the same model. Process CPU wasn't sampled (the harness uses `ps`). With the decoder busy about 13% on a
 2-thread machine, the average CPU is roughly in the same range, far under the 60% limit.
 
