@@ -158,45 +158,53 @@ export default function App() {
       .catch(() => setModelsChecked(true));
   }, []);
 
-  // Write one snapshot to the library. Never throws; false means the save failed.
-  async function persist(meta: OpenSessionMeta, snapshot: EditorState): Promise<boolean> {
-    if (snapshot === savedStateRef.current) return true;
-    setSaveStatus("saving");
-    try {
-      await invoke("save_session", {
-        session: buildSession({
-          id: meta.id,
-          createdAt: meta.createdAt,
-          updatedAt: new Date().toISOString(),
-          audioPath: meta.audioPath,
-          diarized: meta.diarized,
-          state: snapshot,
-        }),
-      });
-      if (metaRef.current?.id === meta.id) {
-        savedStateRef.current = snapshot;
-        setSaveCount((n) => n + 1);
+  // Library writes run one at a time, in order; this is the tail of that queue.
+  const writeQueueRef = useRef<Promise<unknown>>(Promise.resolve());
+
+  // Queue one snapshot for the library. Never rejects; false means the save failed.
+  function persist(meta: OpenSessionMeta, snapshot: EditorState): Promise<boolean> {
+    const write = writeQueueRef.current.then(async () => {
+      if (snapshot === savedStateRef.current) return true;
+      setSaveStatus("saving");
+      try {
+        await invoke("save_session", {
+          session: buildSession({
+            id: meta.id,
+            createdAt: meta.createdAt,
+            updatedAt: new Date().toISOString(),
+            audioPath: meta.audioPath,
+            diarized: meta.diarized,
+            state: snapshot,
+          }),
+        });
+        if (metaRef.current?.id === meta.id) {
+          savedStateRef.current = snapshot;
+          setSaveCount((n) => n + 1);
+        }
+        return true;
+      } catch {
+        setSaveStatus("error");
+        return false;
       }
-      return true;
-    } catch {
-      setSaveStatus("error");
-      return false;
-    }
+    });
+    writeQueueRef.current = write;
+    return write;
   }
 
-  // Write any edit still waiting for the autosave timer, including edits made
-  // while an earlier write was in flight.
+  // Before leaving a transcript: wait for every queued write, then save the
+  // on-screen text if it still differs from disk (edits and undos can land
+  // while a write is running).
   async function flushPendingSave(): Promise<boolean> {
-    const meta = currentSessionMeta;
+    const meta = metaRef.current;
     if (!meta) return true;
-    while (
-      metaRef.current?.id === meta.id &&
-      stateRef.current &&
-      stateRef.current !== savedStateRef.current
-    ) {
-      if (!(await persist(meta, stateRef.current))) return false;
+    for (;;) {
+      await writeQueueRef.current;
+      const latest = stateRef.current;
+      if (metaRef.current?.id !== meta.id || !latest || latest === savedStateRef.current) {
+        return true;
+      }
+      if (!(await persist(meta, latest))) return false;
     }
-    return true;
   }
 
   // Debounced (800ms) auto-save. The header says "Saving" from the moment an
