@@ -17,6 +17,10 @@ jobs:
     defaults:
       run:
         shell: bash
+    env:
+      # Forward-slash temp dir: Git Bash's sha256sum prefixes the hash with "\"
+      # when the path contains backslashes.
+      T: ../_s1
     steps:
       - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
@@ -32,7 +36,7 @@ jobs:
         run: |
           source scripts/modelpack-security.sh
           M=scripts/modelpack-assets.sha256
-          D="$RUNNER_TEMP/models"; P="$D/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"; mkdir -p "$P"
+          mkdir -p "$T"; D="$T/models"; P="$D/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"; mkdir -p "$P"
           curl -fsSL https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx -o "$D/silero_vad.onnx"
           verify_pinned_asset "$M" "$D/silero_vad.onnx" silero_vad.onnx
           HF=https://huggingface.co/csukuangfj/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/resolve/1ab9323565ddb038682214b292f588070a538ce2
@@ -41,13 +45,13 @@ jobs:
             verify_pinned_asset "$M" "$P/$f" "parakeet-tdt-0.6b-v2-int8/$f"
           done
       - name: Fetch AMI IS1009a (CC-BY-4.0; already 16 kHz mono)
-        run: curl -fsSL https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/IS1009a/audio/IS1009a.Mix-Headset.wav -o "$RUNNER_TEMP/IS1009a.wav"
+        run: mkdir -p "$T" && curl -fsSL https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/IS1009a/audio/IS1009a.Mix-Headset.wav -o "$T/IS1009a.wav"
       - name: Build harness
         run: cargo build --release --example live_replay --manifest-path engine/Cargo.toml
       - name: Sweep (simulated clock, real decode times)
         run: |
-          engine/target/release/examples/live_replay "$RUNNER_TEMP/IS1009a.wav" \
-            --models-dir "$RUNNER_TEMP/models" --threads 2 \
+          engine/target/release/examples/live_replay "$T/IS1009a.wav" \
+            --models-dir "$T/models" --threads 2 \
             --silence 0.5,0.8 --max-speech 10,15 --json s1-windows.jsonl
       - uses: actions/upload-artifact@v6
         with:
