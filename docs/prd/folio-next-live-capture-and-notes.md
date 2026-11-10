@@ -3,7 +3,7 @@
 > Status: proposed · Recorded 2026-09-25.
 > Source: the landscape research in `docs/research/scribe-landscape-2026-09.md`.
 > Go/no-go gates: `docs/spikes/next-phase-spikes.md`. **No phase starts until its spikes pass.**
-> Builds on `docs/prd/local-private-transcription.md`. That PRD listed "streaming/real-time
+> Builds on the original local-transcription PRD (removed from the tree in 59ba8a8; see git history). That PRD listed "streaming/real-time
 > transcription" as out of scope. This one **reopens live capture only**. It stays fully
 > on-device: still no cloud, no server and no network.
 
@@ -52,7 +52,7 @@ Delivered in phases, each gated by spikes:
 3. As a user, I want to pause and resume a recording, so that off-record moments aren't captured.
 4. As a user, I want the recording to survive an app crash or a flat battery (up to the last few seconds), so that I don't lose a 60-minute interview.
 5. As a user, I want speaker detection to run after I stop, with a speaker-count hint (usually 2), so that the finished transcript is labelled without the live view slowing down.
-6. As a user, I want the finished recording to open in the existing review editor and Library, so that correction, export and delete-matter work as they do today.
+6. As a user, I want the finished recording to open in the existing review editor and Transcripts view, so that correction, export and "Delete transcript and audio" work as they do today.
 7. As a user, I want a clear on-screen recording indicator and an optional spoken-consent prompt, so that everyone present knows they are being recorded.
 
 **Local notes (P2)**
@@ -91,7 +91,7 @@ Delivered in phases, each gated by spikes:
   pass `scripts/check-no-network.sh`.
 - **Recording at rest:** audio is appended in fixed-length WAV chunks under the app-data directory (the
   BitLocker volume), then finalised on stop. The session's `audioPath` (`app/src/session.ts`) points
-  at the finalised recording, so Library and delete-matter work unchanged.
+  at the finalised recording, so the Transcripts view and "Delete transcript and audio" work unchanged.
 - **Diarisation runs on stop**, using the existing `diarize` path with the speaker-count hint. Live diarisation
   is out of scope (no CPU-viable option in sherpa-onnx; Sortformer is capped at 4 speakers).
 
@@ -163,7 +163,7 @@ Same philosophy as the base PRD: test **external behaviour and contracts** with 
    produces a transcript whose text matches the file path's output within a small WER delta. It must not
    drop or duplicate words at chunk boundaries.
 2. **Crash recovery:** killing the app mid-recording loses at most the last chunk, and on restart the
-   partial recording is offered for recovery. Delete-matter removes finalised and partial files.
+   partial recording is offered for recovery. "Delete transcript and audio" removes finalised and partial files.
 3. **Template engine (pure, `core/`):** template JSON validation. Rendering the prompt from template +
    transcript is deterministic. Parsing model output into cited note sentences rejects malformed
    JSON and unknown citations.

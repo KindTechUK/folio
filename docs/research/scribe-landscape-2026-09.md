@@ -213,7 +213,7 @@ The projects that handle echo well ship acoustic echo cancellation plus per-proc
 | Whisper streaming (SimulStreaming, WhisperLive) | MIT | ~1–3 s | Whisper-dependent | Authors say CPU is too slow with large models |
 
 **Folio's current offline numbers for comparison** (from our own AMI eval, Mac CPU): Parakeet TDT v2 int8 has
-WER 17.9% at RTF 0.026, against Whisper medium.en at 27.2% / 0.478. See `docs/spikes/sherpa-onnx-spike.md` and PR #3.
+WER 17.9% at RTF 0.026, against Whisper medium.en at 27.2% / 0.478. See the original sherpa-onnx spike (in git history before 59ba8a8) and PR #3.
 
 **Streaming diarisation:** NVIDIA Streaming Sortformer v2.1 has **a maximum of 4 speakers** and a DER of 6.65% on CALLHOME
 2-speaker, but it is not in sherpa-onnx (feature request #3497). diart is not recommended. sherpa-onnx and pyannote
