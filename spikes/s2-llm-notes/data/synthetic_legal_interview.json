@@ -1,0 +1,2693 @@
+{
+  "id": "synthetic-legal-interview",
+  "title": "Employment client interview — first meeting (synthetic)",
+  "template": "attendance_note",
+  "speakers": {
+    "S1": "Solicitor (Daniel Okafor)",
+    "S2": "Aisha Rahman (client)",
+    "S3": "Trainee (Sophie Grant)"
+  },
+  "lines": [
+    {
+      "id": "L0001",
+      "start": 0.0,
+      "end": 15.2,
+      "speaker": "S1",
+      "text": "Right, is that, is that on? Yeah, okay, the little light's on. Sorry, I just record these for my own notes, it's only for me and it gets deleted once the note's done, is that alright with you?"
+    },
+    {
+      "id": "L0002",
+      "start": 15.7,
+      "end": 22.5,
+      "speaker": "S2",
+      "text": "Yeah, yeah that's fine. Sorry I'm a bit late, the parking round here is, honestly, it's a nightmare."
+    },
+    {
+      "id": "L0003",
+      "start": 22.9,
+      "end": 30.7,
+      "speaker": "S1",
+      "text": "Oh no, don't worry at all, everyone says that. Did you end up in the, the multi-storey on Mill Lane?"
+    },
+    {
+      "id": "L0004",
+      "start": 30.9,
+      "end": 40.9,
+      "speaker": "S2",
+      "text": "No, I went round twice and then I found one on the street, but it's only two hours, so I'll, I'll keep an eye on it."
+    },
+    {
+      "id": "L0005",
+      "start": 41.6,
+      "end": 53.3,
+      "speaker": "S1",
+      "text": "We'll be done well before that. Probably forty-five minutes, maybe a bit more if we need it. So, um, I'm Daniel, Daniel Okafor, I'm a solicitor here in the employment team."
+    },
+    {
+      "id": "L0006",
+      "start": 54.0,
+      "end": 66.8,
+      "speaker": "S1",
+      "text": "And for the note, today's Wednesday the twenty-third of September. My trainee Sophie might pop in a bit later just to, to take copies of anything you've brought, if that's okay."
+    },
+    {
+      "id": "L0007",
+      "start": 67.6,
+      "end": 69.5,
+      "speaker": "S2",
+      "text": "Yeah, of course, that's fine."
+    },
+    {
+      "id": "L0008",
+      "start": 69.8,
+      "end": 85.8,
+      "speaker": "S1",
+      "text": "Great. So just so you know, everything you tell me is confidential. Today is really about me getting the story and the dates straight, and then at the end I'll tell you what I think and what happens next. Okay?"
+    },
+    {
+      "id": "L0009",
+      "start": 86.2,
+      "end": 94.9,
+      "speaker": "S2",
+      "text": "Okay. I've, I've written some stuff down on my phone, I didn't know what you'd need, so I just sort of, wrote everything."
+    },
+    {
+      "id": "L0010",
+      "start": 95.9,
+      "end": 103.9,
+      "speaker": "S1",
+      "text": "That's brilliant, honestly that's really helpful, most people don't. So let's start at the beginning. Who were you working for?"
+    },
+    {
+      "id": "L0011",
+      "start": 104.8,
+      "end": 115.0,
+      "speaker": "S2",
+      "text": "North gate Logistics. Northgate Logistics Limited. It's the big warehouse off the, the ring road, by the retail park, the one with the blue cladding."
+    },
+    {
+      "id": "L0012",
+      "start": 115.8,
+      "end": 120.3,
+      "speaker": "S1",
+      "text": "Oh I know it, yeah. Okay. And when did you start there?"
+    },
+    {
+      "id": "L0013",
+      "start": 121.0,
+      "end": 124.5,
+      "speaker": "S2",
+      "text": "I started in, um, twenty nineteen. March twenty nineteen."
+    },
+    {
+      "id": "L0014",
+      "start": 125.1,
+      "end": 136.1,
+      "speaker": "S2",
+      "text": "No, sorry, no, twenty eighteen. It was twenty eighteen because my youngest was just starting nursery, so. The fifth of March twenty eighteen. It's on my contract."
+    },
+    {
+      "id": "L0015",
+      "start": 136.5,
+      "end": 146.0,
+      "speaker": "S1",
+      "text": "Fifth of March twenty eighteen. Okay. So eight and a half years, give or take. And what were you doing when you started?"
+    },
+    {
+      "id": "L0016",
+      "start": 147.1,
+      "end": 160.4,
+      "speaker": "S2",
+      "text": "I started as a picker, just on the, on the floor, general picking. And then I went to team leader in, it was the summer of twenty twenty-one. June twenty-one I think it was."
+    },
+    {
+      "id": "L0017",
+      "start": 161.3,
+      "end": 164.7,
+      "speaker": "S1",
+      "text": "And team leader of what, sorry, what's the team?"
+    },
+    {
+      "id": "L0018",
+      "start": 165.8,
+      "end": 177.4,
+      "speaker": "S2",
+      "text": "Inbound goods. So we do the, the unloading and the checking in, booking stuff onto the system, and I had, I've got, had, eleven people on my shift."
+    },
+    {
+      "id": "L0019",
+      "start": 177.9,
+      "end": 182.5,
+      "speaker": "S1",
+      "text": "Eleven people. That's a decent sized team. And your hours, full time?"
+    },
+    {
+      "id": "L0020",
+      "start": 182.9,
+      "end": 191.6,
+      "speaker": "S2",
+      "text": "Full time, yeah, it's four on four off, days, it's seven till seven. Well, seven till quarter past really, with the handover."
+    },
+    {
+      "id": "L0021",
+      "start": 192.3,
+      "end": 197.4,
+      "speaker": "S1",
+      "text": "Right. And your pay? Roughly, or if you know it exactly, even better."
+    },
+    {
+      "id": "L0022",
+      "start": 197.7,
+      "end": 199.3,
+      "speaker": "S2",
+      "text": "It was thirty-one thousand."
+    },
+    {
+      "id": "L0023",
+      "start": 200.1,
+      "end": 213.4,
+      "speaker": "S2",
+      "text": "Actually, no, sorry, that's, that's with the shift allowance and the overtime I think. The basic was twenty-nine thousand four hundred. The thirty-one is what I put on, like, a mortgage form once."
+    },
+    {
+      "id": "L0024",
+      "start": 213.8,
+      "end": 221.9,
+      "speaker": "S1",
+      "text": "Okay, so basic twenty-nine thousand four hundred a year. And the shift allowance on top, do you know what that was?"
+    },
+    {
+      "id": "L0025",
+      "start": 222.2,
+      "end": 230.3,
+      "speaker": "S2",
+      "text": "It's about eighteen hundred a year, it's on the payslip as, um, unsocial something, unsocial hours supplement, something like that."
+    },
+    {
+      "id": "L0026",
+      "start": 230.6,
+      "end": 237.2,
+      "speaker": "S1",
+      "text": "Okay, fine, we'll get it off the payslips anyway, so don't worry if you're not sure. Pension?"
+    },
+    {
+      "id": "L0027",
+      "start": 237.9,
+      "end": 245.6,
+      "speaker": "S2",
+      "text": "Yeah, the workplace one. I think they put in five percent. Maybe it's four. I'd have to check, sorry."
+    },
+    {
+      "id": "L0028",
+      "start": 246.6,
+      "end": 255.6,
+      "speaker": "S1",
+      "text": "That's fine, don't worry about that now, it's all in the payslips. Did you get a new contract when you became team leader?"
+    },
+    {
+      "id": "L0029",
+      "start": 256.3,
+      "end": 268.0,
+      "speaker": "S2",
+      "text": "I, I think I signed something on a, on the tablet thing, but I never got a copy. I've only got the original one from twenty eighteen, the paper one."
+    },
+    {
+      "id": "L0030",
+      "start": 268.4,
+      "end": 279.2,
+      "speaker": "S1",
+      "text": "Okay. Noted, we can ask for it. Now, I think from what you said on the phone to, to reception, there's a health side to this."
+    },
+    {
+      "id": "L0031",
+      "start": 280.0,
+      "end": 285.3,
+      "speaker": "S2",
+      "text": "Yeah. So I've got type one diabetes. I've had it since I was fourteen."
+    },
+    {
+      "id": "L0032",
+      "start": 285.6,
+      "end": 294.4,
+      "speaker": "S1",
+      "text": "Okay. And how do you manage it day to day, if you don't mind me asking? Only as much as you're comfortable with."
+    },
+    {
+      "id": "L0033",
+      "start": 295.4,
+      "end": 307.3,
+      "speaker": "S2",
+      "text": "No, it's fine, I'm used to it. I've got a, a sensor, a glucose sensor on my arm, it goes to an app on my phone, and I do injections."
+    },
+    {
+      "id": "L0034",
+      "start": 308.4,
+      "end": 322.6,
+      "speaker": "S2",
+      "text": "And basically if I'm dropping I need to stop and have something, like a juice or glucose tablets, and then check again after fifteen minutes, and then have something proper, like a biscuit or a sandwich."
+    },
+    {
+      "id": "L0035",
+      "start": 323.3,
+      "end": 326.3,
+      "speaker": "S1",
+      "text": "So it's not something you can really schedule."
+    },
+    {
+      "id": "L0036",
+      "start": 327.0,
+      "end": 335.8,
+      "speaker": "S2",
+      "text": "No, that's the thing, that's exactly the thing, you can't, it depends on how busy we are, the heat, what I've eaten, everything."
+    },
+    {
+      "id": "L0037",
+      "start": 336.1,
+      "end": 340.3,
+      "speaker": "S1",
+      "text": "And did Northgate know about the diabetes? From the start?"
+    },
+    {
+      "id": "L0038",
+      "start": 341.4,
+      "end": 351.9,
+      "speaker": "S2",
+      "text": "Yes. I put it on the health form when I started, and I told my manager then, Linda, Linda Chu. She was brilliant about it honestly."
+    },
+    {
+      "id": "L0039",
+      "start": 352.5,
+      "end": 355.3,
+      "speaker": "S1",
+      "text": "Linda Chu, C-H-U? Is she still there?"
+    },
+    {
+      "id": "L0040",
+      "start": 355.6,
+      "end": 368.7,
+      "speaker": "S2",
+      "text": "Yeah, C-H-U. No, she left, she left end of last year, she went to one of the supermarkets, on the distribution side. I've still got her number though, we're still friends on Facebook and that."
+    },
+    {
+      "id": "L0041",
+      "start": 369.3,
+      "end": 377.3,
+      "speaker": "S1",
+      "text": "Okay, that could be useful. We'll come back to that. So with Linda, what was the arrangement? If there was one."
+    },
+    {
+      "id": "L0042",
+      "start": 378.4,
+      "end": 398.1,
+      "speaker": "S2",
+      "text": "It wasn't written down, it was just, like, if I needed to step off for five minutes, I'd tell one of the lads to cover and I'd go. She never had an issue. It wasn't a lot, maybe once or twice a shift, if that, some days not at all."
+    },
+    {
+      "id": "L0043",
+      "start": 398.6,
+      "end": 403.2,
+      "speaker": "S1",
+      "text": "And nothing in writing about that, no email, no, no plan?"
+    },
+    {
+      "id": "L0044",
+      "start": 403.7,
+      "end": 415.2,
+      "speaker": "S2",
+      "text": "No. I mean, I don't think so. There might be an email somewhere from years ago, but I don't think so, it was just how we did it."
+    },
+    {
+      "id": "L0045",
+      "start": 416.0,
+      "end": 418.7,
+      "speaker": "S1",
+      "text": "Okay. That's fine, that's very normal actually."
+    },
+    {
+      "id": "L0046",
+      "start": 419.2,
+      "end": 428.3,
+      "speaker": "S2",
+      "text": "Sorry, my phone's buzzing, it's the, it's the school. Hang on. No, it's fine, it's just the, the trip money thing. Sorry."
+    },
+    {
+      "id": "L0047",
+      "start": 429.3,
+      "end": 432.7,
+      "speaker": "S1",
+      "text": "No problem at all, honestly. How old are they?"
+    },
+    {
+      "id": "L0048",
+      "start": 433.6,
+      "end": 442.4,
+      "speaker": "S2",
+      "text": "Seven and eleven. The eleven year old just started secondary, so it's all, you know, new everything, new shoes, new blazer, new bus."
+    },
+    {
+      "id": "L0049",
+      "start": 442.6,
+      "end": 454.6,
+      "speaker": "S1",
+      "text": "Oh, big change. My nephew's just done that, my sister says he's gone from, like, wanting to hold her hand to not wanting to be seen with her in a week."
+    },
+    {
+      "id": "L0050",
+      "start": 454.8,
+      "end": 460.5,
+      "speaker": "S2",
+      "text": "That's it, that's exactly it. Mine walks ten metres ahead of me now. Anyway. Sorry."
+    },
+    {
+      "id": "L0051",
+      "start": 461.6,
+      "end": 471.3,
+      "speaker": "S1",
+      "text": "No, no. Right, where were we. So Linda was your manager until the end of twenty twenty-five and the, the stepping off arrangement was fine."
+    },
+    {
+      "id": "L0052",
+      "start": 472.3,
+      "end": 484.3,
+      "speaker": "S2",
+      "text": "Yeah, it was fine for, like, years. Nobody ever said anything. I was never, I was even team leader of the quarter once. Twenty twenty-three I think. There's a certificate somewhere."
+    },
+    {
+      "id": "L0053",
+      "start": 484.9,
+      "end": 491.5,
+      "speaker": "S1",
+      "text": "Oh, that's worth finding as well if you can, it shows the kind of employee you were."
+    },
+    {
+      "id": "L0054",
+      "start": 492.3,
+      "end": 498.2,
+      "speaker": "S2",
+      "text": "It's probably in the kitchen drawer, with everything else, with all the, like, takeaway menus."
+    },
+    {
+      "id": "L0055",
+      "start": 498.9,
+      "end": 500.9,
+      "speaker": "S1",
+      "text": "Ha. Everyone's got that drawer."
+    },
+    {
+      "id": "L0056",
+      "start": 501.9,
+      "end": 506.9,
+      "speaker": "S1",
+      "text": "So Linda leaves at the end of last year. Who comes in?"
+    },
+    {
+      "id": "L0057",
+      "start": 508.0,
+      "end": 517.4,
+      "speaker": "S2",
+      "text": "Gary. Gary Whitlock. He started in January, it was, I think the twelfth of January. He's the operations manager for the whole inbound side."
+    },
+    {
+      "id": "L0058",
+      "start": 518.1,
+      "end": 519.3,
+      "speaker": "S1",
+      "text": "Whitlock, W-H-I-T—"
+    },
+    {
+      "id": "L0059",
+      "start": 519.8,
+      "end": 521.4,
+      "speaker": "S2",
+      "text": "L-O-C-K, yeah. Whit lock."
+    },
+    {
+      "id": "L0060",
+      "start": 521.7,
+      "end": 524.9,
+      "speaker": "S1",
+      "text": "And how was it with Gary at first?"
+    },
+    {
+      "id": "L0061",
+      "start": 525.9,
+      "end": 539.1,
+      "speaker": "S2",
+      "text": "Fine at first, honestly. He was just, he was very, very into numbers, like, the unload rates, the dock-to-stock times, all that. There's a big screen now with everyone's rates on it."
+    },
+    {
+      "id": "L0062",
+      "start": 539.5,
+      "end": 543.7,
+      "speaker": "S2",
+      "text": "And then in February he sent round this email about breaks."
+    },
+    {
+      "id": "L0063",
+      "start": 544.5,
+      "end": 547.5,
+      "speaker": "S1",
+      "text": "What did it say, as best you remember?"
+    },
+    {
+      "id": "L0064",
+      "start": 547.9,
+      "end": 562.2,
+      "speaker": "S2",
+      "text": "Basically that everyone takes their breaks at fixed times now, the thirty minutes and the two fifteens, and no one leaves the dock outside those without, um, without his say-so. That was the second of February."
+    },
+    {
+      "id": "L0065",
+      "start": 563.0,
+      "end": 566.2,
+      "speaker": "S1",
+      "text": "Do you have a copy of that email?"
+    },
+    {
+      "id": "L0066",
+      "start": 567.3,
+      "end": 579.6,
+      "speaker": "S2",
+      "text": "I, no, it was on my work email, so I haven't got it now. They cut me off the system the day I was dismissed, I can't get into anything."
+    },
+    {
+      "id": "L0067",
+      "start": 579.9,
+      "end": 591.5,
+      "speaker": "S1",
+      "text": "Okay, that's one for the, for the list, we can ask them for it. And did you say anything to him about the diabetes, when that came out?"
+    },
+    {
+      "id": "L0068",
+      "start": 592.5,
+      "end": 610.3,
+      "speaker": "S2",
+      "text": "Yeah, I went to see him that week, the same week, and I said look, I've got type one, sometimes I need to just step off for five minutes, I've always done it with Linda. And he said just, just time it with your breaks."
+    },
+    {
+      "id": "L0069",
+      "start": 610.8,
+      "end": 622.0,
+      "speaker": "S2",
+      "text": "Which, I mean, you can't, it doesn't work like that, you don't know when you're going to drop. It's not like, it's not like needing the toilet."
+    },
+    {
+      "id": "L0070",
+      "start": 623.1,
+      "end": 628.0,
+      "speaker": "S1",
+      "text": "Sure. Did you put anything in writing to him at that point?"
+    },
+    {
+      "id": "L0071",
+      "start": 628.3,
+      "end": 640.7,
+      "speaker": "S2",
+      "text": "Not then. Later I did. In March I emailed HR and asked for an occupational health referral, because I thought, you know, if a doctor says it, he'll have to listen."
+    },
+    {
+      "id": "L0072",
+      "start": 641.2,
+      "end": 644.5,
+      "speaker": "S1",
+      "text": "Good. That was sensible. And did that happen?"
+    },
+    {
+      "id": "L0073",
+      "start": 645.0,
+      "end": 653.2,
+      "speaker": "S2",
+      "text": "Yeah, I had a phone appointment with a nurse, and then the report came, it was dated the twenty-second of April."
+    },
+    {
+      "id": "L0074",
+      "start": 653.7,
+      "end": 664.2,
+      "speaker": "S2",
+      "text": "And it said I should be allowed short breaks when I need them, to test and eat, like, as a reasonable adjustment. It literally says reasonable adjustment."
+    },
+    {
+      "id": "L0075",
+      "start": 665.3,
+      "end": 668.4,
+      "speaker": "S1",
+      "text": "Do you have a copy of that report?"
+    },
+    {
+      "id": "L0076",
+      "start": 668.7,
+      "end": 683.5,
+      "speaker": "S2",
+      "text": "I think so. HR sent it to my personal email as well because I asked them to, so it should be in there. I'll have to dig for it, my inbox is, it's a mess, it's all school emails."
+    },
+    {
+      "id": "L0077",
+      "start": 684.4,
+      "end": 694.0,
+      "speaker": "S1",
+      "text": "That's a really important document, so if you can find that, that's top of the list, honestly. That's probably the most important thing after the letters."
+    },
+    {
+      "id": "L0078",
+      "start": 694.4,
+      "end": 696.4,
+      "speaker": "S2",
+      "text": "Okay. I'll find it tonight."
+    },
+    {
+      "id": "L0079",
+      "start": 697.5,
+      "end": 699.9,
+      "speaker": "S1",
+      "text": "After that report, did anything change?"
+    },
+    {
+      "id": "L0080",
+      "start": 700.9,
+      "end": 714.5,
+      "speaker": "S2",
+      "text": "Not really. Gary said he'd take it on board. That's what he said, \"I'll take it on board\". And then in May he had me in the office for a, he called it a conversation."
+    },
+    {
+      "id": "L0081",
+      "start": 715.5,
+      "end": 716.7,
+      "speaker": "S1",
+      "text": "When in May?"
+    },
+    {
+      "id": "L0082",
+      "start": 717.1,
+      "end": 732.2,
+      "speaker": "S2",
+      "text": "The nineteenth, I think, the nineteenth of May. It was a Tuesday. He said my team were seeing me leave the dock and it looked bad. And that I need to set an example as a team leader."
+    },
+    {
+      "id": "L0083",
+      "start": 733.2,
+      "end": 739.5,
+      "speaker": "S1",
+      "text": "Was that a formal meeting? Did you get a letter afterwards, anything saying it was a warning?"
+    },
+    {
+      "id": "L0084",
+      "start": 740.0,
+      "end": 753.9,
+      "speaker": "S2",
+      "text": "No. Nothing. No letter, nobody said warning. He just said it was a conversation, like, informal, just a chat. I've never had a warning, not ever, not in eight years. Not a verbal, not a written, nothing."
+    },
+    {
+      "id": "L0085",
+      "start": 754.4,
+      "end": 760.6,
+      "speaker": "S1",
+      "text": "Okay, that's helpful. So no written warning, nothing on your file that you know of."
+    },
+    {
+      "id": "L0086",
+      "start": 761.2,
+      "end": 771.5,
+      "speaker": "S2",
+      "text": "Not that I know of. If they say I was late, well, I wasn't, I've never been late, I'm the one that opens up half the time."
+    },
+    {
+      "id": "L0087",
+      "start": 772.3,
+      "end": 777.9,
+      "speaker": "S1",
+      "text": "Has anyone actually said you were late? Is that in any of the letters?"
+    },
+    {
+      "id": "L0088",
+      "start": 778.4,
+      "end": 786.4,
+      "speaker": "S2",
+      "text": "No, no, nobody's said it, it's just, I wouldn't put it past them, that's all. I'm just saying if they do."
+    },
+    {
+      "id": "L0089",
+      "start": 787.0,
+      "end": 792.4,
+      "speaker": "S1",
+      "text": "Okay. Let's stick to what they've actually said. Right, so, take me to July."
+    },
+    {
+      "id": "L0090",
+      "start": 793.2,
+      "end": 807.1,
+      "speaker": "S2",
+      "text": "So the first of July and the third of July, both days I had a low mid-morning and I stepped off, and I told Tomasz to cover, and I was maybe ten, twelve minutes each time."
+    },
+    {
+      "id": "L0091",
+      "start": 808.0,
+      "end": 809.2,
+      "speaker": "S1",
+      "text": "Tomasz is?"
+    },
+    {
+      "id": "L0092",
+      "start": 809.7,
+      "end": 818.2,
+      "speaker": "S2",
+      "text": "Tomasz Nowak, he's one of my team, he's like my, unofficial deputy I suppose. He's been there nearly as long as me."
+    },
+    {
+      "id": "L0093",
+      "start": 818.6,
+      "end": 820.2,
+      "speaker": "S1",
+      "text": "And Gary saw that?"
+    },
+    {
+      "id": "L0094",
+      "start": 820.8,
+      "end": 835.5,
+      "speaker": "S2",
+      "text": "He must have been watching, because on the, the third, when I came back he said, \"that's twice this week\", in front of everyone. It was, I was so embarrassed. The agency lads were all there."
+    },
+    {
+      "id": "L0095",
+      "start": 836.5,
+      "end": 838.1,
+      "speaker": "S1",
+      "text": "And then the ninth."
+    },
+    {
+      "id": "L0096",
+      "start": 838.7,
+      "end": 855.8,
+      "speaker": "S2",
+      "text": "The ninth. Yeah. Um. So the ninth of July, it was really hot, it was that week where it was like thirty degrees, and the dock is like an oven, the doors are open but it doesn't help, it's all tarmac out there."
+    },
+    {
+      "id": "L0097",
+      "start": 856.2,
+      "end": 871.2,
+      "speaker": "S2",
+      "text": "And I'd been trying not to step off, because of Gary, you know, and I was pushing it, and about two o'clock I went really low. Like, I was shaking and I couldn't, I couldn't read the scanner."
+    },
+    {
+      "id": "L0098",
+      "start": 871.6,
+      "end": 873.9,
+      "speaker": "S1",
+      "text": "Take your time. There's no rush."
+    },
+    {
+      "id": "L0099",
+      "start": 874.3,
+      "end": 888.0,
+      "speaker": "S2",
+      "text": "Sorry. It's fine. I sat down on a pallet basically, and Marcus, Marcus Bell, he's a first aider, he came over and he got me a Lucozade from the machine and stayed with me."
+    },
+    {
+      "id": "L0100",
+      "start": 888.3,
+      "end": 890.8,
+      "speaker": "S1",
+      "text": "Did you lose consciousness at all?"
+    },
+    {
+      "id": "L0101",
+      "start": 891.2,
+      "end": 905.1,
+      "speaker": "S2",
+      "text": "No, no. I was very confused, I don't remember all of it. My sensor said two point one. Marcus took a photo of it actually, of my phone, because he said you'll want that."
+    },
+    {
+      "id": "L0102",
+      "start": 905.5,
+      "end": 909.6,
+      "speaker": "S1",
+      "text": "That's, that's quite a sensible thing for him to have done."
+    },
+    {
+      "id": "L0103",
+      "start": 910.0,
+      "end": 922.8,
+      "speaker": "S2",
+      "text": "He's great, Marcus. He's the one who does all the first aid training as well. So after, like, twenty minutes I was okay, I went to the canteen to eat something properly."
+    },
+    {
+      "id": "L0104",
+      "start": 923.8,
+      "end": 936.0,
+      "speaker": "S2",
+      "text": "And Gary came in and said, you've left the dock with no team leader, go home. He said, \"go home, you're not fit to be here\". And I went home."
+    },
+    {
+      "id": "L0105",
+      "start": 936.9,
+      "end": 941.6,
+      "speaker": "S1",
+      "text": "He sent you home. Was that the end of the shift, or?"
+    },
+    {
+      "id": "L0106",
+      "start": 942.3,
+      "end": 954.7,
+      "speaker": "S2",
+      "text": "No, it was about half two, so I lost, what, four and a half hours. And they didn't pay me for them, actually, I noticed that on the payslip after."
+    },
+    {
+      "id": "L0107",
+      "start": 955.8,
+      "end": 959.7,
+      "speaker": "S1",
+      "text": "Was there an accident form, anything like that, filled in?"
+    },
+    {
+      "id": "L0108",
+      "start": 960.2,
+      "end": 968.1,
+      "speaker": "S2",
+      "text": "Marcus said he filled in the first aid log. I don't know if Gary did anything, I doubt it."
+    },
+    {
+      "id": "L0109",
+      "start": 969.1,
+      "end": 983.6,
+      "speaker": "S2",
+      "text": "If I'd told Gary that morning that my levels were all over the place, maybe it wouldn't have got to that, I don't know. Maybe he would have moved me off the dock or something."
+    },
+    {
+      "id": "L0110",
+      "start": 984.5,
+      "end": 993.8,
+      "speaker": "S1",
+      "text": "Well, let's not beat yourself up about that. You'd already told them about the condition, and they had the OH report since April."
+    },
+    {
+      "id": "L0111",
+      "start": 994.1,
+      "end": 999.0,
+      "speaker": "S2",
+      "text": "I know. I just keep going over it, you know. At night."
+    },
+    {
+      "id": "L0112",
+      "start": 999.5,
+      "end": 1001.5,
+      "speaker": "S1",
+      "text": "Of course. That's completely natural."
+    },
+    {
+      "id": "L0113",
+      "start": 1001.9,
+      "end": 1012.1,
+      "speaker": "S2",
+      "text": "And it's still so warm now, isn't it, for September. I was sat in the car this morning with the air con on thinking, God, not again."
+    },
+    {
+      "id": "L0114",
+      "start": 1013.0,
+      "end": 1016.6,
+      "speaker": "S1",
+      "text": "I know, it's mad. My tomatoes are still going."
+    },
+    {
+      "id": "L0115",
+      "start": 1017.6,
+      "end": 1020.5,
+      "speaker": "S1",
+      "text": "So what happened next, after the ninth?"
+    },
+    {
+      "id": "L0116",
+      "start": 1021.2,
+      "end": 1035.4,
+      "speaker": "S2",
+      "text": "I went back in on my next block of shifts, and nothing happened for about a week. Then I got called to an investigation meeting on the seventeenth, with Dean Farrow, he's one of the shift managers."
+    },
+    {
+      "id": "L0117",
+      "start": 1036.0,
+      "end": 1039.3,
+      "speaker": "S1",
+      "text": "Seventeenth of July. What did Dean ask you?"
+    },
+    {
+      "id": "L0118",
+      "start": 1040.4,
+      "end": 1057.6,
+      "speaker": "S2",
+      "text": "About the three days. The first, the third and the ninth. Why I'd left the dock. And I told him, I said it's my diabetes, it's in the OH report, you've got it on file. He wrote it all down, he was typing on the laptop."
+    },
+    {
+      "id": "L0119",
+      "start": 1058.1,
+      "end": 1063.0,
+      "speaker": "S1",
+      "text": "Did you get notes of that meeting? A copy of what he typed?"
+    },
+    {
+      "id": "L0120",
+      "start": 1063.3,
+      "end": 1074.0,
+      "speaker": "S2",
+      "text": "No. I asked, I asked for them and they said they'd be in the pack, and they weren't. There was no pack really, just the letter."
+    },
+    {
+      "id": "L0121",
+      "start": 1074.7,
+      "end": 1075.9,
+      "speaker": "S1",
+      "text": "Okay. Then?"
+    },
+    {
+      "id": "L0122",
+      "start": 1076.8,
+      "end": 1090.9,
+      "speaker": "S2",
+      "text": "Then I got a letter, the twenty-eighth of July, inviting me to a disciplinary meeting. It said the allegations were, um, unauthorised absence from my work area, and failure to follow a reasonable management instruction."
+    },
+    {
+      "id": "L0123",
+      "start": 1091.2,
+      "end": 1094.3,
+      "speaker": "S1",
+      "text": "Did it say it could lead to dismissal?"
+    },
+    {
+      "id": "L0124",
+      "start": 1094.6,
+      "end": 1103.1,
+      "speaker": "S2",
+      "text": "Yes. It said, um, \"a possible outcome is dismissal\". I've got that letter, I brought it, it's in the, in the folder."
+    },
+    {
+      "id": "L0125",
+      "start": 1103.6,
+      "end": 1109.1,
+      "speaker": "S1",
+      "text": "Great. We'll get Sophie to copy it. And the meeting itself, when was that?"
+    },
+    {
+      "id": "L0126",
+      "start": 1110.2,
+      "end": 1120.5,
+      "speaker": "S2",
+      "text": "The sixth of August. And, and this is the bit that really, it was Gary. Gary was the one doing it. The one hearing it."
+    },
+    {
+      "id": "L0127",
+      "start": 1121.1,
+      "end": 1128.4,
+      "speaker": "S1",
+      "text": "So Gary chaired the disciplinary. The same person who'd raised the concerns about you in the first place."
+    },
+    {
+      "id": "L0128",
+      "start": 1128.8,
+      "end": 1138.4,
+      "speaker": "S2",
+      "text": "Yes. And there was someone from HR, Kerry, taking notes. Kerry Doyle I think her surname is. She's nice enough, she's just, she's HR."
+    },
+    {
+      "id": "L0129",
+      "start": 1138.9,
+      "end": 1144.6,
+      "speaker": "S1",
+      "text": "Were you accompanied? You have a right to bring a colleague or a union rep."
+    },
+    {
+      "id": "L0130",
+      "start": 1145.6,
+      "end": 1156.1,
+      "speaker": "S2",
+      "text": "Tomasz came with me. He didn't really say much, he was scared, honestly, he's got a mortgage and a baby on the way, so, I don't blame him."
+    },
+    {
+      "id": "L0131",
+      "start": 1157.0,
+      "end": 1160.0,
+      "speaker": "S1",
+      "text": "No, that's understandable. What happened in the meeting?"
+    },
+    {
+      "id": "L0132",
+      "start": 1160.3,
+      "end": 1170.0,
+      "speaker": "S2",
+      "text": "Gary basically read out the dates, and I explained again about the hypos and the OH report, and he said the report says \"where operationally possible\"."
+    },
+    {
+      "id": "L0133",
+      "start": 1170.6,
+      "end": 1174.8,
+      "speaker": "S2",
+      "text": "Which, it does say that, I think, somewhere in it, but."
+    },
+    {
+      "id": "L0134",
+      "start": 1175.5,
+      "end": 1185.0,
+      "speaker": "S1",
+      "text": "Okay, that's worth noting, we'll look at the exact wording carefully when you send it through. Those few words can matter a lot."
+    },
+    {
+      "id": "L0135",
+      "start": 1185.7,
+      "end": 1197.3,
+      "speaker": "S2",
+      "text": "And he said I should have radioed him before I left the dock every time. But on the ninth I couldn't, I could barely stand, I couldn't have held a radio."
+    },
+    {
+      "id": "L0136",
+      "start": 1197.9,
+      "end": 1201.4,
+      "speaker": "S1",
+      "text": "Did you have a radio on the other days?"
+    },
+    {
+      "id": "L0137",
+      "start": 1202.3,
+      "end": 1216.1,
+      "speaker": "S2",
+      "text": "Yeah, the first and third I did. I, I didn't radio him, I just told Tomasz. That's what I'd always done. I suppose, I mean, technically, he'd said to ask him. But it's five minutes."
+    },
+    {
+      "id": "L0138",
+      "start": 1217.2,
+      "end": 1226.3,
+      "speaker": "S1",
+      "text": "Okay. Thank you for being straight about that, that's exactly the kind of thing I need to know, because they will definitely raise it."
+    },
+    {
+      "id": "L0139",
+      "start": 1226.7,
+      "end": 1228.8,
+      "speaker": "S1",
+      "text": "How long was the meeting?"
+    },
+    {
+      "id": "L0140",
+      "start": 1229.7,
+      "end": 1239.8,
+      "speaker": "S2",
+      "text": "Forty minutes? Maybe less. And then he said he'd let me know in writing. He didn't even look at me, he just, looked at his screen."
+    },
+    {
+      "id": "L0141",
+      "start": 1240.7,
+      "end": 1245.2,
+      "speaker": "S1",
+      "text": "And did you get notes of the disciplinary meeting? Kerry's notes?"
+    },
+    {
+      "id": "L0142",
+      "start": 1246.3,
+      "end": 1251.2,
+      "speaker": "S2",
+      "text": "No. I asked for them in my appeal as well. Never got them."
+    },
+    {
+      "id": "L0143",
+      "start": 1252.3,
+      "end": 1256.6,
+      "speaker": "S1",
+      "text": "Okay. So neither set of notes. And then the outcome letter."
+    },
+    {
+      "id": "L0144",
+      "start": 1257.5,
+      "end": 1261.2,
+      "speaker": "S2",
+      "text": "The letter came, it was the fifteenth of August."
+    },
+    {
+      "id": "L0145",
+      "start": 1262.2,
+      "end": 1273.2,
+      "speaker": "S2",
+      "text": "Wait, no. Hang on, let me look, I've got it here. It's, it's dated the fourteenth. The fourteenth of August, and it says my employment ends that day."
+    },
+    {
+      "id": "L0146",
+      "start": 1274.3,
+      "end": 1285.5,
+      "speaker": "S2",
+      "text": "I got it by email on the fourteenth, about five o'clock, and then the post one came on the Saturday. That's why I had the fifteenth in my head."
+    },
+    {
+      "id": "L0147",
+      "start": 1286.1,
+      "end": 1298.2,
+      "speaker": "S1",
+      "text": "Can I see that? Thanks. Yes, fourteenth of August twenty twenty-six, \"your employment will terminate with effect from today's date\". Okay, so that's your effective date of termination, the fourteenth of August."
+    },
+    {
+      "id": "L0148",
+      "start": 1298.7,
+      "end": 1310.6,
+      "speaker": "S1",
+      "text": "And it says dismissed for, let's see, \"misconduct, namely repeated failure to follow reasonable management instructions\". So it's not gross misconduct. And they've paid you in lieu of notice."
+    },
+    {
+      "id": "L0149",
+      "start": 1311.4,
+      "end": 1315.9,
+      "speaker": "S2",
+      "text": "Yeah, eight weeks. It was four thousand five hundred and something."
+    },
+    {
+      "id": "L0150",
+      "start": 1316.8,
+      "end": 1326.7,
+      "speaker": "S1",
+      "text": "The letter says four thousand five hundred and twenty-three pounds, which is eight weeks' pay in lieu of notice. Did that actually arrive in your bank?"
+    },
+    {
+      "id": "L0151",
+      "start": 1327.7,
+      "end": 1332.8,
+      "speaker": "S2",
+      "text": "Yes, it came in with the final pay at the end of August."
+    },
+    {
+      "id": "L0152",
+      "start": 1333.6,
+      "end": 1336.6,
+      "speaker": "S1",
+      "text": "Good. And holiday, was there any holiday owed?"
+    },
+    {
+      "id": "L0153",
+      "start": 1336.9,
+      "end": 1346.3,
+      "speaker": "S2",
+      "text": "I think I had some left, maybe six days, but I don't know if it's in there, the payslip's really confusing, there's all these codes."
+    },
+    {
+      "id": "L0154",
+      "start": 1347.3,
+      "end": 1355.0,
+      "speaker": "S1",
+      "text": "We'll check that. It's a small point but it's worth checking, and it's easy money if they've got it wrong."
+    },
+    {
+      "id": "L0155",
+      "start": 1355.8,
+      "end": 1360.7,
+      "speaker": "S1",
+      "text": "Does the letter mention your diabetes at all? Or the occupational health report?"
+    },
+    {
+      "id": "L0156",
+      "start": 1361.4,
+      "end": 1369.0,
+      "speaker": "S2",
+      "text": "No. Not once. That's what got me. Eight years, and it doesn't even mention it. It's like it never happened."
+    },
+    {
+      "id": "L0157",
+      "start": 1369.5,
+      "end": 1373.9,
+      "speaker": "S1",
+      "text": "Okay. And does it tell you about a right of appeal?"
+    },
+    {
+      "id": "L0158",
+      "start": 1374.1,
+      "end": 1379.5,
+      "speaker": "S2",
+      "text": "Yeah, it says I can appeal within five working days, in writing, to HR."
+    },
+    {
+      "id": "L0159",
+      "start": 1380.5,
+      "end": 1387.1,
+      "speaker": "S1",
+      "text": "Right. Sorry, I'm just writing, bear with me. My handwriting is terrible, I'll never read this back."
+    },
+    {
+      "id": "L0160",
+      "start": 1387.9,
+      "end": 1391.8,
+      "speaker": "S2",
+      "text": "Mine's worse. My son says I write like a doctor."
+    },
+    {
+      "id": "L0161",
+      "start": 1392.7,
+      "end": 1393.9,
+      "speaker": "S1",
+      "text": "Ha. Okay."
+    },
+    {
+      "id": "L0162",
+      "start": 1394.5,
+      "end": 1395.7,
+      "speaker": "S1",
+      "text": "So you appealed."
+    },
+    {
+      "id": "L0163",
+      "start": 1396.5,
+      "end": 1404.8,
+      "speaker": "S2",
+      "text": "Yeah, I emailed my appeal on the nineteenth of August. To HR, to the HR inbox, and I copied Kerry in."
+    },
+    {
+      "id": "L0164",
+      "start": 1405.7,
+      "end": 1411.0,
+      "speaker": "S1",
+      "text": "Nineteenth. Good, so within the five working days. What were your grounds, roughly?"
+    },
+    {
+      "id": "L0165",
+      "start": 1411.6,
+      "end": 1426.9,
+      "speaker": "S2",
+      "text": "That it was because of my diabetes, that they ignored the OH report, that Gary shouldn't have done the hearing because it was his complaint in the first place. And that I'd never had a warning, not even one."
+    },
+    {
+      "id": "L0166",
+      "start": 1427.5,
+      "end": 1434.8,
+      "speaker": "S1",
+      "text": "Honestly, those are good points to have made yourself, without any advice. Well done. Who heard the appeal?"
+    },
+    {
+      "id": "L0167",
+      "start": 1435.8,
+      "end": 1445.1,
+      "speaker": "S2",
+      "text": "Claire Ashdown, she's the regional manager. It was on the second of September. On Teams, which, my camera kept freezing, it was a disaster."
+    },
+    {
+      "id": "L0168",
+      "start": 1445.4,
+      "end": 1448.9,
+      "speaker": "S1",
+      "text": "And how did it go, apart from the camera?"
+    },
+    {
+      "id": "L0169",
+      "start": 1449.9,
+      "end": 1460.0,
+      "speaker": "S2",
+      "text": "She was nicer. She listened, she actually let me talk. But then the letter came and it was just, dismissal upheld. The sixteenth of September, last Wednesday."
+    },
+    {
+      "id": "L0170",
+      "start": 1460.3,
+      "end": 1464.5,
+      "speaker": "S1",
+      "text": "Did she deal with each of your points in the letter?"
+    },
+    {
+      "id": "L0171",
+      "start": 1465.6,
+      "end": 1480.4,
+      "speaker": "S2",
+      "text": "Sort of, a paragraph each. She said Gary was the right person because he knew the facts best. And on the OH thing, she said they'd offered me fixed breaks, which was an adjustment, and I didn't use them properly."
+    },
+    {
+      "id": "L0172",
+      "start": 1481.0,
+      "end": 1486.6,
+      "speaker": "S1",
+      "text": "Okay. That's, well, we'll look at it. I can see what they're going to say."
+    },
+    {
+      "id": "L0173",
+      "start": 1487.5,
+      "end": 1503.2,
+      "speaker": "S2",
+      "text": "And then at the end of the appeal call, Kerry from HR, she said something like, if I wanted to go quietly there might be something they could do. But she didn't say what. She didn't say an amount or anything."
+    },
+    {
+      "id": "L0174",
+      "start": 1503.9,
+      "end": 1510.8,
+      "speaker": "S1",
+      "text": "Did they send you anything after that? A document to sign, a settlement agreement, anything like that?"
+    },
+    {
+      "id": "L0175",
+      "start": 1511.3,
+      "end": 1522.2,
+      "speaker": "S2",
+      "text": "No. Nothing came. And I haven't signed anything. Nothing at all. They wanted me to sign to say I'd got the dismissal letter and I didn't even do that."
+    },
+    {
+      "id": "L0176",
+      "start": 1522.5,
+      "end": 1529.1,
+      "speaker": "S1",
+      "text": "Good. Please don't sign anything without talking to us first. Even if it looks like a formality."
+    },
+    {
+      "id": "L0177",
+      "start": 1529.5,
+      "end": 1531.5,
+      "speaker": "S2",
+      "text": "No, I won't. I promise."
+    },
+    {
+      "id": "L0178",
+      "start": 1532.6,
+      "end": 1538.7,
+      "speaker": "S1",
+      "text": "Now, is there anything anyone said about you? About why this happened, anything you've heard?"
+    },
+    {
+      "id": "L0179",
+      "start": 1539.5,
+      "end": 1552.2,
+      "speaker": "S2",
+      "text": "Um. So, this is, one of the girls on the other shift, Jodie, she told me that she heard that Gary called me a liability. In the, like the managers' meeting, the Monday one."
+    },
+    {
+      "id": "L0180",
+      "start": 1552.7,
+      "end": 1555.2,
+      "speaker": "S1",
+      "text": "Was Jodie in that meeting herself?"
+    },
+    {
+      "id": "L0181",
+      "start": 1556.1,
+      "end": 1568.3,
+      "speaker": "S2",
+      "text": "No, no. She heard it from someone who was, I think. She wouldn't say who. So I don't know if it's true. It sounds like him, but I honestly don't know."
+    },
+    {
+      "id": "L0182",
+      "start": 1568.5,
+      "end": 1579.3,
+      "speaker": "S1",
+      "text": "Okay. So that's second-hand, possibly third-hand. I'll write it down, but we can't rely on it as it stands. If it's true, it might come out in the documents."
+    },
+    {
+      "id": "L0183",
+      "start": 1579.7,
+      "end": 1582.8,
+      "speaker": "S2",
+      "text": "No, I understand. I just, it upset me."
+    },
+    {
+      "id": "L0184",
+      "start": 1583.7,
+      "end": 1585.2,
+      "speaker": "S1",
+      "text": "Of course it did."
+    },
+    {
+      "id": "L0185",
+      "start": 1585.9,
+      "end": 1592.4,
+      "speaker": "S3",
+      "text": "Sorry, hi, sorry to interrupt, Daniel said to come in about now? I'm Sophie, I'm the trainee."
+    },
+    {
+      "id": "L0186",
+      "start": 1593.1,
+      "end": 1599.7,
+      "speaker": "S1",
+      "text": "Perfect timing. Sophie, this is Aisha. Aisha's brought some documents, could you take copies for the file?"
+    },
+    {
+      "id": "L0187",
+      "start": 1600.1,
+      "end": 1604.9,
+      "speaker": "S3",
+      "text": "Of course. Hi, nice to meet you. So what have we got?"
+    },
+    {
+      "id": "L0188",
+      "start": 1605.7,
+      "end": 1619.4,
+      "speaker": "S2",
+      "text": "Hi. So there's the invite letter, the dismissal letter, the appeal outcome. And my old contract, the twenty eighteen one. And some payslips, I've got May, June, July and the final one, the August one."
+    },
+    {
+      "id": "L0189",
+      "start": 1620.1,
+      "end": 1623.8,
+      "speaker": "S3",
+      "text": "Great. And the OH report, is that in here?"
+    },
+    {
+      "id": "L0190",
+      "start": 1624.7,
+      "end": 1629.0,
+      "speaker": "S2",
+      "text": "No, that's on my email, I'll have to forward it. Sorry."
+    },
+    {
+      "id": "L0191",
+      "start": 1629.6,
+      "end": 1635.0,
+      "speaker": "S3",
+      "text": "Okay, no problem. And is there a, a copy of your appeal email?"
+    },
+    {
+      "id": "L0192",
+      "start": 1635.9,
+      "end": 1641.1,
+      "speaker": "S2",
+      "text": "Yeah, that's the one on the top, I printed it off at my sister's."
+    },
+    {
+      "id": "L0193",
+      "start": 1641.8,
+      "end": 1654.3,
+      "speaker": "S1",
+      "text": "She doesn't have the break policy email from February, it's on the work system. Same with the meeting notes, she's never had the notes from the investigation or the disciplinary."
+    },
+    {
+      "id": "L0194",
+      "start": 1654.9,
+      "end": 1658.4,
+      "speaker": "S3",
+      "text": "Okay. Would that go in a subject access request?"
+    },
+    {
+      "id": "L0195",
+      "start": 1659.1,
+      "end": 1671.5,
+      "speaker": "S1",
+      "text": "Exactly, yes. So we'll do a DSAR to Northgate, ask for her personnel file, both sets of notes, emails mentioning her, the break email, the first aid log, CCTV if there is any."
+    },
+    {
+      "id": "L0196",
+      "start": 1672.2,
+      "end": 1675.8,
+      "speaker": "S3",
+      "text": "CCTV only keeps, like, thirty days sometimes, doesn't it?"
+    },
+    {
+      "id": "L0197",
+      "start": 1676.3,
+      "end": 1681.3,
+      "speaker": "S1",
+      "text": "Often, yeah, it may well be gone by now. Still worth asking."
+    },
+    {
+      "id": "L0198",
+      "start": 1682.3,
+      "end": 1686.1,
+      "speaker": "S2",
+      "text": "There's cameras all over the dock, so. Gary loves them."
+    },
+    {
+      "id": "L0199",
+      "start": 1687.0,
+      "end": 1695.1,
+      "speaker": "S3",
+      "text": "Right. Um, could I ask, Aisha, the photo Marcus took of the sensor, do you have that or does he?"
+    },
+    {
+      "id": "L0200",
+      "start": 1695.5,
+      "end": 1704.4,
+      "speaker": "S2",
+      "text": "He sent it to me on WhatsApp. I've got it. It's got the time on it as well, it says fourteen oh six."
+    },
+    {
+      "id": "L0201",
+      "start": 1705.3,
+      "end": 1709.9,
+      "speaker": "S3",
+      "text": "Brilliant. Could you forward that too, when you send the OH report?"
+    },
+    {
+      "id": "L0202",
+      "start": 1710.6,
+      "end": 1713.3,
+      "speaker": "S2",
+      "text": "Yeah, yeah, I'll do it all together."
+    },
+    {
+      "id": "L0203",
+      "start": 1714.2,
+      "end": 1718.3,
+      "speaker": "S3",
+      "text": "Okay, I'll go and do these and bring the originals back."
+    },
+    {
+      "id": "L0204",
+      "start": 1719.2,
+      "end": 1726.4,
+      "speaker": "S1",
+      "text": "Thanks, Sophie. So, while she's doing that. Witnesses. Who saw what? Let's start with the ninth of July."
+    },
+    {
+      "id": "L0205",
+      "start": 1726.9,
+      "end": 1733.0,
+      "speaker": "S2",
+      "text": "Marcus, definitely. He was there the whole time. And he's still there, he's still working there."
+    },
+    {
+      "id": "L0206",
+      "start": 1733.8,
+      "end": 1741.2,
+      "speaker": "S1",
+      "text": "Do you think he'd be willing to give a statement? No pressure on him, just, what's your feeling?"
+    },
+    {
+      "id": "L0207",
+      "start": 1742.0,
+      "end": 1754.9,
+      "speaker": "S2",
+      "text": "I think so. He said to me, if you need anything, just ask. He was really angry about it actually. He said it was, he said it was out of order."
+    },
+    {
+      "id": "L0208",
+      "start": 1755.6,
+      "end": 1756.8,
+      "speaker": "S1",
+      "text": "Okay. And Tomasz?"
+    },
+    {
+      "id": "L0209",
+      "start": 1757.6,
+      "end": 1767.0,
+      "speaker": "S2",
+      "text": "Tomasz, I don't know. Like I said, he's nervous. He's still there, and Gary's his manager now. I don't want to get him in trouble."
+    },
+    {
+      "id": "L0210",
+      "start": 1767.6,
+      "end": 1775.5,
+      "speaker": "S1",
+      "text": "That's fair. We don't need to approach him yet. And Linda? She could say what the arrangement was before Gary."
+    },
+    {
+      "id": "L0211",
+      "start": 1776.3,
+      "end": 1785.2,
+      "speaker": "S2",
+      "text": "Linda would, I think. She's not there any more so she's got nothing to lose. She's always said they were lucky to have me."
+    },
+    {
+      "id": "L0212",
+      "start": 1785.4,
+      "end": 1789.3,
+      "speaker": "S1",
+      "text": "That's really helpful. And Jodie? Only because you mentioned her."
+    },
+    {
+      "id": "L0213",
+      "start": 1789.7,
+      "end": 1799.5,
+      "speaker": "S2",
+      "text": "No, Jodie wouldn't, she's, she's on a temp contract, she's hoping to get made permanent. And like I said, she didn't hear it herself."
+    },
+    {
+      "id": "L0214",
+      "start": 1800.0,
+      "end": 1804.1,
+      "speaker": "S1",
+      "text": "Okay, understood. We'll leave Jodie out of it for now."
+    },
+    {
+      "id": "L0215",
+      "start": 1805.0,
+      "end": 1814.5,
+      "speaker": "S1",
+      "text": "Let's talk about how you are now, and money. Since the fourteenth of August, have you worked at all? Even a bit of agency work?"
+    },
+    {
+      "id": "L0216",
+      "start": 1815.3,
+      "end": 1824.4,
+      "speaker": "S2",
+      "text": "No. Nothing. I've been applying though. I've done about fifteen applications, maybe more. Mostly warehouse supervisor stuff, team leader, a couple of admin jobs."
+    },
+    {
+      "id": "L0217",
+      "start": 1825.5,
+      "end": 1826.7,
+      "speaker": "S1",
+      "text": "Any interviews yet?"
+    },
+    {
+      "id": "L0218",
+      "start": 1827.6,
+      "end": 1837.8,
+      "speaker": "S2",
+      "text": "One, next Tuesday, at a parcel company, Harbour Freight, out by the airport. It's a team leader job. It's less money, it's like twenty-seven, but it's something."
+    },
+    {
+      "id": "L0219",
+      "start": 1838.0,
+      "end": 1843.4,
+      "speaker": "S1",
+      "text": "That's positive. That's really positive. The problem, I'd guess, is going to be references."
+    },
+    {
+      "id": "L0220",
+      "start": 1843.8,
+      "end": 1855.1,
+      "speaker": "S2",
+      "text": "That's it, that's exactly it, because they'll ring Northgate and Northgate will say dismissed, and then that's it, isn't it. That's what I'm most worried about, honestly, more than anything."
+    },
+    {
+      "id": "L0221",
+      "start": 1856.0,
+      "end": 1858.1,
+      "speaker": "S1",
+      "text": "Have you claimed any benefits?"
+    },
+    {
+      "id": "L0222",
+      "start": 1858.6,
+      "end": 1869.6,
+      "speaker": "S2",
+      "text": "I put in for Universal Credit, I'm waiting to hear. My husband works, he's a bus driver, so, I don't know if I'll get much, if anything."
+    },
+    {
+      "id": "L0223",
+      "start": 1870.6,
+      "end": 1883.1,
+      "speaker": "S1",
+      "text": "Okay. Keep a record of every application, dates, where, what happened. That matters for any compensation, because they'll say you should have done more to find work. It's called mitigating your loss."
+    },
+    {
+      "id": "L0224",
+      "start": 1883.8,
+      "end": 1893.3,
+      "speaker": "S2",
+      "text": "I've got a spreadsheet actually. My eleven year old made it for me, it's got colours and everything, green for interview, red for rejected."
+    },
+    {
+      "id": "L0225",
+      "start": 1894.0,
+      "end": 1898.2,
+      "speaker": "S1",
+      "text": "Ha, brilliant. Honestly, that's better than most spreadsheets I get sent."
+    },
+    {
+      "id": "L0226",
+      "start": 1898.7,
+      "end": 1900.6,
+      "speaker": "S2",
+      "text": "There's a lot of red."
+    },
+    {
+      "id": "L0227",
+      "start": 1901.7,
+      "end": 1907.0,
+      "speaker": "S1",
+      "text": "That's normal, it's normal, especially at the moment. Don't read too much into it."
+    },
+    {
+      "id": "L0228",
+      "start": 1907.6,
+      "end": 1918.7,
+      "speaker": "S2",
+      "text": "And the, the stress. I've not been sleeping. My levels have been all over the place since, my diabetes nurse said so, she said my average has gone right up."
+    },
+    {
+      "id": "L0229",
+      "start": 1919.1,
+      "end": 1923.2,
+      "speaker": "S1",
+      "text": "Have you seen your GP about the stress, about sleeping?"
+    },
+    {
+      "id": "L0230",
+      "start": 1924.3,
+      "end": 1928.0,
+      "speaker": "S2",
+      "text": "Not yet. The nurse, yes, early September. Not the GP."
+    },
+    {
+      "id": "L0231",
+      "start": 1928.9,
+      "end": 1940.1,
+      "speaker": "S1",
+      "text": "Might be worth mentioning to your GP. Just so it's on record, if you're struggling, and so you get some support. That's for you first, not just for the case."
+    },
+    {
+      "id": "L0232",
+      "start": 1940.7,
+      "end": 1947.9,
+      "speaker": "S2",
+      "text": "Yeah. I'll book something. If I can get through on the phone, it's like trying to get concert tickets."
+    },
+    {
+      "id": "L0233",
+      "start": 1948.7,
+      "end": 1958.3,
+      "speaker": "S1",
+      "text": "Tell me about it. Eight o'clock on the dot. Right. So, what do you actually want out of this? If you could wave a magic wand."
+    },
+    {
+      "id": "L0234",
+      "start": 1958.7,
+      "end": 1977.1,
+      "speaker": "S2",
+      "text": "Honestly? I want them to say they got it wrong. That you can't treat someone like that for being ill. And a proper reference, a decent one, so I can get a job. The money, it'd be nice, obviously, but it's not the main thing."
+    },
+    {
+      "id": "L0235",
+      "start": 1977.9,
+      "end": 1982.8,
+      "speaker": "S1",
+      "text": "So acknowledgement, a reference, and compensation is secondary. Have I got that right?"
+    },
+    {
+      "id": "L0236",
+      "start": 1983.0,
+      "end": 1994.1,
+      "speaker": "S2",
+      "text": "Yeah. That's right. And I suppose, I'd like them to sort out the break thing for anyone else. There's a lad with epilepsy on nights, and I worry about him."
+    },
+    {
+      "id": "L0237",
+      "start": 1994.4,
+      "end": 2006.4,
+      "speaker": "S1",
+      "text": "Understood. A tribunal can make recommendations, but its powers there are fairly limited. Some of that might be more achievable in a negotiated outcome. We'll come back to that."
+    },
+    {
+      "id": "L0238",
+      "start": 2006.9,
+      "end": 2008.1,
+      "speaker": "S2",
+      "text": "Okay."
+    },
+    {
+      "id": "L0239",
+      "start": 2008.8,
+      "end": 2019.7,
+      "speaker": "S1",
+      "text": "Now, the boring bit, sorry. Funding. Do you have any legal expenses insurance? It's often bolted on to home insurance, or car insurance, people have it without realising."
+    },
+    {
+      "id": "L0240",
+      "start": 2020.7,
+      "end": 2034.4,
+      "speaker": "S2",
+      "text": "I don't, I don't know. We've got home insurance with, um, Castleford Mutual. I think my husband ticked a box for legal something when we renewed, but I don't know, he does all that."
+    },
+    {
+      "id": "L0241",
+      "start": 2035.3,
+      "end": 2040.7,
+      "speaker": "S1",
+      "text": "That's definitely worth checking. If there's legal expenses cover, it might pay for this."
+    },
+    {
+      "id": "L0242",
+      "start": 2041.8,
+      "end": 2054.8,
+      "speaker": "S1",
+      "text": "They usually want to see that the case has reasonable prospects, and sometimes they want you to use their own panel solicitors, although you can usually insist on your own once proceedings are issued."
+    },
+    {
+      "id": "L0243",
+      "start": 2055.2,
+      "end": 2059.2,
+      "speaker": "S2",
+      "text": "Okay. So would you still be able to do it?"
+    },
+    {
+      "id": "L0244",
+      "start": 2060.3,
+      "end": 2070.4,
+      "speaker": "S1",
+      "text": "Possibly, it depends on the policy. So if you can send me the policy schedule and the policy wording, the long document, I'll look at it."
+    },
+    {
+      "id": "L0245",
+      "start": 2071.2,
+      "end": 2084.8,
+      "speaker": "S1",
+      "text": "I'm not going to talk about fees today, because it really depends what the insurance says. Once we know, I'll set out the options in writing, and nothing happens on fees until you've agreed it."
+    },
+    {
+      "id": "L0246",
+      "start": 2085.1,
+      "end": 2093.5,
+      "speaker": "S2",
+      "text": "Okay, that's good, because I was worried about that, to be honest. I was worried I'd walk out owing you money."
+    },
+    {
+      "id": "L0247",
+      "start": 2094.6,
+      "end": 2101.5,
+      "speaker": "S1",
+      "text": "No, today's free anyway, it's our free first meeting. So you won't get a bill for this."
+    },
+    {
+      "id": "L0248",
+      "start": 2101.8,
+      "end": 2112.1,
+      "speaker": "S2",
+      "text": "Thank you. Sorry, can I just check the car? It's, I just want to make sure I've not, it's fine, I've got till quarter past."
+    },
+    {
+      "id": "L0249",
+      "start": 2113.2,
+      "end": 2117.3,
+      "speaker": "S1",
+      "text": "Of course, do you want to go and move it?"
+    },
+    {
+      "id": "L0250",
+      "start": 2117.5,
+      "end": 2120.6,
+      "speaker": "S2",
+      "text": "No, it's fine, it's fine, we've got time."
+    },
+    {
+      "id": "L0251",
+      "start": 2121.6,
+      "end": 2134.7,
+      "speaker": "S1",
+      "text": "Okay. Now, the really important bit. Time limits. In employment tribunal claims they're very short and they're very strict. If you miss them, that's usually the end of it, however good the case is."
+    },
+    {
+      "id": "L0252",
+      "start": 2135.4,
+      "end": 2137.0,
+      "speaker": "S2",
+      "text": "Okay. That's, yeah. Okay."
+    },
+    {
+      "id": "L0253",
+      "start": 2137.9,
+      "end": 2153.7,
+      "speaker": "S1",
+      "text": "Before you can bring a claim, you have to go through ACAS early conciliation. That's a free service. You notify ACAS, they contact the employer, and they try to see if it can be settled without a tribunal."
+    },
+    {
+      "id": "L0254",
+      "start": 2154.7,
+      "end": 2171.0,
+      "speaker": "S1",
+      "text": "And you have to start that, you have to notify ACAS, within three months less one day of the dismissal. Your dismissal date is the fourteenth of August. So the last day to contact ACAS is the thirteenth of November twenty twenty-six."
+    },
+    {
+      "id": "L0255",
+      "start": 2171.6,
+      "end": 2172.8,
+      "speaker": "S2",
+      "text": "Thirteenth of November."
+    },
+    {
+      "id": "L0256",
+      "start": 2173.0,
+      "end": 2190.9,
+      "speaker": "S1",
+      "text": "Thirteenth of November. But we are not going to leave it that late, I don't like leaving things to the last week. My plan is to get the ACAS notification in by the middle of October. Say by the sixteenth of October at the latest."
+    },
+    {
+      "id": "L0257",
+      "start": 2191.5,
+      "end": 2193.0,
+      "speaker": "S2",
+      "text": "Okay. Sixteenth of October."
+    },
+    {
+      "id": "L0258",
+      "start": 2193.9,
+      "end": 2198.9,
+      "speaker": "S1",
+      "text": "Have you contacted a cast, sorry, ACAS, yourself already? Some people do."
+    },
+    {
+      "id": "L0259",
+      "start": 2199.6,
+      "end": 2211.7,
+      "speaker": "S2",
+      "text": "No, I rang the helpline once, back in August, but I didn't, I didn't do the form. I didn't know if I should, I didn't want to mess it up."
+    },
+    {
+      "id": "L0260",
+      "start": 2212.6,
+      "end": 2217.0,
+      "speaker": "S1",
+      "text": "That's fine, that's absolutely fine. Better we do it together, properly."
+    },
+    {
+      "id": "L0261",
+      "start": 2217.4,
+      "end": 2222.3,
+      "speaker": "S3",
+      "text": "Sorry, here's your originals back, Aisha, and the copies are on the file."
+    },
+    {
+      "id": "L0262",
+      "start": 2223.1,
+      "end": 2224.3,
+      "speaker": "S2",
+      "text": "Oh, thank you."
+    },
+    {
+      "id": "L0263",
+      "start": 2224.6,
+      "end": 2235.7,
+      "speaker": "S3",
+      "text": "Sorry, Daniel, can I just ask something, because the appeal outcome was the sixteenth of September, doesn't the three months run from then instead? So it'd be December?"
+    },
+    {
+      "id": "L0264",
+      "start": 2236.6,
+      "end": 2247.8,
+      "speaker": "S1",
+      "text": "No, good question, but no. The clock runs from the effective date of termination, the fourteenth of August. An internal appeal doesn't pause it and it doesn't restart it."
+    },
+    {
+      "id": "L0265",
+      "start": 2248.7,
+      "end": 2258.7,
+      "speaker": "S1",
+      "text": "That's a really common mistake, so thank you for raising it, but the deadline is the thirteenth of November, not December. Please don't anyone work to December."
+    },
+    {
+      "id": "L0266",
+      "start": 2259.7,
+      "end": 2261.3,
+      "speaker": "S3",
+      "text": "Okay, got it. Sorry."
+    },
+    {
+      "id": "L0267",
+      "start": 2261.8,
+      "end": 2273.0,
+      "speaker": "S1",
+      "text": "Not at all, better asked here than found out later. Sophie, could you hang on a minute, we'll do next steps in a sec and there's a job for you."
+    },
+    {
+      "id": "L0268",
+      "start": 2274.0,
+      "end": 2275.2,
+      "speaker": "S3",
+      "text": "Sure."
+    },
+    {
+      "id": "L0269",
+      "start": 2275.4,
+      "end": 2296.8,
+      "speaker": "S1",
+      "text": "On the discrimination side, it's the same basic three-month rule, running from the act you're complaining about. Some of the earlier things, February, May, they might be argued as part of a continuing course of conduct up to the dismissal. But we'll work to the thirteenth of November for everything, to be safe."
+    },
+    {
+      "id": "L0270",
+      "start": 2297.5,
+      "end": 2311.6,
+      "speaker": "S1",
+      "text": "And once ACAS is notified, the clock is paused while conciliation happens, and then there's a further period to issue the claim. But I'll explain that properly in writing, I don't want to overload you today."
+    },
+    {
+      "id": "L0271",
+      "start": 2312.7,
+      "end": 2317.1,
+      "speaker": "S2",
+      "text": "No, thank you, it's a lot. It's a lot to take in."
+    },
+    {
+      "id": "L0272",
+      "start": 2318.1,
+      "end": 2326.7,
+      "speaker": "S1",
+      "text": "So, my initial view. You've got more than two years' service, so you can bring an unfair dismissal claim, that's not an issue."
+    },
+    {
+      "id": "L0273",
+      "start": 2326.9,
+      "end": 2338.8,
+      "speaker": "S1",
+      "text": "On the diabetes, type one diabetes is very likely to count as a disability under the Equality Act. They might try to argue about it, but I'd be surprised."
+    },
+    {
+      "id": "L0274",
+      "start": 2339.7,
+      "end": 2355.8,
+      "speaker": "S1",
+      "text": "The claims I can see at this stage are unfair dismissal, discrimination arising from disability, because the things they dismissed you for were caused by your diabetes, and failure to make reasonable adjustments, especially given the occupational health report."
+    },
+    {
+      "id": "L0275",
+      "start": 2356.2,
+      "end": 2369.1,
+      "speaker": "S1",
+      "text": "And procedurally there are some real concerns. Gary chairing the disciplinary when it was his complaint. No previous warnings. You not being given the notes. The letter not even mentioning the diabetes."
+    },
+    {
+      "id": "L0276",
+      "start": 2370.1,
+      "end": 2375.4,
+      "speaker": "S2",
+      "text": "So, do you think I'll win? Like, what are my chances, honestly? Fifty-fifty? More?"
+    },
+    {
+      "id": "L0277",
+      "start": 2375.7,
+      "end": 2390.3,
+      "speaker": "S1",
+      "text": "I'm not going to put a percentage on it, I'm sorry. Honestly, I'd be making it up at this stage. I haven't seen their side, I haven't seen the OH report, I haven't seen their policies."
+    },
+    {
+      "id": "L0278",
+      "start": 2390.5,
+      "end": 2398.3,
+      "speaker": "S1",
+      "text": "What I can say is there are real issues here that are worth pursuing. But there's no guarantee. None at all."
+    },
+    {
+      "id": "L0279",
+      "start": 2398.9,
+      "end": 2415.3,
+      "speaker": "S1",
+      "text": "They'll say this was about following instructions, not the diabetes. They'll say fixed breaks were a reasonable adjustment, and the \"where operationally possible\" wording gives them some room. And they'll say you didn't radio in on the first and the third."
+    },
+    {
+      "id": "L0280",
+      "start": 2416.2,
+      "end": 2428.3,
+      "speaker": "S1",
+      "text": "And tribunals are slow. If it doesn't settle, it could be a year or more before there's a hearing. And it's stressful. I want you to go in with your eyes open."
+    },
+    {
+      "id": "L0281",
+      "start": 2428.6,
+      "end": 2431.6,
+      "speaker": "S2",
+      "text": "Yeah. No, I appreciate that. I'd rather know."
+    },
+    {
+      "id": "L0282",
+      "start": 2432.3,
+      "end": 2437.9,
+      "speaker": "S2",
+      "text": "And the money, like, roughly how much would I get? If it went well."
+    },
+    {
+      "id": "L0283",
+      "start": 2438.4,
+      "end": 2456.3,
+      "speaker": "S1",
+      "text": "Again, it's too early to give you a figure, and I don't want to give you a number that sticks in your head. It depends on how quickly you find work, among other things. I'll give you a range once I've got the payslips and your job search."
+    },
+    {
+      "id": "L0284",
+      "start": 2456.9,
+      "end": 2470.2,
+      "speaker": "S1",
+      "text": "On the reference, though, that's something that can often be negotiated as part of a settlement through ACAS. An agreed reference. That lines up quite well with what you've said you want."
+    },
+    {
+      "id": "L0285",
+      "start": 2471.2,
+      "end": 2476.0,
+      "speaker": "S2",
+      "text": "That would, honestly, that would be the main thing. That would be everything."
+    },
+    {
+      "id": "L0286",
+      "start": 2477.0,
+      "end": 2486.7,
+      "speaker": "S1",
+      "text": "And just so we're clear, nothing has been issued. There's no claim in the tribunal yet, and nothing's gone to ACAS. We're right at the start."
+    },
+    {
+      "id": "L0287",
+      "start": 2487.0,
+      "end": 2497.1,
+      "speaker": "S1",
+      "text": "So, next steps. Let me go through who's doing what, and then I'll put it all in the letter so you don't have to remember it."
+    },
+    {
+      "id": "L0288",
+      "start": 2497.5,
+      "end": 2502.4,
+      "speaker": "S2",
+      "text": "Okay. Let me get my phone out, I'll write it down anyway."
+    },
+    {
+      "id": "L0289",
+      "start": 2503.2,
+      "end": 2517.9,
+      "speaker": "S1",
+      "text": "So you, Aisha. By this Friday, the twenty-fifth, email me the OH report, Marcus's photo of the sensor, and any payslips you've got that you haven't brought today. And the February email if you ever find a copy anywhere."
+    },
+    {
+      "id": "L0290",
+      "start": 2518.7,
+      "end": 2519.9,
+      "speaker": "S2",
+      "text": "Friday. Okay."
+    },
+    {
+      "id": "L0291",
+      "start": 2520.3,
+      "end": 2530.4,
+      "speaker": "S1",
+      "text": "Then by Monday, let's say Monday the twenty-eighth, check with Castleford Mutual whether you've got legal expenses cover, and send me the policy schedule and the wording."
+    },
+    {
+      "id": "L0292",
+      "start": 2531.2,
+      "end": 2537.4,
+      "speaker": "S2",
+      "text": "I'll get my husband to ring them, he's off on Monday actually, so that works."
+    },
+    {
+      "id": "L0293",
+      "start": 2537.9,
+      "end": 2552.1,
+      "speaker": "S1",
+      "text": "Perfect. And by next Friday, the second of October, write me a timeline in your own words. Everything you've told me today, with dates, as best you can. It doesn't have to be pretty, bullet points is fine."
+    },
+    {
+      "id": "L0294",
+      "start": 2553.1,
+      "end": 2557.6,
+      "speaker": "S2",
+      "text": "Okay. Friday the twenty-fifth, Monday the twenty-eighth, Friday the second. Got it."
+    },
+    {
+      "id": "L0295",
+      "start": 2558.0,
+      "end": 2560.9,
+      "speaker": "S1",
+      "text": "And keep the spreadsheet going. Every application."
+    },
+    {
+      "id": "L0296",
+      "start": 2561.7,
+      "end": 2567.6,
+      "speaker": "S2",
+      "text": "I will. My son will be thrilled, he loves that spreadsheet more than I do."
+    },
+    {
+      "id": "L0297",
+      "start": 2568.1,
+      "end": 2577.0,
+      "speaker": "S1",
+      "text": "Ha. Sophie, you'll draft the subject access request to Northgate by Monday, and I'll check it and it'll go out on Tuesday."
+    },
+    {
+      "id": "L0298",
+      "start": 2577.6,
+      "end": 2583.4,
+      "speaker": "S3",
+      "text": "Yep, Monday. Should I send it to the HR inbox or to a registered office?"
+    },
+    {
+      "id": "L0299",
+      "start": 2584.3,
+      "end": 2591.0,
+      "speaker": "S1",
+      "text": "Both. Email to HR and post to the registered office, we'll look it up on Companies House."
+    },
+    {
+      "id": "L0300",
+      "start": 2592.1,
+      "end": 2593.3,
+      "speaker": "S3",
+      "text": "Okay, will do."
+    },
+    {
+      "id": "L0301",
+      "start": 2594.2,
+      "end": 2597.0,
+      "speaker": "S1",
+      "text": "Thanks. You can go, Sophie, thank you."
+    },
+    {
+      "id": "L0302",
+      "start": 2597.7,
+      "end": 2601.4,
+      "speaker": "S3",
+      "text": "Nice to meet you, Aisha. Good luck on Tuesday."
+    },
+    {
+      "id": "L0303",
+      "start": 2601.7,
+      "end": 2603.3,
+      "speaker": "S2",
+      "text": "Oh, thank you. Thanks."
+    },
+    {
+      "id": "L0304",
+      "start": 2603.9,
+      "end": 2617.5,
+      "speaker": "S1",
+      "text": "And from me, I'll send you a letter confirming today's advice and the funding options by Tuesday the twenty-ninth. It'll set out the time limits again, with the thirteenth of November in bold."
+    },
+    {
+      "id": "L0305",
+      "start": 2618.1,
+      "end": 2631.4,
+      "speaker": "S1",
+      "text": "And one more thing for you. If you're comfortable, could you ask Marcus whether he'd be willing to give a statement? Just ask, don't go into detail with him. Don't approach Tomasz for now."
+    },
+    {
+      "id": "L0306",
+      "start": 2632.5,
+      "end": 2635.2,
+      "speaker": "S2",
+      "text": "Okay. I'll message Marcus. I'll leave Tomasz."
+    },
+    {
+      "id": "L0307",
+      "start": 2635.8,
+      "end": 2646.0,
+      "speaker": "S1",
+      "text": "And maybe, if you can, ask Linda too? Just whether she'd be happy to talk to me at some point. No rush on that one."
+    },
+    {
+      "id": "L0308",
+      "start": 2646.8,
+      "end": 2649.4,
+      "speaker": "S2",
+      "text": "Yeah, I'll message her, she'll be fine."
+    },
+    {
+      "id": "L0309",
+      "start": 2649.8,
+      "end": 2663.1,
+      "speaker": "S1",
+      "text": "Then let's meet again. Thursday the eighth of October, ten o'clock? By then I should have your documents and hopefully an answer on the insurance, and we'll aim to have ACAS notified by the sixteenth."
+    },
+    {
+      "id": "L0310",
+      "start": 2663.3,
+      "end": 2674.5,
+      "speaker": "S2",
+      "text": "Thursday the eighth, ten. Let me just check, the, um, the little one's got an assembly on the eighth. No, that's the ninth. Yeah, the eighth is fine."
+    },
+    {
+      "id": "L0311",
+      "start": 2675.0,
+      "end": 2685.9,
+      "speaker": "S1",
+      "text": "Great. And if anything comes from Northgate in the meantime, any letter, any offer, anything to sign, send it to me before you reply. Don't respond to them directly."
+    },
+    {
+      "id": "L0312",
+      "start": 2686.2,
+      "end": 2688.6,
+      "speaker": "S2",
+      "text": "I won't. I won't sign anything."
+    },
+    {
+      "id": "L0313",
+      "start": 2689.1,
+      "end": 2701.7,
+      "speaker": "S1",
+      "text": "And good luck on Tuesday. If they ask about why you left, just say it's subject to an ongoing process and you'd rather not go into detail. Keep it short and factual."
+    },
+    {
+      "id": "L0314",
+      "start": 2702.7,
+      "end": 2707.0,
+      "speaker": "S2",
+      "text": "Okay. That's, that's actually really useful. I was dreading that question."
+    },
+    {
+      "id": "L0315",
+      "start": 2707.4,
+      "end": 2713.4,
+      "speaker": "S1",
+      "text": "Everyone does. Is there anything else you wanted to ask me? Anything I haven't covered?"
+    },
+    {
+      "id": "L0316",
+      "start": 2713.8,
+      "end": 2726.4,
+      "speaker": "S2",
+      "text": "No, I think, no. I think that's it. I just, thank you. I feel a bit better. Like, I thought I was being mad, you know. That maybe I was the problem."
+    },
+    {
+      "id": "L0317",
+      "start": 2726.8,
+      "end": 2739.2,
+      "speaker": "S1",
+      "text": "No. You're not being mad. There are real questions about how this was handled. But as I said, no promises, and we'll know a lot more once we've got their documents."
+    },
+    {
+      "id": "L0318",
+      "start": 2739.4,
+      "end": 2745.5,
+      "speaker": "S2",
+      "text": "Yeah. No, I get that. I'd rather that than someone telling me I'll definitely win."
+    },
+    {
+      "id": "L0319",
+      "start": 2745.7,
+      "end": 2752.2,
+      "speaker": "S1",
+      "text": "Exactly. Right, let me walk you down. Did you say you're on the street? Which one?"
+    },
+    {
+      "id": "L0320",
+      "start": 2752.5,
+      "end": 2756.7,
+      "speaker": "S2",
+      "text": "Yeah, on Cromwell Road, by the church. Hopefully without a ticket."
+    },
+    {
+      "id": "L0321",
+      "start": 2757.2,
+      "end": 2768.4,
+      "speaker": "S1",
+      "text": "Fingers crossed. The wardens round here are ruthless. And take a coat on Tuesday, they're saying it's finally going to break at the weekend, rain all week."
+    },
+    {
+      "id": "L0322",
+      "start": 2769.5,
+      "end": 2772.6,
+      "speaker": "S2",
+      "text": "Finally. Honestly, I'll be glad. Thank you, Daniel."
+    },
+    {
+      "id": "L0323",
+      "start": 2773.3,
+      "end": 2781.8,
+      "speaker": "S1",
+      "text": "You're welcome. Speak on Friday, or, well, email on Friday. Take care. I'm just going to stop the, the recording now."
+    }
+  ],
+  "facts": [
+    {
+      "id": "F01",
+      "fact": "Aisha was employed by Northgate Logistics Ltd as an inbound goods team leader with eleven people on her shift.",
+      "lines": [
+        "L0011",
+        "L0018"
+      ]
+    },
+    {
+      "id": "F02",
+      "fact": "She started on 5 March 2018, initially as a picker, and was promoted to team leader around June 2021.",
+      "lines": [
+        "L0014",
+        "L0016"
+      ]
+    },
+    {
+      "id": "F03",
+      "fact": "Her basic salary was £29,400 a year, plus a shift (unsocial hours) allowance of about £1,800 a year.",
+      "lines": [
+        "L0023",
+        "L0025"
+      ]
+    },
+    {
+      "id": "F04",
+      "fact": "She has had type 1 diabetes since age 14, managed with a glucose sensor and injections; lows require her to stop, take glucose and recheck.",
+      "lines": [
+        "L0031",
+        "L0033",
+        "L0034"
+      ]
+    },
+    {
+      "id": "F05",
+      "fact": "Northgate knew of her diabetes from the start (health form); her former manager Linda Chu informally allowed her to step off briefly with cover.",
+      "lines": [
+        "L0038",
+        "L0042"
+      ]
+    },
+    {
+      "id": "F06",
+      "fact": "Gary Whitlock became operations manager around 12 January 2026.",
+      "lines": [
+        "L0057"
+      ]
+    },
+    {
+      "id": "F07",
+      "fact": "On 2 February 2026 Gary emailed a fixed-break rule (no leaving the dock outside set breaks without his permission); when she raised her diabetes he told her to time lows with her breaks.",
+      "lines": [
+        "L0064",
+        "L0068"
+      ]
+    },
+    {
+      "id": "F08",
+      "fact": "She requested an occupational health referral in March 2026; the OH report dated 22 April 2026 recommended short breaks as needed as a reasonable adjustment.",
+      "lines": [
+        "L0071",
+        "L0073",
+        "L0074"
+      ]
+    },
+    {
+      "id": "F09",
+      "fact": "On 19 May 2026 Gary held an informal 'conversation' with her about leaving the dock; no warning was issued.",
+      "lines": [
+        "L0082",
+        "L0084",
+        "L0085"
+      ]
+    },
+    {
+      "id": "F10",
+      "fact": "On 1 and 3 July 2026 she stepped off for about 10-12 minutes each time due to lows, with Tomasz Nowak covering; she did not radio Gary on those days.",
+      "lines": [
+        "L0090",
+        "L0137"
+      ]
+    },
+    {
+      "id": "F11",
+      "fact": "On 9 July 2026 (a very hot day) she had a hypo around 2pm; first aider Marcus Bell gave her Lucozade and photographed her sensor reading of 2.1.",
+      "lines": [
+        "L0096",
+        "L0097",
+        "L0099",
+        "L0101"
+      ]
+    },
+    {
+      "id": "F12",
+      "fact": "After recovering on 9 July, Gary sent her home saying she was not fit to be there.",
+      "lines": [
+        "L0104"
+      ]
+    },
+    {
+      "id": "F13",
+      "fact": "An investigation meeting was held on 17 July 2026 with shift manager Dean Farrow.",
+      "lines": [
+        "L0116"
+      ]
+    },
+    {
+      "id": "F14",
+      "fact": "A letter dated 28 July 2026 invited her to a disciplinary on allegations of unauthorised absence from work area and failure to follow a reasonable management instruction, warning dismissal was possible.",
+      "lines": [
+        "L0122",
+        "L0124"
+      ]
+    },
+    {
+      "id": "F15",
+      "fact": "The disciplinary meeting on 6 August 2026 was chaired by Gary Whitlock (who raised the concerns), with Kerry from HR taking notes and Tomasz Nowak accompanying her.",
+      "lines": [
+        "L0126",
+        "L0127",
+        "L0128",
+        "L0130"
+      ]
+    },
+    {
+      "id": "F16",
+      "fact": "She was dismissed by letter dated 14 August 2026 (effective that day) for misconduct - repeated failure to follow reasonable management instructions - not gross misconduct; the letter does not mention her diabetes.",
+      "lines": [
+        "L0145",
+        "L0146",
+        "L0147",
+        "L0148",
+        "L0156"
+      ]
+    },
+    {
+      "id": "F17",
+      "fact": "She received £4,523 as eight weeks' pay in lieu of notice with her final pay; possible unpaid holiday (about six days) is to be checked.",
+      "lines": [
+        "L0150",
+        "L0151",
+        "L0153"
+      ]
+    },
+    {
+      "id": "F18",
+      "fact": "She appealed by email on 19 August 2026; the appeal was heard by regional manager Claire Ashdown on 2 September 2026 and the dismissal was upheld by letter dated 16 September 2026.",
+      "lines": [
+        "L0163",
+        "L0167",
+        "L0169"
+      ]
+    },
+    {
+      "id": "F19",
+      "fact": "She has the invite letter, dismissal letter, appeal outcome, her appeal email, her 2018 contract and some payslips; she lacks the February break email, the team leader contract and notes of both meetings - a DSAR will be sent.",
+      "lines": [
+        "L0029",
+        "L0188",
+        "L0192",
+        "L0193",
+        "L0195"
+      ]
+    },
+    {
+      "id": "F20",
+      "fact": "Witnesses: Marcus Bell (still employed, likely willing), Tomasz Nowak (still employed, nervous - not to be approached yet), Linda Chu (former manager, now left, likely willing).",
+      "lines": [
+        "L0207",
+        "L0209",
+        "L0211",
+        "L0305"
+      ]
+    },
+    {
+      "id": "F21",
+      "fact": "She has not worked since 14 August, has made about 15 applications, has an interview with Harbour Freight next Tuesday (about £27k), and has applied for Universal Credit.",
+      "lines": [
+        "L0216",
+        "L0218",
+        "L0222"
+      ]
+    },
+    {
+      "id": "F22",
+      "fact": "Her main goals are an acknowledgement that Northgate got it wrong and a proper reference; compensation is secondary.",
+      "lines": [
+        "L0220",
+        "L0234",
+        "L0235"
+      ]
+    },
+    {
+      "id": "F23",
+      "fact": "She may have legal expenses insurance on her home policy with Castleford Mutual, to be checked; the first meeting was free.",
+      "lines": [
+        "L0240",
+        "L0247"
+      ]
+    },
+    {
+      "id": "F24",
+      "fact": "ACAS early conciliation must be started within three months less one day of dismissal: deadline 13 November 2026 (from the 14 August dismissal date; the appeal does not extend it).",
+      "lines": [
+        "L0253",
+        "L0254",
+        "L0264",
+        "L0265"
+      ]
+    },
+    {
+      "id": "F25",
+      "fact": "The solicitor plans to notify ACAS by 16 October 2026 at the latest.",
+      "lines": [
+        "L0256",
+        "L0309"
+      ]
+    },
+    {
+      "id": "F26",
+      "fact": "Initial advice: she qualifies for unfair dismissal (over two years' service); type 1 diabetes is very likely a disability; possible claims are unfair dismissal, discrimination arising from disability and failure to make reasonable adjustments.",
+      "lines": [
+        "L0272",
+        "L0273",
+        "L0274"
+      ]
+    },
+    {
+      "id": "F27",
+      "fact": "The solicitor gave caveats: no guarantee of success, declined to give a percentage, the employer will rely on instructions/fixed breaks/'where operationally possible', and a hearing could take a year or more.",
+      "lines": [
+        "L0277",
+        "L0278",
+        "L0279",
+        "L0280"
+      ]
+    },
+    {
+      "id": "F28",
+      "fact": "Aisha's actions: send OH report, Marcus's photo and payslips by Friday 25 September; check Castleford Mutual cover by Monday 28 September; send a written timeline by Friday 2 October; ask Marcus about a statement.",
+      "lines": [
+        "L0289",
+        "L0291",
+        "L0293",
+        "L0305"
+      ]
+    },
+    {
+      "id": "F29",
+      "fact": "Firm actions: Sophie to draft the DSAR by Monday (out Tuesday); Daniel to send an advice and funding letter by Tuesday 29 September; next meeting Thursday 8 October 2026 at 10am.",
+      "lines": [
+        "L0297",
+        "L0304",
+        "L0309"
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "id": "T01",
+      "kind": "negation",
+      "must_not_claim": "Aisha signed a settlement agreement or accepted an offer from Northgate.",
+      "lines": [
+        "L0173",
+        "L0175"
+      ],
+      "note": "HR vaguely hinted at 'something' but no amount or document; she has signed nothing."
+    },
+    {
+      "id": "T02",
+      "kind": "negation",
+      "must_not_claim": "She had received a written (or any formal) warning before the dismissal, e.g. at the 19 May meeting.",
+      "lines": [
+        "L0082",
+        "L0084",
+        "L0085"
+      ],
+      "note": "The May meeting was an informal 'conversation'; she has never had a warning."
+    },
+    {
+      "id": "T03",
+      "kind": "negation",
+      "must_not_claim": "She was summarily dismissed for gross misconduct without notice pay.",
+      "lines": [
+        "L0148",
+        "L0150"
+      ],
+      "note": "Letter says misconduct, not gross misconduct; she was paid 8 weeks in lieu of notice."
+    },
+    {
+      "id": "T04",
+      "kind": "negation",
+      "must_not_claim": "She lost consciousness during the hypo on 9 July.",
+      "lines": [
+        "L0101"
+      ],
+      "note": "She explicitly said no, she was confused but conscious."
+    },
+    {
+      "id": "T05",
+      "kind": "hypothetical",
+      "must_not_claim": "Northgate has alleged that she was late for work, or she has a lateness issue.",
+      "lines": [
+        "L0086",
+        "L0088"
+      ],
+      "note": "Pure hypothetical: nobody has alleged lateness."
+    },
+    {
+      "id": "T06",
+      "kind": "hypothetical",
+      "must_not_claim": "She accepts the 9 July hypo happened because she failed to tell Gary about her glucose levels that morning.",
+      "lines": [
+        "L0109"
+      ],
+      "note": "Speculative 'if I'd told him' musing, not an admission."
+    },
+    {
+      "id": "T07",
+      "kind": "hearsay",
+      "must_not_claim": "Gary Whitlock called her 'a liability' in a managers' meeting (stated as established fact).",
+      "lines": [
+        "L0179",
+        "L0181",
+        "L0182"
+      ],
+      "note": "Second/third-hand via Jodie, who was not present; solicitor said it cannot be relied on."
+    },
+    {
+      "id": "T08",
+      "kind": "corrected",
+      "must_not_claim": "She started at Northgate in March 2019.",
+      "lines": [
+        "L0013",
+        "L0014"
+      ],
+      "note": "Corrected to 5 March 2018."
+    },
+    {
+      "id": "T09",
+      "kind": "corrected",
+      "must_not_claim": "Her salary was £31,000.",
+      "lines": [
+        "L0022",
+        "L0023"
+      ],
+      "note": "Corrected: basic £29,400; £31k included allowance/overtime."
+    },
+    {
+      "id": "T10",
+      "kind": "corrected",
+      "must_not_claim": "She was dismissed on 15 August 2026.",
+      "lines": [
+        "L0144",
+        "L0145",
+        "L0146"
+      ],
+      "note": "Corrected to 14 August; the 15th was her misremembering (post arrived Saturday)."
+    },
+    {
+      "id": "T11",
+      "kind": "not_said",
+      "must_not_claim": "The solicitor estimated her chances of success (e.g. a percentage or 'fifty-fifty').",
+      "lines": [
+        "L0277"
+      ],
+      "note": "He explicitly declined to give a percentage."
+    },
+    {
+      "id": "T12",
+      "kind": "not_said",
+      "must_not_claim": "The solicitor estimated or valued her compensation.",
+      "lines": [
+        "L0283"
+      ],
+      "note": "He declined to give a figure until he has payslips and job search details."
+    },
+    {
+      "id": "T13",
+      "kind": "not_said",
+      "must_not_claim": "A fee or funding arrangement was agreed at the meeting.",
+      "lines": [
+        "L0245",
+        "L0247"
+      ],
+      "note": "Fees deferred until insurance position known; only the free first meeting."
+    },
+    {
+      "id": "T14",
+      "kind": "not_said",
+      "must_not_claim": "A tribunal claim has been issued or ACAS has already been notified.",
+      "lines": [
+        "L0259",
+        "L0286"
+      ],
+      "note": "Nothing issued; she only rang the helpline once."
+    },
+    {
+      "id": "T15",
+      "kind": "not_said",
+      "must_not_claim": "Tomasz Nowak has agreed to be a witness or give a statement.",
+      "lines": [
+        "L0209",
+        "L0305"
+      ],
+      "note": "He is nervous; the solicitor said not to approach him yet."
+    },
+    {
+      "id": "T16",
+      "kind": "speaker_attribution",
+      "must_not_claim": "The advice was that the three-month ACAS time limit runs from the appeal outcome (16 September), giving a December deadline.",
+      "lines": [
+        "L0263",
+        "L0264",
+        "L0265"
+      ],
+      "note": "The trainee floated this; the solicitor rejected it - deadline is 13 November 2026."
+    }
+  ]
+}
