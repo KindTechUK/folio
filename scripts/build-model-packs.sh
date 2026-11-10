@@ -44,30 +44,43 @@ dl() {
   local asset="$3"
   echo "  ↓ $url"
   curl -fsSL "$url" -o "$dest"
+  require_regular_file "$dest"
   verify_pinned_asset "$ASSET_MANIFEST" "$dest" "$asset"
 }
 
 # Build the producer once up front so per-pack runs don't interleave build logs.
 ( cd "$REPO_ROOT" && cargo build --release --quiet --manifest-path tools/modelpack-sign/Cargo.toml )
 
-# Silero VAD is shared by all ASR packs (the engine always needs it).
+# Upstream weights are fetched per file from the sherpa-onnx Hugging Face repos
+# at fixed revisions: GitHub release assets are mutable (upstream re-exported
+# the Parakeet tarball on 2026-11-07 with different weights). Each revision
+# holds exactly the weights shipped in v0.2.1.
+HF="https://huggingface.co/csukuangfj"
+WHISPER_SMALL_HF="$HF/sherpa-onnx-whisper-small.en/resolve/d9533f69affd85061aee349af7fea5cb2996dbbe"
+WHISPER_MEDIUM_HF="$HF/sherpa-onnx-whisper-medium.en/resolve/251ab4521f354490e8f2c206fbd0b7f3f6b0a7ec"
+PYANNOTE_HF="$HF/sherpa-onnx-pyannote-segmentation-3-0/resolve/9403a6902bb58e3d5ae8c7e77c3422de279db2e0"
+CAMPPLUS_HF="$HF/speaker-embedding-models/resolve/0743f301363dec56491a490f6d6cbc9d67f9a3bf"
+
+# Silero VAD is shared by all ASR packs (the engine always needs it). It stays
+# on the GitHub release asset: no sherpa-onnx Hugging Face repo holds these bytes.
 dl "$BASE/asr-models/silero_vad.onnx" "$work/silero_vad.onnx" "silero_vad.onnx"
 
 build_asr() {
   local model="$1" # small | medium
   local dir="sherpa-onnx-whisper-${model}.en"
+  local src
+  case "$model" in
+    small) src="$WHISPER_SMALL_HF" ;;
+    medium) src="$WHISPER_MEDIUM_HF" ;;
+    *) echo "unknown whisper model: $model" >&2; return 1 ;;
+  esac
   echo "==> ASR pack: ${model}.en"
-  dl "$BASE/asr-models/${dir}.tar.bz2" "$work/${dir}.tar.bz2" "${dir}.tar.bz2"
-  tar xjf "$work/${dir}.tar.bz2" -C "$work"
-  reject_archive_links "$work/$dir"
   local stage="$work/stage-${model}"
   mkdir -p "$stage/${dir}"
-  require_regular_file "$work/${dir}/${model}.en-encoder.int8.onnx"
-  require_regular_file "$work/${dir}/${model}.en-decoder.int8.onnx"
-  require_regular_file "$work/${dir}/${model}.en-tokens.txt"
-  cp "$work/${dir}/${model}.en-encoder.int8.onnx" "$stage/${dir}/"
-  cp "$work/${dir}/${model}.en-decoder.int8.onnx" "$stage/${dir}/"
-  cp "$work/${dir}/${model}.en-tokens.txt"        "$stage/${dir}/"
+  local f
+  for f in "${model}.en-encoder.int8.onnx" "${model}.en-decoder.int8.onnx" "${model}.en-tokens.txt"; do
+    dl "$src/$f" "$stage/${dir}/$f" "whisper-${model}.en/$f"
+  done
   cp "$work/silero_vad.onnx" "$stage/"
   "${SIGN[@]}" pack \
     --model-dir "$stage" --out "$OUT/asr-whisper-${model}.en" --key "$KEY" \
@@ -80,10 +93,9 @@ build_asr() {
 # Parakeet-TDT-0.6B-v2 (English) — the DEFAULT ASR model. NeMo transducer, so
 # the layout is encoder/decoder/joiner + tokens (no `<stem>-` prefix). Same
 # sherpa-onnx engine as the Whisper packs; license is CC-BY-4.0 (NVIDIA).
-# Fetched per file from Hugging Face at a fixed revision: the GitHub release
-# tarball is mutable (upstream re-exported it on 2026-11-07 with different
-# weights). This revision holds the weights shipped since v0.2.0.
-PARAKEET_HF="https://huggingface.co/csukuangfj/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/resolve/1ab9323565ddb038682214b292f588070a538ce2"
+# Fetched per file from Hugging Face at a fixed revision (see above); this
+# revision holds the weights shipped since v0.2.0.
+PARAKEET_HF="$HF/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8/resolve/1ab9323565ddb038682214b292f588070a538ce2"
 
 build_parakeet() {
   local dir="sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
@@ -108,16 +120,10 @@ build_asr small
 build_asr medium
 
 echo "==> Diarization pack: pyannote segmentation-3.0 + 3D-Speaker CAM++"
-dl "$BASE/speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2" "$work/seg.tar.bz2" "sherpa-onnx-pyannote-segmentation-3-0.tar.bz2"
-tar xjf "$work/seg.tar.bz2" -C "$work"
-reject_archive_links "$work/sherpa-onnx-pyannote-segmentation-3-0"
-require_regular_file "$work/sherpa-onnx-pyannote-segmentation-3-0/model.onnx"
-dl "$BASE/speaker-recongition-models/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx" "$work/campplus.onnx" "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx"
-require_regular_file "$work/campplus.onnx"
 stage="$work/stage-diar"
 mkdir -p "$stage/sherpa-onnx-pyannote-segmentation-3-0"
-cp "$work/sherpa-onnx-pyannote-segmentation-3-0/model.onnx" "$stage/sherpa-onnx-pyannote-segmentation-3-0/"
-cp "$work/campplus.onnx" "$stage/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx"
+dl "$PYANNOTE_HF/model.onnx" "$stage/sherpa-onnx-pyannote-segmentation-3-0/model.onnx" "pyannote-segmentation-3-0/model.onnx"
+dl "$CAMPPLUS_HF/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx" "$stage/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx" "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx"
 "${SIGN[@]}" pack \
   --model-dir "$stage" --out "$OUT/diarization-pyannote-campplus" --key "$KEY" \
   --id "diarization-pyannote-campplus" --version "$VERSION" \

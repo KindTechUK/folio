@@ -63,10 +63,10 @@ from upstream [k2-fsa/sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) weight
 | `asr-whisper-medium.en` | asr | Whisper medium.en (int8) + Silero VAD | MIT |
 | `diarization-pyannote-campplus` | diarization | pyannote segmentation-3.0 + 3D-Speaker CAM++ | MIT AND Apache-2.0 |
 
-Upstream weights come from the `asr-models`, `speaker-segmentation-models`, and
-`speaker-recongition-models` (sic) release tags of k2-fsa/sherpa-onnx, except Parakeet,
-which is fetched from the sherpa-onnx Hugging Face repository at a fixed revision
-(ungated, no token). The build script checks each download against the SHA-256 pinned in
+Upstream weights are fetched file by file from the sherpa-onnx Hugging Face repositories
+(`csukuangfj/…`) at fixed revisions — ungated, no token — except Silero VAD, which comes
+from the `asr-models` release tag of k2-fsa/sherpa-onnx (no sherpa-onnx Hugging Face
+repository holds the same bytes). The build script checks each download against the SHA-256 pinned in
 [`scripts/modelpack-assets.sha256`](https://github.com/KindTechUK/folio/blob/main/scripts/modelpack-assets.sha256).
 
 Indicative CPU speed (5-minute English conversation, Apple Silicon, 4 threads, int8):
