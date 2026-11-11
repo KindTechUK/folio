@@ -20,7 +20,30 @@ interface Level {
   level: number;
   speaking: boolean;
   elapsedS: number;
+  /** Seconds of speech waiting to be transcribed. */
+  backlogS: number;
 }
+
+interface Warnings {
+  silent: boolean;
+  narrowband: boolean;
+}
+
+interface Status {
+  message: string | null;
+  transient: boolean;
+}
+
+const SILENT_MESSAGE =
+  "Folio is receiving no sound from the microphone. Check that it isn't muted, and on Windows " +
+  "that Settings > Privacy & security > Microphone allows desktop apps.";
+const NARROWBAND_MESSAGE =
+  "This microphone is a headset in call mode, which lowers transcription accuracy. A built-in " +
+  "or USB microphone works better.";
+/** Show the catching-up note once live text is this far behind (seconds). */
+const BACKLOG_NOTE_S = 15;
+const IDLE_LEVEL: Level = { level: 0, speaking: false, elapsedS: 0, backlogS: 0 };
+const NO_WARNINGS: Warnings = { silent: false, narrowband: false };
 
 type Phase = "idle" | "starting" | "recording" | "paused" | "stopping" | "discarding";
 
@@ -55,7 +78,11 @@ export default function Record({
 }) {
   const [phase, setPhase] = useState<Phase>("idle");
   const [utterances, setUtterances] = useState<Utterance[]>([]);
-  const [level, setLevel] = useState<Level>({ level: 0, speaking: false, elapsedS: 0 });
+  const [level, setLevel] = useState<Level>(IDLE_LEVEL);
+  const [warnings, setWarnings] = useState<Warnings>(NO_WARNINGS);
+  const [deviceStatus, setDeviceStatus] = useState<string | null>(null);
+  const [deviceName, setDeviceName] = useState<string | null>(null);
+  const statusTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [confirmDiscard, setConfirmDiscard] = useState(false);
   const [progress, setProgress] = useState<ProgressView | null>(null);
@@ -79,13 +106,23 @@ export default function Record({
   function stopListening() {
     for (const off of unlistenRef.current) off();
     unlistenRef.current = [];
+    if (statusTimer.current) clearTimeout(statusTimer.current);
+  }
+
+  function showStatus(status: Status) {
+    if (statusTimer.current) clearTimeout(statusTimer.current);
+    setDeviceStatus(status.message);
+    if (status.transient) statusTimer.current = setTimeout(() => setDeviceStatus(null), 6000);
   }
 
   function reset() {
     stopListening();
     audioPathRef.current = null;
     setUtterances([]);
-    setLevel({ level: 0, speaking: false, elapsedS: 0 });
+    setLevel(IDLE_LEVEL);
+    setWarnings(NO_WARNINGS);
+    setDeviceStatus(null);
+    setDeviceName(null);
     setConfirmDiscard(false);
     setProgress(null);
     setPhase("idle");
@@ -103,6 +140,9 @@ export default function Record({
         ),
         listen<Level>("record-level", (e) => setLevel(e.payload)),
         listen<string>("record-error", (e) => setError(e.payload)),
+        listen<Warnings>("record-warnings", (e) => setWarnings(e.payload)),
+        listen<Status>("record-status", (e) => showStatus(e.payload)),
+        listen<string>("record-device", (e) => setDeviceName(e.payload)),
       ]);
       const started = await invoke<{ audioPath: string }>("start_recording", {
         model: asrModel,
@@ -242,6 +282,11 @@ export default function Record({
           aria-hidden="true"
         />
         <strong data-testid="recording-state">{stateLabel}</strong>
+        {deviceName && (
+          <span className="recording-device" data-testid="recording-device" title="Microphone">
+            {deviceName}
+          </span>
+        )}
         <span className="tabular" data-testid="recording-elapsed">
           {mmss(level.elapsedS)}
         </span>
@@ -256,17 +301,6 @@ export default function Record({
           <div style={{ width: `${Math.round((phase === "recording" ? level.level : 0) * 100)}%` }} />
         </div>
       </div>
-
-      {leaveBlocked && (
-        <Banner variant="info" role="note" style={{ marginBottom: "var(--space-3)" }}>
-          Stop or discard the recording before leaving this page.
-        </Banner>
-      )}
-      {error && (
-        <Banner variant="warning" role="alert" style={{ marginBottom: "var(--space-3)" }}>
-          {error}
-        </Banner>
-      )}
 
       <div className="live-transcript" ref={listRef} aria-live="polite" data-testid="live-transcript">
         {utterances.length === 0 && phase !== "stopping" && (
@@ -319,6 +353,40 @@ export default function Record({
           </Button>
         </div>
       )}
+
+      {/* Notices sit below the buttons so they never move under the pointer. */}
+      {leaveBlocked && (
+        <Banner variant="info" role="note" style={{ marginBottom: 0 }}>
+          Stop or discard the recording before leaving this page.
+        </Banner>
+      )}
+      {error && (
+        <Banner variant="warning" role="alert" style={{ marginBottom: 0 }}>
+          {error}
+        </Banner>
+      )}
+      {deviceStatus && (
+        <Banner variant="info" role="status" style={{ marginBottom: 0 }}>
+          {deviceStatus}
+        </Banner>
+      )}
+      {warnings.silent && phase === "recording" && (
+        <Banner variant="warning" role="alert" style={{ marginBottom: 0 }}>
+          {SILENT_MESSAGE}
+        </Banner>
+      )}
+      {warnings.narrowband && (
+        <Banner variant="info" role="note" style={{ marginBottom: 0 }}>
+          {NARROWBAND_MESSAGE}
+        </Banner>
+      )}
+      {level.backlogS > BACKLOG_NOTE_S && phase === "recording" && (
+        <p className="live-backlog" role="status">
+          Live text is catching up (about {Math.round(level.backlogS)} s behind). The recording
+          itself is safe.
+        </p>
+      )}
+
     </section>
   );
 }

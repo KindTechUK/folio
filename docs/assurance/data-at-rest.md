@@ -25,8 +25,8 @@ The app checks BitLocker status on launch and **warns the fee-earner if
 encryption is not confirmed**, so privileged data is not stored unprotected.
 **Implemented:** on launch the app calls the `volume_encryption_status` command,
 which on Windows derives the drive and parses `manage-bde -status`; unless the
-volume is confirmed encrypted it shows a dismissible amber banner advising the
-matter be stored/run on an encrypted volume (`app/src-tauri/src/system.rs`,
+volume is confirmed encrypted it shows a dismissible amber banner advising that
+recordings and transcripts be stored on an encrypted volume (`app/src-tauri/src/system.rs`,
 `app/src/App.tsx`). The check **fails soft** — if `manage-bde` cannot be run it
 reports `unknown` (and still warns), never erroring the app; on macOS/Linux it
 always reports `unknown`.
@@ -47,7 +47,7 @@ primary control; the in-app banner is a backstop, not a substitute.
 | Data | Location | Notes |
 | --- | --- | --- |
 | Input audio | Wherever the user keeps it | Read in place; not copied to a vendor-controlled location. |
-| **Recordings made in Folio** | Per-user app-data dir, on the BitLocker volume (`app_data/library/recordings/`) | ✅ The Record page writes one 16 kHz mono WAV per recording (`app/src-tauri/src/recorder.rs`). It is written as the conversation happens, and its header is rewritten every 5 seconds, so a crash or power loss leaves a playable file missing at most the last few seconds. Nothing else is written: live transcription runs in memory. Stop saves a transcript that references the WAV; Discard deletes the WAV. Purged by "Delete transcript and audio" like an imported file. If Folio is closed mid-recording, the WAV is finished and kept in that folder (no transcript is created). Never leaves the device. |
+| **Recordings made in Folio** | Per-user app-data dir, on the BitLocker volume (`app_data/library/recordings/`) | ✅ The Record page writes one 16 kHz mono WAV per recording (`app/src-tauri/src/recorder.rs`). It is written as the conversation happens, and its header is rewritten and forced to disk every 5 seconds, so a crash or power loss leaves a playable file missing at most the last few seconds. If the microphone disconnects, Folio reconnects to the default microphone and records silence for the gap, so the recording stays aligned with the clock. Nothing else is written: live transcription runs in memory. Stop saves a transcript that references the WAV; Discard deletes the WAV. Purged by "Delete transcript and audio" like an imported file. If Folio is closed mid-recording, the WAV is finished and kept in that folder (no transcript is created). Never leaves the device. |
 | Working/decoded audio | **In memory** during a run | Current engine decodes to in-memory `f32` samples (`engine/src/decode.rs`); see temp-file note below. |
 | **Saved transcripts (library)** | Per-user app-data dir, on the BitLocker volume | ✅ Each transcript is **auto-saved** as a local JSON file (`app_data/library/<id>.json`, `app/src-tauri/src/library.rs`) so past transcripts reappear on reopen. It stores the transcript text/edits + metadata and a **reference (path) to the source audio** — the audio itself is NOT copied into the library (one copy on disk). Purged by one-click "Delete transcript and audio". Never leaves the device. |
 | Models / model packs | Verified, signed packs only | ✅ Imported packs live in `app_data/packs/`. The transcribe path loads weights ONLY from a cryptographically verified signed pack, extracted into a per-user content-addressed cache (`app_data/verified-models/`). Release builds always enforce this; a debug-only `KINDTECH_MODELS_DIR` override exists for the dev/demo. See `non-processor-statement.md` / `third-party-components.md`. |
@@ -85,17 +85,17 @@ not a scratch file. However:
 
 ## Disposal: one-click "Delete transcript and audio" — ✅ implemented
 
-A one-click action removes the audio and transcript for a matter when the
+A one-click action removes a transcript and its audio when the
 fee-earner is done. **Implemented:** a "Delete transcript and audio" button (in the header of an open transcript) calls the backend, which
 resolves the saved source path, requires it to be exactly a file the user
 picked in the native file dialog or a recording Folio made, rejects symlinks,
 and displays the path in a native confirmation dialog before deletion. It then **purges the saved library entry**
-for that matter (`delete_session`) and clears the in-memory transcript
+for that transcript (`delete_session`) and clears the in-memory transcript
 (`app/src-tauri/src/system.rs`, `library.rs`, `app/src/App.tsx`). The deletion
 helper is idempotent (an already-gone file counts as deleted) and reports any
 genuine failure rather than crashing.
 
-**Honest scope:** the on-disk footprint of a matter is the **source audio** (the
+**Honest scope:** the on-disk footprint of a transcript is the **source audio** (the
 user's own file, referenced not copied, or the recording Folio made) plus the
 **saved transcript JSON** in the library — "Delete transcript and audio" removes both. The engine writes no temp/scratch file
 (in-memory decode, above) and there is no vendor-side copy. Exports the user

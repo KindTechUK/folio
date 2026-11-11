@@ -285,7 +285,7 @@ export default function App() {
     // the session inside the queue drops any save queued after it.
     const deletion = writeQueueRef.current.then(async () => {
       const report = await invoke<{ deleted: string[]; failed: unknown[] }>(
-        "delete_matter",
+        "delete_transcript",
         { id },
       );
       if (report.failed.length === 0) setCurrentSessionMeta(null);

@@ -6,7 +6,7 @@ import { loadTranscript } from "@core/editor";
 const invokeMock = vi.fn();
 const openMock = vi.fn();
 const listenMock = vi.fn();
-let deleteMatterReport: { deleted: string[]; failed: unknown[] };
+let deleteTranscriptReport: { deleted: string[]; failed: unknown[] };
 let pickRecording: () => Promise<unknown>;
 let saveSession: () => Promise<unknown>;
 let transcribe: () => Promise<unknown>;
@@ -61,7 +61,7 @@ beforeEach(() => {
   discardRecording = () => Promise.resolve();
   startRecording = () =>
     Promise.resolve({ audioPath: "/library/recordings/Recording 2026-11-10 14-03-22.wav" });
-  deleteMatterReport = { deleted: ["/recordings/interview.wav"], failed: [] };
+  deleteTranscriptReport = { deleted: ["/recordings/interview.wav"], failed: [] };
   pickRecording = () => Promise.resolve("/recordings/interview.wav");
   saveSession = () => Promise.resolve();
   transcribe = () => Promise.resolve(transcript);
@@ -95,8 +95,8 @@ beforeEach(() => {
         return transcribe();
       case "save_session":
         return saveSession();
-      case "delete_matter":
-        return Promise.resolve(deleteMatterReport);
+      case "delete_transcript":
+        return Promise.resolve(deleteTranscriptReport);
       case "delete_session":
         return Promise.resolve();
       case "start_recording":
@@ -201,17 +201,17 @@ describe("App import flow", () => {
     fireEvent.click(screen.getByTestId("delete-transcript"));
 
     await waitFor(() =>
-      expect(invokeMock).toHaveBeenCalledWith("delete_matter", { id: sessionId }),
+      expect(invokeMock).toHaveBeenCalledWith("delete_transcript", { id: sessionId }),
     );
     expect(invokeMock).not.toHaveBeenCalledWith(
-      "delete_matter",
+      "delete_transcript",
       expect.objectContaining({ paths: expect.anything() }),
     );
     expect(invokeMock).not.toHaveBeenCalledWith("delete_session", expect.anything());
   });
 
   it("keeps the transcript when source-audio deletion reports a failure", async () => {
-    deleteMatterReport = {
+    deleteTranscriptReport = {
       deleted: [],
       failed: [{ path: "/recordings/interview.wav", error: "locked" }],
     };
@@ -437,7 +437,7 @@ describe("App import flow", () => {
 
     await screen.findByText("Import your first recording");
     const commands = invokeMock.mock.calls.map(([command]) => command);
-    expect(commands.lastIndexOf("save_session")).toBeLessThan(commands.indexOf("delete_matter"));
+    expect(commands.lastIndexOf("save_session")).toBeLessThan(commands.indexOf("delete_transcript"));
   });
 
   it("shows an undo during a running save as not yet saved", async () => {
@@ -637,5 +637,43 @@ describe("Record", () => {
     expect(
       invokeMock.mock.calls.filter(([command]) => command === "discard_recording"),
     ).toHaveLength(1);
+  });
+
+  it("warns while the microphone delivers no sound, and clears when it does", async () => {
+    await startRecordingFromSidebar();
+
+    emit("record-warnings", { silent: true, narrowband: false });
+    expect(screen.getByText(/receiving no sound from the microphone/)).toBeInTheDocument();
+
+    emit("record-warnings", { silent: false, narrowband: false });
+    expect(screen.queryByText(/receiving no sound from the microphone/)).not.toBeInTheDocument();
+  });
+
+  it("shows that the microphone is reconnecting", async () => {
+    await startRecordingFromSidebar();
+
+    emit("record-status", { message: "Microphone disconnected — reconnecting…", transient: false });
+
+    expect(screen.getByText("Microphone disconnected — reconnecting…")).toBeInTheDocument();
+  });
+
+  it("says when live text is falling behind", async () => {
+    await startRecordingFromSidebar();
+
+    emit("record-level", { level: 0.2, speaking: false, elapsedS: 60, backlogS: 40 });
+    expect(screen.getByText(/Live text is catching up \(about 40 s behind\)/)).toBeInTheDocument();
+
+    emit("record-level", { level: 0.2, speaking: false, elapsedS: 61, backlogS: 2 });
+    expect(screen.queryByText(/Live text is catching up/)).not.toBeInTheDocument();
+  });
+
+  it("shows which microphone is recording, and follows a switch", async () => {
+    await startRecordingFromSidebar();
+
+    emit("record-device", "MacBook Pro Microphone");
+    expect(screen.getByTestId("recording-device")).toHaveTextContent("MacBook Pro Microphone");
+
+    emit("record-device", "WH-1000XM5");
+    expect(screen.getByTestId("recording-device")).toHaveTextContent("WH-1000XM5");
   });
 });
