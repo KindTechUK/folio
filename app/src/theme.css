@@ -352,6 +352,11 @@ td {
   }
 }
 
+.recording-device {
+  color: var(--slate-500);
+  font-size: var(--text-sm);
+}
+
 .level-meter {
   flex: 1 1 120px;
   max-width: 220px;
@@ -388,6 +393,12 @@ td {
   flex: none;
   min-width: 3.5em;
   color: var(--slate-400);
+  font-size: var(--text-sm);
+}
+
+.live-backlog {
+  margin: 0;
+  color: var(--slate-600);
   font-size: var(--text-sm);
 }
 

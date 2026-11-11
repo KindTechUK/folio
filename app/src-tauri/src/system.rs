@@ -1,12 +1,12 @@
-//! Data-at-rest helpers: volume-encryption status + "delete matter".
+//! Data-at-rest helpers: volume-encryption status + "Delete transcript and audio".
 //!
 //! A firm running client-confidential matters can (a) be warned when the
 //! storage volume is NOT confirmed encrypted (BitLocker on Windows) and (b)
-//! delete a matter's source audio and saved transcript. The engine writes no
+//! delete a transcript together with its source recording. The engine writes no
 //! temp files; the recorder writes only the recording itself (`recorder.rs`).
 //!
 //! Everything is network-free. [`parse_manage_bde_status`] and
-//! [`delete_matter_authorized_in`] are the unit-tested cores (never panic); the
+//! [`delete_transcript_authorized_in`] are the unit-tested cores (never panic); the
 //! `#[tauri::command]` wrappers add platform paths and native confirmation.
 //! Encryption checks fail SOFT (`Unknown`, never an app error).
 
@@ -54,7 +54,7 @@ pub struct DeleteFailure {
     pub error: String,
 }
 
-/// Outcome of a delete-matter request: paths removed (or already gone) vs. paths
+/// Outcome of a "Delete transcript and audio" request: paths removed (or already gone) vs. paths
 /// that genuinely failed to delete.
 #[derive(Debug, Clone, Serialize)]
 pub struct DeleteReport {
@@ -127,7 +127,7 @@ pub fn delete_paths(paths: &[String]) -> DeleteReport {
     for path in paths {
         let p = std::path::Path::new(path);
         if !p.exists() {
-            // Already gone — the matter's artifact is absent, which is the goal.
+            // Already gone — the file is absent, which is the goal.
             deleted.push(path.clone());
             continue;
         }
@@ -237,7 +237,7 @@ pub fn reauthorize_recording_in(
     let selected = canonical_recording(selected)?;
     if selected != expected {
         return Err(format!(
-            "selected recording does not match the saved matter path: {}",
+            "The selected file is not this transcript's recording: {}",
             expected.display()
         ));
     }
@@ -266,7 +266,7 @@ pub(crate) fn forget_approved_recording_in(library_dir: &Path, path: &Path) {
 /// backend-owned native picker. This permits recordings on external drives and
 /// in arbitrary folders without making the command an arbitrary file-removal
 /// primitive. Symlink paths are always rejected.
-pub fn delete_matter_authorized_in<F>(
+pub fn delete_transcript_authorized_in<F>(
     library_dir: &Path,
     id: &str,
     authorize: F,
@@ -282,7 +282,7 @@ where
         .unwrap_or("");
     if audio_path.is_empty() {
         if !authorize(None, false) {
-            return Err("matter deletion was cancelled".to_string());
+            return Err("Deletion was cancelled.".to_string());
         }
         crate::library::delete_session_in(library_dir, id)?;
         return Ok(DeleteReport {
@@ -294,7 +294,7 @@ where
     let audio = Path::new(audio_path);
     if !audio.exists() {
         if !authorize(Some(audio), false) {
-            return Err("matter deletion was cancelled".to_string());
+            return Err("Deletion was cancelled.".to_string());
         }
         forget_approved_recording_in(library_dir, audio);
         crate::library::delete_session_in(library_dir, id)?;
@@ -308,7 +308,7 @@ where
         .map_err(|error| format!("cannot inspect saved audio path {audio_path:?}: {error}"))?;
     if metadata.file_type().is_symlink() {
         return Err(format!(
-            "refusing to delete a symlink matter path: {}",
+            "Refusing to delete a recording that is a symbolic link: {}",
             audio.display()
         ));
     }
@@ -324,12 +324,12 @@ where
     }
     if !canonical_audio.is_file() {
         return Err(format!(
-            "refusing to delete a non-file matter path: {}",
+            "The saved recording is not a regular file: {}",
             canonical_audio.display()
         ));
     }
     if !authorize(Some(&canonical_audio), true) {
-        return Err("matter deletion was cancelled".to_string());
+        return Err("Deletion was cancelled.".to_string());
     }
 
     let canonical_string = canonical_audio.to_string_lossy().into_owned();
@@ -459,7 +459,7 @@ pub async fn pick_recording(app: tauri::AppHandle) -> Result<Option<String>, Str
 /// flow for legacy sessions. A backend-owned dialog confirms the complete
 /// deletion even when the source recording is already missing.
 #[tauri::command]
-pub async fn delete_matter(app: tauri::AppHandle, id: String) -> Result<DeleteReport, String> {
+pub async fn delete_transcript(app: tauri::AppHandle, id: String) -> Result<DeleteReport, String> {
     let library = crate::library::library_dir(&app)?;
     tauri::async_runtime::spawn_blocking(move || {
         let loaded = crate::library::load_session_in(&library, &id)?;
@@ -475,18 +475,18 @@ pub async fn delete_matter(app: tauri::AppHandle, id: String) -> Result<DeleteRe
                 let continue_reauthorization = app
                     .dialog()
                     .message(format!(
-                        "This matter was imported by an older Folio version. To delete it safely, re-select this exact source recording:\n\n{}",
+                        "This transcript was saved by an older version of Folio. To delete its recording safely, select this exact file again:\n\n{}",
                         saved_audio.display()
                     ))
-                    .title("Re-authorize source recording")
+                    .title("Confirm the recording to delete")
                     .kind(MessageDialogKind::Warning)
                     .buttons(MessageDialogButtons::OkCancelCustom(
-                        "Re-select recording".to_string(),
+                        "Select recording".to_string(),
                         "Cancel".to_string(),
                     ))
                     .blocking_show();
                 if !continue_reauthorization {
-                    return Err("matter deletion was cancelled".to_string());
+                    return Err("Deletion was cancelled.".to_string());
                 }
                 let selected = app
                     .dialog()
@@ -505,7 +505,7 @@ pub async fn delete_matter(app: tauri::AppHandle, id: String) -> Result<DeleteRe
             }
         }
 
-        delete_matter_authorized_in(&library, &id, |audio_path, audio_exists| {
+        delete_transcript_authorized_in(&library, &id, |audio_path, audio_exists| {
             let source_detail = match (audio_path, audio_exists) {
                 (Some(path), true) => format!("Source recording:\n{}", path.display()),
                 (Some(path), false) => {
@@ -515,9 +515,9 @@ pub async fn delete_matter(app: tauri::AppHandle, id: String) -> Result<DeleteRe
             };
             app.dialog()
                 .message(format!(
-                    "Permanently delete this matter?\n\n{source_detail}\n\nThe saved transcript will also be permanently deleted."
+                    "Permanently delete this transcript and its recording?\n\n{source_detail}\n\nThis can't be undone."
                 ))
-                .title("Delete matter")
+                .title("Delete transcript and audio")
                 .kind(MessageDialogKind::Warning)
                 .buttons(MessageDialogButtons::OkCancelCustom(
                     "Delete".to_string(),
@@ -527,7 +527,7 @@ pub async fn delete_matter(app: tauri::AppHandle, id: String) -> Result<DeleteRe
         })
     })
     .await
-    .map_err(|e| format!("delete-matter task failed: {e}"))?
+    .map_err(|e| format!("delete task failed: {e}"))?
 }
 
 #[cfg(test)]
@@ -727,17 +727,17 @@ VOLUME C: [OSDISK]
     }
 
     #[test]
-    fn delete_matter_removes_an_exact_backend_approved_recording_from_any_folder() {
-        let dir = unique_tmp("matter-allowed");
+    fn delete_transcript_removes_an_exact_backend_approved_recording_from_any_folder() {
+        let dir = unique_tmp("transcript-allowed");
         let library = dir.join("library");
         let external_drive = dir.join("external-drive");
         fs::create_dir_all(&external_drive).unwrap();
         let audio = external_drive.join("recording.wav");
         fs::write(&audio, b"audio").unwrap();
         let approved = approve_recording_in(&library, &audio).unwrap();
-        save_session(&library, "matter-1", &audio);
+        save_session(&library, "transcript-1", &audio);
 
-        let report = delete_matter_authorized_in(&library, "matter-1", |_, _| true).unwrap();
+        let report = delete_transcript_authorized_in(&library, "transcript-1", |_, _| true).unwrap();
 
         assert_eq!(report.deleted, vec![approved.to_string_lossy()]);
         assert!(report.failed.is_empty());
@@ -746,15 +746,15 @@ VOLUME C: [OSDISK]
     }
 
     #[test]
-    fn delete_matter_rejects_a_saved_path_not_approved_by_the_backend_picker() {
-        let dir = unique_tmp("matter-outside");
+    fn delete_transcript_rejects_a_saved_path_not_approved_by_the_backend_picker() {
+        let dir = unique_tmp("transcript-outside");
         let library = dir.join("library");
         let outside = dir.join("unrelated.txt");
         fs::create_dir_all(&dir).unwrap();
         fs::write(&outside, b"keep").unwrap();
-        save_session(&library, "matter-2", &outside);
+        save_session(&library, "transcript-2", &outside);
 
-        let result = delete_matter_authorized_in(&library, "matter-2", |_, _| true);
+        let result = delete_transcript_authorized_in(&library, "transcript-2", |_, _| true);
 
         assert!(result.is_err());
         assert!(outside.exists());
@@ -762,17 +762,17 @@ VOLUME C: [OSDISK]
     }
 
     #[test]
-    fn delete_matter_requires_backend_authorizer_approval() {
-        let dir = unique_tmp("matter-denied");
+    fn delete_transcript_requires_backend_authorizer_approval() {
+        let dir = unique_tmp("transcript-denied");
         let library = dir.join("library");
         let audio_root = dir.join("audio");
         fs::create_dir_all(&audio_root).unwrap();
         let audio = audio_root.join("recording.wav");
         fs::write(&audio, b"keep").unwrap();
         approve_recording_in(&library, &audio).unwrap();
-        save_session(&library, "matter-denied", &audio);
+        save_session(&library, "transcript-denied", &audio);
 
-        let result = delete_matter_authorized_in(&library, "matter-denied", |_, _| false);
+        let result = delete_transcript_authorized_in(&library, "transcript-denied", |_, _| false);
 
         assert!(result.is_err());
         assert!(audio.exists());
@@ -784,7 +784,7 @@ VOLUME C: [OSDISK]
     fn backend_picker_approval_rejects_symlink_paths() {
         use std::os::unix::fs::symlink;
 
-        let dir = unique_tmp("matter-symlink");
+        let dir = unique_tmp("transcript-symlink");
         let library = dir.join("library");
         let audio_root = dir.join("audio");
         let outside_root = dir.join("outside");
@@ -804,10 +804,10 @@ VOLUME C: [OSDISK]
 
     #[cfg(unix)]
     #[test]
-    fn delete_matter_rejects_a_symlink_even_when_its_target_was_approved() {
+    fn delete_transcript_rejects_a_symlink_even_when_its_target_was_approved() {
         use std::os::unix::fs::symlink;
 
-        let dir = unique_tmp("matter-approved-target-symlink");
+        let dir = unique_tmp("transcript-approved-target-symlink");
         let library = dir.join("library");
         fs::create_dir_all(&dir).unwrap();
         let target = dir.join("recording.wav");
@@ -815,9 +815,9 @@ VOLUME C: [OSDISK]
         fs::write(&target, b"keep").unwrap();
         approve_recording_in(&library, &target).unwrap();
         symlink(&target, &link).unwrap();
-        save_session(&library, "matter-4", &link);
+        save_session(&library, "transcript-4", &link);
 
-        let result = delete_matter_authorized_in(&library, "matter-4", |_, _| true);
+        let result = delete_transcript_authorized_in(&library, "transcript-4", |_, _| true);
 
         assert!(result.is_err());
         assert!(link.exists());
@@ -839,7 +839,7 @@ VOLUME C: [OSDISK]
         let canonical = reauthorize_recording_in(&library, &expected, &expected).unwrap();
         save_session(&library, "legacy", &expected);
 
-        let report = delete_matter_authorized_in(&library, "legacy", |_, _| true).unwrap();
+        let report = delete_transcript_authorized_in(&library, "legacy", |_, _| true).unwrap();
         assert_eq!(report.deleted, vec![canonical.to_string_lossy()]);
         assert!(crate::library::load_session_in(&library, "legacy").is_err());
         assert!(other.exists());
@@ -857,7 +857,7 @@ VOLUME C: [OSDISK]
         save_session(&library, "missing-audio", &audio);
         fs::remove_file(&audio).unwrap();
 
-        let denied = delete_matter_authorized_in(&library, "missing-audio", |path, exists| {
+        let denied = delete_transcript_authorized_in(&library, "missing-audio", |path, exists| {
             assert_eq!(path, Some(audio.as_path()));
             assert!(!exists);
             false
@@ -865,7 +865,7 @@ VOLUME C: [OSDISK]
         assert!(denied.is_err());
         assert!(crate::library::load_session_in(&library, "missing-audio").is_ok());
 
-        delete_matter_authorized_in(&library, "missing-audio", |path, exists| {
+        delete_transcript_authorized_in(&library, "missing-audio", |path, exists| {
             assert_eq!(path, Some(audio.as_path()));
             assert!(!exists);
             true

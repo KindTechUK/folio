@@ -11,7 +11,7 @@ import Library from "./Library";
 
 const sessions: SessionMeta[] = [
   {
-    id: "matter-1",
+    id: "transcript-1",
     createdAt: "2026-07-08T09:00:00.000Z",
     updatedAt: "2026-07-08T10:00:00.000Z",
     audioFilename: "client-interview.m4a",
@@ -20,7 +20,7 @@ const sessions: SessionMeta[] = [
     audioAvailable: true,
   },
   {
-    id: "matter-2",
+    id: "transcript-2",
     createdAt: "2026-07-04T09:00:00.000Z",
     updatedAt: "2026-07-04T10:00:00.000Z",
     audioFilename: "witness-statement.wav",
