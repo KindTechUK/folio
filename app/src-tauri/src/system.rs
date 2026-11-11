@@ -296,12 +296,20 @@ where
         if !authorize(Some(audio), false) {
             return Err("Deletion was cancelled.".to_string());
         }
+        // Notes a crash or an earlier failed delete left beside a recording.
+        let _guard = crate::recorder::notes_lock();
+        let leftovers: Vec<String> = crate::recorder::notes_files(library_dir, audio)
+            .iter()
+            .map(|p| p.to_string_lossy().into_owned())
+            .collect();
+        let mut report = delete_paths(&leftovers);
+        if !report.failed.is_empty() {
+            return Ok(report); // keep the transcript so deletion can be retried
+        }
         forget_approved_recording_in(library_dir, audio);
         crate::library::delete_session_in(library_dir, id)?;
-        return Ok(DeleteReport {
-            deleted: vec![audio_path.to_string()],
-            failed: Vec::new(),
-        });
+        report.deleted.insert(0, audio_path.to_string());
+        return Ok(report);
     }
 
     let metadata = std::fs::symlink_metadata(audio)
@@ -332,15 +340,14 @@ where
         return Err("Deletion was cancelled.".to_string());
     }
 
-    let mut paths = vec![canonical_audio.to_string_lossy().into_owned()];
     // A recording Folio made may have notes beside it, left by a crash.
-    let recordings = crate::recorder::recordings_dir(library_dir).canonicalize().ok();
-    if recordings.is_some() && canonical_audio.parent() == recordings.as_deref() {
-        let notes = crate::recorder::notes_path(&canonical_audio);
-        if notes.exists() {
-            paths.push(notes.to_string_lossy().into_owned());
-        }
-    }
+    let _guard = crate::recorder::notes_lock();
+    let mut paths = vec![canonical_audio.to_string_lossy().into_owned()];
+    paths.extend(
+        crate::recorder::notes_files(library_dir, &canonical_audio)
+            .iter()
+            .map(|p| p.to_string_lossy().into_owned()),
+    );
     let report = delete_paths(&paths);
     if report.failed.is_empty() {
         forget_approved_recording_in(library_dir, &canonical_audio);

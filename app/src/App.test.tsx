@@ -732,6 +732,33 @@ describe("Record", () => {
     await waitFor(() => expect(savedNotes()).toEqual(["First point. Second point."]));
   });
 
+  it("backs up notes at Stop and while the recording is finishing", async () => {
+    stopRecording = () => new Promise(() => {});
+    await startRecordingFromSidebar();
+    const audioPath = "/library/recordings/Recording 2026-11-10 14-03-22.wav";
+    fireEvent.click(screen.getByRole("tab", { name: "Your notes" }));
+    const box = screen.getByRole("textbox", { name: "Your notes" });
+    fireEvent.change(box, { target: { value: "First point." } });
+
+    fireEvent.click(screen.getByRole("button", { name: "Stop and create transcript" }));
+    await waitFor(() =>
+      expect(invokeMock).toHaveBeenCalledWith("save_recording_notes", {
+        audioPath,
+        text: "First point.",
+      }),
+    );
+
+    fireEvent.change(box, { target: { value: "First point. Second point." } });
+    await waitFor(
+      () =>
+        expect(invokeMock).toHaveBeenCalledWith("save_recording_notes", {
+          audioPath,
+          text: "First point. Second point.",
+        }),
+      { timeout: 3000 },
+    );
+  });
+
   it("keeps the recording's notes file until the transcript holding the notes is saved", async () => {
     saveSession = () => Promise.reject(new Error("disk full"));
     await startRecordingFromSidebar();

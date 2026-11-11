@@ -166,12 +166,17 @@ export default function Record({
     notesRef.current = text;
     setNotes(text);
     if (notesTimer.current) clearTimeout(notesTimer.current);
-    notesTimer.current = setTimeout(() => {
-      invoke("save_recording_notes", { text }).then(
-        () => setNotesError(null),
-        (e) => setNotesError(String(e)),
-      );
-    }, NOTES_SAVE_DELAY);
+    notesTimer.current = setTimeout(saveNotesNow, NOTES_SAVE_DELAY);
+  }
+
+  function saveNotesNow() {
+    notesTimer.current = null;
+    const audioPath = audioPathRef.current;
+    if (!audioPath) return;
+    invoke("save_recording_notes", { audioPath, text: notesRef.current }).then(
+      () => setNotesError(null),
+      (e) => setNotesError(String(e)),
+    );
   }
 
   async function start() {
@@ -216,7 +221,11 @@ export default function Record({
     if (!audioPath) return;
     setPhase("stopping");
     setConfirmDiscard(false);
-    if (notesTimer.current) clearTimeout(notesTimer.current);
+    // Back up what was typed just before Stop; typing can carry on while it finishes.
+    if (notesTimer.current) {
+      clearTimeout(notesTimer.current);
+      saveNotesNow();
+    }
     const startedAt = Date.now();
     setProgress({ fraction: 0.95, label: "Finishing transcript…" });
     try {
@@ -247,6 +256,8 @@ export default function Record({
   async function discard() {
     if (phase !== "recording" && phase !== "paused") return;
     setPhase("discarding");
+    if (notesTimer.current) clearTimeout(notesTimer.current);
+    notesTimer.current = null;
     try {
       await invoke("discard_recording");
       reset();
