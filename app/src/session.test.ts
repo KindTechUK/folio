@@ -47,6 +47,7 @@ describe("buildSession", () => {
       audioPath: "/Users/x/clip.m4a",
       diarized: true,
       state,
+      notes: "Ask about the lease.",
     });
 
     expect(session).toEqual({
@@ -58,6 +59,7 @@ describe("buildSession", () => {
       diarized: true,
       segments: 2,
       editorState: state,
+      notes: "Ask about the lease.",
     });
   });
 });
