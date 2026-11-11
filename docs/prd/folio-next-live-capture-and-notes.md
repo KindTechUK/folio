@@ -51,29 +51,30 @@ Delivered in phases, each gated by spikes:
 2. As a fee-earner, I want to see the transcript appear while we talk (a few seconds behind), so that I know the capture is working.
 3. As a user, I want to pause and resume a recording, so that off-record moments aren't captured.
 4. As a user, I want the recording to survive an app crash or a flat battery (up to the last few seconds), so that I don't lose a 60-minute interview.
-5. As a user, I want speaker detection to run after I stop, with a speaker-count hint (usually 2), so that the finished transcript is labelled without the live view slowing down.
+5. As a user, I want speaker detection to run after I stop, with a speaker-count hint (usually 2) that I can set or change at any point during the recording, so that the finished transcript is labelled without the live view slowing down.
 6. As a user, I want the finished recording to open in the existing review editor and Transcripts view, so that correction, export and "Delete transcript and audio" work as they do today.
 7. As a user, I want a clear on-screen recording indicator and an optional spoken-consent prompt, so that everyone present knows they are being recorded.
+8. As a fee-earner, I want to type private notes while recording, kept with the transcript afterwards, so that I can capture what I noticed without a separate notebook. (P2 can later use them as an extra input.)
 
 **Local notes (P2)**
-8. As a caseworker, I want to pick a template (e.g. "Care assessment", "Attendance note", "Case note", "General minutes") and get a draft note when I stop recording, so that I'm not writing it from scratch.
-9. As a team lead, I want to create and edit templates (sections plus instructions), so that notes match our organisation's format.
-10. As a user, I want to regenerate one section, or the whole note, after correcting the transcript, so that fixes flow through.
-11. As a user, I want note generation to show honest progress and let me carry on reviewing the transcript meanwhile, so that a slow CPU doesn't block me.
-12. As a user, I want to export the note (DOCX/text) with the machine-draft disclaimer, alongside or without the transcript.
+9. As a caseworker, I want to pick a template (e.g. "Care assessment", "Attendance note", "Case note", "General minutes") and get a draft note when I stop recording, so that I'm not writing it from scratch.
+10. As a team lead, I want to create and edit templates (sections plus instructions), so that notes match our organisation's format.
+11. As a user, I want to regenerate one section, or the whole note, after correcting the transcript, so that fixes flow through.
+12. As a user, I want note generation to show honest progress and let me carry on reviewing the transcript meanwhile, so that a slow CPU doesn't block me.
+13. As a user, I want to export the note (DOCX/text) with the machine-draft disclaimer, alongside or without the transcript.
 
 **Source-linked verification (P3)**
-13. As a reviewer, I want every note sentence to show where it came from, and clicking it should play that audio and highlight the transcript, so that I can check it in seconds.
-14. As a reviewer, I want note sentences with **no supporting source** to be visibly flagged, so that I can spot possible fabrications before relying on the note.
-15. As a reviewer, I want to mark each note sentence as checked, so that I (and my supervisor) can see verification is complete.
-16. As a DPO or safeguarding lead, I want the exported note to record that it was machine-drafted and human-verified, and by whom, so that the audit trail stands up.
+14. As a reviewer, I want every note sentence to show where it came from, and clicking it should play that audio and highlight the transcript, so that I can check it in seconds.
+15. As a reviewer, I want note sentences with **no supporting source** to be visibly flagged, so that I can spot possible fabrications before relying on the note.
+16. As a reviewer, I want to mark each note sentence as checked, so that I (and my supervisor) can see verification is complete.
+17. As a DPO or safeguarding lead, I want the exported note to record that it was machine-drafted and human-verified, and by whom, so that the audit trail stands up.
 
 **Call capture (P4)**
-17. As a user on a Teams or phone-via-PC call, I want to capture both my mic and the other party's audio without echo or duplicated text, so that remote meetings work like in-person ones.
+18. As a user on a Teams or phone-via-PC call, I want to capture both my mic and the other party's audio without echo or duplicated text, so that remote meetings work like in-person ones.
 
 **IT / compliance**
-18. As firm IT, I want the LLM delivered as a signed model pack through the same channel as speech models, so that nothing new needs internet access.
-19. As a compliance officer, I want the assurance pack updated to cover recordings at rest and the LLM component, so that our DPIA stays accurate.
+19. As firm IT, I want the LLM delivered as a signed model pack through the same channel as speech models, so that nothing new needs internet access.
+20. As a compliance officer, I want the assurance pack updated to cover recordings at rest and the LLM component, so that our DPIA stays accurate.
 
 ## Implementation Decisions
 

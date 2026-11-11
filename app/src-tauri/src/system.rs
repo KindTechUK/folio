@@ -332,8 +332,16 @@ where
         return Err("Deletion was cancelled.".to_string());
     }
 
-    let canonical_string = canonical_audio.to_string_lossy().into_owned();
-    let report = delete_paths(&[canonical_string]);
+    let mut paths = vec![canonical_audio.to_string_lossy().into_owned()];
+    // A recording Folio made may have notes beside it, left by a crash.
+    let recordings = crate::recorder::recordings_dir(library_dir).canonicalize().ok();
+    if recordings.is_some() && canonical_audio.parent() == recordings.as_deref() {
+        let notes = crate::recorder::notes_path(&canonical_audio);
+        if notes.exists() {
+            paths.push(notes.to_string_lossy().into_owned());
+        }
+    }
+    let report = delete_paths(&paths);
     if report.failed.is_empty() {
         forget_approved_recording_in(library_dir, &canonical_audio);
         crate::library::delete_session_in(library_dir, id)?;

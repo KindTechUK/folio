@@ -175,9 +175,9 @@ pub(crate) fn read_span(path: &Path, start: usize, len: usize) -> Result<Vec<f32
         .collect())
 }
 
-/// Delete a recording this app created and drop its approval. Refuses paths
-/// outside `<library>/recordings/`.
-pub(crate) fn discard_recording_in(library: &Path, path: &Path) -> Result<(), String> {
+/// The recording's path, resolved, if it is one of this app's recordings
+/// (directly inside `<library>/recordings/`).
+fn own_recording(library: &Path, path: &Path) -> Result<PathBuf, String> {
     let dir = recordings_dir(library)
         .canonicalize()
         .map_err(|e| format!("cannot resolve recordings folder: {e}"))?;
@@ -187,6 +187,39 @@ pub(crate) fn discard_recording_in(library: &Path, path: &Path) -> Result<(), St
     if canonical.parent() != Some(dir.as_path()) {
         return Err(format!("not a Folio recording: {}", path.display()));
     }
+    Ok(canonical)
+}
+
+/// Where the notes typed during a recording are kept until it stops:
+/// `<recording>.notes.txt`, next to the WAV.
+pub(crate) fn notes_path(recording: &Path) -> PathBuf {
+    recording.with_extension("notes.txt")
+}
+
+/// Save the notes for an in-progress recording, replacing the file atomically
+/// so a crash leaves either the old notes or the new ones.
+pub(crate) fn save_recording_notes_in(library: &Path, recording: &Path, text: &str) -> Result<(), String> {
+    let target = notes_path(&own_recording(library, recording)?);
+    let tmp = target.with_extension("txt.tmp");
+    std::fs::write(&tmp, text).map_err(|e| format!("cannot save notes: {e}"))?;
+    std::fs::rename(&tmp, &target).map_err(|e| format!("cannot save notes: {e}"))
+}
+
+/// Remove a recording's notes file, if there is one.
+fn remove_notes(recording: &Path) -> Result<(), String> {
+    match std::fs::remove_file(notes_path(recording)) {
+        Err(e) if e.kind() != std::io::ErrorKind::NotFound => {
+            Err(format!("cannot delete notes for {}: {e}", recording.display()))
+        }
+        _ => Ok(()),
+    }
+}
+
+/// Delete a recording this app created, with its notes, and drop its approval.
+/// Refuses paths outside `<library>/recordings/`.
+pub(crate) fn discard_recording_in(library: &Path, path: &Path) -> Result<(), String> {
+    let canonical = own_recording(library, path)?;
+    remove_notes(&canonical)?;
     std::fs::remove_file(&canonical)
         .map_err(|e| format!("cannot delete {}: {e}", canonical.display()))?;
     system::forget_approved_recording_in(library, &canonical);
@@ -360,7 +393,6 @@ fn needs_reopen(kind: cpal::ErrorKind) -> bool {
 
 struct Active {
     path: PathBuf,
-    diarize: bool,
     cfg: EngineConfig,
     control: Sender<Control>,
     capture: JoinHandle<()>,
@@ -849,7 +881,6 @@ fn local_name() -> String {
 pub async fn start_recording(
     app: AppHandle,
     model: Option<String>,
-    diarize: Option<bool>,
 ) -> Result<StartedRecording, String> {
     let library = crate::library::library_dir(&app)?;
     tauri::async_runtime::spawn_blocking(move || {
@@ -858,9 +889,8 @@ pub async fn start_recording(
             return Err("A recording is already in progress.".to_string());
         }
         let mut cfg = EngineConfig::new("");
-        cfg.diarize = diarize.unwrap_or(false);
         cfg.asr_model = crate::commands::parse_asr_model(model.as_deref());
-        cfg.models_dir = crate::commands::resolve_models_dir(&app, cfg.asr_model, cfg.diarize)?;
+        cfg.models_dir = crate::commands::resolve_models_dir(&app, cfg.asr_model, false)?;
         let engine = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
         let recognizer = engine.recognizer().map_err(|e| e.to_string())?;
 
@@ -925,7 +955,6 @@ pub async fn start_recording(
 
         *state.0.lock().unwrap() = Some(Active {
             path: path.clone(),
-            diarize: cfg.diarize,
             cfg,
             control: control_tx,
             capture,
@@ -960,7 +989,6 @@ pub fn resume_recording(app: AppHandle) -> Result<(), String> {
 
 struct Finished {
     path: PathBuf,
-    diarize: bool,
     cfg: EngineConfig,
     segments: Vec<AsrSegment>,
 }
@@ -990,28 +1018,97 @@ fn finish(app: &AppHandle, discarding: bool) -> Result<Finished, String> {
     let _ = active.decode.join();
     let mut segments = active.segments.lock().unwrap().clone();
     segments.sort_by(|a, b| a.start.partial_cmp(&b.start).unwrap_or(std::cmp::Ordering::Equal));
-    Ok(Finished { path: active.path, diarize: active.diarize, cfg: active.cfg, segments })
+    Ok(Finished { path: active.path, cfg: active.cfg, segments })
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct StoppedRecording {
+    transcript: engine::Transcript,
+    /// Whether the transcript carries speaker labels.
+    speakers_labelled: bool,
+    /// Something the user should know about the result.
+    note: Option<String>,
 }
 
 /// Stop recording and build the transcript: the live utterances, with speaker
-/// labels from diarizing the whole recording if speakers were requested.
+/// labels from diarizing the whole recording if `diarize` is set. If labelling
+/// fails, the transcript is returned without labels and with a note.
 #[tauri::command]
 pub async fn stop_recording(
     app: AppHandle,
+    diarize: Option<bool>,
     num_speakers: Option<u32>,
-) -> Result<engine::Transcript, String> {
+) -> Result<StoppedRecording, String> {
     tauri::async_runtime::spawn_blocking(move || {
         let done = finish(&app, false)?;
-        if !done.diarize {
-            let _ = app.emit("transcribe-progress", engine::Progress::new("done", 1, 1, 1.0));
-            return Ok(merge::from_asr(&done.segments));
+        let mut result = StoppedRecording {
+            transcript: merge::from_asr(&done.segments),
+            speakers_labelled: false,
+            note: None,
+        };
+        if diarize.unwrap_or(false) {
+            let _ = app.emit("transcribe-progress", engine::Progress::new("diarizing", 0, 1, 0.95));
+            match label_speakers(&app, &done, num_speakers) {
+                Ok(transcript) => {
+                    result.transcript = transcript;
+                    result.speakers_labelled = true;
+                }
+                Err(e) => {
+                    result.note = Some(format!(
+                        "Speakers couldn't be labelled, so this transcript has none. ({e})"
+                    ))
+                }
+            }
         }
-        let _ = app.emit("transcribe-progress", engine::Progress::new("diarizing", 0, 1, 0.95));
-        let (samples, sr) = load_wav_16k_mono(&done.path).map_err(|e| e.to_string())?;
-        let eng = SherpaEngine::new(&done.cfg).map_err(|e| e.to_string())?;
-        let spans = eng.diarize(&samples, sr, num_speakers).map_err(|e| e.to_string())?;
         let _ = app.emit("transcribe-progress", engine::Progress::new("done", 1, 1, 1.0));
-        Ok(merge::merge(&done.segments, &spans))
+        // The notes file stays until the app has saved the transcript with
+        // the notes (`forget_recording_notes`).
+        Ok(result)
+    })
+    .await
+    .map_err(|e| format!("recording task failed: {e}"))?
+}
+
+/// Diarize the whole recording and attach speakers to the live utterances.
+fn label_speakers(
+    app: &AppHandle,
+    done: &Finished,
+    num_speakers: Option<u32>,
+) -> Result<engine::Transcript, String> {
+    let mut cfg = done.cfg.clone();
+    cfg.diarize = true;
+    cfg.models_dir = crate::commands::resolve_models_dir(app, cfg.asr_model, true)?;
+    let (samples, sr) = load_wav_16k_mono(&done.path).map_err(|e| e.to_string())?;
+    let eng = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
+    let spans = eng.diarize(&samples, sr, num_speakers).map_err(|e| e.to_string())?;
+    Ok(merge::merge(&done.segments, &spans))
+}
+
+/// Remove a finished recording's notes file once the transcript holding the
+/// notes is saved.
+#[tauri::command]
+pub async fn forget_recording_notes(app: AppHandle, audio_path: String) -> Result<(), String> {
+    let library = crate::library::library_dir(&app)?;
+    tauri::async_runtime::spawn_blocking(move || {
+        remove_notes(&own_recording(&library, Path::new(&audio_path))?)
+    })
+    .await
+    .map_err(|e| format!("recording task failed: {e}"))?
+}
+
+/// Save the notes typed during the current recording (kept next to the WAV
+/// until Stop, so a crash doesn't lose them).
+#[tauri::command]
+pub async fn save_recording_notes(app: AppHandle, text: String) -> Result<(), String> {
+    let library = crate::library::library_dir(&app)?;
+    tauri::async_runtime::spawn_blocking(move || {
+        // Hold the lock while writing: Stop takes the recording under the same
+        // lock, so a save can't land after Stop has removed the notes file.
+        let state = app.state::<RecorderState>();
+        let guard = state.0.lock().unwrap();
+        let active = guard.as_ref().ok_or_else(|| "No recording is in progress.".to_string())?;
+        save_recording_notes_in(&library, &active.path, &text)
     })
     .await
     .map_err(|e| format!("recording task failed: {e}"))?
@@ -1109,6 +1206,44 @@ mod tests {
 
         assert!(!path.exists());
         assert!(!system::approved_recordings_in(&library).unwrap().contains(&canonical));
+        let _ = std::fs::remove_dir_all(&library);
+    }
+
+    #[test]
+    fn deleting_a_transcript_of_a_recording_also_deletes_notes_left_by_a_crash() {
+        let library = unique_tmp("delete-notes");
+        let (file, path) = RecordingFile::create_in(&library, "Recording test").unwrap();
+        file.finish().unwrap();
+        save_recording_notes_in(&library, &path, "Client agreed to mediation.").unwrap();
+        crate::library::save_session_in(
+            &library,
+            &serde_json::json!({ "id": "s1", "audioPath": path.to_string_lossy() }),
+        )
+        .unwrap();
+
+        let report = system::delete_transcript_authorized_in(&library, "s1", |_, _| true).unwrap();
+
+        assert!(report.failed.is_empty(), "{:?}", report.failed);
+        let left: Vec<_> = std::fs::read_dir(recordings_dir(&library)).unwrap().collect();
+        assert!(left.is_empty(), "{left:?}");
+        let _ = std::fs::remove_dir_all(&library);
+    }
+
+    #[test]
+    fn notes_are_kept_next_to_the_recording_and_discarding_deletes_both() {
+        let library = unique_tmp("notes");
+        let (file, path) = RecordingFile::create_in(&library, "Recording test").unwrap();
+        file.finish().unwrap();
+
+        save_recording_notes_in(&library, &path, "first draft").unwrap();
+        save_recording_notes_in(&library, &path, "Client agreed to mediation.").unwrap();
+        let notes = recordings_dir(&library).join("Recording test.notes.txt");
+        assert_eq!(std::fs::read_to_string(&notes).unwrap(), "Client agreed to mediation.");
+
+        discard_recording_in(&library, &path).unwrap();
+
+        let left: Vec<_> = std::fs::read_dir(recordings_dir(&library)).unwrap().collect();
+        assert!(left.is_empty(), "{left:?}");
         let _ = std::fs::remove_dir_all(&library);
     }
 

@@ -13,6 +13,7 @@ let transcribe: () => Promise<unknown>;
 let sessions: unknown[];
 let startRecording: () => Promise<unknown>;
 let discardRecording: () => Promise<unknown>;
+let stopRecording: () => Promise<unknown>;
 // Event handlers registered through `listen`, so tests can emit backend events.
 let handlers: Record<string, (event: { payload: unknown }) => void>;
 
@@ -59,6 +60,7 @@ beforeEach(() => {
     });
   });
   discardRecording = () => Promise.resolve();
+  stopRecording = () => Promise.resolve({ transcript, speakersLabelled: false, note: null });
   startRecording = () =>
     Promise.resolve({ audioPath: "/library/recordings/Recording 2026-11-10 14-03-22.wav" });
   deleteTranscriptReport = { deleted: ["/recordings/interview.wav"], failed: [] };
@@ -107,7 +109,10 @@ beforeEach(() => {
       case "discard_recording":
         return discardRecording();
       case "stop_recording":
-        return Promise.resolve(transcript);
+        return stopRecording();
+      case "save_recording_notes":
+      case "forget_recording_notes":
+        return Promise.resolve();
       default:
         throw new Error(`unexpected command ${command}`);
     }
@@ -153,6 +158,12 @@ function savedTexts(): string[] {
         .session.editorState.sentences.flatMap((s) => s.words.map((w) => w.text))
         .join(" "),
     );
+}
+
+function savedNotes(): (string | undefined)[] {
+  return invokeMock.mock.calls
+    .filter(([command]) => command === "save_session")
+    .map(([, args]) => (args as { session: { notes?: string } }).session.notes);
 }
 
 function correctTo(text: string): void {
@@ -511,10 +522,7 @@ describe("Record", () => {
 
   it("shows each utterance as it is transcribed, in order", async () => {
     await startRecordingFromSidebar();
-    expect(invokeMock).toHaveBeenCalledWith("start_recording", {
-      model: "small.en",
-      diarize: false,
-    });
+    expect(invokeMock).toHaveBeenCalledWith("start_recording", { model: "small.en" });
 
     emit("record-utterance", { start: 0.4, end: 3.1, text: "Thanks for coming in.", words: [] });
     emit("record-utterance", { start: 4.0, end: 6.2, text: "Happy to help.", words: [] });
@@ -538,21 +546,17 @@ describe("Record", () => {
   it("stops with the chosen speaker count and opens the saved transcript", async () => {
     render(<App />);
     fireEvent.click(await screen.findByRole("button", { name: /^Record/ }));
-    fireEvent.click(await screen.findByTestId("detect-speakers"));
-    fireEvent.change(screen.getByTestId("speaker-count"), { target: { value: "2" } });
+    fireEvent.click(await screen.findByTestId("label-speakers"));
+    fireEvent.click(screen.getByRole("button", { name: "More speakers" }));
     fireEvent.click(await screen.findByRole("button", { name: "Start recording" }));
     await screen.findByText("Recording");
-    expect(invokeMock).toHaveBeenCalledWith("start_recording", {
-      model: "small.en",
-      diarize: true,
-    });
 
     fireEvent.click(screen.getByRole("button", { name: "Stop and create transcript" }));
 
     expect(
       await screen.findByRole("heading", { name: "Recording 2026-11-10 14-03-22" }),
     ).toBeInTheDocument();
-    expect(invokeMock).toHaveBeenCalledWith("stop_recording", { numSpeakers: 2 });
+    expect(invokeMock).toHaveBeenCalledWith("stop_recording", { diarize: true, numSpeakers: 2 });
     await waitFor(() => expect(savedTexts()).toHaveLength(1));
     const saved = invokeMock.mock.calls.find(([command]) => command === "save_session")!;
     expect((saved[1] as { session: { audioPath: string } }).session.audioPath).toBe(
@@ -675,5 +679,119 @@ describe("Record", () => {
 
     emit("record-device", "WH-1000XM5");
     expect(screen.getByTestId("recording-device")).toHaveTextContent("WH-1000XM5");
+  });
+
+  it("labels speakers when turned on during a recording, with the number set", async () => {
+    await startRecordingFromSidebar();
+    expect(screen.getByTestId("speaker-summary")).toHaveTextContent("Speakers won't be labelled.");
+
+    fireEvent.click(screen.getByTestId("label-speakers"));
+    fireEvent.click(screen.getByRole("button", { name: "More speakers" }));
+    fireEvent.click(screen.getByRole("button", { name: "More speakers" }));
+    expect(screen.getByTestId("speaker-summary")).toHaveTextContent(
+      "Speakers will be labelled when you stop, assuming 3 people.",
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Stop and create transcript" }));
+
+    await screen.findByRole("heading", { name: "Recording 2026-11-10 14-03-22" });
+    expect(invokeMock).toHaveBeenCalledWith("stop_recording", { diarize: true, numSpeakers: 3 });
+  });
+
+  it("keeps notes written during a recording with the transcript", async () => {
+    await startRecordingFromSidebar();
+
+    fireEvent.click(screen.getByRole("tab", { name: "Your notes" }));
+    fireEvent.change(screen.getByRole("textbox", { name: "Your notes" }), {
+      target: { value: "Client agreed to mediation." },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Stop and create transcript" }));
+
+    await screen.findByRole("heading", { name: "Recording 2026-11-10 14-03-22" });
+    await waitFor(() => expect(savedNotes()).toEqual(["Client agreed to mediation."]));
+    fireEvent.click(screen.getByRole("tab", { name: "Your notes" }));
+    expect(screen.getByRole("textbox", { name: "Your notes" })).toHaveValue(
+      "Client agreed to mediation.",
+    );
+  });
+
+  it("keeps notes typed while the recording is finishing", async () => {
+    let finishStop: (value: unknown) => void = () => {};
+    stopRecording = () => new Promise((resolve) => (finishStop = resolve));
+    await startRecordingFromSidebar();
+    fireEvent.click(screen.getByRole("tab", { name: "Your notes" }));
+    const box = screen.getByRole("textbox", { name: "Your notes" });
+    fireEvent.change(box, { target: { value: "First point." } });
+
+    fireEvent.click(screen.getByRole("button", { name: "Stop and create transcript" }));
+    await waitFor(() =>
+      expect(invokeMock).toHaveBeenCalledWith("stop_recording", expect.anything()),
+    );
+    fireEvent.change(box, { target: { value: "First point. Second point." } });
+    await act(async () => finishStop({ transcript, speakersLabelled: false, note: null }));
+
+    await waitFor(() => expect(savedNotes()).toEqual(["First point. Second point."]));
+  });
+
+  it("keeps the recording's notes file until the transcript holding the notes is saved", async () => {
+    saveSession = () => Promise.reject(new Error("disk full"));
+    await startRecordingFromSidebar();
+    fireEvent.click(screen.getByRole("tab", { name: "Your notes" }));
+    fireEvent.change(screen.getByRole("textbox", { name: "Your notes" }), {
+      target: { value: "Client agreed to mediation." },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Stop and create transcript" }));
+
+    expect(await screen.findByText("Local save failed")).toBeInTheDocument();
+    expect(invokeMock).not.toHaveBeenCalledWith("forget_recording_notes", expect.anything());
+
+    saveSession = () => Promise.resolve();
+    fireEvent.click(screen.getByRole("tab", { name: "Your notes" }));
+    fireEvent.change(screen.getByRole("textbox", { name: "Your notes" }), {
+      target: { value: "Client agreed to mediation. Costs to follow." },
+    });
+
+    await waitFor(() =>
+      expect(invokeMock).toHaveBeenCalledWith("forget_recording_notes", {
+        audioPath: "/library/recordings/Recording 2026-11-10 14-03-22.wav",
+      }),
+    );
+  });
+
+  it("opens the transcript without speakers, and says why, when labelling fails", async () => {
+    stopRecording = () =>
+      Promise.resolve({
+        transcript,
+        speakersLabelled: false,
+        note: "Speakers couldn't be labelled, so this transcript has none. (no speaker model)",
+      });
+    await startRecordingFromSidebar();
+    fireEvent.click(screen.getByTestId("label-speakers"));
+
+    fireEvent.click(screen.getByRole("button", { name: "Stop and create transcript" }));
+
+    expect(
+      await screen.findByText(
+        "Speakers couldn't be labelled, so this transcript has none. (no speaker model)",
+      ),
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("paragraph")).toBeInTheDocument();
+    await waitFor(() => expect(savedNotes()).toHaveLength(1));
+    const saved = invokeMock.mock.calls.find(([command]) => command === "save_session")!;
+    expect((saved[1] as { session: { diarized: boolean } }).session.diarized).toBe(false);
+  });
+});
+
+describe("Your notes", () => {
+  it("saves notes edited on an open transcript", async () => {
+    render(<App />);
+    await importAndCreate();
+    await screen.findByText("Saved locally");
+
+    fireEvent.click(screen.getByRole("tab", { name: "Your notes" }));
+    fireEvent.change(screen.getByRole("textbox", { name: "Your notes" }), {
+      target: { value: "Follow up on the tenancy dates." },
+    });
+
+    await waitFor(() => expect(savedNotes()).toContain("Follow up on the tenancy dates."));
   });
 });

@@ -50,6 +50,8 @@ pub fn run() {
             recorder::pause_recording,
             recorder::resume_recording,
             recorder::stop_recording,
+            recorder::save_recording_notes,
+            recorder::forget_recording_notes,
             recorder::discard_recording
         ])
         .run(tauri::generate_context!())
