@@ -192,34 +192,65 @@ fn own_recording(library: &Path, path: &Path) -> Result<PathBuf, String> {
 
 /// Where the notes typed during a recording are kept until it stops:
 /// `<recording>.notes.txt`, next to the WAV.
-pub(crate) fn notes_path(recording: &Path) -> PathBuf {
+fn notes_path(recording: &Path) -> PathBuf {
     recording.with_extension("notes.txt")
 }
 
-/// Save the notes for an in-progress recording, replacing the file atomically
-/// so a crash leaves either the old notes or the new ones.
+/// The half-written copy a notes save renames into place.
+fn notes_tmp_path(recording: &Path) -> PathBuf {
+    recording.with_extension("notes.txt.tmp")
+}
+
+static NOTES_LOCK: Mutex<()> = Mutex::new(());
+
+/// Held while saving or deleting notes files, so a save can't recreate notes
+/// that a delete has just removed.
+pub(crate) fn notes_lock() -> std::sync::MutexGuard<'static, ()> {
+    NOTES_LOCK.lock().unwrap_or_else(|e| e.into_inner())
+}
+
+/// Save the notes for a recording that still exists, replacing the file
+/// atomically so a crash leaves either the old notes or the new ones.
 pub(crate) fn save_recording_notes_in(library: &Path, recording: &Path, text: &str) -> Result<(), String> {
-    let target = notes_path(&own_recording(library, recording)?);
-    let tmp = target.with_extension("txt.tmp");
+    let _guard = notes_lock();
+    let canonical = own_recording(library, recording)?;
+    let (target, tmp) = (notes_path(&canonical), notes_tmp_path(&canonical));
     std::fs::write(&tmp, text).map_err(|e| format!("cannot save notes: {e}"))?;
     std::fs::rename(&tmp, &target).map_err(|e| format!("cannot save notes: {e}"))
 }
 
-/// Remove a recording's notes file, if there is one.
-fn remove_notes(recording: &Path) -> Result<(), String> {
-    match std::fs::remove_file(notes_path(recording)) {
-        Err(e) if e.kind() != std::io::ErrorKind::NotFound => {
-            Err(format!("cannot delete notes for {}: {e}", recording.display()))
-        }
-        _ => Ok(()),
+/// The notes files (saved or half-written) beside one of this app's
+/// recordings. Works after the recording itself has been deleted.
+pub(crate) fn notes_files(library: &Path, recording: &Path) -> Vec<PathBuf> {
+    let Ok(dir) = recordings_dir(library).canonicalize() else { return Vec::new() };
+    let (Some(parent), Some(name)) = (recording.parent(), recording.file_name()) else {
+        return Vec::new();
+    };
+    if parent.canonicalize().ok().as_deref() != Some(dir.as_path()) {
+        return Vec::new();
     }
+    let base = dir.join(name);
+    [notes_path(&base), notes_tmp_path(&base)]
+        .into_iter()
+        .filter(|p| std::fs::symlink_metadata(p).is_ok())
+        .collect()
+}
+
+/// Remove a recording's notes files. The caller holds [`notes_lock`].
+fn remove_notes(library: &Path, recording: &Path) -> Result<(), String> {
+    for path in notes_files(library, recording) {
+        std::fs::remove_file(&path)
+            .map_err(|e| format!("cannot delete notes {}: {e}", path.display()))?;
+    }
+    Ok(())
 }
 
 /// Delete a recording this app created, with its notes, and drop its approval.
 /// Refuses paths outside `<library>/recordings/`.
 pub(crate) fn discard_recording_in(library: &Path, path: &Path) -> Result<(), String> {
+    let _guard = notes_lock();
     let canonical = own_recording(library, path)?;
-    remove_notes(&canonical)?;
+    remove_notes(library, &canonical)?;
     std::fs::remove_file(&canonical)
         .map_err(|e| format!("cannot delete {}: {e}", canonical.display()))?;
     system::forget_approved_recording_in(library, &canonical);
@@ -1091,24 +1122,25 @@ fn label_speakers(
 pub async fn forget_recording_notes(app: AppHandle, audio_path: String) -> Result<(), String> {
     let library = crate::library::library_dir(&app)?;
     tauri::async_runtime::spawn_blocking(move || {
-        remove_notes(&own_recording(&library, Path::new(&audio_path))?)
+        let _guard = notes_lock();
+        remove_notes(&library, &own_recording(&library, Path::new(&audio_path))?)
     })
     .await
     .map_err(|e| format!("recording task failed: {e}"))?
 }
 
-/// Save the notes typed during the current recording (kept next to the WAV
-/// until Stop, so a crash doesn't lose them).
+/// Save the notes typed during a recording, next to its WAV, until the
+/// transcript holding them is saved; so a crash, even while Stop is still
+/// finishing, doesn't lose them.
 #[tauri::command]
-pub async fn save_recording_notes(app: AppHandle, text: String) -> Result<(), String> {
+pub async fn save_recording_notes(
+    app: AppHandle,
+    audio_path: String,
+    text: String,
+) -> Result<(), String> {
     let library = crate::library::library_dir(&app)?;
     tauri::async_runtime::spawn_blocking(move || {
-        // Hold the lock while writing: Stop takes the recording under the same
-        // lock, so a save can't land after Stop has removed the notes file.
-        let state = app.state::<RecorderState>();
-        let guard = state.0.lock().unwrap();
-        let active = guard.as_ref().ok_or_else(|| "No recording is in progress.".to_string())?;
-        save_recording_notes_in(&library, &active.path, &text)
+        save_recording_notes_in(&library, Path::new(&audio_path), &text)
     })
     .await
     .map_err(|e| format!("recording task failed: {e}"))?
@@ -1225,6 +1257,62 @@ mod tests {
 
         assert!(report.failed.is_empty(), "{:?}", report.failed);
         let left: Vec<_> = std::fs::read_dir(recordings_dir(&library)).unwrap().collect();
+        assert!(left.is_empty(), "{left:?}");
+        let _ = std::fs::remove_dir_all(&library);
+    }
+
+    #[test]
+    fn deleting_a_transcript_retries_notes_that_could_not_be_deleted_the_first_time() {
+        let library = unique_tmp("delete-notes-retry");
+        let (file, path) = RecordingFile::create_in(&library, "Recording test").unwrap();
+        file.finish().unwrap();
+        crate::library::save_session_in(
+            &library,
+            &serde_json::json!({ "id": "s1", "audioPath": path.to_string_lossy() }),
+        )
+        .unwrap();
+        // Something the delete can't remove where the notes file goes (as a
+        // file held open on Windows would be).
+        let notes = recordings_dir(&library).join("Recording test.notes.txt");
+        std::fs::create_dir(&notes).unwrap();
+
+        let first = system::delete_transcript_authorized_in(&library, "s1", |_, _| true).unwrap();
+        assert!(!first.failed.is_empty());
+        assert!(library.join("s1.json").exists(), "the transcript must stay so deletion can be retried");
+
+        std::fs::remove_dir(&notes).unwrap();
+        std::fs::write(&notes, "Client agreed to mediation.").unwrap();
+        let retry = system::delete_transcript_authorized_in(&library, "s1", |_, _| true).unwrap();
+
+        assert!(retry.failed.is_empty(), "{:?}", retry.failed);
+        let left: Vec<_> = std::fs::read_dir(recordings_dir(&library)).unwrap().collect();
+        assert!(left.is_empty(), "{left:?}");
+        assert!(!library.join("s1.json").exists());
+        let _ = std::fs::remove_dir_all(&library);
+    }
+
+    #[test]
+    fn discard_and_delete_remove_a_half_written_notes_file() {
+        let library = unique_tmp("notes-tmp");
+        let (a, discarded) = RecordingFile::create_in(&library, "Recording a").unwrap();
+        a.finish().unwrap();
+        let (b, deleted) = RecordingFile::create_in(&library, "Recording b").unwrap();
+        b.finish().unwrap();
+        // A crash between writing the notes and renaming them into place.
+        let dir = recordings_dir(&library);
+        std::fs::write(dir.join("Recording a.notes.txt.tmp"), "draft").unwrap();
+        std::fs::write(dir.join("Recording b.notes.txt.tmp"), "draft").unwrap();
+        crate::library::save_session_in(
+            &library,
+            &serde_json::json!({ "id": "s1", "audioPath": deleted.to_string_lossy() }),
+        )
+        .unwrap();
+
+        discard_recording_in(&library, &discarded).unwrap();
+        let report = system::delete_transcript_authorized_in(&library, "s1", |_, _| true).unwrap();
+
+        assert!(report.failed.is_empty(), "{:?}", report.failed);
+        let left: Vec<_> = std::fs::read_dir(&dir).unwrap().collect();
         assert!(left.is_empty(), "{left:?}");
         let _ = std::fs::remove_dir_all(&library);
     }
