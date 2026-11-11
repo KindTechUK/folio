@@ -22,6 +22,7 @@ import Models, { selectAsrModel } from "./Models";
 import type { PackStatus } from "./Models";
 import Library from "./Library";
 import Record from "./Record";
+import type { FinishedRecording } from "./Record";
 import SpeakerOptions, { requestedSpeakers } from "./SpeakerOptions";
 import Sidebar from "./Sidebar";
 import type { View } from "./Sidebar";
@@ -129,6 +130,17 @@ export default function App() {
   const [saveCount, setSaveCount] = useState(0);
   const stateRef = useRef<EditorState | null>(null);
   stateRef.current = state;
+  // The open transcript's private notes, saved alongside it (undo doesn't cover them).
+  const [notes, setNotes] = useState("");
+  const notesRef = useRef("");
+  notesRef.current = notes;
+  const savedNotesRef = useRef("");
+  const [reviewTab, setReviewTab] = useState<"transcript" | "notes">("transcript");
+  // A new recording's notes file, kept for crash safety until the transcript
+  // holding its notes has been saved once.
+  const notesFileRef = useRef<string | null>(null);
+  // Something to know about the transcript just created (e.g. speakers couldn't be labelled).
+  const [transcriptNote, setTranscriptNote] = useState<string | null>(null);
 
   function updateModelStatus(packs: PackStatus[]) {
     setInstalledAsrModel(selectAsrModel(packs));
@@ -173,10 +185,17 @@ export default function App() {
 
   // Queue one snapshot for the library. Never rejects; false means the save failed.
   // A write whose transcript was closed or deleted while it waited is dropped.
-  function persist(meta: OpenSessionMeta, snapshot: EditorState): Promise<boolean> {
+  function persist(
+    meta: OpenSessionMeta,
+    snapshot: EditorState,
+    notesText: string,
+  ): Promise<boolean> {
     queuedWritesRef.current += 1;
     const write = writeQueueRef.current.then(async () => {
-      if (metaRef.current?.id !== meta.id || snapshot === savedStateRef.current) {
+      if (
+        metaRef.current?.id !== meta.id ||
+        (snapshot === savedStateRef.current && notesText === savedNotesRef.current)
+      ) {
         queuedWritesRef.current -= 1;
         return true;
       }
@@ -190,11 +209,18 @@ export default function App() {
             audioPath: meta.audioPath,
             diarized: meta.diarized,
             state: snapshot,
+            notes: notesText,
           }),
         });
         queuedWritesRef.current -= 1;
         if (metaRef.current?.id === meta.id) {
           savedStateRef.current = snapshot;
+          savedNotesRef.current = notesText;
+          if (notesFileRef.current === meta.audioPath) {
+            notesFileRef.current = null;
+            // Best effort: a leftover file is removed with the recording.
+            invoke("forget_recording_notes", { audioPath: meta.audioPath }).catch(() => {});
+          }
           setSaveCount((n) => n + 1);
         }
         return true;
@@ -220,10 +246,15 @@ export default function App() {
       // More writes were queued while waiting (autosave keeps running): drain them too.
       if (writeQueueRef.current !== tail) continue;
       const latest = stateRef.current;
-      if (metaRef.current?.id !== meta.id || !latest || latest === savedStateRef.current) {
+      const latestNotes = notesRef.current;
+      if (
+        metaRef.current?.id !== meta.id ||
+        !latest ||
+        (latest === savedStateRef.current && latestNotes === savedNotesRef.current)
+      ) {
         return true;
       }
-      if (!(await persist(meta, latest))) return false;
+      if (!(await persist(meta, latest, latestNotes))) return false;
     }
   }
 
@@ -231,7 +262,7 @@ export default function App() {
   // edit lands until it is on disk.
   useEffect(() => {
     if (!state || !currentSessionMeta) return;
-    if (state === savedStateRef.current) {
+    if (state === savedStateRef.current && notes === savedNotesRef.current) {
       // A queued write may still overwrite disk with other text; its completion
       // re-runs this check.
       setSaveStatus(queuedWritesRef.current > 0 ? "saving" : "saved");
@@ -239,9 +270,9 @@ export default function App() {
     }
     setSaveStatus("saving");
     const meta = currentSessionMeta;
-    const timer = setTimeout(() => void persist(meta, state), 800);
+    const timer = setTimeout(() => void persist(meta, state, notes), 800);
     return () => clearTimeout(timer);
-  }, [state, currentSessionMeta, saveCount]);
+  }, [state, notes, currentSessionMeta, saveCount]);
 
   // Open a saved session from the Library: load its JSON, restore the editor
   // and audio, and switch to the review view. Audio may be missing if the
@@ -258,6 +289,11 @@ export default function App() {
         { id },
       );
       savedStateRef.current = res.session.editorState;
+      savedNotesRef.current = res.session.notes ?? "";
+      notesRef.current = savedNotesRef.current;
+      setNotes(savedNotesRef.current);
+      setReviewTab("transcript");
+      setTranscriptNote(null);
       setHistory(initHistory(res.session.editorState));
       setDiarized(res.session.diarized);
       setCurrentSessionMeta({
@@ -350,12 +386,24 @@ export default function App() {
   }
 
   // Open a just-created transcript in the editor and save it at once.
-  async function openNewTranscript(transcript: Transcript, path: string, withSpeakers: boolean) {
+  async function openNewTranscript(
+    transcript: Transcript,
+    path: string,
+    withSpeakers: boolean,
+    newNotes = "",
+    note: string | null = null,
+    fromRecording = false,
+  ) {
     // Build the editor state once and reuse it for both the live history and
     // the saved copy, so the persisted session matches what is on screen.
     const editorState = loadTranscript(transcript);
     setHistory(initHistory(editorState));
     setDiarized(withSpeakers);
+    notesRef.current = newNotes;
+    setNotes(newNotes);
+    setReviewTab(newNotes ? "notes" : "transcript");
+    setTranscriptNote(note);
+    notesFileRef.current = fromRecording ? path : null;
     setAudioSrc(convertFileSrc(path));
     setSelectedPath(null);
     const meta = {
@@ -368,7 +416,7 @@ export default function App() {
     setCurrentSessionMeta(meta);
     setStatus("idle");
     setView("transcribe");
-    await persist(meta, editorState);
+    await persist(meta, editorState, newNotes);
   }
 
   async function chooseRecording() {
@@ -619,16 +667,74 @@ export default function App() {
                       The source recording was not found, so playback is unavailable.
                     </Banner>
                   )}
-                  <Editor
-                    state={state}
-                    setState={setState}
-                    audioSrc={audioSrc}
-                    diarized={diarized}
-                    onUndo={onUndo}
-                    onRedo={onRedo}
-                    canUndo={history ? canUndo(history) : false}
-                    canRedo={history ? canRedo(history) : false}
-                  />
+                  {transcriptNote && (
+                    <Banner variant="warning" role="alert" style={{ marginTop: "var(--space-3)" }}>
+                      {transcriptNote}
+                    </Banner>
+                  )}
+                  <div
+                    className="recording-tabs"
+                    role="tablist"
+                    aria-label="Transcript view"
+                    style={{ marginTop: "var(--space-3)" }}
+                  >
+                    <button
+                      type="button"
+                      role="tab"
+                      id="review-tab-transcript"
+                      aria-selected={reviewTab === "transcript"}
+                      aria-controls="review-panel-transcript"
+                      onClick={() => setReviewTab("transcript")}
+                    >
+                      Transcript
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      id="review-tab-notes"
+                      aria-selected={reviewTab === "notes"}
+                      aria-controls="review-panel-notes"
+                      onClick={() => setReviewTab("notes")}
+                    >
+                      Your notes
+                    </button>
+                  </div>
+                  <div
+                    className="notes-panel review-notes"
+                    role="tabpanel"
+                    id="review-panel-notes"
+                    aria-labelledby="review-tab-notes"
+                    hidden={reviewTab !== "notes"}
+                  >
+                    <textarea
+                      className="notes-input"
+                      aria-label="Your notes"
+                      placeholder="Write anything you want to remember about this conversation. Only you see these notes."
+                      value={notes}
+                      onChange={(e) => setNotes(e.target.value)}
+                    />
+                    <p className="notes-privacy">
+                      Private to you. Saved on this device with the transcript.
+                    </p>
+                  </div>
+                  {/* Kept mounted while hidden, so playback carries on. */}
+                  <div
+                    role="tabpanel"
+                    id="review-panel-transcript"
+                    aria-labelledby="review-tab-transcript"
+                    hidden={reviewTab !== "transcript"}
+                  >
+                    <Editor
+                      state={state}
+                      setState={setState}
+                      audioSrc={audioSrc}
+                      diarized={diarized}
+                      onUndo={onUndo}
+                      onRedo={onRedo}
+                      canUndo={history ? canUndo(history) : false}
+                      canRedo={history ? canRedo(history) : false}
+                    />
+                  </div>
                 </>
               )}
             </>
@@ -648,7 +754,16 @@ export default function App() {
                 setRecordingActive(active);
                 if (!active) setLeaveBlocked(false);
               }}
-              onFinished={(t, path, withSpeakers) => void openNewTranscript(t, path, withSpeakers)}
+              onFinished={(r: FinishedRecording) =>
+                void openNewTranscript(
+                  r.transcript,
+                  r.audioPath,
+                  r.speakersLabelled,
+                  r.notes,
+                  r.note,
+                  true,
+                )
+              }
             />
           ) : view === "models" ? (
             <Models onPacksChanged={updateModelStatus} />

@@ -13,6 +13,8 @@ export interface SessionJson {
   diarized: boolean;
   segments: number; // sentence count, for the library list
   editorState: EditorState;
+  /** The user's private notes ("Your notes"). Absent in sessions saved before notes existed. */
+  notes?: string;
 }
 
 /** Library list-row metadata returned by the Rust `list_sessions` command. */
@@ -40,6 +42,7 @@ export function buildSession(input: {
   audioPath: string;
   diarized: boolean;
   state: EditorState;
+  notes: string;
 }): SessionJson {
   return {
     id: input.id,
@@ -50,5 +53,6 @@ export function buildSession(input: {
     diarized: input.diarized,
     segments: input.state.sentences.length,
     editorState: input.state,
+    notes: input.notes,
   };
 }
