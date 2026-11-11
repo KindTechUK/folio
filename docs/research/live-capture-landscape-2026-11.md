@@ -52,7 +52,7 @@ Buzz and Vibe are less relevant:
    - Realtek "Voice Clarity" (Handy #2141);
    - Bluetooth HFP gating (Anarlog measured 26–52% zero samples, #7284).
 
-   Folio now reopens the default microphone after an error or a 3-second stall, with retries of 1, 2, 4, 8 and 8 s. It records silence for the gap, warns after 3 s of digital silence, and warns when the input is a headset in call mode.
+   Folio now reopens the default microphone after an error or a 3-second stall, with retries of 1, 2, 4, 8 and 8 s. It records silence for the gap, warns after 3 s of digital silence, and warns when the input looks like a headset (Bluetooth, or 16 kHz or less): headsets are tuned to the wearer, so other people in the room may be missed.
 2. **Backlog.** OpenWhispr's unbounded queue stalled an hour-long meeting (#2976). Folio keeps decoding every utterance, since the WAV is the record. Past 120 s of backlog the queue holds only positions, and the decoder reads those samples back from the WAV. The UI says when live text is catching up, and Stop shows progress through the remaining backlog.
 3. **Power loss.** Anarlog fsyncs its recording chunks. Folio now fsyncs the WAV each time it rewrites the header.
 4. **Call capture (P4).** Anarlog removed Windows process loopback because new Teams produced zeros on it (PRs #7283 → #7590). The PRD now specifies endpoint loopback following the active endpoint, separate mic and call channels, padded loopback gaps, and AEC only without headphones.
