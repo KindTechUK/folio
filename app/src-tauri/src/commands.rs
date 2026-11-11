@@ -8,7 +8,7 @@ use crate::models;
 
 /// Map a frontend model name to an [`engine::AsrModel`], falling back to the
 /// engine default (`parakeet`) for `None`/unrecognized values.
-fn parse_asr_model(name: Option<&str>) -> engine::AsrModel {
+pub(crate) fn parse_asr_model(name: Option<&str>) -> engine::AsrModel {
     match name.map(|s| s.trim().to_ascii_lowercase()).as_deref() {
         Some("parakeet") | Some("parakeet-v2") | Some("parakeet-tdt-0.6b-v2") => {
             engine::AsrModel::ParakeetV2
@@ -58,6 +58,20 @@ pub fn debug_asr_model_override() -> Option<String> {
     }
 }
 
+/// Resolve the models dir, enforcing verified-pack trust (debug-only raw
+/// override: see `debug_models_dir_override`). Blocking: may extract packs.
+pub(crate) fn resolve_models_dir(
+    app: &AppHandle,
+    asr_model: engine::AsrModel,
+    diarize: bool,
+) -> Result<std::path::PathBuf, String> {
+    #[cfg(debug_assertions)]
+    if let Some(raw) = debug_models_dir_override() {
+        return Ok(raw);
+    }
+    models::resolve_verified_models_dir(app, asr_model, diarize)
+}
+
 /// Transcribe an audio file (wav/mp3/m4a/mp4/flac/ogg…) into the project's JSON
 /// contract.
 ///
@@ -92,21 +106,7 @@ pub async fn transcribe(
     tauri::async_runtime::spawn_blocking(move || {
         // Resolve the models dir, enforcing verified-pack trust (debug-only raw
         // override: see `debug_models_dir_override`).
-        let models_dir = {
-            #[cfg(debug_assertions)]
-            {
-                if let Some(raw) = debug_models_dir_override() {
-                    raw
-                } else {
-                    models::resolve_verified_models_dir(&resolve_app, cfg.asr_model, cfg.diarize)?
-                }
-            }
-            #[cfg(not(debug_assertions))]
-            {
-                models::resolve_verified_models_dir(&resolve_app, cfg.asr_model, cfg.diarize)?
-            }
-        };
-        cfg.models_dir = models_dir;
+        cfg.models_dir = resolve_models_dir(&resolve_app, cfg.asr_model, cfg.diarize)?;
 
         let sherpa = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
 

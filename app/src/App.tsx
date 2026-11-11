@@ -21,6 +21,8 @@ import Editor from "./Editor";
 import Models, { selectAsrModel } from "./Models";
 import type { PackStatus } from "./Models";
 import Library from "./Library";
+import Record from "./Record";
+import SpeakerOptions, { requestedSpeakers } from "./SpeakerOptions";
 import Sidebar from "./Sidebar";
 import type { View } from "./Sidebar";
 import { Banner, Button } from "./ui";
@@ -29,6 +31,10 @@ const HEADINGS: Record<View, { title: string; subtitle: string }> = {
   library: {
     title: "Transcripts",
     subtitle: "Draft transcripts generated and stored on this device.",
+  },
+  record: {
+    title: "Record",
+    subtitle: "Capture a conversation and transcribe it on this device as it happens.",
   },
   transcribe: {
     title: "Import recording",
@@ -97,6 +103,9 @@ export default function App() {
   // Whether the CURRENTLY loaded transcript was diarized (drives the editor view).
   const [diarized, setDiarized] = useState(false);
   const [progress, setProgress] = useState<ProgressView | null>(null);
+  // A recording is running (or starting/stopping): the page can't be left.
+  const [recordingActive, setRecordingActive] = useState(false);
+  const [leaveBlocked, setLeaveBlocked] = useState(false);
   const [installedAsrModel, setInstalledAsrModel] = useState<string | null>(null);
   const [debugAsrModel, setDebugAsrModel] = useState<string | null>(null);
   const [modelsChecked, setModelsChecked] = useState(false);
@@ -320,8 +329,46 @@ export default function App() {
   }
 
   function navigate(next: View) {
+    if (recordingActive && view === "record") {
+      if (next !== "record") setLeaveBlocked(true);
+      return;
+    }
     if (next === "transcribe") void startImport();
+    else if (next === "record") void startRecordView();
     else setView(next);
+  }
+
+  // Show the Record page. An open transcript is saved first; if its latest edit
+  // can't be saved it stays open (the header shows the failure), because the
+  // recording will replace it when it stops.
+  async function startRecordView() {
+    if (!(await flushPendingSave())) {
+      setView("transcribe");
+      return;
+    }
+    setView("record");
+  }
+
+  // Open a just-created transcript in the editor and save it at once.
+  async function openNewTranscript(transcript: Transcript, path: string, withSpeakers: boolean) {
+    // Build the editor state once and reuse it for both the live history and
+    // the saved copy, so the persisted session matches what is on screen.
+    const editorState = loadTranscript(transcript);
+    setHistory(initHistory(editorState));
+    setDiarized(withSpeakers);
+    setAudioSrc(convertFileSrc(path));
+    setSelectedPath(null);
+    const meta = {
+      id: newId(),
+      createdAt: new Date().toISOString(),
+      audioPath: path,
+      audioFilename: basename(path),
+      diarized: withSpeakers,
+    };
+    setCurrentSessionMeta(meta);
+    setStatus("idle");
+    setView("transcribe");
+    await persist(meta, editorState);
   }
 
   async function chooseRecording() {
@@ -343,11 +390,7 @@ export default function App() {
     const path = selectedPath;
     setHistory(null);
     setCurrentSessionMeta(null);
-    const parsedCount = parseInt(speakerCount, 10);
-    const num_speakers =
-      detectSpeakers && Number.isFinite(parsedCount) && parsedCount > 0
-        ? parsedCount
-        : undefined;
+    const numSpeakers = requestedSpeakers(detectSpeakers, speakerCount);
 
     // Unlisten in `finally` so the progress listener never leaks.
     let unlisten = () => {};
@@ -363,28 +406,10 @@ export default function App() {
       const transcript = await invoke<Transcript>("transcribe", {
         path,
         diarize: detectSpeakers,
-        num_speakers,
+        numSpeakers,
         model: asrModel,
       });
-      // Build the editor state once and reuse it for both the live history and
-      // the saved copy, so the persisted session matches what is on screen.
-      const editorState = loadTranscript(transcript);
-      const id = newId();
-      const createdAt = new Date().toISOString();
-      setHistory(initHistory(editorState));
-      setDiarized(detectSpeakers);
-      setAudioSrc(convertFileSrc(path));
-      setSelectedPath(null);
-      const meta = {
-        id,
-        createdAt,
-        audioPath: path,
-        audioFilename: basename(path),
-        diarized: detectSpeakers,
-      };
-      setCurrentSessionMeta(meta);
-      setStatus("idle");
-      await persist(meta, editorState);
+      await openNewTranscript(transcript, path, detectSpeakers);
     } catch (e) {
       setStatus(`error: ${String(e)}`);
     } finally {
@@ -530,56 +555,12 @@ export default function App() {
                     </div>
                   )}
 
-                  <div
-                    style={{
-                      paddingTop: "var(--space-4)",
-                      borderTop: "1px solid var(--slate-200)",
-                      fontSize: "var(--text-sm)",
-                      color: "var(--slate-600)",
-                    }}
-                  >
-                    <div style={{ fontWeight: 600, marginBottom: "var(--space-2)" }}>
-                      Transcript options
-                    </div>
-                    <label
-                      style={{
-                        display: "flex",
-                        gap: 8,
-                        alignItems: "center",
-                        cursor: "pointer",
-                      }}
-                      title="Detect and label distinct speakers. Slower; best on clear 1–2 speaker audio."
-                    >
-                      <input
-                        type="checkbox"
-                        data-testid="detect-speakers"
-                        checked={detectSpeakers}
-                        onChange={(e) => setDetectSpeakers(e.target.checked)}
-                      />
-                      Detect and label speakers (slower)
-                    </label>
-                    {detectSpeakers && (
-                      <label
-                        style={{
-                          display: "flex",
-                          gap: 8,
-                          alignItems: "center",
-                          margin: "var(--space-3) 0 0 24px",
-                        }}
-                      >
-                        Expected number of speakers
-                        <input
-                          type="number"
-                          min={1}
-                          data-testid="speaker-count"
-                          placeholder="Auto"
-                          value={speakerCount}
-                          onChange={(e) => setSpeakerCount(e.target.value)}
-                          style={{ width: 72 }}
-                        />
-                      </label>
-                    )}
-                  </div>
+                  <SpeakerOptions
+                    detectSpeakers={detectSpeakers}
+                    onDetectSpeakers={setDetectSpeakers}
+                    speakerCount={speakerCount}
+                    onSpeakerCount={setSpeakerCount}
+                  />
                   {selectedPath && (
                     <Button
                       variant="primary"
@@ -651,6 +632,24 @@ export default function App() {
                 </>
               )}
             </>
+          ) : view === "record" ? (
+            <Record
+              asrModel={asrModel}
+              modelsChecked={modelsChecked}
+              modelLabel={asrModel ? (MODEL_LABELS[asrModel] ?? asrModel) : ""}
+              onOpenModels={() => setView("models")}
+              detectSpeakers={detectSpeakers}
+              onDetectSpeakers={setDetectSpeakers}
+              speakerCount={speakerCount}
+              onSpeakerCount={setSpeakerCount}
+              leaveBlocked={leaveBlocked}
+              importRunning={progress !== null}
+              onActiveChange={(active) => {
+                setRecordingActive(active);
+                if (!active) setLeaveBlocked(false);
+              }}
+              onFinished={(t, path, withSpeakers) => void openNewTranscript(t, path, withSpeakers)}
+            />
           ) : view === "models" ? (
             <Models onPacksChanged={updateModelStatus} />
           ) : (

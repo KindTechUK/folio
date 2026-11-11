@@ -43,6 +43,104 @@ fn vad_params(is_transducer: bool) -> (f32, f32) {
     }
 }
 
+/// VAD segmentation profile: `min_silence` closes an utterance after that much
+/// pause, `max_speech` caps its length (seconds).
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct VadProfile {
+    pub min_silence: f32,
+    pub max_speech: f32,
+}
+
+impl VadProfile {
+    /// Live capture: utterances close after 0.8 s of silence or 15 s of speech,
+    /// which bounds how far text trails speech (spike S1:
+    /// docs/spikes/s1-live-lag.md).
+    pub const LIVE: VadProfile = VadProfile { min_silence: 0.8, max_speech: 15.0 };
+
+    /// File transcription for `model` (see [`vad_params`]).
+    pub fn offline(model: crate::AsrModel) -> Self {
+        let (min_silence, max_speech) = vad_params(model.is_transducer());
+        VadProfile { min_silence, max_speech }
+    }
+}
+
+/// Silero VAD that turns a stream of 16 kHz mono samples into utterances.
+/// Utterance start positions count samples from creation (or the last
+/// [`Vad::reset`]).
+pub struct Vad {
+    inner: VoiceActivityDetector,
+    window: usize,
+}
+
+impl Vad {
+    /// Feed samples (any length); returns utterances closed so far as
+    /// `(start_sample, samples)`.
+    pub fn accept(&self, samples: &[f32]) -> Vec<(usize, Vec<f32>)> {
+        let mut out = Vec::new();
+        for chunk in samples.chunks(self.window) {
+            self.inner.accept_waveform(chunk);
+            self.drain(&mut out);
+        }
+        out
+    }
+
+    /// Close any open utterance (end of input, or pause).
+    pub fn flush(&self) -> Vec<(usize, Vec<f32>)> {
+        self.inner.flush();
+        let mut out = Vec::new();
+        self.drain(&mut out);
+        out
+    }
+
+    /// Clear all state; sample positions restart at 0.
+    pub fn reset(&self) {
+        self.inner.reset();
+    }
+
+    /// Whether speech is currently detected (an utterance is open).
+    pub fn speaking(&self) -> bool {
+        self.inner.detected()
+    }
+
+    fn drain(&self, out: &mut Vec<(usize, Vec<f32>)>) {
+        while let Some(seg) = self.inner.front() {
+            out.push((seg.start().max(0) as usize, seg.samples().to_vec()));
+            self.inner.pop();
+        }
+    }
+}
+
+/// A loaded ASR model that decodes one utterance at a time. Building one loads
+/// the model (seconds for Parakeet), so hold it for a whole session.
+pub struct Recognizer {
+    inner: OfflineRecognizer,
+    sample_rate: u32,
+}
+
+impl Recognizer {
+    /// Decode one utterance that starts `start_sample` samples into the audio.
+    /// Word and segment times are absolute (seconds from the start of the
+    /// audio). `None` when nothing was recognised.
+    pub fn decode_utterance(&self, start_sample: usize, samples: &[f32]) -> Option<AsrSegment> {
+        let stream = self.inner.create_stream();
+        stream.accept_waveform(self.sample_rate as i32, samples);
+        self.inner.decode(&stream);
+        let result = stream.get_result()?;
+        let text = result.text.trim().to_string();
+        if text.is_empty() {
+            return None;
+        }
+        let sr = self.sample_rate as f64;
+        let offset = start_sample as f64 / sr;
+        let seg_start = round3(offset);
+        let seg_end = round3(offset + samples.len() as f64 / sr);
+        let timestamps = result.timestamps.clone().unwrap_or_default();
+        let words =
+            group_tokens_to_words(&result.tokens, &timestamps, offset, seg_start, seg_end, &text);
+        Some(AsrSegment { start: seg_start, end: seg_end, text, words })
+    }
+}
+
 /// Concrete engine bound to a `models/` directory and a config (model choice,
 /// thread count).
 pub struct SherpaEngine {
@@ -116,22 +214,23 @@ impl SherpaEngine {
             .ok_or_else(|| EngineError::Sherpa("create OfflineRecognizer returned None".into()).into())
     }
 
-    /// VAD-chunk `samples` into `(start_sample, chunk_samples)` speech segments,
-    /// with model-aware params (see [`vad_params`]).
-    fn vad_chunks(
-        &self,
-        samples: &[f32],
-        sample_rate: u32,
-        progress: &ProgressSink<'_>,
-    ) -> anyhow::Result<Vec<(usize, Vec<f32>)>> {
-        let (min_silence_duration, max_speech_duration) =
-            vad_params(self.asr_model.is_transducer());
+    /// Load the ASR model for utterance-by-utterance decoding at 16 kHz.
+    pub fn recognizer(&self) -> anyhow::Result<Recognizer> {
+        Ok(Recognizer { inner: self.build_recognizer()?, sample_rate: 16_000 })
+    }
+
+    /// A Silero VAD for 16 kHz mono with the given profile.
+    pub fn vad(&self, profile: VadProfile) -> anyhow::Result<Vad> {
+        self.vad_at(profile, 16_000)
+    }
+
+    fn vad_at(&self, profile: VadProfile, sample_rate: u32) -> anyhow::Result<Vad> {
         let mut silero = SileroVadModelConfig::default();
         silero.model = Some(self.model_path(VAD_MODEL));
         silero.threshold = 0.5;
-        silero.min_silence_duration = min_silence_duration;
+        silero.min_silence_duration = profile.min_silence;
         silero.min_speech_duration = 0.25;
-        silero.max_speech_duration = max_speech_duration;
+        silero.max_speech_duration = profile.max_speech;
 
         let window = if silero.window_size > 0 {
             silero.window_size as usize
@@ -150,8 +249,20 @@ impl SherpaEngine {
 
         // Initial buffer size in seconds; sherpa-onnx grows it (without data
         // loss) if a speech run exceeds it.
-        let vad = VoiceActivityDetector::create(&vad_config, 100.0)
+        let inner = VoiceActivityDetector::create(&vad_config, 100.0)
             .ok_or_else(|| EngineError::Sherpa("create VoiceActivityDetector returned None".into()))?;
+        Ok(Vad { inner, window })
+    }
+
+    /// VAD-chunk `samples` into `(start_sample, chunk_samples)` speech segments
+    /// with the model's offline profile (see [`vad_params`]).
+    fn vad_chunks(
+        &self,
+        samples: &[f32],
+        sample_rate: u32,
+        progress: &ProgressSink<'_>,
+    ) -> anyhow::Result<Vec<(usize, Vec<f32>)>> {
+        let vad = self.vad_at(VadProfile::offline(self.asr_model), sample_rate)?;
 
         let mut chunks: Vec<(usize, Vec<f32>)> = Vec::new();
         // Emit "segmenting" progress across [PROGRESS_DECODE_END, PROGRESS_VAD_END]
@@ -159,12 +270,8 @@ impl SherpaEngine {
         let total = samples.len().max(1);
         let mut processed = 0usize;
         let mut last_pct: u32 = u32::MAX;
-        for chunk in samples.chunks(window) {
-            vad.accept_waveform(chunk);
-            while let Some(seg) = vad.front() {
-                chunks.push((seg.start().max(0) as usize, seg.samples().to_vec()));
-                vad.pop();
-            }
+        for chunk in samples.chunks(vad.window) {
+            chunks.extend(vad.accept(chunk));
             processed += chunk.len();
             let pct = (100 * processed / total) as u32;
             if pct != last_pct {
@@ -175,11 +282,7 @@ impl SherpaEngine {
                 progress(Progress::new("segmenting", processed as u32, total as u32, frac));
             }
         }
-        vad.flush();
-        while let Some(seg) = vad.front() {
-            chunks.push((seg.start().max(0) as usize, seg.samples().to_vec()));
-            vad.pop();
-        }
+        chunks.extend(vad.flush());
         Ok(chunks)
     }
 }
@@ -264,7 +367,7 @@ impl TranscriptionEngine for SherpaEngine {
         // Model load (esp. the ~600 MB Parakeet encoder) is a real wait; surface
         // it as its own "loading" step.
         progress(Progress::new("loading", 0, 0, crate::PROGRESS_DECODE_END));
-        let recognizer = self.build_recognizer()?;
+        let recognizer = Recognizer { inner: self.build_recognizer()?, sample_rate };
         let chunks = self
             .vad_chunks(samples, sample_rate, progress)
             .context("VAD chunking")?;
@@ -283,35 +386,9 @@ impl TranscriptionEngine for SherpaEngine {
             };
             progress(Progress::new("transcribing", done, total, frac));
 
-            let stream = recognizer.create_stream();
-            stream.accept_waveform(sample_rate as i32, chunk);
-            recognizer.decode(&stream);
-            let result = match stream.get_result() {
-                Some(r) => r,
-                None => continue,
-            };
-            let text = result.text.trim().to_string();
-            if text.is_empty() {
-                continue;
+            if let Some(seg) = recognizer.decode_utterance(*start_sample, chunk) {
+                segments.push(seg);
             }
-            let offset = *start_sample as f64 / sample_rate as f64;
-            let seg_start = round3(offset);
-            let seg_end = round3(offset + chunk.len() as f64 / sample_rate as f64);
-            let timestamps = result.timestamps.clone().unwrap_or_default();
-            let words = group_tokens_to_words(
-                &result.tokens,
-                &timestamps,
-                offset,
-                seg_start,
-                seg_end,
-                &text,
-            );
-            segments.push(AsrSegment {
-                start: seg_start,
-                end: seg_end,
-                text,
-                words,
-            });
         }
         Ok(segments)
     }

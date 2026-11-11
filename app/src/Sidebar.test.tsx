@@ -8,7 +8,7 @@ import Sidebar from "./Sidebar";
 // always-visible privacy signal.
 
 describe("Sidebar", () => {
-  it("renders the three nav items and the privacy chip", () => {
+  it("renders the nav items and the privacy chip", () => {
     render(<Sidebar view="library" onNavigate={() => {}} />);
     expect(screen.getByRole("button", { name: /Transcripts/ })).toBeInTheDocument();
     expect(

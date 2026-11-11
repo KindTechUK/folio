@@ -302,6 +302,117 @@ td {
   font-size: var(--text-xl);
 }
 
+.card-intro {
+  margin: var(--space-2) 0 var(--space-5);
+  max-width: 560px;
+  color: var(--slate-500);
+}
+
+/* Recording in progress: status row, live text, actions. */
+.recording-card {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: var(--space-5) var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.recording-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.recording-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--slate-400);
+}
+
+.recording-dot.live {
+  background: var(--danger);
+  animation: recording-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes recording-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recording-dot.live {
+    animation: none;
+  }
+}
+
+.level-meter {
+  flex: 1 1 120px;
+  max-width: 220px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--slate-100);
+  overflow: hidden;
+}
+
+.level-meter > div {
+  height: 100%;
+  background: var(--privacy);
+  transition: width 0.1s linear;
+}
+
+/* Fixed height: new lines scroll inside, so the buttons below never move. */
+.live-transcript {
+  height: clamp(180px, 42vh, 380px);
+  overflow-y: auto;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius);
+  background: var(--slate-50);
+  line-height: 1.6;
+}
+
+.live-utterance {
+  display: flex;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-2);
+}
+
+.live-time {
+  flex: none;
+  min-width: 3.5em;
+  color: var(--slate-400);
+  font-size: var(--text-sm);
+}
+
+.live-empty,
+.live-listening {
+  margin: 0;
+  color: var(--slate-500);
+  font-size: var(--text-sm);
+}
+
+.recording-finish {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--slate-600);
+}
+
+.recording-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
 .selected-recording,
 .model-ready {
   display: flex;
