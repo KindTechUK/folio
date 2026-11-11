@@ -6,7 +6,8 @@ import type { Transcript } from "@core/types";
 import { mmss } from "./format";
 import { progressView } from "./progress";
 import type { Progress, ProgressView } from "./progress";
-import SpeakerOptions, { requestedSpeakers } from "./SpeakerOptions";
+import SpeakerBar from "./SpeakerBar";
+import { requestedSpeakers } from "./SpeakerOptions";
 import { Banner, Button } from "./ui";
 
 /** One utterance as the backend emits it (`record-utterance`). */
@@ -34,12 +35,32 @@ interface Status {
   transient: boolean;
 }
 
+/** What `stop_recording` returns. */
+interface Stopped {
+  transcript: Transcript;
+  speakersLabelled: boolean;
+  /** Something the user should know about the result (e.g. labelling failed). */
+  note: string | null;
+}
+
+/** What a finished recording hands to the transcript view. */
+export interface FinishedRecording {
+  transcript: Transcript;
+  audioPath: string;
+  speakersLabelled: boolean;
+  notes: string;
+  note: string | null;
+}
+
 const SILENT_MESSAGE =
   "Folio is receiving no sound from the microphone. Check that it isn't muted, and on Windows " +
   "that Settings > Privacy & security > Microphone allows desktop apps.";
 const NARROWBAND_MESSAGE =
-  "This microphone is a headset in call mode, which lowers transcription accuracy. A built-in " +
-  "or USB microphone works better.";
+  "This looks like a headset microphone. Headsets are tuned to pick up only the wearer, so other " +
+  "people in the room may be missed. For a conversation in a room, use the computer's built-in " +
+  "microphone or a USB desk microphone.";
+/** Save notes this long after the last keystroke (ms). */
+const NOTES_SAVE_DELAY = 800;
 /** Show the catching-up note once live text is this far behind (seconds). */
 const BACKLOG_NOTE_S = 15;
 const IDLE_LEVEL: Level = { level: 0, speaking: false, elapsedS: 0, backlogS: 0 };
@@ -74,7 +95,7 @@ export default function Record({
   /** An imported file is still being transcribed. */
   importRunning: boolean;
   onActiveChange: (active: boolean) => void;
-  onFinished: (transcript: Transcript, audioPath: string, diarized: boolean) => void;
+  onFinished: (recording: FinishedRecording) => void;
 }) {
   const [phase, setPhase] = useState<Phase>("idle");
   const [utterances, setUtterances] = useState<Utterance[]>([]);
@@ -86,6 +107,12 @@ export default function Record({
   const [error, setError] = useState<string | null>(null);
   const [confirmDiscard, setConfirmDiscard] = useState(false);
   const [progress, setProgress] = useState<ProgressView | null>(null);
+  const [tab, setTab] = useState<"transcript" | "notes">("transcript");
+  const [notes, setNotes] = useState("");
+  // The latest notes, read when Stop finishes (typing can continue meanwhile).
+  const notesRef = useRef("");
+  const [notesError, setNotesError] = useState<string | null>(null);
+  const notesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const audioPathRef = useRef<string | null>(null);
   const unlistenRef = useRef<UnlistenFn[]>([]);
   const listRef = useRef<HTMLDivElement | null>(null);
@@ -107,6 +134,7 @@ export default function Record({
     for (const off of unlistenRef.current) off();
     unlistenRef.current = [];
     if (statusTimer.current) clearTimeout(statusTimer.current);
+    if (notesTimer.current) clearTimeout(notesTimer.current);
   }
 
   function showStatus(status: Status) {
@@ -125,7 +153,30 @@ export default function Record({
     setDeviceName(null);
     setConfirmDiscard(false);
     setProgress(null);
+    setTab("transcript");
+    notesRef.current = "";
+    setNotes("");
+    setNotesError(null);
     setPhase("idle");
+  }
+
+  // Keep a copy of the notes next to the recording while it runs, so a crash
+  // doesn't lose them. The notes in this page are what gets saved on Stop.
+  function editNotes(text: string) {
+    notesRef.current = text;
+    setNotes(text);
+    if (notesTimer.current) clearTimeout(notesTimer.current);
+    notesTimer.current = setTimeout(saveNotesNow, NOTES_SAVE_DELAY);
+  }
+
+  function saveNotesNow() {
+    notesTimer.current = null;
+    const audioPath = audioPathRef.current;
+    if (!audioPath) return;
+    invoke("save_recording_notes", { audioPath, text: notesRef.current }).then(
+      () => setNotesError(null),
+      (e) => setNotesError(String(e)),
+    );
   }
 
   async function start() {
@@ -146,7 +197,6 @@ export default function Record({
       ]);
       const started = await invoke<{ audioPath: string }>("start_recording", {
         model: asrModel,
-        diarize: detectSpeakers,
       });
       audioPathRef.current = started.audioPath;
       setPhase("recording");
@@ -171,6 +221,11 @@ export default function Record({
     if (!audioPath) return;
     setPhase("stopping");
     setConfirmDiscard(false);
+    // Back up what was typed just before Stop; typing can carry on while it finishes.
+    if (notesTimer.current) {
+      clearTimeout(notesTimer.current);
+      saveNotesNow();
+    }
     const startedAt = Date.now();
     setProgress({ fraction: 0.95, label: "Finishing transcript…" });
     try {
@@ -179,11 +234,19 @@ export default function Record({
           setProgress(progressView(e.payload, (Date.now() - startedAt) / 1000)),
         ),
       );
-      const transcript = await invoke<Transcript>("stop_recording", {
+      const stopped = await invoke<Stopped>("stop_recording", {
+        diarize: detectSpeakers,
         numSpeakers: requestedSpeakers(detectSpeakers, speakerCount),
       });
+      const finished: FinishedRecording = {
+        transcript: stopped.transcript,
+        audioPath,
+        speakersLabelled: stopped.speakersLabelled,
+        notes: notesRef.current,
+        note: stopped.note,
+      };
       reset();
-      onFinished(transcript, audioPath, detectSpeakers);
+      onFinished(finished);
     } catch (e) {
       reset();
       setError(String(e));
@@ -193,6 +256,8 @@ export default function Record({
   async function discard() {
     if (phase !== "recording" && phase !== "paused") return;
     setPhase("discarding");
+    if (notesTimer.current) clearTimeout(notesTimer.current);
+    notesTimer.current = null;
     try {
       await invoke("discard_recording");
       reset();
@@ -222,6 +287,21 @@ export default function Record({
             <Banner variant="info" role="note" style={{ marginBottom: "var(--space-4)" }}>
               Tell everyone present that you are recording.
             </Banner>
+            {asrModel && (
+              <div className="model-ready">
+                <div>
+                  <div className="field-label">Transcription model</div>
+                  <strong>{modelLabel}</strong>
+                  <span> · Ready on this device</span>
+                </div>
+              </div>
+            )}
+            <SpeakerBar
+              labelSpeakers={detectSpeakers}
+              onLabelSpeakers={onDetectSpeakers}
+              speakerCount={speakerCount}
+              onSpeakerCount={onSpeakerCount}
+            />
             {importRunning && (
               <Banner variant="info" role="note" style={{ marginBottom: "var(--space-4)" }}>
                 An imported recording is still being transcribed. You can record when it
@@ -232,7 +312,7 @@ export default function Record({
               variant="primary"
               onClick={() => void start()}
               disabled={!modelsChecked || importRunning}
-              style={{ marginBottom: "var(--space-4)" }}
+              style={{ margin: "var(--space-5) 0 var(--space-4)" }}
             >
               {modelsChecked ? "Start recording" : "Checking transcription model…"}
             </Button>
@@ -243,21 +323,6 @@ export default function Record({
             {error}
           </Banner>
         )}
-        {asrModel && (
-          <div className="model-ready">
-            <div>
-              <div className="field-label">Transcription model</div>
-              <strong>{modelLabel}</strong>
-              <span> · Ready on this device</span>
-            </div>
-          </div>
-        )}
-        <SpeakerOptions
-          detectSpeakers={detectSpeakers}
-          onDetectSpeakers={onDetectSpeakers}
-          speakerCount={speakerCount}
-          onSpeakerCount={onSpeakerCount}
-        />
       </section>
     );
   }
@@ -302,7 +367,72 @@ export default function Record({
         </div>
       </div>
 
-      <div className="live-transcript" ref={listRef} aria-live="polite" data-testid="live-transcript">
+      <div className="recording-tabs" role="tablist" aria-label="Recording view">
+        <button
+          type="button"
+          role="tab"
+          id="tab-transcript"
+          aria-selected={tab === "transcript"}
+          aria-controls="panel-transcript"
+          onClick={() => setTab("transcript")}
+        >
+          Transcript
+        </button>
+        <button
+          type="button"
+          role="tab"
+          id="tab-notes"
+          aria-selected={tab === "notes"}
+          aria-controls="panel-notes"
+          onClick={() => setTab("notes")}
+        >
+          Your notes
+        </button>
+      </div>
+
+      <SpeakerBar
+        labelSpeakers={detectSpeakers}
+        onLabelSpeakers={onDetectSpeakers}
+        speakerCount={speakerCount}
+        onSpeakerCount={onSpeakerCount}
+        disabled={busy}
+      />
+
+      <div
+        className="notes-panel"
+        role="tabpanel"
+        id="panel-notes"
+        aria-labelledby="tab-notes"
+        hidden={tab !== "notes"}
+      >
+        <textarea
+          className="notes-input"
+          aria-label="Your notes"
+          aria-describedby="notes-privacy"
+          placeholder="Write anything you want to remember. Only you see these notes."
+          value={notes}
+          onChange={(e) => editNotes(e.target.value)}
+        />
+        <p id="notes-privacy" className="notes-privacy">
+          Private to you. Saved on this device with the transcript.
+        </p>
+        {notesError && (
+          <p className="notes-privacy" role="alert">
+            Notes couldn't be saved yet: {notesError}
+          </p>
+        )}
+      </div>
+
+      <div
+        className="live-transcript"
+        ref={listRef}
+        aria-live="polite"
+        data-testid="live-transcript"
+        role="tabpanel"
+        id="panel-transcript"
+        aria-labelledby="tab-transcript"
+        hidden={tab !== "transcript"}
+      >
         {utterances.length === 0 && phase !== "stopping" && (
           <p className="live-empty">Text appears here a few seconds after someone speaks.</p>
         )}
