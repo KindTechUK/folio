@@ -9,10 +9,12 @@ use std::path::{Path, PathBuf};
 
 pub mod decode;
 pub mod merge;
+pub mod resample;
 pub mod sherpa;
 
 pub use decode::{decode_to_16k_mono, decode_to_16k_mono_with_progress};
-pub use sherpa::SherpaEngine;
+pub use resample::StreamResampler;
+pub use sherpa::{Recognizer, SherpaEngine, Vad, VadProfile};
 
 /// A progress update emitted during the pipeline so the UI can render a
 /// determinate bar instead of a blocking spinner. `fraction` is in `[0, 1]`.

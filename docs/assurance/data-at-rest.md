@@ -47,6 +47,7 @@ primary control; the in-app banner is a backstop, not a substitute.
 | Data | Location | Notes |
 | --- | --- | --- |
 | Input audio | Wherever the user keeps it | Read in place; not copied to a vendor-controlled location. |
+| **Recordings made in Folio** | Per-user app-data dir, on the BitLocker volume (`app_data/library/recordings/`) | ✅ The Record page writes one 16 kHz mono WAV per recording (`app/src-tauri/src/recorder.rs`). It is written as the conversation happens, and its header is rewritten every 5 seconds, so a crash or power loss leaves a playable file missing at most the last few seconds. Nothing else is written: live transcription runs in memory. Stop saves a transcript that references the WAV; Discard deletes the WAV. Purged by "Delete transcript and audio" like an imported file. If Folio is closed mid-recording, the WAV is finished and kept in that folder (no transcript is created). Never leaves the device. |
 | Working/decoded audio | **In memory** during a run | Current engine decodes to in-memory `f32` samples (`engine/src/decode.rs`); see temp-file note below. |
 | **Saved transcripts (library)** | Per-user app-data dir, on the BitLocker volume | ✅ Each transcript is **auto-saved** as a local JSON file (`app_data/library/<id>.json`, `app/src-tauri/src/library.rs`) so past transcripts reappear on reopen. It stores the transcript text/edits + metadata and a **reference (path) to the source audio** — the audio itself is NOT copied into the library (one copy on disk). Purged by one-click "Delete transcript and audio". Never leaves the device. |
 | Models / model packs | Verified, signed packs only | ✅ Imported packs live in `app_data/packs/`. The transcribe path loads weights ONLY from a cryptographically verified signed pack, extracted into a per-user content-addressed cache (`app_data/verified-models/`). Release builds always enforce this; a debug-only `KINDTECH_MODELS_DIR` override exists for the dev/demo. See `non-processor-statement.md` / `third-party-components.md`. |
@@ -57,8 +58,9 @@ The webview's file access is **narrow** (`app/src-tauri/capabilities/default.jso
 `dialog:allow-save`), and `fs:allow-write-file` (used to write the DOCX to the
 path the user picked). The webview has no fs read permission; audio playback
 uses the asset protocol scoped to `$AUDIO/*` and `$DOCUMENT/*`
-(`tauri.conf.json`). Library, pack, and model-cache files are read and written
-by the Rust backend only.
+(`tauri.conf.json`), plus the recordings folder above, which the backend adds
+at startup for playback of Folio's own recordings. Library, pack, and
+model-cache files are read and written by the Rust backend only.
 
 ## Temp-file hygiene
 
@@ -70,7 +72,9 @@ system temp location — and be **wiped on completion**.
 (Symphonia → Rubato → `f32` samples) and does **not** write a separate decode
 scratch file to disk (no `tempfile`/`temp_dir`/scratch writes appear in
 `engine/src/`). So today there is **no decode temp file to leak**, which is a
-stronger position than a wipe-on-completion routine. However:
+stronger position than a wipe-on-completion routine. The recorder writes only
+the recording itself (above), which is the user's record of the conversation,
+not a scratch file. However:
 
 - A formal, app-owned scratch directory with a guaranteed wipe-on-completion
   routine is **🚧 roadmap**, for any future code path that does spill to disk (e.g. very
@@ -83,17 +87,17 @@ stronger position than a wipe-on-completion routine. However:
 
 A one-click action removes the audio and transcript for a matter when the
 fee-earner is done. **Implemented:** a "Delete transcript and audio" button (in the header of an open transcript) calls the backend, which
-resolves the saved source path, restricts it to approved user-media folders,
-rejects escaping symlinks, and displays the canonical path in a native
-confirmation dialog before deletion. It then **purges the saved library entry**
+resolves the saved source path, requires it to be exactly a file the user
+picked in the native file dialog or a recording Folio made, rejects symlinks,
+and displays the path in a native confirmation dialog before deletion. It then **purges the saved library entry**
 for that matter (`delete_session`) and clears the in-memory transcript
 (`app/src-tauri/src/system.rs`, `library.rs`, `app/src/App.tsx`). The deletion
 helper is idempotent (an already-gone file counts as deleted) and reports any
 genuine failure rather than crashing.
 
 **Honest scope:** the on-disk footprint of a matter is the **source audio** (the
-user's own file, referenced not copied) plus the **saved transcript JSON** in the
-library — "Delete transcript and audio" removes both. The engine writes no temp/scratch file
+user's own file, referenced not copied, or the recording Folio made) plus the
+**saved transcript JSON** in the library — "Delete transcript and audio" removes both. The engine writes no temp/scratch file
 (in-memory decode, above) and there is no vendor-side copy. Exports the user
 separately saved elsewhere are deleted by the user through the OS. A saved
 transcript can also be removed from the Transcripts view (this leaves the source
@@ -105,7 +109,8 @@ audio in place). Because the vendor never receives the data, there is no vendor-
   dependency).
 - ✅ Webview file access is limited to the open/save dialogs and writing the
   user-chosen DOCX path; no fs read permission.
-- ✅ No decode temp/scratch file is written today (in-memory decode).
+- ✅ No decode temp/scratch file is written today (in-memory decode). The
+  recorder writes only the recording WAV, crash-safe, in app data.
 - ✅ Exports carry the machine-draft disclaimer.
 - ✅ Transcripts are auto-saved to a local on-device library (app-data dir, on
   the BitLocker volume); the source audio is referenced by path, not copied.

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import type { Transcript } from "@core/types";
 import { loadTranscript } from "@core/editor";
 
@@ -11,6 +11,10 @@ let pickRecording: () => Promise<unknown>;
 let saveSession: () => Promise<unknown>;
 let transcribe: () => Promise<unknown>;
 let sessions: unknown[];
+let startRecording: () => Promise<unknown>;
+let discardRecording: () => Promise<unknown>;
+// Event handlers registered through `listen`, so tests can emit backend events.
+let handlers: Record<string, (event: { payload: unknown }) => void>;
 
 vi.mock("@tauri-apps/api/core", () => ({
   invoke: (...args: unknown[]) => invokeMock(...args),
@@ -47,7 +51,16 @@ beforeEach(() => {
   openMock.mockReset();
   listenMock.mockReset();
   openMock.mockResolvedValue("/recordings/interview.wav");
-  listenMock.mockResolvedValue(() => {});
+  handlers = {};
+  listenMock.mockImplementation((name: string, handler: (event: { payload: unknown }) => void) => {
+    handlers[name] = handler;
+    return Promise.resolve(() => {
+      if (handlers[name] === handler) delete handlers[name];
+    });
+  });
+  discardRecording = () => Promise.resolve();
+  startRecording = () =>
+    Promise.resolve({ audioPath: "/library/recordings/Recording 2026-11-10 14-03-22.wav" });
   deleteMatterReport = { deleted: ["/recordings/interview.wav"], failed: [] };
   pickRecording = () => Promise.resolve("/recordings/interview.wav");
   saveSession = () => Promise.resolve();
@@ -86,6 +99,15 @@ beforeEach(() => {
         return Promise.resolve(deleteMatterReport);
       case "delete_session":
         return Promise.resolve();
+      case "start_recording":
+        return startRecording();
+      case "pause_recording":
+      case "resume_recording":
+        return Promise.resolve();
+      case "discard_recording":
+        return discardRecording();
+      case "stop_recording":
+        return Promise.resolve(transcript);
       default:
         throw new Error(`unexpected command ${command}`);
     }
@@ -158,7 +180,7 @@ describe("App import flow", () => {
     expect(invokeMock).toHaveBeenCalledWith("transcribe", {
       path: "/recordings/interview.wav",
       diarize: false,
-      num_speakers: undefined,
+      numSpeakers: undefined,
       model: "small.en",
     });
     await waitFor(() =>
@@ -450,5 +472,170 @@ describe("App import flow", () => {
 
     await screen.findByRole("button", { name: "Choose recording" });
     expect(savedTexts().at(-1)).toBe("First correction.");
+  });
+});
+
+describe("speaker count", () => {
+  // Tauri commands take camelCase argument names by default; a snake_case key
+  // is silently dropped and the backend falls back to automatic detection.
+  it("reaches the transcribe command under Tauri's argument name", async () => {
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+    fireEvent.click(await screen.findByTestId("detect-speakers"));
+    fireEvent.change(screen.getByTestId("speaker-count"), { target: { value: "2" } });
+    fireEvent.click(await screen.findByRole("button", { name: "Create transcript" }));
+
+    await waitFor(() =>
+      expect(invokeMock).toHaveBeenCalledWith("transcribe", expect.anything()),
+    );
+    expect(invokeMock).toHaveBeenCalledWith(
+      "transcribe",
+      expect.objectContaining({ numSpeakers: 2 }),
+    );
+  });
+});
+
+describe("Record", () => {
+  async function startRecordingFromSidebar(): Promise<void> {
+    render(<App />);
+    fireEvent.click(await screen.findByRole("button", { name: /^Record/ }));
+    fireEvent.click(await screen.findByRole("button", { name: "Start recording" }));
+    await screen.findByText("Recording");
+  }
+
+  function emit(name: string, payload: unknown): void {
+    act(() => handlers[name]!({ payload }));
+  }
+
+  it("shows each utterance as it is transcribed, in order", async () => {
+    await startRecordingFromSidebar();
+    expect(invokeMock).toHaveBeenCalledWith("start_recording", {
+      model: "small.en",
+      diarize: false,
+    });
+
+    emit("record-utterance", { start: 0.4, end: 3.1, text: "Thanks for coming in.", words: [] });
+    emit("record-utterance", { start: 4.0, end: 6.2, text: "Happy to help.", words: [] });
+
+    const live = screen.getByTestId("live-transcript");
+    expect(live).toHaveTextContent(/Thanks for coming in\..*Happy to help\./);
+  });
+
+  it("pauses and resumes the recording", async () => {
+    await startRecordingFromSidebar();
+
+    fireEvent.click(screen.getByRole("button", { name: "Pause" }));
+    expect(await screen.findByRole("button", { name: "Resume" })).toBeInTheDocument();
+    expect(invokeMock).toHaveBeenCalledWith("pause_recording");
+
+    fireEvent.click(screen.getByRole("button", { name: "Resume" }));
+    expect(await screen.findByRole("button", { name: "Pause" })).toBeInTheDocument();
+    expect(invokeMock).toHaveBeenCalledWith("resume_recording");
+  });
+
+  it("stops with the chosen speaker count and opens the saved transcript", async () => {
+    render(<App />);
+    fireEvent.click(await screen.findByRole("button", { name: /^Record/ }));
+    fireEvent.click(await screen.findByTestId("detect-speakers"));
+    fireEvent.change(screen.getByTestId("speaker-count"), { target: { value: "2" } });
+    fireEvent.click(await screen.findByRole("button", { name: "Start recording" }));
+    await screen.findByText("Recording");
+    expect(invokeMock).toHaveBeenCalledWith("start_recording", {
+      model: "small.en",
+      diarize: true,
+    });
+
+    fireEvent.click(screen.getByRole("button", { name: "Stop and create transcript" }));
+
+    expect(
+      await screen.findByRole("heading", { name: "Recording 2026-11-10 14-03-22" }),
+    ).toBeInTheDocument();
+    expect(invokeMock).toHaveBeenCalledWith("stop_recording", { numSpeakers: 2 });
+    await waitFor(() => expect(savedTexts()).toHaveLength(1));
+    const saved = invokeMock.mock.calls.find(([command]) => command === "save_session")!;
+    expect((saved[1] as { session: { audioPath: string } }).session.audioPath).toBe(
+      "/library/recordings/Recording 2026-11-10 14-03-22.wav",
+    );
+  });
+
+  it("keeps the recording page while recording", async () => {
+    await startRecordingFromSidebar();
+    const listings = () => invokeMock.mock.calls.filter(([c]) => c === "list_sessions").length;
+    const before = listings();
+
+    fireEvent.click(screen.getByRole("button", { name: /Transcripts/ }));
+
+    expect(
+      await screen.findByText("Stop or discard the recording before leaving this page."),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Recording")).toBeInTheDocument();
+    expect(listings()).toBe(before);
+  });
+
+  it("discards the recording only after confirmation", async () => {
+    await startRecordingFromSidebar();
+
+    fireEvent.click(screen.getByRole("button", { name: "Discard" }));
+    expect(invokeMock).not.toHaveBeenCalledWith("discard_recording");
+    fireEvent.click(screen.getByRole("button", { name: "Delete recording" }));
+
+    expect(await screen.findByRole("button", { name: "Start recording" })).toBeInTheDocument();
+    expect(invokeMock).toHaveBeenCalledWith("discard_recording");
+  });
+
+  it("shows why recording could not start", async () => {
+    startRecording = () => Promise.reject("No microphone found. Connect one and try again.");
+    render(<App />);
+    fireEvent.click(await screen.findByRole("button", { name: /^Record/ }));
+    fireEvent.click(await screen.findByRole("button", { name: "Start recording" }));
+
+    expect(
+      await screen.findByText("No microphone found. Connect one and try again."),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Start recording" })).toBeInTheDocument();
+    expect(screen.queryByText("Recording")).not.toBeInTheDocument();
+  });
+
+  it("keeps a transcript whose correction could not be saved instead of opening Record", async () => {
+    render(<App />);
+    await importAndCreate();
+    await screen.findByText("Saved locally");
+    saveSession = () => Promise.reject(new Error("disk full"));
+    correctTo("Unsaved correction.");
+
+    fireEvent.click(screen.getByRole("button", { name: /^Record/ }));
+
+    expect(await screen.findByText("Local save failed")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "interview" })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Start recording" })).not.toBeInTheDocument();
+  });
+
+  it("does not start recording while an import is still transcribing", async () => {
+    transcribe = () => new Promise(() => {});
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Create transcript" }));
+    await screen.findByTestId("transcribe-progress");
+
+    fireEvent.click(screen.getByRole("button", { name: /^Record/ }));
+
+    expect(await screen.findByRole("button", { name: "Start recording" })).toBeDisabled();
+  });
+
+  it("asks the backend to discard a recording only once", async () => {
+    discardRecording = () => new Promise(() => {});
+    await startRecordingFromSidebar();
+
+    fireEvent.click(screen.getByRole("button", { name: "Discard" }));
+    fireEvent.click(screen.getByRole("button", { name: "Delete recording" }));
+    fireEvent.click(screen.getByRole("button", { name: "Delete recording" }));
+
+    expect(
+      invokeMock.mock.calls.filter(([command]) => command === "discard_recording"),
+    ).toHaveLength(1);
   });
 });

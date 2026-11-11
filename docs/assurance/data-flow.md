@@ -18,6 +18,9 @@ how to confirm this independently.
 flowchart LR
     A["Audio file<br/>(local disk, on the<br/>BitLocker volume)"]
       --> B["In-app decode<br/>Symphonia + Rubato<br/>→ 16 kHz mono f32<br/>(in memory, no ffmpeg)"]
+    M["Microphone<br/>(Record page)"]
+      --> R["Recorder: 16 kHz mono<br/>WAV in app data<br/>+ live text per utterance"]
+    R --> C
     B --> C["ASR (Parakeet-TDT-0.6B-v2 or Whisper, int8)<br/>via sherpa-onnx, in-process, CPU"]
     C --> D{"Diarization?<br/>(opt-in, default OFF)"}
     D -- "yes" --> E["Speaker diarization<br/>pyannote-seg-3.0 + CAM++<br/>via sherpa-onnx, in-process"]
@@ -29,6 +32,8 @@ flowchart LR
 
     subgraph DEVICE["The fee-earner's laptop — the trust boundary"]
         A
+        M
+        R
         B
         C
         D
@@ -99,6 +104,10 @@ At **no** stage is any byte sent off the device.
 ## Where the data lives
 
 - **Input audio**: wherever the user already keeps it (read in place).
+- **Recordings made in Folio** (Record page): one WAV per recording in
+  `app_data/library/recordings/`, on the BitLocker volume, written as the
+  conversation happens. The live transcript is produced in memory, utterance
+  by utterance, by the same in-process engine. See `data-at-rest.md`.
 - **Working data**: held in memory during a transcription run. The current
   engine decodes audio in memory and does not write a separate scratch/temp
   file to disk (`engine/src/decode.rs`); see `data-at-rest.md` for the honest
