@@ -37,7 +37,7 @@ S4, S5 and S6 (they can run in parallel). S7 runs only on an S1 failure. S8 runs
 
 ## S1: Live transcription on the existing engine
 
-> **Result (Mac proxy; Windows pending):** see [`s1-live-lag.md`](s1-live-lag.md). Harness: `engine/examples/live_replay.rs`.
+> **Result: go, with conditions** (Mac and Windows CI runner; reference laptop still to run): see [`s1-live-lag.md`](s1-live-lag.md). Harness: `engine/examples/live_replay.rs`.
 
 **Question.** If we feed mic audio into the same Silero VAD → Parakeet TDT v2 `OfflineRecognizer`
 path (`engine/src/sherpa.rs`), how far behind speech does the text appear, and does the laptop cope?
