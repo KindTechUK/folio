@@ -56,8 +56,9 @@ const SILENT_MESSAGE =
   "Folio is receiving no sound from the microphone. Check that it isn't muted, and on Windows " +
   "that Settings > Privacy & security > Microphone allows desktop apps.";
 const NARROWBAND_MESSAGE =
-  "This microphone is a headset in call mode, which lowers transcription accuracy. A built-in " +
-  "or USB microphone works better.";
+  "This looks like a headset microphone. Headsets are tuned to pick up only the wearer, so other " +
+  "people in the room may be missed. For a conversation in a room, use the computer's built-in " +
+  "microphone or a USB desk microphone.";
 /** Save notes this long after the last keystroke (ms). */
 const NOTES_SAVE_DELAY = 800;
 /** Show the catching-up note once live text is this far behind (seconds). */
