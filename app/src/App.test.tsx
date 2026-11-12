@@ -14,6 +14,7 @@ let sessions: unknown[];
 let startRecording: () => Promise<unknown>;
 let discardRecording: () => Promise<unknown>;
 let stopRecording: () => Promise<unknown>;
+let interrupted: unknown[];
 // Event handlers registered through `listen`, so tests can emit backend events.
 let handlers: Record<string, (event: { payload: unknown }) => void>;
 
@@ -68,6 +69,7 @@ beforeEach(() => {
   saveSession = () => Promise.resolve();
   transcribe = () => Promise.resolve(transcript);
   sessions = [];
+  interrupted = [];
   invokeMock.mockImplementation((command: string) => {
     switch (command) {
       case "volume_encryption_status":
@@ -112,6 +114,12 @@ beforeEach(() => {
         return stopRecording();
       case "save_recording_notes":
       case "forget_recording_notes":
+        return Promise.resolve();
+      case "list_interrupted_recordings":
+        return Promise.resolve(interrupted);
+      case "recover_recording":
+        return Promise.resolve({ notes: "Client agreed to mediation." });
+      case "delete_interrupted_recording":
         return Promise.resolve();
       default:
         throw new Error(`unexpected command ${command}`);
@@ -820,5 +828,52 @@ describe("Your notes", () => {
     });
 
     await waitFor(() => expect(savedNotes()).toContain("Follow up on the tenancy dates."));
+  });
+});
+
+describe("Recordings without a transcript", () => {
+  const LEFT = {
+    audioPath: "/library/recordings/Recording 2026-11-12 14-03-22.wav",
+    name: "Recording 2026-11-12 14-03-22",
+    durationSec: 2520,
+    hasNotes: true,
+  };
+
+  it("offers at launch to recover one, with its notes, into a saved transcript", async () => {
+    interrupted = [LEFT];
+    render(<App />);
+
+    const notice = await screen.findByTestId("interrupted-recording");
+    expect(notice).toHaveTextContent("Recording 2026-11-12 14-03-22 (42 min, with notes)");
+    fireEvent.click(screen.getByRole("button", { name: "Recover transcript" }));
+
+    expect(
+      await screen.findByText(
+        "Recovered from a recording that had no transcript. The last moment of audio may be missing.",
+      ),
+    ).toBeInTheDocument();
+    expect(invokeMock).toHaveBeenCalledWith("transcribe", expect.objectContaining({ path: LEFT.audioPath }));
+    await waitFor(() => expect(savedNotes()).toEqual(["Client agreed to mediation."]));
+    const saved = invokeMock.mock.calls.find(([command]) => command === "save_session")!;
+    expect((saved[1] as { session: { audioPath: string } }).session.audioPath).toBe(LEFT.audioPath);
+    expect(screen.queryByTestId("interrupted-recording")).not.toBeInTheDocument();
+  });
+
+  it("deletes one only after confirmation", async () => {
+    interrupted = [LEFT];
+    render(<App />);
+
+    fireEvent.click(await screen.findByRole("button", { name: "Delete" }));
+    expect(invokeMock).not.toHaveBeenCalledWith("delete_interrupted_recording", expect.anything());
+    fireEvent.click(screen.getByRole("button", { name: "Delete permanently" }));
+
+    await waitFor(() =>
+      expect(invokeMock).toHaveBeenCalledWith("delete_interrupted_recording", {
+        audioPath: LEFT.audioPath,
+      }),
+    );
+    await waitFor(() =>
+      expect(screen.queryByTestId("interrupted-recording")).not.toBeInTheDocument(),
+    );
   });
 });
