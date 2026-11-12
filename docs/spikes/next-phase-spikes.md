@@ -153,7 +153,7 @@ as a signed model pack, without adding a network crate or a licence we can't red
 
 ## S6: Crash-safe recording
 
-> **Result: pass** (Mac; real-app and Windows kills still to run): see [`s6-crash-safe-recording.md`](s6-crash-safe-recording.md).
+> **Result: pass** (Mac, including the real app; Windows still to run): see [`s6-crash-safe-recording.md`](s6-crash-safe-recording.md).
 
 **Question.** Does chunked recording to the app-data directory survive crashes, and does "Delete transcript and audio"
 still remove everything?

@@ -1,6 +1,6 @@
 # Spike S6: crash-safe recording
 
-> Status: **PASS** (Mac; the hands-on kill of the real app and a Windows run are still to do) · Recorded 2026-11-12.
+> Status: **PASS** (Mac, including the real app; a Windows run is still to do) · Recorded 2026-11-12.
 > Plan: [`next-phase-spikes.md`](next-phase-spikes.md#s6-crash-safe-recording).
 > Test: `recorder::tests::a_recording_killed_mid_write_is_recovered_with_all_the_audio_that_reached_the_disk`
 > in `app/src-tauri/src/recorder.rs`.
@@ -71,6 +71,21 @@ before and after recovery.
 112,768 = 80,000 + 8 × 4,096: every full buffer that reached the file was kept. The audio recovered
 matched what was written, sample by sample.
 
+## The real app (macOS dev build, live microphone)
+
+Run on 2026-11-12 with a scratch library (`KINDTECH_LIBRARY_DIR`). A temporary helper script, not
+committed, clicked the same buttons a person would; the notes were typed with real keystrokes. Each crash
+was `kill -9` of the app process mid-recording.
+
+| Run | What happened | Result |
+|---|---|---|
+| 1 | Recorded about 28 s, killed | The header covered 25.02 s; 28.09 s was on disk. |
+| 2 | Relaunched, **Recover transcript** | Header repaired to 28.09 s. The speech was transcribed, and the transcript was saved with the recording attached. |
+| 3 | Recorded with notes typed, killed | The notes file held the typed text at the kill. |
+| 4 | Relaunched, **Recover transcript** | The transcript was saved with the notes. The notes file was removed after that save. Only recordings without a transcript were offered. |
+| 5 | Recorded with notes, killed, relaunched, **Delete** then **Delete permanently** | The WAV, the notes file and the deletion approval were all gone. The two recovered recordings, which have transcripts, were untouched. |
+| 6 | "Delete transcript and audio" on both recovered transcripts | The library was empty: no transcripts, recordings, notes or approvals. |
+
 ## Power loss
 
 This can't be tested by pulling the plug on a laptop, so the analysis is:
@@ -97,9 +112,7 @@ So the loss on power failure is at most 5 s, and usually less. No code change wa
 
 ## Still to do
 
-1. **The real app, by hand:** start a recording, type a note, `kill -9` the app, relaunch, then Recover.
-   Do it again with Delete, and list `recordings/` to check it's empty.
-2. **The same on Windows** (Task Manager "End task" and `taskkill /F`), on NTFS.
+1. **The same on Windows** (Task Manager "End task" and `taskkill /F`), on NTFS.
 
 ## What changes in the PRD
 
