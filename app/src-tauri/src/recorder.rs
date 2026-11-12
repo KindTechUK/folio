@@ -335,11 +335,7 @@ pub(crate) fn interrupted_recordings_in(
     let Ok(entries) = std::fs::read_dir(recordings_dir(library)) else {
         return Ok(Vec::new());
     };
-    let used: std::collections::BTreeSet<PathBuf> =
-        crate::library::session_audio_paths_in(library)
-            .iter()
-            .filter_map(|p| Path::new(p).canonicalize().ok())
-            .collect();
+    let used = recordings_with_a_transcript(library);
     let active = active.and_then(|p| p.canonicalize().ok());
     let mut found = Vec::new();
     for entry in entries.filter_map(|e| e.ok()) {
@@ -370,6 +366,14 @@ pub(crate) fn interrupted_recordings_in(
     Ok(found)
 }
 
+/// The recordings (resolved) that saved transcripts use.
+fn recordings_with_a_transcript(library: &Path) -> std::collections::BTreeSet<PathBuf> {
+    crate::library::session_audio_paths_in(library)
+        .iter()
+        .filter_map(|p| Path::new(p).canonicalize().ok())
+        .collect()
+}
+
 fn not_active(canonical: &Path, active: Option<&Path>) -> Result<(), String> {
     if active.and_then(|p| p.canonicalize().ok()).as_deref() == Some(canonical) {
         return Err("That recording is still in progress.".into());
@@ -394,13 +398,18 @@ pub(crate) fn recover_recording_in(
     Ok(RecoveredRecording { notes })
 }
 
-/// Delete an interrupted recording with its notes and approval.
+/// Delete an interrupted recording with its notes and approval. Refuses one a
+/// saved transcript uses: that goes through "Delete transcript and audio".
 pub(crate) fn delete_interrupted_recording_in(
     library: &Path,
     path: &Path,
     active: Option<&Path>,
 ) -> Result<(), String> {
-    not_active(&own_recording(library, path)?, active)?;
+    let canonical = own_recording(library, path)?;
+    not_active(&canonical, active)?;
+    if recordings_with_a_transcript(library).contains(&canonical) {
+        return Err("A saved transcript uses this recording, so it was not deleted.".into());
+    }
     discard_recording_in(library, path)
 }
 
@@ -1487,6 +1496,23 @@ mod tests {
         assert!(found[0].audio_path.ends_with("Recording crashed.wav"));
         assert_eq!(found[0].duration_sec, 3.0);
         assert!(found[0].has_notes);
+        let _ = std::fs::remove_dir_all(&library);
+    }
+
+    #[test]
+    fn a_recording_a_saved_transcript_uses_is_never_deleted_as_interrupted() {
+        let library = unique_tmp("delete-used");
+        let path = unfinished_recording(&library, "Recording imported");
+        // Transcribed (e.g. through Import) after the launch-time list was made.
+        crate::library::save_session_in(
+            &library,
+            &serde_json::json!({ "id": "s1", "audioPath": path.to_string_lossy() }),
+        )
+        .unwrap();
+
+        assert!(delete_interrupted_recording_in(&library, &path, None).is_err());
+
+        assert!(path.exists());
         let _ = std::fs::remove_dir_all(&library);
     }
 
