@@ -27,6 +27,8 @@ import SpeakerOptions, { requestedSpeakers } from "./SpeakerOptions";
 import Sidebar from "./Sidebar";
 import type { View } from "./Sidebar";
 import { Banner, Button } from "./ui";
+import InterruptedRecordings, { RECOVERED_NOTE } from "./InterruptedRecordings";
+import type { InterruptedRecording, RecoveryError } from "./InterruptedRecordings";
 
 const HEADINGS: Record<View, { title: string; subtitle: string }> = {
   library: {
@@ -141,6 +143,13 @@ export default function App() {
   const notesFileRef = useRef<string | null>(null);
   // Something to know about the transcript just created (e.g. speakers couldn't be labelled).
   const [transcriptNote, setTranscriptNote] = useState<string | null>(null);
+  // Recordings left without a transcript (the app closed or crashed while recording).
+  const [interrupted, setInterrupted] = useState<InterruptedRecording[]>([]);
+  // A recovery is being prepared or transcribed (the ref blocks a second click
+  // before the next render).
+  const [recovering, setRecovering] = useState(false);
+  const recoveringRef = useRef(false);
+  const [recoveryError, setRecoveryError] = useState<RecoveryError | null>(null);
 
   function updateModelStatus(packs: PackStatus[]) {
     setInstalledAsrModel(selectAsrModel(packs));
@@ -164,6 +173,15 @@ export default function App() {
     return () => {
       cancelled = true;
     };
+  }, []);
+
+  // Offer recovery once, at launch: nothing is recording yet.
+  useEffect(() => {
+    invoke<InterruptedRecording[]>("list_interrupted_recordings")
+      .then((found) => setInterrupted(found ?? []))
+      .catch(() => {
+        // Recovery is an offer; a failed check must not disrupt the app.
+      });
   }, []);
 
   useEffect(() => {
@@ -436,6 +454,82 @@ export default function App() {
   async function createTranscript() {
     if (!selectedPath || !asrModel) return;
     const path = selectedPath;
+    const withSpeakers = detectSpeakers;
+    await transcribeAndOpen(path, (transcript) =>
+      openNewTranscript(transcript, path, withSpeakers),
+    );
+  }
+
+  // Transcribe a recording that has no transcript, with its notes, and open it.
+  async function recoverRecording(recording: InterruptedRecording) {
+    const path = recording.audioPath;
+    if (recoveringRef.current || progress || recordingActive) return;
+    if (!asrModel) {
+      setRecoveryError({
+        audioPath: path,
+        message: "Couldn't recover it: install a verified transcription model first, on the Models page.",
+      });
+      return;
+    }
+    recoveringRef.current = true;
+    setRecovering(true);
+    setRecoveryError(null);
+    try {
+      if (!(await flushPendingSave())) {
+        setView("transcribe");
+        return;
+      }
+      // Close the open transcript (now saved) so nothing is edited meanwhile.
+      setHistory(null);
+      setAudioSrc(undefined);
+      setCurrentSessionMeta(null);
+      setView("transcribe");
+      // Shown as progress, so Import and Record wait for this recovery too.
+      setProgress({ fraction: 0, label: "Preparing the recording…" });
+      let notes = "";
+      try {
+        notes = (await invoke<{ notes: string }>("recover_recording", { audioPath: path })).notes;
+      } catch (e) {
+        setProgress(null);
+        setRecoveryError({ audioPath: path, message: `Couldn't recover it: ${String(e)}` });
+        return;
+      }
+      const withSpeakers = detectSpeakers;
+      const done = await transcribeAndOpen(path, (transcript) =>
+        openNewTranscript(transcript, path, withSpeakers, notes, RECOVERED_NOTE, true),
+      );
+      if (done) setInterrupted((list) => list.filter((r) => r.audioPath !== path));
+    } finally {
+      recoveringRef.current = false;
+      setRecovering(false);
+    }
+  }
+
+  async function deleteInterrupted(recording: InterruptedRecording) {
+    if (recoveringRef.current) return;
+    recoveringRef.current = true;
+    setRecovering(true);
+    setRecoveryError(null);
+    try {
+      await invoke("delete_interrupted_recording", { audioPath: recording.audioPath });
+      setInterrupted((list) => list.filter((r) => r.audioPath !== recording.audioPath));
+    } catch (e) {
+      setRecoveryError({
+        audioPath: recording.audioPath,
+        message: `Couldn't delete it: ${String(e)}`,
+      });
+    } finally {
+      recoveringRef.current = false;
+      setRecovering(false);
+    }
+  }
+
+  // Transcribe `path` with progress shown, then hand the result to `open`.
+  // Returns whether it got that far; errors go to the status line.
+  async function transcribeAndOpen(
+    path: string,
+    open: (transcript: Transcript) => Promise<void>,
+  ): Promise<boolean> {
     setHistory(null);
     setCurrentSessionMeta(null);
     const numSpeakers = requestedSpeakers(detectSpeakers, speakerCount);
@@ -457,9 +551,11 @@ export default function App() {
         numSpeakers,
         model: asrModel,
       });
-      await openNewTranscript(transcript, path, detectSpeakers);
+      await open(transcript);
+      return true;
     } catch (e) {
       setStatus(`error: ${String(e)}`);
+      return false;
     } finally {
       unlisten();
       setProgress(null);
@@ -530,6 +626,14 @@ export default function App() {
             <span style={{ opacity: 0.8 }}>({encryption.detail})</span>
           </Banner>
         )}
+
+        <InterruptedRecordings
+          recordings={interrupted}
+          busy={progress !== null || recordingActive || recovering}
+          error={recoveryError}
+          onRecover={(r) => void recoverRecording(r)}
+          onDelete={(r) => void deleteInterrupted(r)}
+        />
 
         <div className="page-content">
           {view === "transcribe" ? (

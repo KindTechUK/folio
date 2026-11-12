@@ -772,3 +772,25 @@ td {
 .review-notes .notes-input {
   height: clamp(240px, 60vh, 640px);
 }
+
+/* A recording left without a transcript: text, then its actions. */
+.interrupted-recording {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.interrupted-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.interrupted-error {
+  display: block;
+  margin-top: var(--space-1);
+  font-weight: 600;
+}
