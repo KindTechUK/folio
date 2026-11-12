@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import type { Transcript } from "@core/types";
 import { loadTranscript } from "@core/editor";
 
@@ -15,6 +15,9 @@ let startRecording: () => Promise<unknown>;
 let discardRecording: () => Promise<unknown>;
 let stopRecording: () => Promise<unknown>;
 let interrupted: unknown[];
+let recoverRecording: () => Promise<unknown>;
+let deleteInterrupted: () => Promise<unknown>;
+let modelPacks: unknown[];
 // Event handlers registered through `listen`, so tests can emit backend events.
 let handlers: Record<string, (event: { payload: unknown }) => void>;
 
@@ -70,23 +73,26 @@ beforeEach(() => {
   transcribe = () => Promise.resolve(transcript);
   sessions = [];
   interrupted = [];
+  recoverRecording = () => Promise.resolve({ notes: "Client agreed to mediation." });
+  deleteInterrupted = () => Promise.resolve();
+  modelPacks = [
+    {
+      dir: "asr-small-en",
+      id: "asr-whisper-small.en",
+      version: "1.0.0",
+      engine: "sherpa-onnx",
+      task: "asr",
+      attribution: "OpenAI Whisper",
+      verified: true,
+      reason: null,
+    },
+  ];
   invokeMock.mockImplementation((command: string) => {
     switch (command) {
       case "volume_encryption_status":
         return Promise.resolve({ state: "encrypted", detail: "test volume" });
       case "list_model_packs":
-        return Promise.resolve([
-          {
-            dir: "asr-small-en",
-            id: "asr-whisper-small.en",
-            version: "1.0.0",
-            engine: "sherpa-onnx",
-            task: "asr",
-            attribution: "OpenAI Whisper",
-            verified: true,
-            reason: null,
-          },
-        ]);
+        return Promise.resolve(modelPacks);
       case "debug_asr_model_override":
         return Promise.resolve(null);
       case "list_sessions":
@@ -118,9 +124,9 @@ beforeEach(() => {
       case "list_interrupted_recordings":
         return Promise.resolve(interrupted);
       case "recover_recording":
-        return Promise.resolve({ notes: "Client agreed to mediation." });
+        return recoverRecording();
       case "delete_interrupted_recording":
-        return Promise.resolve();
+        return deleteInterrupted();
       default:
         throw new Error(`unexpected command ${command}`);
     }
@@ -857,6 +863,40 @@ describe("Recordings without a transcript", () => {
     const saved = invokeMock.mock.calls.find(([command]) => command === "save_session")!;
     expect((saved[1] as { session: { audioPath: string } }).session.audioPath).toBe(LEFT.audioPath);
     expect(screen.queryByTestId("interrupted-recording")).not.toBeInTheDocument();
+  });
+
+  it("starts only one recovery at a time", async () => {
+    let prepared!: (value: unknown) => void;
+    recoverRecording = () => new Promise((resolve) => (prepared = resolve));
+    interrupted = [LEFT, { ...LEFT, audioPath: "/library/recordings/Recording 2.wav", name: "Recording 2" }];
+    render(<App />);
+
+    fireEvent.click((await screen.findAllByRole("button", { name: "Recover transcript" }))[0]!);
+    await waitFor(() =>
+      expect(invokeMock.mock.calls.filter(([c]) => c === "recover_recording")).toHaveLength(1),
+    );
+    fireEvent.click(screen.getAllByRole("button", { name: "Recover transcript" })[1]!);
+    prepared({ notes: "" });
+
+    await screen.findByTestId("paragraph");
+    expect(invokeMock.mock.calls.filter(([c]) => c === "recover_recording")).toHaveLength(1);
+  });
+
+  it("says, in the notice, why a recording could not be recovered or deleted", async () => {
+    modelPacks = [];
+    deleteInterrupted = () => Promise.reject(new Error("permission denied"));
+    interrupted = [LEFT];
+    render(<App />);
+    const notice = await screen.findByTestId("interrupted-recording");
+
+    fireEvent.click(screen.getByRole("button", { name: "Recover transcript" }));
+    expect(
+      await within(notice).findByText(/install a verified transcription model/),
+    ).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Delete" }));
+    fireEvent.click(screen.getByRole("button", { name: "Delete permanently" }));
+    expect(await within(notice).findByText(/permission denied/)).toBeInTheDocument();
   });
 
   it("deletes one only after confirmation", async () => {

@@ -9,6 +9,12 @@ export interface InterruptedRecording {
   hasNotes: boolean;
 }
 
+/** Why recovering or deleting one recording failed. */
+export interface RecoveryError {
+  audioPath: string;
+  message: string;
+}
+
 export const RECOVERED_NOTE =
   "Recovered from a recording that had no transcript. The last moment of audio may be missing.";
 
@@ -20,13 +26,20 @@ interface Props {
   recordings: InterruptedRecording[];
   /** Recovery or deletion can't start now (e.g. a transcription is running). */
   busy: boolean;
+  error: RecoveryError | null;
   onRecover: (recording: InterruptedRecording) => void;
   onDelete: (recording: InterruptedRecording) => void;
 }
 
 // One notice per recording left without a transcript (the app closed or
 // crashed while it was recording), offering to transcribe it or delete it.
-export default function InterruptedRecordings({ recordings, busy, onRecover, onDelete }: Props) {
+export default function InterruptedRecordings({
+  recordings,
+  busy,
+  error,
+  onRecover,
+  onDelete,
+}: Props) {
   const [confirming, setConfirming] = useState<string | null>(null);
   return (
     <>
@@ -43,6 +56,11 @@ export default function InterruptedRecordings({ recordings, busy, onRecover, onD
               <strong>{r.name}</strong> ({durationLabel(r.durationSec)}
               {r.hasNotes ? ", with notes" : ""}) has no transcript. Folio may have
               closed while it was recording.
+              {error?.audioPath === r.audioPath && (
+                <span className="interrupted-error" role="status">
+                  {error.message}
+                </span>
+              )}
             </span>
             {confirming === r.audioPath ? (
               <span className="interrupted-actions" role="group" aria-label="Confirm delete">

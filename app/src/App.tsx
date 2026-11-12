@@ -28,7 +28,7 @@ import Sidebar from "./Sidebar";
 import type { View } from "./Sidebar";
 import { Banner, Button } from "./ui";
 import InterruptedRecordings, { RECOVERED_NOTE } from "./InterruptedRecordings";
-import type { InterruptedRecording } from "./InterruptedRecordings";
+import type { InterruptedRecording, RecoveryError } from "./InterruptedRecordings";
 
 const HEADINGS: Record<View, { title: string; subtitle: string }> = {
   library: {
@@ -145,6 +145,11 @@ export default function App() {
   const [transcriptNote, setTranscriptNote] = useState<string | null>(null);
   // Recordings left without a transcript (the app closed or crashed while recording).
   const [interrupted, setInterrupted] = useState<InterruptedRecording[]>([]);
+  // A recovery is being prepared or transcribed (the ref blocks a second click
+  // before the next render).
+  const [recovering, setRecovering] = useState(false);
+  const recoveringRef = useRef(false);
+  const [recoveryError, setRecoveryError] = useState<RecoveryError | null>(null);
 
   function updateModelStatus(packs: PackStatus[]) {
     setInstalledAsrModel(selectAsrModel(packs));
@@ -457,37 +462,56 @@ export default function App() {
 
   // Transcribe a recording that has no transcript, with its notes, and open it.
   async function recoverRecording(recording: InterruptedRecording) {
-    if (!asrModel) {
-      setStatus("error: install a verified transcription model before recovering a recording");
-      return;
-    }
-    if (progress || recordingActive) return;
-    if (!(await flushPendingSave())) {
-      setView("transcribe");
-      return;
-    }
-    setView("transcribe");
     const path = recording.audioPath;
-    let notes = "";
-    try {
-      notes = (await invoke<{ notes: string }>("recover_recording", { audioPath: path })).notes;
-    } catch (e) {
-      setStatus(`error recovering recording: ${String(e)}`);
+    if (recoveringRef.current || progress || recordingActive) return;
+    if (!asrModel) {
+      setRecoveryError({
+        audioPath: path,
+        message: "Couldn't recover it: install a verified transcription model first, on the Models page.",
+      });
       return;
     }
-    const withSpeakers = detectSpeakers;
-    const done = await transcribeAndOpen(path, (transcript) =>
-      openNewTranscript(transcript, path, withSpeakers, notes, RECOVERED_NOTE, true),
-    );
-    if (done) setInterrupted((list) => list.filter((r) => r.audioPath !== path));
+    recoveringRef.current = true;
+    setRecovering(true);
+    setRecoveryError(null);
+    try {
+      if (!(await flushPendingSave())) {
+        setView("transcribe");
+        return;
+      }
+      // Close the open transcript (now saved) so nothing is edited meanwhile.
+      setHistory(null);
+      setAudioSrc(undefined);
+      setCurrentSessionMeta(null);
+      setView("transcribe");
+      let notes = "";
+      try {
+        notes = (await invoke<{ notes: string }>("recover_recording", { audioPath: path })).notes;
+      } catch (e) {
+        setRecoveryError({ audioPath: path, message: `Couldn't recover it: ${String(e)}` });
+        return;
+      }
+      const withSpeakers = detectSpeakers;
+      const done = await transcribeAndOpen(path, (transcript) =>
+        openNewTranscript(transcript, path, withSpeakers, notes, RECOVERED_NOTE, true),
+      );
+      if (done) setInterrupted((list) => list.filter((r) => r.audioPath !== path));
+    } finally {
+      recoveringRef.current = false;
+      setRecovering(false);
+    }
   }
 
   async function deleteInterrupted(recording: InterruptedRecording) {
+    setRecoveryError(null);
     try {
       await invoke("delete_interrupted_recording", { audioPath: recording.audioPath });
       setInterrupted((list) => list.filter((r) => r.audioPath !== recording.audioPath));
     } catch (e) {
-      setStatus(`error deleting recording: ${String(e)}`);
+      setRecoveryError({
+        audioPath: recording.audioPath,
+        message: `Couldn't delete it: ${String(e)}`,
+      });
     }
   }
 
@@ -596,7 +620,8 @@ export default function App() {
 
         <InterruptedRecordings
           recordings={interrupted}
-          busy={progress !== null || recordingActive}
+          busy={progress !== null || recordingActive || recovering}
+          error={recoveryError}
           onRecover={(r) => void recoverRecording(r)}
           onDelete={(r) => void deleteInterrupted(r)}
         />
