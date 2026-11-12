@@ -258,6 +258,153 @@ pub(crate) fn discard_recording_in(library: &Path, path: &Path) -> Result<(), St
 }
 
 // ---------------------------------------------------------------------------
+// Recordings left without a transcript (crash recovery)
+// ---------------------------------------------------------------------------
+
+/// A recording in `<library>/recordings/` that no saved transcript uses:
+/// usually one the app was closed or killed during.
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct InterruptedRecording {
+    audio_path: String,
+    name: String,
+    duration_sec: f64,
+    has_notes: bool,
+}
+
+/// What recovery found beside the recording.
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RecoveredRecording {
+    notes: String,
+}
+
+/// Where a WAV's audio starts, and how many bytes of it are on disk (which can
+/// be more than its header says after a crash).
+fn wav_data_on_disk(file: &mut std::fs::File) -> Result<(u64, u64), String> {
+    use std::io::{Read, Seek, SeekFrom};
+    let len = file.metadata().map_err(|e| e.to_string())?.len();
+    let mut head = [0u8; 12];
+    file.seek(SeekFrom::Start(0)).map_err(|e| e.to_string())?;
+    file.read_exact(&mut head).map_err(|_| "not a WAV file".to_string())?;
+    if &head[0..4] != b"RIFF" || &head[8..12] != b"WAVE" {
+        return Err("not a WAV file".into());
+    }
+    let mut pos = 12u64;
+    while pos + 8 <= len {
+        let mut chunk = [0u8; 8];
+        file.seek(SeekFrom::Start(pos)).map_err(|e| e.to_string())?;
+        file.read_exact(&mut chunk).map_err(|e| e.to_string())?;
+        let size = u32::from_le_bytes([chunk[4], chunk[5], chunk[6], chunk[7]]) as u64;
+        if &chunk[0..4] == b"data" {
+            return Ok((pos + 8, len - (pos + 8)));
+        }
+        pos += 8 + size + (size & 1);
+    }
+    Err("the WAV file has no audio".into())
+}
+
+/// Make the header cover every whole sample on disk. After a crash, the
+/// header only covers audio up to its last update, though later audio may
+/// already be in the file.
+fn repair_wav_header(path: &Path) -> Result<(), String> {
+    use std::io::{Seek, SeekFrom, Write};
+    let fail = |e: String| format!("cannot repair {}: {e}", path.display());
+    let mut file = std::fs::OpenOptions::new()
+        .read(true)
+        .write(true)
+        .open(path)
+        .map_err(|e| fail(e.to_string()))?;
+    let (start, bytes) = wav_data_on_disk(&mut file).map_err(fail)?;
+    let bytes = (bytes - bytes % 2).min(u32::MAX as u64 - start);
+    file.set_len(start + bytes).map_err(|e| fail(e.to_string()))?;
+    let mut put = |at: u64, value: u64| -> std::io::Result<()> {
+        file.seek(SeekFrom::Start(at))?;
+        file.write_all(&(value as u32).to_le_bytes())
+    };
+    put(4, start + bytes - 8).map_err(|e| fail(e.to_string()))?;
+    put(start - 4, bytes).map_err(|e| fail(e.to_string()))?;
+    file.sync_all().map_err(|e| fail(e.to_string()))
+}
+
+/// Recordings no saved transcript uses, except the one being recorded.
+pub(crate) fn interrupted_recordings_in(
+    library: &Path,
+    active: Option<&Path>,
+) -> Result<Vec<InterruptedRecording>, String> {
+    let Ok(entries) = std::fs::read_dir(recordings_dir(library)) else {
+        return Ok(Vec::new());
+    };
+    let used: std::collections::BTreeSet<PathBuf> =
+        crate::library::session_audio_paths_in(library)
+            .iter()
+            .filter_map(|p| Path::new(p).canonicalize().ok())
+            .collect();
+    let active = active.and_then(|p| p.canonicalize().ok());
+    let mut found = Vec::new();
+    for entry in entries.filter_map(|e| e.ok()) {
+        let path = entry.path();
+        let is_file = entry.file_type().map(|t| t.is_file()).unwrap_or(false);
+        if !is_file || path.extension().and_then(|e| e.to_str()) != Some("wav") {
+            continue;
+        }
+        let Ok(canonical) = path.canonicalize() else { continue };
+        if used.contains(&canonical) || active.as_ref() == Some(&canonical) {
+            continue;
+        }
+        let bytes = std::fs::File::open(&canonical)
+            .ok()
+            .and_then(|mut f| wav_data_on_disk(&mut f).ok())
+            .map_or(0, |(_, bytes)| bytes);
+        found.push(InterruptedRecording {
+            audio_path: canonical.to_string_lossy().into_owned(),
+            name: canonical
+                .file_stem()
+                .map(|s| s.to_string_lossy().into_owned())
+                .unwrap_or_default(),
+            duration_sec: (bytes / 2) as f64 / SAMPLE_RATE as f64,
+            has_notes: !notes_files(library, &canonical).is_empty(),
+        });
+    }
+    found.sort_by(|a, b| a.name.cmp(&b.name));
+    Ok(found)
+}
+
+fn not_active(canonical: &Path, active: Option<&Path>) -> Result<(), String> {
+    if active.and_then(|p| p.canonicalize().ok()).as_deref() == Some(canonical) {
+        return Err("That recording is still in progress.".into());
+    }
+    Ok(())
+}
+
+/// Make an interrupted recording whole again (its header covers every sample
+/// on disk) and return the notes typed during it.
+pub(crate) fn recover_recording_in(
+    library: &Path,
+    path: &Path,
+    active: Option<&Path>,
+) -> Result<RecoveredRecording, String> {
+    let canonical = own_recording(library, path)?;
+    not_active(&canonical, active)?;
+    repair_wav_header(&canonical)?;
+    let notes = [notes_path(&canonical), notes_tmp_path(&canonical)]
+        .iter()
+        .find_map(|p| std::fs::read_to_string(p).ok())
+        .unwrap_or_default();
+    Ok(RecoveredRecording { notes })
+}
+
+/// Delete an interrupted recording with its notes and approval.
+pub(crate) fn delete_interrupted_recording_in(
+    library: &Path,
+    path: &Path,
+    active: Option<&Path>,
+) -> Result<(), String> {
+    not_active(&own_recording(library, path)?, active)?;
+    discard_recording_in(library, path)
+}
+
+// ---------------------------------------------------------------------------
 // Live session (device + threads)
 // ---------------------------------------------------------------------------
 
@@ -1158,8 +1305,55 @@ pub async fn discard_recording(app: AppHandle) -> Result<(), String> {
     .map_err(|e| format!("recording task failed: {e}"))?
 }
 
+fn active_path(app: &AppHandle) -> Option<PathBuf> {
+    app.state::<RecorderState>().0.lock().unwrap().as_ref().map(|a| a.path.clone())
+}
+
+/// Recordings no saved transcript uses (left by a crash or by closing the app
+/// while recording), for the app to offer recovery.
+#[tauri::command]
+pub async fn list_interrupted_recordings(
+    app: AppHandle,
+) -> Result<Vec<InterruptedRecording>, String> {
+    let library = crate::library::library_dir(&app)?;
+    let active = active_path(&app);
+    tauri::async_runtime::spawn_blocking(move || {
+        interrupted_recordings_in(&library, active.as_deref())
+    })
+    .await
+    .map_err(|e| format!("recovery task failed: {e}"))?
+}
+
+/// Prepare an interrupted recording for transcription and return its notes.
+#[tauri::command]
+pub async fn recover_recording(
+    app: AppHandle,
+    audio_path: String,
+) -> Result<RecoveredRecording, String> {
+    let library = crate::library::library_dir(&app)?;
+    let active = active_path(&app);
+    tauri::async_runtime::spawn_blocking(move || {
+        recover_recording_in(&library, Path::new(&audio_path), active.as_deref())
+    })
+    .await
+    .map_err(|e| format!("recovery task failed: {e}"))?
+}
+
+/// Permanently delete an interrupted recording and its notes.
+#[tauri::command]
+pub async fn delete_interrupted_recording(app: AppHandle, audio_path: String) -> Result<(), String> {
+    let library = crate::library::library_dir(&app)?;
+    let active = active_path(&app);
+    tauri::async_runtime::spawn_blocking(move || {
+        delete_interrupted_recording_in(&library, Path::new(&audio_path), active.as_deref())
+    })
+    .await
+    .map_err(|e| format!("recovery task failed: {e}"))?
+}
+
 /// On app exit, finish the WAV so the audio is kept intact. No transcript is
-/// created; the recording stays in the recordings folder.
+/// created; the recording stays in the recordings folder, and is offered for
+/// recovery at the next launch.
 pub(crate) fn finish_on_exit(app: &AppHandle) {
     let _ = finish(app, false);
 }
@@ -1190,6 +1384,126 @@ mod tests {
 
     fn ramp(n: usize) -> Vec<f32> {
         (0..n).map(|i| ((i % 200) as f32 / 100.0) - 1.0).collect()
+    }
+
+    /// Set in the child process of the crash test: the library to record into.
+    const CRASH_CHILD_LIBRARY: &str = "FOLIO_CRASH_CHILD_LIBRARY";
+
+    /// The child half of the crash test: record as the app does, 100 ms at a
+    /// time, reporting progress, until killed.
+    fn record_until_killed(library: &Path) {
+        let (mut file, path) = RecordingFile::create_in(library, "Recording crash").unwrap();
+        println!("\npath {}", path.display());
+        let deadline = Instant::now() + Duration::from_secs(60);
+        let mut written = 0;
+        while Instant::now() < deadline {
+            let chunk: Vec<f32> = ramp(written + 1_600)[written..].to_vec();
+            file.append(&chunk).unwrap();
+            written += chunk.len();
+            println!("written {written}");
+            std::thread::sleep(Duration::from_millis(5));
+        }
+    }
+
+    #[test]
+    fn a_recording_killed_mid_write_is_recovered_with_all_the_audio_that_reached_the_disk() {
+        if let Ok(library) = std::env::var(CRASH_CHILD_LIBRARY) {
+            return record_until_killed(Path::new(&library));
+        }
+        use std::io::BufRead;
+        let library = unique_tmp("kill");
+        let mut child = std::process::Command::new(std::env::current_exe().unwrap())
+            .args([
+                "--exact",
+                "recorder::tests::a_recording_killed_mid_write_is_recovered_with_all_the_audio_that_reached_the_disk",
+                "--nocapture",
+                "--test-threads=1",
+            ])
+            .env(CRASH_CHILD_LIBRARY, &library)
+            .stdout(std::process::Stdio::piped())
+            .stderr(std::process::Stdio::null())
+            .spawn()
+            .unwrap();
+        let (mut path, mut seen) = (None, 0usize);
+        for line in std::io::BufReader::new(child.stdout.take().unwrap()).lines() {
+            let line = line.unwrap();
+            if let Some((_, p)) = line.split_once("path ") {
+                path = Some(PathBuf::from(p));
+            } else if let Some(n) = line.strip_prefix("written ") {
+                seen = n.parse().unwrap();
+                // Between two header updates (every 5 s).
+                if seen >= 7 * 16_000 + 800 {
+                    break;
+                }
+            }
+        }
+        child.kill().unwrap(); // SIGKILL; TerminateProcess on Windows
+        child.wait().unwrap();
+        let path = path.expect("the child reported its recording");
+        let (before, _) = load_wav_16k_mono(&path).unwrap();
+
+        recover_recording_in(&library, &path, None).unwrap();
+
+        let (after, _) = load_wav_16k_mono(&path).unwrap();
+        println!(
+            "S6 kill: written >= {seen}, header covered {}, recovered {} samples",
+            before.len(),
+            after.len()
+        );
+        // Only the write buffer (8 KiB = 4,096 samples) never reaches the file.
+        assert!(after.len() + 4_096 >= seen, "recovered {} of {seen}", after.len());
+        let expected = ramp(after.len());
+        for (i, (a, b)) in after.iter().zip(&expected).enumerate() {
+            assert!((a - b).abs() < 1e-4, "sample {i}: {a} vs {b}");
+        }
+        let _ = std::fs::remove_dir_all(&library);
+    }
+
+    fn unfinished_recording(library: &Path, name: &str) -> PathBuf {
+        let (mut file, path) = RecordingFile::create_in(library, name).unwrap();
+        file.append(&ramp(3 * 16_000)).unwrap();
+        file.flush().unwrap();
+        std::mem::forget(file);
+        path
+    }
+
+    #[test]
+    fn only_recordings_without_a_transcript_are_offered_for_recovery() {
+        let library = unique_tmp("interrupted");
+        let saved = unfinished_recording(&library, "Recording saved");
+        let crashed = unfinished_recording(&library, "Recording crashed");
+        let active = unfinished_recording(&library, "Recording active");
+        save_recording_notes_in(&library, &crashed, "Ask about the lease.").unwrap();
+        crate::library::save_session_in(
+            &library,
+            &serde_json::json!({ "id": "s1", "audioPath": saved.to_string_lossy() }),
+        )
+        .unwrap();
+
+        let found = interrupted_recordings_in(&library, Some(&active)).unwrap();
+
+        assert_eq!(found.len(), 1, "{found:?}");
+        assert_eq!(found[0].name, "Recording crashed");
+        assert!(found[0].audio_path.ends_with("Recording crashed.wav"));
+        assert_eq!(found[0].duration_sec, 3.0);
+        assert!(found[0].has_notes);
+        let _ = std::fs::remove_dir_all(&library);
+    }
+
+    #[test]
+    fn deleting_an_interrupted_recording_leaves_nothing_behind() {
+        let library = unique_tmp("delete-interrupted");
+        let path = unfinished_recording(&library, "Recording crashed");
+        let canonical = path.canonicalize().unwrap();
+        save_recording_notes_in(&library, &path, "Ask about the lease.").unwrap();
+        std::fs::write(recordings_dir(&library).join("Recording crashed.notes.txt.tmp"), "Ask").unwrap();
+
+        delete_interrupted_recording_in(&library, &path, None).unwrap();
+
+        let left: Vec<_> = std::fs::read_dir(recordings_dir(&library)).unwrap().collect();
+        assert!(left.is_empty(), "{left:?}");
+        assert!(!system::approved_recordings_in(&library).unwrap().contains(&canonical));
+        let _ = std::fs::remove_dir_all(&library);
     }
 
     #[test]

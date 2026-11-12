@@ -100,32 +100,11 @@ pub fn save_session_in(dir: &Path, value: &Value) -> Result<(), String> {
 /// SKIPS any that fail to read/parse or lack a string `id` (corrupt-tolerant,
 /// never panics). Returns `[]` when `dir` is absent.
 pub fn list_sessions_in(dir: &Path) -> Result<Vec<SessionMeta>, String> {
-    let entries = match std::fs::read_dir(dir) {
-        Ok(e) => e,
-        Err(_) => return Ok(Vec::new()),
-    };
-
     let mut out: Vec<SessionMeta> = Vec::new();
-    for entry in entries.filter_map(|e| e.ok()) {
-        let path = entry.path();
-        if path.extension().and_then(|e| e.to_str()) != Some("json") {
-            continue;
-        }
-        let bytes = match std::fs::read(&path) {
-            Ok(b) => b,
-            Err(_) => continue,
-        };
-        let value: Value = match serde_json::from_slice(&bytes) {
-            Ok(v) => v,
-            Err(_) => continue,
-        };
-        let id = match value.get("id").and_then(Value::as_str) {
-            Some(id) if !id.is_empty() => id.to_string(),
-            _ => continue,
-        };
+    for value in stored_sessions(dir) {
         let audio_path = str_field(&value, "audioPath");
         out.push(SessionMeta {
-            id,
+            id: str_field(&value, "id"),
             created_at: str_field(&value, "createdAt"),
             updated_at: str_field(&value, "updatedAt"),
             audio_filename: str_field(&value, "audioFilename"),
@@ -136,6 +115,29 @@ pub fn list_sessions_in(dir: &Path) -> Result<Vec<SessionMeta>, String> {
     }
     out.sort_by(|a, b| b.updated_at.cmp(&a.updated_at));
     Ok(out)
+}
+
+/// The `audioPath` of every saved session in `dir` (non-empty ones only).
+pub(crate) fn session_audio_paths_in(dir: &Path) -> Vec<String> {
+    stored_sessions(dir)
+        .iter()
+        .map(|value| str_field(value, "audioPath"))
+        .filter(|path| !path.is_empty())
+        .collect()
+}
+
+/// Every readable session in `dir`: `*.json` files (not in-flight `*.tmp`)
+/// that parse and have a non-empty string `id`. Others are skipped.
+fn stored_sessions(dir: &Path) -> Vec<Value> {
+    let Ok(entries) = std::fs::read_dir(dir) else { return Vec::new() };
+    entries
+        .filter_map(|e| e.ok())
+        .map(|entry| entry.path())
+        .filter(|path| path.extension().and_then(|e| e.to_str()) == Some("json"))
+        .filter_map(|path| std::fs::read(&path).ok())
+        .filter_map(|bytes| serde_json::from_slice::<Value>(&bytes).ok())
+        .filter(|value| value.get("id").and_then(Value::as_str).is_some_and(|id| !id.is_empty()))
+        .collect()
 }
 
 /// Load the full session `<dir>/<id>.json`. Rejects unsafe ids,
