@@ -120,24 +120,24 @@ pub fn list_sessions_in(dir: &Path) -> Result<Vec<SessionMeta>, String> {
 /// The `audioPath` of every saved session in `dir` (non-empty ones only).
 pub(crate) fn session_audio_paths_in(dir: &Path) -> Vec<String> {
     stored_sessions(dir)
-        .iter()
-        .map(|value| str_field(value, "audioPath"))
+        .map(|value| str_field(&value, "audioPath"))
         .filter(|path| !path.is_empty())
         .collect()
 }
 
 /// Every readable session in `dir`: `*.json` files (not in-flight `*.tmp`)
-/// that parse and have a non-empty string `id`. Others are skipped.
-fn stored_sessions(dir: &Path) -> Vec<Value> {
-    let Ok(entries) = std::fs::read_dir(dir) else { return Vec::new() };
-    entries
+/// that parse and have a non-empty string `id`. Others are skipped. Read one
+/// at a time, so only one transcript is held in memory.
+fn stored_sessions(dir: &Path) -> impl Iterator<Item = Value> {
+    std::fs::read_dir(dir)
+        .into_iter()
+        .flatten()
         .filter_map(|e| e.ok())
         .map(|entry| entry.path())
         .filter(|path| path.extension().and_then(|e| e.to_str()) == Some("json"))
         .filter_map(|path| std::fs::read(&path).ok())
         .filter_map(|bytes| serde_json::from_slice::<Value>(&bytes).ok())
         .filter(|value| value.get("id").and_then(Value::as_str).is_some_and(|id| !id.is_empty()))
-        .collect()
 }
 
 /// Load the full session `<dir>/<id>.json`. Rejects unsafe ids,

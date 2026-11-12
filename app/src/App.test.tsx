@@ -882,6 +882,35 @@ describe("Recordings without a transcript", () => {
     expect(invokeMock.mock.calls.filter(([c]) => c === "recover_recording")).toHaveLength(1);
   });
 
+  it("offers no other transcription while a recovery is being prepared", async () => {
+    recoverRecording = () => new Promise(() => {});
+    interrupted = [LEFT];
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+    await screen.findByRole("button", { name: "Create transcript" });
+
+    fireEvent.click(screen.getByRole("button", { name: "Recover transcript" }));
+
+    await waitFor(() =>
+      expect(screen.queryByRole("button", { name: "Create transcript" })).not.toBeInTheDocument(),
+    );
+  });
+
+  it("offers nothing else for a recording while it is being deleted", async () => {
+    deleteInterrupted = () => new Promise(() => {});
+    interrupted = [LEFT];
+    render(<App />);
+
+    fireEvent.click(await screen.findByRole("button", { name: "Delete" }));
+    fireEvent.click(screen.getByRole("button", { name: "Delete permanently" }));
+
+    await waitFor(() =>
+      expect(screen.getByRole("button", { name: "Recover transcript" })).toBeDisabled(),
+    );
+  });
+
   it("says, in the notice, why a recording could not be recovered or deleted", async () => {
     modelPacks = [];
     deleteInterrupted = () => Promise.reject(new Error("permission denied"));

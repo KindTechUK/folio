@@ -391,11 +391,20 @@ pub(crate) fn recover_recording_in(
     let canonical = own_recording(library, path)?;
     not_active(&canonical, active)?;
     repair_wav_header(&canonical)?;
-    let notes = [notes_path(&canonical), notes_tmp_path(&canonical)]
-        .iter()
-        .find_map(|p| std::fs::read_to_string(p).ok())
-        .unwrap_or_default();
-    Ok(RecoveredRecording { notes })
+    // The saved notes, else the half-written copy (a crash can cut it off
+    // inside a character: keep what is readable). A file that can't be read
+    // at all stops recovery, so it is never deleted unread.
+    for file in [notes_path(&canonical), notes_tmp_path(&canonical)] {
+        match std::fs::read(&file) {
+            Ok(bytes) => {
+                let notes = String::from_utf8_lossy(&bytes).into_owned();
+                return Ok(RecoveredRecording { notes });
+            }
+            Err(e) if e.kind() == std::io::ErrorKind::NotFound => continue,
+            Err(e) => return Err(format!("cannot read the notes {}: {e}", file.display())),
+        }
+    }
+    Ok(RecoveredRecording { notes: String::new() })
 }
 
 /// Delete an interrupted recording with its notes and approval. Refuses one a
@@ -1513,6 +1522,21 @@ mod tests {
         assert!(delete_interrupted_recording_in(&library, &path, None).is_err());
 
         assert!(path.exists());
+        let _ = std::fs::remove_dir_all(&library);
+    }
+
+    #[test]
+    fn notes_cut_off_by_a_crash_are_recovered_as_far_as_they_go() {
+        let library = unique_tmp("cut-notes");
+        let path = unfinished_recording(&library, "Recording crashed");
+        // Only the half-written copy survived, ending inside the two bytes of "é".
+        let mut bytes = b"Ask about the lease. Caf".to_vec();
+        bytes.push(0xC3);
+        std::fs::write(recordings_dir(&library).join("Recording crashed.notes.txt.tmp"), bytes).unwrap();
+
+        let recovered = recover_recording_in(&library, &path, None).unwrap();
+
+        assert!(recovered.notes.starts_with("Ask about the lease. Caf"), "{:?}", recovered.notes);
         let _ = std::fs::remove_dir_all(&library);
     }
 

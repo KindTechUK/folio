@@ -484,10 +484,13 @@ export default function App() {
       setAudioSrc(undefined);
       setCurrentSessionMeta(null);
       setView("transcribe");
+      // Shown as progress, so Import and Record wait for this recovery too.
+      setProgress({ fraction: 0, label: "Preparing the recording…" });
       let notes = "";
       try {
         notes = (await invoke<{ notes: string }>("recover_recording", { audioPath: path })).notes;
       } catch (e) {
+        setProgress(null);
         setRecoveryError({ audioPath: path, message: `Couldn't recover it: ${String(e)}` });
         return;
       }
@@ -503,6 +506,9 @@ export default function App() {
   }
 
   async function deleteInterrupted(recording: InterruptedRecording) {
+    if (recoveringRef.current) return;
+    recoveringRef.current = true;
+    setRecovering(true);
     setRecoveryError(null);
     try {
       await invoke("delete_interrupted_recording", { audioPath: recording.audioPath });
@@ -512,6 +518,9 @@ export default function App() {
         audioPath: recording.audioPath,
         message: `Couldn't delete it: ${String(e)}`,
       });
+    } finally {
+      recoveringRef.current = false;
+      setRecovering(false);
     }
   }
 
