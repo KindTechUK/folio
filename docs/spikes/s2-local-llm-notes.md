@@ -7,14 +7,15 @@
 ## Verdict
 
 A local 4B model can turn a 15–90-minute conversation into a template note within the target time. This only
-works if the notes are drafted **section by section during the recording**.
+works if the notes are drafted **section by section during the recording**. Speed and memory pass. Whether
+notes on longer recordings miss more is still open (condition 6).
 
 | Pass criterion | Result | |
 |---|---|---|
 | 60-min transcript: note ≤ 5 min after stop | 14 s to 2.7 min (sectioned, during recording) | **Pass** |
 | 90-min transcript: note ≤ 8 min after stop | 83 s to 2.7 min | **Pass** |
 | Peak RAM ≤ 6 GB, ASR unloaded | 4.4 GB (Qwen3.5-4B) and 4.7 GB (Qwen3-4B) at 8k context | **Pass** |
-| No significant rise in omissions from 15 to 60 min | No rise in weak support from 15 to 90 min; omissions were judged only at 46 and 61 min | **Pass by design, partly measured** |
+| No significant rise in omissions from 15 to 60 min | Facts were judged only at 46 and 61 min; the AMI meetings have no facts checklist | **Not measured** |
 
 Strategies that start only when the user presses stop fail the speed target, whichever model is used.
 A single pass on a 60-minute transcript takes 7–30 minutes.
@@ -32,6 +33,10 @@ A single pass on a 60-minute transcript takes 7–30 minutes.
    context, and looked faster, but the speed comparison is not clean. Safeguarding refusals (S4) and
    citation accuracy (S3) decide between them.
 5. **Repeat the timings on the reference Windows laptop.** These are Mac numbers taken under background load.
+6. **Measure omissions by length before P2 relies on long recordings.** Judge fact recall on a 15-minute
+   excerpt and on the full 60 minutes of the same transcript, for example the first 15 minutes of the care
+   assessment with the checklist facts that fall in it. Weak support (below) can't stand in for this: it only
+   checks the sentences a model wrote, so a note that leaves most facts out can still score well.
 
 ## Environment
 
@@ -175,8 +180,8 @@ models not directly comparable**, and Qwen3-4B's figures are pessimistic.
   Qwen3.5-4B and 4.2 min for Qwen3-4B under load.
 - **Processing keeps up with recording.** The slowest 10-minute section took 4.2 minutes. This was not measured
   with live ASR running at the same time; S1 measured live ASR at about 6% CPU on this machine.
-- **Weak support does not rise with length** for sectioned notes, because each section is the same size
-  whatever the length of the recording.
+- **Weak support did not rise with length** on the AMI meetings (Qwen3.5-4B: 0.38 at 15 and 45 min, 0.10–0.12
+  at 60 and 90 min). This says nothing about omissions, which were not measured by length (condition 6).
 - **Medians across all calls:**
   - Qwen3-4B: prefill 53 tok/s, generation 16 tok/s.
   - Qwen3.5-4B: prefill 89 tok/s, generation 26 tok/s.
@@ -224,10 +229,11 @@ prompt tokens):
 ## Still to do
 
 1. Repeat the finalists' timings and memory on the reference Windows laptop, with live ASR running alongside.
-2. A human spot-check of 4 judged packets (listed above).
-3. S3: citation validity and the unsupported-sentence flag, starting from the traps these notes fell into.
-4. S4: safeguarding refusals for both finalists.
-5. Optional: re-run Gemma-4-E4B with a bigger map cap. Its single pass made nothing up.
+2. Measure fact recall at 15 vs 60 minutes on the same transcript (condition 6).
+3. A human spot-check of 4 judged packets (listed above).
+4. S3: citation validity and the unsupported-sentence flag, starting from the traps these notes fell into.
+5. S4: safeguarding refusals for both finalists.
+6. Optional: re-run Gemma-4-E4B with a bigger map cap. Its single pass made nothing up.
 
 ## History
 

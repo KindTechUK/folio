@@ -18,12 +18,15 @@ p = subprocess.Popen(["llama-server", "-m", str(MODEL_DIR / MODELS[model]), "-c"
     "-ngl", "0", "-dev", "none", "-fa", "off", "-np", "1", "-cram", "0", "--reasoning", "off", "--no-webui",
     "--load-mode", "none", "--port", str(port)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 def fp():
-    out = subprocess.run(["footprint", "-f", "bytes", "-p", str(p.pid)], capture_output=True, text=True).stdout
+    """Current and peak physical footprint in GB. Exits rather than return a reading it didn't get."""
+    res = subprocess.run(["footprint", "-f", "bytes", "-p", str(p.pid)], capture_output=True, text=True)
     vals = {}
-    for l in out.splitlines():
+    for l in res.stdout.splitlines():
         l = l.strip()
         if l.startswith("phys_footprint_peak:"): vals["peak"] = int(l.split()[1]) / 2**30
         elif l.startswith("phys_footprint:"): vals["now"] = int(l.split()[1]) / 2**30
+    if res.returncode != 0 or not vals.get("now") or not vals.get("peak"):
+        raise SystemExit(f"footprint gave no reading (exit {res.returncode}): {res.stderr.strip()[:200]}")
     return vals
 try:
     for _ in range(300):
@@ -36,8 +39,8 @@ try:
     r = json.loads(urllib.request.urlopen(urllib.request.Request(f"http://127.0.0.1:{port}/v1/chat/completions",
         data=json.dumps(body).encode(), headers={"Content-Type": "application/json"}), timeout=3600).read())
     after = fp()
-    row = json.dumps({"model": model, "ctx": ctx, "idle_gb": round(idle.get("now", 0), 2),
-        "peak_gb": round(after.get("peak", 0), 2), "prompt_n": r["timings"]["prompt_n"]})
+    row = json.dumps({"model": model, "ctx": ctx, "idle_gb": round(idle["now"], 2),
+        "peak_gb": round(after["peak"], 2), "prompt_n": r["timings"]["prompt_n"]})
     print(row)
     with open(C.RESULTS / "memory.jsonl", "a") as f:
         f.write(row + "\n")
