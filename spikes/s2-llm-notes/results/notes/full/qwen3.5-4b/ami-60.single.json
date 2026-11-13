@@ -1,0 +1,217 @@
+{
+ "sections": [
+  {
+   "title": "Summary",
+   "sentences": [
+    {
+     "text": "The meeting reviewed the conceptual design for a universal TV control, addressing new project requirements such as excluding teletext functionality and incorporating the company's corporate image.",
+     "cites": [
+      529,
+      534
+     ]
+    },
+    {
+     "text": "The group discussed various design options including flip-top mechanisms, rechargeable batteries, and ergonomic shapes to address user frustrations with current remote controls.",
+     "cites": [
+      529,
+      532
+     ]
+    },
+    {
+     "text": "Presentations covered industrial design concepts, component availability, and market research findings regarding user preferences for aesthetics and usability.",
+     "cites": [
+      542,
+      551
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Discussion",
+   "sentences": [
+    {
+     "text": "Participant A noted that the previous meeting's plan to use teletext was no longer viable as consumers consider it outdated, and the control is now restricted to TV and video only.",
+     "cites": [
+      131,
+      132,
+      134
+     ]
+    },
+    {
+     "text": "Participant B mentioned that the company's corporate image needs to be incorporated into the design, specifically wanting it to look fashionable and trendy.",
+     "cites": [
+      190,
+      191
+     ]
+    },
+    {
+     "text": "Participant D presented an industrial design concept featuring a flip-open mechanism where main functions are on the top and complex programming features are in the middle, noting that most current controls use infrared and are powered by bulky triple-A batteries.",
+     "cites": [
+      30,
+      31,
+      36,
+      38
+     ]
+    },
+    {
+     "text": "Participant C suggested a flip-top design to simplify interaction, arguing that users typically only use 30-40% of buttons and that a trendy design could appeal to a wide audience.",
+     "cites": [
+      75,
+      76,
+      77,
+      78
+     ]
+    },
+    {
+     "text": "Participant B presented market research findings indicating that 75% of users find current remotes ugly, 80% would pay more for a fancy look, and 50% are frustrated by losing their remotes.",
+     "cites": [
+      119,
+      120,
+      121
+     ]
+    },
+    {
+     "text": "Participant B reported that 50% of users only use 10% of the buttons on their remotes, leading to potential cost savings by reducing the number of functions.",
+     "cites": [
+      121
+     ]
+    },
+    {
+     "text": "Participant B highlighted that 34% of users take too much time to learn to use their remotes, and over a quarter cited repetitive strain injury (RSI) as a frustration.",
+     "cites": [
+      122
+     ]
+    },
+    {
+     "text": "Participant D discussed battery options, noting that rechargeable options were not available at the time, and compared dynamo, solar, and kinetic charging methods.",
+     "cites": [
+      567,
+      571,
+      580
+     ]
+    },
+    {
+     "text": "Participant D explained that kinetic charging, used in wristwatches, relies on movement to charge a small cell, though the duration of battery life was uncertain.",
+     "cites": [
+      606,
+      610
+     ]
+    },
+    {
+     "text": "Participant D described the internal circuit board design, noting that printed circuit boards can be printed in varying sizes to fit different button layouts.",
+     "cites": [
+      686,
+      688
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decisions",
+   "sentences": [
+    {
+     "text": "The group decided to exclude teletext functionality and limit the control to TV and video use only.",
+     "cites": [
+      131,
+      132,
+      134
+     ]
+    },
+    {
+     "text": "The group decided on a flip design for the remote control.",
+     "cites": [
+      529
+     ]
+    },
+    {
+     "text": "The group decided to incorporate the company's corporate image into the product design.",
+     "cites": [
+      529
+     ]
+    },
+    {
+     "text": "The group decided to look into a rechargeable battery option with a docking station.",
+     "cites": [
+      530,
+      532,
+      573
+     ]
+    },
+    {
+     "text": "The group decided to consider a clamshell or shell-like shape for the remote to differentiate it from standard rectangular designs.",
+     "cites": [
+      529,
+      395,
+      424
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Actions",
+   "sentences": [
+    {
+     "text": "Participant B will look at functional requirements from the marketing point of view and refer to market research findings.",
+     "cites": [
+      148
+     ]
+    },
+    {
+     "text": "Participant B will look into the company logo and associated imagery to incorporate it into the design.",
+     "cites": [
+      411
+     ]
+    },
+    {
+     "text": "Participant C will look into the company logo and associated imagery to incorporate it into the design.",
+     "cites": [
+      418
+     ]
+    },
+    {
+     "text": "Participant B will look into designs for mobile phone covers (fascias) that can be peeled off, such as rubber sleeves, to apply to the remote.",
+     "cites": [
+      727,
+      729
+     ]
+    },
+    {
+     "text": "Participant B will look into the availability of materials and components, specifically checking for rechargeable battery options.",
+     "cites": [
+      567
+     ]
+    },
+    {
+     "text": "Participant B will look into the availability of materials and components, specifically checking for solar charging options.",
+     "cites": [
+      567
+     ]
+    },
+    {
+     "text": "Participant B will look into the availability of materials and components, specifically checking for kinetic charging options.",
+     "cites": [
+      567
+     ]
+    },
+    {
+     "text": "Participant B will look into the availability of materials and components, specifically checking for rubber button options.",
+     "cites": [
+      567
+     ]
+    },
+    {
+     "text": "Participant B will look into the availability of materials and components, specifically checking for titanium casing options.",
+     "cites": [
+      567
+     ]
+    },
+    {
+     "text": "Participant B will look into the availability of materials and components, specifically checking for wood casing options.",
+     "cites": [
+      567
+     ]
+    }
+   ]
+  }
+ ]
+}

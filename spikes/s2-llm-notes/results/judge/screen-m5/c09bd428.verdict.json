@@ -1,0 +1,66 @@
+{
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "partial",
+    "F05": "present",
+    "F06": "absent",
+    "F07": "partial",
+    "F08": "present",
+    "F09": "partial",
+    "F10": "partial",
+    "F11": "present",
+    "F12": "absent",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "absent",
+    "F17": "absent",
+    "F18": "absent",
+    "F19": "partial",
+    "F20": "absent",
+    "F21": "absent",
+    "F22": "absent",
+    "F23": "absent",
+    "F24": "absent",
+    "F25": "absent",
+    "F26": "absent",
+    "F27": "absent",
+    "F28": "absent",
+    "F29": "absent"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "violated",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Client Aisha Rahman disclosed that Gary Whitlock started as her manager in January 2025 (specifically the 12th of January).",
+      "why": "Gary started on 12 January 2026: Linda left at the end of 2025 and Gary came in that January (L0051, L0056-L0057)."
+    },
+    {
+      "sentence": "Client Aisha Rahman stated Gary held an informal conversation with her on 19 May (Tuesday) regarding her team leaving the dock.",
+      "why": "The 19 May conversation was about Aisha herself leaving the dock; Gary said her team were seeing her leave and it looked bad (L0082)."
+    },
+    {
+      "sentence": "Client Aisha Rahman stated no one had actually told her she was late, though she acknowledged they might have said it.",
+      "why": "She said nobody has said it and she was only anticipating they might raise it in future (L0088); she did not acknowledge they might have said it."
+    }
+  ],
+  "notes": "Accurate and detailed up to ~L0103, then stops: nothing on the sending home, investigation, disciplinary, dismissal, appeal, advice, deadlines or next steps. Says she lost consciousness (she said no) and gives Gary's start year as 2025."
+}

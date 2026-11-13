@@ -1,0 +1,471 @@
+{
+ "sections": [
+  {
+   "title": "Background and presenting situation",
+   "sentences": [
+    {
+     "text": "The assessment was conducted by Social Worker Priya Nair with Margaret Doyle and her son Kevin Doyle present.",
+     "cites": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "text": "Margaret Doyle lives in a house with her cat, Biscuit, and has a history of three falls in the last six months, including a significant fall on March 3rd where she was on the floor for approximately two hours.",
+     "cites": [
+      22,
+      23,
+      24,
+      25,
+      51,
+      52
+     ]
+    },
+    {
+     "text": "The assessment is taking place following a referral from the hospital after Margaret's discharge.",
+     "cites": [
+      23
+     ]
+    },
+    {
+     "text": "The purpose of the visit is to conduct a needs assessment under the Care Act to understand how Margaret is managing day-to-day and identify potential support.",
+     "cites": [
+      24,
+      25,
+      26,
+      27,
+      28
+     ]
+    },
+    {
+     "text": "Margaret explicitly stated she did not want to be put anywhere, clarifying that the assessment is about supporting her in her own home.",
+     "cites": [
+      29,
+      30,
+      31
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Needs and daily living",
+   "sentences": [
+    {
+     "text": "Margaret uses a walking frame indoors most of the time and a stick outdoors, though she sometimes holds onto furniture instead of using the frame.",
+     "cites": [
+      97,
+      98,
+      99,
+      100,
+      101,
+      104
+     ]
+    },
+    {
+     "text": "She has been unable to walk to the shops since the fall, expressing fear of going out again.",
+     "cites": [
+      107,
+      108,
+      109,
+      110
+     ]
+    },
+    {
+     "text": "Margaret has had three falls in the last six months: one in the garden before Christmas, one in the bathroom in January, and the significant fall on March 3rd.",
+     "cites": [
+      114,
+      115,
+      116,
+      117
+     ]
+    },
+    {
+     "text": "She did not tell her GP about the two earlier falls, though her son Kevin knows about the garden fall.",
+     "cites": [
+      118,
+      119,
+      120
+     ]
+    },
+    {
+     "text": "Her left wrist was fractured; she has since had the cast removed and is now wearing a splint, which she finds difficult to manage.",
+     "cites": [
+      83,
+      84,
+      91,
+      92
+     ]
+    },
+    {
+     "text": "Getting dressed takes between 40 minutes and an hour, often requiring her to sit down in between, and she has given up wearing tights.",
+     "cites": [
+      208,
+      209,
+      204,
+      205
+     ]
+    },
+    {
+     "text": "Margaret has not had a proper bath since January due to fear of getting stuck and not being able to get out with her injured wrist.",
+     "cites": [
+      184,
+      185,
+      186,
+      187
+     ]
+    },
+    {
+     "text": "She washes herself at the sink using a flannel and relies on Brenda next door to wash her hair occasionally.",
+     "cites": [
+      181,
+      183,
+      184,
+      194,
+      195
+     ]
+    },
+    {
+     "text": "She has not cooked since the fall because she cannot lift the pans and feels frightened of the kitchen.",
+     "cites": [
+      254,
+      255,
+      256,
+      257
+     ]
+    },
+    {
+     "text": "Her diet is limited to toast, soup, and occasionally a yoghurt or crackers; she has lost nearly a stone since Christmas.",
+     "cites": [
+      247,
+      249,
+      251,
+      263,
+      264
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Person's views and wishes",
+   "sentences": [
+    {
+     "text": "Margaret stated she wants to stay in her own home for as long as possible, valuing her garden, her cat, and her neighbours.",
+     "cites": [
+      347,
+      348
+     ]
+    },
+    {
+     "text": "She expressed a strong preference to remain in her current house rather than moving to a sheltered flat or bungalow, citing her attachment to the property and her late husband Frank.",
+     "cites": [
+      340,
+      341,
+      342,
+      343,
+      344,
+      345
+     ]
+    },
+    {
+     "text": "She would prefer to be cared for at Beechwood if she ever needed to move, as she had positive experiences there.",
+     "cites": [
+      351
+     ]
+    },
+    {
+     "text": "Margaret wants to be able to cook a proper dinner occasionally and to return to the lunch club at St Michael's church.",
+     "cites": [
+      598,
+      595,
+      596
+     ]
+    },
+    {
+     "text": "She expressed a desire to be able to have a proper bath and wash her hair again.",
+     "cites": [
+      196,
+      197,
+      594
+     ]
+    },
+    {
+     "text": "She is concerned about being frightened constantly and wants to feel safe in her kitchen.",
+     "cites": [
+      110,
+      596
+     ]
+    },
+    {
+     "text": "Margaret stated she does not want the police involved in the matter regarding her grandson's use of her bank card.",
+     "cites": [
+      538,
+      540,
+      541
+     ]
+    },
+    {
+     "text": "She wants her grandson to stop using her card and for it to be returned to her.",
+     "cites": [
+      541
+     ]
+    },
+    {
+     "text": "She expressed a wish to be able to cook herself a proper dinner again, not every day but now and then.",
+     "cites": [
+      599
+     ]
+    },
+    {
+     "text": "She wants to be able to see her roses bloom this summer and go out to look at them.",
+     "cites": [
+      602
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Risks and safeguarding",
+   "sentences": [
+    {
+     "text": "Margaret disclosed that her grandson, Jordan, has been borrowing her bank card to get cash or shop for himself.",
+     "cites": [
+      471,
+      472
+     ]
+    },
+    {
+     "text": "She revealed that her bank statements showed approximately six hundred pounds in withdrawals over the last two months that she did not authorize.",
+     "cites": [
+      474,
+      475,
+      478,
+      479
+     ]
+    },
+    {
+     "text": "She confirmed she gave her grandson her bank card number and PIN when she was discharged from the hospital so he could do her shopping.",
+     "cites": [
+      472,
+      473,
+      486,
+      487
+     ]
+    },
+    {
+     "text": "Her son Kevin reported that Brenda next door saw Jordan at a cash machine with a card, though Kevin noted Brenda was not sure it was Jordan.",
+     "cites": [
+      526,
+      527,
+      528,
+      529,
+      530
+     ]
+    },
+    {
+     "text": "Kevin mentioned hearing from one of Jordan's old mates' mothers that Jordan has gotten into debt with betting apps on his phone.",
+     "cites": [
+      531
+     ]
+    },
+    {
+     "text": "The social worker recorded Kevin's report about the betting debt as second-hand information, noting it was not confirmed as fact.",
+     "cites": [
+      534,
+      535
+     ]
+    },
+    {
+     "text": "Margaret denied having any thoughts of harming herself or ending her life, stating she has too much to live for.",
+     "cites": [
+      442,
+      443,
+      445
+     ]
+    },
+    {
+     "text": "She disclosed that she has missed her blood pressure tablets twice in the last week.",
+     "cites": [
+      293,
+      294,
+      295
+     ]
+    },
+    {
+     "text": "Margaret reported occasional incontinence, sometimes leaking if she holds it too long, and currently wears pads at night.",
+     "cites": [
+      220,
+      221,
+      223
+     ]
+    },
+    {
+     "text": "She described feeling lonely on days when no one visits, noting she sometimes does not get dressed and stays in her nightie.",
+     "cites": [
+      407,
+      408,
+      411,
+      412,
+      212,
+      213
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Support network and finances",
+   "sentences": [
+    {
+     "text": "Margaret's son Kevin visits mainly on Sundays to do the big shop and sit with her, sometimes midweek if he is on early shifts.",
+     "cites": [
+      365,
+      366,
+      367,
+      369
+     ]
+    },
+    {
+     "text": "Her daughter Susan lives in Spain and calls every week on Sunday nights, visiting in the summer.",
+     "cites": [
+      372,
+      373,
+      374,
+      375
+     ]
+    },
+    {
+     "text": "Brenda, a neighbour, visits most days and knocks on the wall in the morning to check on Margaret.",
+     "cites": [
+      378,
+      379,
+      380
+     ]
+    },
+    {
+     "text": "Margaret used to attend a lunch club at St Michael's church hall on Thursdays but has not been since the fall due to mobility issues.",
+     "cites": [
+      385,
+      392,
+      394,
+      397
+     ]
+    },
+    {
+     "text": "She receives a state pension and half of her late husband Frank's railway pension.",
+     "cites": [
+      570
+     ]
+    },
+    {
+     "text": "She owns the house outright and has approximately nine thousand pounds in savings in the building society.",
+     "cites": [
+      572,
+      574
+     ]
+    },
+    {
+     "text": "She disclosed she is not currently receiving Attendance Allowance, though she was informed she might be eligible.",
+     "cites": [
+      575,
+      576,
+      577,
+      578
+     ]
+    },
+    {
+     "text": "She has a state pension and Frank's pension, from the railway. I get half of it now, a widow's pension.",
+     "cites": [
+      570
+     ]
+    },
+    {
+     "text": "She has about nine thousand pounds in the building society, which she considers her funeral money and a bit for the grandchildren.",
+     "cites": [
+      574
+     ]
+    },
+    {
+     "text": "She does not own the house, she rents it.",
+     "cites": [
+      571
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Agreed actions",
+   "sentences": [
+    {
+     "text": "The social worker will refer Margaret to occupational therapy today for an assessment of the bathroom, stairs, and home environment.",
+     "cites": [
+      626,
+      627
+     ]
+    },
+    {
+     "text": "The social worker will make a safeguarding referral regarding the unauthorized withdrawals from Margaret's bank card this afternoon.",
+     "cites": [
+      630
+     ]
+    },
+    {
+     "text": "The social worker will refer Margaret for a telecare alarm (Careline watch) which will be fitted within about ten days.",
+     "cites": [
+      632,
+      633
+     ]
+    },
+    {
+     "text": "The social worker will write to Dr Shah regarding a referral to the falls clinic and will also refer her to the continence service.",
+     "cites": [
+      635
+     ]
+    },
+    {
+     "text": "The social worker will contact the chemist on Station Road to request a blister pack that is easier for Margaret to open.",
+     "cites": [
+      636
+     ]
+    },
+    {
+     "text": "The social worker will submit a request for reablement support (morning and teatime visits) and will inform Margaret of the outcome by the end of next week.",
+     "cites": [
+      639
+     ]
+    },
+    {
+     "text": "The social worker will research transport options for Margaret to attend the lunch club at St Michael's.",
+     "cites": [
+      640
+     ]
+    },
+    {
+     "text": "Kevin will take Margaret to the Midshire building society branch on Friday morning to cancel her current card and obtain a new one.",
+     "cites": [
+      643,
+      644,
+      652
+     ]
+    },
+    {
+     "text": "Kevin will help Margaret complete the Attendance Allowance form on Sunday.",
+     "cites": [
+      645,
+      646
+     ]
+    },
+    {
+     "text": "Kevin will remove the rug from the hall this weekend.",
+     "cites": [
+      647,
+      648,
+      649
+     ]
+    }
+   ]
+  }
+ ]
+}

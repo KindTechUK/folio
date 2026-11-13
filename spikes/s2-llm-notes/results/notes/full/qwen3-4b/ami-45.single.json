@@ -1,0 +1,244 @@
+{
+ "sections": [
+  {
+   "title": "Summary",
+   "sentences": [
+    {
+     "text": "The meeting discussed the current state of the speaker characterisation feature, the design of the start-up screen, and the implementation of topic labelling with keyword search functionality.",
+     "cites": [
+      355,
+      356,
+      357,
+      358,
+      359,
+      360
+     ]
+    },
+    {
+     "text": "Participants agreed that the start-up screen should include a drop-down menu for selecting meetings, with dynamic display of meeting details such as longer names, participants, and speaker lists, and that a search function should be available to find specific meetings or topics.",
+     "cites": [
+      714,
+      715,
+      716,
+      717,
+      718,
+      719
+     ]
+    },
+    {
+     "text": "It was decided that the current implementation of speaker characterisation, which uses pre-processed object files for efficient data retrieval, is viable and should be used as a foundation for future features.",
+     "cites": [
+      140,
+      141,
+      142,
+      143,
+      144,
+      145
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Discussion",
+   "sentences": [
+    {
+     "text": "Participant B raised concerns about the efficiency of loading multiple meetings during a search, noting that loading each meeting individually could be time-consuming and potentially crash the system if too many are loaded simultaneously.",
+     "cites": [
+      297,
+      298,
+      299,
+      300,
+      301,
+      302
+     ]
+    },
+    {
+     "text": "Participant C proposed that the start-up screen should include a drop-down menu with meeting details such as longer names, participants, and speaker lists, and that these details should be dynamically updated as users interact with the interface.",
+     "cites": [
+      714,
+      715,
+      716,
+      717,
+      718,
+      719
+     ]
+    },
+    {
+     "text": "Participant B suggested that the start-up screen should offer two primary options: selecting a specific meeting via a drop-down menu or initiating a search for a meeting by keyword, with a search function that loads instantly and provides a list of relevant meetings.",
+     "cites": [
+      744,
+      745,
+      746,
+      747,
+      748,
+      749
+     ]
+    },
+    {
+     "text": "Participant C proposed that the system should allow users to search for meetings by speaker, working group, or topic, and that the interface should provide a list of meetings with metadata such as longer names, participants, and topic highlights.",
+     "cites": [
+      660,
+      661,
+      662,
+      663,
+      664,
+      665
+     ]
+    },
+    {
+     "text": "Participant A and C discussed the possibility of implementing a ranking system for search results using term frequency-inverse document frequency (TF-IDF), noting that while it would improve result relevance, it would not be essential for basic functionality and could be implemented later if time is",
+     "cites": [
+      538,
+      539,
+      540,
+      541,
+      542,
+      543
+     ]
+    },
+    {
+     "text": "Participant B and C discussed the use of a tool-tip or dynamic field that displays meeting details (e.g., longer name, participants) as the user hovers over a meeting in the drop-down menu, to avoid cluttering the interface and improve usability.",
+     "cites": [
+      800,
+      801,
+      802,
+      803,
+      804,
+      805
+     ]
+    },
+    {
+     "text": "Participant C noted that the current speaker characterisation system uses pre-processed object files stored in a local directory, and that these objects contain speaker-level data such as talk time, participation percentages, and topic information, which can be accessed via simple method calls.",
+     "cites": [
+      152,
+      153,
+      154,
+      155,
+      156,
+      157
+     ]
+    },
+    {
+     "text": "Participant B and C discussed the idea of using a pre-processed 'nom' object model (likely referring to a 'n. x. t. object model') to store meeting and speaker data, which would allow for fast retrieval and avoid reprocessing large amounts of data on-the-fly.",
+     "cites": [
+      254,
+      255,
+      256,
+      257,
+      258,
+      259
+     ]
+    },
+    {
+     "text": "Participant A and C agreed that the system should allow users to browse meetings by speaker, working group, or topic, and that the start-up screen should provide a simple interface to guide users to the most relevant tasks, such as viewing a specific meeting or initiating a search.",
+     "cites": [
+      734,
+      735,
+      736,
+      737,
+      738,
+      739
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decisions",
+   "sentences": [
+    {
+     "text": "The group agreed that the start-up screen should include a drop-down menu to select a meeting, with dynamic display of meeting details such as longer names, participants, and speaker lists, and a search function to find specific meetings or topics.",
+     "cites": [
+      714,
+      715,
+      716,
+      717,
+      718,
+      719
+     ]
+    },
+    {
+     "text": "The group agreed that the current pre-processed object model (stored as object files) for speaker characterisation and meeting data will be used as the foundation for future development, with data loaded via a load method after a null constructor is called.",
+     "cites": [
+      140,
+      141,
+      142,
+      143,
+      144,
+      145
+     ]
+    },
+    {
+     "text": "The group decided to defer implementation of a ranked search using TF-IDF to a later stage, as it was considered optional and would not significantly improve basic functionality.",
+     "cites": [
+      538,
+      539,
+      540,
+      541,
+      542,
+      543
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Actions",
+   "sentences": [
+    {
+     "text": "Participant C will implement the start-up screen with a drop-down menu for selecting meetings, including dynamic display of meeting details such as longer names, participants, and speaker lists, and a search function to find specific meetings or topics.",
+     "cites": [
+      714,
+      715,
+      716,
+      717,
+      718,
+      719
+     ]
+    },
+    {
+     "text": "Participant C will implement a dynamic field that updates in real-time as the user hovers over a meeting in the drop-down menu, showing details such as the longer name and participants.",
+     "cites": [
+      800,
+      801,
+      802,
+      803,
+      804,
+      805
+     ]
+    },
+    {
+     "text": "Participant C will document the current speaker characterisation system, including how data is stored in object files and how it is accessed via method calls, for future reference.",
+     "cites": [
+      140,
+      141,
+      142,
+      143,
+      144,
+      145
+     ]
+    },
+    {
+     "text": "Participant B will confirm that the system will use pre-processed object files for meeting and speaker data, and that the load method will be used to retrieve data after a null constructor is called.",
+     "cites": [
+      152,
+      153,
+      154,
+      155,
+      156,
+      157
+     ]
+    },
+    {
+     "text": "Participant C will send a meeting summary to Pernilla for future discussion, including the decisions made during this meeting.",
+     "cites": [
+      953,
+      954,
+      955,
+      956,
+      957,
+      958
+     ]
+    }
+   ]
+  }
+ ]
+}

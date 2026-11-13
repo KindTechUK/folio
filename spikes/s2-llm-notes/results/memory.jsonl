@@ -1,0 +1,4 @@
+{"model": "qwen3-4b", "ctx": 8192, "idle_gb": 4.07, "peak_gb": 4.68, "prompt_n": 3092}
+{"model": "qwen3-4b", "ctx": 32768, "idle_gb": 7.41, "peak_gb": 8.08, "prompt_n": 3092}
+{"model": "qwen3.5-4b", "ctx": 8192, "idle_gb": 3.79, "peak_gb": 4.4, "prompt_n": 3211}
+{"model": "qwen3.5-4b", "ctx": 32768, "idle_gb": 4.54, "peak_gb": 5.15, "prompt_n": 3211}

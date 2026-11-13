@@ -1,0 +1,104 @@
+# Judge packet eaf6ee4d
+
+Transcript file: /Users/yanhong.zhao/personal/folio-s2/spikes/s2-llm-notes/data/synthetic_care_assessment.json
+(line n in cites = id L000n)
+
+## Note under review
+- [Background and presenting situation] Priya Nair, from adult social care, met with Margaret Doyle, and Kevin Doyle, Margaret's son, for a needs assessment, which was referred by the hospital after Margaret was discharged (Ln 1, Ln 21, Ln 23, Ln 24).  (cites: 1, 21, 23, 24)
+- [Background and presenting situation] The purpose of the visit was to conduct a needs assessment under the Care Act to understand how Margaret is managing day to day, what is difficult, what is working, and what matters to her (Ln 26).  (cites: 24, 26)
+- [Background and presenting situation] Margaret expressed that she did not want to be put anywhere, and Priya confirmed that the assessment was about helping her stay in her home (Ln 29, Ln 30, Ln 31).  (cites: 29, 30, 31)
+- [Needs and daily living] Margaret suffered a fall on the third of March while in the kitchen, where she was going to make tea (Ln 52, Ln 54, Ln 55, Ln 56).  (cites: 52, 54, 55, 56)
+- [Needs and daily living] After the fall, Margaret could not get up, and she landed on her wrist, which she could not put any weight on (Ln 58, Ln 59).  (cites: 58, 59)
+- [Needs and daily living] She was on the floor for about two hours until Brenda next door found her (Ln 61, Ln 63).  (cites: 61, 63)
+- [Needs and daily living] Margaret fractured her left wrist, which is her good hand as she is left-handed, making tasks like opening jars and doing buttons difficult (Ln 83, Ln 84, Ln 86).  (cites: 83, 84, 86)
+- [Needs and daily living] She uses a frame indoors, which she dislikes, but she uses it mostly, although sometimes she holds onto furniture instead because the frame gets caught on rugs or doorframes (Ln 97, Ln 100, Ln 102).  (cites: 97, 100, 102)
+- [Needs and daily living] Outdoors, she uses Frank's old stick, but she has only been out to the end of the path, except for one trip to the doctor's with Kevin (Ln 104, Ln 105).  (cites: 104, 105)
+- [Needs and daily living] She stated that before the fall, she could walk to the shops (about ten minutes), but now she is frightened of going out again (Ln 107, Ln 110).  (cites: 107, 110)
+- [Needs and daily living] Margaret has experienced three falls in the last six months, including the one in March, one before Christmas in the garden, and one in January in the bathroom where she caught herself on the sink (Ln 116, Ln 117, Ln 115).  (cites: 116, 117, 115)
+- [Needs and daily living] She has to use the stairs to get to the upstairs bedroom and toilet, and she goes up one at a time using her right hand on the rail, but coming down is worse as the rail is on the wrong side, sometimes causing her to go down on her bottom (Ln 133, Ln 140, Ln 141, Ln 143).  (cites: 133, 140, 141, 143)
+- [Needs and daily living] She currently manages washing with a strip wash at the upstairs sink, but she has not had a proper bath since before the January fall because she fears getting out and not being found if she gets stuck (Ln 181, Ln 183, Ln 184, Ln 187).  (cites: 181, 183, 184, 187)
+- [Person's views and wishes] Margaret stated that she wants to stay in her own home, as it is where she brought up her children, and she knows every creak in the house (Ln 344, Ln 346, Ln 347).  (cites: 344, 346, 347)
+- [Person's views and wishes] Margaret stated that what matters to her is being able to have a proper bath and wash her hair (Ln 196, Ln 594).  (cites: 196, 594)
+- [Person's views and wishes] She wishes to get back to the lunch club, seeing Joan and Pat (Ln 595).  (cites: 595)
+- [Person's views and wishes] Margaret wishes to be able to cook proper dinners again, not every day, but now and then (Ln 598).  (cites: 598)
+- [Person's views and wishes] She wants to be able to see Frank's roses come out this summer (Ln 601, Ln 602).  (cites: 601, 602)
+- [Person's views and wishes] Margaret stated that she wants to stay in her own home for as long as she possibly can (Ln 347).  (cites: 347)
+- [Risks and safeguarding] Margaret admitted to missing her blood pressure tablet twice last week, which she attributed to being 'all over the place' since the fall (Ln 293, Ln 296).  (cites: 293, 296)
+- [Risks and safeguarding] Margaret admitted to sometimes not getting dressed, stating that some days she thought 'what's the point, nobody's coming' (Ln 213).  (cites: 213)
+- [Risks and safeguarding] Margaret reported sometimes not making it to the toilet if she leaves it too long, leading to some leaking, and she wears pads at night (Ln 220, Ln 221, Ln 223).  (cites: 220, 221, 223)
+- [Risks and safeguarding] Margaret disclosed that her grandson, Jordan, has been borrowing her bank card and that about six hundred pounds has been withdrawn over the last two months, which she did not ask him to take (Ln 471, Ln 475, Ln 478, Ln 520, Ln 521).  (cites: 471, 475, 478, 520, 521)
+- [Risks and safeguarding] Kevin reported that Brenda mentioned to him that she thought she saw Jordan at the cash machine on the high street with a card, though she was not sure it was him (Ln 526, Ln 527, Ln 530).  (cites: 526, 527, 530)
+- [Risks and safeguarding] Kevin also mentioned that he heard from one of Jordan's old mates' mums that Jordan might have gotten into debt with betting on his phone (Ln 531).  (cites: 531)
+- [Risks and safeguarding] Priya stated that she has a duty to take the information about the money being taken seriously as a safeguarding concern (Ln 544).  (cites: 544)
+- [Support network and finances] Kevin Doyle, Margaret's son, visits mainly on Sundays, where he does the big shop, and sometimes midweek if he is on early shifts (Ln 366, Ln 367).  (cites: 366, 367)
+- [Support network and finances] Margaret's daughter, Susan, lives in Spain and rings every Sunday night, and she visits in the summer (Ln 372, Ln 374).  (cites: 372, 374)
+- [Support network and finances] Brenda, a neighbour, pops in most days, sometimes just for a minute, and they have a routine of knocking on the wall in the morning to check on each other (Ln 379, Ln 380).  (cites: 379, 380)
+- [Support network and finances] Margaret used to attend a lunch club at St Michael's church hall every Wednesday, but she has not been since the fall (Ln 385, Ln 392).  (cites: 385, 392)
+- [Support network and finances] Margaret receives her state pension and half of Frank's widow's pension (Ln 570).  (cites: 570)
+- [Support network and finances] She has approximately nine thousand pounds in the building society, which she states is her funeral money and some for the grandchildren (Ln 574).  (cites: 574)
+- [Support network and finances] Margaret mentioned that she is not sure where her money has been going, stating she has been 'a bit short lately' (Ln 308, Ln 309).  (cites: 308, 309)
+- [Agreed actions] Priya will make a referral to occupational therapy today for Margaret to look at a bath lift/board, a second rail on the stairs, a second frame for upstairs, and the back step/pull cord light (Ln 626, Ln 627).  (cites: 626, 627)
+- [Agreed actions] Priya will make a safeguarding referral about the card this afternoon (Ln 630).  (cites: 630)
+- [Agreed actions] Priya will refer Margaret for the telecare alarm/watch that can detect a fall, which usually takes about ten days to fit (Ln 632, Ln 633).  (cites: 632, 633)
+- [Agreed actions] Priya will write to Dr Shah regarding a referral to the falls clinic, mentioning weight loss, continence service, and missed tablets, and will also contact the chemist about an easier-to-open medication pack (Ln 635, Ln 636).  (cites: 635, 636)
+- [Agreed actions] Priya will put in a request for reablement visits (morning and teatime) and will inform Margaret of the outcome by the end of next week (Ln 639).  (cites: 639)
+- [Agreed actions] Priya will find out about transport options for Margaret to attend the lunch club at St Michael's on Thursdays (Ln 640).  (cites: 640)
+- [Agreed actions] Kevin will take Margaret to the Midshire building society branch on Friday morning to cancel the card and order a new one (Ln 559, Ln 624, Ln 643).  (cites: 559, 624, 643)
+- [Agreed actions] Kevin will help Margaret with the Attendance Allowance form, which Priya will post out, and they plan to do this on Sunday (Ln 645, Ln 646).  (cites: 645, 646)
+- [Agreed actions] Priya will call Margaret on Monday to check in after the building society visit (Ln 653).  (cites: 653)
+- [Agreed actions] Priya plans to see Margaret again on Tuesday the fifteenth of April at two o'clock (Ln 656).  (cites: 656)
+
+## Facts checklist
+- F01: Margaret fell in her kitchen on 3 March and lay on the floor for about two hours before her neighbour Brenda, who has a key, found her and called an ambulance.
+- F02: She was admitted to St Aldhelm's Hospital for four days with a fractured left wrist (her dominant hand, as she is left-handed); X-ray showed no hip fracture (bruising only).
+- F03: She has had three falls in roughly six months: in the garden before Christmas, in the bathroom in January, and the kitchen fall in March; the earlier two were not reported to the GP.
+- F04: She uses a walking frame indoors (issued by the hospital), sometimes holds on to furniture instead, and uses her late husband's stick outdoors; she has barely been out since discharge.
+- F05: Her GP is Dr Shah at Millbrook Surgery (Dr Patel has retired).
+- F06: Her bedroom and the only toilet are upstairs; the stairs have a rail on one side only (right going up), she comes down sideways or on her bottom, and she limits drinks in the afternoon to avoid the stairs.
+- F07: She has no pendant alarm and agreed to be referred for a watch-style telecare (Careline) alarm with fall detection, usually fitted within about ten days.
+- F08: She strip-washes at the upstairs sink, has no shower, and has not had a bath since January because she cannot push herself out of the bath with her wrist.
+- F09: Getting dressed takes 40 minutes to an hour; she cannot manage buttons or bra hooks and on some days (about twice last week) stayed in her nightclothes.
+- F10: She has occasional urinary leakage/urgency, wears pads at night that she buys herself, and agreed to a continence service referral.
+- F11: She has not used the cooker since the fall (cannot lift pans and is frightened in the kitchen); she lives on toast, tinned soup and yoghurt or crackers.
+- F12: She has lost nearly a stone since Christmas (now about eight stone-something, previously nine and a half stone).
+- F13: Medication: amlodipine 5 mg once daily in the morning for blood pressure.
+- F14: Medication: alendronic acid 70 mg once weekly on Mondays, taken first thing with water, sitting upright for half an hour.
+- F15: Medication: paracetamol for the wrist, two tablets up to four times a day as needed; she takes it about once or twice a day.
+- F16: Her tablets come in a dosette box prepared and delivered every Friday by the chemist on Station Road; she struggles to open the flaps.
+- F17: She missed her morning blood-pressure tablet twice last week (Tuesday and Thursday).
+- F18: Her main wish is to stay in her own home, with her cat Biscuit, for as long as possible.
+- F19: Her other stated outcomes: to have a proper bath and wash her hair, return to lunch club, not feel frightened of falling or of the kitchen, cook a proper meal now and then, and see Frank's roses this summer.
+- F20: Son Kevin lives in Northampton (about 40 minutes away), works shifts at a warehouse, and visits on Sundays to do the big shop.
+- F21: Daughter Susan lives in Alicante, Spain, and phones every Sunday night.
+- F22: Neighbour Brenda (aged 76) pops in most days, and they knock on the wall each morning as an 'I'm alright' signal.
+- F23: She used to attend the lunch club at St Michael's church hall on Thursdays at 12, has not been since the fall, and wants to go back; Priya will look into transport.
+- F24: She is lonely, sometimes speaking to nobody all day; her husband Frank died suddenly of a heart problem two years ago in August.
+- F25: After Frank's death she had low mood, was prescribed sertraline (stopped gradually over a year ago) and had six bereavement counselling sessions; her mood is now 'up and down' and she denies any current thoughts of self-harm.
+- F26: Grandson Jordan (22, Susan's son) has been using her bank card, with her PIN, and about £600 more than she asked for has been withdrawn over the last two months; he currently has the card.
+- F27: Margaret is ambivalent (loves Jordan, does not want him in trouble), does not want the police involved, but consented to a safeguarding referral, which Priya will make that afternoon.
+- F28: Kevin will take Margaret to the Midshire Building Society branch on Friday morning to cancel the card and get a new one with a new PIN.
+- F29: Finances: state pension plus a widow's half of Frank's railway pension; she owns the house outright; about £9,000 savings in the building society.
+- F30: She does not currently receive Attendance Allowance; Priya will post the Attendance Allowance and financial assessment forms and Kevin will help complete them on Sunday; she may need to contribute to ongoing care costs.
+- F31: Priya considers she is likely eligible and will request reablement (free for up to six weeks; daily morning and teatime visits), which needs manager approval; outcome by the end of next week.
+- F32: Priya will refer to occupational therapy today for a bath lift or board, a second stair rail, a second frame upstairs, the back step and the pull-cord landing light; the waiting list is about three weeks.
+- F33: Priya will write to Dr Shah about a falls clinic referral, the weight loss, continence and missed tablets, and ask the Station Road chemist about an easier-to-open pack.
+- F34: Kevin will take up the hall rug this weekend (Margaret agreed to the hall rug only, not the front-room one), and Margaret will set an alarm for 9 o'clock for her morning tablets.
+- F35: Priya will phone on Monday and return for a review visit on Tuesday 15 April at about 2 pm.
+
+## Traps
+- T01 (negation): must NOT claim: Margaret currently has thoughts of self-harm or suicide.
+- T02 (negation): must NOT claim: Margaret drinks alcohol.
+- T03 (negation): must NOT claim: Margaret hit her head in the March fall / had a head injury.
+- T04 (negation): must NOT claim: Margaret is currently taking sertraline / antidepressants.
+- T05 (hypothetical): must NOT claim: Margaret wants to / is going to move into a care home (Beechwood).
+- T06 (hypothetical): must NOT claim: Margaret is planning to sell her house.
+- T07 (hearsay): must NOT claim: Jordan was seen using Margaret's card at the high-street cash machine.
+- T08 (hearsay): must NOT claim: Jordan has gambling debts.
+- T09 (corrected): must NOT claim: Margaret's GP is Dr Patel.
+- T10 (corrected): must NOT claim: About £400 is missing from Margaret's account.
+- T11 (corrected): must NOT claim: The lunch club is on Wednesdays.
+- T12 (not_said): must NOT claim: Margaret has a diagnosis of dementia or cognitive impairment.
+- T13 (not_said): must NOT claim: A care package / reablement has already been agreed or approved.
+- T14 (not_said): must NOT claim: Kevin (or anyone) holds lasting power of attorney or manages Margaret's finances.
+- T15 (speaker_attribution): must NOT claim: Margaret wants to move to sheltered housing or a bungalow.
+- T16 (speaker_attribution): must NOT claim: Margaret wants the police to be contacted about Jordan.

@@ -100,13 +100,22 @@ Delivered in phases, each gated by spikes:
 - **Runtime:** llama.cpp, in-process through a Rust binding, built statically from vendored sources. There is **no
   runtime download**, and the zero-egress CI gate must stay green (S5).
 - **Weights:** a 3–4B instruction model, quantised (Q4), chosen by S2/S3/S4 and **licence-vetted**. Prefer
-  Apache-2.0 or MIT; avoid licences with use restrictions that complicate redistribution.
+  Apache-2.0 or MIT; avoid licences with use restrictions that complicate redistribution. S2's finalists are
+  **Qwen3-4B-Instruct-2507** and **Qwen3.5-4B** (both Apache-2.0, Q4_0); S3 and S4 choose between them.
 - **Delivery:** as a **signed model pack**, reusing `modelpack/` and the fail-closed
   `resolve_verified_models_dir` in `app/src-tauri/src/models.rs`. The manifest gains `task: "llm"`.
-- **Memory:** ASR and LLM are never resident together. The ASR model is unloaded before note generation, so a
-  16 GB (target: 8 GB) office laptop fits.
-- **Long transcripts:** if S2 shows a single pass is too slow or exceeds context, use **map-reduce by
-  transcript section**: summarise each section with its citations, then compose the template.
+- **Drafting during the recording (S2):** every ~10 minutes, the section just recorded goes to the LLM, which
+  extracts its facts with citations under the template's headings. After stop, only the last section remains,
+  so a 60- or 90-minute recording has its note in about 1–3 minutes on the S2 Mac. A single pass or map-reduce
+  started at stop took 7–47 minutes. Imported recordings have no "during": they are processed section by
+  section in the background, with progress shown.
+- **The note is the section facts.** The first version of the note is those facts grouped by template heading.
+  S2 found that one "compose" call over all the facts drops about half of them, so a shorter prose note
+  needs a design that doesn't lose facts.
+- **Memory:** while recording, ASR and LLM are both loaded. The LLM runs with an 8k context: about 4.4–4.7 GB
+  peak, plus about 1.1–1.3 GB for live ASR (S1 and S2). That fits a 16 GB office laptop. The 8 GB target is
+  tight and needs measuring on the reference laptop.
+- **Map output cap** of about 3k tokens (2k truncated some sections in S2), or sections shorter than 10 minutes.
 - **Templates:** local, versioned JSON (sections, per-section instructions, required fields, citation
   requirement). A small bundled seed set:
   - *General minutes*, *Executive summary*, *Care assessment*: adapted from i.AI Minute's templates

@@ -1,0 +1,94 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "present",
+    "F03": "present",
+    "F04": "absent",
+    "F05": "partial",
+    "F06": "absent",
+    "F07": "absent",
+    "F08": "absent",
+    "F09": "absent",
+    "F10": "absent",
+    "F11": "absent",
+    "F12": "absent",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "absent",
+    "F17": "absent",
+    "F18": "absent",
+    "F19": "absent",
+    "F20": "partial",
+    "F21": "absent",
+    "F22": "absent",
+    "F23": "partial",
+    "F24": "absent",
+    "F25": "absent",
+    "F26": "absent",
+    "F27": "absent",
+    "F28": "present",
+    "F29": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "S2 had a workplace pension with a 5% contribution.",
+      "why": "She was unsure whether it was five or four percent and would have to check (L0027)."
+    },
+    {
+      "sentence": "S2's team leader contract was signed on a tablet in 2018, and she only has the original paper copy.",
+      "why": "She signed something on a tablet when she became team leader (2021). The 2018 document is her original paper contract (L0029)."
+    },
+    {
+      "sentence": "S2's team leader role was confirmed by a certificate from 2023.",
+      "why": "The certificate is a 'team leader of the quarter' award (L0052), not confirmation of the role. The line is repeated four times."
+    },
+    {
+      "sentence": "S2's team leader role ended in 2023, and Gary Whitlock became the operations manager.",
+      "why": "Her team leader role did not end in 2023; she held it until her dismissal on 14 August 2026. Gary started in January 2026 (L0057)."
+    },
+    {
+      "sentence": "S2 has mentioned that she has a copy of the February break policy email.",
+      "why": "She does not have it; it was on her work email and she was cut off (L0066, L0193)."
+    },
+    {
+      "sentence": "S2 has mentioned that she has a copy of the first aid log.",
+      "why": "Marcus filled in the first aid log (L0108). She does not have it, and it is on the DSAR list (L0195)."
+    },
+    {
+      "sentence": "S2's primary objective is to obtain an agreed reference and compensation from Northgate Logistics Limited.",
+      "why": "Her main goals are an acknowledgement that they got it wrong and a proper reference; money is 'not the main thing' (L0234-L0235)."
+    },
+    {
+      "sentence": "S1 advised S2 that she has a right to appeal within five working days of the dismissal letter.",
+      "why": "The dismissal letter said this (L0158). Daniel gave no such advice; the appeal was already over."
+    },
+    {
+      "sentence": "S1 advised S2 to send a subject access request to Northgate Logistics Limited.",
+      "why": "The firm sends the DSAR; Sophie drafts it (L0195, L0297)."
+    },
+    {
+      "sentence": "S1 is asked to send a timeline of everything S2 has told her today by next Friday, October 8th.",
+      "why": "Aisha writes the timeline, by Friday 2 October (L0293). 8 October is the next meeting (L0309)."
+    }
+  ],
+  "notes": "Next-step dates are mostly right, but the factual content is thin and often wrong: she supposedly holds the Feb email and the first aid log, her role supposedly ended in 2023, a certain 5% pension, and compensation listed among her primary goals. Nothing on the events, the dismissal or the advice."
+}

@@ -1,0 +1,168 @@
+{
+ "sections": [
+  {
+   "title": "Summary",
+   "sentences": [
+    {
+     "text": "The meeting was a project kickoff to introduce the team to the remote control project and discuss initial design and market considerations.",
+     "cites": [
+      19,
+      20
+     ]
+    },
+    {
+     "text": "Participants discussed the need for a user-friendly, accessible design that appeals to a wide age range, including older users who may struggle with complex interfaces.",
+     "cites": [
+      187,
+      188,
+      211,
+      212,
+      213,
+      214
+     ]
+    },
+    {
+     "text": "The team agreed that the product should be simple, intuitive, and feature a menu-based interface similar to mobile phones to improve usability.",
+     "cites": [
+      193,
+      194,
+      195,
+      200,
+      201,
+      202
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Discussion",
+   "sentences": [
+    {
+     "text": "Sarah, the project manager, outlined the project goal of creating a novel, user-friendly remote control for a broad market, including older adults and children, with a focus on simplicity and accessibility.",
+     "cites": [
+      20,
+      21
+     ]
+    },
+    {
+     "text": "Participants shared personal experiences with existing remote controls, noting that current models often require reprogramming and have complex, confusing interfaces that users find difficult to navigate.",
+     "cites": [
+      165,
+      166,
+      170,
+      171,
+      172,
+      173
+     ]
+    },
+    {
+     "text": "Aim to design a remote control with a simple interface, possibly incorporating an LCD display and menu navigation, similar to mobile phones, to improve user experience.",
+     "cites": [
+      194,
+      195,
+      204,
+      205,
+      206,
+      207
+     ]
+    },
+    {
+     "text": "Participants acknowledged that older users, such as grandads, may not be able to use complex or text-based interfaces, and suggested features like large print or dedicated buttons for ease of use.",
+     "cites": [
+      211,
+      212,
+      213,
+      214,
+      215,
+      216
+     ]
+    },
+    {
+     "text": "There was discussion about the product's price point, with a selling price of 25 euros (approximately 17\u201318 pounds), and a production cost of 12.50 euros, resulting in a large margin but also raising concerns about whether the product would appear cheap if priced lower.",
+     "cites": [
+      120,
+      121,
+      122,
+      123,
+      124,
+      125
+     ]
+    },
+    {
+     "text": "The team agreed that the product should be accessible to all age groups and marketed internationally, with no specific focus on language or business markets.",
+     "cites": [
+      154,
+      155,
+      156,
+      157,
+      158,
+      159
+     ]
+    },
+    {
+     "text": "One participant suggested that the design could include a large print or dedicated button for older users, as a potential solution to usability issues.",
+     "cites": [
+      238
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decisions",
+   "sentences": [
+    {
+     "text": "The team agreed to consider a menu-based interface with an LCD display, similar to mobile phones, to improve usability and navigation.",
+     "cites": [
+      194,
+      195,
+      204,
+      205,
+      206,
+      207
+     ]
+    },
+    {
+     "text": "The team acknowledged that the product must be accessible to older users, including those who may not be able to use complex interfaces, and agreed to consider features such as large print or dedicated buttons for ease of use.",
+     "cites": [
+      211,
+      212,
+      213,
+      214,
+      215,
+      216
+     ]
+    },
+    {
+     "text": "The team agreed that the product should be designed to be intuitive and self-explanatory, avoiding complex symbols or tiny buttons that are hard to navigate.",
+     "cites": [
+      187,
+      188,
+      189,
+      190,
+      191,
+      192
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Actions",
+   "sentences": [
+    {
+     "text": "Sarah will document the meeting notes and share them in the shared folder for future reference.",
+     "cites": [
+      131,
+      132,
+      133
+     ]
+    },
+    {
+     "text": "The team will consider including a large print or dedicated button feature in future design iterations to support older users.",
+     "cites": [
+      238
+     ]
+    }
+   ]
+  }
+ ]
+}

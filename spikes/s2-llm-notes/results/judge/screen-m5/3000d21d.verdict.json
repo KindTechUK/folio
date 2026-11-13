@@ -1,0 +1,90 @@
+{
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "partial",
+    "F05": "partial",
+    "F06": "partial",
+    "F07": "partial",
+    "F08": "absent",
+    "F09": "absent",
+    "F10": "absent",
+    "F11": "absent",
+    "F12": "absent",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "partial",
+    "F17": "absent",
+    "F18": "partial",
+    "F19": "partial",
+    "F20": "partial",
+    "F21": "absent",
+    "F22": "partial",
+    "F23": "present",
+    "F24": "partial",
+    "F25": "present",
+    "F26": "absent",
+    "F27": "absent",
+    "F28": "absent",
+    "F29": "absent"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Her former manager, **Linda Chu**, was supportive of her diabetes management until she left at the end of 2022.",
+      "why": "Linda left at the end of 2025 (L0040, L0051)."
+    },
+    {
+      "sentence": "Linda Chu left the company at the end of 2022.",
+      "why": "Linda left at the end of 2025 (L0040, L0051)."
+    },
+    {
+      "sentence": "She has a **photo of a glucose sensor reading (2.1) taken by Marcus Bell on 14 August 2026**.",
+      "why": "Marcus took the photo during the hypo on 9 July, timestamped 14:06 (L0101, L0200)."
+    },
+    {
+      "sentence": "He advised Aisha to request a **Data Subject Access Request (DSAR)** for her personnel file, disciplinary notes, emails, break policy, first aid log, and CCTV evidence (limited to 30 days).",
+      "why": "The firm will send the DSAR, not Aisha: 'we'll do a DSAR to Northgate' (L0195), and Sophie drafts it (L0297)."
+    },
+    {
+      "sentence": "He stated that once Aisha agrees to proceed, he will outline fee options in writing.",
+      "why": "He will set out fee options in writing once the insurance position is known, and nothing happens on fees until she agrees (L0245)."
+    },
+    {
+      "sentence": "By **Friday, 25 October 2026**, Aisha Rahman must email Daniel Okafor the following: **Occupational Health (OH) report, Marcus’s photo of the sensor, any payslips not brought today, and the February email if available**.",
+      "why": "The deadline is Friday 25 September (L0289)."
+    },
+    {
+      "sentence": "By **Monday, 28 October 2026**, Aisha Rahman’s husband must check with Castleford Mutual for legal expenses cover and send Daniel Okafor the policy schedule and wording.",
+      "why": "The deadline is Monday 28 September, and Daniel gave the task to Aisha (L0291); she said she'd ask her husband to ring them."
+    },
+    {
+      "sentence": "Sophie Grant will draft a **Subject Access Request (DSAR)** to Northgate by **Monday, 28 October 2026**, sending it to both HR and the registered office.",
+      "why": "Sophie drafts it by the coming Monday (28 September), and it goes out on Tuesday (L0297)."
+    },
+    {
+      "sentence": "Daniel Okafor will confirm advice and funding options via letter by **Tuesday, 29 October 2026**, including deadlines (the last day to notify ACAS is **13 November 2026**).",
+      "why": "The letter is due by Tuesday 29 September (L0304)."
+    }
+  ],
+  "notes": "Good on employment basics, objectives and the 13 Nov / 16 Oct ACAS dates. Misses the whole Feb-Sep chronology and the legal advice. Gets several dates wrong: Linda leaving in 2022, the photo on 14 Aug, and the next-step deadlines moved from September to October."
+}

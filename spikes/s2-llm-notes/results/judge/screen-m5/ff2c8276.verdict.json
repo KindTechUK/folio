@@ -1,0 +1,82 @@
+{
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "present",
+    "F05": "present",
+    "F06": "absent",
+    "F07": "absent",
+    "F08": "partial",
+    "F09": "present",
+    "F10": "partial",
+    "F11": "partial",
+    "F12": "present",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "absent",
+    "F17": "absent",
+    "F18": "absent",
+    "F19": "partial",
+    "F20": "partial",
+    "F21": "partial",
+    "F22": "present",
+    "F23": "partial",
+    "F24": "partial",
+    "F25": "present",
+    "F26": "absent",
+    "F27": "absent",
+    "F28": "present",
+    "F29": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Linda Chu was her manager during her early years and left Northgate Logistics at the end of 2023.",
+      "why": "Linda left at the end of last year, i.e. end of 2025 (L040, L051)."
+    },
+    {
+      "sentence": "Aisha Rahman was team leader for a quarter in 2023 and has a certificate from that period.",
+      "why": "She won 'team leader of the quarter' once, around 2023 (L052); she was team leader continuously from June 2021."
+    },
+    {
+      "sentence": "She attended the office with Gary on the 19th of May for an informal conversation about her team leaving the dock and her role as team leader.",
+      "why": "Gary said her team were seeing her (Aisha) leave the dock (L082), not that her team were leaving the dock."
+    },
+    {
+      "sentence": "The disciplinary meeting was on the 17th of July, and she was asked about the",
+      "why": "17 July was an investigation meeting with Dean Farrow (L116); the disciplinary was on 6 August, chaired by Gary (L126)."
+    },
+    {
+      "sentence": "The solicitor advised the client to send a subject access request to Northgate by Monday, to be sent to both the HR inbox and the registered office, and that they will check the registered office address on Companies' register.",
+      "why": "Sophie (the trainee) is to draft the DSAR by Monday and the solicitor will check it and send it on Tuesday (L297-L299); the client is not to send it."
+    },
+    {
+      "sentence": "The solicitor confirmed he will send a letter confirming today's advice and funding options by Tuesday, 29th of October.",
+      "why": "The letter is due by Tuesday 29 September (L304)."
+    },
+    {
+      "sentence": "The solicitor will send a letter confirming today's advice and funding options by Tuesday, 29th of October.",
+      "why": "Same error repeated in Next steps: the letter is due by Tuesday 29 September (L304)."
+    }
+  ],
+  "notes": "Truncated sentences throughout; good on early history and the 9 July incident but omits Gary's arrival, the February email, the disciplinary, dismissal, notice pay, appeal and all merits advice; mislabels 17 July as the disciplinary and has date/actor errors."
+}

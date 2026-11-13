@@ -1,0 +1,124 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "partial",
+    "F03": "present",
+    "F04": "present",
+    "F05": "present",
+    "F06": "partial",
+    "F07": "partial",
+    "F08": "present",
+    "F09": "partial",
+    "F10": "partial",
+    "F11": "partial",
+    "F12": "partial",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "partial",
+    "F17": "partial",
+    "F18": "present",
+    "F19": "partial",
+    "F20": "partial",
+    "F21": "absent",
+    "F22": "absent",
+    "F23": "absent",
+    "F24": "absent",
+    "F25": "absent",
+    "F26": "present",
+    "F27": "absent",
+    "F28": "partial",
+    "F29": "partial",
+    "F30": "partial",
+    "F31": "partial",
+    "F32": "partial",
+    "F33": "partial",
+    "F34": "partial",
+    "F35": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Margaret walks slowly to the shops.",
+      "why": "That was before the fall (L107-108); she has now been only to the end of the path and is frightened to go further (L105, L110)."
+    },
+    {
+      "sentence": "Margaret is interested in a pendant alarm.",
+      "why": "She refused a pendant round her neck (L166); she was interested in the watch-style alarm (L169-176)."
+    },
+    {
+      "sentence": "Margaret is interested in personal care support.",
+      "why": "L177 is Priya saying she wants to talk about personal care; Margaret did not ask for personal care support there."
+    },
+    {
+      "sentence": "Margaret uses a flannel for washing her hair.",
+      "why": "The flannel is for her strip wash (L181); she cannot do her hair with one hand, and Brenda washed it over the kitchen sink (L192-194)."
+    },
+    {
+      "sentence": "Margaret said she can still tell Kevin about the kings and queens.",
+      "why": "She said it to Priya ('I can still tell you', L459) while Kevin was outside (L417-419)."
+    },
+    {
+      "sentence": "Margaret said she didn't want to talk about finances with Kevin.",
+      "why": "She agreed it could be discussed in front of Kevin, as long as she told him herself (L489-490)."
+    },
+    {
+      "sentence": "Margaret Doyle asks Kevin Doyle to help her fill in the form.",
+      "why": "Kevin offered ('I'll do it with you, Mum', L582); Margaret only said she would need help (L581)."
+    },
+    {
+      "sentence": "Social worker (Priya Nair) mentions a chemist's recommendation for easier tablet packaging.",
+      "why": "No recommendation came from the chemist; Priya will ring the Station Road chemist about an easier-to-open pack (L636)."
+    },
+    {
+      "sentence": "Social worker (Priya Nair) asks Kevin Doyle to take the rug up.",
+      "why": "Margaret said Kevin is going to take up the hall rug (L647-648); Priya did not ask him."
+    },
+    {
+      "sentence": "Margaret Doyle asked Priya Nair if she could jot notes.",
+      "why": "Priya asked whether she could take notes (L37); Margaret agreed (L38)."
+    },
+    {
+      "sentence": "Margaret Doyle lives with her son Kevin Doyle.",
+      "why": "She lives alone; Kevin lives in Northampton, 40 minutes away (L367)."
+    },
+    {
+      "sentence": "S1 mentioned that Kevin wouldn't accept gifts.",
+      "why": "Priya said she herself is not allowed to accept gifts (L238-240); Kevin was not there yet."
+    },
+    {
+      "sentence": "Margaret asked Kevin not to touch her bag.",
+      "why": "L241: 'Biscuit, leave the lady's bag alone'. This was said to the cat, about Priya's bag."
+    },
+    {
+      "sentence": "Margaret asked if Kevin did her shopping.",
+      "why": "She stated that Kevin does a big shop on Sundays (L270); it was not a question."
+    },
+    {
+      "sentence": "Margaret asked if Kevin could join her for the rest of the assessment.",
+      "why": "Priya asked Margaret whether she was happy for Kevin to join (L321); Margaret agreed (L322)."
+    },
+    {
+      "sentence": "S1 asked Kevin about Margaret's medication issues.",
+      "why": "Kevin raised the forgotten tablets himself (L329); Priya did not ask him."
+    }
+  ],
+  "notes": "Incoherent mix: raw transcript excerpts, repeated lines and vague one-liners, almost all under \"Background\". Broad but shallow coverage with many misattributions; nothing on safeguarding, police, mood or Susan and Brenda."
+}

@@ -1,0 +1,68 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "partial",
+    "F03": "partial",
+    "F04": "present",
+    "F05": "present",
+    "F06": "partial",
+    "F07": "absent",
+    "F08": "absent",
+    "F09": "absent",
+    "F10": "absent",
+    "F11": "absent",
+    "F12": "absent",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "absent",
+    "F17": "absent",
+    "F18": "absent",
+    "F19": "absent",
+    "F20": "absent",
+    "F21": "absent",
+    "F22": "absent",
+    "F23": "absent",
+    "F24": "absent",
+    "F25": "absent",
+    "F26": "absent",
+    "F27": "absent",
+    "F28": "absent",
+    "F29": "partial",
+    "F30": "partial",
+    "F31": "absent",
+    "F32": "absent",
+    "F33": "absent",
+    "F34": "absent",
+    "F35": "absent"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Margaret Doyle lives with her son Kevin Doyle.",
+      "why": "She lives alone; Kevin lives in Northampton, 40 minutes away (L367), and drops in (L47, L366)."
+    },
+    {
+      "sentence": "Margaret walks slowly to the shops.",
+      "why": "That was before the fall (L107-108); she has now been only to the end of the path and is frightened to go further (L105, L110)."
+    }
+  ],
+  "notes": "Fragmentary, line-by-line note that covers only the first third of the transcript plus finances; misfiled section labels, and nothing on personal care, meals, medication, safeguarding or the action plan."
+}

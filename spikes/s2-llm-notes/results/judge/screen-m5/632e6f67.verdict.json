@@ -1,0 +1,96 @@
+{
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "partial",
+    "F05": "present",
+    "F06": "present",
+    "F07": "absent",
+    "F08": "partial",
+    "F09": "present",
+    "F10": "present",
+    "F11": "partial",
+    "F12": "present",
+    "F13": "present",
+    "F14": "partial",
+    "F15": "partial",
+    "F16": "partial",
+    "F17": "present",
+    "F18": "present",
+    "F19": "present",
+    "F20": "present",
+    "F21": "present",
+    "F22": "present",
+    "F23": "absent",
+    "F24": "partial",
+    "F25": "absent",
+    "F26": "present",
+    "F27": "partial",
+    "F28": "present",
+    "F29": "present",
+    "F30": "partial",
+    "F31": "present",
+    "F32": "partial",
+    "F33": "absent",
+    "F34": "absent",
+    "F35": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "violated",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Social worker Priya Nair conducted a needs assessment visit on Monday following a referral from the hospital after Margaret Doyle's discharge.",
+      "why": "Monday was when they spoke on the phone (L1); the transcript does not give the day of the visit."
+    },
+    {
+      "sentence": "Margaret Doyle lives in a home with heating that she feels is too cold for the current season.",
+      "why": "L4: she has the heating on although she feels she shouldn't at this time of year, because she feels the cold. The note garbles this."
+    },
+    {
+      "sentence": "Margaret Doyle (S2) stated she would not sell the house because she would not know where her dog 'Biscuit' would go or where Frank's roses would go.",
+      "why": "Biscuit is her cat (L7-9: 'that's the cat's')."
+    },
+    {
+      "sentence": "Margaret Doyle stated that staying in her own home with her dog 'Biscuit' is the most important thing for her.",
+      "why": "Biscuit is a cat (L7-9)."
+    },
+    {
+      "sentence": "Kevin Doyle reported that his mother gave Jordan her PIN when she came out of hospital so he could do her shopping.",
+      "why": "Margaret said this (L525, speaker S2), in answer to Kevin's question (L524)."
+    },
+    {
+      "sentence": "Social worker Priya Nair thanked Kevin Doyle for bringing tea.",
+      "why": "L676: Priya thanks Margaret for the tea; Kevin made his own tea (L325-327)."
+    },
+    {
+      "sentence": "Margaret Doyle stated Kevin usually contributes money ('tuppence') to the household expenses.",
+      "why": "L50 'he'll want to put his tuppence in' means he will give his opinion; nothing is said about him contributing money."
+    },
+    {
+      "sentence": "Margaret Doyle stated she has been thinking about the rugs since about 2010.",
+      "why": "Kevin said this, sarcastically (L335, S3); Margaret only said 'I'm thinking about it' (L334)."
+    },
+    {
+      "sentence": "Kevin Doyle instructed the social worker to see the person again on the fifteenth.",
+      "why": "L679: Kevin just says 'See you on the fifteenth'; Priya set up the visit (L656)."
+    }
+  ],
+  "notes": "Very long, near-transcript listing with strong recall but no synthesis; uses the uncorrected Wednesday lunch-club day, calls Biscuit a dog, misattributes several lines, and leaves out the GP letter, the telecare referral and the rug and alarm actions."
+}

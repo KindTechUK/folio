@@ -1,0 +1,84 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "partial",
+    "F03": "absent",
+    "F04": "partial",
+    "F05": "absent",
+    "F06": "absent",
+    "F07": "partial",
+    "F08": "absent",
+    "F09": "absent",
+    "F10": "partial",
+    "F11": "absent",
+    "F12": "absent",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "absent",
+    "F17": "partial",
+    "F18": "present",
+    "F19": "partial",
+    "F20": "absent",
+    "F21": "absent",
+    "F22": "absent",
+    "F23": "partial",
+    "F24": "partial",
+    "F25": "partial",
+    "F26": "absent",
+    "F27": "partial",
+    "F28": "partial",
+    "F29": "partial",
+    "F30": "partial",
+    "F31": "partial",
+    "F32": "absent",
+    "F33": "partial",
+    "F34": "partial",
+    "F35": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Margaret Doyle mentioned she sometimes forgets to take her blood pressure tablet and paracetamol.",
+      "why": "Only the morning amlodipine was missed, twice (L293-295); she takes paracetamol as needed (L288-289) and never said she forgets it."
+    },
+    {
+      "sentence": "Kevin Doyle signed the notes.",
+      "why": "No one signed anything; Priya joked that Biscuit the cat 'wants to sign them' (L675-676)."
+    },
+    {
+      "sentence": "Margaret Doyle thanked Priya Nair for being honest.",
+      "why": "Priya thanked Margaret for the tea and for being honest (L676)."
+    },
+    {
+      "sentence": "Margaret Doyle advised Kevin Doyle to mind the step.",
+      "why": "She said 'Mind the step' to Priya, who was leaving (L680)."
+    },
+    {
+      "sentence": "Priya Nair saw Kevin Doyle off.",
+      "why": "Priya was the one leaving and said goodbye to Kevin (L678); she did not see him off."
+    },
+    {
+      "sentence": "Priya Nair saw Kevin Doyle off on the fifteenth.",
+      "why": "L679: Kevin says 'See you on the fifteenth', meaning the review visit; nothing happened on the fifteenth."
+    }
+  ],
+  "notes": "Thin one-liners that touch many topics but leave out most key details (dates, amounts, who does what); misfiled sections; several garbled closing remarks presented as actions; leaves out the financial abuse, the falls history and the OT referral."
+}

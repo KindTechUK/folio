@@ -1,0 +1,1202 @@
+{
+ "sections": [
+  {
+   "title": "Background and presenting situation",
+   "sentences": [
+    {
+     "text": "Priya Nair is the social worker.",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "text": "Priya Nair spoke to Margaret Doyle on Monday.",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "text": "Before the fall, Margaret could walk to the shops.",
+     "cites": [
+      106,
+      107
+     ]
+    },
+    {
+     "text": "Margaret walks slowly to the shops.",
+     "cites": [
+      108
+     ]
+    },
+    {
+     "text": "Margaret feels frightened after the fall.",
+     "cites": [
+      110,
+      111
+     ]
+    },
+    {
+     "text": "Margaret had a fall in the garden before Christmas.",
+     "cites": [
+      114
+     ]
+    },
+    {
+     "text": "Margaret had a fall in the bathroom in January.",
+     "cites": [
+      115
+     ]
+    },
+    {
+     "text": "Margaret has had three falls in the last six months.",
+     "cites": [
+      116,
+      117
+     ]
+    },
+    {
+     "text": "Margaret did not tell her GP about the earlier falls.",
+     "cites": [
+      119,
+      120
+     ]
+    },
+    {
+     "text": "Margaret's GP is Dr Shah at Millbrook Surgery.",
+     "cites": [
+      122,
+      126
+     ]
+    },
+    {
+     "text": "Margaret has not been referred to the falls service.",
+     "cites": [
+      131
+     ]
+    },
+    {
+     "text": "Margaret has stairs in her home.",
+     "cites": [
+      133
+     ]
+    },
+    {
+     "text": "Margaret uses a rail on the right side of the stairs.",
+     "cites": [
+      141,
+      143
+     ]
+    },
+    {
+     "text": "Margaret sometimes goes down the stairs sideways or on her bottom.",
+     "cites": [
+      143,
+      144
+     ]
+    },
+    {
+     "text": "Margaret has a single frame downstairs.",
+     "cites": [
+      147
+     ]
+    },
+    {
+     "text": "Margaret is interested in a second rail and frame upstairs.",
+     "cites": [
+      148,
+      151
+     ]
+    },
+    {
+     "text": "Margaret has rugs in her home.",
+     "cites": [
+      155,
+      157
+     ]
+    },
+    {
+     "text": "Margaret's son Kevin is concerned about the rugs.",
+     "cites": [
+      157
+     ]
+    },
+    {
+     "text": "Margaret does not have a pendant alarm.",
+     "cites": [
+      165
+     ]
+    },
+    {
+     "text": "Margaret thinks a pendant alarm could have helped on the third of March.",
+     "cites": [
+      172,
+      173
+     ]
+    },
+    {
+     "text": "Margaret is interested in a pendant alarm.",
+     "cites": [
+      175
+     ]
+    },
+    {
+     "text": "Margaret is interested in personal care.",
+     "cites": [
+      177
+     ]
+    },
+    {
+     "text": "Margaret can do a strip wash.",
+     "cites": [
+      181
+     ]
+    },
+    {
+     "text": "Margaret does not have a shower.",
+     "cites": [
+      183
+     ]
+    },
+    {
+     "text": "Margaret has not had a bath since January.",
+     "cites": [
+      184,
+      186
+     ]
+    },
+    {
+     "text": "Margaret feels unsafe bathing due to her wrist.",
+     "cites": [
+      187,
+      188
+     ]
+    },
+    {
+     "text": "Margaret misses having a bath.",
+     "cites": [
+      196
+     ]
+    },
+    {
+     "text": "Margaret is interested in a bath lift.",
+     "cites": [
+      199
+     ]
+    },
+    {
+     "text": "Margaret takes a long time to get dressed.",
+     "cites": [
+      209,
+      210
+     ]
+    },
+    {
+     "text": "Margaret sometimes stays in her nightie.",
+     "cites": [
+      213,
+      214
+     ]
+    },
+    {
+     "text": "Margaret is interested in personal care support.",
+     "cites": [
+      177
+     ]
+    },
+    {
+     "text": "Margaret uses a flannel for washing her hair.",
+     "cites": [
+      194
+     ]
+    },
+    {
+     "text": "S3: Honestly though, Priya, and I've said this to Mum, I think this house is too much for her now.",
+     "cites": [
+      337
+     ]
+    },
+    {
+     "text": "S3: I think she'd be better off in one of them sheltered flats.",
+     "cites": [
+      337
+     ]
+    },
+    {
+     "text": "S3: Or a bungalow. Everything on one level, a warden on site.",
+     "cites": [
+      337
+     ]
+    },
+    {
+     "text": "S2: No. I'm not moving, Kevin. We've been over this.",
+     "cites": [
+      338
+     ]
+    },
+    {
+     "text": "S2: And I'm just saying no. I came here as a bride.",
+     "cites": [
+      338
+     ]
+    },
+    {
+     "text": "S2: Frank carried me over that step. I'm not going to some flat with strangers.",
+     "cites": [
+      338
+     ]
+    },
+    {
+     "text": "S1: Can I ask, Margaret, what is it about this house that matters to you?",
+     "cites": [
+      339
+     ]
+    },
+    {
+     "text": "S2: It's everything. It's my home. It's where I brought the kids up.",
+     "cites": [
+      339
+     ]
+    },
+    {
+     "text": "S2: My garden's out there, Frank's roses. Brenda's next door. I know every creak in this house.",
+     "cites": [
+      339
+     ]
+    },
+    {
+     "text": "S2: I want to stay in my own home. For as long as I possibly can. That's what I want.",
+     "cites": [
+      339
+     ]
+    },
+    {
+     "text": "S3: I know, Mum. I'm not trying to shove you out. I just worry.",
+     "cites": [
+      340
+     ]
+    },
+    {
+     "text": "S2: I know you do, love.",
+     "cites": [
+      340
+     ]
+    },
+    {
+     "text": "S2: And if I ever had to go into a home, one day, if it came to that, well, I'd want it to be Beechwood, because Brenda's sister was in there and they were lovely.",
+     "cites": [
+      341
+     ]
+    },
+    {
+     "text": "S2: But I'm not there yet. Not by a long chalk.",
+     "cites": [
+      341
+     ]
+    },
+    {
+     "text": "S1: That's really helpful to know for the future. But for now, the plan is about supporting you here.",
+     "cites": [
+      342
+     ]
+    },
+    {
+     "text": "S2: Good.",
+     "cites": [
+      342
+     ]
+    },
+    {
+     "text": "S3: What about selling up though, Mum, and getting somewhere smaller round here?",
+     "cites": [
+      343
+     ]
+    },
+    {
+     "text": "S2: If I sold the house, and I'm not going to, where would Biscuit go?",
+     "cites": [
+      343
+     ]
+    },
+    {
+     "text": "S2: Where would Frank's roses go? No. It's not happening.",
+     "cites": [
+      343
+     ]
+    },
+    {
+     "text": "S3: Fine. Fine. Subject closed.",
+     "cites": [
+      344
+     ]
+    },
+    {
+     "text": "S1: Okay, so, the house. Kevin, how do you find it? Anything else you've noticed that worries you?",
+     "cites": [
+      345
+     ]
+    },
+    {
+     "text": "S3: The back step into the garden, that's a big drop.",
+     "cites": [
+      345
+     ]
+    },
+    {
+     "text": "S3: And the light at the top of the stairs is on one of those pull cords, she has to reach round for it.",
+     "cites": [
+      345
+     ]
+    },
+    {
+     "text": "S1: That's useful, thank you. I'll pass that on to the OT as well.",
+     "cites": [
+      346
+     ]
+    },
+    {
+     "text": "S1: And heating, is the house warm enough generally?",
+     "cites": [
+      347
+     ]
+    },
+    {
+     "text": "S2: It's warm enough now. The boiler's new, Kevin sorted that last year.",
+     "cites": [
+      347
+     ]
+    },
+    {
+     "text": "S3: Took me three months to persuade her.",
+     "cites": [
+      347
+     ]
+    },
+    {
+     "text": "S1: Ha. Okay. So, can we talk a bit about who's around to help?",
+     "cites": [
+      348
+     ]
+    },
+    {
+     "text": "S1: Kevin, how often are you able to come over?",
+     "cites": [
+      348
+     ]
+    },
+    {
+     "text": "S3: Sundays, mainly. I do the big shop and I sit with her for a bit. Sometimes midweek if I'm on earlies.",
+     "cites": [
+      348
+     ]
+    },
+    {
+     "text": "S1 asked Margaret if she smokes.",
+     "cites": [
+      455
+     ]
+    },
+    {
+     "text": "Margaret said she gave up smoking when Kevin was little.",
+     "cites": [
+      456
+     ]
+    },
+    {
+     "text": "S1 asked Margaret about her memory.",
+     "cites": [
+      457
+     ]
+    },
+    {
+     "text": "Margaret said her memory is mostly fine, but she forgets where she puts her glasses.",
+     "cites": [
+      458
+     ]
+    },
+    {
+     "text": "Margaret said she can still tell Kevin about the kings and queens.",
+     "cites": [
+      459
+     ]
+    },
+    {
+     "text": "S1 asked Margaret if she wanted to talk about finances with Kevin.",
+     "cites": [
+      462
+     ]
+    },
+    {
+     "text": "Margaret said she didn't want to talk about finances with Kevin.",
+     "cites": [
+      463
+     ]
+    },
+    {
+     "text": "Margaret said Jordan is her grandson.",
+     "cites": [
+      466
+     ]
+    },
+    {
+     "text": "Margaret said Jordan lives in a flat with his girlfriend in town.",
+     "cites": [
+      467
+     ]
+    },
+    {
+     "text": "Margaret said Jordan sometimes borrows her bank card.",
+     "cites": [
+      471
+     ]
+    },
+    {
+     "text": "Margaret said Jordan sometimes uses her bank card to get cash or buy things.",
+     "cites": [
+      472
+     ]
+    },
+    {
+     "text": "Margaret said she gave Jordan her bank card when she first came out of hospital.",
+     "cites": [
+      473
+     ]
+    },
+    {
+     "text": "Margaret said she added up withdrawals and estimated six hundred pounds over two months.",
+     "cites": [
+      478
+     ]
+    },
+    {
+     "text": "Margaret said she doesn't want Jordan to get into trouble.",
+     "cites": [
+      480
+     ]
+    },
+    {
+     "text": "Margaret said Jordan has had a hard time because his mum went to Spain.",
+     "cites": [
+      481
+     ]
+    },
+    {
+     "text": "Margaret said she doesn't want to make a fuss.",
+     "cites": [
+      485
+     ]
+    },
+    {
+     "text": "S1 asked Margaret if Jordan still has her bank card.",
+     "cites": [
+      487
+     ]
+    },
+    {
+     "text": "Margaret said Jordan has her bank card now.",
+     "cites": [
+      488
+     ]
+    },
+    {
+     "text": "S1 asked Margaret if she wanted to talk about finances with Kevin.",
+     "cites": [
+      491
+     ]
+    },
+    {
+     "text": "Margaret said she wanted Kevin to know about Jordan's card use.",
+     "cites": [
+      492
+     ]
+    },
+    {
+     "text": "S1 asked Margaret if she wanted Kevin to know about the card use.",
+     "cites": [
+      494
+     ]
+    },
+    {
+     "text": "Margaret said Kevin will have to know about the card use.",
+     "cites": [
+      495
+     ]
+    },
+    {
+     "text": "S1 asked Margaret if she wanted Kevin to know about the card use.",
+     "cites": [
+      496
+     ]
+    },
+    {
+     "text": "Margaret said she wanted Kevin to know about the card use.",
+     "cites": [
+      497
+     ]
+    },
+    {
+     "text": "S1 asked Margaret if she wanted Kevin to know about the card use.",
+     "cites": [
+      498
+     ]
+    },
+    {
+     "text": "Margaret said she wanted Kevin to know about the card use.",
+     "cites": [
+      499
+     ]
+    },
+    {
+     "text": "Margaret said Jordan sometimes borrows her bank card to do her shopping.",
+     "cites": [
+      502
+     ]
+    },
+    {
+     "text": "Margaret said Jordan sometimes borrows her bank card to get cash.",
+     "cites": [
+      503
+     ]
+    },
+    {
+     "text": "Margaret said Jordan sometimes borrows her bank card to buy things.",
+     "cites": [
+      504
+     ]
+    },
+    {
+     "text": "Margaret said she gave Jordan her bank card PIN when she first came out of hospital.",
+     "cites": [
+      505
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) asks about income.",
+     "cites": [
+      569
+     ]
+    },
+    {
+     "text": "Margaret Doyle states she receives half of her husband Frank's pension.",
+     "cites": [
+      570
+     ]
+    },
+    {
+     "text": "Margaret Doyle states they own the house.",
+     "cites": [
+      572
+     ]
+    },
+    {
+     "text": "Margaret Doyle states there are about nine thousand pounds in the building society.",
+     "cites": [
+      574
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) asks if Margaret is getting any benefits.",
+     "cites": [
+      575
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) explains Attendance Allowance.",
+     "cites": [
+      577
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) mentions that Attendance Allowance is not means tested.",
+     "cites": [
+      578
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) suggests she might be eligible for Attendance Allowance.",
+     "cites": [
+      579
+     ]
+    },
+    {
+     "text": "Margaret Doyle asks what Attendance Allowance is.",
+     "cites": [
+      576
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) offers to send forms and help fill them in.",
+     "cites": [
+      580
+     ]
+    },
+    {
+     "text": "Margaret Doyle states she needs help with the form.",
+     "cites": [
+      581
+     ]
+    },
+    {
+     "text": "Margaret Doyle asks Kevin Doyle to help her fill in the form.",
+     "cites": [
+      582
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) explains the financial assessment for ongoing care.",
+     "cites": [
+      584
+     ]
+    },
+    {
+     "text": "Margaret Doyle expresses concern about having to pay something towards ongoing care.",
+     "cites": [
+      585
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) assures Margaret that the assessment team will explain it properly.",
+     "cites": [
+      586
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) asks Margaret to summarize what matters most.",
+     "cites": [
+      590
+     ]
+    },
+    {
+     "text": "Margaret Doyle states her top priorities are staying in her own home, bathing, cooking, and seeing people.",
+     "cites": [
+      591,
+      593,
+      594,
+      596,
+      598
+     ]
+    },
+    {
+     "text": "Margaret Doyle mentions her desire to see her roses and Frank's roses.",
+     "cites": [
+      601,
+      602
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) explains the reablement request.",
+     "cites": [
+      613
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) describes the reablement visits.",
+     "cites": [
+      615,
+      616
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) mentions the need for approval of the reablement request.",
+     "cites": [
+      617
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) explains the waiting time for the bath lift.",
+     "cites": [
+      629
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) mentions the telecare alarm.",
+     "cites": [
+      631
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) suggests referring Margaret to the falls clinic.",
+     "cites": [
+      635
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) mentions a chemist's recommendation for easier tablet packaging.",
+     "cites": [
+      636
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) asks Kevin Doyle to take the rug up.",
+     "cites": [
+      647
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) asks Margaret Doyle to set her alarm clock for morning tablets.",
+     "cites": [
+      652
+     ]
+    },
+    {
+     "text": "Social worker (Priya Nair) suggests coming back to see Margaret on Tuesday the 15th of April at 2 PM.",
+     "cites": [
+      656
+     ]
+    },
+    {
+     "text": "Kevin Doyle agrees to take Margaret Doyle to the Midshire branch to cancel the card.",
+     "cites": [
+      643
+     ]
+    },
+    {
+     "text": "Kevin Doyle agrees to help Margaret Doyle with the Attendance Allowance form.",
+     "cites": [
+      646
+     ]
+    },
+    {
+     "text": "S1 thanks S2 for the tea and for being honest.",
+     "cites": [
+      676
+     ]
+    },
+    {
+     "text": "S2 warns S1 about the wind.",
+     "cites": [
+      677
+     ]
+    },
+    {
+     "text": "S1 assures S2 that she will be fine.",
+     "cites": [
+      678
+     ]
+    },
+    {
+     "text": "S3 says goodbye to S1 and wishes to see her on the fifteenth.",
+     "cites": [
+      679
+     ]
+    },
+    {
+     "text": "S2 says goodbye to S1 and reminds her to mind the step.",
+     "cites": [
+      680
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Needs and daily living",
+   "sentences": [
+    {
+     "text": "Margaret Doyle mentioned that she doesn't trust herself with two cups and a frame.",
+     "cites": [
+      17
+     ]
+    },
+    {
+     "text": "Margaret Doyle asked Priya Nair if she could jot notes.",
+     "cites": [
+      38
+     ]
+    },
+    {
+     "text": "Priya Nair explained that the needs assessment is under the Care Act.",
+     "cites": [
+      24
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she doesn't want to be put anywhere.",
+     "cites": [
+      29
+     ]
+    },
+    {
+     "text": "Priya Nair reassured Margaret Doyle that the assessment is about her current situation.",
+     "cites": [
+      30
+     ]
+    },
+    {
+     "text": "Priya Nair asked Margaret Doyle if she's happy for her GP and other support providers to know what they discuss.",
+     "cites": [
+      39
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she has nothing to hide.",
+     "cites": [
+      43
+     ]
+    },
+    {
+     "text": "Priya Nair asked Margaret Doyle if she's happy for her son Kevin Doyle to contribute to the assessment.",
+     "cites": [
+      46
+     ]
+    },
+    {
+     "text": "Margaret Doyle said her son Kevin Doyle would want to put his tuppence in.",
+     "cites": [
+      50
+     ]
+    },
+    {
+     "text": "Margaret Doyle described the fall she had on March 3rd.",
+     "cites": [
+      52,
+      53,
+      58,
+      61,
+      64
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she couldn't get up after the fall.",
+     "cites": [
+      59
+     ]
+    },
+    {
+     "text": "Margaret Doyle said Brenda, her neighbor, found her after the fall.",
+     "cites": [
+      63
+     ]
+    },
+    {
+     "text": "Margaret Doyle said Brenda called the ambulance.",
+     "cites": [
+      63
+     ]
+    },
+    {
+     "text": "Margaret Doyle said Brenda sat with her while the ambulance came.",
+     "cites": [
+      63
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she couldn't reach her phone.",
+     "cites": [
+      69
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she uses a frame indoors.",
+     "cites": [
+      97,
+      98
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she sometimes holds onto furniture instead of using the frame.",
+     "cites": [
+      100
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she uses a stick outdoors.",
+     "cites": [
+      104
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she only goes out to the end of the path and to the doctor's.",
+     "cites": [
+      104,
+      105
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she broke her left wrist.",
+     "cites": [
+      83,
+      84
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she has a splint on her wrist.",
+     "cites": [
+      91,
+      92
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she had physiotherapy referred for her wrist.",
+     "cites": [
+      94
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she has a letter about physiotherapy on the kitchen side.",
+     "cites": [
+      94,
+      95
+     ]
+    },
+    {
+     "text": "Margaret Doyle said she's supposed to use the frame all the time.",
+     "cites": [
+      99
+     ]
+    },
+    {
+     "text": "S1 asked about toiletting issues.",
+     "cites": [
+      217,
+      218
+     ]
+    },
+    {
+     "text": "Margaret mentioned difficulties with toiletting, including accidents and the need for pads.",
+     "cites": [
+      220,
+      221,
+      223,
+      224,
+      287
+     ]
+    },
+    {
+     "text": "S1 offered to refer Margaret to a continence service.",
+     "cites": [
+      225,
+      226,
+      228,
+      229
+     ]
+    },
+    {
+     "text": "Margaret agreed to consider the continence service referral.",
+     "cites": [
+      227,
+      228,
+      229
+     ]
+    },
+    {
+     "text": "S1 asked about Margaret's tea.",
+     "cites": [
+      231,
+      232
+     ]
+    },
+    {
+     "text": "Margaret joked about Frank's umbrella.",
+     "cites": [
+      236,
+      237,
+      238,
+      239,
+      241
+     ]
+    },
+    {
+     "text": "S1 mentioned that Kevin wouldn't accept gifts.",
+     "cites": [
+      238,
+      240
+     ]
+    },
+    {
+     "text": "Margaret asked Kevin not to touch her bag.",
+     "cites": [
+      241
+     ]
+    },
+    {
+     "text": "S1 started discussing food needs.",
+     "cites": [
+      244,
+      246
+     ]
+    },
+    {
+     "text": "Margaret described her daily eating habits.",
+     "cites": [
+      247,
+      248,
+      249,
+      251,
+      252
+     ]
+    },
+    {
+     "text": "Margaret mentioned her kitchen phobia after the fall.",
+     "cites": [
+      256,
+      257,
+      258,
+      259
+     ]
+    },
+    {
+     "text": "Margaret discussed her weight loss since Christmas.",
+     "cites": [
+      263,
+      264,
+      266,
+      267
+     ]
+    },
+    {
+     "text": "Margaret asked if Kevin did her shopping.",
+     "cites": [
+      270,
+      271
+     ]
+    },
+    {
+     "text": "Margaret mentioned difficulties with ready meals.",
+     "cites": [
+      273,
+      274,
+      276
+     ]
+    },
+    {
+     "text": "S1 asked about medication management.",
+     "cites": [
+      277,
+      278,
+      280,
+      281,
+      283
+     ]
+    },
+    {
+     "text": "Margaret forgot her blood pressure tablets twice last week.",
+     "cites": [
+      291,
+      292,
+      293,
+      294,
+      295
+     ]
+    },
+    {
+     "text": "Margaret used a butter knife to open her medication box.",
+     "cites": [
+      298
+     ]
+    },
+    {
+     "text": "S1 asked about Margaret's money management.",
+     "cites": [
+      304,
+      305,
+      306,
+      308
+     ]
+    },
+    {
+     "text": "Margaret admitted to being short of money recently.",
+     "cites": [
+      309,
+      310
+     ]
+    },
+    {
+     "text": "S1 started discussing the house and stairs.",
+     "cites": [
+      332,
+      333
+     ]
+    },
+    {
+     "text": "Kevin mentioned that Margaret had been thinking about the rugs since 2010.",
+     "cites": [
+      335,
+      336
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Person's views and wishes",
+   "sentences": []
+  },
+  {
+   "title": "Risks and safeguarding",
+   "sentences": []
+  },
+  {
+   "title": "Support network and finances",
+   "sentences": [
+    {
+     "text": "Margaret Doyle lives with her son Kevin Doyle.",
+     "cites": [
+      47
+     ]
+    },
+    {
+     "text": "Margaret Doyle mentioned that Kevin Doyle works an early shift.",
+     "cites": [
+      47
+     ]
+    },
+    {
+     "text": "Margaret Doyle said Kevin Doyle might visit after half past eleven.",
+     "cites": [
+      47
+     ]
+    },
+    {
+     "text": "Margaret Doyle said her son Kevin Doyle took her to the doctor's once.",
+     "cites": [
+      105
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Agreed actions",
+   "sentences": [
+    {
+     "text": "Kevin joined the assessment.",
+     "cites": [
+      314,
+      315
+     ]
+    },
+    {
+     "text": "S1 asked Kevin if he wanted to join the rest of the assessment.",
+     "cites": [
+      320,
+      321
+     ]
+    },
+    {
+     "text": "Margaret asked if Kevin could join her for the rest of the assessment.",
+     "cites": [
+      322,
+      323
+     ]
+    },
+    {
+     "text": "S1 checked if Kevin was okay with joining the assessment.",
+     "cites": [
+      324,
+      325
+     ]
+    },
+    {
+     "text": "S1 asked Kevin about Margaret's medication issues.",
+     "cites": [
+      329,
+      330
+     ]
+    },
+    {
+     "text": "S2 asks S1 to put the documents by the phone.",
+     "cites": [
+      675
+     ]
+    }
+   ]
+  }
+ ]
+}
