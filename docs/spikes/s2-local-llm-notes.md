@@ -151,8 +151,8 @@ a mix of models. They followed `judge_instructions.md`, checking each fact again
   of the transcript that another session overwrote, noticed, and re-read the affected lines.
 - The packets were shuffled across models, so these differences add noise rather than bias. The two Qwen models
   lead whether "partial" counts as 0 or as 1.
-- A human spot-check of 4 packets is pending: `1dd69ceb`, `9707b866`, `fd583e34` and `bc506e41` in
-  `results/judge/screen-m5/`.
+- No person checked the judges' verdicts. The planned spot-check of 4 packets was skipped, so the quality
+  scores rest on the Claude judges alone. S3's blind human review is the first human check of note quality.
 
 ## Timing (finalists)
 
@@ -230,10 +230,9 @@ prompt tokens):
 
 1. Repeat the finalists' timings and memory on the reference Windows laptop, with live ASR running alongside.
 2. Measure fact recall at 15 vs 60 minutes on the same transcript (condition 6).
-3. A human spot-check of 4 judged packets (listed above).
-4. S3: citation validity and the unsupported-sentence flag, starting from the traps these notes fell into.
-5. S4: safeguarding refusals for both finalists.
-6. Optional: re-run Gemma-4-E4B with a bigger map cap. Its single pass made nothing up.
+3. S3: citation validity and the unsupported-sentence flag, starting from the traps these notes fell into.
+4. S4: safeguarding refusals for both finalists.
+5. Optional: re-run Gemma-4-E4B with a bigger map cap. Its single pass made nothing up.
 
 ## History
 
