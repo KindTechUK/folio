@@ -36,7 +36,7 @@ fn vendor_pubkey_pem() -> &'static str {
 fn engine_versions() -> BTreeMap<String, String> {
     let mut m = BTreeMap::new();
     m.insert("whisper.cpp".to_string(), "1.7.0".to_string());
-    m.insert("sherpa-onnx".to_string(), "1.13.2".to_string());
+    m.insert("sherpa-onnx".to_string(), "2.0.1".to_string());
     m
 }
 
