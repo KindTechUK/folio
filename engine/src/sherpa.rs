@@ -403,6 +403,7 @@ impl TranscriptionEngine for SherpaEngine {
             segmentation: OfflineSpeakerSegmentationModelConfig {
                 pyannote: OfflineSpeakerSegmentationPyannoteModelConfig {
                     model: Some(self.model_path(SEG_MODEL)),
+                    ..Default::default()
                 },
                 num_threads: self.num_threads,
                 provider: Some("cpu".to_string()),
@@ -418,6 +419,7 @@ impl TranscriptionEngine for SherpaEngine {
                 // -1 (auto via threshold) when no count given; else fixed count.
                 num_clusters: num_speakers.map(|n| n as i32).unwrap_or(-1),
                 threshold: 0.5,
+                ..Default::default()
             },
             min_duration_on: 0.3,
             min_duration_off: 0.5,
