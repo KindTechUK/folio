@@ -50,6 +50,9 @@ cpal = "0.18.2"
 hound = "3.5"
 chrono = { version = "0.4", default-features = false, features = ["clock"] }
 
+# "This computer" card: memory size and processor name. Network-free.
+sysinfo = { version = "0.33", default-features = false, features = ["system"] }
+
 [features]
 # Both are network-free. Release builds set `hardened` (release.yml); it is
 # reserved to compile OUT any future optional networked feature. The CI gate

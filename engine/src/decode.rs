@@ -48,6 +48,40 @@ pub fn decode_to_16k_mono_with_progress(
     Ok((samples, TARGET_SAMPLE_RATE))
 }
 
+/// Length of an audio file in seconds, read from its container header without
+/// decoding the audio. `None` when the container doesn't declare it (some MP3s).
+pub fn probe_duration_s(path: impl AsRef<Path>) -> anyhow::Result<Option<f64>> {
+    let path = path.as_ref();
+    let file = std::fs::File::open(path)
+        .map_err(|e| EngineError::Audio(format!("opening {}: {e}", path.display())))?;
+    let mss = MediaSourceStream::new(Box::new(file), Default::default());
+    let mut hint = Hint::new();
+    if let Some(ext) = path.extension().and_then(|e| e.to_str()) {
+        hint.with_extension(ext);
+    }
+    let probed = symphonia::default::get_probe()
+        .format(
+            &hint,
+            mss,
+            &FormatOptions::default(),
+            &MetadataOptions::default(),
+        )
+        .map_err(|e| EngineError::Audio(format!("probing {}: {e}", path.display())))?;
+    let Some(track) = probed
+        .format
+        .tracks()
+        .iter()
+        .find(|t| t.codec_params.codec != CODEC_TYPE_NULL)
+    else {
+        return Ok(None);
+    };
+    let params = &track.codec_params;
+    Ok(match (params.n_frames, params.sample_rate) {
+        (Some(frames), Some(rate)) if rate > 0 => Some(frames as f64 / rate as f64),
+        _ => None,
+    })
+}
+
 /// Decode `path` to mono `f32`, returning `(mono_samples, source_sample_rate)`.
 /// `report` is called with decode progress in `[0, 1]` (best-effort: only when
 /// the container declares a total frame count; otherwise it stays at 0).
