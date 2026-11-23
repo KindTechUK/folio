@@ -3,14 +3,15 @@
 //! chunks, plus pyannote + 3D-Speaker + FastClustering diarization.
 
 use crate::{
-    AsrSegment, EngineConfig, EngineError, Progress, ProgressSink, SpeakerSpan,
-    TranscriptionEngine, Word,
+    AsrSegment, Decoding, EngineConfig, EngineError, Hotwords, ModelFamily, Progress,
+    ProgressSink, SpeakerSpan, TranscriptionEngine, Word,
 };
 use anyhow::Context;
 use std::path::{Path, PathBuf};
 
 use sherpa_onnx::{
-    FastClusteringConfig, OfflineRecognizer, OfflineRecognizerConfig, OfflineSpeakerDiarization,
+    FastClusteringConfig, OfflineCohereTranscribeModelConfig, OfflineQwen3ASRModelConfig,
+    OfflineRecognizer, OfflineRecognizerConfig, OfflineSpeakerDiarization,
     OfflineSpeakerDiarizationConfig, OfflineSpeakerSegmentationModelConfig,
     OfflineSpeakerSegmentationPyannoteModelConfig, OfflineTransducerModelConfig,
     OfflineWhisperModelConfig, SileroVadModelConfig, SpeakerEmbeddingExtractorConfig,
@@ -30,16 +31,19 @@ use crate::{EMB_MODEL, SEG_MODEL, VAD_MODEL};
 /// the default transducer path (Parakeet) we bridge natural pauses into longer,
 /// more coherent segments — better ASR context and cleaner review paragraphs.
 /// The Whisper path is left at its validated params: it MUST stay under the 30 s
-/// decode window, so a raised cap there would silently truncate audio.
-fn vad_params(is_transducer: bool) -> (f32, f32) {
-    if is_transducer {
+/// decode window, so a raised cap there would silently truncate audio. The
+/// encoder-decoder evaluation candidates (Qwen3-ASR, Cohere) get the same
+/// conservative cap until the bench says otherwise.
+fn vad_params(family: ModelFamily) -> (f32, f32) {
+    match family {
         // Offline transducer: ~0.8 s redemption bridges breaths/hesitations;
         // 120 s cap has plenty of headroom (Parakeet has no 30 s window) while
         // still bounding memory and keeping progress ticks flowing.
-        (0.8, 120.0)
-    } else {
+        ModelFamily::Transducer => (0.8, 120.0),
         // Whisper: stay under the 30 s decode window.
-        (0.25, 25.0)
+        ModelFamily::Whisper => (0.25, 25.0),
+        // Autoregressive decoders with a bounded output length: short segments.
+        ModelFamily::Qwen3 | ModelFamily::Cohere => (0.8, 25.0),
     }
 }
 
@@ -59,7 +63,7 @@ impl VadProfile {
 
     /// File transcription for `model` (see [`vad_params`]).
     pub fn offline(model: crate::AsrModel) -> Self {
-        let (min_silence, max_speech) = vad_params(model.is_transducer());
+        let (min_silence, max_speech) = vad_params(model.family());
         VadProfile { min_silence, max_speech }
     }
 }
@@ -122,6 +126,16 @@ impl Recognizer {
     /// Word and segment times are absolute (seconds from the start of the
     /// audio). `None` when nothing was recognised.
     pub fn decode_utterance(&self, start_sample: usize, samples: &[f32]) -> Option<AsrSegment> {
+        self.decode_utterance_timed(start_sample, samples).map(|(seg, _)| seg)
+    }
+
+    /// [`Recognizer::decode_utterance`], also saying whether the model returned
+    /// native token timestamps (`false` means word times were spread evenly).
+    pub fn decode_utterance_timed(
+        &self,
+        start_sample: usize,
+        samples: &[f32],
+    ) -> Option<(AsrSegment, bool)> {
         let stream = self.inner.create_stream();
         stream.accept_waveform(self.sample_rate as i32, samples);
         self.inner.decode(&stream);
@@ -135,9 +149,10 @@ impl Recognizer {
         let seg_start = round3(offset);
         let seg_end = round3(offset + samples.len() as f64 / sr);
         let timestamps = result.timestamps.clone().unwrap_or_default();
+        let native = !timestamps.is_empty() && timestamps.len() == result.tokens.len();
         let words =
             group_tokens_to_words(&result.tokens, &timestamps, offset, seg_start, seg_end, &text);
-        Some(AsrSegment { start: seg_start, end: seg_end, text, words })
+        Some((AsrSegment { start: seg_start, end: seg_end, text, words }, native))
     }
 }
 
@@ -147,6 +162,8 @@ pub struct SherpaEngine {
     models_dir: PathBuf,
     asr_model: crate::AsrModel,
     num_threads: i32,
+    decoding: Decoding,
+    hotwords: Option<Hotwords>,
 }
 
 impl SherpaEngine {
@@ -163,10 +180,23 @@ impl SherpaEngine {
                 return Err(EngineError::ModelNotFound(p).into());
             }
         }
+        if let Some(h) = &cfg.hotwords {
+            if !h.file.exists() {
+                return Err(EngineError::ModelNotFound(h.file.clone()).into());
+            }
+            if cfg.asr_model.is_transducer() && cfg.decoding == Decoding::Greedy {
+                return Err(EngineError::Sherpa(
+                    "hotwords on a transducer need beam search (Decoding::Beam)".into(),
+                )
+                .into());
+            }
+        }
         Ok(Self {
             models_dir: dir.clone(),
             asr_model: cfg.asr_model,
             num_threads: cfg.num_threads,
+            decoding: cfg.decoding,
+            hotwords: cfg.hotwords.clone(),
         })
     }
 
@@ -179,32 +209,78 @@ impl SherpaEngine {
         let p = |name: &str| asr_dir.join(name).to_string_lossy().into_owned();
 
         let mut config = OfflineRecognizerConfig::default();
-        if self.asr_model.is_transducer() {
-            // NeMo Parakeet-TDT transducer. `model_type` MUST be
-            // "nemo_transducer" for the TDT/RNN-T NeMo export. `greedy_search`
-            // is deliberate: sherpa-onnx #3267 documents modified_beam_search
-            // hallucinating / returning empty ~20% of the time on Parakeet-TDT.
-            // Native per-token timestamps come back in the result with no flag.
-            config.model_config.transducer = OfflineTransducerModelConfig {
-                encoder: Some(p("encoder.int8.onnx")),
-                decoder: Some(p("decoder.int8.onnx")),
-                joiner: Some(p("joiner.int8.onnx")),
-            };
-            config.model_config.model_type = Some("nemo_transducer".to_string());
-            config.model_config.tokens = Some(p("tokens.txt"));
-            config.decoding_method = Some("greedy_search".to_string());
-        } else {
-            let stem = self.asr_model.stem();
-            config.model_config.whisper = OfflineWhisperModelConfig {
-                encoder: Some(p(&format!("{stem}-encoder.int8.onnx"))),
-                decoder: Some(p(&format!("{stem}-decoder.int8.onnx"))),
-                language: Some(String::new()), // .en models: empty == default
-                task: Some("transcribe".to_string()),
-                tail_paddings: 0,
-                enable_token_timestamps: true, // word-level timing source
-                enable_segment_timestamps: false,
-            };
-            config.model_config.tokens = Some(p(&format!("{stem}-tokens.txt")));
+        match self.asr_model.family() {
+            ModelFamily::Transducer => {
+                // NeMo Parakeet-TDT transducer. `model_type` MUST be
+                // "nemo_transducer" for the TDT/RNN-T NeMo export. Greedy is the
+                // default: sherpa-onnx #3267 documents modified_beam_search
+                // hallucinating / returning empty ~20% of the time on
+                // Parakeet-TDT. Beam is opt-in for evaluation (and hotwords).
+                // Native per-token timestamps come back in the result with no flag.
+                config.model_config.transducer = OfflineTransducerModelConfig {
+                    encoder: Some(p("encoder.int8.onnx")),
+                    decoder: Some(p("decoder.int8.onnx")),
+                    joiner: Some(p("joiner.int8.onnx")),
+                };
+                config.model_config.model_type = Some("nemo_transducer".to_string());
+                config.model_config.tokens = Some(p("tokens.txt"));
+                match self.decoding {
+                    Decoding::Greedy => {
+                        config.decoding_method = Some("greedy_search".to_string());
+                    }
+                    Decoding::Beam { max_active_paths } => {
+                        config.decoding_method = Some("modified_beam_search".to_string());
+                        config.max_active_paths = max_active_paths;
+                    }
+                }
+                if let Some(h) = &self.hotwords {
+                    config.hotwords_file = Some(h.file.to_string_lossy().into_owned());
+                    config.hotwords_score = h.score;
+                }
+            }
+            ModelFamily::Whisper => {
+                let stem = self.asr_model.stem();
+                config.model_config.whisper = OfflineWhisperModelConfig {
+                    encoder: Some(p(&format!("{stem}-encoder.int8.onnx"))),
+                    decoder: Some(p(&format!("{stem}-decoder.int8.onnx"))),
+                    language: Some(String::new()), // .en models: empty == default
+                    task: Some("transcribe".to_string()),
+                    tail_paddings: 0,
+                    enable_token_timestamps: true, // word-level timing source
+                    enable_segment_timestamps: false,
+                };
+                config.model_config.tokens = Some(p(&format!("{stem}-tokens.txt")));
+            }
+            ModelFamily::Qwen3 => {
+                // Hotwords are a comma-separated prompt, not a biasing graph.
+                let hotwords = match &self.hotwords {
+                    Some(h) => Some(read_hotword_phrases(&h.file)?.join(",")),
+                    None => None,
+                };
+                config.model_config.qwen3_asr = OfflineQwen3ASRModelConfig {
+                    conv_frontend: Some(p("conv_frontend.onnx")),
+                    encoder: Some(p("encoder.int8.onnx")),
+                    decoder: Some(p("decoder.int8.onnx")),
+                    tokenizer: Some(p("tokenizer")),
+                    // Room for a 25 s segment's audio tokens plus its text; the
+                    // crate default (128 new tokens) truncates long utterances.
+                    max_total_len: 1024,
+                    max_new_tokens: 256,
+                    hotwords,
+                    ..Default::default()
+                };
+            }
+            ModelFamily::Cohere => {
+                config.model_config.cohere_transcribe = OfflineCohereTranscribeModelConfig {
+                    encoder: Some(p("encoder.int8.onnx")),
+                    decoder: Some(p("decoder.int8.onnx")),
+                    // Cohere has no language detection; Folio is English.
+                    language: Some("en".to_string()),
+                    use_punct: true,
+                    use_itn: true,
+                };
+                config.model_config.tokens = Some(p("tokens.txt"));
+            }
         }
         config.model_config.provider = Some("cpu".to_string());
         config.model_config.num_threads = self.num_threads;
@@ -353,6 +429,13 @@ fn group_tokens_to_words(
     words
 }
 
+/// Non-empty, trimmed lines of a hotwords file.
+fn read_hotword_phrases(file: &Path) -> anyhow::Result<Vec<String>> {
+    let text = std::fs::read_to_string(file)
+        .with_context(|| format!("reading hotwords {}", file.display()))?;
+    Ok(text.lines().map(str::trim).filter(|l| !l.is_empty()).map(String::from).collect())
+}
+
 fn round3(x: f64) -> f64 {
     (x * 1000.0).round() / 1000.0
 }
@@ -464,11 +547,11 @@ mod new_tests {
     /// offline transducer path may run long and bridges pauses at least as much.
     #[test]
     fn vad_params_are_model_aware() {
-        let (whisper_sil, whisper_max) = vad_params(false);
+        let (whisper_sil, whisper_max) = vad_params(ModelFamily::Whisper);
         assert_eq!(whisper_max, 25.0, "whisper cap must be the validated 25s");
         assert!(whisper_max < 30.0, "whisper must stay under its 30s window");
 
-        let (par_sil, par_max) = vad_params(true);
+        let (par_sil, par_max) = vad_params(ModelFamily::Transducer);
         assert!(par_max > 30.0, "transducer has no 30s limit — allow long segments");
         assert!(
             par_sil >= whisper_sil,
@@ -516,6 +599,31 @@ mod new_tests {
             msg.contains("model file not found"),
             "expected ModelNotFound, got: {msg}"
         );
+
+        let _ = std::fs::remove_dir_all(&tmp);
+    }
+
+    /// Transducer hotwords only take effect under beam search, so asking for
+    /// them with greedy decoding is a configuration error, not a silent no-op.
+    #[test]
+    fn new_rejects_transducer_hotwords_with_greedy_decoding() {
+        let tmp = std::env::temp_dir().join(format!("sherpa-hotwords-test-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&tmp);
+        std::fs::create_dir_all(&tmp).unwrap();
+        write_asr_vad_placeholders(&tmp);
+        let file = tmp.join("hotwords.txt");
+        std::fs::write(&file, "OKAFOR\n").unwrap();
+
+        let mut cfg = EngineConfig::new(&tmp);
+        cfg.hotwords = Some(Hotwords { file, score: 1.5 });
+        let msg = match SherpaEngine::new(&cfg) {
+            Ok(_) => panic!("greedy + hotwords must be rejected"),
+            Err(e) => e.to_string(),
+        };
+        assert!(msg.contains("beam search"), "got: {msg}");
+
+        cfg.decoding = Decoding::Beam { max_active_paths: 4 };
+        assert!(SherpaEngine::new(&cfg).is_ok(), "beam + hotwords must be accepted");
 
         let _ = std::fs::remove_dir_all(&tmp);
     }

@@ -1,0 +1,50 @@
+\b(\d{1,2}):00\b	\1
+\bwon't\b	will not
+\bcan't\b	can not
+\blet's\b	let us
+\bain't\b	aint
+\by'all\b	you all
+\bwanna\b	want to
+\bgotta\b	got to
+\bgonna\b	going to
+\bi'ma\b	i am going to
+\bimma\b	i am going to
+\bwoulda\b	would have
+\bcoulda\b	could have
+\bshoulda\b	should have
+\bma'am\b	madam
+\bmr\b	mister 
+\bmrs\b	missus 
+\bst\b	saint 
+\bdr\b	doctor 
+\bprof\b	professor 
+\bcapt\b	captain 
+\bgov\b	governor 
+\bald\b	alderman 
+\bgen\b	general 
+\bsen\b	senator 
+\brep\b	representative 
+\bpres\b	president 
+\brev\b	reverend 
+\bhon\b	honorable 
+\basst\b	assistant 
+\bassoc\b	associate 
+\blt\b	lieutenant 
+\bcol\b	colonel 
+\bjr\b	junior 
+\bsr\b	senior 
+\besq\b	esquire 
+'d been\b	 had been
+'s been\b	 has been
+'d gone\b	 had gone
+'s gone\b	 has gone
+'d done\b	 had done
+'s got\b	 has got
+n't\b	 not
+'re\b	 are
+\b(it|he|she|what|that|who|here|there|how|when|where|why|this)'s\b	\1 is
+'d\b	 would
+'ll\b	 will
+'t\b	 not
+'ve\b	 have
+'m\b	 am

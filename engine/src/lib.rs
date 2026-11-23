@@ -111,9 +111,13 @@ pub struct AsrSegment {
 }
 
 /// Which ASR model to use. All run through the same sherpa-onnx
-/// `OfflineRecognizer`; Whisper (`SmallEn`/`MediumEn`) and the NeMo transducer
-/// (`ParakeetV2`) differ only in recognizer config and on-disk layout (see
-/// [`AsrModel::asr_files`]).
+/// `OfflineRecognizer`; they differ in recognizer config and on-disk layout
+/// (see [`AsrModel::family`] and [`AsrModel::asr_files`]).
+///
+/// Only `SmallEn`, `MediumEn` and `ParakeetV2` ship in signed model packs. The
+/// others are evaluation candidates for `tools/asr-bench`
+/// (`docs/research/voice2text-lessons-2026-11.md`), loaded from a dev
+/// `models/` directory.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub enum AsrModel {
     SmallEn,
@@ -124,61 +128,175 @@ pub enum AsrModel {
     /// cross-attention outputs and fall back to spread timings).
     #[default]
     ParakeetV2,
+    /// Parakeet-TDT-0.6B-v3 (25 European languages), int8.
+    ParakeetV3,
+    /// Moondream's Parakeet Ultra, a post-trained v3 (same architecture), int8.
+    ParakeetUltra,
+    /// Moondream's Parakeet Redux, v3 at 1.58 bits, exported to int8.
+    ParakeetRedux,
+    /// NVIDIA Parakeet Unified EN 0.6B, offline (non-streaming) export, int8.
+    ParakeetUnifiedEn,
+    /// Qwen3-ASR 0.6B, int8: audio encoder + autoregressive LLM decoder.
+    Qwen3Asr06b,
+    /// Cohere Transcribe 03-2026 (14 languages), int8 encoder-decoder.
+    CohereTranscribe,
+}
+
+/// How a model is wired into the recognizer config.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ModelFamily {
+    /// Whisper encoder/decoder, `<stem>-encoder/decoder.int8.onnx` + `<stem>-tokens.txt`.
+    Whisper,
+    /// NeMo transducer (TDT): `encoder/decoder/joiner.int8.onnx` + `tokens.txt`,
+    /// native word timestamps.
+    Transducer,
+    /// Qwen3-ASR: `conv_frontend.onnx`, `encoder/decoder.int8.onnx`, `tokenizer/`.
+    Qwen3,
+    /// Cohere Transcribe: `encoder.int8.onnx` (+ external `.data`), `decoder.int8.onnx`, `tokens.txt`.
+    Cohere,
 }
 
 impl AsrModel {
-    /// Model subdirectory name under `models_dir`, e.g.
-    /// `sherpa-onnx-whisper-small.en` or
+    /// Every model, in display order.
+    pub const ALL: [AsrModel; 9] = [
+        AsrModel::SmallEn,
+        AsrModel::MediumEn,
+        AsrModel::ParakeetV2,
+        AsrModel::ParakeetV3,
+        AsrModel::ParakeetUltra,
+        AsrModel::ParakeetRedux,
+        AsrModel::ParakeetUnifiedEn,
+        AsrModel::Qwen3Asr06b,
+        AsrModel::CohereTranscribe,
+    ];
+
+    /// Model subdirectory name under `models_dir`: the folder name of the
+    /// sherpa-onnx `asr-models` release archive, e.g.
     /// `sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8`.
     pub fn dir(&self) -> &'static str {
         match self {
             AsrModel::SmallEn => "sherpa-onnx-whisper-small.en",
             AsrModel::MediumEn => "sherpa-onnx-whisper-medium.en",
             AsrModel::ParakeetV2 => "sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8",
+            AsrModel::ParakeetV3 => "sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8",
+            AsrModel::ParakeetUltra => "sherpa-onnx-nemo-parakeet-tdt-0.6b-ultra-int8",
+            AsrModel::ParakeetRedux => "sherpa-onnx-nemo-parakeet-tdt-0.6b-redux-int8",
+            AsrModel::ParakeetUnifiedEn => "sherpa-onnx-nemo-parakeet-unified-en-0.6b-int8-non-streaming",
+            AsrModel::Qwen3Asr06b => "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25",
+            AsrModel::CohereTranscribe => "sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01",
         }
     }
 
-    /// Whisper file-name stem (e.g. `small.en` in `small.en-encoder.int8.onnx`).
-    /// A Whisper-only naming concept; the transducer layout has no stem, so
-    /// `ParakeetV2` returns a display-only identifier that is NOT used to build
-    /// file paths (see [`AsrModel::asr_files`]).
+    /// Short identifier, e.g. `small.en` or `parakeet-tdt-0.6b-v2`. For
+    /// Whisper it is also the file-name stem (`small.en-encoder.int8.onnx`);
+    /// for every other family it is display-only and NOT used to build file
+    /// paths (see [`AsrModel::asr_files`]).
     pub fn stem(&self) -> &'static str {
         match self {
             AsrModel::SmallEn => "small.en",
             AsrModel::MediumEn => "medium.en",
             AsrModel::ParakeetV2 => "parakeet-tdt-0.6b-v2",
+            AsrModel::ParakeetV3 => "parakeet-tdt-0.6b-v3",
+            AsrModel::ParakeetUltra => "parakeet-tdt-0.6b-ultra",
+            AsrModel::ParakeetRedux => "parakeet-tdt-0.6b-redux",
+            AsrModel::ParakeetUnifiedEn => "parakeet-unified-en-0.6b",
+            AsrModel::Qwen3Asr06b => "qwen3-asr-0.6b",
+            AsrModel::CohereTranscribe => "cohere-transcribe",
         }
     }
 
-    /// True for NeMo transducer models (encoder/decoder/joiner + greedy decode,
-    /// native word timestamps) vs Whisper encoder/decoder models.
+    /// Parse a [`AsrModel::stem`] (or its common short forms), e.g. for CLI flags.
+    pub fn from_name(name: &str) -> Option<AsrModel> {
+        let found = AsrModel::ALL.into_iter().find(|m| m.stem() == name);
+        found.or(match name {
+            "small" => Some(AsrModel::SmallEn),
+            "medium" => Some(AsrModel::MediumEn),
+            "parakeet" | "parakeet-v2" => Some(AsrModel::ParakeetV2),
+            "parakeet-v3" => Some(AsrModel::ParakeetV3),
+            "parakeet-ultra" | "ultra" => Some(AsrModel::ParakeetUltra),
+            "parakeet-redux" | "redux" => Some(AsrModel::ParakeetRedux),
+            "parakeet-unified-en" | "unified-en" => Some(AsrModel::ParakeetUnifiedEn),
+            "qwen3-asr" | "qwen3" => Some(AsrModel::Qwen3Asr06b),
+            "cohere" => Some(AsrModel::CohereTranscribe),
+            _ => None,
+        })
+    }
+
+    pub fn family(&self) -> ModelFamily {
+        match self {
+            AsrModel::SmallEn | AsrModel::MediumEn => ModelFamily::Whisper,
+            AsrModel::ParakeetV2
+            | AsrModel::ParakeetV3
+            | AsrModel::ParakeetUltra
+            | AsrModel::ParakeetRedux
+            | AsrModel::ParakeetUnifiedEn => ModelFamily::Transducer,
+            AsrModel::Qwen3Asr06b => ModelFamily::Qwen3,
+            AsrModel::CohereTranscribe => ModelFamily::Cohere,
+        }
+    }
+
+    /// True for NeMo transducer models (encoder/decoder/joiner, native word
+    /// timestamps, beam search and hotwords possible).
     pub fn is_transducer(&self) -> bool {
-        matches!(self, AsrModel::ParakeetV2)
+        self.family() == ModelFamily::Transducer
     }
 
     /// The model-relative ASR file paths (relative to `models_dir`), NOT
-    /// including the Silero VAD or diarization models. Whisper models use the
-    /// `<stem>-encoder/decoder/tokens` layout; transducer models use
-    /// `encoder/decoder/joiner.int8.onnx` + `tokens.txt`. This is the single
-    /// source of truth [`required_model_files`] builds on.
+    /// including the Silero VAD or diarization models. The single source of
+    /// truth [`required_model_files`] builds on.
     pub fn asr_files(&self) -> Vec<String> {
         let dir = self.dir();
-        if self.is_transducer() {
-            vec![
-                format!("{dir}/encoder.int8.onnx"),
-                format!("{dir}/decoder.int8.onnx"),
-                format!("{dir}/joiner.int8.onnx"),
-                format!("{dir}/tokens.txt"),
-            ]
-        } else {
-            let stem = self.stem();
-            vec![
-                format!("{dir}/{stem}-encoder.int8.onnx"),
-                format!("{dir}/{stem}-decoder.int8.onnx"),
-                format!("{dir}/{stem}-tokens.txt"),
-            ]
-        }
+        let files: &[&str] = match self.family() {
+            ModelFamily::Transducer => {
+                &["encoder.int8.onnx", "decoder.int8.onnx", "joiner.int8.onnx", "tokens.txt"]
+            }
+            ModelFamily::Qwen3 => &[
+                "conv_frontend.onnx",
+                "encoder.int8.onnx",
+                "decoder.int8.onnx",
+                "tokenizer/vocab.json",
+                "tokenizer/merges.txt",
+                "tokenizer/tokenizer_config.json",
+            ],
+            ModelFamily::Cohere => &[
+                "encoder.int8.onnx",
+                "encoder.int8.onnx.data",
+                "decoder.int8.onnx",
+                "tokens.txt",
+            ],
+            ModelFamily::Whisper => {
+                let stem = self.stem();
+                return vec![
+                    format!("{dir}/{stem}-encoder.int8.onnx"),
+                    format!("{dir}/{stem}-decoder.int8.onnx"),
+                    format!("{dir}/{stem}-tokens.txt"),
+                ];
+            }
+        };
+        files.iter().map(|f| format!("{dir}/{f}")).collect()
     }
+}
+
+/// Decoding search for transducer models. Other families ignore it.
+#[derive(Debug, Clone, Copy, PartialEq, Default)]
+pub enum Decoding {
+    /// `greedy_search`: the shipped default. sherpa-onnx #3267 reported
+    /// `modified_beam_search` returning empty or invented text on Parakeet-TDT.
+    #[default]
+    Greedy,
+    /// `modified_beam_search` with this many active paths. Needed for hotwords.
+    Beam { max_active_paths: i32 },
+}
+
+/// Words the recognizer should listen for (contextual biasing).
+///
+/// Transducers read `file` (one phrase per line) and need [`Decoding::Beam`];
+/// `score` is the per-token bonus. Qwen3-ASR takes the phrases as a prompt and
+/// ignores `score`.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Hotwords {
+    pub file: PathBuf,
+    pub score: f32,
 }
 
 /// Engine configuration.
@@ -196,6 +314,10 @@ pub struct EngineConfig {
     /// default: measured speaker quality on real audio was poor enough that
     /// labels hurt; when off, segments/words are speaker-less.
     pub diarize: bool,
+    /// Transducer search. Greedy unless an evaluation says otherwise.
+    pub decoding: Decoding,
+    /// Optional contextual biasing; `None` in the app today.
+    pub hotwords: Option<Hotwords>,
 }
 
 impl EngineConfig {
@@ -206,6 +328,8 @@ impl EngineConfig {
             num_threads: 4,
             num_speakers: None,
             diarize: false,
+            decoding: Decoding::Greedy,
+            hotwords: None,
         }
     }
 }
@@ -485,6 +609,75 @@ mod process_tests {
             !files.iter().any(|f| f.contains("-encoder.int8.onnx")),
             "transducer must not use the Whisper <stem>-encoder naming: {files:?}"
         );
+    }
+
+    #[test]
+    fn parakeet_family_candidates_share_the_transducer_layout() {
+        let cases = [
+            (AsrModel::ParakeetV3, "sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8"),
+            (AsrModel::ParakeetUltra, "sherpa-onnx-nemo-parakeet-tdt-0.6b-ultra-int8"),
+            (AsrModel::ParakeetRedux, "sherpa-onnx-nemo-parakeet-tdt-0.6b-redux-int8"),
+            (
+                AsrModel::ParakeetUnifiedEn,
+                "sherpa-onnx-nemo-parakeet-unified-en-0.6b-int8-non-streaming",
+            ),
+        ];
+        for (model, dir) in cases {
+            assert!(model.is_transducer(), "{model:?}");
+            assert_eq!(
+                model.asr_files(),
+                vec![
+                    format!("{dir}/encoder.int8.onnx"),
+                    format!("{dir}/decoder.int8.onnx"),
+                    format!("{dir}/joiner.int8.onnx"),
+                    format!("{dir}/tokens.txt"),
+                ]
+            );
+        }
+    }
+
+    #[test]
+    fn qwen3_and_cohere_use_their_release_archive_layouts() {
+        let q = "sherpa-onnx-qwen3-asr-0.6B-int8-2026-03-25";
+        assert_eq!(
+            AsrModel::Qwen3Asr06b.asr_files(),
+            vec![
+                format!("{q}/conv_frontend.onnx"),
+                format!("{q}/encoder.int8.onnx"),
+                format!("{q}/decoder.int8.onnx"),
+                format!("{q}/tokenizer/vocab.json"),
+                format!("{q}/tokenizer/merges.txt"),
+                format!("{q}/tokenizer/tokenizer_config.json"),
+            ]
+        );
+        let c = "sherpa-onnx-cohere-transcribe-14-lang-int8-2026-04-01";
+        assert_eq!(
+            AsrModel::CohereTranscribe.asr_files(),
+            vec![
+                format!("{c}/encoder.int8.onnx"),
+                format!("{c}/encoder.int8.onnx.data"),
+                format!("{c}/decoder.int8.onnx"),
+                format!("{c}/tokens.txt"),
+            ]
+        );
+        assert!(!AsrModel::Qwen3Asr06b.is_transducer());
+        assert!(!AsrModel::CohereTranscribe.is_transducer());
+    }
+
+    #[test]
+    fn model_names_round_trip() {
+        for m in AsrModel::ALL {
+            assert_eq!(AsrModel::from_name(m.stem()), Some(m));
+        }
+        assert_eq!(AsrModel::from_name("parakeet"), Some(AsrModel::ParakeetV2));
+        assert_eq!(AsrModel::from_name("nope"), None);
+    }
+
+    #[test]
+    fn config_defaults_to_greedy_without_hotwords() {
+        let cfg = EngineConfig::new("models");
+        assert_eq!(cfg.decoding, Decoding::Greedy);
+        assert!(cfg.hotwords.is_none());
     }
 
     #[test]
