@@ -150,8 +150,16 @@ impl Recognizer {
         let seg_end = round3(offset + samples.len() as f64 / sr);
         let timestamps = result.timestamps.clone().unwrap_or_default();
         let native = !timestamps.is_empty() && timestamps.len() == result.tokens.len();
-        let words =
-            group_tokens_to_words(&result.tokens, &timestamps, offset, seg_start, seg_end, &text);
+        let durations = result.durations.clone().unwrap_or_default();
+        let words = group_tokens_to_words(
+            &result.tokens,
+            &timestamps,
+            &durations,
+            offset,
+            seg_start,
+            seg_end,
+            &text,
+        );
         Some((AsrSegment { start: seg_start, end: seg_end, text, words }, native))
     }
 }
@@ -370,6 +378,7 @@ impl SherpaEngine {
 fn group_tokens_to_words(
     tokens: &[String],
     timestamps: &[f32],
+    durations: &[f32],
     offset: f64,
     seg_start: f64,
     seg_end: f64,
@@ -377,11 +386,20 @@ fn group_tokens_to_words(
 ) -> Vec<Word> {
     let mut words = Vec::new();
     let have_ts = !timestamps.is_empty() && timestamps.len() == tokens.len();
+    let have_durations = durations.len() == tokens.len();
     if have_ts {
+        // A word ends where its last token ends: that token's start plus its
+        // duration (TDT models report it), else the next token's start, else
+        // the segment's end. Never the last token's start, which would give a
+        // one-token word no length.
+        let end_of = |last: usize| match (have_durations, timestamps.get(last + 1)) {
+            (true, _) => offset + (timestamps[last] + durations[last]) as f64,
+            (false, Some(&next)) => offset + next as f64,
+            (false, None) => seg_end,
+        };
         let mut cur_word = String::new();
         let mut cur_start: Option<f64> = None;
-        let mut cur_end: f64 = 0.0;
-        for (tok, &ts) in tokens.iter().zip(timestamps.iter()) {
+        for (i, (tok, &ts)) in tokens.iter().zip(timestamps.iter()).enumerate() {
             // Word-start markers: Whisper BPE uses a leading space / `Ġ`;
             // Parakeet's SentencePiece uses `▁` (U+2581). Handle both so the
             // same grouping serves the Whisper and transducer paths.
@@ -391,7 +409,7 @@ fn group_tokens_to_words(
                 words.push(Word {
                     word: cur_word.trim().to_string(),
                     start: round3(offset + cur_start.unwrap_or(0.0)),
-                    end: round3(offset + cur_end),
+                    end: round3(end_of(i - 1)),
                     speaker: None,
                 });
                 cur_word.clear();
@@ -401,13 +419,12 @@ fn group_tokens_to_words(
                 cur_start = Some(ts as f64);
             }
             cur_word.push_str(&clean);
-            cur_end = ts as f64;
         }
         if !cur_word.trim().is_empty() {
             words.push(Word {
                 word: cur_word.trim().to_string(),
                 start: round3(offset + cur_start.unwrap_or(0.0)),
-                end: round3(offset + cur_end),
+                end: round3(end_of(tokens.len() - 1)),
                 speaker: None,
             });
         }
@@ -542,6 +559,38 @@ impl TranscriptionEngine for SherpaEngine {
 mod new_tests {
     use super::*;
     use crate::AsrModel;
+
+    /// Parakeet's tokens for "go to bed" (AMI clip EN2002b, 3.5 s in): a
+    /// one-token word must still last as long as it was spoken.
+    #[test]
+    fn every_word_lasts_as_long_as_its_tokens() {
+        let tokens: Vec<String> = [" go", " to", " b", "ed"].map(String::from).to_vec();
+        let ts = [3.52, 3.68, 3.76, 3.84];
+        let times = |durations: &[f32]| {
+            group_tokens_to_words(&tokens, &ts, durations, 10.0, 10.0, 15.0, "go to bed")
+                .iter()
+                .map(|w| (w.word.clone(), w.start, w.end))
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(
+            times(&[0.16, 0.08, 0.08, 0.16]),
+            vec![
+                ("go".into(), 13.52, 13.68),
+                ("to".into(), 13.68, 13.76),
+                ("bed".into(), 13.76, 14.0)
+            ]
+        );
+        // No durations (Whisper): a word runs to the next word's start, and
+        // the last one to the segment's end.
+        assert_eq!(
+            times(&[]),
+            vec![
+                ("go".into(), 13.52, 13.68),
+                ("to".into(), 13.68, 13.76),
+                ("bed".into(), 13.76, 15.0)
+            ]
+        );
+    }
 
     /// VAD params are model-aware: Whisper must stay under its 30 s window; the
     /// offline transducer path may run long and bridges pauses at least as much.
