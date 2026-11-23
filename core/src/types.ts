@@ -44,6 +44,8 @@ export interface FlatWord {
   start: number;
   end: number;
   speaker: SpeakerId;
+  /** What the model wrote, when the vocabulary file replaced it. */
+  original?: string;
 }
 
 /**

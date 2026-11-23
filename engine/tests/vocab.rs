@@ -142,6 +142,94 @@ fn a_spelled_acronym_is_joined_only_when_the_vocabulary_has_it() {
 }
 
 #[test]
+fn a_match_never_spans_two_speakers() {
+    let mut t = transcript(vec![
+        w("no", 0.0, 0.3),
+        Word {
+            speaker: Some("SPEAKER_01".into()),
+            ..w("one", 0.3, 0.6)
+        },
+    ]);
+    let before = t.clone();
+    assert_eq!(vocab("no one => nobody").apply(&mut t), 0);
+    assert_eq!(t, before);
+}
+
+#[test]
+fn a_match_never_joins_two_sentences() {
+    let mut t = transcript(vec![
+        w("said", 0.0, 0.3),
+        w("no.", 0.3, 0.6),
+        w("One", 0.6, 0.9),
+        w("witness", 0.9, 1.4),
+    ]);
+    let before = t.clone();
+    assert_eq!(vocab("no one => nobody").apply(&mut t), 0);
+    assert_eq!(t, before);
+}
+
+#[test]
+fn symbols_in_the_heard_side_are_part_of_the_match() {
+    let mut t = transcript(vec![
+        w("C", 0.0, 0.3),
+        w("and", 0.3, 0.6),
+        w("c++,", 0.6, 1.0),
+    ]);
+    assert_eq!(vocab("c++ => C++").apply(&mut t), 1);
+    assert_eq!(
+        t.segments[0].words,
+        vec![
+            w("C", 0.0, 0.3),
+            w("and", 0.3, 0.6),
+            changed("C++,", 0.6, 1.0, "c++,")
+        ]
+    );
+}
+
+#[test]
+fn words_replaced_one_for_one_keep_their_own_times() {
+    let mut t = transcript(vec![w("navio", 0.2, 0.6), w("stokes", 0.7, 1.1)]);
+    vocab("navio stokes => Navier Stokes").apply(&mut t);
+    assert_eq!(
+        t.segments[0].words,
+        vec![
+            changed("Navier", 0.2, 0.6, "navio stokes"),
+            changed("Stokes", 0.7, 1.1, "navio stokes")
+        ]
+    );
+}
+
+#[test]
+fn a_spelled_acronym_is_joined_after_the_word_a() {
+    let mut t = transcript(vec![
+        w("a", 0.0, 0.2),
+        w("C", 0.2, 0.4),
+        w("L", 0.4, 0.6),
+        w("I", 0.6, 0.8),
+        w("tool", 0.8, 1.2),
+    ]);
+    assert_eq!(vocab("CLI => CLI").apply(&mut t), 1);
+    assert_eq!(
+        t.segments[0].words,
+        vec![
+            w("a", 0.0, 0.2),
+            changed("CLI", 0.2, 0.8, "C L I"),
+            w("tool", 0.8, 1.2)
+        ]
+    );
+}
+
+#[test]
+fn repeated_words_are_all_kept_as_what_the_model_wrote() {
+    let mut t = transcript(vec![w("very", 0.0, 0.3), w("very", 0.3, 0.6)]);
+    vocab("very very => very").apply(&mut t);
+    assert_eq!(
+        t.segments[0].words,
+        vec![changed("very", 0.0, 0.6, "very very")]
+    );
+}
+
+#[test]
 fn later_rules_see_what_earlier_rules_wrote() {
     let mut t = transcript(vec![w("navio", 0.0, 0.4), w("stokes", 0.4, 0.9)]);
     let fired = vocab("navio => Navier\nnavier stokes => Navier-Stokes").apply(&mut t);
