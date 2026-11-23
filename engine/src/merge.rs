@@ -50,6 +50,7 @@ pub fn merge(asr: &[AsrSegment], spans: &[SpeakerSpan]) -> Transcript {
                 start: w.start,
                 end: w.end,
                 speaker: Some(speaker_for(w.start, w.end, spans)),
+                original: w.original.clone(),
             });
         }
         let mut weight: HashMap<String, f64> = HashMap::new();
@@ -99,6 +100,7 @@ pub fn from_asr(asr: &[AsrSegment]) -> Transcript {
                     start: w.start,
                     end: w.end,
                     speaker: None,
+                    original: w.original.clone(),
                 })
                 .collect(),
         })
@@ -114,7 +116,7 @@ mod tests {
         SpeakerSpan { speaker: spk.into(), start: s, end: e }
     }
     fn word(w: &str, s: f64, e: f64) -> Word {
-        Word { word: w.into(), start: s, end: e, speaker: None }
+        Word { word: w.into(), start: s, end: e, speaker: None, original: None }
     }
 
     /// Speaker `merge` assigns to a single word spanning `[ws, we]`.

@@ -1257,6 +1257,7 @@ pub async fn stop_recording(
                 }
             }
         }
+        crate::vocab::apply(&app, &mut result.transcript);
         let _ = app.emit("transcribe-progress", engine::Progress::new("done", 1, 1, 1.0));
         // The notes file stays until the app has saved the transcript with
         // the notes (`forget_recording_notes`).

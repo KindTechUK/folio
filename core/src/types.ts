@@ -20,6 +20,8 @@ export interface Word {
   speaker?: SpeakerId | null;
   /** Optional alignment confidence, if the engine provides it. */
   score?: number;
+  /** What the model wrote, when the vocabulary file replaced it. */
+  original?: string;
 }
 
 /** An engine segment. May or may not carry word-level detail. */

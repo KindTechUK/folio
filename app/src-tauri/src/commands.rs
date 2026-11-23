@@ -130,8 +130,9 @@ pub async fn transcribe(
             ));
         })
         .map_err(|e| e.to_string())?;
-        let transcript =
+        let mut transcript =
             process(&sherpa, &samples, sample_rate, &cfg, &progress).map_err(|e| e.to_string())?;
+        crate::vocab::apply(&run_app, &mut transcript);
         crate::device::record_run(
             &run_app,
             crate::device::Run {

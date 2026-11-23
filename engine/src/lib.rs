@@ -11,10 +11,12 @@ pub mod decode;
 pub mod merge;
 pub mod resample;
 pub mod sherpa;
+pub mod vocab;
 
 pub use decode::{decode_to_16k_mono, decode_to_16k_mono_with_progress, probe_duration_s};
 pub use resample::StreamResampler;
 pub use sherpa::{Recognizer, SherpaEngine, Vad, VadProfile};
+pub use vocab::{SkippedLine, Vocabulary};
 
 /// A progress update emitted during the pipeline so the UI can render a
 /// determinate bar instead of a blocking spinner. `fraction` is in `[0, 1]`.
@@ -61,9 +63,9 @@ pub const PROGRESS_TRANSCRIBE_END: f32 = 0.95;
 
 /// A single recognized word with timing and (optionally) its diarized speaker.
 ///
-/// Mirrors `Word` in `core/src/types.ts`. `speaker` is omitted from the JSON
-/// when absent. Word-level timestamps are a PLAYBACK AID ONLY, not an edit
-/// surface.
+/// Mirrors `Word` in `core/src/types.ts`. `speaker` and `original` are omitted
+/// from the JSON when absent. Word-level timestamps are a PLAYBACK AID ONLY,
+/// not an edit surface.
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct Word {
     pub word: String,
@@ -71,6 +73,9 @@ pub struct Word {
     pub end: f64,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub speaker: Option<String>,
+    /// What the model wrote, when the vocabulary replaced it (see [`vocab`]).
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub original: Option<String>,
 }
 
 /// An engine segment carrying word-level detail. Mirrors `Segment` in
@@ -494,8 +499,8 @@ mod process_tests {
                 end: 2.0,
                 text: "hello world".into(),
                 words: vec![
-                    Word { word: "hello".into(), start: 0.0, end: 1.0, speaker: None },
-                    Word { word: "world".into(), start: 1.0, end: 2.0, speaker: None },
+                    Word { word: "hello".into(), start: 0.0, end: 1.0, speaker: None, original: None },
+                    Word { word: "world".into(), start: 1.0, end: 2.0, speaker: None, original: None },
                 ],
             }])
         }
