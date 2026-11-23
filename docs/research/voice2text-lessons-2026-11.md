@@ -25,7 +25,8 @@
     and halve peak memory.
   - Piece length and beam search make no real difference.
   - Unified EN beats Parakeet v2 on short clips but not on long meetings.
-  - Cohere is the most accurate, but has no word timestamps.
+  - Cohere is the most accurate, but has no word timestamps, which the editor's speaker labels and
+    cursor need. So the default stays in the Parakeet family.
   - Ultra, v3, Redux and Qwen3-ASR drop out.
 - **Vocabulary.** v2t has no ASR-level biasing. A plain-text dictionary holds two kinds of line:
   `heard => written` replacements, which are deterministic, and `Term` hints for the LLM cleanup. A
@@ -105,7 +106,8 @@ It drops S1's "WER of live vs human" condition, because the live text is never t
 The **Folio-specific constraint v2t doesn't have** is word timestamps for the karaoke cursor and
 diarization mapping. The Parakeet family keeps them natively. For Qwen3-ASR and Cohere, check what
 `OfflineRecognizerResult` returns before investing; they may only be worth it as a slow, more accurate
-batch pass.
+batch pass. Checked on 2026-11-23: neither returns word timestamps. See "Word timings constrain the model"
+in section 1b.
 
 ## 1b. Decoding: how v2t does it, how Folio does it, what to evaluate
 
@@ -256,8 +258,7 @@ table compares models rather than gating. The table gives WER, with Δ against v
 - **Cohere is the most accurate model, but it can't be the record as things stand.**
   - It returns no word timestamps, and the karaoke cursor and speaker mapping need them.
   - It uses about 3× Parakeet's memory, takes 3–6 s to load, and is 2.7 GB on disk.
-  - It could only work as a slow batch pass with timings taken from another model, which would be a
-    project of its own.
+  - The ways round that are under "Word timings constrain the model" below.
 - **Qwen3-ASR has a language problem.** Some short English clips come back in Chinese: 8 of 150 on
   `ami-sdm` and 10 on `ami-ihm`, for example "我懂。". sherpa-onnx 2.0.1 has no language setting for
   it. It also has no word timestamps and is 2–3× slower than Parakeet.
@@ -274,13 +275,49 @@ table compares models rather than gating. The table gives WER, with Δ against v
 It also returned word timings for 88% of the AMI segments, against 95% for v2. Three meetings can't
 settle this, but they point the other way from the short clips.
 
+**Word timings constrain the model.** The review editor is built on per-word times, and three
+things depend on them:
+
+- **The karaoke cursor and click-to-seek.** Native times (±200–500 ms) are enough for these.
+- **Speaker labels.** `engine/src/merge.rs` gives each word the speaker whose diarized span it overlaps
+  most. A word placed at the wrong time can get the wrong speaker, and speaker labels are part of the
+  record.
+- **Paragraphs.** Without speaker labels, the editor and the Word export break paragraphs at pauses
+  between words.
+
+A model that returns no word times still runs: `group_tokens_to_words` (`engine/src/sherpa.rs`) spreads
+the words evenly across the segment. The error grows with segment length. In a 30 s energy-cut piece a
+word can land many seconds from where it was said. A speaker change inside the piece becomes a guess,
+and the pauses that make paragraphs disappear.
+
+So the default model must return native word timestamps. That leaves the Parakeet family: v2 and
+Unified EN. The cost is Cohere's accuracy, 24.4% against 30.6% WER on `ami-sdm`, though only 1–3 points
+on `ami-ihm` and `earnings22`, where Unified EN closes most of the gap.
+
+If Cohere's accuracy is ever wanted, there are three ways round the missing timestamps:
+
+1. **Short pieces with the even spread.** About 5–8 s pieces bound the timing error to a few seconds.
+   Speaker changes and paragraphs are still guesses, and it's untested whether short pieces cost Cohere
+   accuracy.
+2. **Two passes.** Parakeet provides times, Cohere provides words, and a word-level alignment (edit
+   distance) moves Parakeet's times onto Cohere's words. Inserted words take times from their
+   neighbours. The editor keeps working fully. It costs both decodes (RTF about 0.08 + 0.15) and both
+   models in memory, about 5 GB, so it's only realistic on Standard or Copilot+ machines, as an
+   optional accuracy pass.
+3. **A separate forced-alignment model.** Another download and more memory, so it's worth trying only
+   if option 2 falls short.
+
+Option 2 is the one to try first. It's worth building only if the Windows runs show the room-mic gap
+matters in practice.
+
 **Recommendation for the Windows reference laptop:**
 - **File path:** energy cuts at 30 s, or 15 s if memory is tight on the 8 GB floor. That keeps the
   2026-11-22 decision.
 - **Decoding:** keep greedy.
 - **Models:** run v2 and Unified EN with `energy:30/5`, on the short and the long sets. Keep v2 as the
   default unless Unified EN also wins on the long sets.
-- **Cohere:** one run on a Standard or Copilot+ machine, for speed and memory only.
+- **Cohere:** one run on a Standard or Copilot+ machine, for speed and memory only. That's enough to
+  judge the two-pass option above.
 - **Dropped:** Ultra, v3, Redux and Qwen3-ASR.
 
 ## 2. How v2t's vocabulary works
