@@ -31,32 +31,29 @@ The offer lists every planted file and stays on screen after one is recovered. T
 
 ## Press buttons in the background
 
-The web view exposes its buttons to Accessibility only once it's asked to. Turn that on, then press by label. Just after launch the page may not have loaded yet, so retry the pair a few times while the press returns `not found`:
+The web view exposes its buttons to Accessibility only once it's asked to. Use the Accessibility API directly; System Events' `window 1` can report no window, for example when Folio opens on a second display. This switches the web view's tree on, then presses the first button whose title starts with the argument:
 
 ```swift
-// axon.swift: swiftc axon.swift -o axon && ./axon
+// axpress.swift: swiftc -O axpress.swift -o axpress && ./axpress "Recover transcript"
 import ApplicationServices; import AppKit
-for a in NSWorkspace.shared.runningApplications where (a.executableURL?.lastPathComponent ?? "").contains("kindtech") {
-  AXUIElementSetAttributeValue(AXUIElementCreateApplication(a.processIdentifier), "AXManualAccessibility" as CFString, kCFBooleanTrue)
+let target = CommandLine.arguments[1]
+guard let app = NSWorkspace.shared.runningApplications.first(where: { ($0.executableURL?.lastPathComponent ?? "").contains("kindtech") }) else { print("no app"); exit(1) }
+let root = AXUIElementCreateApplication(app.processIdentifier)
+AXUIElementSetAttributeValue(root, "AXManualAccessibility" as CFString, kCFBooleanTrue)
+func attr(_ e: AXUIElement, _ n: String) -> AnyObject? { var v: AnyObject?; AXUIElementCopyAttributeValue(e, n as CFString, &v); return v }
+func walk(_ e: AXUIElement, _ depth: Int) -> Bool {
+  if depth > 60 { return false }
+  if (attr(e, "AXRole") as? String) == "AXButton",
+     ((attr(e, "AXTitle") as? String) ?? (attr(e, "AXDescription") as? String) ?? "").hasPrefix(target) {
+    print("pressed", AXUIElementPerformAction(e, "AXPress" as CFString).rawValue); return true
+  }
+  return ((attr(e, "AXChildren") as? [AXUIElement]) ?? []).contains { walk($0, depth + 1) }
 }
+for w in (attr(root, "AXWindows") as? [AXUIElement]) ?? [] { if walk(w, 0) { exit(0) } }
+print("not found")
 ```
 
-```applescript
--- press.applescript "Recover transcript": no `set frontmost`
-on run argv
-  tell application "System Events" to tell (first process whose name contains "kindtech")
-    repeat with e in (entire contents of window 1)
-      try
-        if role of e is "AXButton" and ((name of e) as text) starts with (item 1 of argv) then
-          perform action "AXPress" of e
-          return "clicked"
-        end if
-      end try
-    end repeat
-  end tell
-  return "not found"
-end run
-```
+Retry while it prints `not found`: the first `tauri dev` run after a Rust change builds for minutes, and the page loads after the window appears. `pressed 0` means it worked; `-25204` means the button was disabled because another transcription was running.
 
 ## Capture
 
