@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import { open } from "@tauri-apps/plugin-dialog";
 import { Button, Chip } from "./ui";
+import { ThisComputer } from "./Device";
+import type { DeviceProfile } from "./Device";
 
 // Pack trust is decided in Rust (`modelpack` crate: ed25519 + sha256 +
 // engine-version gate, fail-closed). This view only lists the verdicts; a
@@ -31,8 +33,11 @@ export function selectAsrModel(packs: PackStatus[]): string | null {
 
 export default function Models({
   onPacksChanged,
+  device,
 }: {
   onPacksChanged?: (packs: PackStatus[]) => void;
+  /** This computer's tier; null while the check is still running. */
+  device?: DeviceProfile | null;
 }) {
   const [packs, setPacks] = useState<PackStatus[]>([]);
   const [status, setStatus] = useState<string>("");
@@ -70,6 +75,7 @@ export default function Models({
 
   return (
     <section>
+      {device && <ThisComputer device={device} />}
       <div
         style={{
           display: "flex",

@@ -12,7 +12,7 @@ pub mod merge;
 pub mod resample;
 pub mod sherpa;
 
-pub use decode::{decode_to_16k_mono, decode_to_16k_mono_with_progress};
+pub use decode::{decode_to_16k_mono, decode_to_16k_mono_with_progress, probe_duration_s};
 pub use resample::StreamResampler;
 pub use sherpa::{Recognizer, SherpaEngine, Vad, VadProfile};
 

@@ -22,6 +22,8 @@ import Models, { selectAsrModel } from "./Models";
 import type { PackStatus } from "./Models";
 import Library from "./Library";
 import Record from "./Record";
+import { ImportEstimate, UNCHECKED } from "./Device";
+import type { DeviceProfile } from "./Device";
 import type { FinishedRecording } from "./Record";
 import SpeakerOptions, { requestedSpeakers } from "./SpeakerOptions";
 import Sidebar from "./Sidebar";
@@ -150,6 +152,11 @@ export default function App() {
   const [recovering, setRecovering] = useState(false);
   const recoveringRef = useRef(false);
   const [recoveryError, setRecoveryError] = useState<RecoveryError | null>(null);
+  // This computer's tier and speed; null until the first check answers.
+  const [device, setDevice] = useState<DeviceProfile | null>(null);
+  const [recordHintDismissed, setRecordHintDismissed] = useState(false);
+  // Length of the chosen recording: undefined while reading it, null when unknown.
+  const [selectedDuration, setSelectedDuration] = useState<number | null | undefined>(undefined);
 
   function updateModelStatus(packs: PackStatus[]) {
     setInstalledAsrModel(selectAsrModel(packs));
@@ -174,6 +181,27 @@ export default function App() {
       cancelled = true;
     };
   }, []);
+
+  function refreshDevice() {
+    invoke<DeviceProfile>("device_profile")
+      .then(setDevice)
+      // Never let an advisory check disrupt the app: say it wasn't checked.
+      .catch(() => setDevice(UNCHECKED));
+  }
+
+  useEffect(refreshDevice, []);
+
+  useEffect(() => {
+    if (!selectedPath) return;
+    let cancelled = false;
+    setSelectedDuration(undefined);
+    invoke<number | null>("recording_duration", { path: selectedPath })
+      .then((seconds) => !cancelled && setSelectedDuration(seconds ?? null))
+      .catch(() => !cancelled && setSelectedDuration(null));
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedPath]);
 
   // Offer recovery once, at launch: nothing is recording yet.
   useEffect(() => {
@@ -551,6 +579,8 @@ export default function App() {
         numSpeakers,
         model: asrModel,
       });
+      // The backend timed this run; pick up the refined estimate.
+      refreshDevice();
       await open(transcript);
       return true;
     } catch (e) {
@@ -713,6 +743,15 @@ export default function App() {
                     speakerCount={speakerCount}
                     onSpeakerCount={setSpeakerCount}
                   />
+                  {selectedPath && device && selectedDuration !== undefined && (
+                    <div style={{ marginTop: "var(--space-5)" }}>
+                      <ImportEstimate
+                        device={device}
+                        durationS={selectedDuration}
+                        labelSpeakers={detectSpeakers}
+                      />
+                    </div>
+                  )}
                   {selectedPath && (
                     <Button
                       variant="primary"
@@ -858,6 +897,9 @@ export default function App() {
                 setRecordingActive(active);
                 if (!active) setLeaveBlocked(false);
               }}
+              device={device}
+              hintDismissed={recordHintDismissed}
+              onDismissHint={() => setRecordHintDismissed(true)}
               onFinished={(r: FinishedRecording) =>
                 void openNewTranscript(
                   r.transcript,
@@ -870,7 +912,7 @@ export default function App() {
               }
             />
           ) : view === "models" ? (
-            <Models onPacksChanged={updateModelStatus} />
+            <Models onPacksChanged={updateModelStatus} device={device} />
           ) : (
             <Library onOpen={(id) => void openSession(id)} onImport={() => void startImport()} />
           )}

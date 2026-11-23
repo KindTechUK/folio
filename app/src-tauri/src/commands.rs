@@ -102,12 +102,16 @@ pub async fn transcribe(
     cfg.asr_model = parse_asr_model(model.as_deref());
 
     let resolve_app = app.clone();
+    let run_app = app.clone();
 
     tauri::async_runtime::spawn_blocking(move || {
         // Resolve the models dir, enforcing verified-pack trust (debug-only raw
         // override: see `debug_models_dir_override`).
         cfg.models_dir = resolve_models_dir(&resolve_app, cfg.asr_model, cfg.diarize)?;
 
+        // Timed from model load to the finished transcript: what the person
+        // waits for, and what the Import estimate learns from.
+        let started = std::time::Instant::now();
         let sherpa = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
 
         // One progress sink for the whole job (best-effort: a dropped event must
@@ -126,7 +130,17 @@ pub async fn transcribe(
             ));
         })
         .map_err(|e| e.to_string())?;
-        process(&sherpa, &samples, sample_rate, &cfg, &progress).map_err(|e| e.to_string())
+        let transcript =
+            process(&sherpa, &samples, sample_rate, &cfg, &progress).map_err(|e| e.to_string())?;
+        crate::device::record_run(
+            &run_app,
+            crate::device::Run {
+                audio_s: samples.len() as f64 / sample_rate as f64,
+                elapsed_s: started.elapsed().as_secs_f64(),
+                diarize: cfg.diarize,
+            },
+        );
+        Ok(transcript)
     })
     .await
     .map_err(|e| format!("transcription task failed: {e}"))?

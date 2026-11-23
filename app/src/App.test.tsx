@@ -18,6 +18,8 @@ let interrupted: unknown[];
 let recoverRecording: () => Promise<unknown>;
 let deleteInterrupted: () => Promise<unknown>;
 let modelPacks: unknown[];
+let deviceProfile: () => Promise<unknown>;
+let recordingDuration: () => Promise<unknown>;
 // Event handlers registered through `listen`, so tests can emit backend events.
 let handlers: Record<string, (event: { payload: unknown }) => void>;
 
@@ -51,6 +53,27 @@ const transcript: Transcript = {
   ],
 };
 
+const ESSENTIALS = {
+  tier: "essentials",
+  reason: "7.7 GB of memory, under the 12 GB of the next group.",
+  ramGb: 7.7,
+  cpu: "Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz",
+  cores: 4,
+  npu: null,
+  minutesPerHour: 15,
+  measured: false,
+};
+const STANDARD = {
+  tier: "standard",
+  reason: "15.6 GB of memory.",
+  ramGb: 15.6,
+  cpu: "Intel(R) Core(TM) Ultra 5 225U",
+  cores: 12,
+  npu: "Intel(R) AI Boost",
+  minutesPerHour: 6,
+  measured: false,
+};
+
 beforeEach(() => {
   invokeMock.mockReset();
   openMock.mockReset();
@@ -75,6 +98,8 @@ beforeEach(() => {
   interrupted = [];
   recoverRecording = () => Promise.resolve({ notes: "Client agreed to mediation." });
   deleteInterrupted = () => Promise.resolve();
+  deviceProfile = () => Promise.resolve(STANDARD);
+  recordingDuration = () => Promise.resolve(2892);
   modelPacks = [
     {
       dir: "asr-small-en",
@@ -127,6 +152,10 @@ beforeEach(() => {
         return recoverRecording();
       case "delete_interrupted_recording":
         return deleteInterrupted();
+      case "device_profile":
+        return deviceProfile();
+      case "recording_duration":
+        return recordingDuration();
       default:
         throw new Error(`unexpected command ${command}`);
     }
@@ -943,6 +972,90 @@ describe("Recordings without a transcript", () => {
     );
     await waitFor(() =>
       expect(screen.queryByTestId("interrupted-recording")).not.toBeInTheDocument(),
+    );
+  });
+});
+
+describe("This computer", () => {
+  async function openModels(): Promise<void> {
+    render(<App />);
+    fireEvent.click(await screen.findByRole("button", { name: /^Models & settings/ }));
+  }
+
+  it("says what an Essentials computer can do, with advice for the next laptop", async () => {
+    deviceProfile = () => Promise.resolve(ESSENTIALS);
+    await openModels();
+
+    expect(
+      await screen.findByText("Folio works well on this computer for transcribing and recording."),
+    ).toBeInTheDocument();
+    expect(screen.getByText("about 15 minutes")).toBeInTheDocument();
+    expect(screen.getByText(/Ask for 16 GB of memory/)).toBeInTheDocument();
+  });
+
+  it("gives no laptop advice on a Standard computer", async () => {
+    await openModels();
+
+    expect(
+      await screen.findByText("Folio runs everything it offers on this computer."),
+    ).toBeInTheDocument();
+    expect(screen.getByText("about 6 minutes")).toBeInTheDocument();
+    expect(screen.queryByText(/Ask for 16 GB of memory/)).not.toBeInTheDocument();
+  });
+
+  it("says the computer wasn't checked when the check fails", async () => {
+    deviceProfile = () => Promise.reject(new Error("PowerShell blocked"));
+    await openModels();
+
+    expect(await screen.findByText("Not checked")).toBeInTheDocument();
+    expect(screen.getByText(/couldn't check this computer/)).toBeInTheDocument();
+  });
+
+  it("hints on Record to close apps on Essentials only, until dismissed", async () => {
+    deviceProfile = () => Promise.resolve(ESSENTIALS);
+    render(<App />);
+    fireEvent.click(await screen.findByRole("button", { name: /^Record/ }));
+
+    expect(await screen.findByText(/This computer has 8 GB of memory/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Got it" }));
+    expect(screen.queryByText(/This computer has 8 GB of memory/)).not.toBeInTheDocument();
+  });
+
+  it("shows no hint on Record on a Standard computer", async () => {
+    render(<App />);
+    fireEvent.click(await screen.findByRole("button", { name: /^Record/ }));
+
+    await screen.findByRole("button", { name: "Start recording" });
+    expect(screen.queryByText(/This computer has/)).not.toBeInTheDocument();
+  });
+
+  async function chooseOnImport(): Promise<void> {
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+  }
+
+  it("estimates on Import how long the chosen recording takes on this computer", async () => {
+    deviceProfile = () => Promise.resolve(ESSENTIALS);
+    // 48 min 12 s at 15 minutes per hour of audio.
+    recordingDuration = () => Promise.resolve(2892);
+    await chooseOnImport();
+
+    expect(await screen.findByTestId("import-estimate")).toHaveTextContent(
+      "Ready to transcribe: about 12 minutes on this computer.",
+    );
+    expect(invokeMock).toHaveBeenCalledWith("recording_duration", {
+      path: "/recordings/interview.wav",
+    });
+  });
+
+  it("says on Import that it can't estimate when the computer wasn't checked", async () => {
+    deviceProfile = () => Promise.reject(new Error("PowerShell blocked"));
+    await chooseOnImport();
+
+    expect(await screen.findByTestId("import-estimate")).toHaveTextContent(
+      "Folio can't estimate the time on this computer.",
     );
   });
 });
