@@ -1,0 +1,21 @@
+asr-bench vendors data from, and ports code of, the Open ASR Leaderboard scorer:
+https://github.com/huggingface/open_asr_leaderboard, directory normalizer/, at commit
+2aaa07a5ea7c5b18ea53c511426d2079b35d1200 (2026-10-26).
+
+  data/english_spelling.tsv, data/english_names.tsv, data/english_compounds.tsv,
+  data/english_replacers.tsv and data/english_fillers.txt are dumped unchanged from that
+  commit's normalizer/english_abbreviations.py and normalizer/normalizer.py
+  (EnglishTextNormalizer), by tests/fixtures/make_golden.py.
+  src/normalize.rs is a Rust port of normalizer/normalizer.py (EnglishTextNormalizer,
+  EnglishNumberNormalizer, EnglishSpellingNormalizer, EnglishNameNormalizer,
+  EnglishAcronymNormalizer, remove_symbols_and_diacritics).
+
+  Copyright 2022 The OpenAI team and The HuggingFace Team. Licensed under the Apache
+  License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
+  (Most of that code derives from OpenAI Whisper's normalizers, MIT licence.)
+
+src/align.rs ports LevenshteinEditDistanceCompound from kaldialign v0.12.0
+(https://github.com/pzelasko/kaldialign, Apache-2.0).
+
+tests/fixtures/oasr_golden.json holds outputs of the leaderboard scorer and kaldialign
+0.12.0 themselves, produced by tests/fixtures/make_golden.py.
