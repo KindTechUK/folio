@@ -190,6 +190,11 @@ export default function App() {
   }
 
   useEffect(refreshDevice, []);
+  // Read again whenever Models & settings opens: the default microphone can
+  // change while Folio runs.
+  useEffect(() => {
+    if (view === "models") refreshDevice();
+  }, [view]);
 
   useEffect(() => {
     if (!selectedPath) return;
