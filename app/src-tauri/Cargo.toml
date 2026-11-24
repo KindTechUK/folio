@@ -59,3 +59,20 @@ sysinfo = { version = "0.33", default-features = false, features = ["system"] }
 # runs `cargo tree` for default AND `--features hardened`.
 default = []
 hardened = []
+
+# Reading whether the microphone offers raw capture (src/microphone.rs). The
+# same `windows` version cpal already uses, so nothing new is built.
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.62", features = [
+  "Win32_Foundation",
+  "Win32_Media_Audio",
+  "Win32_System_Com",
+  "Win32_System_Com_StructuredStorage",
+  "Win32_System_Variant",
+  "Win32_UI_Shell_PropertiesSystem",
+] }
+
+# Reading whether the default microphone is built in (src/microphone.rs). The
+# same Core Audio bindings cpal already uses, so nothing new is built.
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2-core-audio = { version = "0.3", default-features = false, features = ["std", "AudioHardware"] }
