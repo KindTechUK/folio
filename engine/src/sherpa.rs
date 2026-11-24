@@ -459,6 +459,9 @@ impl SherpaEngine {
     }
 }
 
+/// One Parakeet encoder frame: a 10 ms hop, subsampled 8 times.
+const TDT_FRAME_S: f32 = 0.08;
+
 /// Group tokens into words on the word-start marker (leading space, `Ġ`, or
 /// `▁`), converting chunk-relative token timestamps to absolute seconds via
 /// `offset`; falls back to spreading the chunk span uniformly when timestamps
@@ -477,13 +480,17 @@ fn group_tokens_to_words(
     let have_durations = durations.len() == tokens.len();
     if have_ts {
         // A word ends where its last token ends: that token's start plus its
-        // duration (TDT models report it), else the next token's start, else
-        // the segment's end. Never the last token's start, which would give a
-        // one-token word no length.
-        let end_of = |last: usize| match (have_durations, timestamps.get(last + 1)) {
-            (true, _) => offset + (timestamps[last] + durations[last]) as f64,
-            (false, Some(&next)) => offset + next as f64,
-            (false, None) => seg_end,
+        // duration (TDT models report it, at least one encoder frame), else
+        // the next token's start, else the segment's end. Never the last
+        // token's start, which would give a one-token word no length, and
+        // never past the segment's end.
+        let end_of = |last: usize| {
+            let end = match (have_durations, timestamps.get(last + 1)) {
+                (true, _) => offset + (timestamps[last] + durations[last].max(TDT_FRAME_S)) as f64,
+                (false, Some(&next)) => offset + next as f64,
+                (false, None) => seg_end,
+            };
+            end.min(seg_end)
         };
         let mut cur_word = String::new();
         let mut cur_start: Option<f64> = None;
@@ -699,6 +706,25 @@ mod new_tests {
                 ("bed".into(), 13.76, 15.0)
             ]
         );
+    }
+
+    /// TDT can give a token duration 0 (the next token comes out on the same
+    /// encoder frame): the word still lasts that one frame, 80 ms.
+    #[test]
+    fn a_word_whose_token_has_no_duration_still_lasts_a_frame() {
+        let tokens: Vec<String> = [" a", " cat"].map(String::from).to_vec();
+        let words = group_tokens_to_words(&tokens, &[1.2, 1.2], &[0.0, 0.16], 10.0, 10.0, 15.0, "a cat");
+        assert_eq!((words[0].start, words[0].end), (11.2, 11.28));
+    }
+
+    /// A token's duration counts encoder frames, which can run past the end
+    /// of the audio: a word never ends after its segment.
+    #[test]
+    fn a_word_never_ends_after_its_segment() {
+        let tokens: Vec<String> = [" go", " home"].map(String::from).to_vec();
+        let words =
+            group_tokens_to_words(&tokens, &[4.6, 4.88], &[0.24, 0.32], 10.0, 10.0, 15.0, "go home");
+        assert_eq!((words[1].start, words[1].end), (14.88, 15.0));
     }
 
     /// sherpa-onnx doesn't cut an utterance at `max_speech`: past it, it only
