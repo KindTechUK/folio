@@ -237,8 +237,11 @@ a ±5 s search:
 | `energy:30/5` | 25.3 | 17.7% | 7.3 | 1,554 |
 | `energy:60/5` | 24.9 | 17.8% | 7.1 | 1,947 |
 
-- v2t's 30 s is a sound default.
-- 15 s saves about 100 MB on the AMI meetings, if the 8 GB floor laptop is tight.
+- On the bench, 30 s (v2t's default) and 15 s score alike, and 15 s saves about 100 MB on the AMI
+  meetings.
+- **Folio ships 15 s (2026-11-24).** On a room recording made through Folio, Parakeet v2 dropped
+  all but the last 2 s of a 30.5 s piece, while 20 s and 25 s pieces of the same audio came back
+  whole (`engine/tests/long_pieces.rs`; see "Decided (2026-11-24)" above).
 - 200 ms of VAD padding helps no more than the 300 ms above.
 
 **D4: beam search gains nothing.** Parakeet v2 with today's VAD, `modified_beam_search` with beam 4
@@ -331,10 +334,9 @@ Option 2 is the one to try first. It's worth building only if the Windows runs s
 matters in practice.
 
 **Recommendation for the Windows reference laptop:**
-- **File path:** energy cuts at 30 s, or 15 s if memory is tight on the 8 GB floor. That keeps the
-  2026-11-22 decision.
+- **File path:** energy cuts at 15 s (`energy:15/5`), as shipped on 2026-11-24.
 - **Decoding:** keep greedy.
-- **Models:** run v2 and Unified EN with `energy:30/5`, on the short and the long sets. Keep v2 as the
+- **Models:** run v2 and Unified EN with `energy:15/5`, on the short and the long sets. Keep v2 as the
   default unless Unified EN also wins on the long sets.
 - **Cohere:** one run on a Standard or Copilot+ machine, for speed and memory only. That's enough to
   judge the two-pass option above.
@@ -441,7 +443,7 @@ after user testing. A clickable prototype of B–E exists for that testing.
    intervals, to the eval harness.~~ Done: `tools/asr-bench` ([PR #24](https://github.com/KindTechUK/folio/pull/24)).
 2. Decoding cells D1–D4 (section 1b): done on Mac (2026-11-23, section 1b). Still to run on the
    Windows reference laptop.
-3. On the Windows reference laptop: Parakeet v2 (baseline) and Unified EN, both with `energy:30/5`,
+3. On the Windows reference laptop: Parakeet v2 (baseline) and Unified EN, both with `energy:15/5`,
    plus one Cohere run on a Standard or Copilot+ machine. The Mac grid dropped Ultra, v3, Redux and
    Qwen3-ASR. Record WER, RTF, peak memory, load time, and whether word timestamps come back.
 4. Vocabulary: adopt v2t's file format (`Term` / `heard => written`, plus acronym joining) and add
