@@ -1005,6 +1005,35 @@ describe("This computer", () => {
     expect(screen.queryByText(/Ask for 16 GB of memory/)).not.toBeInTheDocument();
   });
 
+  it("shows the microphone that is the default when Models & settings opens", async () => {
+    render(<App />);
+    await screen.findByRole("button", { name: /^Models & settings/ });
+    // A USB microphone is plugged in after launch.
+    deviceProfile = () =>
+      Promise.resolve({
+        ...STANDARD,
+        microphone: { name: "USB Conference Mic", processing: "always" },
+      });
+    fireEvent.click(screen.getByRole("button", { name: /^Models & settings/ }));
+
+    expect(await screen.findByText("USB Conference Mic")).toBeInTheDocument();
+  });
+
+  it("says Windows can't skip a microphone's effects, not that they're on", async () => {
+    deviceProfile = () =>
+      Promise.resolve({
+        ...STANDARD,
+        microphone: { name: "Microphone (Conexant SmartAudio HD)", processing: "always" },
+      });
+    await openModels();
+
+    expect(
+      await screen.findByText(
+        /Windows can't give Folio this microphone's sound without its effects, if it has any\./,
+      ),
+    ).toBeInTheDocument();
+  });
+
   it("says the computer wasn't checked when the check fails", async () => {
     deviceProfile = () => Promise.reject(new Error("PowerShell blocked"));
     await openModels();

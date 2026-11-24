@@ -18,7 +18,9 @@ pub enum Processing {
     /// Windows can give Folio this microphone's sound without its effects.
     #[cfg_attr(not(windows), allow(dead_code))]
     Bypassable,
-    /// Windows always applies this microphone's effects.
+    /// Windows can't give Folio this microphone's sound without its effects
+    /// (the endpoint offers no raw mode). Whether any effects are on is
+    /// unknown.
     #[cfg_attr(not(windows), allow(dead_code))]
     Always,
     /// A Mac's built-in microphone, which macOS always processes.

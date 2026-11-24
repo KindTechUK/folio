@@ -104,9 +104,9 @@ const MICROPHONE_NOTES: Record<Microphone["processing"], string> = {
     "Windows can give Folio this microphone's sound without its effects. Folio doesn't ask for " +
     "that yet; it's being tested on meeting rooms.",
   always:
-    "Windows always applies this microphone's sound effects. For meetings in a room, choose a " +
-    "setting for several voices in the laptop's audio app, if it has one (for example Lenovo " +
-    "Vantage).",
+    "Windows can't give Folio this microphone's sound without its effects, if it has any. For " +
+    "meetings in a room, choose a setting for several voices in the laptop's audio app, if it " +
+    "has one (for example Lenovo Vantage).",
   builtInMac: "macOS always processes the built-in microphone, and apps can't turn that off.",
   unknown: "Folio couldn't read this microphone's settings.",
 };

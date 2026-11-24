@@ -21,9 +21,12 @@ use sherpa_onnx::{
 use crate::segment::{energy_cuts, Leveller};
 use crate::{EMB_MODEL, SEG_MODEL, VAD_MODEL};
 
-/// File transcription with Parakeet: pieces of about this many seconds, each
-/// cut at the quietest 100 ms within [`PIECE_SEARCH_S`] of its mark.
-pub const PIECE_S: f32 = 30.0;
+/// The record with Parakeet (imports, and a recording's saved transcript):
+/// pieces of about this many seconds, each cut at the quietest 100 ms within
+/// [`PIECE_SEARCH_S`] of its mark, so 10–20 s long. Parakeet v2 can drop the
+/// opening of a ~30 s piece (`tests/long_pieces.rs`); 15/5 scored the same as
+/// 30/5 on the bench (docs/research/voice2text-lessons-2026-11.md).
+pub const PIECE_S: f32 = 15.0;
 pub const PIECE_SEARCH_S: f32 = 5.0;
 
 /// VAD segmentation tuning per model family, as
@@ -31,7 +34,8 @@ pub const PIECE_SEARCH_S: f32 = 5.0;
 ///
 /// `min_silence_duration` is the "redemption" time: how long a pause must last
 /// before a speech segment is closed. `max_speech_duration` caps a segment's
-/// length (Silero cuts at the cap).
+/// length: past it, sherpa-onnx asks for a shorter, clearer silence (0.1 s
+/// at 0.9), so a segment usually ends soon after, but it isn't cut.
 ///
 /// Parakeet's file path no longer uses these: it decodes energy-cut pieces
 /// ([`PIECE_S`]). Its row stays for callers that ask for a VAD by model.
@@ -83,7 +87,8 @@ struct Originals {
     /// Stream position of `buf[0]`.
     base: usize,
     buf: Vec<f32>,
-    /// How much to keep: an utterance can start this long before it closes.
+    /// How much [`Originals::trim`] keeps, for Silero's look-back once no
+    /// utterance is open.
     keep: usize,
 }
 
@@ -95,6 +100,12 @@ impl Originals {
 
     fn push(&mut self, samples: &[f32]) {
         self.buf.extend_from_slice(samples);
+    }
+
+    /// Drop all but the last `keep` samples. Only call it while no utterance
+    /// is open: sherpa-onnx doesn't cut at `max_speech` (it only asks for a
+    /// shorter, clearer silence), so an open one can be any length.
+    fn trim(&mut self) {
         if self.buf.len() > 2 * self.keep {
             let drop = self.buf.len() - self.keep;
             self.buf.drain(..drop);
@@ -134,6 +145,11 @@ impl Vad {
                 None => self.inner.accept_waveform(chunk),
             }
             self.drain(&mut out);
+            if let Some(l) = &self.levelling {
+                if !self.inner.detected() {
+                    l.borrow_mut().1.trim();
+                }
+            }
         }
         out
     }
@@ -391,8 +407,8 @@ impl SherpaEngine {
         let inner = VoiceActivityDetector::create(&vad_config, 100.0)
             .ok_or_else(|| EngineError::Sherpa("create VoiceActivityDetector returned None".into()))?;
         let levelling = profile.levelled.then(|| {
-            // An utterance closes at most `max_speech + min_silence` after it
-            // starts; 10 s more covers Silero's own look-back.
+            // Kept between utterances, comfortably more than Silero looks
+            // back when one starts; an open utterance is never trimmed.
             let keep = ((profile.max_speech + profile.min_silence + 10.0) * sample_rate as f32) as usize;
             std::cell::RefCell::new((
                 Leveller::new(sample_rate),
@@ -524,8 +540,8 @@ impl TranscriptionEngine for SherpaEngine {
         progress(Progress::new("loading", 0, 0, crate::PROGRESS_DECODE_END));
         let recognizer = Recognizer { inner: self.build_recognizer()?, sample_rate };
         let chunks: Vec<(usize, std::borrow::Cow<'_, [f32]>)> =
-            if self.asr_model.family() == ModelFamily::Transducer {
-                // Parakeet decodes every sample, in ~30 s pieces cut at the
+            if self.asr_model.decodes_pieces() {
+                // Parakeet decodes every sample, in ~15 s pieces cut at the
                 // quietest moment: VAD gating deleted a third of the words on
                 // room-mic meetings (docs/research/room-mic-capture-2026-11.md).
                 let mut edges = vec![0];
@@ -635,6 +651,20 @@ impl TranscriptionEngine for SherpaEngine {
 mod new_tests {
     use super::*;
     use crate::AsrModel;
+
+    /// sherpa-onnx doesn't cut an utterance at `max_speech`: past it, it only
+    /// asks for a shorter, clearer silence. So an utterance can stay open
+    /// longer than any fixed `keep`, and its start must still be there when it
+    /// closes.
+    #[test]
+    fn an_open_utterance_keeps_its_original_samples_however_long_it_runs() {
+        let mut originals = Originals { base: 0, buf: Vec::new(), keep: 16_000 };
+        // 60 s of speech, one 512-sample VAD window at a time, never closing.
+        for k in 0..(60 * 16_000 / 512) {
+            originals.push(&[k as f32; 512]);
+        }
+        assert_eq!(originals.get(0, 512), Some(vec![0.0; 512]));
+    }
 
     /// VAD params are model-aware: Whisper must stay under its 30 s window; the
     /// offline transducer path may run long and bridges pauses at least as much.

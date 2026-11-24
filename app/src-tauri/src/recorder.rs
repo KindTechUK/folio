@@ -7,15 +7,17 @@
 //! - **Live captions:** the live VAD (judging a levelled copy) closes
 //!   utterances, which are decoded as they close and emitted to the UI. They're
 //!   a preview only.
-//! - **The record:** every sample, in ~30 s pieces cut at the quietest moment
-//!   (`engine::segment::PieceCutter`), the same rule the file path uses. VAD
-//!   gating deleted a third of the words on room-mic meetings
-//!   (docs/research/room-mic-capture-2026-11.md).
+//! - **The record:** with Parakeet, every sample, in ~15 s pieces cut at the
+//!   quietest moment (`engine::segment::PieceCutter`), the same rule the file
+//!   path uses. VAD gating deleted a third of the words on room-mic meetings
+//!   (docs/research/room-mic-capture-2026-11.md). Other models don't take
+//!   pieces ([`engine::AsrModel::decodes_pieces`]), so their record is
+//!   the captions' VAD utterances.
 //!
 //! One decoder serves both, captions first; record pieces fill the gaps. On
-//! stop, waiting captions are dropped, the last piece is decoded, and the
-//! pieces (optionally with speaker labels from diarizing the whole WAV) become
-//! a normal transcript.
+//! stop, waiting preview captions are dropped, the rest of the record is
+//! decoded, and it (optionally with speaker labels from diarizing the whole
+//! WAV) becomes a normal transcript.
 //!
 //! The WAV header is rewritten every few seconds, so a crash leaves a playable
 //! file missing at most the last few seconds. Recordings are approved in the
@@ -490,12 +492,21 @@ impl Utterance {
 enum Job {
     /// A live caption (preview only).
     Caption(Utterance),
-    /// A piece of the record, as `(start, len)` in the WAV.
-    Record(usize, usize),
+    /// Part of the record, also shown as a caption when the flag is set (a VAD
+    /// utterance, for models that don't take pieces).
+    Record(Utterance, bool),
 }
 
 fn new_cutter() -> PieceCutter {
     PieceCutter::new(SAMPLE_RATE, PIECE_S, PIECE_SEARCH_S)
+}
+
+/// Decode one utterance or piece; `Err` if its audio couldn't be read back.
+fn decode(path: &Path, recognizer: &engine::Recognizer, utt: Utterance) -> Result<Option<AsrSegment>, String> {
+    Ok(match utt {
+        Utterance::Samples(start, chunk) => recognizer.decode_utterance(start, &chunk),
+        Utterance::Span(start, n) => recognizer.decode_utterance(start, &read_span(path, start, n)?),
+    })
 }
 
 /// Backlog held in memory before utterances are queued as WAV spans.
@@ -622,6 +633,8 @@ struct Active {
     process: JoinHandle<Result<(), String>>,
     decode: JoinHandle<()>,
     segments: Arc<Mutex<Vec<AsrSegment>>>,
+    /// Record samples that couldn't be read back for decoding.
+    unread: Arc<AtomicUsize>,
     cancel: Arc<AtomicBool>,
     stopping: Arc<AtomicBool>,
 }
@@ -906,6 +919,7 @@ fn process_thread(
     jobs: Sender<Job>,
     backlog: Arc<AtomicUsize>,
     record_backlog: Arc<AtomicUsize>,
+    in_pieces: bool,
 ) -> Result<(), String> {
     let vad = engine.vad(VadProfile::LIVE).map_err(|e| e.to_string())?;
     let mut resampler = StreamResampler::new(input.rate, input.channels).map_err(|e| e.to_string())?;
@@ -913,7 +927,7 @@ fn process_thread(
         app,
         file,
         vad,
-        pieces: new_cutter(),
+        pieces: in_pieces.then(new_cutter),
         jobs,
         backlog,
         record_backlog,
@@ -971,8 +985,8 @@ struct Processor {
     app: AppHandle,
     file: RecordingFile,
     vad: engine::Vad,
-    /// Cuts the record's pieces.
-    pieces: PieceCutter,
+    /// Cuts the record's pieces; `None` when the record is the VAD utterances.
+    pieces: Option<PieceCutter>,
     jobs: Sender<Job>,
     /// Caption samples queued for the decoder and not yet transcribed.
     backlog: Arc<AtomicUsize>,
@@ -997,7 +1011,12 @@ impl Processor {
             } else {
                 Utterance::Samples(start, chunk)
             };
-            let _ = self.jobs.send(Job::Caption(utt));
+            if self.pieces.is_some() {
+                let _ = self.jobs.send(Job::Caption(utt));
+            } else {
+                self.record_backlog.fetch_add(utt.len(), Ordering::Relaxed);
+                let _ = self.jobs.send(Job::Record(utt, true));
+            }
         }
     }
 
@@ -1010,7 +1029,7 @@ impl Processor {
         self.file.flush()?;
         for (start, len) in pieces {
             self.record_backlog.fetch_add(len, Ordering::Relaxed);
-            let _ = self.jobs.send(Job::Record(self.base + start, len));
+            let _ = self.jobs.send(Job::Record(Utterance::Span(self.base + start, len), false));
         }
         Ok(())
     }
@@ -1019,13 +1038,15 @@ impl Processor {
     fn close_utterance(&mut self) -> Result<(), String> {
         let closed = self.vad.flush();
         self.send(closed);
-        let last = self.pieces.flush().into_iter().collect();
+        let last = self.pieces.as_mut().and_then(PieceCutter::flush).into_iter().collect();
         self.send_pieces(last)
     }
 
     fn restart_vad(&mut self) {
         self.vad.reset();
-        self.pieces = new_cutter();
+        if self.pieces.is_some() {
+            self.pieces = Some(new_cutter());
+        }
         self.base = self.file.written();
     }
 
@@ -1042,8 +1063,10 @@ impl Processor {
 
     fn samples(&mut self, samples: &[f32]) -> Result<(), String> {
         self.file.append(samples)?;
-        let pieces = self.pieces.push(samples);
-        self.send_pieces(pieces)?;
+        if let Some(cutter) = &mut self.pieces {
+            let pieces = cutter.push(samples);
+            self.send_pieces(pieces)?;
+        }
         let closed = self.vad.accept(samples);
         self.send(closed);
         let change = self.silence.feed(samples);
@@ -1070,9 +1093,10 @@ impl Processor {
     }
 }
 
-/// Decoder thread. Captions are decoded first, in order, and emitted; record
-/// pieces fill the gaps and become the transcript. After Stop, waiting captions
-/// are dropped and progress is reported through the remaining pieces.
+/// Decoder thread. Captions are decoded first, in order, and emitted; the
+/// record fills the gaps and becomes the transcript. After Stop, waiting
+/// preview captions are dropped and progress is reported through the rest of
+/// the record. Record audio that can't be read back is counted in `unread`.
 #[allow(clippy::too_many_arguments)]
 fn decode_thread(
     app: AppHandle,
@@ -1083,6 +1107,7 @@ fn decode_thread(
     mut recognizer: engine::Recognizer,
     backlog: Arc<AtomicUsize>,
     record_backlog: Arc<AtomicUsize>,
+    unread: Arc<AtomicUsize>,
     cancel: Arc<AtomicBool>,
     stopping: Arc<AtomicBool>,
 ) {
@@ -1090,14 +1115,14 @@ fn decode_thread(
     // Samples transcribed since Stop, for the drain progress bar.
     let mut drained = 0usize;
     let mut captions: VecDeque<Utterance> = VecDeque::new();
-    let mut pieces: VecDeque<(usize, usize)> = VecDeque::new();
+    let mut pieces: VecDeque<(Utterance, bool)> = VecDeque::new();
     let mut open = true;
     loop {
         // Take everything waiting; block only when there's nothing to do.
-        fn queue(job: Job, captions: &mut VecDeque<Utterance>, pieces: &mut VecDeque<(usize, usize)>) {
+        fn queue(job: Job, captions: &mut VecDeque<Utterance>, pieces: &mut VecDeque<(Utterance, bool)>) {
             match job {
                 Job::Caption(utt) => captions.push_back(utt),
-                Job::Record(start, len) => pieces.push_back((start, len)),
+                Job::Record(utt, caption) => pieces.push_back((utt, caption)),
             }
         }
         while let Ok(job) = jobs.try_recv() {
@@ -1119,24 +1144,30 @@ fn decode_thread(
         }
         if let Some(utt) = captions.pop_front() {
             let len = utt.len();
-            let decoded = match utt {
-                Utterance::Samples(start, chunk) => recognizer.decode_utterance(start, &chunk),
-                Utterance::Span(start, n) => read_span(&path, start, n)
-                    .ok()
-                    .and_then(|chunk| recognizer.decode_utterance(start, &chunk)),
-            };
-            if let Some(seg) = decoded {
+            // A preview: a caption that can't be read back is just not shown.
+            if let Ok(Some(seg)) = decode(&path, &recognizer, utt) {
                 let _ = app.emit("record-utterance", &seg);
             }
             backlog.fetch_sub(len, Ordering::Relaxed);
-        } else if let Some((start, len)) = pieces.pop_front() {
+        } else if let Some((utt, caption)) = pieces.pop_front() {
+            let len = utt.len();
             if !cancel.load(Ordering::Relaxed) {
-                let decoded = read_span(&path, start, len)
-                    .ok()
-                    .and_then(|chunk| recognizer.decode_utterance(start, &chunk));
-                if let Some(seg) = decoded {
-                    segments.lock().unwrap().push(seg);
+                match decode(&path, &recognizer, utt) {
+                    Ok(Some(seg)) => {
+                        if caption {
+                            let _ = app.emit("record-utterance", &seg);
+                        }
+                        segments.lock().unwrap().push(seg);
+                    }
+                    Ok(None) => {}
+                    Err(e) => {
+                        eprintln!("recording: part of the record couldn't be read: {e}");
+                        unread.fetch_add(len, Ordering::Relaxed);
+                    }
                 }
+            }
+            if caption {
+                backlog.fetch_sub(len, Ordering::Relaxed);
             }
             let remaining = record_backlog.fetch_sub(len, Ordering::Relaxed).saturating_sub(len);
             if stopping.load(Ordering::Relaxed) && !cancel.load(Ordering::Relaxed) {
@@ -1215,14 +1246,17 @@ pub async fn start_recording(
         let stopping = Arc::new(AtomicBool::new(false));
         let backlog = Arc::new(AtomicUsize::new(0));
         let record_backlog = Arc::new(AtomicUsize::new(0));
+        let unread = Arc::new(AtomicUsize::new(0));
+        let in_pieces = cfg.asr_model.decodes_pieces();
         let decode = {
             let (app, path, segments) = (app.clone(), path.clone(), segments.clone());
             let (backlog, record_backlog) = (backlog.clone(), record_backlog.clone());
+            let unread = unread.clone();
             let (cancel, stopping) = (cancel.clone(), stopping.clone());
             std::thread::spawn(move || {
                 decode_thread(
                     app, decode_engine, path, job_rx, segments, recognizer, backlog,
-                    record_backlog, cancel, stopping,
+                    record_backlog, unread, cancel, stopping,
                 )
             })
         };
@@ -1237,6 +1271,7 @@ pub async fn start_recording(
                 job_tx,
                 backlog,
                 record_backlog,
+                in_pieces,
             );
             if let Err(e) = &result {
                 // Report at once: capture may still be running, but nothing more is saved.
@@ -1258,6 +1293,7 @@ pub async fn start_recording(
             process,
             decode,
             segments,
+            unread,
             cancel,
             stopping,
         });
@@ -1288,6 +1324,8 @@ struct Finished {
     path: PathBuf,
     cfg: EngineConfig,
     segments: Vec<AsrSegment>,
+    /// Seconds of the record that couldn't be transcribed.
+    unread_s: f64,
 }
 
 /// Stop capture and wait for the worker threads. Always returns the recording
@@ -1315,7 +1353,8 @@ fn finish(app: &AppHandle, discarding: bool) -> Result<Finished, String> {
     let _ = active.decode.join();
     let mut segments = active.segments.lock().unwrap().clone();
     segments.sort_by(|a, b| a.start.partial_cmp(&b.start).unwrap_or(std::cmp::Ordering::Equal));
-    Ok(Finished { path: active.path, cfg: active.cfg, segments })
+    let unread_s = active.unread.load(Ordering::Relaxed) as f64 / SAMPLE_RATE as f64;
+    Ok(Finished { path: active.path, cfg: active.cfg, segments, unread_s })
 }
 
 #[derive(Serialize)]
@@ -1339,6 +1378,13 @@ pub async fn stop_recording(
 ) -> Result<StoppedRecording, String> {
     tauri::async_runtime::spawn_blocking(move || {
         let done = finish(&app, false)?;
+        let mut notes = Vec::new();
+        if done.unread_s > 0.0 {
+            notes.push(format!(
+                "About {} s of the recording couldn't be read back, so the transcript is missing that part. The audio file is kept.",
+                done.unread_s.ceil() as u64
+            ));
+        }
         let mut result = StoppedRecording {
             transcript: merge::from_asr(&done.segments),
             speakers_labelled: false,
@@ -1351,13 +1397,12 @@ pub async fn stop_recording(
                     result.transcript = transcript;
                     result.speakers_labelled = true;
                 }
-                Err(e) => {
-                    result.note = Some(format!(
-                        "Speakers couldn't be labelled, so this transcript has none. ({e})"
-                    ))
-                }
+                Err(e) => notes.push(format!(
+                    "Speakers couldn't be labelled, so this transcript has none. ({e})"
+                )),
             }
         }
+        result.note = (!notes.is_empty()).then(|| notes.join(" "));
         let _ = app.emit("transcribe-progress", engine::Progress::new("done", 1, 1, 1.0));
         // The notes file stays until the app has saved the transcript with
         // the notes (`forget_recording_notes`).
