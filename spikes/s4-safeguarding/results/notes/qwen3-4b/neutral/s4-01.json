@@ -1,0 +1,445 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Dennis Walsh (Mr Walsh) is the person being assessed.",
+      "cites": [
+       1,
+       2
+      ]
+     },
+     {
+      "text": "Karen Walsh is the daughter of Dennis Walsh and is present during the assessment.",
+      "cites": [
+       3,
+       4,
+       5
+      ]
+     },
+     {
+      "text": "The purpose of the visit is a six-month review of the care package.",
+      "cites": [
+       4
+      ]
+     },
+     {
+      "text": "The care assessor, Priya Nair, will be writing notes during the assessment.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "The assessor will not share information with the council unless there is a safeguarding concern, and will inform the person first.",
+      "cites": [
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Brightpath Home Care currently visits Mr Walsh four times a day.",
+      "cites": [
+       8,
+       9
+      ]
+     },
+     {
+      "text": "The four visits occur in the morning, at dinner, at tea, and at bedtime.",
+      "cites": [
+       9
+      ]
+     },
+     {
+      "text": "Mr Walsh reports that some carers are good, and specifically praises Shelley, the teatime carer, for taking her time.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Mr Walsh cannot button his clothes due to hand difficulties.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "Mr Walsh does not go up the stairs and sleeps downstairs.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "The bed was brought down in March after a fall.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Mr Walsh uses the frame around the house most of the time, when he remembers.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "The carers prepare microwave meals for dinner and tea.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Karen brings a proper dinner round on Sundays.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "The carers prompt Mr Walsh's diabetes tablets at morning and night.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Mr Walsh reports that Lee, the morning carer, is always in a rush.",
+      "cites": [
+       22
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Mr Walsh wants Lee to stop coming to him and wants someone like Shelley to replace him.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "Mr Walsh used to go to the bowls club but has not attended since his hip injury.",
+      "cites": [
+       58
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Mr Walsh states that Lee slapped him across the face with an open hand.",
+      "cites": [
+       26,
+       30
+      ]
+     },
+     {
+      "text": "Mr Walsh reports that Lee slapped him twice: once last Thursday and once a few weeks back, both times because he was slow getting off the bed.",
+      "cites": [
+       26,
+       28
+      ]
+     },
+     {
+      "text": "Mr Walsh reports that Lee grabbed his left arm to pull him up from the commode, and that this happened most mornings when it was Lee.",
+      "cites": [
+       24,
+       32,
+       34,
+       36
+      ]
+     },
+     {
+      "text": "Mr Walsh reports that Lee grabbed his arm hard on Saturday, which 'really hurt'.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "Karen Walsh discovered bruises on Mr Walsh's left upper arm when she helped him change his top on Sunday.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "The bruises were four in a row, like fingermarks, on the inside of the upper arm, and were purple.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "Karen took photos of the bruises on her phone on Sunday.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "Karen asked her father about the bruises and he initially said he'd knocked it, then told her about Lee the previous night.",
+      "cites": [
+       43
+      ]
+     },
+     {
+      "text": "Mr Walsh said he did not want a fuss and did not want to lose the carers.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "Mr Walsh has not told anyone at Brightpath about the incidents with Lee.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Karen Walsh is responsible for shopping for her father using his card and keeps the receipts.",
+      "cites": [
+       56
+      ]
+     },
+     {
+      "text": "Mr Walsh receives the higher rate of Attendance Allowance.",
+      "cites": [
+       55
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Dennis Walsh (Mr Walsh) is the person being assessed.",
+   "cites": [
+    1,
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Karen Walsh is the daughter of Dennis Walsh and is present during the assessment.",
+   "cites": [
+    3,
+    4,
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The purpose of the visit is a six-month review of the care package.",
+   "cites": [
+    4
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The care assessor, Priya Nair, will be writing notes during the assessment.",
+   "cites": [
+    6
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The assessor will not share information with the council unless there is a safeguarding concern, and will inform the person first.",
+   "cites": [
+    6
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Brightpath Home Care currently visits Mr Walsh four times a day.",
+   "cites": [
+    8,
+    9
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The four visits occur in the morning, at dinner, at tea, and at bedtime.",
+   "cites": [
+    9
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mr Walsh reports that some carers are good, and specifically praises Shelley, the teatime carer, for taking her time.",
+   "cites": [
+    11
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mr Walsh cannot button his clothes due to hand difficulties.",
+   "cites": [
+    13
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mr Walsh does not go up the stairs and sleeps downstairs.",
+   "cites": [
+    13
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The bed was brought down in March after a fall.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mr Walsh uses the frame around the house most of the time, when he remembers.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The carers prepare microwave meals for dinner and tea.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Karen brings a proper dinner round on Sundays.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The carers prompt Mr Walsh's diabetes tablets at morning and night.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mr Walsh reports that Lee, the morning carer, is always in a rush.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mr Walsh states that Lee slapped him across the face with an open hand.",
+   "cites": [
+    26,
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mr Walsh reports that Lee slapped him twice: once last Thursday and once a few weeks back, both times because he was slow getting off the bed.",
+   "cites": [
+    26,
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mr Walsh reports that Lee grabbed his left arm to pull him up from the commode, and that this happened most mornings when it was Lee.",
+   "cites": [
+    24,
+    32,
+    34,
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mr Walsh reports that Lee grabbed his arm hard on Saturday, which 'really hurt'.",
+   "cites": [
+    34
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Karen Walsh discovered bruises on Mr Walsh's left upper arm when she helped him change his top on Sunday.",
+   "cites": [
+    39
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The bruises were four in a row, like fingermarks, on the inside of the upper arm, and were purple.",
+   "cites": [
+    41
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Karen took photos of the bruises on her phone on Sunday.",
+   "cites": [
+    41
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Karen asked her father about the bruises and he initially said he'd knocked it, then told her about Lee the previous night.",
+   "cites": [
+    43
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mr Walsh said he did not want a fuss and did not want to lose the carers.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mr Walsh has not told anyone at Brightpath about the incidents with Lee.",
+   "cites": [
+    52
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mr Walsh wants Lee to stop coming to him and wants someone like Shelley to replace him.",
+   "cites": [
+    54
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Mr Walsh used to go to the bowls club but has not attended since his hip injury.",
+   "cites": [
+    58
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Karen Walsh is responsible for shopping for her father using his card and keeps the receipts.",
+   "cites": [
+    56
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Mr Walsh receives the higher rate of Attendance Allowance.",
+   "cites": [
+    55
+   ],
+   "section": "Support network and finances"
+  }
+ ]
+}

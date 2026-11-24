@@ -1,0 +1,427 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Social worker Tom Ashby from the adult team at Coldmere conducted the assessment after a phone call.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Ronald Keegan (referred to as 'Ron') is the person being assessed.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Lisa Keegan, Ronald's daughter, was present during the assessment.",
+      "cites": [
+       3
+      ]
+     },
+     {
+      "text": "The assessment was triggered by a request from the hospital following Ronald's fall.",
+      "cites": [
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Ronald reported feeling 'stiff' and that his hip is sore when going up stairs.",
+      "cites": [
+       9
+      ]
+     },
+     {
+      "text": "Ronald stated he goes up the stairs 'on his backside some nights'.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Ronald reported there is only one handrail on the stairs.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Ronald stated he cannot get into the bath since the fall.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "Ronald stated he has a 'strip wash' (shower) but cannot bathe.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "Ronald stated he microwaves dinners.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Ronald stated his wife, Pat, cooked all the meals previously.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Ronald stated Pat was his wife for forty-six years.",
+      "cites": [
+       16,
+       17
+      ]
+     },
+     {
+      "text": "Ronald stated Pat died last March.",
+      "cites": [
+       17
+      ]
+     },
+     {
+      "text": "Ronald stated he watches 'The Racing' on television.",
+      "cites": [
+       21
+      ]
+     },
+     {
+      "text": "Ronald previously attended the British Legion on Fridays but stated he has not bothered lately.",
+      "cites": [
+       21
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Ronald stated he likes a drink and will not lie about it.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Ronald stated he drinks 'a couple of cans' of an evening.",
+      "cites": [
+       23
+      ]
+     },
+     {
+      "text": "Ronald stated he drinks 'a couple of cans' with his tea.",
+      "cites": [
+       23
+      ]
+     },
+     {
+      "text": "Lisa stated Ronald drinks eight cans a day of the 'big ones, the strong lager'.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Lisa stated there is vodka involved, specifically a bottle obtained from Spar that is gone in two days.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Lisa stated she sees the empty cans in the bin every Sunday and has counted them as eight cans a day.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Ronald stated he is not drunk and claims he is not hurting anybody.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Ronald stated he tripped on a mat.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "Lisa stated Ronald had been drinking since dinner time.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "Lisa stated she found Ronald in the morning after he had fallen in the kitchen.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "Lisa stated Ronald was on the floor all night after the fall and could not get up.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "Lisa stated this was not the first time Ronald had fallen.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "Lisa stated Ronald fell in the hall in the summer after having a drink.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "Ronald stated the previous fall was on the step.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Lisa stated Mrs Okafor next door told her she saw Ronald driving to the Co-op after he had had a drink.",
+      "cites": [
+       38
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Social worker Tom Ashby from the adult team at Coldmere conducted the assessment after a phone call.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Ronald Keegan (referred to as 'Ron') is the person being assessed.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Lisa Keegan, Ronald's daughter, was present during the assessment.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The assessment was triggered by a request from the hospital following Ronald's fall.",
+   "cites": [
+    6
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Ronald reported feeling 'stiff' and that his hip is sore when going up stairs.",
+   "cites": [
+    9
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald stated he goes up the stairs 'on his backside some nights'.",
+   "cites": [
+    11
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald reported there is only one handrail on the stairs.",
+   "cites": [
+    11
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald stated he cannot get into the bath since the fall.",
+   "cites": [
+    13
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald stated he has a 'strip wash' (shower) but cannot bathe.",
+   "cites": [
+    13
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald stated he microwaves dinners.",
+   "cites": [
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald stated his wife, Pat, cooked all the meals previously.",
+   "cites": [
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald stated Pat was his wife for forty-six years.",
+   "cites": [
+    16,
+    17
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald stated Pat died last March.",
+   "cites": [
+    17
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald stated he watches 'The Racing' on television.",
+   "cites": [
+    21
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald previously attended the British Legion on Fridays but stated he has not bothered lately.",
+   "cites": [
+    21
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald stated he likes a drink and will not lie about it.",
+   "cites": [
+    22
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ronald stated he drinks 'a couple of cans' of an evening.",
+   "cites": [
+    23
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ronald stated he drinks 'a couple of cans' with his tea.",
+   "cites": [
+    23
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Lisa stated Ronald drinks eight cans a day of the 'big ones, the strong lager'.",
+   "cites": [
+    24
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Lisa stated there is vodka involved, specifically a bottle obtained from Spar that is gone in two days.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Lisa stated she sees the empty cans in the bin every Sunday and has counted them as eight cans a day.",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ronald stated he is not drunk and claims he is not hurting anybody.",
+   "cites": [
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ronald stated he tripped on a mat.",
+   "cites": [
+    32
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Lisa stated Ronald had been drinking since dinner time.",
+   "cites": [
+    33
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Lisa stated she found Ronald in the morning after he had fallen in the kitchen.",
+   "cites": [
+    33
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Lisa stated Ronald was on the floor all night after the fall and could not get up.",
+   "cites": [
+    33
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Lisa stated this was not the first time Ronald had fallen.",
+   "cites": [
+    35
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Lisa stated Ronald fell in the hall in the summer after having a drink.",
+   "cites": [
+    35
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ronald stated the previous fall was on the step.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Lisa stated Mrs Okafor next door told her she saw Ronald driving to the Co-op after he had had a drink.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  }
+ ]
+}

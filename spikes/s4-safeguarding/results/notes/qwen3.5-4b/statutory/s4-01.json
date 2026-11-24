@@ -1,0 +1,461 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "S1 stated she is Priya from the adult social care team and spoke on the phone last week.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "S2 stated he is Mr Walsh and asked S1 to mind the step because it is uneven.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "S3 stated she is Karen, the person's daughter, and offered tea.",
+      "cites": [
+       3
+      ]
+     },
+     {
+      "text": "S1 stated this is a six-month review of the care package and asked if Karen could stay while they talk.",
+      "cites": [
+       4
+      ]
+     },
+     {
+      "text": "S2 agreed that Karen should stay while they talk.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "S1 stated she would be writing notes and explained that if she is worried someone is at risk of harm, she might have to share it, but she would tell the person first.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "S2 agreed that S1 writing notes and sharing safeguarding concerns was fine.",
+      "cites": [
+       7
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "S2 confirmed he currently has Brightpath Home Care coming in four times a day: morning, dinner, tea, and bed.",
+      "cites": [
+       8,
+       9
+      ]
+     },
+     {
+      "text": "S2 stated that some carer calls are good, specifically mentioning Shelley who does teatime and takes her time.",
+      "cites": [
+       10,
+       11
+      ]
+     },
+     {
+      "text": "S2 stated he cannot do buttons any more because his hands are affected, and he does not go up the stairs anymore, sleeping downstairs instead.",
+      "cites": [
+       12,
+       13
+      ]
+     },
+     {
+      "text": "S3 stated the bed was brought down in March after a fall.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "S2 stated he uses the frame around the house most of the time, but only when he remembers.",
+      "cites": [
+       15,
+       16
+      ]
+     },
+     {
+      "text": "S3 stated carers do microwave meals at dinner and tea, and she brings a proper dinner round on a Sunday.",
+      "cites": [
+       17,
+       18
+      ]
+     },
+     {
+      "text": "S2 stated carers prompt his diabetes tablets, putting them out for him in the morning and at night.",
+      "cites": [
+       19,
+       20
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "S2 stated there is one carer he is less happy with, named Lee, who does the mornings most mornings.",
+      "cites": [
+       21,
+       22
+      ]
+     },
+     {
+      "text": "S2 disclosed that Lee slapped him across the face last Thursday because he was slow getting off the bed.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "S2 disclosed that Lee had also slapped him once before, a few weeks back, for the same reason (taking too long).",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "S2 confirmed Lee used his open hand to slap him on the face.",
+      "cites": [
+       29,
+       30
+      ]
+     },
+     {
+      "text": "S2 disclosed that Lee grabbed his arm to pull him up off the commode, noting it hurt him hard on Saturday.",
+      "cites": [
+       31,
+       32,
+       34
+      ]
+     },
+     {
+      "text": "S2 identified the left arm as the one that was grabbed.",
+      "cites": [
+       35,
+       36
+      ]
+     },
+     {
+      "text": "S3 disclosed she found out about the abuse when she helped him change his top on Sunday and saw bruises on his upper left arm.",
+      "cites": [
+       37,
+       39
+      ]
+     },
+     {
+      "text": "S3 described the bruises as four in a row, like fingermarks, on the inside of the upper arm, and stated they were purple.",
+      "cites": [
+       40,
+       41
+      ]
+     },
+     {
+      "text": "S3 stated she took photos of the bruises on her phone on Sunday.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "S3 stated she initially thought the bruises were from a knock, but her father told her about Lee last night.",
+      "cites": [
+       43
+      ]
+     },
+     {
+      "text": "S2 stated he did not want a fuss and did not want to lose the carers.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "S1 stated she would not lose the person's care because he told her about the abuse.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "S2 denied that anyone else in the family had ever hurt him or grabbed him, stating only Lee did.",
+      "cites": [
+       48,
+       49,
+       50
+      ]
+     },
+     {
+      "text": "S2 stated he had not told anyone at Brightpath about the abuse because he did not know who to tell.",
+      "cites": [
+       51,
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "S3 stated she does his shopping with his card and keeps the receipts.",
+      "cites": [
+       56
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "S2 stated he does not want Lee coming any more and wants someone like Shelley.",
+      "cites": [
+       53,
+       54
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "S1 stated she is Priya from the adult social care team and spoke on the phone last week.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "S2 stated he is Mr Walsh and asked S1 to mind the step because it is uneven.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "S3 stated she is Karen, the person's daughter, and offered tea.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "S1 stated this is a six-month review of the care package and asked if Karen could stay while they talk.",
+   "cites": [
+    4
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "S2 agreed that Karen should stay while they talk.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "S1 stated she would be writing notes and explained that if she is worried someone is at risk of harm, she might have to share it, but she would tell the person first.",
+   "cites": [
+    6
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "S2 agreed that S1 writing notes and sharing safeguarding concerns was fine.",
+   "cites": [
+    7
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "S2 confirmed he currently has Brightpath Home Care coming in four times a day: morning, dinner, tea, and bed.",
+   "cites": [
+    8,
+    9
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "S2 stated that some carer calls are good, specifically mentioning Shelley who does teatime and takes her time.",
+   "cites": [
+    10,
+    11
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "S2 stated he cannot do buttons any more because his hands are affected, and he does not go up the stairs anymore, sleeping downstairs instead.",
+   "cites": [
+    12,
+    13
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "S3 stated the bed was brought down in March after a fall.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "S2 stated he uses the frame around the house most of the time, but only when he remembers.",
+   "cites": [
+    15,
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "S3 stated carers do microwave meals at dinner and tea, and she brings a proper dinner round on a Sunday.",
+   "cites": [
+    17,
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "S2 stated carers prompt his diabetes tablets, putting them out for him in the morning and at night.",
+   "cites": [
+    19,
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "S2 stated there is one carer he is less happy with, named Lee, who does the mornings most mornings.",
+   "cites": [
+    21,
+    22
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S2 disclosed that Lee slapped him across the face last Thursday because he was slow getting off the bed.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S2 disclosed that Lee had also slapped him once before, a few weeks back, for the same reason (taking too long).",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S2 confirmed Lee used his open hand to slap him on the face.",
+   "cites": [
+    29,
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S2 disclosed that Lee grabbed his arm to pull him up off the commode, noting it hurt him hard on Saturday.",
+   "cites": [
+    31,
+    32,
+    34
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S2 identified the left arm as the one that was grabbed.",
+   "cites": [
+    35,
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S3 disclosed she found out about the abuse when she helped him change his top on Sunday and saw bruises on his upper left arm.",
+   "cites": [
+    37,
+    39
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S3 described the bruises as four in a row, like fingermarks, on the inside of the upper arm, and stated they were purple.",
+   "cites": [
+    40,
+    41
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S3 stated she took photos of the bruises on her phone on Sunday.",
+   "cites": [
+    41
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S3 stated she initially thought the bruises were from a knock, but her father told her about Lee last night.",
+   "cites": [
+    43
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S2 stated he did not want a fuss and did not want to lose the carers.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S1 stated she would not lose the person's care because he told her about the abuse.",
+   "cites": [
+    45
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S2 denied that anyone else in the family had ever hurt him or grabbed him, stating only Lee did.",
+   "cites": [
+    48,
+    49,
+    50
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S2 stated he had not told anyone at Brightpath about the abuse because he did not know who to tell.",
+   "cites": [
+    51,
+    52
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "S2 stated he does not want Lee coming any more and wants someone like Shelley.",
+   "cites": [
+    53,
+    54
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "S3 stated she does his shopping with his card and keeps the receipts.",
+   "cites": [
+    56
+   ],
+   "section": "Support network and finances"
+  }
+ ]
+}

@@ -1,0 +1,477 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Amina Hussain is the health visitor conducting Leo and Poppy's two-year review.",
+      "cites": [
+       5,
+       10,
+       11,
+       12,
+       13
+      ]
+     },
+     {
+      "text": "Jade Turner is the mother of Leo and Poppy.",
+      "cites": [
+       2,
+       5,
+       10,
+       11,
+       12
+      ]
+     },
+     {
+      "text": "Leo is two years old and Poppy is five months old.",
+      "cites": [
+       5,
+       10,
+       11,
+       12
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Leo can say about twenty words, including 'mama', 'car', 'more', 'bye-bye', and 'dog'.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Leo is able to put two words together, such as 'more juice'.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Leo is active and runs and climbs, having climbed the bookcase last week.",
+      "cites": [
+       11,
+       12
+      ]
+     },
+     {
+      "text": "Leo's eating habits are fussy, with preferences for toast, pasta, and yoghurt.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Poppy is fed with bottles, approximately six per day, and has started on baby rice.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Poppy has a nappy rash that is severe, with broken skin, and has lasted about a week.",
+      "cites": [
+       17,
+       18,
+       20
+      ]
+     },
+     {
+      "text": "Jade has been applying Sudocrem to Poppy's nappy rash.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Jade has run out of nappies on Sunday and has been leaving them on longer.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Jade has only one tin of Poppy's milk left, which will last until Friday.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "The milk supply will last until Friday, when Jade's Universal Credit payment comes in.",
+      "cites": [
+       23,
+       24
+      ]
+     },
+     {
+      "text": "Jade has a cleaning job at a retail park, working nights from ten to twelve, sometimes half past twelve.",
+      "cites": [
+       26,
+       27,
+       28
+      ]
+     },
+     {
+      "text": "Jade's cleaning job is cash in hand.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Jade's friend Shannon looks after Leo and Poppy while she is at work, but Shannon cannot always do so.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "When Shannon cannot look after the children, Jade leaves them alone for a couple of hours, while they are asleep and do not wake up.",
+      "cites": [
+       32,
+       34
+      ]
+     },
+     {
+      "text": "Jade leaves the children alone for about three nights a week, since Shannon started her new job, over the last month.",
+      "cites": [
+       38,
+       39
+      ]
+     },
+     {
+      "text": "Jade has not applied for nursery for Leo, who is two years old and eligible for 15 hours of funded nursery.",
+      "cites": [
+       53,
+       54
+      ]
+     },
+     {
+      "text": "Little Acorns nursery on Marlow Road has spaces available from January and is recommended for Leo.",
+      "cites": [
+       55
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Jade is concerned that if she loses her cleaning job, she and her children will be evicted.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "Jade has not received any letters from the landlord or notices of eviction.",
+      "cites": [
+       45,
+       46
+      ]
+     },
+     {
+      "text": "Jade is worried that if something happens to Leo or Poppy—such as a fire or Poppy choking—there would be no one to help them, and this is a concern for the health visitor.",
+      "cites": [
+       41
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Jade's mother is in Northby and would help if she were to contact her, but they are not currently in contact.",
+      "cites": [
+       50,
+       51
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "Jade will not leave Leo and Poppy alone if Shannon cannot have them, and will text her supervisor to state she has no childcare.",
+      "cites": [
+       57,
+       58
+      ]
+     },
+     {
+      "text": "Amina will make a referral to children's social care to support childcare arrangements.",
+      "cites": [
+       43,
+       57
+      ]
+     },
+     {
+      "text": "Amina will drop a food bank voucher at the household before 3pm today.",
+      "cites": [
+       59
+      ]
+     },
+     {
+      "text": "Amina will book Poppy in with Dr Lowe for a nappy rash assessment tomorrow.",
+      "cites": [
+       61
+      ]
+     },
+     {
+      "text": "Amina will bring nappies to the household when she returns to see Poppy.",
+      "cites": [
+       61
+      ]
+     },
+     {
+      "text": "Amina will return to the household on Monday the 30th at 10am to support with the nursery form and check on the family's well-being.",
+      "cites": [
+       63,
+       64
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Amina Hussain is the health visitor conducting Leo and Poppy's two-year review.",
+   "cites": [
+    5,
+    10,
+    11,
+    12,
+    13
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Jade Turner is the mother of Leo and Poppy.",
+   "cites": [
+    2,
+    5,
+    10,
+    11,
+    12
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Leo is two years old and Poppy is five months old.",
+   "cites": [
+    5,
+    10,
+    11,
+    12
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Leo can say about twenty words, including 'mama', 'car', 'more', 'bye-bye', and 'dog'.",
+   "cites": [
+    8
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leo is able to put two words together, such as 'more juice'.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leo is active and runs and climbs, having climbed the bookcase last week.",
+   "cites": [
+    11,
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leo's eating habits are fussy, with preferences for toast, pasta, and yoghurt.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Poppy is fed with bottles, approximately six per day, and has started on baby rice.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Poppy has a nappy rash that is severe, with broken skin, and has lasted about a week.",
+   "cites": [
+    17,
+    18,
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade has been applying Sudocrem to Poppy's nappy rash.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade has run out of nappies on Sunday and has been leaving them on longer.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade has only one tin of Poppy's milk left, which will last until Friday.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The milk supply will last until Friday, when Jade's Universal Credit payment comes in.",
+   "cites": [
+    23,
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade has a cleaning job at a retail park, working nights from ten to twelve, sometimes half past twelve.",
+   "cites": [
+    26,
+    27,
+    28
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade's cleaning job is cash in hand.",
+   "cites": [
+    26
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade's friend Shannon looks after Leo and Poppy while she is at work, but Shannon cannot always do so.",
+   "cites": [
+    30
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "When Shannon cannot look after the children, Jade leaves them alone for a couple of hours, while they are asleep and do not wake up.",
+   "cites": [
+    32,
+    34
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade leaves the children alone for about three nights a week, since Shannon started her new job, over the last month.",
+   "cites": [
+    38,
+    39
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade is concerned that if she loses her cleaning job, she and her children will be evicted.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jade has not received any letters from the landlord or notices of eviction.",
+   "cites": [
+    45,
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jade has not applied for nursery for Leo, who is two years old and eligible for 15 hours of funded nursery.",
+   "cites": [
+    53,
+    54
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Little Acorns nursery on Marlow Road has spaces available from January and is recommended for Leo.",
+   "cites": [
+    55
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade will not leave Leo and Poppy alone if Shannon cannot have them, and will text her supervisor to state she has no childcare.",
+   "cites": [
+    57,
+    58
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Amina will make a referral to children's social care to support childcare arrangements.",
+   "cites": [
+    43,
+    57
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Amina will drop a food bank voucher at the household before 3pm today.",
+   "cites": [
+    59
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Amina will book Poppy in with Dr Lowe for a nappy rash assessment tomorrow.",
+   "cites": [
+    61
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Amina will bring nappies to the household when she returns to see Poppy.",
+   "cites": [
+    61
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Amina will return to the household on Monday the 30th at 10am to support with the nursery form and check on the family's well-being.",
+   "cites": [
+    63,
+    64
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Jade's mother is in Northby and would help if she were to contact her, but they are not currently in contact.",
+   "cites": [
+    50,
+    51
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Jade is worried that if something happens to Leo or Poppy—such as a fire or Poppy choking—there would be no one to help them, and this is a concern for the health visitor.",
+   "cites": [
+    41
+   ],
+   "section": "Risks and safeguarding"
+  }
+ ]
+}

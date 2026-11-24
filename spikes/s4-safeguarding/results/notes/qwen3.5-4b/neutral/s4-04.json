@@ -1,0 +1,420 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Leanne Marsh (S2) is present for a social care needs assessment review with Social Worker Angela Okafor (S1).",
+      "cites": [
+       1,
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) lives with her mum at home.",
+      "cites": [
+       11,
+       12
+      ]
+     },
+     {
+      "text": "Leanne Marsh's mum has bad knees.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) helps her mum with hoovering.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) is currently traveling to the centre via a minibus driven by Dave.",
+      "cites": [
+       16,
+       22
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) is undertaking travel training to get the bus on her own to town.",
+      "cites": [
+       13,
+       14
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Leanne Marsh (S2) likes doing art, specifically a big painting of her cat named Biscuit.",
+      "cites": [
+       8,
+       9
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) likes cooking on Mondays.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) likes going to the disco on Fridays.",
+      "cites": [
+       10
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Leanne Marsh (S2) reported that Dave touched her on her chest while she was getting off the minibus outside her house.",
+      "cites": [
+       26,
+       28,
+       30
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) reported that Dave touched her between her legs over her trousers.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) reported that Dave kissed her on her mouth.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) stated that Dave told her the incidents were 'our secret' and not to tell her mum.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) reported that Dave touched her every week when she was the last person on the bus.",
+      "cites": [
+       43,
+       44,
+       45,
+       46
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) reported that the abuse started after her birthday in August.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) denied that any other staff at Brookside had touched her like that.",
+      "cites": [
+       49,
+       50,
+       51,
+       52
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) denied that she was in trouble.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) expressed uncertainty about whether she would be in trouble ('Am I in trouble?').",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) requested that the social worker talk to her mum.",
+      "cites": [
+       64
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Leanne Marsh (S2) stated she would prefer a taxi for transport instead of her mum driving.",
+      "cites": [
+       65,
+       66
+      ]
+     },
+     {
+      "text": "Leanne Marsh's mum cannot drive due to her knees.",
+      "cites": [
+       66
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "Leanne Marsh (S2) expressed a wish to continue with art.",
+      "cites": [
+       74
+      ]
+     },
+     {
+      "text": "Social Worker Angela Okafor (S1) agreed to ring the safeguarding team and the police today.",
+      "cites": [
+       67
+      ]
+     },
+     {
+      "text": "Social Worker Angela Okafor (S1) agreed to talk to Joanne, the centre manager, to arrange a taxi from tomorrow, Wednesday.",
+      "cites": [
+       67
+      ]
+     },
+     {
+      "text": "Social Worker Angela Okafor (S1) agreed to visit Leanne Marsh's house tomorrow at 4 o'clock to tell her mum together.",
+      "cites": [
+       69
+      ]
+     },
+     {
+      "text": "Leanne Marsh (S2) requested that her cat, Biscuit, be present at the visit.",
+      "cites": [
+       70
+      ]
+     },
+     {
+      "text": "Social Worker Angela Okafor (S1) agreed to ask Sue to set up two practice bus trips into town in December.",
+      "cites": [
+       71
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Leanne Marsh (S2) is present for a social care needs assessment review with Social Worker Angela Okafor (S1).",
+   "cites": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Leanne Marsh (S2) lives with her mum at home.",
+   "cites": [
+    11,
+    12
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Leanne Marsh's mum has bad knees.",
+   "cites": [
+    12
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Leanne Marsh (S2) helps her mum with hoovering.",
+   "cites": [
+    12
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Leanne Marsh (S2) is currently traveling to the centre via a minibus driven by Dave.",
+   "cites": [
+    16,
+    22
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Leanne Marsh (S2) is undertaking travel training to get the bus on her own to town.",
+   "cites": [
+    13,
+    14
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Leanne Marsh (S2) likes doing art, specifically a big painting of her cat named Biscuit.",
+   "cites": [
+    8,
+    9
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leanne Marsh (S2) likes cooking on Mondays.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leanne Marsh (S2) likes going to the disco on Fridays.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leanne Marsh (S2) reported that Dave touched her on her chest while she was getting off the minibus outside her house.",
+   "cites": [
+    26,
+    28,
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne Marsh (S2) reported that Dave touched her between her legs over her trousers.",
+   "cites": [
+    32
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne Marsh (S2) reported that Dave kissed her on her mouth.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne Marsh (S2) stated that Dave told her the incidents were 'our secret' and not to tell her mum.",
+   "cites": [
+    42
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne Marsh (S2) reported that Dave touched her every week when she was the last person on the bus.",
+   "cites": [
+    43,
+    44,
+    45,
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne Marsh (S2) reported that the abuse started after her birthday in August.",
+   "cites": [
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne Marsh (S2) denied that any other staff at Brookside had touched her like that.",
+   "cites": [
+    49,
+    50,
+    51,
+    52
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne Marsh (S2) denied that she was in trouble.",
+   "cites": [
+    54
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne Marsh (S2) expressed uncertainty about whether she would be in trouble ('Am I in trouble?').",
+   "cites": [
+    54
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne Marsh (S2) requested that the social worker talk to her mum.",
+   "cites": [
+    64
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne Marsh (S2) stated she would prefer a taxi for transport instead of her mum driving.",
+   "cites": [
+    65,
+    66
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Leanne Marsh's mum cannot drive due to her knees.",
+   "cites": [
+    66
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Leanne Marsh (S2) expressed a wish to continue with art.",
+   "cites": [
+    74
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Social Worker Angela Okafor (S1) agreed to ring the safeguarding team and the police today.",
+   "cites": [
+    67
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Social Worker Angela Okafor (S1) agreed to talk to Joanne, the centre manager, to arrange a taxi from tomorrow, Wednesday.",
+   "cites": [
+    67
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Social Worker Angela Okafor (S1) agreed to visit Leanne Marsh's house tomorrow at 4 o'clock to tell her mum together.",
+   "cites": [
+    69
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Leanne Marsh (S2) requested that her cat, Biscuit, be present at the visit.",
+   "cites": [
+    70
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Social Worker Angela Okafor (S1) agreed to ask Sue to set up two practice bus trips into town in December.",
+   "cites": [
+    71
+   ],
+   "section": "Agreed actions"
+  }
+ ]
+}

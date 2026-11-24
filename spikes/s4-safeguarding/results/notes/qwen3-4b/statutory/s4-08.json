@@ -1,0 +1,437 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "Solicitor Priya Shah attended the meeting with client Leanne Carter.",
+      "cites": [
+       71
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "The purpose of the meeting was for the solicitor to take instructions on protection from ex-partner Ryan Hale after a history of abuse.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "Client Leanne Carter stated that her ex-partner is Ryan Hale.",
+      "cites": [
+       7
+      ]
+     },
+     {
+      "text": "Ryan Hale and Leanne Carter were together for about six years.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "The couple split in August, and Ryan moved out to his brother's house.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Leanne Carter is still living at 9 Calder Court, which is her tenancy in her name.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Client has a daughter named Mia, who is four years old.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Mia is at nursery this morning.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Ryan Hale is Mia's biological father.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "Ryan Hale was seeing Mia on Sundays before October, and Leanne stopped this after October.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Ryan Hale comes to the flat every weekend since August, typically on Friday or Saturday night, by shouting through the letterbox.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Ryan Hale has not been physically violent towards Leanne Carter since August, except for one incident on the 12th of October.",
+      "cites": [
+       20,
+       22,
+       24
+      ]
+     },
+     {
+      "text": "On the 12th of October, Ryan Hale put his hands around Leanne's neck in the hallway while she was opening the door to give Mia's bag.",
+      "cites": [
+       20,
+       22
+      ]
+     },
+     {
+      "text": "Leanne was unable to breathe for a period after the incident.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Mia was asleep in her room during the incident on the 12th of October.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Leanne's neighbour called the police after hearing her screaming during the incident on the 12th of October.",
+      "cites": [
+       25,
+       26
+      ]
+     },
+     {
+      "text": "Leanne has a crime reference number for the incident on the 12th of October.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Ryan Hale was arrested by the police on the 12th of October.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Ryan Hale was released on bail after the arrest, but the bail was later discharged and he is now under investigation with no bail conditions.",
+      "cites": [
+       30,
+       31
+      ]
+     },
+     {
+      "text": "Leanne went to her GP two days after the 12th of October, and the GP recorded marks on her neck.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "On the 20th of October, Ryan Hale came to the flat and smashed Leanne's phone, which she had to replace at a cost of about two hundred pounds.",
+      "cites": [
+       36,
+       38
+      ]
+     },
+     {
+      "text": "Leanne reported the phone-smashing incident to the officer on the case.",
+      "cites": [
+       37
+      ]
+     },
+     {
+      "text": "On the 3rd of November, Ryan Hale sent a text message to Leanne threatening to kill her.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Leanne has a screenshot of the threatening text message from the 3rd of November.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Leanne has additional voice notes from Ryan Hale threatening her, saying 'I'll regret it'.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Leanne's friend Gemma told her that Ryan Hale keeps a knife in his van for work.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Leanne has not personally seen the knife in Ryan Hale's van.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Leanne wants Ryan Hale to stop coming to the flat and stop messaging her.",
+      "cites": [
+       50
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": []
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": []
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "The solicitor advised that a non-molestation order should be applied for to prevent Ryan Hale from contacting Leanne, using or threatening violence, and coming within a set radius,",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "The non-molestation order could be made without notice to Ryan Hale due to the history of strangulation and threats to kill.",
+      "cites": [
+       53
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Solicitor Priya Shah attended the meeting with client Leanne Carter.",
+   "cites": [
+    71
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The purpose of the meeting was for the solicitor to take instructions on protection from ex-partner Ryan Hale after a history of abuse.",
+   "cites": [
+    5
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client Leanne Carter stated that her ex-partner is Ryan Hale.",
+   "cites": [
+    7
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Ryan Hale and Leanne Carter were together for about six years.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The couple split in August, and Ryan moved out to his brother's house.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Leanne Carter is still living at 9 Calder Court, which is her tenancy in her name.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client has a daughter named Mia, who is four years old.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mia is at nursery this morning.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Ryan Hale is Mia's biological father.",
+   "cites": [
+    13
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Ryan Hale was seeing Mia on Sundays before October, and Leanne stopped this after October.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Ryan Hale comes to the flat every weekend since August, typically on Friday or Saturday night, by shouting through the letterbox.",
+   "cites": [
+    16
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Ryan Hale has not been physically violent towards Leanne Carter since August, except for one incident on the 12th of October.",
+   "cites": [
+    20,
+    22,
+    24
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "On the 12th of October, Ryan Hale put his hands around Leanne's neck in the hallway while she was opening the door to give Mia's bag.",
+   "cites": [
+    20,
+    22
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Leanne was unable to breathe for a period after the incident.",
+   "cites": [
+    20
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mia was asleep in her room during the incident on the 12th of October.",
+   "cites": [
+    24
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Leanne's neighbour called the police after hearing her screaming during the incident on the 12th of October.",
+   "cites": [
+    25,
+    26
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Leanne has a crime reference number for the incident on the 12th of October.",
+   "cites": [
+    26
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Ryan Hale was arrested by the police on the 12th of October.",
+   "cites": [
+    26
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Ryan Hale was released on bail after the arrest, but the bail was later discharged and he is now under investigation with no bail conditions.",
+   "cites": [
+    30,
+    31
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Leanne went to her GP two days after the 12th of October, and the GP recorded marks on her neck.",
+   "cites": [
+    34
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "On the 20th of October, Ryan Hale came to the flat and smashed Leanne's phone, which she had to replace at a cost of about two hundred pounds.",
+   "cites": [
+    36,
+    38
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Leanne reported the phone-smashing incident to the officer on the case.",
+   "cites": [
+    37
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "On the 3rd of November, Ryan Hale sent a text message to Leanne threatening to kill her.",
+   "cites": [
+    40
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Leanne has a screenshot of the threatening text message from the 3rd of November.",
+   "cites": [
+    42
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Leanne has additional voice notes from Ryan Hale threatening her, saying 'I'll regret it'.",
+   "cites": [
+    42
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Leanne's friend Gemma told her that Ryan Hale keeps a knife in his van for work.",
+   "cites": [
+    46
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Leanne has not personally seen the knife in Ryan Hale's van.",
+   "cites": [
+    48
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Leanne wants Ryan Hale to stop coming to the flat and stop messaging her.",
+   "cites": [
+    50
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The solicitor advised that a non-molestation order should be applied for to prevent Ryan Hale from contacting Leanne, using or threatening violence, and coming within a set radius,",
+   "cites": [
+    51
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The non-molestation order could be made without notice to Ryan Hale due to the history of strangulation and threats to kill.",
+   "cites": [
+    53
+   ],
+   "section": "Advice given"
+  }
+ ]
+}

@@ -1,0 +1,439 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Harold Pryce is a man who lives at a house purchased in 1971 by him and his first wife, Joan, who died in 2013.",
+      "cites": [
+       20,
+       26,
+       46,
+       48
+      ]
+     },
+     {
+      "text": "Harold Pryce lives with his second wife, Sandra, who is present in the home during the visit.",
+      "cites": [
+       2,
+       26,
+       36
+      ]
+     },
+     {
+      "text": "Harold Pryce and Sandra have been married for nine years.",
+      "cites": [
+       17
+      ]
+     },
+     {
+      "text": "Harold Pryce's first wife, Joan, died in 2013.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Harold Pryce's daughter, Carol, lives in Kestwick, approximately two hours away, and calls on Sundays.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "The house is registered in Harold Pryce's name only.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Harold Pryce states that if he leaves the house, Sandra would take it.",
+      "cites": [
+       46
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Harold Pryce has a fall in the garden in the spring, which occurred before the visit.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Harold Pryce uses a stick and a frame for support when moving upstairs.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Harold Pryce can wash himself using a stool in the shower.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Harold Pryce experiences difficulty with socks, which affects his ability to dress.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Sandra cooks meals for Harold Pryce.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Harold Pryce can make a sandwich on his own.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Harold Pryce reports that Sandra keeps his medication in her handbag.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Harold Pryce does not receive his medication every day, and sometimes does not get his tablets at all.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Harold Pryce did not receive his heart tablets for three days last week.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Harold Pryce reports that he has not received his heart tablets and water tablets for several previous instances.",
+      "cites": [
+       44
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Harold Pryce wants to stop the abuse and wants his medication to be provided.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "Harold Pryce wants Carol to be informed about the abuse and the situation with Sandra.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Harold Pryce says Carol never liked Sandra.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Harold Pryce reports that Sandra hits him with her walking stick when she gets cross.",
+      "cites": [
+       26,
+       30
+      ]
+     },
+     {
+      "text": "Harold Pryce reports that Sandra hits him on his arms with her walking stick, and he raises his arms to protect himself.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Harold Pryce reports that Sandra hits him once a week, or more if she has had a bad day.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "Harold Pryce reports that Sandra locks him in the bedroom when she goes out, saying it is to prevent him from falling.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Harold Pryce reports that Sandra locks him in the bedroom two or three times a week for the afternoon.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "The bedroom where Harold is locked in does not have a toilet.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Harold Pryce is not in immediate danger at the time of the visit, as Sandra is going to her sister's house the next day.",
+      "cites": [
+       56
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Harold Pryce's pension is held in a joint account with Sandra.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "Harold Pryce has his own savings book at the post office.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "Sandra manages the household bills.",
+      "cites": [
+       54
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Harold Pryce is a man who lives at a house purchased in 1971 by him and his first wife, Joan, who died in 2013.",
+   "cites": [
+    20,
+    26,
+    46,
+    48
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold Pryce lives with his second wife, Sandra, who is present in the home during the visit.",
+   "cites": [
+    2,
+    26,
+    36
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold Pryce has a fall in the garden in the spring, which occurred before the visit.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold Pryce uses a stick and a frame for support when moving upstairs.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold Pryce can wash himself using a stool in the shower.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold Pryce experiences difficulty with socks, which affects his ability to dress.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Sandra cooks meals for Harold Pryce.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold Pryce can make a sandwich on his own.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold Pryce and Sandra have been married for nine years.",
+   "cites": [
+    17
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold Pryce's first wife, Joan, died in 2013.",
+   "cites": [
+    18
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold Pryce's daughter, Carol, lives in Kestwick, approximately two hours away, and calls on Sundays.",
+   "cites": [
+    20
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold Pryce reports that Sandra hits him with her walking stick when she gets cross.",
+   "cites": [
+    26,
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold Pryce reports that Sandra hits him on his arms with her walking stick, and he raises his arms to protect himself.",
+   "cites": [
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold Pryce reports that Sandra hits him once a week, or more if she has had a bad day.",
+   "cites": [
+    32
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold Pryce reports that Sandra locks him in the bedroom when she goes out, saying it is to prevent him from falling.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold Pryce reports that Sandra locks him in the bedroom two or three times a week for the afternoon.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The bedroom where Harold is locked in does not have a toilet.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold Pryce reports that Sandra keeps his medication in her handbag.",
+   "cites": [
+    40
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold Pryce does not receive his medication every day, and sometimes does not get his tablets at all.",
+   "cites": [
+    42
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold Pryce did not receive his heart tablets for three days last week.",
+   "cites": [
+    42
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold Pryce reports that he has not received his heart tablets and water tablets for several previous instances.",
+   "cites": [
+    44
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The house is registered in Harold Pryce's name only.",
+   "cites": [
+    48
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold Pryce states that if he leaves the house, Sandra would take it.",
+   "cites": [
+    46
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold Pryce wants to stop the abuse and wants his medication to be provided.",
+   "cites": [
+    50
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Harold Pryce wants Carol to be informed about the abuse and the situation with Sandra.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Harold Pryce says Carol never liked Sandra.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Harold Pryce's pension is held in a joint account with Sandra.",
+   "cites": [
+    54
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Harold Pryce has his own savings book at the post office.",
+   "cites": [
+    54
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Sandra manages the household bills.",
+   "cites": [
+    54
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Harold Pryce is not in immediate danger at the time of the visit, as Sandra is going to her sister's house the next day.",
+   "cites": [
+    56
+   ],
+   "section": "Risks and safeguarding"
+  }
+ ]
+}

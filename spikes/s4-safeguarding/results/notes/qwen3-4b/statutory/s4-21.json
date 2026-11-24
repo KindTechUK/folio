@@ -1,0 +1,426 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "Solicitor Priya Mehta attended the meeting with client Kerry Dobson.",
+      "cites": [
+       3
+      ]
+     },
+     {
+      "text": "The purpose of the meeting was to prepare for the hearing on 15 December and to go through the local authority's letter.",
+      "cites": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "The solicitor confirmed that client disclosures are confidential and privileged, and she will not pass them on without consent.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "The solicitor stated she cannot tell the court something she knows is not true.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "Client Kerry Dobson reported that Tyler has contact on Tuesdays and Thursdays at the family centre on Mill Lane.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Client reported that Tyler's contact worker described the environment as 'warm'.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Client reported that Tyler did Lego during contact.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Client reported that Tyler has lost his front tooth.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Client reported that Tyler likes the foster carers and said they have a dog, which concerns her.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Client reported that Tyler is still at Ashgrove Primary School.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "Client reported that the carers drive Tyler to school.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Client reported that Tyler's teacher said he is doing better with reading.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Client reported that she has not used anything since June.",
+      "cites": [
+       17
+      ]
+     },
+     {
+      "text": "Client reported that she attends a group on Wednesdays.",
+      "cites": [
+       19
+      ]
+     },
+     {
+      "text": "Client admitted she used crack on Saturday night at her cousin's flat, and that this was not the only time.",
+      "cites": [
+       25
+      ]
+     },
+     {
+      "text": "Client admitted she has been using heroin since 3rd November, every day, smoking it, not injecting.",
+      "cites": [
+       27
+      ]
+     },
+     {
+      "text": "Client reported that she uses heroin about £40 per day.",
+      "cites": [
+       29
+      ]
+     },
+     {
+      "text": "Client reported that she pays for heroin using her Universal Credit and by borrowing from her grandmother (nan).",
+      "cites": [
+       31
+      ]
+     },
+     {
+      "text": "Client reported that she stopped picking up her medication about three weeks ago.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "Client lives in a flat on Corporation Street.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "Client reported that she is behind on her council tax payments.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "Client asked whether if the hair-strand test comes back positive, contact will be stopped.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Solicitor raised a risk that going back to heroin after a break increases overdose risk.",
+      "cites": [
+       47
+      ]
+     },
+     {
+      "text": "Client reported that she has a naloxone kit, but it is probably out of date.",
+      "cites": [
+       48
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": []
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": [
+     {
+      "text": "Client stated her primary objective is for Tyler to return home.",
+      "cites": [
+       37
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "Solicitor stated the hair-strand test has not been done yet and covers about three months.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Solicitor advised that it is better to disclose the substance use to the social worker before the test result if the client is already in treatment.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "Solicitor advised that courts do not usually stop contact over a relapse alone if the client is sober and attending contact regularly.",
+      "cites": [
+       43
+      ]
+     },
+     {
+      "text": "Solicitor advised that she cannot file a statement saying the client is clean.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "Solicitor advised client to get a new naloxone kit from the Recovery Hub, which will provide one on the same day.",
+      "cites": [
+       49
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Solicitor Priya Mehta attended the meeting with client Kerry Dobson.",
+   "cites": [
+    3
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The purpose of the meeting was to prepare for the hearing on 15 December and to go through the local authority's letter.",
+   "cites": [
+    3
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The solicitor confirmed that client disclosures are confidential and privileged, and she will not pass them on without consent.",
+   "cites": [
+    5
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The solicitor stated she cannot tell the court something she knows is not true.",
+   "cites": [
+    5
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client Kerry Dobson reported that Tyler has contact on Tuesdays and Thursdays at the family centre on Mill Lane.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that Tyler's contact worker described the environment as 'warm'.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that Tyler did Lego during contact.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that Tyler has lost his front tooth.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that Tyler likes the foster carers and said they have a dog, which concerns her.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that Tyler is still at Ashgrove Primary School.",
+   "cites": [
+    13
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that the carers drive Tyler to school.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that Tyler's teacher said he is doing better with reading.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that she has not used anything since June.",
+   "cites": [
+    17
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that she attends a group on Wednesdays.",
+   "cites": [
+    19
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client admitted she used crack on Saturday night at her cousin's flat, and that this was not the only time.",
+   "cites": [
+    25
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client admitted she has been using heroin since 3rd November, every day, smoking it, not injecting.",
+   "cites": [
+    27
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that she uses heroin about £40 per day.",
+   "cites": [
+    29
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that she pays for heroin using her Universal Credit and by borrowing from her grandmother (nan).",
+   "cites": [
+    31
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that she stopped picking up her medication about three weeks ago.",
+   "cites": [
+    33
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client lives in a flat on Corporation Street.",
+   "cites": [
+    34
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that she is behind on her council tax payments.",
+   "cites": [
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client stated her primary objective is for Tyler to return home.",
+   "cites": [
+    37
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Client asked whether if the hair-strand test comes back positive, contact will be stopped.",
+   "cites": [
+    38
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Solicitor stated the hair-strand test has not been done yet and covers about three months.",
+   "cites": [
+    39
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Solicitor advised that it is better to disclose the substance use to the social worker before the test result if the client is already in treatment.",
+   "cites": [
+    41
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Solicitor advised that courts do not usually stop contact over a relapse alone if the client is sober and attending contact regularly.",
+   "cites": [
+    43
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Solicitor advised that she cannot file a statement saying the client is clean.",
+   "cites": [
+    45
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Solicitor raised a risk that going back to heroin after a break increases overdose risk.",
+   "cites": [
+    47
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Client reported that she has a naloxone kit, but it is probably out of date.",
+   "cites": [
+    48
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Solicitor advised client to get a new naloxone kit from the Recovery Hub, which will provide one on the same day.",
+   "cites": [
+    49
+   ],
+   "section": "Advice given"
+  }
+ ]
+}

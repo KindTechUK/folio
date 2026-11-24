@@ -1,0 +1,445 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Kayleigh Morris is the mother of a 12-day-old infant named Ruby.",
+      "cites": [
+       3,
+       4
+      ]
+     },
+     {
+      "text": "The health visitor is Bethan Lloyd.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "The visit is a new birth visit for Ruby, who is 12 days old.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "Kayleigh's partner, Dean, is at work during the visit and returns around 3 PM.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Dean works early shifts at a warehouse.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Kayleigh and Dean have a tense relationship due to lack of sleep.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Kayleigh has not seen her mother since September, before Ruby was born.",
+      "cites": [
+       44,
+       46
+      ]
+     },
+     {
+      "text": "Kayleigh's mother has not met Ruby.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Kayleigh registered Ruby's birth on the day before the visit.",
+      "cites": [
+       68
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Kayleigh is breastfeeding Ruby primarily, with one bottle of formula given at night.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Ruby is fed every two to two and a half hours during the day, with occasional cluster feeding.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Ruby has six to seven wet nappies per day.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Ruby's birth weight was 3.2 kg as recorded by the midwife on day five.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Ruby's current weight is 3.41 kg, measured at the time of the visit.",
+      "cites": [
+       61
+      ]
+     },
+     {
+      "text": "Kayleigh reports that her physical recovery postpartum is 'bit sore still but better'.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Kayleigh reports that her mood is 'up and down' and that she 'cries a lot'.",
+      "cites": [
+       18
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Dean pushed Kayleigh into a wardrobe door during an argument, which occurred three to four times since summer.",
+      "cites": [
+       26,
+       28
+      ]
+     },
+     {
+      "text": "Dean punched Kayleigh in the stomach during pregnancy in August, at approximately 30 weeks gestation.",
+      "cites": [
+       34,
+       36,
+       38
+      ]
+     },
+     {
+      "text": "Kayleigh did not report any further physical harm from Dean during pregnancy.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Dean checks Kayleigh's phone every night and goes mad if she messages someone he does not like.",
+      "cites": [
+       40,
+       42
+      ]
+     },
+     {
+      "text": "Dean has never hurt or been rough with Ruby.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Kayleigh feels safe at home during the visit because Dean is at work.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "Kayleigh's GP, Dr Anand, will be informed about the safeguarding concerns.",
+      "cites": [
+       73
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Kayleigh is willing to receive a referral to Harbridge Women's Aid, an outreach service, which will call her sister Kirsty's number when Dean is at work.",
+      "cites": [
+       51,
+       52,
+       53,
+       54
+      ]
+     },
+     {
+      "text": "Kayleigh will provide the number 077 for the outreach service to use.",
+      "cites": [
+       70
+      ]
+     },
+     {
+      "text": "Kayleigh has applied for child benefit but does not currently have her own bank card.",
+      "cites": [
+       66
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "The health visitor will refer Kayleigh to Harbridge Women's Aid and the referral will be made on the same day.",
+      "cites": [
+       71
+      ]
+     },
+     {
+      "text": "The outreach service will call Kayleigh's sister Kirsty's phone by Friday.",
+      "cites": [
+       71
+      ]
+     },
+     {
+      "text": "The health visitor will speak to the safeguarding lead and inform the GP about the concerns on the same day.",
+      "cites": [
+       73
+      ]
+     },
+     {
+      "text": "The health visitor will return on Thursday, 3rd December, at 11 AM when Dean is at work.",
+      "cites": [
+       75
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Kayleigh Morris is the mother of a 12-day-old infant named Ruby.",
+   "cites": [
+    3,
+    4
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The health visitor is Bethan Lloyd.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The visit is a new birth visit for Ruby, who is 12 days old.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Kayleigh is breastfeeding Ruby primarily, with one bottle of formula given at night.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ruby is fed every two to two and a half hours during the day, with occasional cluster feeding.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ruby has six to seven wet nappies per day.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ruby's birth weight was 3.2 kg as recorded by the midwife on day five.",
+   "cites": [
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ruby's current weight is 3.41 kg, measured at the time of the visit.",
+   "cites": [
+    61
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kayleigh reports that her physical recovery postpartum is 'bit sore still but better'.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kayleigh reports that her mood is 'up and down' and that she 'cries a lot'.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kayleigh's partner, Dean, is at work during the visit and returns around 3 PM.",
+   "cites": [
+    20
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Dean works early shifts at a warehouse.",
+   "cites": [
+    20
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Kayleigh and Dean have a tense relationship due to lack of sleep.",
+   "cites": [
+    22
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Dean pushed Kayleigh into a wardrobe door during an argument, which occurred three to four times since summer.",
+   "cites": [
+    26,
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Dean punched Kayleigh in the stomach during pregnancy in August, at approximately 30 weeks gestation.",
+   "cites": [
+    34,
+    36,
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Kayleigh did not report any further physical harm from Dean during pregnancy.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Dean checks Kayleigh's phone every night and goes mad if she messages someone he does not like.",
+   "cites": [
+    40,
+    42
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Kayleigh has not seen her mother since September, before Ruby was born.",
+   "cites": [
+    44,
+    46
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Kayleigh's mother has not met Ruby.",
+   "cites": [
+    46
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Dean has never hurt or been rough with Ruby.",
+   "cites": [
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Kayleigh feels safe at home during the visit because Dean is at work.",
+   "cites": [
+    50
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Kayleigh is willing to receive a referral to Harbridge Women's Aid, an outreach service, which will call her sister Kirsty's number when Dean is at work.",
+   "cites": [
+    51,
+    52,
+    53,
+    54
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Kayleigh will provide the number 077 for the outreach service to use.",
+   "cites": [
+    70
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Kayleigh has applied for child benefit but does not currently have her own bank card.",
+   "cites": [
+    66
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Kayleigh registered Ruby's birth on the day before the visit.",
+   "cites": [
+    68
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Kayleigh's GP, Dr Anand, will be informed about the safeguarding concerns.",
+   "cites": [
+    73
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The health visitor will refer Kayleigh to Harbridge Women's Aid and the referral will be made on the same day.",
+   "cites": [
+    71
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The outreach service will call Kayleigh's sister Kirsty's phone by Friday.",
+   "cites": [
+    71
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The health visitor will speak to the safeguarding lead and inform the GP about the concerns on the same day.",
+   "cites": [
+    73
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The health visitor will return on Thursday, 3rd December, at 11 AM when Dean is at work.",
+   "cites": [
+    75
+   ],
+   "section": "Agreed actions"
+  }
+ ]
+}

@@ -1,0 +1,440 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "Solicitor Helen Moss attended the meeting with client Gareth Pryce.",
+      "cites": [
+       1,
+       2
+      ]
+     },
+     {
+      "text": "The purpose of the meeting was to discuss Gareth Pryce's mother's estate, specifically the house on Wyvern Road.",
+      "cites": [
+       7
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "Gareth Pryce's mother died in June.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "The house on Wyvern Road was left to Gareth and his brother Neil in equal shares, 50-50.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "There is a will naming both Gareth and Neil as executors.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Probate has not yet been applied for.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Neil is living in the house and refuses to move out.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "An estate agent provided an estimated valuation of £280,000 for the house.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Neil refused to allow a proper valuation by an estate agent.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Gareth and Neil have a strained relationship, described as 'bad' or 'really bad'.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "On Saturday, 7th November, Neil punched Gareth in the face during an argument in the kitchen about the sale of the house.",
+      "cites": [
+       24,
+       26,
+       27,
+       32
+      ]
+     },
+     {
+      "text": "Gareth's nose was broken during the incident, and he was taken to hospital that night.",
+      "cites": [
+       29,
+       31
+      ]
+     },
+     {
+      "text": "Gareth was treated at Castlebrook General Hospital A and E, where an x-ray confirmed a broken nose.",
+      "cites": [
+       31
+      ]
+     },
+     {
+      "text": "After being punched, Gareth was on the floor and was hit in the back and shoulder with a kitchen chair.",
+      "cites": [
+       33,
+       35
+      ]
+     },
+     {
+      "text": "Gareth had bruising down his back for a week following the incident.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "Gareth stated that Neil was 'like a different person' during the incident.",
+      "cites": [
+       37
+      ]
+     },
+     {
+      "text": "Gareth said he did not believe Neil had a knife or picked one up during the incident, but that he was angry and it scared him.",
+      "cites": [
+       38,
+       40
+      ]
+     },
+     {
+      "text": "Gareth left the house after getting up and walking out, then drove himself to hospital.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Gareth has not reported the incident to the police.",
+      "cites": [
+       43
+      ]
+     },
+     {
+      "text": "Gareth said he is thinking about reporting the incident to the police, but is concerned about his mother's feelings.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "Gareth has a discharge letter from Castlebrook General Hospital.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Gareth took photos of his face the day after the incident.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Neil has sent texts to Gareth, saying he 'deserved it' and that he is not getting a penny.",
+      "cites": [
+       48
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": []
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": [
+     {
+      "text": "Gareth wants the house sold and the estate settled.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Gareth wants Neil to stay away from him.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "As joint executors, both Gareth and Neil must act to apply for probate, but if Neil refuses to cooperate, the solicitor advised that a court application to remove Neil as an execu­",
+      "cites": [
+       53
+      ]
+     },
+     {
+      "text": "The solicitor advised that a letter to Neil should be written, setting out a deadline, and that Gareth should consider reporting the assault to the police.",
+      "cites": [
+       55
+      ]
+     },
+     {
+      "text": "The solicitor advised that a non-molestation order could be applied for in family court to prevent Neil from contacting or approaching Gareth.",
+      "cites": [
+       57
+      ]
+     },
+     {
+      "text": "The solicitor stated that a non-molestation order could be processed quickly if urgent.",
+      "cites": [
+       59
+      ]
+     },
+     {
+      "text": "The solicitor will send a client care letter with fees by Friday.",
+      "cites": [
+       61
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Solicitor Helen Moss attended the meeting with client Gareth Pryce.",
+   "cites": [
+    1,
+    2
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The purpose of the meeting was to discuss Gareth Pryce's mother's estate, specifically the house on Wyvern Road.",
+   "cites": [
+    7
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "Gareth Pryce's mother died in June.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The house on Wyvern Road was left to Gareth and his brother Neil in equal shares, 50-50.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "There is a will naming both Gareth and Neil as executors.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Probate has not yet been applied for.",
+   "cites": [
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Neil is living in the house and refuses to move out.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "An estate agent provided an estimated valuation of £280,000 for the house.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Neil refused to allow a proper valuation by an estate agent.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth and Neil have a strained relationship, described as 'bad' or 'really bad'.",
+   "cites": [
+    16
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "On Saturday, 7th November, Neil punched Gareth in the face during an argument in the kitchen about the sale of the house.",
+   "cites": [
+    24,
+    26,
+    27,
+    32
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth's nose was broken during the incident, and he was taken to hospital that night.",
+   "cites": [
+    29,
+    31
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth was treated at Castlebrook General Hospital A and E, where an x-ray confirmed a broken nose.",
+   "cites": [
+    31
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "After being punched, Gareth was on the floor and was hit in the back and shoulder with a kitchen chair.",
+   "cites": [
+    33,
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth had bruising down his back for a week following the incident.",
+   "cites": [
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth stated that Neil was 'like a different person' during the incident.",
+   "cites": [
+    37
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth said he did not believe Neil had a knife or picked one up during the incident, but that he was angry and it scared him.",
+   "cites": [
+    38,
+    40
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth left the house after getting up and walking out, then drove himself to hospital.",
+   "cites": [
+    42
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth has not reported the incident to the police.",
+   "cites": [
+    43
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth said he is thinking about reporting the incident to the police, but is concerned about his mother's feelings.",
+   "cites": [
+    44
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth has a discharge letter from Castlebrook General Hospital.",
+   "cites": [
+    46
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth took photos of his face the day after the incident.",
+   "cites": [
+    46
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Neil has sent texts to Gareth, saying he 'deserved it' and that he is not getting a penny.",
+   "cites": [
+    48
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Gareth wants the house sold and the estate settled.",
+   "cites": [
+    52
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Gareth wants Neil to stay away from him.",
+   "cites": [
+    52
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "As joint executors, both Gareth and Neil must act to apply for probate, but if Neil refuses to cooperate, the solicitor advised that a court application to remove Neil as an execu­",
+   "cites": [
+    53
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that a letter to Neil should be written, setting out a deadline, and that Gareth should consider reporting the assault to the police.",
+   "cites": [
+    55
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that a non-molestation order could be applied for in family court to prevent Neil from contacting or approaching Gareth.",
+   "cites": [
+    57
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor stated that a non-molestation order could be processed quickly if urgent.",
+   "cites": [
+    59
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor will send a client care letter with fees by Friday.",
+   "cites": [
+    61
+   ],
+   "section": "Advice given"
+  }
+ ]
+}

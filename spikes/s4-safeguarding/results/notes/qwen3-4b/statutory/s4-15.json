@@ -1,0 +1,425 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Helen Marsh (S1) is the care assessor.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) is the person being assessed.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "The care assessor, Helen Marsh, states she is coming to discuss support and hours.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "Jamie Coulter states the purpose of the visit is to talk about his support and hours.",
+      "cites": [
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Jamie Coulter reports that on Tuesdays and Thursdays he goes to the garden centre to do plants and watering and is paid.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Jamie Coulter receives payment every two weeks on Fridays.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Jamie Coulter receives his pay via bank transfer, every two weeks on Fridays.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Jamie Coulter can cook pasta and beans on toast.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Tom helps Jamie with shopping on Mondays.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Tom is Jamie's support worker.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Jamie Coulter sees his girlfriend Kayleigh and friends Dean and Lewis from the park.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Jamie Coulter spends time with Dean and Lewis by hanging out and going to the shop.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "On payday, Dean and Lewis walk Jamie to the cash machine.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "On payday, Jamie takes out £100 and gives it to Dean and Lewis.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Jamie gives £100 to Dean and Lewis every payday.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Jamie reports that after giving £100 to Dean and Lewis, he does not have enough money left.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Jamie reports that last month, the electric went off for two days because he did not have money to pay for it.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "The electric went off for two days, and it was cold, so Jamie had crisps for tea.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Jamie did not tell Tom about the electric going off or the lack of money for it.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "Kayleigh does not take Jamie's money and does not ask for it.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Kayleigh buys Jamie chips sometimes.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Jamie confirms Kayleigh never takes his money and is nice to him.",
+      "cites": [
+       48
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "The care assessor explains that if Jamie discloses a risk to his safety, she may need to inform other people to help, and that this is okay with him.",
+      "cites": [
+       7
+      ]
+     },
+     {
+      "text": "Jamie Coulter confirms that he is okay with the care assessor informing others if he discloses a safety risk.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Dean says he would hurt Jamie if he does not give him the money.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Jamie confirms that Dean said he would hurt him if he did not give him the money, specifically on the previous Friday.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Jamie denies that Dean or Lewis have ever physically hurt him, stating only that they said they would hurt him.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "The care assessor will inform the safeguarding team about the risk of harm from Dean, as Jamie disclosed that Dean said he would hurt him if he did not give him money.",
+      "cites": [
+       49
+      ]
+     },
+     {
+      "text": "Jamie asks if Dean will know that the care assessor told someone about the threat.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "The care assessor confirms that she will talk to Jamie before telling Dean or anyone else about the disclosure, and that police involvement will be discussed only after informing a",
+      "cites": [
+       51
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Helen Marsh (S1) is the care assessor.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Jamie Coulter (S2) is the person being assessed.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The care assessor, Helen Marsh, states she is coming to discuss support and hours.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Jamie Coulter states the purpose of the visit is to talk about his support and hours.",
+   "cites": [
+    6
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The care assessor explains that if Jamie discloses a risk to his safety, she may need to inform other people to help, and that this is okay with him.",
+   "cites": [
+    7
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Coulter confirms that he is okay with the care assessor informing others if he discloses a safety risk.",
+   "cites": [
+    8
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Coulter reports that on Tuesdays and Thursdays he goes to the garden centre to do plants and watering and is paid.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Coulter receives payment every two weeks on Fridays.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Coulter receives his pay via bank transfer, every two weeks on Fridays.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Coulter can cook pasta and beans on toast.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Tom helps Jamie with shopping on Mondays.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Tom is Jamie's support worker.",
+   "cites": [
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Coulter sees his girlfriend Kayleigh and friends Dean and Lewis from the park.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Coulter spends time with Dean and Lewis by hanging out and going to the shop.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "On payday, Dean and Lewis walk Jamie to the cash machine.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "On payday, Jamie takes out £100 and gives it to Dean and Lewis.",
+   "cites": [
+    26
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie gives £100 to Dean and Lewis every payday.",
+   "cites": [
+    26
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Dean says he would hurt Jamie if he does not give him the money.",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie confirms that Dean said he would hurt him if he did not give him the money, specifically on the previous Friday.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie denies that Dean or Lewis have ever physically hurt him, stating only that they said they would hurt him.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie reports that after giving £100 to Dean and Lewis, he does not have enough money left.",
+   "cites": [
+    40
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie reports that last month, the electric went off for two days because he did not have money to pay for it.",
+   "cites": [
+    40
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The electric went off for two days, and it was cold, so Jamie had crisps for tea.",
+   "cites": [
+    42
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie did not tell Tom about the electric going off or the lack of money for it.",
+   "cites": [
+    44
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kayleigh does not take Jamie's money and does not ask for it.",
+   "cites": [
+    46
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kayleigh buys Jamie chips sometimes.",
+   "cites": [
+    46
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie confirms Kayleigh never takes his money and is nice to him.",
+   "cites": [
+    48
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The care assessor will inform the safeguarding team about the risk of harm from Dean, as Jamie disclosed that Dean said he would hurt him if he did not give him money.",
+   "cites": [
+    49
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie asks if Dean will know that the care assessor told someone about the threat.",
+   "cites": [
+    50
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The care assessor confirms that she will talk to Jamie before telling Dean or anyone else about the disclosure, and that police involvement will be discussed only after informing a",
+   "cites": [
+    51
+   ],
+   "section": "Risks and safeguarding"
+  }
+ ]
+}

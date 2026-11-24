@@ -1,0 +1,424 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Janet Fielding is the care assessor from the council.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Janet Fielding spoke to Edith Marsh on the phone prior to this visit.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Pauline Reid is a neighbour of Edith Marsh.",
+      "cites": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Edith Marsh uses a frame to get about.",
+      "cites": [
+       9
+      ]
+     },
+     {
+      "text": "Edith Marsh does not go upstairs.",
+      "cites": [
+       9
+      ]
+     },
+     {
+      "text": "Gary brought Edith's bed down to the front room.",
+      "cites": [
+       9
+      ]
+     },
+     {
+      "text": "Gary is Edith's son and lives with her.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Gary works at a garage on Station Road.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Gary works from eight to six, sometimes later.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "Gary helps Edith with shopping, getting up, and taking her tablets.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Edith can get to the toilet herself most of the time.",
+      "cites": [
+       17
+      ]
+     },
+     {
+      "text": "Edith uses a commode and wears pads when she is not quick enough.",
+      "cites": [
+       17
+      ]
+     },
+     {
+      "text": "Gary changes Edith's pad when he is home; otherwise, Edith manages it.",
+      "cites": [
+       19
+      ]
+     },
+     {
+      "text": "Edith is alone during the day while Gary is at work.",
+      "cites": [
+       21
+      ]
+     },
+     {
+      "text": "Gary leaves work around half past seven.",
+      "cites": [
+       23
+      ]
+     },
+     {
+      "text": "Gary sometimes does not return home until after nine o'clock.",
+      "cites": [
+       23
+      ]
+     },
+     {
+      "text": "Pauline Reid visits Edith most afternoons.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Pauline reports that Edith is left in wet clothes most days, with wet pads and skirts, when she visits at two.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Pauline says Edith is left in wet clothes on four or five days a week.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Pauline says she has helped Edith change when she has been allowed.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Edith receives a sandwich from Gary for lunch.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "The fridge has no food in it, only a small amount of milk that has gone off, when Pauline checks.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "Pauline reports that the fridge has been empty three or four times in the last few weeks.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "Gary puts Edith's tablets out in a box.",
+      "cites": [
+       37
+      ]
+     },
+     {
+      "text": "The tablet box is on the side of the house.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Edith has not had her tablets for a week.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "The tablet box has been full since Tuesday the 17th.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "The tablet box contains blood pressure tablets and water tablets.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "Edith says she forgets to take her tablets.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Edith says Gary is busy and tired.",
+      "cites": [
+       42
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": []
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Janet Fielding is the care assessor from the council.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Janet Fielding spoke to Edith Marsh on the phone prior to this visit.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Pauline Reid is a neighbour of Edith Marsh.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Edith Marsh uses a frame to get about.",
+   "cites": [
+    9
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edith Marsh does not go upstairs.",
+   "cites": [
+    9
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Gary brought Edith's bed down to the front room.",
+   "cites": [
+    9
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Gary is Edith's son and lives with her.",
+   "cites": [
+    11
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Gary works at a garage on Station Road.",
+   "cites": [
+    11
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Gary works from eight to six, sometimes later.",
+   "cites": [
+    13
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Gary helps Edith with shopping, getting up, and taking her tablets.",
+   "cites": [
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edith can get to the toilet herself most of the time.",
+   "cites": [
+    17
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edith uses a commode and wears pads when she is not quick enough.",
+   "cites": [
+    17
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Gary changes Edith's pad when he is home; otherwise, Edith manages it.",
+   "cites": [
+    19
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edith is alone during the day while Gary is at work.",
+   "cites": [
+    21
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Gary leaves work around half past seven.",
+   "cites": [
+    23
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Gary sometimes does not return home until after nine o'clock.",
+   "cites": [
+    23
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Pauline Reid visits Edith most afternoons.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Pauline reports that Edith is left in wet clothes most days, with wet pads and skirts, when she visits at two.",
+   "cites": [
+    26
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Pauline says Edith is left in wet clothes on four or five days a week.",
+   "cites": [
+    28
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Pauline says she has helped Edith change when she has been allowed.",
+   "cites": [
+    28
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edith receives a sandwich from Gary for lunch.",
+   "cites": [
+    32
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The fridge has no food in it, only a small amount of milk that has gone off, when Pauline checks.",
+   "cites": [
+    33
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Pauline reports that the fridge has been empty three or four times in the last few weeks.",
+   "cites": [
+    35
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Gary puts Edith's tablets out in a box.",
+   "cites": [
+    37
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The tablet box is on the side of the house.",
+   "cites": [
+    38
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edith has not had her tablets for a week.",
+   "cites": [
+    38
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The tablet box has been full since Tuesday the 17th.",
+   "cites": [
+    41
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The tablet box contains blood pressure tablets and water tablets.",
+   "cites": [
+    41
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edith says she forgets to take her tablets.",
+   "cites": [
+    42
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edith says Gary is busy and tired.",
+   "cites": [
+    42
+   ],
+   "section": "Needs and daily living"
+  }
+ ]
+}

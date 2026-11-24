@@ -1,0 +1,432 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "Solicitor Helen Moss attended the meeting with client Gareth Pryce.",
+      "cites": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "The purpose of the meeting was to discuss the estate of Mr Pryce's mother, specifically regarding the sale of the house on Wyvern Road and the role of the joint executors.",
+      "cites": [
+       7,
+       8,
+       10,
+       11,
+       12
+      ]
+     },
+     {
+      "text": "Mr Pryce's mother died in June.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "The house on Wyvern Road was left to Mr Pryce and his brother Neil, fifty-fifty.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Mr Pryce and Neil are both executors under the will.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Probate has not been applied for.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Neil is living in the house and refuses to move out.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "An estate agent estimated the value of the house at £280,000.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Neil refused to allow a proper valuation of the property.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Mr Pryce and Neil have a strained relationship.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "On Saturday the 7th of November, Mr Pryce went to the house to retrieve Mum's paperwork.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Mr Pryce and Neil argued in the kitchen about the sale of the house.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Neil told Mr Pryce that he was robbing him.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Neil punched Mr Pryce in the face without warning.",
+      "cites": [
+       27
+      ]
+     },
+     {
+      "text": "Neil broke Mr Pryce's nose during the incident.",
+      "cites": [
+       29
+      ]
+     },
+     {
+      "text": "Mr Pryce went to Castlebrook General Hospital's A and E department that night.",
+      "cites": [
+       31
+      ]
+     },
+     {
+      "text": "Hospital x-ray confirmed Mr Pryce's nose was broken.",
+      "cites": [
+       31
+      ]
+     },
+     {
+      "text": "After being punched, Mr Pryce was on the floor and Neil hit him with a kitchen chair.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "The kitchen chair hit Mr Pryce across his back and shoulder.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "Mr Pryce had bruising down his back for a week after the incident.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "Mr Pryce described Neil as being 'like a different person' after the incident.",
+      "cites": [
+       37
+      ]
+     },
+     {
+      "text": "Mr Pryce stated that if Neil had a knife, he would have used it.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Neil did not have a knife or pick one up during the incident.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Mr Pryce got up and walked out of the house after the assault.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Mr Pryce drove himself to hospital, which he described as 'stupid'.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Mr Pryce has not reported the incident to the police.",
+      "cites": [
+       43
+      ]
+     },
+     {
+      "text": "Mr Pryce said he keeps thinking about his mother and that she would hate it if he reported the assault.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "Mr Pryce has a discharge letter from Castlebrook General Hospital.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Mr Pryce took photos of his face the day after the incident.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Neil has sent texts to Mr Pryce, saying he 'deserved it' and that he is not getting a penny.",
+      "cites": [
+       48
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": []
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": []
+   },
+   {
+    "title": "Advice given",
+    "sentences": []
+   },
+   {
+    "title": "Next steps",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Solicitor Helen Moss attended the meeting with client Gareth Pryce.",
+   "cites": [
+    1
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The purpose of the meeting was to discuss the estate of Mr Pryce's mother, specifically regarding the sale of the house on Wyvern Road and the role of the joint executors.",
+   "cites": [
+    7,
+    8,
+    10,
+    11,
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce's mother died in June.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The house on Wyvern Road was left to Mr Pryce and his brother Neil, fifty-fifty.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce and Neil are both executors under the will.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Probate has not been applied for.",
+   "cites": [
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Neil is living in the house and refuses to move out.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "An estate agent estimated the value of the house at £280,000.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Neil refused to allow a proper valuation of the property.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce and Neil have a strained relationship.",
+   "cites": [
+    16
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "On Saturday the 7th of November, Mr Pryce went to the house to retrieve Mum's paperwork.",
+   "cites": [
+    24
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce and Neil argued in the kitchen about the sale of the house.",
+   "cites": [
+    26
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Neil told Mr Pryce that he was robbing him.",
+   "cites": [
+    26
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Neil punched Mr Pryce in the face without warning.",
+   "cites": [
+    27
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Neil broke Mr Pryce's nose during the incident.",
+   "cites": [
+    29
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce went to Castlebrook General Hospital's A and E department that night.",
+   "cites": [
+    31
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Hospital x-ray confirmed Mr Pryce's nose was broken.",
+   "cites": [
+    31
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "After being punched, Mr Pryce was on the floor and Neil hit him with a kitchen chair.",
+   "cites": [
+    33
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The kitchen chair hit Mr Pryce across his back and shoulder.",
+   "cites": [
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce had bruising down his back for a week after the incident.",
+   "cites": [
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce described Neil as being 'like a different person' after the incident.",
+   "cites": [
+    37
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce stated that if Neil had a knife, he would have used it.",
+   "cites": [
+    38
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Neil did not have a knife or pick one up during the incident.",
+   "cites": [
+    40
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce got up and walked out of the house after the assault.",
+   "cites": [
+    42
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce drove himself to hospital, which he described as 'stupid'.",
+   "cites": [
+    42
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce has not reported the incident to the police.",
+   "cites": [
+    43
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce said he keeps thinking about his mother and that she would hate it if he reported the assault.",
+   "cites": [
+    44
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce has a discharge letter from Castlebrook General Hospital.",
+   "cites": [
+    46
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Mr Pryce took photos of his face the day after the incident.",
+   "cites": [
+    46
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Neil has sent texts to Mr Pryce, saying he 'deserved it' and that he is not getting a penny.",
+   "cites": [
+    48
+   ],
+   "section": "Client's account"
+  }
+ ]
+}

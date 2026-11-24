@@ -1,0 +1,429 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Jade Pritchard is the mother of Lily and Mason.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Lily is eight months old.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "The visit is part of Lily's eight-month review.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "The health visitor is Claire Dunmore.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "The health visitor (Claire Dunmore) is conducting a health visit with Jade Pritchard.",
+      "cites": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Lily's weight at last review was 7.9 kilos.",
+      "cites": [
+       57
+      ]
+     },
+     {
+      "text": "Lily's current weight is 8.4 kilos.",
+      "cites": [
+       57
+      ]
+     },
+     {
+      "text": "Lily is following her growth line.",
+      "cites": [
+       57
+      ]
+     },
+     {
+      "text": "Lily is on a weaning diet of porridge in the morning and mashed vegetables at dinner.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Lily still drinks four bottles per day.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Each bottle is seven ounces.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Lily does not always finish the night bottle.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Lily is trying finger foods such as bits of toast and banana.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Lily gags when eating finger foods, which concerns the mother.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "The health visitor explains that gagging is normal and choking is different (silent), and provides a leaflet on choking.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Lily sleeps around seven in the evening and wakes once around three for a bottle.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Mason sleeps more than Lily, and the mother admits Mason is worse than Lily in terms of sleep patterns.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Dean Pritchard (father) works on lorries, Monday to Friday, and returns on weekends.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "The mother is alone during the week with the children.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "The mother's mother (grandmother) helps out on Tuesdays with Mason.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Mason has fifteen hours of childcare at Little Acorns per week.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "The mother reports financial strain, describing the household as 'tight'.",
+      "cites": [
+       23
+      ]
+     },
+     {
+      "text": "The household receives Universal Credit and money from Dean.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Electricity costs have increased significantly and the household is on a key meter.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "The health visitor provides the number for the Harbridge Energy Fund, which offers top-ups.",
+      "cites": [
+       25
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "The mother reports being 'alright' but tired and bored in the evenings.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "The mother drinks a bottle of wine every night, most nights, when the children are in bed.",
+      "cites": [
+       28,
+       30
+      ]
+     },
+     {
+      "text": "The mother drinks a standard bottle of 75 centilitres from the Co-op.",
+      "cites": [
+       31
+      ]
+     },
+     {
+      "text": "The mother starts drinking around eight o'clock when the children are in bed.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "The mother smokes a small amount of cannabis (weed) a couple of nights a week, only when the children are in bed, never in front of them.",
+      "cites": [
+       34,
+       36
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": []
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Jade Pritchard is the mother of Lily and Mason.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Lily is eight months old.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The visit is part of Lily's eight-month review.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The health visitor is Claire Dunmore.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The health visitor (Claire Dunmore) is conducting a health visit with Jade Pritchard.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Lily's weight at last review was 7.9 kilos.",
+   "cites": [
+    57
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily's current weight is 8.4 kilos.",
+   "cites": [
+    57
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily is following her growth line.",
+   "cites": [
+    57
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily is on a weaning diet of porridge in the morning and mashed vegetables at dinner.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily still drinks four bottles per day.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Each bottle is seven ounces.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily does not always finish the night bottle.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily is trying finger foods such as bits of toast and banana.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily gags when eating finger foods, which concerns the mother.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The health visitor explains that gagging is normal and choking is different (silent), and provides a leaflet on choking.",
+   "cites": [
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily sleeps around seven in the evening and wakes once around three for a bottle.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mason sleeps more than Lily, and the mother admits Mason is worse than Lily in terms of sleep patterns.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Dean Pritchard (father) works on lorries, Monday to Friday, and returns on weekends.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother is alone during the week with the children.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother's mother (grandmother) helps out on Tuesdays with Mason.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mason has fifteen hours of childcare at Little Acorns per week.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother reports financial strain, describing the household as 'tight'.",
+   "cites": [
+    23
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The household receives Universal Credit and money from Dean.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Electricity costs have increased significantly and the household is on a key meter.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The health visitor provides the number for the Harbridge Energy Fund, which offers top-ups.",
+   "cites": [
+    25
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother reports being 'alright' but tired and bored in the evenings.",
+   "cites": [
+    26
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "The mother drinks a bottle of wine every night, most nights, when the children are in bed.",
+   "cites": [
+    28,
+    30
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "The mother drinks a standard bottle of 75 centilitres from the Co-op.",
+   "cites": [
+    31
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "The mother starts drinking around eight o'clock when the children are in bed.",
+   "cites": [
+    32
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "The mother smokes a small amount of cannabis (weed) a couple of nights a week, only when the children are in bed, never in front of them.",
+   "cites": [
+    34,
+    36
+   ],
+   "section": "Person's views and wishes"
+  }
+ ]
+}

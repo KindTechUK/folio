@@ -1,0 +1,434 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Tom Ashworth is the social worker.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Jamie Rowe is the person being assessed.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "The assessment is scheduled as a review, as previously discussed.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "The social worker will write notes for the support team, with most information remaining between the social worker and support team.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "If Jamie reports someone hurting him, the social worker may need to inform others to keep him safe, but will always tell him first.",
+      "cites": [
+       7
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Jamie is attending college and does catering on Tuesdays and Wednesdays.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Jamie volunteers at the garden centre on Fridays, doing watering and trolley duties.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Jamie sometimes cooks for himself, but staff help with the oven.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Jamie can cook pasta on his own.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Sandra helps Jamie manage his shopping.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Jamie receives money on a Monday and makes a shopping list.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Jamie sees his mother on Sundays, who picks him up and they go to Nan's for dinner.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Sandra and Priya are the staff Jamie gets on with best.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Craig is the night staff member most frequently assigned.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Jamie gets on with Craig 'sometimes' and says he 'gets cross' when Jamie gets up at night.",
+      "cites": [
+       24,
+       26
+      ]
+     },
+     {
+      "text": "Craig tells Jamie to go back to bed when Jamie gets up at night for a drink.",
+      "cites": [
+       30
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Craig pushed Jamie into a wall in the hall outside the kitchen.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "Jamie's shoulder hurt when pushed into the wall.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "The incident when Craig pushed Jamie occurred on a Thursday night, the night before the garden centre.",
+      "cites": [
+       38,
+       40
+      ]
+     },
+     {
+      "text": "Craig kicked Jamie's leg with his foot on the back of his leg.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Craig kicked Jamie's leg three times, and said it was 'messing about' or a joke.",
+      "cites": [
+       48,
+       44
+      ]
+     },
+     {
+      "text": "Jamie felt a bit of pain when kicked and had a bruise.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "Craig told Jamie not to tell anyone about the kicking, saying if Jamie does, he will lose his flat.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Jamie does not want to lose his flat.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "Jamie says Craig has not done anything else to him, but Marcus told him Craig hit Sophie, which Jamie did not see.",
+      "cites": [
+       58,
+       60
+      ]
+     },
+     {
+      "text": "A safeguarding team member may want to speak to Jamie, and the social worker will be present or his mother can be present.",
+      "cites": [
+       71
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "The social worker will report the incidents to the safeguarding team at the council.",
+      "cites": [
+       67
+      ]
+     },
+     {
+      "text": "The social worker will ring Sandra and the manager to ask that Craig does not work at night while the issue is being investigated.",
+      "cites": [
+       67
+      ]
+     },
+     {
+      "text": "Sandra will arrange alternative night staff if needed.",
+      "cites": [
+       69
+      ]
+     },
+     {
+      "text": "The social worker will contact Jamie's mother this afternoon.",
+      "cites": [
+       65
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Tom Ashworth is the social worker.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Jamie Rowe is the person being assessed.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The assessment is scheduled as a review, as previously discussed.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The social worker will write notes for the support team, with most information remaining between the social worker and support team.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "If Jamie reports someone hurting him, the social worker may need to inform others to keep him safe, but will always tell him first.",
+   "cites": [
+    7
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Jamie is attending college and does catering on Tuesdays and Wednesdays.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie volunteers at the garden centre on Fridays, doing watering and trolley duties.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie sometimes cooks for himself, but staff help with the oven.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie can cook pasta on his own.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Sandra helps Jamie manage his shopping.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie receives money on a Monday and makes a shopping list.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie sees his mother on Sundays, who picks him up and they go to Nan's for dinner.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Sandra and Priya are the staff Jamie gets on with best.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Craig is the night staff member most frequently assigned.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie gets on with Craig 'sometimes' and says he 'gets cross' when Jamie gets up at night.",
+   "cites": [
+    24,
+    26
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Craig tells Jamie to go back to bed when Jamie gets up at night for a drink.",
+   "cites": [
+    30
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Craig pushed Jamie into a wall in the hall outside the kitchen.",
+   "cites": [
+    34
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie's shoulder hurt when pushed into the wall.",
+   "cites": [
+    35
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The incident when Craig pushed Jamie occurred on a Thursday night, the night before the garden centre.",
+   "cites": [
+    38,
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Craig kicked Jamie's leg with his foot on the back of his leg.",
+   "cites": [
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Craig kicked Jamie's leg three times, and said it was 'messing about' or a joke.",
+   "cites": [
+    48,
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie felt a bit of pain when kicked and had a bruise.",
+   "cites": [
+    50
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Craig told Jamie not to tell anyone about the kicking, saying if Jamie does, he will lose his flat.",
+   "cites": [
+    52
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie does not want to lose his flat.",
+   "cites": [
+    54
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie says Craig has not done anything else to him, but Marcus told him Craig hit Sophie, which Jamie did not see.",
+   "cites": [
+    58,
+    60
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The social worker will report the incidents to the safeguarding team at the council.",
+   "cites": [
+    67
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The social worker will ring Sandra and the manager to ask that Craig does not work at night while the issue is being investigated.",
+   "cites": [
+    67
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Sandra will arrange alternative night staff if needed.",
+   "cites": [
+    69
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The social worker will contact Jamie's mother this afternoon.",
+   "cites": [
+    65
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "A safeguarding team member may want to speak to Jamie, and the social worker will be present or his mother can be present.",
+   "cites": [
+    71
+   ],
+   "section": "Risks and safeguarding"
+  }
+ ]
+}

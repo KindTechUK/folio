@@ -1,0 +1,428 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Hannah Price is the social worker from Harbridge children's services.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "School contacted children's services because Millie told her teacher she didn't want to go home on Monday.",
+      "cites": [
+       3
+      ]
+     },
+     {
+      "text": "Stacey Lambert is the mother of Millie Lambert.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Millie Lambert is a child aged 9.",
+      "cites": [
+       17
+      ]
+     },
+     {
+      "text": "Craig is Millie's stepfather and works on the bins (i.e., waste collection).",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Craig is at work until six and is not present at the time of the visit.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "The family includes Stacey, Millie, Craig, and Jayden, who is two years old.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Millie's father is in Scotland and she sees him only during summer holidays.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Stacey works mornings at Greggs.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Craig is Millie's stepfather and the family has been together for four years.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "The landlord is slow in fixing the damp in Millie's room.",
+      "cites": [
+       14
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Millie told the social worker that when she wets the bed, Craig hits her with a belt on her legs.",
+      "cites": [
+       31
+      ]
+     },
+     {
+      "text": "Millie said Craig hits her with a belt on her legs every time she wets the bed, and this happens about every week.",
+      "cites": [
+       31,
+       35
+      ]
+     },
+     {
+      "text": "The last time Craig hit Millie was on Sunday morning, before Stacey woke up.",
+      "cites": [
+       37
+      ]
+     },
+     {
+      "text": "Millie said the hits leave red lines that go away.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Millie said no one else at home hurts her.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "The social worker will speak to Mrs Hollis at school tomorrow morning to ask the school nurse to refer Millie to the continence clinic.",
+      "cites": [
+       67
+      ]
+     },
+     {
+      "text": "The social worker will write to the landlord about the damp in Millie's room by Friday.",
+      "cites": [
+       68
+      ]
+     },
+     {
+      "text": "The social worker will visit the house on Thursday, the 26th, to follow up on the damp issue.",
+      "cites": [
+       68
+      ]
+     },
+     {
+      "text": "Millie said she likes art and is in the netball team in Year Four.",
+      "cites": [
+       25
+      ]
+     },
+     {
+      "text": "Millie said Jayden, her younger brother, takes her pens.",
+      "cites": [
+       27
+      ]
+     },
+     {
+      "text": "Millie said she has a hamster named Biscuit who is asleep.",
+      "cites": [
+       18
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Stacey said she has not seen Craig hit Millie and has only seen it once or twice.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "Stacey said Craig gives Millie a 'smack' with his belt on her legs, not hard, and it's not abuse.",
+      "cites": [
+       49
+      ]
+     },
+     {
+      "text": "Stacey said Craig comes from a strict family and she has told him to stop.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "The social worker stated that hitting a child with a belt is not acceptable and that she will initiate a strategy discussion with her manager and the police.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "The social worker asked if Craig could stay elsewhere to ensure Millie's safety tonight.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "Stacey said Craig's brother lives on Canal Street and could host him.",
+      "cites": [
+       55
+      ]
+     },
+     {
+      "text": "Stacey agreed to keep Craig away from the house until further notice.",
+      "cites": [
+       56
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "Stacey said she will ring Craig now to ask him to go to his brother's on Canal Street.",
+      "cites": [
+       57
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Hannah Price is the social worker from Harbridge children's services.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "School contacted children's services because Millie told her teacher she didn't want to go home on Monday.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Stacey Lambert is the mother of Millie Lambert.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Millie Lambert is a child aged 9.",
+   "cites": [
+    17
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Craig is Millie's stepfather and works on the bins (i.e., waste collection).",
+   "cites": [
+    8
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Craig is at work until six and is not present at the time of the visit.",
+   "cites": [
+    8
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The family includes Stacey, Millie, Craig, and Jayden, who is two years old.",
+   "cites": [
+    10
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Millie's father is in Scotland and she sees him only during summer holidays.",
+   "cites": [
+    12
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Stacey works mornings at Greggs.",
+   "cites": [
+    14
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Craig is Millie's stepfather and the family has been together for four years.",
+   "cites": [
+    10
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The landlord is slow in fixing the damp in Millie's room.",
+   "cites": [
+    14
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Millie told the social worker that when she wets the bed, Craig hits her with a belt on her legs.",
+   "cites": [
+    31
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Millie said Craig hits her with a belt on her legs every time she wets the bed, and this happens about every week.",
+   "cites": [
+    31,
+    35
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The last time Craig hit Millie was on Sunday morning, before Stacey woke up.",
+   "cites": [
+    37
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Millie said the hits leave red lines that go away.",
+   "cites": [
+    39
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Millie said no one else at home hurts her.",
+   "cites": [
+    41
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Stacey said she has not seen Craig hit Millie and has only seen it once or twice.",
+   "cites": [
+    51
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Stacey said Craig gives Millie a 'smack' with his belt on her legs, not hard, and it's not abuse.",
+   "cites": [
+    49
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Stacey said Craig comes from a strict family and she has told him to stop.",
+   "cites": [
+    51
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The social worker stated that hitting a child with a belt is not acceptable and that she will initiate a strategy discussion with her manager and the police.",
+   "cites": [
+    52
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The social worker asked if Craig could stay elsewhere to ensure Millie's safety tonight.",
+   "cites": [
+    54
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Stacey said Craig's brother lives on Canal Street and could host him.",
+   "cites": [
+    55
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Stacey agreed to keep Craig away from the house until further notice.",
+   "cites": [
+    56
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Stacey said she will ring Craig now to ask him to go to his brother's on Canal Street.",
+   "cites": [
+    57
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The social worker will speak to Mrs Hollis at school tomorrow morning to ask the school nurse to refer Millie to the continence clinic.",
+   "cites": [
+    67
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The social worker will write to the landlord about the damp in Millie's room by Friday.",
+   "cites": [
+    68
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The social worker will visit the house on Thursday, the 26th, to follow up on the damp issue.",
+   "cites": [
+    68
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Millie said she likes art and is in the netball team in Year Four.",
+   "cites": [
+    25
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Millie said Jayden, her younger brother, takes her pens.",
+   "cites": [
+    27
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Millie said she has a hamster named Biscuit who is asleep.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  }
+ ]
+}

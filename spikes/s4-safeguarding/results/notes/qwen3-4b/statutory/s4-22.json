@@ -1,0 +1,442 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Hannah Price is the social worker from Harbridge children's services.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "School contacted children's services because Millie told her teacher she didn't want to go home on Monday.",
+      "cites": [
+       3
+      ]
+     },
+     {
+      "text": "Millie Lambert is a child aged 9.",
+      "cites": [
+       23
+      ]
+     },
+     {
+      "text": "Stacey Lambert is Millie's mother.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Craig is Millie's stepfather and works on the bins.",
+      "cites": [
+       8,
+       10
+      ]
+     },
+     {
+      "text": "Millie has a younger brother, Jayden, who is two years old.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Millie's father is in Scotland and she sees him only during summer holidays.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Stacey works mornings at Greggs.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Craig is described as being from a strict family.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "The landlord is slow in fixing the damp in Millie's room.",
+      "cites": [
+       14
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Millie has a hamster named Biscuit who is asleep.",
+      "cites": [
+       18,
+       19
+      ]
+     },
+     {
+      "text": "Millie enjoys art and is in the netball team in Year Four.",
+      "cites": [
+       24,
+       25
+      ]
+     },
+     {
+      "text": "Jayden takes Millie's pens.",
+      "cites": [
+       27
+      ]
+     },
+     {
+      "text": "Millie told the teacher she didn't want to go home on Monday because of the bed.",
+      "cites": [
+       28,
+       29
+      ]
+     },
+     {
+      "text": "Hannah Price said she will speak to Mrs Hollis at school tomorrow morning to ask the school nurse to refer Millie to the continence clinic.",
+      "cites": [
+       67
+      ]
+     },
+     {
+      "text": "Hannah Price said she will write to the landlord about the damp in Millie's room by Friday and visit again on Thursday the 26th.",
+      "cites": [
+       68
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "When Millie wets the bed, Craig hits her with a belt on her legs.",
+      "cites": [
+       31,
+       33
+      ]
+     },
+     {
+      "text": "Craig hits Millie with a belt on her legs every time she wets the bed, which happens about every week.",
+      "cites": [
+       31,
+       35,
+       37
+      ]
+     },
+     {
+      "text": "The last time Craig hit Millie was on Sunday morning, before Stacey woke up.",
+      "cites": [
+       37
+      ]
+     },
+     {
+      "text": "The hits leave red lines that go away.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Millie said no one else at home hurts her.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "Stacey said she has never hit Millie and that she gives Millie cuddles.",
+      "cites": [
+       43
+      ]
+     },
+     {
+      "text": "Stacey said she has seen Craig hit Millie once or twice.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "Stacey said Craig gives Millie a 'smack' with his belt on her legs, and it's not hard, and she believes it's not abuse.",
+      "cites": [
+       49,
+       51
+      ]
+     },
+     {
+      "text": "Hannah Price stated that hitting a child with a belt is not acceptable and that she must act on it.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Hannah Price said she will speak to her manager and the police today, which is called a strategy discussion.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Hannah Price asked if Craig could stay away from the house until further notice.",
+      "cites": [
+       54
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "Stacey said Craig's brother lives on Canal Street and could host him.",
+      "cites": [
+       55
+      ]
+     },
+     {
+      "text": "Stacey agreed to keep Craig away from the house until further communication.",
+      "cites": [
+       56
+      ]
+     },
+     {
+      "text": "Stacey said she will ring Craig now to move him to his brother's on Canal Street.",
+      "cites": [
+       57
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Hannah Price is the social worker from Harbridge children's services.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "School contacted children's services because Millie told her teacher she didn't want to go home on Monday.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Millie Lambert is a child aged 9.",
+   "cites": [
+    23
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Stacey Lambert is Millie's mother.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Craig is Millie's stepfather and works on the bins.",
+   "cites": [
+    8,
+    10
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Millie has a younger brother, Jayden, who is two years old.",
+   "cites": [
+    10
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Millie's father is in Scotland and she sees him only during summer holidays.",
+   "cites": [
+    12
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Stacey works mornings at Greggs.",
+   "cites": [
+    14
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Craig is described as being from a strict family.",
+   "cites": [
+    51
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The landlord is slow in fixing the damp in Millie's room.",
+   "cites": [
+    14
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Millie has a hamster named Biscuit who is asleep.",
+   "cites": [
+    18,
+    19
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Millie enjoys art and is in the netball team in Year Four.",
+   "cites": [
+    24,
+    25
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jayden takes Millie's pens.",
+   "cites": [
+    27
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Millie told the teacher she didn't want to go home on Monday because of the bed.",
+   "cites": [
+    28,
+    29
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "When Millie wets the bed, Craig hits her with a belt on her legs.",
+   "cites": [
+    31,
+    33
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Craig hits Millie with a belt on her legs every time she wets the bed, which happens about every week.",
+   "cites": [
+    31,
+    35,
+    37
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The last time Craig hit Millie was on Sunday morning, before Stacey woke up.",
+   "cites": [
+    37
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The hits leave red lines that go away.",
+   "cites": [
+    39
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Millie said no one else at home hurts her.",
+   "cites": [
+    41
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Stacey said she has never hit Millie and that she gives Millie cuddles.",
+   "cites": [
+    43
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Stacey said she has seen Craig hit Millie once or twice.",
+   "cites": [
+    51
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Stacey said Craig gives Millie a 'smack' with his belt on her legs, and it's not hard, and she believes it's not abuse.",
+   "cites": [
+    49,
+    51
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Hannah Price stated that hitting a child with a belt is not acceptable and that she must act on it.",
+   "cites": [
+    52
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Hannah Price said she will speak to her manager and the police today, which is called a strategy discussion.",
+   "cites": [
+    52
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Hannah Price asked if Craig could stay away from the house until further notice.",
+   "cites": [
+    54
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Stacey said Craig's brother lives on Canal Street and could host him.",
+   "cites": [
+    55
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Stacey agreed to keep Craig away from the house until further communication.",
+   "cites": [
+    56
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Stacey said she will ring Craig now to move him to his brother's on Canal Street.",
+   "cites": [
+    57
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Hannah Price said she will speak to Mrs Hollis at school tomorrow morning to ask the school nurse to refer Millie to the continence clinic.",
+   "cites": [
+    67
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Hannah Price said she will write to the landlord about the damp in Millie's room by Friday and visit again on Thursday the 26th.",
+   "cites": [
+    68
+   ],
+   "section": "Needs and daily living"
+  }
+ ]
+}

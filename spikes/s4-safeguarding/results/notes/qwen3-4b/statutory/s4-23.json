@@ -1,0 +1,426 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Gemma Shaw is the mother of Noah and Isla.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Noah is four months old and has had a feed.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Noah's four-month check is being conducted.",
+      "cites": [
+       3
+      ]
+     },
+     {
+      "text": "Noah weighs 6.8 kilos, which is on his growth line.",
+      "cites": [
+       3
+      ]
+     },
+     {
+      "text": "Isla is in reception at school and her teacher is Miss Patel.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Isla is reading little words at school.",
+      "cites": [
+       16
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Noah is currently on formula, consuming five ounces every three to four hours.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Gemma stopped breastfeeding at six weeks.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Noah has six to seven wet nappies per day.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Noah sleeps in a Moses basket in the mother's room.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Noah's sleep pattern is a five-hour stretch from about 11 p.m. to 4 a.m.",
+      "cites": [
+       12
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Isla told her mother that Uncle Ryan touched her private parts, which she calls her 'front bottom', when he babysits.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Isla said Ryan told her it was a secret and that she should not tell mummy.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Isla said this when she was in the bath on Sunday night.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Ryan is Liam's brother and babysits on Fridays when the mother is at work and Liam is on night shifts.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Ryan has been babysitting since September.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Gemma told Liam about what Isla said and Liam is upset, not believing it but also not fully denying it.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Gemma's sister Kelly said she heard Ryan was in trouble with the police years ago, but does not know what it was.",
+      "cites": [
+       37
+      ]
+     },
+     {
+      "text": "Kelly does not know what the incident with Ryan was, and she heard it from someone at work.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Gemma has not asked Isla any further questions about the incident.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "Gemma has written down what Isla said, in her own words, with the date.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "The health visitor, Rachel Moore, will share the information about Isla's disclosure with children's social care (Harbridge MASH) because of concerns for child safety.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "The health visitor will share the disclosure with Harbridge MASH, the children's social care service.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Noah and Isla will not be in contact with Ryan until this situation is fully investigated.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "Gemma will ensure Ryan does not have any time alone with Isla or Noah.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "Gemma will not confront Ryan directly about the incident.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Liam wants to go to Ryan's house.",
+      "cites": [
+       47
+      ]
+     },
+     {
+      "text": "The health visitor advises that Liam should wait to go to Ryan's house to avoid making things harder for Isla.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Gemma will ask Liam to wait to go to Ryan's house.",
+      "cites": [
+       49
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Gemma will consider having her mother look after the children on Fridays instead of Ryan.",
+      "cites": [
+       51
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Gemma Shaw is the mother of Noah and Isla.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Noah is four months old and has had a feed.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Noah's four-month check is being conducted.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Noah weighs 6.8 kilos, which is on his growth line.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Noah is currently on formula, consuming five ounces every three to four hours.",
+   "cites": [
+    8
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Gemma stopped breastfeeding at six weeks.",
+   "cites": [
+    8
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Noah has six to seven wet nappies per day.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Noah sleeps in a Moses basket in the mother's room.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Noah's sleep pattern is a five-hour stretch from about 11 p.m. to 4 a.m.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Isla is in reception at school and her teacher is Miss Patel.",
+   "cites": [
+    16
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Isla is reading little words at school.",
+   "cites": [
+    16
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Isla told her mother that Uncle Ryan touched her private parts, which she calls her 'front bottom', when he babysits.",
+   "cites": [
+    24
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Isla said Ryan told her it was a secret and that she should not tell mummy.",
+   "cites": [
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Isla said this when she was in the bath on Sunday night.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ryan is Liam's brother and babysits on Fridays when the mother is at work and Liam is on night shifts.",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ryan has been babysitting since September.",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Gemma told Liam about what Isla said and Liam is upset, not believing it but also not fully denying it.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Gemma's sister Kelly said she heard Ryan was in trouble with the police years ago, but does not know what it was.",
+   "cites": [
+    37
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Kelly does not know what the incident with Ryan was, and she heard it from someone at work.",
+   "cites": [
+    39
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Gemma has not asked Isla any further questions about the incident.",
+   "cites": [
+    32
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Gemma has written down what Isla said, in her own words, with the date.",
+   "cites": [
+    33
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The health visitor, Rachel Moore, will share the information about Isla's disclosure with children's social care (Harbridge MASH) because of concerns for child safety.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The health visitor will share the disclosure with Harbridge MASH, the children's social care service.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Noah and Isla will not be in contact with Ryan until this situation is fully investigated.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Gemma will ensure Ryan does not have any time alone with Isla or Noah.",
+   "cites": [
+    45
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Gemma will not confront Ryan directly about the incident.",
+   "cites": [
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Liam wants to go to Ryan's house.",
+   "cites": [
+    47
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The health visitor advises that Liam should wait to go to Ryan's house to avoid making things harder for Isla.",
+   "cites": [
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Gemma will ask Liam to wait to go to Ryan's house.",
+   "cites": [
+    49
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Gemma will consider having her mother look after the children on Fridays instead of Ryan.",
+   "cites": [
+    51
+   ],
+   "section": "Support network and finances"
+  }
+ ]
+}
