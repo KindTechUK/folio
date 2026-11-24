@@ -13,6 +13,8 @@ export interface EditorWord {
   start: number;
   end: number;
   speaker: SpeakerId;
+  /** What the model wrote, when the vocabulary file replaced it. */
+  original?: string;
 }
 
 /**
@@ -62,6 +64,7 @@ export function loadTranscript(t: Transcript): EditorState {
       start: w.start,
       end: w.end,
       speaker: w.speaker || UNKNOWN_SPEAKER,
+      ...(w.original != null ? { original: w.original } : {}),
     })),
   }));
   return { sentences, renameMap: {} };

@@ -8,6 +8,7 @@
 #   app-backend   — Tauri backend tests on Linux (incl. the unix-only symlink tests).
 #   modelpack     — model-pack verifier cross-language conformance.
 #   modelpack-sign— producer signer conformance (Rust signer == TS signature).
+#   asr-bench     — eval bench: leaderboard-scorer parity, segmenter, bootstrap.
 #   windows       — MSVC static-link of sherpa-onnx + engine/app tests on Windows.
 #
 # The same gate is provable locally any time via scripts/check-no-network.sh.
@@ -123,6 +124,19 @@ jobs:
       - name: Run modelpack-sign tests
         run: cargo test --manifest-path tools/modelpack-sign/Cargo.toml
 
+  asr-bench:
+    name: asr-bench (scorer parity, segmenter, bootstrap)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: tools/asr-bench
+      # No models needed: the tests score fixture text and synthetic audio.
+      - name: Run asr-bench tests
+        run: cargo test --manifest-path tools/asr-bench/Cargo.toml
+
   windows:
     name: windows MSVC static-link + tests (engine + app)
     runs-on: windows-latest
@@ -135,6 +149,7 @@ jobs:
             engine
             app/src-tauri
             tools/modelpack-sign
+            tools/asr-bench
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
@@ -142,6 +157,8 @@ jobs:
         run: cargo test --manifest-path engine/Cargo.toml
       - name: Test modelpack signer key handling on Windows
         run: cargo test --manifest-path tools/modelpack-sign/Cargo.toml
+      - name: Test asr-bench on Windows (peak-memory and path handling compile here)
+        run: cargo test --manifest-path tools/asr-bench/Cargo.toml
       # tauri-build embeds frontendDist (../dist) at compile time, and
       # beforeBuildCommand only runs under `tauri build`.
       - name: Build frontend (so tauri-build can embed dist)

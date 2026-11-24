@@ -1,0 +1,31 @@
+# Builds asr-bench.exe for running the eval bench on a Windows laptop with no
+# Rust toolchain (docs/spikes/windows-bench-runbook.md). Manual only.
+name: bench-build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    name: asr-bench.exe (Windows x64, release)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: tools/asr-bench
+      - name: Build
+        run: cargo build --release --manifest-path tools/asr-bench/Cargo.toml
+      - name: Smoke test (no models needed)
+        run: |
+          tools/asr-bench/target/release/asr-bench.exe machine
+          tools/asr-bench/target/release/asr-bench.exe score 'twenty five dollars' '$25'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: asr-bench-windows-x64
+          path: tools/asr-bench/target/release/asr-bench.exe
+          if-no-files-found: error

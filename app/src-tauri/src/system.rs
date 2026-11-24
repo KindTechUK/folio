@@ -247,7 +247,7 @@ pub fn reauthorize_recording_in(
     Ok(expected)
 }
 
-fn recording_is_approved_in(library_dir: &Path, path: &Path) -> Result<bool, String> {
+pub(crate) fn recording_is_approved_in(library_dir: &Path, path: &Path) -> Result<bool, String> {
     let canonical = canonical_recording(path)?;
     Ok(approved_recordings_in(library_dir)?.contains(&canonical))
 }
@@ -466,6 +466,24 @@ pub async fn pick_recording(app: tauri::AppHandle) -> Result<Option<String>, Str
     })
     .await
     .map_err(|error| format!("recording-picker task failed: {error}"))?
+}
+
+/// Length in seconds of a recording chosen through [`pick_recording`], read
+/// from its header, for the Import page's time estimate. `None` when the file
+/// wasn't chosen there or doesn't declare its length.
+#[tauri::command]
+pub async fn recording_duration(app: tauri::AppHandle, path: String) -> Option<f64> {
+    let library = crate::library::library_dir(&app).ok()?;
+    tauri::async_runtime::spawn_blocking(move || {
+        let path = Path::new(&path);
+        if !recording_is_approved_in(&library, path).ok()? {
+            return None;
+        }
+        engine::probe_duration_s(path).ok().flatten()
+    })
+    .await
+    .ok()
+    .flatten()
 }
 
 /// Delete the source audio and saved transcript for a session. The renderer

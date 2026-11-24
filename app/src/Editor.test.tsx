@@ -171,6 +171,14 @@ describe("Editor (jsdom)", () => {
     ).toHaveTextContent("MACHINE-GENERATED DRAFT — automatically transcribed and diarized");
   });
 
+  it("the disclaimer claims no speaker labels on a transcript without them", () => {
+    render(<Harness onState={capture} diarized={false} />);
+    expect(screen.getByLabelText("machine-generated draft disclaimer")).toHaveTextContent(
+      "MACHINE-GENERATED DRAFT — automatically transcribed. Verify against the source audio " +
+        "before relying on it. Wording may be inaccurate.",
+    );
+  });
+
   it("diarized=false renders paragraphs without speaker controls; diarized=true renders chips", () => {
     const { unmount } = render(<Harness onState={capture} diarized={false} />);
 
