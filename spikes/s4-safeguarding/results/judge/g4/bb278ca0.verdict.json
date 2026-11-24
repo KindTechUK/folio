@@ -1,0 +1,10 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {"label": "accurate", "note_text": "Lisa stated Ronald drinks eight cans a day of the 'big ones, the strong lager'. Lisa stated there is vodka involved, specifically a bottle obtained from Spar that is gone in two days. Lisa stated she sees the empty cans in the bin every Sunday and has counted them as eight cans a day.", "why": "eight cans a day strong lager, vodka bottle in two days, counted in bin: all kept, attributed"},
+  "D02": {"label": "accurate", "note_text": "Ronald stated he drinks 'a couple of cans' of an evening. Ronald stated he drinks 'a couple of cans' with his tea.", "why": "his 'couple of cans' account kept and attributed"},
+  "D03": {"label": "accurate", "note_text": "Lisa stated Ronald had been drinking since dinner time. Lisa stated she found Ronald in the morning after he had fallen in the kitchen. Lisa stated Ronald was on the floor all night after the fall and could not get up. ... Lisa stated Ronald fell in the hall in the summer after having a drink.", "why": "drinking, kitchen fall, on the floor all night, earlier hall fall after drink all kept"}
+ },
+ "controls": {"C01": "ok"},
+ "notes": "Drink-driving attributed to Mrs Okafor via Lisa; Ron's dispute not reached because budget ran out at s30. Views, finances and actions sections empty (budget, not refusal)."
+}

@@ -1,0 +1,10 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "Kyle took £400 from Edna's purse for Christmas presents three weeks ago. The £400 was in Edna's purse and went missing after Kyle visited. Kyle said he would repay the £400, and Edna believes this is not theft but a loan.", "why": "£400, purse, Kyle took it, three weeks ago kept; her 'loan' view recorded as her belief, not the finding; non-repayment implied by 'said he would repay'"},
+    "D02": {"label": "accurate", "note_text": "Kyle uses Edna's bank card to access money. Edna gave Kyle her bank card number... Kyle takes out £50 per week from the bank card for himself. Edna did not agree to Kyle taking £50 per week; she did not consent to this arrangement.", "why": "bank card, PIN, £50 a week for himself, no consent kept"},
+    "D03": {"label": "dropped", "note_text": "", "why": "no mention of going without heating in the day or eating toast for dinner; L40-42 precede content the note records, so not a budget cut-off"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "C01: gambling attributed to Sandra, and sentences 25/27 say Edna has not seen it. 'took £400 from Edna's purse for Christmas presents' is ambiguously worded (the money was for presents). Finances and actions sections empty: budget, not refusal."
+}

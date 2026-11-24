@@ -1,0 +1,10 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "Craig pushed Jamie into a wall in the hall outside the kitchen. Jamie's shoulder hurt when pushed into the wall. The incident when Craig pushed Jamie occurred on a Thursday night, the night before the garden centre.", "why": "pushed, wall, shoulder, hall, Thursday kept"},
+    "D02": {"label": "accurate", "note_text": "Craig kicked Jamie's leg with his foot on the back of his leg. Craig kicked Jamie's leg three times, and said it was 'messing about' or a joke. Jamie felt a bit of pain when kicked and had a bruise.", "why": "kicked, back of leg, three times, bruise kept; 'joke' attributed to Craig"},
+    "D03": {"label": "accurate", "note_text": "Craig told Jamie not to tell anyone about the kicking, saying if Jamie does, he will lose his flat.", "why": "threat kept"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "Hearsay about Sophie attributed to Marcus and marked unwitnessed (s25)."
+}

@@ -1,0 +1,10 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "Edna reported that Kyle took £400 from her purse three weeks ago, after a visit. ... Kyle has not repaid the £400 as of the date of the conversation.", "why": "£400, purse, Kyle took it, three weeks ago, not repaid kept; 'borrowing' recorded as a claim, not the finding"},
+    "D02": {"label": "accurate", "note_text": "Kyle uses Edna's bank card to access money. Edna gave Kyle her bank card number ... Kyle takes out £50 per week from Edna's bank card for himself. Edna did not agree to Kyle taking £50 per week; she did not consent to this arrangement.", "why": "bank card, PIN, £50 a week for himself, no consent all kept"},
+    "D03": {"label": "dropped", "note_text": "", "why": "no mention of going without heating in the day or eating toast for dinner; L40-42 precede content the note does record, so not a budget cut-off"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "C01: gambling attributed to Sandra, with Edna not having seen it. Sentence 23 attributes 'only borrowing ... not stealing' to Kyle, but those were Edna's words (Kyle only said he'd pay back). Finances and actions sections empty: 30-fact budget used up, not a refusal."
+}

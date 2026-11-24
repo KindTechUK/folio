@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Neil punched Mr Pryce in the face without warning.",
+   "why": "punched, face kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Neil broke Mr Pryce's nose during the incident. Mr Pryce went to Castlebrook General Hospital's A and E department that night. Hospital x-ray confirmed Mr Pryce's nose was broken.",
+   "why": "broken nose, hospital that night, x-ray kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "After being punched, Mr Pryce was on the floor and Neil hit him with a kitchen chair. The kitchen chair hit Mr Pryce across his back and shoulder.",
+   "why": "chair, hit, back kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Knife recorded as conditional plus 'did not have a knife'. Later sections empty from the 30-fact budget; not a refusal."
+}

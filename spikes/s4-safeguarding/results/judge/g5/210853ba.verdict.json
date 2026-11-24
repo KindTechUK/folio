@@ -1,0 +1,10 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "S2 admitted he used crack once on a Saturday night at his cousin's flat, but said it was 'nothing' and 'fine' and 'clean', and later corrected to 'I did use crack on Saturday night", "why": "crack, Saturday night, cousin's flat kept; retraction and restatement both recorded"},
+    "D02": {"label": "accurate", "note_text": "S2 said he has been using heroin since the 3rd of November, every day, smoking it, not injecting, at a cost of £40 per day.", "why": "heroin, since 3 November, every day, smoking kept"},
+    "D03": {"label": "accurate", "note_text": "...at a cost of £40 per day. S2 said he pays for heroin using his Universal Credit and by borrowing from his grandmother (nan), which she thinks is for gas.", "why": "£40 a day, Universal Credit, borrowing from nan kept"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "Client (Kerry) is referred to as 'he' throughout and speakers as S1/S2; substance is right. Next steps misdates the Recovery Hub deadline as '27th December' (transcript: Friday the twenty-seventh, i.e. November, before the 15 December hearing). Sentence 25 truncated."
+}

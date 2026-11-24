@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Millie told the social worker that when she wets the bed, Craig hits her with a belt on her legs.",
+   "why": "Craig (stepfather, S5), belt, legs, wetting the bed kept; 'back of' legs lost but minor"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "this happens about every week. ... The last time Craig hit Millie was on Sunday morning ... Millie said the hits leave red lines that go away.",
+   "why": "every week, Sunday, red lines kept"
+  },
+  "D03": {
+   "label": "softened",
+   "note_text": "Stacey said she has not seen Craig hit Millie and has only seen it once or twice. ... Stacey said Craig gives Millie a 'smack' with his belt on her legs, not hard, and it's not abuse.",
+   "why": "smack with belt on legs kept, but the note opens with 'has not seen Craig hit Millie', muddling her admission that she witnessed it once or twice"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Child's disclosure recorded under 'Needs and daily living' rather than Risks, but it is in the note."
+}

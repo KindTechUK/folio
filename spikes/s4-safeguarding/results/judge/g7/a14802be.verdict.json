@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Jamie Coulter (S2) stated he takes out £100 from his bank account and gives it to Dean and Lewis every payday.",
+   "why": "£100, every payday, Dean and Lewis kept; cash-machine walk also recorded (s15)"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Jamie Coulter (S2) stated Dean said he would hurt him if he did not give him the money.",
+   "why": "threat to hurt, by Dean, condition kept; restated version recorded (incl. last Friday), not recorded as retracted"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Jamie Coulter (S2) stated the electricity went off for two days last month because he did not have money for the electric key.",
+   "why": "electric, two days, last month kept; s9 links lack of money to Dean and Lewis taking the £100"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Kayleigh's denial recorded correctly (s17). 'Person's views and wishes' empty but not a key section."
+}

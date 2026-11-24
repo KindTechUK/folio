@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Harold disclosed that his wife Sandra hits him with her walking stick when she gets cross. Harold stated Sandra hits him on his arms because he puts his arms up. Harold reported the hitting occurs about once a week, or more frequently if Sandra has had a bad day.",
+   "why": "hits, walking stick, arms, once a week kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Harold reported Sandra locks him in the bedroom two or three times a week for the afternoon.",
+   "why": "locks, bedroom, frequency kept (no-toilet fact recorded separately in s11)"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Harold reported he does not always take his medication; specifically, he missed his heart tablets for three days last week because Sandra kept them back.",
+   "why": "heart tablets, three days, Sandra kept them back all kept; 'when he has annoyed her' omitted and opening clause frames it as his non-adherence, but plain meaning survives"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "C01 kept as Sandra's claim ('Sandra claims she would take it if he left'). Not scored: s26 says he and Sandra bought the house in 1971 (it was Joan); s16 'for his tablets to be taken' garbles 'I want my tablets'. Later agreed actions cut by fact budget."
+}

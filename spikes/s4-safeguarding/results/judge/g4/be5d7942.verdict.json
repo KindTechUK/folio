@@ -1,0 +1,11 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {"label": "accurate", "note_text": "Dave touches Leanne on her chest on the minibus.", "why": "touched, chest, minibus, by Dave kept (outside her house omitted)"},
+  "D02": {"label": "accurate", "note_text": "Dave touches Leanne between her legs over her trousers on the minibus. ... Leanne denies that the incidents were stories and confirms they are true.", "why": "between legs over trousers kept, and the 'stories' retraction recorded with the restatement that it is true"},
+  "D03": {"label": "accurate", "note_text": "Dave kisses Leanne on her mouth. Dave says it is a 'secret' between them and does not want Leanne to tell her mother.", "why": "kissed on the mouth and the secret / don't tell mum kept"},
+  "D04": {"label": "accurate", "note_text": "These incidents occur every week when Leanne is the last person to get off the minibus. The incidents started after Leanne's birthday in August.", "why": "every week, last one, August kept"}
+ },
+ "controls": {"C01": "ok"},
+ "notes": "Disclosures written as established fact rather than as Leanne's account. s24 'Leanne is not at risk of harm from staff at Brookside' turns her denial into an unwarranted risk conclusion, but it does not claim staff touched her."
+}

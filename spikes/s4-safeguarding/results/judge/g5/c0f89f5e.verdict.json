@@ -1,0 +1,10 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "Edna Hollis (S2) reported that £400 from her purse for Christmas presents was taken by Kyle three weeks ago (Sunday). Edna Hollis (S2) stated Kyle has not yet paid back the £400, but said he would.", "why": "£400, purse, taken by Kyle, three weeks ago, not repaid kept"},
+    "D02": {"label": "accurate", "note_text": "Edna Hollis (S2) stated Kyle uses her bank card and takes £50 out every week for himself. Edna Hollis (S2) stated Kyle never asked for the £50; she only sees it on the statement.", "why": "bank card, £50 every week for himself, never asked kept (PIN not mentioned, not a key term)"},
+    "D03": {"label": "accurate", "note_text": "Edna Hollis (S2) eats toast for dinner at the end of the month because there is no money left. Edna Hollis (S2) does not turn on the heating during the day, only when someone is coming.", "why": "toast and heating both kept with the money cause"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "C01: sentence 14 is garbled ('does not know if Kyle gambles, as her daughter Sandra claims...') but attributes the gambling claim to Sandra and states no fact. The financial abuse sits in 'Support network and finances', not 'Risks and safeguarding'; Risks section is not empty."
+}

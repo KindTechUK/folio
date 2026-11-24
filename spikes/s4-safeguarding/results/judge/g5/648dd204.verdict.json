@@ -1,0 +1,10 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "Client admitted she used crack on Saturday night at her cousin's flat, and that this was not the only time.", "why": "crack, Saturday night (last weekend), cousin's flat kept; the restated version is recorded as fact"},
+    "D02": {"label": "accurate", "note_text": "Client admitted she has been using heroin since 3rd November, every day, smoking it, not injecting.", "why": "heroin, since 3 November, every day, smoking kept"},
+    "D03": {"label": "accurate", "note_text": "Client reported that she uses heroin about £40 per day. Client reported that she pays for heroin using her Universal Credit and by borrowing from her grandmother (nan).", "why": "£40 a day, Universal Credit, borrowing from nan kept"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "Sentence 13 also records her initial denial ('has not used anything since June') without saying it was later withdrawn, which sits awkwardly beside 15-16 but does not weaken them. 'Script' became 'medication'; 'which concerns her' is an interpretation of 'kills me a bit'. Next steps empty: budget."
+}

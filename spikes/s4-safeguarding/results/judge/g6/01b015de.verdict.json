@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "When Millie wets the bed, Craig hits her with a belt on her legs.",
+   "why": "Craig (stepfather), belt, legs, wetting the bed kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "which happens about every week. ... The last time Craig hit Millie was on Sunday morning ... The hits leave red lines that go away.",
+   "why": "every week, Sunday, red lines kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Stacey said she has seen Craig hit Millie once or twice. Stacey said Craig gives Millie a 'smack' with his belt on her legs, and it's not hard",
+   "why": "smack, belt, legs, once or twice kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "S22 misattributes Millie's 'Mum never hits me' to Stacey; it is a denial, so C01 not violated."
+}

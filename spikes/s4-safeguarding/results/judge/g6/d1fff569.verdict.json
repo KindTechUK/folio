@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Joy Mensah reports that on the night of Saturday the 14th of November, she was on night shift and conducted a 2.30 check. On the night of Saturday the 14th of November, Arthur Pike was found in Edna Holloway's bed under the covers. ... Edna Holloway was awake and upset, saying 'get off'.",
+   "why": "Saturday, 2.30, bed, under covers, upset, 'get off' kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Edna Holloway reported that the man touched her on her bottom and front, under her nightie. Edna Holloway told the man to stop and repeatedly said 'stop it, get out'. The man did not stop immediately",
+   "why": "touched, bottom, front, under nightie, stop kept"
+  },
+  "D03": {
+   "label": "dropped",
+   "note_text": "",
+   "why": "Mrs Dobson's 'wrong room' / 'didn't need reporting' / 'not make a fuss' not in note; 30-fact budget ran out at transcript L34"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Note ends at L34 (budget); views, support and actions sections empty."
+}

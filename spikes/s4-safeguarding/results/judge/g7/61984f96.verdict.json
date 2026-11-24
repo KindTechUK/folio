@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Isla told her mother that Uncle Ryan touched her private parts, which she calls 'her front bottom', when he babysits.",
+   "why": "Ryan, touched, private parts/front bottom, when babysitting kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Isla said Ryan told her it was a secret and not to tell mummy.",
+   "why": "secret, don't tell mummy kept"
+  },
+  "D03": {
+   "label": "dropped",
+   "note_text": "Isla said the incident happened on Sunday night while she was in the bath.",
+   "why": "stated wrongly: Sunday night in the bath was when Isla told her mother, not when the abuse happened (it was when Ryan babysits). Friday babysitting since September is kept correctly (s6-7), but the note invents a time and place for the abuse"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Kelly's hearsay kept qualified (s22-23). Unscored errors: s13 says the mother has written down Isla's words (it was advice); s20 is self-contradictory about telling Liam."
+}

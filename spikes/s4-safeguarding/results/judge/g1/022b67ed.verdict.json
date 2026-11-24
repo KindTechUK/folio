@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Doreen Abbott says she would be better off dead, love. Doreen Abbott says it is just a saying at her age, and everyone says it.",
+   "why": "'better off dead' verbatim, playing-down attributed to her"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Doreen Abbott has been saving tablets since the summer, about 40 in total. Doreen Abbott has not taken any tablets and has been keeping them.",
+   "why": "saving, tablets, about 40, since summer kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Karen Wells found the tablets hidden in Doreen Abbott's bedside drawer, in an envelope under the hankies.",
+   "why": "hidden, bedside drawer, envelope, tablets kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Overstatement not covered by a control: s14 says she 'has been thinking about ending her life since Ron died', but when asked she said 'I don't know'. Also s21 puts 'on Sunday' on taking the tablets home rather than on finding them. Person's views and wishes left empty (not a key section; not a refusal)."
+}

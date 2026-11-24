@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Mother Gemma Shaw reported that her daughter Isla said Uncle Ryan touched her private parts (front bottom) when he babysits.",
+   "why": "Ryan, touched, private parts/front bottom, when babysitting kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Mother Gemma Shaw reported that Isla said Ryan told her it is a secret and not to tell mummy.",
+   "why": "secret, don't tell mummy kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Mother Gemma Shaw reported Isla said this on Sunday night while she was in the bath. Mother Gemma Shaw reported Ryan is Liam's brother and has been babysitting on Fridays since September.",
+   "why": "Sunday night, bath (as when Isla said it), Fridays, since September kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Kelly's hearsay kept qualified (s13). Unscored errors: s7 inverts 'not sleeping since Sunday' to 'is sleeping since Sunday'; s20 garbles the action at L59."
+}

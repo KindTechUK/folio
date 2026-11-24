@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Kayleigh Morris (S2) disclosed that Dean pushed her into a wardrobe door during an argument. ... Kayleigh Morris (S2) reported Dean has pushed her three or four times since the summer.",
+   "why": "pushed, wardrobe door, three or four times since the summer kept; her minimisation not adopted"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Kayleigh Morris (S2) disclosed that in August, when she was about thirty weeks pregnant, Dean punched her in the stomach.",
+   "why": "punched, stomach, August, ~30 weeks pregnant, once (s16), hospital next day (s15) kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Kayleigh Morris (S2) reported Dean checks her phone every night and goes through all her messages.",
+   "why": "checks phone, every night, all messages kept; anger at contacts in s18"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "Kayleigh Morris (S2) reported Dean will not let her see her mother, calling her a 'bad influence'. ... she last saw her mother in September, before Ruby was born",
+   "why": "not allowed to see mum, September kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Ruby denial recorded as a denial (s21). Unscored: s8 attributes the weight reading to Kayleigh rather than the health visitor; 'I told them I fell' omitted."
+}

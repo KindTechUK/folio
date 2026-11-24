@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Mr Walsh states that Lee slapped him across the face with an open hand. Mr Walsh reports that Lee slapped him twice: once last Thursday and once a few weeks back, both times because he was slow getting off the bed.",
+   "why": "slapped, face, open hand, twice, last Thursday all kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Mr Walsh reports that Lee grabbed his left arm to pull him up from the commode, and that this happened most mornings when it was Lee. Mr Walsh reports that Lee grabbed his arm hard on Saturday, which 'really hurt'.",
+   "why": "grabbed, left arm, most mornings, Saturday, really hurt all kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Karen Walsh discovered bruises on Mr Walsh's left upper arm when she helped him change his top on Sunday. The bruises were four in a row, like fingermarks ... Karen took photos of the bruises on her phone on Sunday.",
+   "why": "bruises, upper arm, Sunday, fingermarks, photos all kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Family denial not mentioned; no claim that family hurt him. s5 garbles the confidentiality statement. Agreed actions empty (fact budget)."
+}

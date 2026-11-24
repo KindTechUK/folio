@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Mother Jade Pritchard (S2) disclosed that she drinks alcohol, specifically a bottle of wine per night, most nights, after the children are in bed.",
+   "why": "bottle of wine, most nights kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Mother Jade Pritchard (S2) reported that she smokes weed a couple of nights a week, consuming a joint or two, only when the children are in bed and never in their presence. ... she smokes weed in the garden/out the back door",
+   "why": "weed, frequency, in bed, garden kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "...stating she has fallen asleep on the sofa and missed hearing Lily crying. Mother Jade Pritchard (S2) reported that her son Mason woke her up after she fell asleep on the sofa and told her that Lily was crying.",
+   "why": "fell asleep, sofa, missed crying, Mason woke her kept; 'a couple of times' not stated but no smaller count asserted"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Sentence 25 wrongly says Dean works 15 hours at Little Acorns (it is Mason's nursery); not scored."
+}

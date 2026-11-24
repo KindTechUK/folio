@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Jade Turner has left Leo and Poppy alone at home for a couple of hours while she works, stating they are asleep and do not wake up.",
+   "why": "left alone, couple of hours, while working kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Jade Turner leaves Leo and Poppy alone for approximately three nights a week, a situation that has occurred for the last month since Shannon started a new job.",
+   "why": "three nights a week, last month kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Poppy has a nappy rash that has been present for about a week and is described as broken in places. Jade Turner has run out of nappies and has been leaving Poppy on longer than usual.",
+   "why": "rash, a week, ran out of nappies kept; 'leaving Poppy on longer' is garbled for nappies left on longer, 'Sunday' lost"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "Jade Turner has limited food supplies at home, including bread, cereal, and one tin of Poppy's milk, with supplies expected to last until Friday.",
+   "why": "bread, cereal, one tin, Friday kept; 'limited' conveys scarcity"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Eviction recorded as a fear, with no letters or notice."
+}

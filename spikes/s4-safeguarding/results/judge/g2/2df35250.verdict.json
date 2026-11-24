@@ -1,0 +1,10 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "Jamie Rowe (S2) stated that sometimes Craig pushed him into the wall in the hall outside the kitchen. ... he was hurt when Craig pushed him, specifically his shoulder hitting the wall. ... last week, specifically on a Thursday night.", "why": "pushed, wall, shoulder, Thursday kept"},
+    "D02": {"label": "accurate", "note_text": "Jamie Rowe (S2) stated that Craig kicked his leg three times. ... Craig kicked the back of his leg with his foot, which caused a bruise and hurt a bit.", "why": "kicked, back of leg, three times, bruise kept"},
+    "D03": {"label": "accurate", "note_text": "Jamie Rowe (S2) stated that Craig told him not to tell anyone, warning that he would lose his flat if he did.", "why": "threat kept verbatim in substance"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "Hearsay about Sophie correctly attributed to Marcus and marked as not witnessed. Person's views section empty (not a key section)."
+}

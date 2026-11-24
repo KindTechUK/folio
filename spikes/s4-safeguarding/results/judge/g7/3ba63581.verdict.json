@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "On payday, Dean and Lewis walk Jamie to the cash machine. ... Jamie gives £100 to Dean and Lewis every payday.",
+   "why": "£100, every payday, Dean and Lewis, cash machine all kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Dean says he would hurt Jamie if he does not give him the money. ... Jamie says Dean said he would hurt him last Friday.",
+   "why": "threat to hurt, by Dean, condition and last Friday kept; restated version recorded, not as retracted"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Last month, Jamie did not have money for the electric key, and the electric went off for two days.",
+   "why": "electric, two days, last month kept; s16 links it to giving £100 to Dean and Lewis"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Kayleigh denial recorded correctly (s21). Unscored errors: s23 attributes the assessor's confidentiality warning to Jamie; s30 garbles 'talk to you before anyone talks to Dean'. Later sections empty (budget)."
+}

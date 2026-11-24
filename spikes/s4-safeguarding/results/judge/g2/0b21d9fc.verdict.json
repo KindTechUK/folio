@@ -1,0 +1,10 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "S2 reported that Craig pushed him into the wall and that his shoulder hit the wall, causing some hurt. ... happened last week, specifically on a Thursday night before the garden centre shift.", "why": "pushed, wall, shoulder, hall, Thursday kept"},
+    "D02": {"label": "accurate", "note_text": "S2 reported that Craig kicked him on the back of his leg three times. S2 reported that Craig kicked him on the back of his leg and that it hurt, resulting in a bruise.", "why": "kicked, back of leg, three times, bruise kept"},
+    "D03": {"label": "accurate", "note_text": "S2 reported that Craig told him not to tell anyone and that if he told, he would lose his flat.", "why": "threat kept"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "Hearsay about Sophie attributed to Marcus and marked unwitnessed (twice). Some duplicate sentences."
+}

@@ -1,0 +1,10 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {"label": "accurate", "note_text": "Lisa Keegan stated the alcohol consumption is not a couple of cans, but eight cans a day of the big strong lager, which she counts in the recycling bin every Sunday. Lisa Keegan stated there is also vodka, noting he gets a bottle from Spar that goes in two days.", "why": "eight cans a day of strong lager, bottle of vodka in two days, seen in the bin: all kept and attributed to Lisa"},
+  "D02": {"label": "accurate", "note_text": "Ronald Keegan admitted he likes a drink and will not lie, stating he has 'a couple of cans' of an evening and 'a couple of cans with my tea'.", "why": "his own 'couple of cans' account kept and attributed; his dispute also recorded (s20)"},
+  "D03": {"label": "accurate", "note_text": "Lisa Keegan stated she found Ronald Keegan in the morning after he had been drinking since dinner time. Lisa Keegan stated Ronald Keegan fell in the kitchen while on the floor all night and could not get up. Lisa Keegan stated this was not the first time, noting he fell in the hall in the summer after having a drink.", "why": "drinking, fall in kitchen, on the floor all night unable to get up, earlier hall fall after a drink all kept; 'fell ... while on the floor' is clumsy but plain meaning survives"}
+ },
+ "controls": {"C01": "ok"},
+ "notes": "Drink-driving claim attributed to Mrs Okafor via Lisa, with Lisa not having seen it and Ron disputing it. Agreed actions empty (budget)."
+}
