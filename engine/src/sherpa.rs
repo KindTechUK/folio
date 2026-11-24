@@ -229,8 +229,16 @@ impl Recognizer {
         let seg_end = round3(offset + samples.len() as f64 / sr);
         let timestamps = result.timestamps.clone().unwrap_or_default();
         let native = !timestamps.is_empty() && timestamps.len() == result.tokens.len();
-        let words =
-            group_tokens_to_words(&result.tokens, &timestamps, offset, seg_start, seg_end, &text);
+        let durations = result.durations.clone().unwrap_or_default();
+        let words = group_tokens_to_words(
+            &result.tokens,
+            &timestamps,
+            &durations,
+            offset,
+            seg_start,
+            seg_end,
+            &text,
+        );
         Some((AsrSegment { start: seg_start, end: seg_end, text, words }, native))
     }
 }
@@ -451,6 +459,9 @@ impl SherpaEngine {
     }
 }
 
+/// One Parakeet encoder frame: a 10 ms hop, subsampled 8 times.
+const TDT_FRAME_S: f32 = 0.08;
+
 /// Group tokens into words on the word-start marker (leading space, `Ġ`, or
 /// `▁`), converting chunk-relative token timestamps to absolute seconds via
 /// `offset`; falls back to spreading the chunk span uniformly when timestamps
@@ -458,6 +469,7 @@ impl SherpaEngine {
 fn group_tokens_to_words(
     tokens: &[String],
     timestamps: &[f32],
+    durations: &[f32],
     offset: f64,
     seg_start: f64,
     seg_end: f64,
@@ -465,11 +477,24 @@ fn group_tokens_to_words(
 ) -> Vec<Word> {
     let mut words = Vec::new();
     let have_ts = !timestamps.is_empty() && timestamps.len() == tokens.len();
+    let have_durations = durations.len() == tokens.len();
     if have_ts {
+        // A word ends where its last token ends: that token's start plus its
+        // duration (TDT models report it, at least one encoder frame), else
+        // the next token's start, else the segment's end. Never the last
+        // token's start, which would give a one-token word no length, and
+        // never past the segment's end.
+        let end_of = |last: usize| {
+            let end = match (have_durations, timestamps.get(last + 1)) {
+                (true, _) => offset + (timestamps[last] + durations[last].max(TDT_FRAME_S)) as f64,
+                (false, Some(&next)) => offset + next as f64,
+                (false, None) => seg_end,
+            };
+            end.min(seg_end)
+        };
         let mut cur_word = String::new();
         let mut cur_start: Option<f64> = None;
-        let mut cur_end: f64 = 0.0;
-        for (tok, &ts) in tokens.iter().zip(timestamps.iter()) {
+        for (i, (tok, &ts)) in tokens.iter().zip(timestamps.iter()).enumerate() {
             // Word-start markers: Whisper BPE uses a leading space / `Ġ`;
             // Parakeet's SentencePiece uses `▁` (U+2581). Handle both so the
             // same grouping serves the Whisper and transducer paths.
@@ -479,7 +504,7 @@ fn group_tokens_to_words(
                 words.push(Word {
                     word: cur_word.trim().to_string(),
                     start: round3(offset + cur_start.unwrap_or(0.0)),
-                    end: round3(offset + cur_end),
+                    end: round3(end_of(i - 1)),
                     speaker: None,
                     original: None,
                 });
@@ -490,13 +515,12 @@ fn group_tokens_to_words(
                 cur_start = Some(ts as f64);
             }
             cur_word.push_str(&clean);
-            cur_end = ts as f64;
         }
         if !cur_word.trim().is_empty() {
             words.push(Word {
                 word: cur_word.trim().to_string(),
                 start: round3(offset + cur_start.unwrap_or(0.0)),
-                end: round3(offset + cur_end),
+                end: round3(end_of(tokens.len() - 1)),
                 speaker: None,
                 original: None,
             });
@@ -654,6 +678,57 @@ impl TranscriptionEngine for SherpaEngine {
 mod new_tests {
     use super::*;
     use crate::AsrModel;
+
+    /// Parakeet's tokens for "go to bed" (AMI clip EN2002b, 3.5 s in): a
+    /// one-token word must still last as long as it was spoken.
+    #[test]
+    fn every_word_lasts_as_long_as_its_tokens() {
+        let tokens: Vec<String> = [" go", " to", " b", "ed"].map(String::from).to_vec();
+        let ts = [3.52, 3.68, 3.76, 3.84];
+        let times = |durations: &[f32]| {
+            group_tokens_to_words(&tokens, &ts, durations, 10.0, 10.0, 15.0, "go to bed")
+                .iter()
+                .map(|w| (w.word.clone(), w.start, w.end))
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(
+            times(&[0.16, 0.08, 0.08, 0.16]),
+            vec![
+                ("go".into(), 13.52, 13.68),
+                ("to".into(), 13.68, 13.76),
+                ("bed".into(), 13.76, 14.0)
+            ]
+        );
+        // No durations (Whisper): a word runs to the next word's start, and
+        // the last one to the segment's end.
+        assert_eq!(
+            times(&[]),
+            vec![
+                ("go".into(), 13.52, 13.68),
+                ("to".into(), 13.68, 13.76),
+                ("bed".into(), 13.76, 15.0)
+            ]
+        );
+    }
+
+    /// TDT can give a token duration 0 (the next token comes out on the same
+    /// encoder frame): the word still lasts that one frame, 80 ms.
+    #[test]
+    fn a_word_whose_token_has_no_duration_still_lasts_a_frame() {
+        let tokens: Vec<String> = [" a", " cat"].map(String::from).to_vec();
+        let words = group_tokens_to_words(&tokens, &[1.2, 1.2], &[0.0, 0.16], 10.0, 10.0, 15.0, "a cat");
+        assert_eq!((words[0].start, words[0].end), (11.2, 11.28));
+    }
+
+    /// A token's duration counts encoder frames, which can run past the end
+    /// of the audio: a word never ends after its segment.
+    #[test]
+    fn a_word_never_ends_after_its_segment() {
+        let tokens: Vec<String> = [" go", " home"].map(String::from).to_vec();
+        let words =
+            group_tokens_to_words(&tokens, &[4.6, 4.88], &[0.24, 0.32], 10.0, 10.0, 15.0, "go home");
+        assert_eq!((words[1].start, words[1].end), (14.88, 15.0));
+    }
 
     /// sherpa-onnx doesn't cut an utterance at `max_speech`: past it, it only
     /// asks for a shorter, clearer silence. So an utterance can stay open
