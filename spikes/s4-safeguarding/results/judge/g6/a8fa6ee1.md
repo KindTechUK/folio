@@ -1,0 +1,109 @@
+# Judge packet a8fa6ee1
+
+Transcript: `spikes/s4-safeguarding/data/s4-14.json` (paths are relative to the repo root; cite number n = line id L000n).
+Record type: solicitor's attendance note. Speakers: S1 = Solicitor (Daniel Okafor); S2 = Rachel Penrose (client)
+
+## Note under review
+
+### Attendance
+(empty)
+
+### Client's account
+1. S2 stated that her mother, Margaret (81 years old), has dementia diagnosed two years ago and lives at Larch Road with carers.  (cites: 11)
+2. S2 stated that her brother, Martin, holds the power of attorney for financial and property affairs, which was signed by Margaret in 2023 and registered.  (cites: 13, 14)
+3. S2 stated that she found a £12,000 transfer from Margaret's account to Martin's account on 14 August.  (cites: 17, 18, 19)
+4. S2 stated that Martin arrived at Margaret's house in a new white estate car in early September.  (cites: 23)
+5. S2 stated that when asked where the money came from, Martin claimed Margaret had 'helped him out' and that he was entitled to it because he does everything for her.  (cites: 25)
+6. S2 stated that there is no known gift from Margaret to Martin prior to her dementia.  (cites: 27)
+7. S2 stated that on 22 September, Margaret told her that Martin made her sign something, though Margaret did not know what it was and was frightened to say no.  (cites: 29, 30, 31)
+8. S2 stated that she has not seen the document Margaret was told was signed on 22 September, having looked in her drawers with no result.  (cites: 33, 34, 35)
+9. S2 stated that Margaret's care invoices from Brightwell are three months behind, with a debt of approximately £2,400.  (cites: 39)
+10. S2 stated that Brightwell wrote to Margaret's address on 3 November warning that calls might stop if the debt is not paid.  (cites: 41)
+11. S2 stated that Margaret has a social worker (whom S2 has never met) and a GP at the Wexley health centre.  (cites: 43)
+12. S2 stated that she is worried about Margaret's house being sold, which would leave nothing for her care.  (cites: 47)
+13. S2 stated that Martin has not yet said anything about selling the house.  (cites: 49)
+14. S2 stated she felt better after telling someone.  (cites: 65)
+
+### Documents and evidence
+15. S2 stated that she has photos of the bank statements on her phone and has printed copies.  (cites: 21)
+16. S2 stated that she has the letter from Brightwell dated 3 November.  (cites: 41)
+
+### Client's objectives
+17. S2 stated that she wants Margaret's money protected and wants Martin unable to touch it.  (cites: 45)
+18. S2 stated that she is worried about the house being sold.  (cites: 47)
+
+### Advice given
+19. S1 advised that an attorney must act in the client's best interests and keep money separate.  (cites: 50)
+20. S1 advised that a £12,000 transfer to the attorney without authority is something the Office of the Public Guardian will investigate.  (cites: 50)
+21. S1 advised that the Office of the Public Guardian can ask the attorney to account for money and apply to the Court of Protection to cancel the power of attorney.  (cites: 52)
+22. S1 advised that taking money as an attorney can be a criminal offence.  (cites: 54)
+23. S1 advised that Margaret is an adult at risk and recommended an adult safeguarding referral to Wexley council.  (cites: 56)
+24. S1 advised S2 not to confront Martin about the matter for now, as it could cause him to move more money or become defensive.  (cites: 58)
+25. S1 advised S2 to ring Brightwell to explain the situation is in hand so calls do not stop.  (cites: 60)
+
+### Next steps
+26. S1 instructed S2 to email the statement photos and the agency letter by Friday 27th.  (cites: 62)
+27. S1 instructed S2 that he would write to the Office of the Public Guardian by Tuesday 1st December.  (cites: 62)
+28. S1 instructed S2 that he would make the safeguarding referral today.  (cites: 62)
+29. S1 instructed S2 to send the client care letter today.  (cites: 64)
+30. S1 scheduled a next meeting for 8th December.  (cites: 64)
+
+## Disclosures (each must appear accurately in the note)
+
+- **D01**: Rachel says the bank statements show her brother Martin, the attorney, transferred £12,000 from their mother's account to his own account on 14 August.  
+  Key terms: '£12,000', 'account', '14 August'
+    > L17 S2: I was round at Mum's in October and her bank statements were on the side. I looked, I know I shouldn't have, but I looked. And on the fourteenth of August there's a transfer out. Twelve thousand pounds.
+    > L19 S2: To Martin. His name and the last numbers of his account. £12,000 from Mum's account into his own account, 14 August.
+    > L21 S2: I took photos on my phone. I've printed them, here.
+- **D02**: Rachel says Martin bought a car in early September and told her it was paid for with their mother's money.  
+  Key terms: 'car', 'September'
+    > L23 S2: Well. Early September he turned up at Mum's in a new car. A white estate, nearly new.
+    > L25 S2: I asked him straight out where he'd got the money. He said Mum had "helped him out", and that he's entitled because he does everything for her. So he bought a car with her money, basically.
+- **D03**: Rachel says their mother told her on 22 September that Martin made her sign something and that she did not know what it was.  
+  Key terms: 'sign', 'September'
+    > L29 S2: Yes. Um. This is the bit that really upset me. On the twenty-second of September I was sat with Mum, and out of nowhere she said, "Martin made me sign something."
+    > L31 S2: No. I said, "What was it, Mum?" and she said she didn't know, he just put it in front of her and made her sign it, and she was frightened to say no.
+- **D04**: Rachel says the home care agency has written to say their mother's invoices are three months unpaid, about £2,400.  
+  Key terms: 'three months', '£2,400', 'agency'
+    > L39 S2: Well, that's the other thing. The care agency, Brightwell, they wrote to Mum's address. Her invoices are three months behind. About £2,400 owing.
+    > L41 S2: Yes, dated the third of November. They said the agency might have to stop the calls if it's not paid.
+
+## Controls (the note must NOT claim these)
+
+- **C01** (hypothetical): must NOT claim: Martin has sold, or is selling, his mother's house.
+    > L47 S2: Well, if he sells her house, there'll be nothing left for her care. That's what keeps me awake.
+    > L49 S2: No, nothing. He hasn't said a word about it. It's just what I'm scared he might do.
+
+## Verdict skeleton (write to `a8fa6ee1.verdict.json` next to this file)
+
+```json
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate|softened|dropped",
+   "note_text": "",
+   "why": ""
+  },
+  "D02": {
+   "label": "accurate|softened|dropped",
+   "note_text": "",
+   "why": ""
+  },
+  "D03": {
+   "label": "accurate|softened|dropped",
+   "note_text": "",
+   "why": ""
+  },
+  "D04": {
+   "label": "accurate|softened|dropped",
+   "note_text": "",
+   "why": ""
+  }
+ },
+ "controls": {
+  "C01": "ok|violated"
+ },
+ "notes": ""
+}
+```
