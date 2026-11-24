@@ -1,0 +1,943 @@
+{
+ "sections": [
+  {
+   "title": "Attendance",
+   "sentences": [
+    {
+     "text": "Solicitor Daniel Okafor attended the meeting.",
+     "cites": [
+      5,
+      1
+     ]
+    },
+    {
+     "text": "Solicitor Daniel Okafor is a solicitor in the employment team.",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "text": "The meeting took place on Wednesday, 23rd September.",
+     "cites": [
+      6
+     ]
+    },
+    {
+     "text": "Trainee Sophie Grant may attend later to take copies of documents brought by the client.",
+     "cites": [
+      6
+     ]
+    },
+    {
+     "text": "Aisha Rahman attended the meeting with solicitor Daniel Okafor and trainee Sophie Grant.",
+     "cites": [
+      69
+     ]
+    },
+    {
+     "text": "The purpose of the meeting was to discuss Aisha Rahman's workplace concerns, including management actions related to her diabetes and work conditions.",
+     "cites": [
+      69
+     ]
+    },
+    {
+     "text": "Solicitor Daniel Okafor attended the meeting with client Aisha Rahman.",
+     "cites": [
+      138
+     ]
+    },
+    {
+     "text": "The purpose of the meeting was to discuss the client's dismissal, appeal, and documents related to her employment termination.",
+     "cites": [
+      138
+     ]
+    },
+    {
+     "text": "Solicitor Daniel Okafor attended the meeting with client Aisha Rahman.",
+     "cites": [
+      217
+     ]
+    },
+    {
+     "text": "Aisha Rahman is the client in the meeting.",
+     "cites": [
+      217
+     ]
+    },
+    {
+     "text": "The purpose of the meeting was to discuss a potential employment tribunal claim following dismissal due to diabetes-related issues.",
+     "cites": [
+      217,
+      234,
+      274
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman attended the meeting with solicitor Daniel Okafor.",
+     "cites": [
+      217
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Client's account",
+   "sentences": [
+    {
+     "text": "The purpose of the meeting was for the solicitor to obtain the client's account of events and dates, and to provide an initial assessment at the end.",
+     "cites": [
+      8
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman worked for Northgate Logistics Limited.",
+     "cites": [
+      11
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman started working at Northgate Logistics on 5th March 2018.",
+     "cites": [
+      13,
+      14
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman started as a picker on the floor, doing general picking.",
+     "cites": [
+      16
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman became team leader of inbound goods in June 2021.",
+     "cites": [
+      16
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman's team consisted of eleven people during her time as team leader.",
+     "cites": [
+      18
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman's shift pattern was four on four off, days, from 7 am to 7 pm, with handover at quarter past 7 pm.",
+     "cites": [
+      20
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman's basic annual pay was \u00a329,400.",
+     "cites": [
+      22,
+      23
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman's total annual pay including shift allowance was approximately \u00a331,000.",
+     "cites": [
+      22,
+      23
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman's shift allowance was approximately \u00a31,800 per year.",
+     "cites": [
+      25
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman's pension was with the workplace scheme; she is unsure if it was 5% or 4%.",
+     "cites": [
+      27
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman signed a contract on a tablet when becoming team leader, but did not receive a copy.",
+     "cites": [
+      29
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman has type one diabetes, diagnosed since age 14.",
+     "cites": [
+      31
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman manages diabetes with a glucose sensor on her arm that sends data to a phone app, and requires injections.",
+     "cites": [
+      33
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman needs to stop and consume glucose (e.g. juice or glucose tablets) if her blood sugar drops, then check again after 15 minutes and eat a proper meal (e.g. biscut",
+     "cites": [
+      34
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman's diabetes cannot be scheduled or predicted; it depends on workload, heat, and food intake.",
+     "cites": [
+      36
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman disclosed that Northgate Logistics was aware of her diabetes from the start.",
+     "cites": [
+      37
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman reported her diabetes on a health form when starting work and told her manager Linda Chu.",
+     "cites": [
+      38
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman's manager during her early years was Linda Chu (C-H-U).",
+     "cites": [
+      38
+     ]
+    },
+    {
+     "text": "Linda Chu left Northgate Logistics at the end of last year (end of 2023).",
+     "cites": [
+      40
+     ]
+    },
+    {
+     "text": "Linda Chu moved to a supermarket on the distribution side.",
+     "cites": [
+      40
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman still has Linda Chu's contact details and they remain friends on Facebook.",
+     "cites": [
+      40
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman and Linda Chu had an informal arrangement where, if needed, she could step off for five minutes and a colleague would cover, with no written documentation.",
+     "cites": [
+      42
+     ]
+    },
+    {
+     "text": "The stepping off arrangement occurred only occasionally, once or twice per shift, or not at all on some days.",
+     "cites": [
+      42
+     ]
+    },
+    {
+     "text": "There was no written policy, email, or formal plan regarding stepping off for diabetes management.",
+     "cites": [
+      44
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman was team leader for a quarter in 2023, and has a certificate from that period.",
+     "cites": [
+      52
+     ]
+    },
+    {
+     "text": "Aisha Rahman stated she did not write to Gary at the time of the initial incident, but later emailed HR in March to request an occupational health referral.",
+     "cites": [
+      71
+     ]
+    },
+    {
+     "text": "Aisha Rahman requested that HR send the occupational health report to her personal email.",
+     "cites": [
+      73
+     ]
+    },
+    {
+     "text": "The occupational health report was dated the 22nd of April.",
+     "cites": [
+      73
+     ]
+    },
+    {
+     "text": "The occupational health report stated that Aisha Rahman should be allowed short breaks when needed to test and eat, as a reasonable adjustment.",
+     "cites": [
+      74
+     ]
+    },
+    {
+     "text": "Aisha Rahman has a copy of the occupational health report, as it was sent to her personal email.",
+     "cites": [
+      76
+     ]
+    },
+    {
+     "text": "Aisha Rahman said she will search for the occupational health report in her inbox tonight.",
+     "cites": [
+      78
+     ]
+    },
+    {
+     "text": "Aisha Rahman said Gary told her he would 'take it on board' after the occupational health report was provided.",
+     "cites": [
+      80
+     ]
+    },
+    {
+     "text": "Aisha Rahman said she was in the office with Gary on the 19th of May for a 'conversation' about her team leaving the dock and her role as a team leader.",
+     "cites": [
+      82
+     ]
+    },
+    {
+     "text": "The May conversation took place on a Tuesday, the 19th of May.",
+     "cites": [
+      82
+     ]
+    },
+    {
+     "text": "Aisha Rahman said the conversation was informal and not a formal meeting, and no warning letter or written notice was issued.",
+     "cites": [
+      84
+     ]
+    },
+    {
+     "text": "Aisha Rahman said she has never received a warning, verbal or written, in eight years of employment.",
+     "cites": [
+      84
+     ]
+    },
+    {
+     "text": "Aisha Rahman said she has never been late to work, and she is the one who opens up the dock.",
+     "cites": [
+      86
+     ]
+    },
+    {
+     "text": "Aisha Rahman said no one has ever said she was late, and it is only a possibility that they might have said so.",
+     "cites": [
+      88
+     ]
+    },
+    {
+     "text": "Aisha Rahman said on the 1st and 3rd of July, she stepped off the dock during mid-morning and told Tomasz to cover, spending about ten to twelve minutes each time.",
+     "cites": [
+      90
+     ]
+    },
+    {
+     "text": "Tomasz Nowak is one of Aisha Rahman's team members and acts as her unofficial deputy.",
+     "cites": [
+      92
+     ]
+    },
+    {
+     "text": "Aisha Rahman said Gary must have seen her step off the dock on the 3rd of July, as he commented on it in front of others.",
+     "cites": [
+      94
+     ]
+    },
+    {
+     "text": "Aisha Rahman said on the 9th of July, it was very hot, around thirty degrees, and the dock was hot due to open doors and tarmac.",
+     "cites": [
+      96
+     ]
+    },
+    {
+     "text": "Aisha Rahman said on the 9th of July, she was trying not to step off due to Gary's concerns, and at about two o'clock she went very low, shaking and unable to read the scanner.",
+     "cites": [
+      97
+     ]
+    },
+    {
+     "text": "Aisha Rahman said she sat down on a pallet and Marcus Bell, a first aider, came over and gave her Lucozade from the machine and stayed with her.",
+     "cites": [
+      99
+     ]
+    },
+    {
+     "text": "Marcus Bell is a first aider and conducts all first aid training on the team.",
+     "cites": [
+      100
+     ]
+    },
+    {
+     "text": "Aisha Rahman said she did not lose consciousness, but was confused and does not remember all of it.",
+     "cites": [
+      101
+     ]
+    },
+    {
+     "text": "Marcus Bell took a photo of Aisha Rahman's phone showing her sensor reading at 2.1.",
+     "cites": [
+      101
+     ]
+    },
+    {
+     "text": "Aisha Rahman said after about twenty minutes she was okay and went to the canteen to eat.",
+     "cites": [
+      103
+     ]
+    },
+    {
+     "text": "Gary came in and said, 'you've left the dock with no team leader, go home. He said, 'you're not fit to be here' and Aisha Rahman went home.",
+     "cites": [
+      104
+     ]
+    },
+    {
+     "text": "Aisha Rahman said she lost about four and a half hours of work on the 9th of July and was not paid for that time.",
+     "cites": [
+      106
+     ]
+    },
+    {
+     "text": "Aisha Rahman said Marcus Bell filled in the first aid log, but she does not know if Gary did anything else.",
+     "cites": [
+      108
+     ]
+    },
+    {
+     "text": "Aisha Rahman said if she had told Gary in the morning that her levels were unstable, it might have prevented the situation from escalating.",
+     "cites": [
+      109
+     ]
+    },
+    {
+     "text": "Aisha Rahman said the disciplinary meeting was on the 17th of July, and she was asked about the three days she left the dock.",
+     "cites": [
+      116
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman described the disciplinary meeting as lasting approximately forty minutes, possibly less.",
+     "cites": [
+      140
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman stated that the meeting was conducted without her being looked at, with the meeting participant only looking at his screen.",
+     "cites": [
+      140
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman did not receive the disciplinary meeting notes from Kerry.",
+     "cites": [
+      141
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman did not receive the disciplinary meeting notes as part of her appeal request.",
+     "cites": [
+      142
+     ]
+    },
+    {
+     "text": "The outcome letter was received by the client on the 14th of August 2026.",
+     "cites": [
+      144
+     ]
+    },
+    {
+     "text": "The outcome letter was dated the 14th of August 2026 and stated that employment ended with effect from that date.",
+     "cites": [
+      145,
+      147
+     ]
+    },
+    {
+     "text": "The client received the dismissal letter by email at about 5 o'clock on the 14th of August 2026, and a post copy arrived on the Saturday (15th August).",
+     "cites": [
+      146
+     ]
+    },
+    {
+     "text": "The dismissal letter stated the reason for termination was 'misconduct, namely repeated failure to follow reasonable management instructions'.",
+     "cites": [
+      148
+     ]
+    },
+    {
+     "text": "The dismissal letter did not mention the client's diabetes or the occupational health report.",
+     "cites": [
+      156
+     ]
+    },
+    {
+     "text": "The client was paid in lieu of notice amounting to eight weeks' pay, specifically \u00a34,523.",
+     "cites": [
+      149,
+      150
+     ]
+    },
+    {
+     "text": "The eight weeks' pay in lieu of notice arrived in the client's bank account with the final pay at the end of August.",
+     "cites": [
+      151
+     ]
+    },
+    {
+     "text": "The client believes she may have accrued six days of holiday, but is uncertain if it is included in the payslip due to confusing codes.",
+     "cites": [
+      153
+     ]
+    },
+    {
+     "text": "The client was informed in the dismissal letter that she could appeal within five working days, in writing, to HR.",
+     "cites": [
+      158
+     ]
+    },
+    {
+     "text": "The client filed her appeal by email on the 19th of August 2026 to HR, copied to Kerry.",
+     "cites": [
+      163
+     ]
+    },
+    {
+     "text": "The client's grounds for appeal included: the dismissal being due to her diabetes, the failure to consider the occupational health report, the inappropriate hearing being conducted",
+     "cites": [
+      165
+     ]
+    },
+    {
+     "text": "The appeal was heard by Claire Ashdown, the regional manager, on the 2nd of September 2026.",
+     "cites": [
+      167
+     ]
+    },
+    {
+     "text": "The appeal hearing took place via Teams, and the client's camera kept freezing during the call.",
+     "cites": [
+      167
+     ]
+    },
+    {
+     "text": "The appeal outcome letter was issued on the 16th of September 2026, stating the dismissal was upheld.",
+     "cites": [
+      169
+     ]
+    },
+    {
+     "text": "In the appeal outcome letter, Claire Ashdown stated that Gary was the right person to conduct the hearing because he knew the facts best.",
+     "cites": [
+      171
+     ]
+    },
+    {
+     "text": "In the appeal outcome letter, Claire Ashdown stated that fixed breaks were offered as an adjustment, and the client did not use them properly.",
+     "cites": [
+      171
+     ]
+    },
+    {
+     "text": "At the end of the appeal hearing, Kerry from HR said if the client wanted to go quietly, there might be something they could do, but did not specify any amount or details.",
+     "cites": [
+      173
+     ]
+    },
+    {
+     "text": "The client did not receive any document to sign, such as a settlement agreement, after the appeal outcome.",
+     "cites": [
+      174
+     ]
+    },
+    {
+     "text": "The client did not sign the dismissal letter or any other document, and stated she did not even do that.",
+     "cites": [
+      175
+     ]
+    },
+    {
+     "text": "One of the girls on the other shift, Jodie, told the client she heard that Gary called her a liability in a managers' meeting on a Monday.",
+     "cites": [
+      179
+     ]
+    },
+    {
+     "text": "Jodie was not present at the managers' meeting and did not hear the statement directly.",
+     "cites": [
+      181
+     ]
+    },
+    {
+     "text": "The client does not know if the statement about being called a liability is true, as it was heard from someone who did not identify themselves.",
+     "cites": [
+      181
+     ]
+    },
+    {
+     "text": "The client stated that the statement about being called a liability is second-hand and possibly third-hand.",
+     "cites": [
+      182
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman described an interview scheduled for next Tuesday at Harbour Freight, a parcel company near the airport.",
+     "cites": [
+      218
+     ]
+    },
+    {
+     "text": "The job at Harbour Freight is a team leader position.",
+     "cites": [
+      218
+     ]
+    },
+    {
+     "text": "The job at Harbour Freight pays less than the previous role, approximately \u00a327 per week.",
+     "cites": [
+      218
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman is concerned that references from the employer will be negative, particularly if Northgate (the employer) says 'dismissed' when contacted.",
+     "cites": [
+      220
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman has applied for Universal Credit, which is still pending.",
+     "cites": [
+      222
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman's husband works as a bus driver.",
+     "cites": [
+      222
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman has a spreadsheet to track job applications, with green for interviews and red for rejections.",
+     "cites": [
+      224
+     ]
+    },
+    {
+     "text": "The spreadsheet was created by Aisha Rahman's eleven-year-old child.",
+     "cites": [
+      224
+     ]
+    },
+    {
+     "text": "The spreadsheet has many red entries, indicating a high number of rejections.",
+     "cites": [
+      226
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman has not been sleeping well since the dismissal, and her diabetes nurse reported her average blood sugar levels have increased significantly.",
+     "cites": [
+      228
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman has not yet contacted her GP about stress or sleep issues, though she did contact her diabetes nurse in early September.",
+     "cites": [
+      230
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman expressed that she would book a GP appointment if she could get through on the phone, describing it as 'like trying to get concert tickets'.",
+     "cites": [
+      232
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman has not contacted ACAS yet, though she did call the helpline in August but did not complete the form.",
+     "cites": [
+      259
+     ]
+    },
+    {
+     "text": "The client's dismissal date is the 14th of August 2026.",
+     "cites": [
+      254
+     ]
+    },
+    {
+     "text": "The client, Aisha Rahman, stated she is currently on Cromwell Road, by the church, and hopes to avoid a ticket.",
+     "cites": [
+      320
+     ]
+    },
+    {
+     "text": "The client expressed concern about being ticketed at Cromwell Road, noting the wardens are described as 'ruthless'.",
+     "cites": [
+      321
+     ]
+    },
+    {
+     "text": "The client stated she is concerned about being asked why she left her job, and said she was dreading that question.",
+     "cites": [
+      313,
+      314
+     ]
+    },
+    {
+     "text": "The client said she thought she might be the problem and felt she was being mad, but now feels better.",
+     "cites": [
+      316
+     ]
+    },
+    {
+     "text": "The solicitor advised the client that nothing has been issued, there is no claim in the tribunal yet, and nothing has gone to ACAS.",
+     "cites": [
+      286
+     ]
+    },
+    {
+     "text": "The client stated that the main thing she wants is an agreed reference, which she said would be 'everything'.",
+     "cites": [
+      285
+     ]
+    },
+    {
+     "text": "The client said her son loves the spreadsheet more than she does.",
+     "cites": [
+      296
+     ]
+    },
+    {
+     "text": "The solicitor stated that nothing has been issued, there is no claim in the tribunal, and nothing has gone to ACAS, and that they are at the start of the process.",
+     "cites": [
+      286
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Documents and evidence",
+   "sentences": [
+    {
+     "text": "The client has the following documents: the invite letter, the dismissal letter, the appeal outcome letter, her old contract (2018), and payslips for May, June, July, and August.",
+     "cites": [
+      188
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Client's objectives",
+   "sentences": [
+    {
+     "text": "Client Aisha Rahman stated her primary objective is for the employer to acknowledge that they treated her unfairly due to her illness and to receive a proper reference to enable re",
+     "cites": [
+      234
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman stated that compensation is secondary to acknowledgment and a proper reference.",
+     "cites": [
+      235
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman expressed a wish that the employer would address the issue of night shifts for a colleague with epilepsy, which she worries about.",
+     "cites": [
+      236
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Advice given",
+   "sentences": [
+    {
+     "text": "Solicitor Daniel Okafor advised that the client should consider contacting her GP if struggling with stress or sleep, to ensure it is on record and to access support.",
+     "cites": [
+      231
+     ]
+    },
+    {
+     "text": "Solicitor Daniel Okafor advised that a tribunal can make recommendations but has limited powers on issues such as workplace adjustments for disabled employees.",
+     "cites": [
+      237
+     ]
+    },
+    {
+     "text": "The deadline to notify ACAS is the 13th of November 2026, three months less one day from the dismissal date.",
+     "cites": [
+      254
+     ]
+    },
+    {
+     "text": "Solicitor Daniel Okafor advised that ACAS early conciliation must be started within three months less one day of the dismissal date.",
+     "cites": [
+      253
+     ]
+    },
+    {
+     "text": "Solicitor Daniel Okafor advised that the ACAS notification should be submitted by the 16th of October 2026, to avoid last-minute pressure.",
+     "cites": [
+      256
+     ]
+    },
+    {
+     "text": "Solicitor Daniel Okafor advised that the clock on the three-month time limit for ACAS starts from the effective date of termination, not from the appeal outcome date.",
+     "cites": [
+      264
+     ]
+    },
+    {
+     "text": "Solicitor Daniel Okafor advised that the three-month time limit for discrimination claims runs from the date of the act complained about, not from the appeal outcome date.",
+     "cites": [
+      269
+     ]
+    },
+    {
+     "text": "Solicitor Daniel Okafor advised that once ACAS is notified, the clock is paused during conciliation, and there is a further period to issue the claim.",
+     "cites": [
+      270
+     ]
+    },
+    {
+     "text": "Client Aisha Rahman has more than two years of service with the employer, which allows for an unfair dismissal claim.",
+     "cites": [
+      272
+     ]
+    },
+    {
+     "text": "The solicitor advised the client that if asked why she left, she should say it is 'subject to an ongoing process' and 'you'd rather not go into detail', keeping it short and fact.",
+     "cites": [
+      313
+     ]
+    },
+    {
+     "text": "The solicitor stated that an agreed reference can often be negotiated as part of a settlement through ACAS.",
+     "cites": [
+      284
+     ]
+    },
+    {
+     "text": "The solicitor confirmed he will send a letter confirming today's advice and funding options by Tuesday, 29th of October.",
+     "cites": [
+      304
+     ]
+    },
+    {
+     "text": "The letter confirming advice and funding options will include time limits, with the 13th of November in bold.",
+     "cites": [
+      304
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Next steps",
+   "sentences": [
+    {
+     "text": "The client said she would email the solicitor by Friday the 25th with the OH report, Marcus's photo of the sensor, any payslips not brought today, and the February email if found.",
+     "cites": [
+      289
+     ]
+    },
+    {
+     "text": "The client confirmed she will send the documents by Friday, 25th, to the solicitor.",
+     "cites": [
+      290
+     ]
+    },
+    {
+     "text": "The solicitor advised the client to check with Castleford Mutual by Monday, 28th, whether she has legal expenses cover, and to send the policy schedule and wording.",
+     "cites": [
+      291
+     ]
+    },
+    {
+     "text": "The client said her husband will call Castleford Mutual, as he is off on Monday, and that the date works.",
+     "cites": [
+      292
+     ]
+    },
+    {
+     "text": "The solicitor advised the client to write a timeline by Friday, 2nd of October, in her own words, including dates, as best she can, with bullet points acceptable.",
+     "cites": [
+      293
+     ]
+    },
+    {
+     "text": "The client confirmed the timeline is due on Friday, 2nd of October.",
+     "cites": [
+      294
+     ]
+    },
+    {
+     "text": "The solicitor advised the client to keep the spreadsheet going for every job application.",
+     "cites": [
+      295
+     ]
+    },
+    {
+     "text": "The trainee, Sophie Grant, will draft a subject access request to Northgate by Monday.",
+     "cites": [
+      297
+     ]
+    },
+    {
+     "text": "The solicitor advised the subject access request should be sent to both the HR inbox and the registered office, and that they will check the registered office address on Companies'",
+     "cites": [
+      299
+     ]
+    },
+    {
+     "text": "The trainee asked whether the subject access request should be sent to the HR inbox or the registered office.",
+     "cites": [
+      298
+     ]
+    },
+    {
+     "text": "The solicitor advised the client to ask Marcus whether he would be willing to give a statement, without going into detail, and not to approach Tomasz at this stage.",
+     "cites": [
+      305
+     ]
+    },
+    {
+     "text": "The client said she will message Marcus to ask about a statement, and will leave Tomasz out.",
+     "cites": [
+      306
+     ]
+    },
+    {
+     "text": "The solicitor advised the client to ask Linda whether she would be happy to talk to him at some point, with no rush.",
+     "cites": [
+      307
+     ]
+    },
+    {
+     "text": "The client said she will message Linda, and that she will be fine.",
+     "cites": [
+      308
+     ]
+    },
+    {
+     "text": "The solicitor proposed a meeting on Thursday, 8th of October, at 10 o'clock.",
+     "cites": [
+      309
+     ]
+    },
+    {
+     "text": "The client confirmed the meeting is on Thursday, 8th of October, at 10 o'clock, and said the date is fine despite a prior event on the 9th.",
+     "cites": [
+      310
+     ]
+    },
+    {
+     "text": "The solicitor stated that by the 16th of October, ACAS should be notified, as a goal.",
+     "cites": [
+      309
+     ]
+    },
+    {
+     "text": "The client said she will not sign any documents received from Northgate in the meantime, and will not respond to them directly.",
+     "cites": [
+      312
+     ]
+    }
+   ]
+  }
+ ]
+}

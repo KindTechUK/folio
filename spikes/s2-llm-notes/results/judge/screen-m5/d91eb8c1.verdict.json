@@ -1,0 +1,86 @@
+{
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "present",
+    "F05": "present",
+    "F06": "absent",
+    "F07": "absent",
+    "F08": "present",
+    "F09": "present",
+    "F10": "partial",
+    "F11": "present",
+    "F12": "present",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "partial",
+    "F16": "present",
+    "F17": "present",
+    "F18": "present",
+    "F19": "partial",
+    "F20": "present",
+    "F21": "partial",
+    "F22": "present",
+    "F23": "partial",
+    "F24": "present",
+    "F25": "present",
+    "F26": "partial",
+    "F27": "absent",
+    "F28": "present",
+    "F29": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Linda Chu left Northgate Logistics at the end of last year (end of 2023).",
+      "why": "The meeting is in September 2026, so 'end of last year' is end of 2025; the solicitor confirms Linda was manager until the end of 2025 (L040, L051)."
+    },
+    {
+      "sentence": "Client Aisha Rahman was team leader for a quarter in 2023, and has a certificate from that period.",
+      "why": "She was 'team leader of the quarter' once, an award, around 2023 (L052); she was team leader continuously from June 2021."
+    },
+    {
+      "sentence": "Aisha Rahman said she was in the office with Gary on the 19th of May for a 'conversation' about her team leaving the dock and her role as a team leader.",
+      "why": "Gary said her team were seeing her (Aisha) leave the dock and it looked bad (L082), not that her team were leaving the dock."
+    },
+    {
+      "sentence": "Aisha Rahman said the disciplinary meeting was on the 17th of July, and she was asked about the three days she left the dock.",
+      "why": "17 July was an investigation meeting with Dean Farrow (L116); the disciplinary was on 6 August, chaired by Gary (L126)."
+    },
+    {
+      "sentence": "The job at Harbour Freight pays less than the previous role, approximately £27 per week.",
+      "why": "She said 'it's like twenty-seven' (L218), i.e. about £27,000 a year in context of her £29,400 salary, not £27 per week."
+    },
+    {
+      "sentence": "The client stated that the statement about being called a liability is second-hand and possibly third-hand.",
+      "why": "It was the solicitor, not the client, who said it is second-hand, possibly third-hand (L182)."
+    },
+    {
+      "sentence": "Client Aisha Rahman expressed a wish that the employer would address the issue of night shifts for a colleague with epilepsy, which she worries about.",
+      "why": "She wants Northgate to sort out the break arrangements for others, mentioning a colleague with epilepsy who works nights (L236); night shifts are not the issue."
+    },
+    {
+      "sentence": "The solicitor confirmed he will send a letter confirming today's advice and funding options by Tuesday, 29th of October.",
+      "why": "The letter is due by Tuesday 29 September (L304)."
+    }
+  ],
+  "notes": "Very detailed, largely transcript-faithful note, but never introduces Gary's arrival or the February break email, mislabels the 17 July investigation as the disciplinary, omits the invitation letter, the Equality Act/claims analysis and the caveats, and has several date/amount slips."
+}

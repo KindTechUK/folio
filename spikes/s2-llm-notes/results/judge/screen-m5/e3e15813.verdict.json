@@ -1,0 +1,66 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "present",
+    "F03": "partial",
+    "F04": "partial",
+    "F05": "absent",
+    "F06": "present",
+    "F07": "partial",
+    "F08": "partial",
+    "F09": "absent",
+    "F10": "absent",
+    "F11": "partial",
+    "F12": "partial",
+    "F13": "partial",
+    "F14": "partial",
+    "F15": "partial",
+    "F16": "absent",
+    "F17": "absent",
+    "F18": "absent",
+    "F19": "absent",
+    "F20": "partial",
+    "F21": "absent",
+    "F22": "absent",
+    "F23": "partial",
+    "F24": "absent",
+    "F25": "absent",
+    "F26": "absent",
+    "F27": "absent",
+    "F28": "present",
+    "F29": "present"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Aisha found the report in her personal email.",
+      "why": "She has not found it yet; she said HR sent it to her personal email so it 'should be in there' and she will dig for it and find it tonight (L076, L078)."
+    },
+    {
+      "sentence": "Aisha was allowed short breaks as a reasonable adjustment.",
+      "why": "The OH report recommended short breaks as a reasonable adjustment (L074); Northgate did not allow them - nothing changed and she was disciplined for stepping off (L079-L080, L171)."
+    },
+    {
+      "sentence": "Aisha should check with Castleford Mutual for legal expenses cover by Monday the twenty-eighth and send the policy schedule and wording by next Friday the second.",
+      "why": "The policy schedule and wording are to be sent by Monday 28th as well (L291); Friday 2 October is the deadline for the timeline only (L293)."
+    }
+  ],
+  "notes": "Thin note: covers the early chronology and the action list but omits the dismissal, appeal, notice pay, ACAS deadline and all advice. States total pay as 31k alongside the 29,400 basic (treated as total-incl-allowances, not as the salary, so T09 ok)."
+}

@@ -1,0 +1,70 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "present",
+    "F03": "partial",
+    "F04": "partial",
+    "F05": "absent",
+    "F06": "present",
+    "F07": "partial",
+    "F08": "partial",
+    "F09": "absent",
+    "F10": "absent",
+    "F11": "partial",
+    "F12": "present",
+    "F13": "partial",
+    "F14": "partial",
+    "F15": "partial",
+    "F16": "partial",
+    "F17": "partial",
+    "F18": "partial",
+    "F19": "absent",
+    "F20": "partial",
+    "F21": "partial",
+    "F22": "absent",
+    "F23": "partial",
+    "F24": "absent",
+    "F25": "absent",
+    "F26": "absent",
+    "F27": "absent",
+    "F28": "present",
+    "F29": "present"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "violated",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Aisha was asked to bring in the OH report for the disciplinary meeting",
+      "why": "Nothing in the transcript says she was asked to bring the OH report to the disciplinary; she told the investigation meeting it was already on file (L118)."
+    },
+    {
+      "sentence": "Aisha found the report in her personal email",
+      "why": "She has not found it yet; she thinks it should be in her personal email and will dig for it tonight (L076, L078)."
+    },
+    {
+      "sentence": "Aisha was allowed short breaks as a reasonable adjustment",
+      "why": "The OH report recommended short breaks as a reasonable adjustment (L074); Northgate did not allow them and she was disciplined for stepping off (L080, L171)."
+    },
+    {
+      "sentence": "Aisha should check with Castleford Mutual for legal expenses cover by Monday the twenty-eighth and send the policy schedule and wording by next Friday the second.",
+      "why": "The policy schedule and wording are also due by Monday 28th (L291); Friday 2 October is the timeline deadline (L293)."
+    }
+  ],
+  "notes": "Short note with the action list and dismissal/appeal basics but omits the May-July chronology, ACAS deadlines and all merits advice; states she lost consciousness, which she expressly denied."
+}

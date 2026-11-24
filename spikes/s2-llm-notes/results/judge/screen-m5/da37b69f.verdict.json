@@ -1,0 +1,138 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "partial",
+    "F03": "present",
+    "F04": "partial",
+    "F05": "partial",
+    "F06": "absent",
+    "F07": "absent",
+    "F08": "partial",
+    "F09": "absent",
+    "F10": "absent",
+    "F11": "absent",
+    "F12": "absent",
+    "F13": "absent",
+    "F14": "partial",
+    "F15": "present",
+    "F16": "present",
+    "F17": "present",
+    "F18": "partial",
+    "F19": "partial",
+    "F20": "partial",
+    "F21": "partial",
+    "F22": "absent",
+    "F23": "present",
+    "F24": "partial",
+    "F25": "absent",
+    "F26": "absent",
+    "F27": "absent",
+    "F28": "partial",
+    "F29": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "S2 is heading to Northgate Logistics Limited.",
+      "why": "She worked for Northgate Logistics Limited and has been dismissed (L011, L147); she is not heading there."
+    },
+    {
+      "sentence": "S2's workplace pension was 4% at Northgate Logistics Limited.",
+      "why": "She said 'I think they put in five percent. Maybe it's four. I'd have to check' (L027); the rate is unknown."
+    },
+    {
+      "sentence": "Gary Whitlock started at Northgate Logistics Limited in January 2022.",
+      "why": "Gary replaced Linda (who left end of 2025) and started on 12 January 2026 (L051, L056-L057)."
+    },
+    {
+      "sentence": "Gary Whitlock sent an email to Northgate Logistics Limited in February 2022 about breaks.",
+      "why": "The break email was sent round on 2 February 2026 (L062-L064)."
+    },
+    {
+      "sentence": "S2's diabetes management was discussed with Gary Whitlock in February 2022.",
+      "why": "She raised it with Gary in the week of the 2 February 2026 email (L068)."
+    },
+    {
+      "sentence": "S2 mentioned that the client believes they should be allowed short breaks when they need them, as a reasonable adjustment.",
+      "why": "It was the OH report dated 22 April that recommended short breaks as a reasonable adjustment (L074), not merely the client's belief."
+    },
+    {
+      "sentence": "The client was accompanied by Tomasz because he was scared and had a mortgage and a baby on the way.",
+      "why": "Tomasz accompanied her but did not say much because he was scared, having a mortgage and a baby on the way (L130); that was not the reason he accompanied her. (Sentence repeated four times.)"
+    },
+    {
+      "sentence": "Aisha Rahman asked Daniel Okafor to check the payslip for any discrepancies.",
+      "why": "Daniel said 'We'll check that' (L154); Aisha did not ask."
+    },
+    {
+      "sentence": "Aisha Rahman asked Daniel Okafor if the dismissal letter mentioned her diabetes or the occupational health report.",
+      "why": "Daniel asked Aisha this (L155)."
+    },
+    {
+      "sentence": "Aisha Rahman asked Daniel Okafor if the dismissal letter mentioned a right of appeal.",
+      "why": "Daniel asked Aisha this (L157)."
+    },
+    {
+      "sentence": "Aisha Rahman asked Daniel Okafor if Claire Ashdown addressed each of her points in the appeal outcome.",
+      "why": "Daniel asked Aisha this (L170)."
+    },
+    {
+      "sentence": "Aisha Rahman asked Daniel Okafor if Kerry from HR mentioned anything about her after the appeal.",
+      "why": "Aisha volunteered Kerry's remark (L173); Daniel then asked whether anything was sent afterwards (L174)."
+    },
+    {
+      "sentence": "Aisha Rahman asked Daniel Okafor if anyone said anything about her during the appeal.",
+      "why": "Daniel asked Aisha whether anyone said anything about why this happened (L178); it was not about the appeal and not Aisha's question."
+    },
+    {
+      "sentence": "Aisha Rahman asked Daniel Okafor if Jodie was present during the managers' meeting.",
+      "why": "Daniel asked Aisha this (L180)."
+    },
+    {
+      "sentence": "The client wants the employer to acknowledge the dismissal and provide a proper reference, and compensation.",
+      "why": "She wants Northgate to say they got it wrong and a proper reference; compensation is 'not the main thing' and secondary (L234-L235)."
+    },
+    {
+      "sentence": "The solicitor asks the client to check her car.",
+      "why": "Aisha asked if she could check the car (L248)."
+    },
+    {
+      "sentence": "The solicitor offers to move the client's car.",
+      "why": "He asked whether she wanted to go and move it (L249); he did not offer to move it."
+    },
+    {
+      "sentence": "The solicitor asks the client to check the time.",
+      "why": "Nothing like this is said; L250 is Aisha saying 'we've got time'."
+    },
+    {
+      "sentence": "The solicitor asks the client if she still has legal expenses insurance.",
+      "why": "He said cover was possible depending on the policy and asked for the schedule and wording (L244); he never asked if she 'still' has it."
+    },
+    {
+      "sentence": "Solicitor Daniel Okafor instructed Aisha to draft a subject access request to Northgate by Monday, and to send it to both HR and the registered office.",
+      "why": "Sophie, not Aisha, is to draft the DSAR (L297-L299)."
+    },
+    {
+      "sentence": "Solicitor Daniel Okafor suggested that Aisha should say she left due to an ongoing process and that she'd rather not go into detail if asked about it.",
+      "why": "He advised her to say the matter is subject to an ongoing process (L313), not that she left because of an ongoing process."
+    }
+  ],
+  "notes": "Poor note: speaker labels instead of names, heavy repetition, many role-reversed questions and wrong years for Gary's arrival and email; omits the whole May-July chronology, the 9 July incident, ACAS 13 Nov/16 Oct dates and the merits advice."
+}

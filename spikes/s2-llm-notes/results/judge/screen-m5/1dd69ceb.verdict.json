@@ -1,0 +1,84 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "partial",
+    "F03": "partial",
+    "F04": "partial",
+    "F05": "present",
+    "F06": "partial",
+    "F07": "present",
+    "F08": "partial",
+    "F09": "partial",
+    "F10": "partial",
+    "F11": "present",
+    "F12": "partial",
+    "F13": "partial",
+    "F14": "partial",
+    "F15": "partial",
+    "F16": "partial",
+    "F17": "partial",
+    "F18": "present",
+    "F19": "partial",
+    "F20": "partial",
+    "F21": "present",
+    "F22": "present",
+    "F23": "partial",
+    "F24": "partial",
+    "F25": "partial",
+    "F26": "present",
+    "F27": "partial",
+    "F28": "present",
+    "F29": "partial",
+    "F30": "partial",
+    "F31": "partial",
+    "F32": "present",
+    "F33": "present",
+    "F34": "partial",
+    "F35": "present"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Margaret Doyle is the person being assessed, and she is currently living in her own home with her son Kevin Doyle, who is present during the assessment.",
+      "why": "Margaret lives alone; Kevin lives in Northampton, 40 minutes away (L367), and arrived partway through (L314)."
+    },
+    {
+      "sentence": "She has also had two prior falls, one in the garden and one in the bathroom, which she did not report to her GP or Kevin.",
+      "why": "Kevin knows about the garden fall (L119); only the GP was not told (L120)."
+    },
+    {
+      "sentence": "She holds on to furniture when going up and down stairs, and uses a rail on the right side when going up, but finds coming down more difficult due to the rail",
+      "why": "She holds furniture instead of using the frame around the house (L100); on the stairs she uses the rail and the wall at the top (L140-147)."
+    },
+    {
+      "sentence": "Margaret has not been able to use the toilet independently due to the stairs, and she has experienced incontinence, using pads at night.",
+      "why": "She goes up the stairs to the toilet herself (L134-135); she only limits drinks and sometimes does not make it in time (L136, L220)."
+    },
+    {
+      "sentence": "She also said she wants to stay in her home for as long as possible and would not move to a care home, even if it came to that.",
+      "why": "L351: if she ever had to go into a home she would want it to be Beechwood; she did not rule it out."
+    },
+    {
+      "sentence": "Margaret said she is not aware of any other financial or personal harm, and she denied any knowledge of Jordan having gambled or being in debt, stating that such claims were 'gossip' and not confirmed.",
+      "why": "She was never asked about, and never said anything about, other financial or personal harm."
+    }
+  ],
+  "notes": "Comprehensive and well structured, with a strong action plan; it drops some detail (medication doses, fall circumstances) and has a few unsupported statements (Kevin living with her, the care-home stance, toilet independence)."
+}

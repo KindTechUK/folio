@@ -29,10 +29,14 @@ python score.py packets --run screen               # blind judge packets (synthe
 # ...write results/judge/<run>/<id>.verdict.json per packet, then:
 python score.py collect --run screen
 python report.py --run screen --run full           # markdown tables
+python memory.py qwen3.5-4b 8192                  # peak memory of one map call (macOS footprint)
 ```
 
 `--threads 4` is the default, mimicking a U-series laptop's performance cores. Every run
 records the machine's load average, because background load skews CPU timings.
+
+`peak_rss_mb` in the run results is `ps` RSS. On macOS it counts memory-mapped weights and moves with
+memory compression, so use `memory.py` for peak memory.
 
 ## Data
 
@@ -42,3 +46,6 @@ records the machine's load average, because background load skews CPU timings.
   person).
 - `data/ami/`: AMI Meeting Corpus human transcripts in 15/45/60/90-minute buckets. They are
   generated and not committed.
+- `results/notes/full/*/ami-*.json` are model-written notes on AMI meetings, which may quote the
+  transcripts. The AMI Meeting Corpus is © the AMI Consortium (University of Edinburgh and partners),
+  licensed CC-BY-4.0.

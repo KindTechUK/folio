@@ -1,0 +1,130 @@
+{
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "present",
+    "F05": "present",
+    "F06": "absent",
+    "F07": "partial",
+    "F08": "present",
+    "F09": "present",
+    "F10": "absent",
+    "F11": "partial",
+    "F12": "partial",
+    "F13": "present",
+    "F14": "present",
+    "F15": "partial",
+    "F16": "present",
+    "F17": "present",
+    "F18": "present",
+    "F19": "partial",
+    "F20": "partial",
+    "F21": "present",
+    "F22": "partial",
+    "F23": "present",
+    "F24": "partial",
+    "F25": "present",
+    "F26": "absent",
+    "F27": "absent",
+    "F28": "absent",
+    "F29": "absent"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Linda Chu (manager) was Aisha Rahman’s manager until the end of 2022, and she was supportive of Aisha Rahman’s diabetes management.",
+      "why": "Linda left at the end of 2025 (L0040, L0051). The note repeats the error in 'Linda Chu (C-H-U) left Northgate Logistics Limited at the end of 2022.'"
+    },
+    {
+      "sentence": "Gary Whitlock (operations manager) is the new manager for the inbound side, starting on the twelfth of January 2023.",
+      "why": "Gary started on 12 January 2026, after Linda left at the end of 2025 (L0051-L0057)."
+    },
+    {
+      "sentence": "Gary Rahman (S2’s manager) sent Aisha Rahman home on **9 July**, stating she was ‘not fit to be there’.",
+      "why": "The manager is Gary Whitlock; 'Gary Rahman' is the client's surname mixed up with his. The error recurs across several sentences."
+    },
+    {
+      "sentence": "Aisha Rahman (S2) argued she could not radio Gary on **9 July** due to severe symptoms, and she had radioed on the other days.",
+      "why": "She had a radio on 1 and 3 July but did not radio Gary; she just told Tomasz (L0137)."
+    },
+    {
+      "sentence": "The disciplinary meeting occurred without Aisha Rahman’s presence; she was not present and did not see the notes.",
+      "why": "She attended the 6 August meeting with Tomasz and explained her hypos (L0126-L0132)."
+    },
+    {
+      "sentence": "Gary Rahman chaired the disciplinary meeting on **6 August** and noted Aisha Rahman’s condition was documented in the OH report.",
+      "why": "Aisha raised the OH report; Gary answered that it says 'where operationally possible' (L0132)."
+    },
+    {
+      "sentence": "Aisha Rahman (S2) lost **4.5 hours** of pay on the **9 July** shift, as she was not paid for the time she stepped off.",
+      "why": "The unpaid 4.5 hours were the rest of the shift after Gary sent her home at about 2:30 (L0104-L0106), not time she stepped off."
+    },
+    {
+      "sentence": "Aisha Rahman (S2) described concerns about dropping unexpectedly due to her condition, comparing it to needing the toilet.",
+      "why": "She said it is NOT like needing the toilet (L0069)."
+    },
+    {
+      "sentence": "The meeting duration was approximately forty minutes (possibly less).",
+      "why": "Forty minutes was the length of the 6 August disciplinary meeting (L0140), not of this meeting; Daniel estimated about 45 minutes for this one (L0005)."
+    },
+    {
+      "sentence": "She has a **photo of a sensor** taken by Marcus on **14:06 (14 August 2026)**.",
+      "why": "Marcus took the photo on 9 July; 14:06 is the time of day (L0101, L0200)."
+    },
+    {
+      "sentence": "S2 mentioned they are homeless, living on Cromwell Road near the church.",
+      "why": "Her car is parked on Cromwell Road (L0319-L0320). Nothing suggests she is homeless."
+    },
+    {
+      "sentence": "S2 expressed concern about wardens being ‘ruthless’ and needing a coat for Tuesday’s visit.",
+      "why": "Daniel said both things (L0321), not the client."
+    },
+    {
+      "sentence": "S2 mentioned they are expecting rain on Tuesday, October 29th.",
+      "why": "Daniel said the weather would break at the weekend with rain all week (L0321); no date like 29 October was mentioned."
+    },
+    {
+      "sentence": "Daniel Okafor advised Aisha to request a **Data Subject Access Request (DSAR)** to Northgate for her personnel file, disciplinary notes, emails, break policy, first aid log, and C",
+      "why": "The firm will send the DSAR, not Aisha (L0195, L0297)."
+    },
+    {
+      "sentence": "S1 states that once S2 agrees to proceed, they will outline fee options in writing, Ln 245",
+      "why": "He will set out fee options once the insurance position is known (L0245)."
+    },
+    {
+      "sentence": "By Friday, October 25th, S2 must email S1 the Occupational Health (OH) report, Marcus’s photo of the sensor, any payslips not brought today, and the February email if available.",
+      "why": "The deadline is Friday 25 September (L0289)."
+    },
+    {
+      "sentence": "S2’s husband will check with Castleford Mutual for legal expenses cover by Monday, October 28th, and send S1 the policy schedule and wording.",
+      "why": "The deadline is Monday 28 September (L0291)."
+    },
+    {
+      "sentence": "Trainee (Sophie Grant, S3) will draft a subject access request to Northgate by Monday, October 28th, and send it to both HR and the registered office.",
+      "why": "Sophie drafts it by the coming Monday (28 September), and it goes out on Tuesday (L0297)."
+    },
+    {
+      "sentence": "S1 will confirm today’s advice and funding options via letter by Tuesday, October 29th, including time limits (deadline: November 13th).",
+      "why": "The letter is due by Tuesday 29 September (L0304)."
+    }
+  ],
+  "notes": "Covers the most ground of the set, including the full disciplinary and appeal chronology. But it is riddled with errors: wrong years for Linda and Gary, 'Gary Rahman', the claim that she radioed on 1/3 July, the claim that she was absent from her own disciplinary, 'homeless', and next-step dates moved to October."
+}

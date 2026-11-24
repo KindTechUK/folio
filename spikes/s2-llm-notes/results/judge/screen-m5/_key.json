@@ -1,0 +1,182 @@
+{
+ "7f5351b9": {
+  "model": "gemma4-e4b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "mapreduce"
+ },
+ "90a25ece": {
+  "model": "gemma4-e4b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "sectioned"
+ },
+ "eaf6ee4d": {
+  "model": "gemma4-e4b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "single"
+ },
+ "a3fd6d1c": {
+  "model": "gemma4-e4b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "mapreduce"
+ },
+ "66b23162": {
+  "model": "gemma4-e4b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "sectioned"
+ },
+ "fd583e34": {
+  "model": "gemma4-e4b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "single"
+ },
+ "1f84dc2f": {
+  "model": "ministral3-3b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "mapreduce"
+ },
+ "7f6e8ff9": {
+  "model": "ministral3-3b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "sectioned"
+ },
+ "9707b866": {
+  "model": "ministral3-3b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "single"
+ },
+ "3000d21d": {
+  "model": "ministral3-3b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "mapreduce"
+ },
+ "86870f0b": {
+  "model": "ministral3-3b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "sectioned"
+ },
+ "bc506e41": {
+  "model": "ministral3-3b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "single"
+ },
+ "0ccf20bd": {
+  "model": "phi4-mini",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "mapreduce"
+ },
+ "0fcedb39": {
+  "model": "phi4-mini",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "sectioned"
+ },
+ "6679ac3a": {
+  "model": "phi4-mini",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "single"
+ },
+ "e3e15813": {
+  "model": "phi4-mini",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "mapreduce"
+ },
+ "a4472a91": {
+  "model": "phi4-mini",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "sectioned"
+ },
+ "37fefa28": {
+  "model": "phi4-mini",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "single"
+ },
+ "3e2b80e3": {
+  "model": "qwen3-4b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "mapreduce"
+ },
+ "30c103f2": {
+  "model": "qwen3-4b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "sectioned"
+ },
+ "1dd69ceb": {
+  "model": "qwen3-4b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "single"
+ },
+ "ff2c8276": {
+  "model": "qwen3-4b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "mapreduce"
+ },
+ "d91eb8c1": {
+  "model": "qwen3-4b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "sectioned"
+ },
+ "4ea33a1b": {
+  "model": "qwen3-4b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "single"
+ },
+ "0da7ad59": {
+  "model": "qwen3.5-4b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "mapreduce"
+ },
+ "632e6f67": {
+  "model": "qwen3.5-4b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "sectioned"
+ },
+ "6b2cb012": {
+  "model": "qwen3.5-4b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "single"
+ },
+ "c09bd428": {
+  "model": "qwen3.5-4b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "mapreduce"
+ },
+ "7b0b1ae3": {
+  "model": "qwen3.5-4b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "sectioned"
+ },
+ "551a382d": {
+  "model": "qwen3.5-4b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "single"
+ },
+ "158be5d4": {
+  "model": "smollm3-3b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "mapreduce"
+ },
+ "9416478e": {
+  "model": "smollm3-3b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "sectioned"
+ },
+ "977a8405": {
+  "model": "smollm3-3b",
+  "transcript": "synthetic-care-assessment",
+  "strategy": "single"
+ },
+ "a8335654": {
+  "model": "smollm3-3b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "mapreduce"
+ },
+ "da37b69f": {
+  "model": "smollm3-3b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "sectioned"
+ },
+ "b4fec6eb": {
+  "model": "smollm3-3b",
+  "transcript": "synthetic-legal-interview",
+  "strategy": "single"
+ }
+}

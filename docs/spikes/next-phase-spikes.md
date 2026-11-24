@@ -61,7 +61,7 @@ offline path ≤ 1 point.
 
 ## S2: Local LLM on long transcripts, the headline question
 
-> **Interim (one model, partial run):** see [`s2-local-llm-notes.md`](s2-local-llm-notes.md). Harness: `spikes/s2-llm-notes/`.
+> **Result: go, with conditions** (Mac, 6 models screened; omissions by length and the reference laptop still to run): see [`s2-local-llm-notes.md`](s2-local-llm-notes.md). Harness: `spikes/s2-llm-notes/`.
 
 **Question.** On the reference laptop, how long does a local 3–4B model take to produce a template note from
 transcripts of **15, 45, 60 and 90 minutes**, and does quality hold at those lengths?

@@ -1,0 +1,112 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "partial",
+    "F03": "partial",
+    "F04": "partial",
+    "F05": "absent",
+    "F06": "partial",
+    "F07": "absent",
+    "F08": "partial",
+    "F09": "partial",
+    "F10": "partial",
+    "F11": "partial",
+    "F12": "partial",
+    "F13": "partial",
+    "F14": "partial",
+    "F15": "partial",
+    "F16": "absent",
+    "F17": "partial",
+    "F18": "present",
+    "F19": "partial",
+    "F20": "absent",
+    "F21": "absent",
+    "F22": "absent",
+    "F23": "partial",
+    "F24": "partial",
+    "F25": "partial",
+    "F26": "partial",
+    "F27": "partial",
+    "F28": "present",
+    "F29": "partial",
+    "F30": "partial",
+    "F31": "partial",
+    "F32": "present",
+    "F33": "absent",
+    "F34": "absent",
+    "F35": "absent"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "violated",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Margaret Doyle has experienced three falls in the last six months, including a fall on March 3rd (Monday) in the kitchen while feeling dizzy or woozy, likely due to a lack of food.",
+      "why": "She said she did not know whether she tripped or went dizzy (L55) and only 'might have been a bit woozy' (L76); no cause was established."
+    },
+    {
+      "sentence": "She was diagnosed with a fractured left wrist (left-handed) and has bruising on her right side (left side of her body).",
+      "why": "L89 says only 'black and blue down this side'; no side is specified, and the sentence is self-contradictory."
+    },
+    {
+      "sentence": "Her wrist was in a splint after the cast came off on Tuesday 17th March, but she does not consistently follow the required exercises.",
+      "why": "L91 says the cast came off 'last Tuesday'; no date is given."
+    },
+    {
+      "sentence": "She has not used a bath lift or assistive device since January and struggles with washing and dressing, particularly buttons, bra hooks, and laces.",
+      "why": "She has never had a bath lift; it was suggested as equipment an OT could look at (L198-199). She has not had a bath since January (L184)."
+    },
+    {
+      "sentence": "She lost nearly a stone (180g) since Christmas and has a fluctuating appetite.",
+      "why": "A stone is about 6.35 kg, not 180 g; the transcript gives no metric figure (L263, L266)."
+    },
+    {
+      "sentence": "Margaret Doyle denied knowing if Jordan had access to her PIN but confirmed he used her card for withdrawals and groceries.",
+      "why": "She said she told him the PIN (L472) and 'I gave it him' (L525)."
+    },
+    {
+      "sentence": "Margaret Doyle loves her grandson Jordan but worries about his financial decisions, particularly potential gambling via betting apps.",
+      "why": "The gambling claim was Kevin's second-hand hearsay (L531); Margaret dismissed it as 'just gossip' (L532)."
+    },
+    {
+      "sentence": "Margaret Doyle’s concern about Jordan’s potential gambling was noted as hearsay (not confirmed).",
+      "why": "The concern was Kevin's, not Margaret's (L531-534); she called it gossip."
+    },
+    {
+      "sentence": "Kevin Doyle suggested ringing the police but Margaret Doyle requested the safeguarding team be informed.",
+      "why": "Priya raised the safeguarding referral as her duty (L544-547); Margaret consented to it (L567) but did not request it."
+    },
+    {
+      "sentence": "Margaret Doyle’s support network includes her son, Kevin Doyle (who shops and reminds her about medication), her daughter, Brenda (who provides milk and bread), and her grandson, Jordan (who occasionally visits).",
+      "why": "Nothing says Kevin reminds her about medication; he only reported that she forgets (L329). The phrasing also runs 'daughter' into Brenda, who is the neighbour."
+    },
+    {
+      "sentence": "Kevin Doyle has discussed removing loose rugs in the house since 2010 but Margaret Doyle did not want to discuss this further with the social worker.",
+      "why": "Margaret said she was 'thinking about it' (L334) and later agreed that Kevin will lift the hall rug (L647-650); she did not refuse to discuss it."
+    },
+    {
+      "sentence": "Margaret Doyle’s son, Kevin Doyle, supports her preference for her home but expresses concerns about her safety.",
+      "why": "Kevin argued she should move to a sheltered flat, a bungalow or a smaller place (L337-339, L355); he did not support her preference."
+    },
+    {
+      "sentence": "She watches TV and does word searches to cope.",
+      "why": "L413: 'I do my word search, well, I did, I can't hold the pen now.'"
+    }
+  ],
+  "notes": "Broad coverage but many details are lost or garbled: invented dates and units, wrong attributions about the PIN, the gambling and the safeguarding request, and Brenda’s uncertain sighting stated as fact."
+}

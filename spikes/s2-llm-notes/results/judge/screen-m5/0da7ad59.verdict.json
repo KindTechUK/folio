@@ -1,0 +1,84 @@
+{
+  "facts": {
+    "F01": "present",
+    "F02": "partial",
+    "F03": "present",
+    "F04": "absent",
+    "F05": "absent",
+    "F06": "absent",
+    "F07": "partial",
+    "F08": "partial",
+    "F09": "absent",
+    "F10": "partial",
+    "F11": "partial",
+    "F12": "present",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "absent",
+    "F17": "absent",
+    "F18": "present",
+    "F19": "partial",
+    "F20": "absent",
+    "F21": "absent",
+    "F22": "absent",
+    "F23": "absent",
+    "F24": "absent",
+    "F25": "absent",
+    "F26": "absent",
+    "F27": "partial",
+    "F28": "absent",
+    "F29": "absent",
+    "F30": "absent",
+    "F31": "absent",
+    "F32": "present",
+    "F33": "absent",
+    "F34": "absent",
+    "F35": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Social worker Priya Nair conducted a needs assessment visit on Monday following a referral from the hospital after Margaret Doyle's discharge.",
+      "why": "Monday was the earlier phone call (L0001); the day of the visit is not stated."
+    },
+    {
+      "sentence": "Margaret Doyle lives in a home with heating that she feels is too cold for the current season.",
+      "why": "She has the heating on although she thinks she shouldn't at this time of year, because she feels the cold (L0004); she does not say the heating is inadequate."
+    },
+    {
+      "sentence": "Margaret Doyle stated she is interested in the assessment and has no objection to it.",
+      "why": "The cited 'Go on then. Interested. Put it down.' (L0176) is her agreeing to be noted as interested in a wrist-worn alarm, not about the assessment."
+    },
+    {
+      "sentence": "Margaret Doyle stated she would not sell the house because she would not know where her dog 'Biscuit' would go or where Frank's roses would go.",
+      "why": "Biscuit is a cat (L0009)."
+    },
+    {
+      "sentence": "Margaret Doyle stated Kevin usually contributes money ('tuppence') to the household expenses.",
+      "why": "'He'll want to put his tuppence in' (L0050) means he will give his opinion; nothing about money."
+    },
+    {
+      "sentence": "Kevin Doyle instructed the social worker to see the person again on the fifteenth.",
+      "why": "Priya proposed the review visit on Tuesday 15 April (L0656); Kevin only said he would try to be there (L0659, L0679)."
+    }
+  ],
+  "notes": "Detailed on the fall, falls history, continence, cooking and weight, but stops around the first third of the visit: nothing on meds, family, mood, Jordan, finances or most actions. Several misreadings of idioms and context (tuppence, heating, 'dog' Biscuit)."
+}

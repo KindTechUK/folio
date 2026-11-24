@@ -1,0 +1,94 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "partial",
+    "F03": "present",
+    "F04": "partial",
+    "F05": "absent",
+    "F06": "absent",
+    "F07": "absent",
+    "F08": "absent",
+    "F09": "absent",
+    "F10": "absent",
+    "F11": "absent",
+    "F12": "absent",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "absent",
+    "F17": "absent",
+    "F18": "absent",
+    "F19": "absent",
+    "F20": "partial",
+    "F21": "absent",
+    "F22": "absent",
+    "F23": "partial",
+    "F24": "absent",
+    "F25": "absent",
+    "F26": "absent",
+    "F27": "absent",
+    "F28": "partial",
+    "F29": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "S2 is a client who is currently employed at Northgate Logistics Limited.",
+      "why": "She was dismissed with effect from 14 August 2026 and the dismissal was upheld on appeal (L147, L169)."
+    },
+    {
+      "sentence": "S2's workplace pension was 4% at Northgate Logistics Limited.",
+      "why": "She said 'I think they put in five percent. Maybe it's four. I'd have to check' (L027); the rate is unknown."
+    },
+    {
+      "sentence": "S2 has a diabetes management plan at Northgate Logistics Limited.",
+      "why": "The arrangement with Linda was never written down - no email, no plan (L042-L044)."
+    },
+    {
+      "sentence": "S2 has a disciplinary meeting record at Northgate Logistics Limited.",
+      "why": "She never received notes of the disciplinary meeting despite asking (L141-L142, L193)."
+    },
+    {
+      "sentence": "S2 has a disciplinary meeting transcript from Northgate Logistics Limited.",
+      "why": "She has no notes or transcript of the disciplinary meeting (L141-L142, L193); these are to be sought by DSAR (L195)."
+    },
+    {
+      "sentence": "S2 has a subject access request form from Northgate Logistics Limited.",
+      "why": "The firm will send a DSAR to Northgate; Sophie is to draft it (L195, L297). She holds no such form."
+    },
+    {
+      "sentence": "S2 wants to be allowed short breaks when they need them.",
+      "why": "This was the OH report's recommendation (L074), not a stated objective; her objectives are acknowledgement, a reference, then compensation, and fixing breaks for others (L234-L236)."
+    },
+    {
+      "sentence": "S2 wants a proper reference and compensation.",
+      "why": "Her main goals are acknowledgement that Northgate got it wrong and a proper reference; compensation is secondary, 'not the main thing' (L234-L235)."
+    },
+    {
+      "sentence": "S1 advised S2 to seek a proper reference and compensation.",
+      "why": "This was the client's own wish (L234), not the solicitor's advice; the solicitor only said a reference can often be negotiated (L284). Sentence repeated ten times."
+    },
+    {
+      "sentence": "S1 suggested that Aisha should say she left due to an ongoing process and that she'd rather not go into detail if asked about it.",
+      "why": "He advised her to say the matter is subject to an ongoing process (L313), not that she left because of an ongoing process."
+    }
+  ],
+  "notes": "Very poor note: degenerate repetition, says she is still employed, invents documents she does not hold, and omits the entire chronology, dismissal, appeal, ACAS deadlines and merits advice."
+}

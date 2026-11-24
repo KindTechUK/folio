@@ -1,0 +1,1791 @@
+{
+ "sections": [
+  {
+   "title": "Summary",
+   "sentences": []
+  },
+  {
+   "title": "Discussion",
+   "sentences": [
+    {
+     "text": "Participant A asked for clarification on whether the meeting was done, stating: 'Are we done?' (L5).",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "text": "Participant A stated that this is their second meeting and expressed feeling 'a bit all over the place' (L6).",
+     "cites": [
+      6
+     ]
+    },
+    {
+     "text": "Participant A proposed going over what was decided in the previous meeting (L9).",
+     "cites": [
+      9
+     ]
+    },
+    {
+     "text": "Participant A reported that in the previous meeting, the group decided on a universal control handset for all TV video equipment (L11).",
+     "cites": [
+      11
+     ]
+    },
+    {
+     "text": "Participant A emphasized that the product should be accessible to a wide age range and not limit any consumers (L14).",
+     "cites": [
+      14
+     ]
+    },
+    {
+     "text": "Participant A stated that it was important to reflect the company's image in the product, including 'fashion in electronics' (L14).",
+     "cites": [
+      14
+     ]
+    },
+    {
+     "text": "Participant A noted concerns about a dissonance between the product's desired appearance and the budget constraints (L15).",
+     "cites": [
+      15
+     ]
+    },
+    {
+     "text": "Participant A suggested a flip-open design, reducing control size and introducing an electronic panel for programming features (L15).",
+     "cites": [
+      15
+     ]
+    },
+    {
+     "text": "Participant B requested to postpone the marketing presentation, stating: 'Is it okay if I postpone that til later I just want to get access to a little bit more information is that",
+     "cites": [
+      18
+     ]
+    },
+    {
+     "text": "Participant A responded that it was fine to postpone the marketing presentation (L19).",
+     "cites": [
+      19
+     ]
+    },
+    {
+     "text": "Participant D presented a working design for the remote control, describing it as a device that sends signals to change TV states such as power, channel, or volume (L30\u2013L31).",
+     "cites": [
+      30,
+      31
+     ]
+    },
+    {
+     "text": "Participant D stated that the design draws inspiration from other remote controls but aims to stand out (L32).",
+     "cites": [
+      32
+     ]
+    },
+    {
+     "text": "Participant D noted that most remote controls use infrared to send signals to TVs due to cost and efficiency (L33).",
+     "cites": [
+      33
+     ]
+    },
+    {
+     "text": "Participant D mentioned that most remote controls are powered by triple A batteries, which are bulky (L36).",
+     "cites": [
+      36
+     ]
+    },
+    {
+     "text": "Participant D explained that the size of remote controls is limited by the size of the batteries (L38).",
+     "cites": [
+      38
+     ]
+    },
+    {
+     "text": "Participant B questioned whether triple A batteries are the smallest possible, stating: 'The triple a's are the smallest you can get are they not right?' (L39).",
+     "cites": [
+      39
+     ]
+    },
+    {
+     "text": "Participant D discussed power consumption and the amount of data needed to send signals across (L40).",
+     "cites": [
+      40
+     ]
+    },
+    {
+     "text": "Participant D proposed that the remote control could be made smaller and easier to carry, noting current designs are small but could be even smaller (L45).",
+     "cites": [
+      45
+     ]
+    },
+    {
+     "text": "Participant D described the main components of the design: power source (batteries), a chip to decode input and convert it into infrared signals (L44\u2013L46).",
+     "cites": [
+      44,
+      45
+     ]
+    },
+    {
+     "text": "Participant D stated that infrared signals have a wireless range of up to five metres, which is suitable for most TV users (L45).",
+     "cites": [
+      45
+     ]
+    },
+    {
+     "text": "Participant D noted that TVs currently use infrared for signal reception, so the design must conform to that standard (L46).",
+     "cites": [
+      46
+     ]
+    },
+    {
+     "text": "Participant D suggested that the remote control could be designed to be easy to lose, and proposed a feature to prevent loss\u2014such as a 'way of going down the side of the sofa' (L46",
+     "cites": [
+      46
+     ]
+    },
+    {
+     "text": "Participant B acknowledged the importance of the loss-prone issue, stating: 'That's a very important part it came up in our market research findings too so I can refer to that' (L5",
+     "cites": [
+      52
+     ]
+    },
+    {
+     "text": "Participant A asked if Participant D would like to continue presenting after the current point (L54).",
+     "cites": [
+      54
+     ]
+    },
+    {
+     "text": "Participant C agreed to continue with the presentation (L55).",
+     "cites": [
+      55
+     ]
+    },
+    {
+     "text": "Participant C expressed concern about the laptop not working, stating: 'Why's it not working f. eight right?' (L62).",
+     "cites": [
+      62
+     ]
+    },
+    {
+     "text": "Participant A corrected the function key, stating: 'F. function' instead of 'F. eight' (L63).",
+     "cites": [
+      63
+     ]
+    },
+    {
+     "text": "Participant D confirmed the function key as 'Function f. eight' (L64).",
+     "cites": [
+      64
+     ]
+    },
+    {
+     "text": "Participant C repeated the function key as 'Okay' after confirmation (L65).",
+     "cites": [
+      65
+     ]
+    },
+    {
+     "text": "Participant D described the design as a device that sends signals to change TV states (power, channel, volume) via infrared (L30\u2013L31).",
+     "cites": [
+      30,
+      31
+     ]
+    },
+    {
+     "text": "Participant C stated that the plug has not been pulled out at the bottom and is currently connecting.",
+     "cites": [
+      68,
+      69
+     ]
+    },
+    {
+     "text": "Participant B responded that the meter is adjusting, indicating a technical issue with the device.",
+     "cites": [
+      72
+     ]
+    },
+    {
+     "text": "Participant C proposed a flip-top remote control design with main functions on the top and complex functions in the middle, to appeal to a wide range of users including younger and",
+     "cites": [
+      75,
+      76,
+      77,
+      78,
+      79
+     ]
+    },
+    {
+     "text": "Participant C stated that most users prefer user-friendly remote controls over complex ones, with 30\u201340% of users not using 30\u201340% of the buttons on current remotes.",
+     "cites": [
+      83,
+      84,
+      85,
+      86
+     ]
+    },
+    {
+     "text": "Participant B reported that 75% of users find current remote controls ugly and 80% would spend more money for a remote control that looks fancy.",
+     "cites": [
+      119
+     ]
+    },
+    {
+     "text": "Participant B reported that 75% of users 'zap' frequently (channel hop), and 50% only use 10% of the buttons on remotes.",
+     "cites": [
+      121,
+      122
+     ]
+    },
+    {
+     "text": "Participant B reported that 50% of users are frustrated by losing remote controls, 34% take too long to learn, and over 25% report concerns about repetitive strain injury from hand",
+     "cites": [
+      123,
+      124
+     ]
+    },
+    {
+     "text": "Participant B reported that younger users (35 and under) prefer liquid crystal display (LCD) and speech recognition features, while older users (35\u201345 and above) show less interest",
+     "cites": [
+      121,
+      122
+     ]
+    },
+    {
+     "text": "Participant B reported that 34% of users said they take too long to learn to use a remote control, which ties into the finding that users only use 10% of the buttons.",
+     "cites": [
+      122
+     ]
+    },
+    {
+     "text": "Participant B reported that a substantial number of older users do not know about or are fearful of new technology like speech recognition.",
+     "cites": [
+      172
+     ]
+    },
+    {
+     "text": "Participant A stated that the new project will not include teletext, as consumers consider it outdated with the rise of the internet.",
+     "cites": [
+      132
+     ]
+    },
+    {
+     "text": "Participant A stated that the new remote control will only be for TV, not a combined control for TV and video, which limits cost and simplifies consumer understanding.",
+     "cites": [
+      134
+     ]
+    },
+    {
+     "text": "Participant B questioned whether the remote control can program videos, and Participant A responded that the device is labeled 'for TV only', though general TV controls do include",
+     "cites": [
+      136,
+      137,
+      138,
+      139,
+      140
+     ]
+    },
+    {
+     "text": "Participant D confirmed that some combined TV and video remotes exist, such as those with Sky boxes that allow recording directly to the TV hard drive.",
+     "cites": [
+      147,
+      148
+     ]
+    },
+    {
+     "text": "Participant B stated that programming videos is generally a frustrating experience for users, and that basic functions like channel hopping and on/off are more commonly used.",
+     "cites": [
+      156,
+      157,
+      158
+     ]
+    },
+    {
+     "text": "Participant D expressed concern that full speech recognition would be expensive and not very effective, suggesting a simpler alternative like a remote that emits a bleep or flashes",
+     "cites": [
+      162
+     ]
+    },
+    {
+     "text": "Participant B reported that in market research, users were asked whether they would prefer an LCD screen and whether they would pay more for speech recognition, with results",
+     "cites": [
+      167,
+      168,
+      169
+     ]
+    },
+    {
+     "text": "Participant D suggested a keychain-style remote that whistles when activated to help users locate a lost remote.",
+     "cites": [
+      174,
+      175
+     ]
+    },
+    {
+     "text": "Participant C stated that the design should be user-friendly, simple, and avoid complex button layouts to reduce user confusion and improve usability.",
+     "cites": [
+      85,
+      86
+     ]
+    },
+    {
+     "text": "Participant C stated that the team should consider button texture (soft vs. hard) due to wear and user feedback on button feel after continuous use.",
+     "cites": [
+      83
+     ]
+    },
+    {
+     "text": "Participant B stated that market research involved 100 subjects, a cross-section of the general public (male and female) across age groups from 15 upwards, observed in a usability",
+     "cites": [
+      119
+     ]
+    },
+    {
+     "text": "Participant B stated that the team's starting point with marketing is market research, and that findings were based on usability lab observations.",
+     "cites": [
+      119
+     ]
+    },
+    {
+     "text": "Participant B stated that the remote control will not have combined TV and video control functions, as the product is limited to TV only.",
+     "cites": [
+      134
+     ]
+    },
+    {
+     "text": "Participant A noted that the team has a budget limitation they cannot control, and that they must prioritize cheaper options that still deliver core functionality.",
+     "cites": [
+      177
+     ]
+    },
+    {
+     "text": "Participant B stated that the remote control will not include programming video features, as users find it difficult and the product is limited to TV functions.",
+     "cites": [
+      158,
+      159
+     ]
+    },
+    {
+     "text": "Participant C stated that the product should be simple and user-friendly, with a focus on ease of use rather than complex button layouts.",
+     "cites": [
+      75,
+      76,
+      77
+     ]
+    },
+    {
+     "text": "Participant C stated that the product should be designed to appeal to a wide audience, including younger users who value trendy features.",
+     "cites": [
+      75
+     ]
+    },
+    {
+     "text": "Participant B stated that the team will not pursue full speech recognition due to cost and effectiveness concerns.",
+     "cites": [
+      162
+     ]
+    },
+    {
+     "text": "Participant B stated that the remote control will not include teletext functionality, as consumers consider it outdated.",
+     "cites": [
+      132
+     ]
+    },
+    {
+     "text": "Participant B stated that the remote control will only support basic functions such as channel hopping, on/off, and fast forwarding, as these are the most commonly used.",
+     "cites": [
+      156,
+      158
+     ]
+    },
+    {
+     "text": "Participant A suggests a design where a pack is placed on the TV so the remote is hidden and the user presses a button on top of the TV, which beeps to confirm action.",
+     "cites": [
+      182
+     ]
+    },
+    {
+     "text": "Participant B agrees with the idea of using a button on the TV instead of a remote.",
+     "cites": [
+      183
+     ]
+    },
+    {
+     "text": "Participant D agrees with the idea of using a TV-mounted button that beeps when pressed.",
+     "cites": [
+      184
+     ]
+    },
+    {
+     "text": "Participant A proposes that the corporate image must be incorporated into the handset design, including a logo and a fashionable, trendy appearance.",
+     "cites": [
+      190
+     ]
+    },
+    {
+     "text": "Participant A emphasizes that the product must be fashionable and trendy to appeal to marketing and consumer expectations.",
+     "cites": [
+      191
+     ]
+    },
+    {
+     "text": "Participant B states that further market research is needed to determine what is attractive to different age groups and across international markets.",
+     "cites": [
+      192
+     ]
+    },
+    {
+     "text": "Participant B notes that appeal to a trendy New Yorker differs from appeal to a retired South African, and that design may vary by region and demographic.",
+     "cites": [
+      194
+     ]
+    },
+    {
+     "text": "Participant B states that user interface design, not just engineering, may need to change for different global markets.",
+     "cites": [
+      196
+     ]
+    },
+    {
+     "text": "Participant C questions whether the product should be a single model or multiple designs (e.g., five to six variants).",
+     "cites": [
+      199
+     ]
+    },
+    {
+     "text": "Participant D suggests that multiple designs could exist with the same internal engineering, differing only in appearance.",
+     "cites": [
+      200
+     ]
+    },
+    {
+     "text": "Participant C notes that features could be the same across designs, but the body could look different.",
+     "cites": [
+      205
+     ]
+    },
+    {
+     "text": "Participant A suggests large rubber buttons instead of small ones, proposing that the controls should be original and not resemble existing designs.",
+     "cites": [
+      211
+     ]
+    },
+    {
+     "text": "Participant A proposes a touch-sensitive panel instead of physical buttons, suggesting it may last longer and be less prone to wear.",
+     "cites": [
+      213
+     ]
+    },
+    {
+     "text": "Participant D agrees with the idea of a touch screen interface.",
+     "cites": [
+      214
+     ]
+    },
+    {
+     "text": "Participant A suggests that a touch panel may appeal to younger, trendy office workers, such as in Japan.",
+     "cites": [
+      219
+     ]
+    },
+    {
+     "text": "Participant B agrees that the touch panel idea will appeal to certain market segments.",
+     "cites": [
+      222
+     ]
+    },
+    {
+     "text": "Participant A expresses concern that touch screens may be daunting for older generations, and suggests clear labeling to make them accessible.",
+     "cites": [
+      223
+     ]
+    },
+    {
+     "text": "Participant D notes that ergonomics vary by region, citing that Japanese users prefer smaller controllers due to smaller hand size.",
+     "cites": [
+      226
+     ]
+    },
+    {
+     "text": "Participant A states that button size may need to vary by country (e.g., larger buttons for some countries, smaller for others) due to ergonomic differences.",
+     "cites": [
+      228
+     ]
+    },
+    {
+     "text": "Participant C suggests that touch screens may reduce risk of repetitive strain injury (RSI) compared to repeated small button presses.",
+     "cites": [
+      230
+     ]
+    },
+    {
+     "text": "Participant D agrees with the suggestion that touch screens may reduce RSI risk.",
+     "cites": [
+      231
+     ]
+    },
+    {
+     "text": "Participant C states that product designs should be segmented not only by age group but also by country and market.",
+     "cites": [
+      232
+     ]
+    },
+    {
+     "text": "Participant B agrees with the idea of market segmentation by country and demographic.",
+     "cites": [
+      233
+     ]
+    },
+    {
+     "text": "Participant D suggests that the remote control could be larger in the U.S. and smaller in Japan.",
+     "cites": [
+      234
+     ]
+    },
+    {
+     "text": "Participant A suggests designing one product that can be scaled in size or feature set by the company for different markets.",
+     "cites": [
+      237
+     ]
+    },
+    {
+     "text": "Participant B confirms that internal engineering design must remain consistent across all versions.",
+     "cites": [
+      244
+     ]
+    },
+    {
+     "text": "Participant B expresses concern that touch screen use may not sufficiently prevent repetitive strain injury (RSI), which is often caused by small, repetitive movements.",
+     "cites": [
+      247
+     ]
+    },
+    {
+     "text": "Participant B states that the RSI issue may need to be postponed to a future meeting due to unresolved concerns.",
+     "cites": [
+      249
+     ]
+    },
+    {
+     "text": "Participant B suggests speech recognition as a possible solution to avoid RSI, though notes it is extremely expensive.",
+     "cites": [
+      254
+     ]
+    },
+    {
+     "text": "Participant B questions whether the product should initially target younger age groups (e.g., 20\u201335) before expanding to broader demographics.",
+     "cites": [
+      260
+     ]
+    },
+    {
+     "text": "Participant D stated that instruction books or manuals could cover certain functions.",
+     "cites": [
+      330
+     ]
+    },
+    {
+     "text": "Participant A stated that customer service numbers are available and allow users to speak to a representative without call-out charges.",
+     "cites": [
+      333
+     ]
+    },
+    {
+     "text": "Participant A stated that users do not need to walk to a high street shop to access support.",
+     "cites": [
+      337
+     ]
+    },
+    {
+     "text": "Participant C stated that it would be too much of an effort for a person to use a phone to look up instructions, and that they might walk down the street instead.",
+     "cites": [
+      341
+     ]
+    },
+    {
+     "text": "Participant C stated that for a remote control, a user would just refer to the manual instead of calling for help.",
+     "cites": [
+      343
+     ]
+    },
+    {
+     "text": "Participant B stated that for simple functions, users are likely to skip reading manuals and just use the obvious method.",
+     "cites": [
+      344
+     ]
+    },
+    {
+     "text": "Participant A stated that instruction manuals are often written in tiny text and have many pages, making them hard to use.",
+     "cites": [
+      346
+     ]
+    },
+    {
+     "text": "Participant A suggested that the design of manuals should be made more user-friendly to improve usability.",
+     "cites": [
+      346
+     ]
+    },
+    {
+     "text": "Participant A raised the issue of users putting the manual in a drawer and only searching through it when something goes wrong.",
+     "cites": [
+      353
+     ]
+    },
+    {
+     "text": "Participant D suggested that mobile phone batteries are specially designed and come with a charger, and that a charger could be bundled with the remote control.",
+     "cites": [
+      357
+     ]
+    },
+    {
+     "text": "Participant A suggested that mobile phone batteries last a long time and do not need frequent replacement, and that this could inform remote control battery design.",
+     "cites": [
+      361
+     ]
+    },
+    {
+     "text": "Participant A suggested that a rechargeable battery with a docking station could reduce the need for users to buy replacement batteries frequently.",
+     "cites": [
+      366
+     ]
+    },
+    {
+     "text": "Participant A stated that a rechargeable remote with a docking station would be cheaper in the long run.",
+     "cites": [
+      379
+     ]
+    },
+    {
+     "text": "Participant A stated that the remote should not have a large, bulky form factor or a tiny one, as both could lead to repetitive strain injuries.",
+     "cites": [
+      383
+     ]
+    },
+    {
+     "text": "Participant B stated that many remote controls look identical\u2014long, brown rectangles with similar colored buttons\u2014and that this is undesirable.",
+     "cites": [
+      388
+     ]
+    },
+    {
+     "text": "Participant C suggested a design concept similar to one used by Nokia around six to seven years ago, involving a flat, chocolate-like remote that is curved to reduce thumb strain.",
+     "cites": [
+      395
+     ]
+    },
+    {
+     "text": "Participant C described a curved, semi-circular or 'banana-shaped' remote that is molded to the hand to reduce thumb pressure and repetitive strain.",
+     "cites": [
+      399
+     ]
+    },
+    {
+     "text": "Participant A suggested that the design could incorporate company branding, such as a 'C' shape that opens like a shell.",
+     "cites": [
+      414
+     ]
+    },
+    {
+     "text": "Participant C suggested that the company logo could be placed in a corner of the remote rather than trying to make the entire device resemble a sea shell or similar shape.",
+     "cites": [
+      421
+     ]
+    },
+    {
+     "text": "Participant B stated that a flip-top design with a curved, shell-like shape (e.g., conch or scallop shell) would be lightweight, pleasant to hold, and reduce repetitive strain by a",
+     "cites": [
+      424
+     ]
+    },
+    {
+     "text": "Participant B suggested that different remote designs (e.g., psychedelic for younger users, sleek for others) could be explored to improve appeal and reduce loss.",
+     "cites": [
+      434
+     ]
+    },
+    {
+     "text": "Participant B stated that a more attractive design would reduce the likelihood of the remote being lost, as it would be more likely to be placed on a mantelpiece rather than hidden",
+     "cites": [
+      436
+     ]
+    },
+    {
+     "text": "Participant C suggested that five to six design concepts could be developed and then evaluated to determine which one is most appealing.",
+     "cites": [
+      440
+     ]
+    },
+    {
+     "text": "Participant B stated that the new project requirements include no teletext function, only TV and video use, and that the company's corporate image (e.g., 'Videoplus') should be in",
+     "cites": [
+      451
+     ]
+    },
+    {
+     "text": "Participant A stated that the remote should have fewer functions, and that the programming feature could be replaced with a feature that shows a reminder about using Videoplus on a",
+     "cites": [
+      455
+     ]
+    },
+    {
+     "text": "Participant A stated that the programming feature could be replaced with a feature that prompts users to check the guide, rather than having separate buttons for date or channel",
+     "cites": [
+      455
+     ]
+    },
+    {
+     "text": "Participant B stated that the programming feature is being phased out in favor of a 'Videoplus' reminder feature.",
+     "cites": [
+      460
+     ]
+    },
+    {
+     "text": "Participant A suggested that the 'Videoplus' reminder could serve as an advertisement feature rather than a design feature.",
+     "cites": [
+      461
+     ]
+    },
+    {
+     "text": "Participant B stated that the instruction manual should be simple and clearly written, and that it should be useful in guiding users.",
+     "cites": [
+      464
+     ]
+    },
+    {
+     "text": "Participant A stated that learning how to use the remote should be as simple as possible, given that there are not many functions.",
+     "cites": [
+      478
+     ]
+    },
+    {
+     "text": "Participant A stated that the meeting is about conceptual design, specifically covering properties, materials, user interface, and trend watching.",
+     "cites": [
+      524
+     ]
+    },
+    {
+     "text": "Participant A mentioned that the team previously decided to remove voice recognition from the remote control design.",
+     "cites": [
+      529
+     ]
+    },
+    {
+     "text": "Participant A stated that the team decided to adopt a flip design with a different shape from what is normal, described as a 'shell' or similar form.",
+     "cites": [
+      529
+     ]
+    },
+    {
+     "text": "Participant A stated that the team decided to leave out the use of teletext as a control mechanism for the remote control.",
+     "cites": [
+      529
+     ]
+    },
+    {
+     "text": "Participant A stated that the team decided to incorporate the image of the company into the remote control design.",
+     "cites": [
+      529
+     ]
+    },
+    {
+     "text": "Participant D stated that the team considered rechargeable batteries as a design option.",
+     "cites": [
+      530
+     ]
+    },
+    {
+     "text": "Participant D stated that the team considered the port and an alarm for detecting loss of the remote control as features.",
+     "cites": [
+      532
+     ]
+    },
+    {
+     "text": "Participant A stated that the target market was young and business-oriented.",
+     "cites": [
+      534
+     ]
+    },
+    {
+     "text": "Participant B stated that market research involved a study of 100 subjects.",
+     "cites": [
+      543
+     ]
+    },
+    {
+     "text": "Participant B stated that the most important aspect of a remote control, according to market research, was a 'fancy look and feel'\u2014twice as important as being 'technologically\u521b\u65b0\u578b'\u2014",
+     "cites": [
+      545
+     ]
+    },
+    {
+     "text": "Participant B stated that 'technologically innovative' was twice as important as 'easy to use' in the user preferences.",
+     "cites": [
+      545
+     ]
+    },
+    {
+     "text": "Participant B stated that 'easy to use' was the least important feature among the three, despite being included.",
+     "cites": [
+      545
+     ]
+    },
+    {
+     "text": "Participant B stated that the company's fashion consultants in Paris and Milan were consulted to identify trends in design and materials.",
+     "cites": [
+      544
+     ]
+    },
+    {
+     "text": "Participant B stated that the fashion trend identified was that fruit and vegetables are becoming a theme in clothing, shoes, and furniture.",
+     "cites": [
+      547
+     ]
+    },
+    {
+     "text": "Participant B stated that there is a trend toward spongy materials in design, in contrast to last year's trends.",
+     "cites": [
+      547
+     ]
+    },
+    {
+     "text": "Participant D stated that the remote control will use a chip called the TA double one eight three five, which is standard in most TV remotes and sends standard signals based on the",
+     "cites": [
+      569
+     ]
+    },
+    {
+     "text": "Participant D stated that no rechargeable battery option is currently available for the remote control.",
+     "cites": [
+      571
+     ]
+    },
+    {
+     "text": "Participant D stated that standard double A and triple A batteries are considered too bulky for the current design.",
+     "cites": [
+      571
+     ]
+    },
+    {
+     "text": "Participant D stated that dynamo charging (winding the remote) is considered a 'bit silly' and not practical for users.",
+     "cites": [
+      571
+     ]
+    },
+    {
+     "text": "Participant D stated that dynamo charging requires winding the remote before use and would take only a short time to charge.",
+     "cites": [
+      573
+     ]
+    },
+    {
+     "text": "Participant D stated that solar charging is possible if the remote is exposed to light, and that most people have lights on in the room, so it could be used to charge the remote.",
+     "cites": [
+      579
+     ]
+    },
+    {
+     "text": "Participant B stated that artificial light (e.g., electric lights) does not count as a valid charging source for solar charging.",
+     "cites": [
+      584
+     ]
+    },
+    {
+     "text": "Participant B stated that solar charging requires sunlight, not artificial light.",
+     "cites": [
+      586
+     ]
+    },
+    {
+     "text": "Participant A stated that solar charging from artificial electric lights does not count as valid charging, and that this could limit the market.",
+     "cites": [
+      593
+     ]
+    },
+    {
+     "text": "Participant B stated that artificial light (e.g., electric lights) is not sufficient for solar charging.",
+     "cites": [
+      594
+     ]
+    },
+    {
+     "text": "Participant A stated that people living in basement flats or in areas with limited natural light may not have access to sunlight, which could limit market reach.",
+     "cites": [
+      596
+     ]
+    },
+    {
+     "text": "Participant B stated that international market considerations are relevant, as lighting conditions vary by region.",
+     "cites": [
+      597
+     ]
+    },
+    {
+     "text": "Participant D stated that most people watch TV at night, so a charging system that works during the day would be effective for evening use.",
+     "cites": [
+      600
+     ]
+    },
+    {
+     "text": "Participant D stated that kinetic charging (like in wristwatches) is a viable option, where the remote charges through motion and does not require physical shaking.",
+     "cites": [
+      606
+     ]
+    },
+    {
+     "text": "Participant D stated that kinetic charging uses a small cell that charges into a watch-like battery and is used frequently in watches.",
+     "cites": [
+      610
+     ]
+    },
+    {
+     "text": "B asks whether solar charging is compatible with standard batteries, questioning if they can be used together.",
+     "cites": [
+      631
+     ]
+    },
+    {
+     "text": "D responds that a dual power system is possible, but solar cells would need to be placed on the case, affecting exterior design.",
+     "cites": [
+      634
+     ]
+    },
+    {
+     "text": "C states that solar charging would be slightly more expensive than standard batteries.",
+     "cites": [
+      639
+     ]
+    },
+    {
+     "text": "A agrees that solar charging is expensive.",
+     "cites": [
+      640
+     ]
+    },
+    {
+     "text": "D confirms that standard batteries are the cheapest option, and solar charging ones are more expensive.",
+     "cites": [
+      643
+     ]
+    },
+    {
+     "text": "D notes that solar-powered remotes may not be very resistant to dropping, especially if used frequently.",
+     "cites": [
+      644
+     ]
+    },
+    {
+     "text": "A states that solar-powered devices are not designed to withstand frequent dropping.",
+     "cites": [
+      645
+     ]
+    },
+    {
+     "text": "D suggests that calculators are less likely to be thrown around than remotes, which are more prone to physical wear.",
+     "cites": [
+      648
+     ]
+    },
+    {
+     "text": "C raises a concern about battery life: which type of remote would last the longest to avoid customers needing daily charging like a mobile phone.",
+     "cites": [
+      655
+     ]
+    },
+    {
+     "text": "D suggests that standard batteries would last longer than solar-powered ones in use.",
+     "cites": [
+      660
+     ]
+    },
+    {
+     "text": "B states that the solar charging feature would detract from the product's attractiveness and not add value.",
+     "cites": [
+      661
+     ]
+    },
+    {
+     "text": "A proposes adding an attachment feature to the remote, such as a clip-on closure, to reduce loss.",
+     "cites": [
+      663
+     ]
+    },
+    {
+     "text": "B expresses concern that market research has not shown customers desire for such an attachment, and suggests doing market research before adding it.",
+     "cites": [
+      667
+     ]
+    },
+    {
+     "text": "A suggests that if the product is small, portable, and has a unique shape, a clip-on feature could help users keep it in place and reduce loss.",
+     "cites": [
+      669
+     ]
+    },
+    {
+     "text": "B states that such a feature has not come up in any focus groups or market research and is not a priority for customers.",
+     "cites": [
+      676
+     ]
+    },
+    {
+     "text": "D explains that current remotes use a printed circuit board (PCB) with closely spaced contacts that activate when pressed, sending a signal via a code through an LED sequence.",
+     "cites": [
+      686
+     ]
+    },
+    {
+     "text": "A asks about the size options for the remote, noting that the PCB design allows for varying sizes.",
+     "cites": [
+      687
+     ]
+    },
+    {
+     "text": "D explains that the PCB can be scaled to fit different sizes, including very small or compact designs, with switches close together or arranged in arrays.",
+     "cites": [
+      689
+     ]
+    },
+    {
+     "text": "D suggests that remotes should enter standby mode after five to ten seconds of inactivity to conserve battery life.",
+     "cites": [
+      698
+     ]
+    },
+    {
+     "text": "C suggests that having illuminated buttons could improve usability, especially for users in low light, and that lights could be turned off after five to ten seconds of inactivity.",
+     "cites": [
+      698
+     ]
+    },
+    {
+     "text": "D recommends plastic as the primary case material, noting that it is practical and allows for curved shapes.",
+     "cites": [
+      700
+     ]
+    },
+    {
+     "text": "D notes that wood is impractical, titanium is expensive and not suitable for mass production, and rubber provides a spongy feel.",
+     "cites": [
+      702
+     ]
+    },
+    {
+     "text": "D suggests that rubber buttons, similar to those used in stress balls, could be used for anti-rust or grip purposes.",
+     "cites": [
+      706
+     ]
+    },
+    {
+     "text": "B suggests a plastic base with a removable rubber cover to provide a spongy feel and allow for color changes.",
+     "cites": [
+      727
+     ]
+    },
+    {
+     "text": "D confirms that a removable rubber cover would allow users to change the look and feel of the remote, and could be peeled off easily.",
+     "cites": [
+      730
+     ]
+    },
+    {
+     "text": "A states that the removable rubber cover would replace the plastic fascia, giving a similar feel to pens with removable grips.",
+     "cites": [
+      731
+     ]
+    },
+    {
+     "text": "C agrees that a removable rubber cover could allow customers to change the color and feel of the remote.",
+     "cites": [
+      733
+     ]
+    },
+    {
+     "text": "B states that a removable rubber cover would be a cheap, user-friendly way to allow customers to change the look of the product.",
+     "cites": [
+      744
+     ]
+    },
+    {
+     "text": "D suggests that a touch screen interface could be implemented using a printed circuit board with finger touch activation, or with an LCD screen.",
+     "cites": [
+      752
+     ]
+    },
+    {
+     "text": "D notes that an LCD screen is thin and allows for arranging buttons in a set layout, but is limited in curvature.",
+     "cites": [
+      757
+     ]
+    },
+    {
+     "text": "Participant D suggests that a black and white LCD screen could be used inside the flip-top device instead of a full-color screen.",
+     "cites": [
+      767,
+      770,
+      772
+     ]
+    },
+    {
+     "text": "Participant B proposes that when the flip-top is opened, it could function like a mirror in nightclubs that responds to body movement, showing an advertising display when the user,",
+     "cites": [
+      815,
+      816,
+      817,
+      818,
+      821
+     ]
+    },
+    {
+     "text": "Participant C reports that competitors' remotes generally have rectangular shapes, monotonous designs, and lack variety, with users bored of black and white designs.",
+     "cites": [
+      836,
+      838,
+      839
+     ]
+    },
+    {
+     "text": "Participant C states that competitor remotes have inconsistent button layouts, with only channel and volume controls being standard across models.",
+     "cites": [
+      842,
+      843,
+      844,
+      845
+     ]
+    },
+    {
+     "text": "Participant C proposes a graphic user interface (GUI) in the middle of the flip-top, with icons or touchpad controls, similar to computer interfaces.",
+     "cites": [
+      846,
+      847,
+      850,
+      851,
+      852
+     ]
+    },
+    {
+     "text": "Participant C suggests that frequently used buttons (e.g., volume, channel) could be placed on a pointing device or on the lower part of the device, so users don\u2019t need to use a st",
+     "cites": [
+      858,
+      859,
+      860,
+      861,
+      862
+     ]
+    },
+    {
+     "text": "Participant C notes that volume and channel control buttons are commonly found in all remote models and are the most consistent feature across competitors' products.",
+     "cites": [
+      892,
+      893,
+      894,
+      895,
+      896
+     ]
+    },
+    {
+     "text": "Participant C proposes that voice recognition could be incorporated as a feature, with potential functionality such as 'Where is the remote?' or a bleep sound to indicate the unit.",
+     "cites": [
+      878,
+      880,
+      881,
+      882,
+      883
+     ]
+    },
+    {
+     "text": "Participant C suggests that the design could draw inspiration from fruit colors such as red chili, tomato red, or vibrant fruit hues to make it more trendy.",
+     "cites": [
+      887,
+      888,
+      889
+     ]
+    },
+    {
+     "text": "Participant C states that the central pattern of volume and channel buttons is consistent across all remote models and should be retained.",
+     "cites": [
+      891,
+      892,
+      893,
+      894,
+      895
+     ]
+    },
+    {
+     "text": "Participant A and D agree that the device would use a kinetic battery, meaning no function for a lithium port, as the device would generate power through motion.",
+     "cites": [
+      905,
+      906,
+      907,
+      908,
+      909
+     ]
+    },
+    {
+     "text": "Participant A raises a concern that incorporating voice recognition may increase costs and could require cutting elsewhere in the product design.",
+     "cites": [
+      918,
+      919
+     ]
+    },
+    {
+     "text": "Participant D notes that a black and white LCD screen would be cheaper than a full-color screen and could be used in calculators, suggesting it is cost-effective.",
+     "cites": [
+      923,
+      926
+     ]
+    },
+    {
+     "text": "Participant A states that the LCD screen, even if black and white, is not cheap.",
+     "cites": [
+      924
+     ]
+    },
+    {
+     "text": "Participant C recommends starting with a black and white LCD screen and upgrading to full color later.",
+     "cites": [
+      928,
+      929,
+      930
+     ]
+    },
+    {
+     "text": "Participant C proposes to check the financial feasibility of incorporating voice recognition, as customer feedback indicates interest in the feature.",
+     "cites": [
+      877,
+      886
+     ]
+    },
+    {
+     "text": "Participant D agrees that voice recognition would be a cool feature and that if components are already in stock, re-manufacturing would be cheap.",
+     "cites": [
+      913,
+      914,
+      915
+     ]
+    },
+    {
+     "text": "Participant A suggests that voice recognition could be used for a 'Where is the remote?' function, such as the remote responding with a sound or message.",
+     "cites": [
+      909,
+      910,
+      911
+     ]
+    },
+    {
+     "text": "Participant B raises a point about the design of the flip-top and how it could be used with the shell as a functional element, such as having buttons and an LCD screen when opened.",
+     "cites": [
+      864,
+      865,
+      866,
+      867,
+      868
+     ]
+    },
+    {
+     "text": "Participant A and B agree that the flip-top design should allow for a contrast between the outer rubber shell and the inner, more sophisticated appearance when opened.",
+     "cites": [
+      775,
+      776,
+      777,
+      778
+     ]
+    },
+    {
+     "text": "Participant B suggests that users may not want to press buttons with their fingers if they are using a stylus or pen, and that a stylus could be pulled out as an option.",
+     "cites": [
+      782,
+      783,
+      784,
+      785,
+      786
+     ]
+    },
+    {
+     "text": "Participant D acknowledges that a stylus could be used, but notes that such items could be easily lost and are not essential.",
+     "cites": [
+      783,
+      784,
+      785,
+      786,
+      787
+     ]
+    },
+    {
+     "text": "Participant C proposes that the circuit could be customized for the flip-top design, with standard buttons on the top and more complex buttons underneath, connected via separate c",
+     "cites": [
+      803,
+      804,
+      805,
+      806,
+      807
+     ]
+    },
+    {
+     "text": "Participant D confirms that two separate circuit boards could be used, joined by wires or cabling, for the flip-top design.",
+     "cites": [
+      807,
+      808,
+      809,
+      810,
+      811
+     ]
+    },
+    {
+     "text": "Participant B suggests that the flip-top could have a mirror-like effect when opened, responding to user movement, though this is later dismissed as a 'quick passing thought'.",
+     "cites": [
+      815,
+      816,
+      817,
+      818,
+      819
+     ]
+    },
+    {
+     "text": "Participant A states that the mirror idea was dismissed as a 'quick passing thought' and not to be pursued further.",
+     "cites": [
+      833,
+      834
+     ]
+    },
+    {
+     "text": "Participant C states that the team will check the financial feasibility of incorporating voice recognition, as customer feedback indicates interest.",
+     "cites": [
+      886,
+      887
+     ]
+    },
+    {
+     "text": "B stated that the decision on whether to use double A or triple A batteries was not made, as the kinetic charging batteries still need to be charged in the same way.",
+     "cites": [
+      938
+     ]
+    },
+    {
+     "text": "D explained that kinetic charging batteries come with a watch-type battery that fits into a watch, and is smaller in size.",
+     "cites": [
+      939,
+      942
+     ]
+    },
+    {
+     "text": "A noted that the internal components are standardized across the board, indicating no major decision needed there.",
+     "cites": [
+      944,
+      947
+     ]
+    },
+    {
+     "text": "D proposed that the top side of the device will have an LCD screen and the bottom side will have rubberized anti-RSI buttons.",
+     "cites": [
+      950,
+      955
+     ]
+    },
+    {
+     "text": "C and D agreed that the body design will use a plastic shell with a rubberized outer layer for grip and padding.",
+     "cites": [
+      1006,
+      1008,
+      1010,
+      1011
+     ]
+    },
+    {
+     "text": "B stated that the design will use vegetable and fruit-inspired colors, but not actual vegetable or fruit shapes, to avoid being 'tacky'.",
+     "cites": [
+      999,
+      1000,
+      1001,
+      1002,
+      1003
+     ]
+    },
+    {
+     "text": "A and B agreed that the focus is on the feel and look of the device, with a preference for a clean, modern aesthetic that contrasts with current market offerings.",
+     "cites": [
+      980,
+      984,
+      985,
+      986,
+      987
+     ]
+    },
+    {
+     "text": "C suggested that the body should be retouchable or changeable, with the rubber cover being moldable to allow design changes over time.",
+     "cites": [
+      1005,
+      1007,
+      1008
+     ]
+    },
+    {
+     "text": "B proposed that voice recognition was a good idea but raised concerns about cost, and suggested a whistle alternative if voice recognition is not financially feasible.",
+     "cites": [
+      1020,
+      1021,
+      1022,
+      1023,
+      1024
+     ]
+    },
+    {
+     "text": "C mentioned that the company logo should be incorporated into the design to ensure product visibility and brand recognition.",
+     "cites": [
+      1026,
+      1029,
+      1030,
+      1031,
+      1032
+     ]
+    },
+    {
+     "text": "B noted that the product is expected to be the only one of its kind on the market, so its distinctiveness will help with brand recognition.",
+     "cites": [
+      1034,
+      1035
+     ]
+    },
+    {
+     "text": "A suggested that the product's uniqueness and branding will be sufficient without needing a prominent logo, as the product will stand out through design and function.",
+     "cites": [
+      1036,
+      1037
+     ]
+    },
+    {
+     "text": "A stated that the beeper for location tracking was previously discussed but not rejected\u2014instead, it was noted as something the company is currently evaluating due to cost concerns",
+     "cites": [
+      1041,
+      1042,
+      1043,
+      1044,
+      1045
+     ]
+    },
+    {
+     "text": "The design will feature bright, funky, fruit-inspired colors to match a 'hip' aesthetic, without being literal fruit or vegetable shapes.",
+     "cites": [
+      999,
+      1000,
+      1001,
+      1002,
+      1003
+     ]
+    },
+    {
+     "text": "The rubber cover is intended to be changeable and moldable, allowing for design updates over time.",
+     "cites": [
+      1005,
+      1007,
+      1008
+     ]
+    },
+    {
+     "text": "The group acknowledged that the design will be distinct from current market offerings, with a focus on feel and visual appeal.",
+     "cites": [
+      980,
+      984,
+      985,
+      986,
+      987
+     ]
+    },
+    {
+     "text": "The group agreed that the product will have a logo, and that its uniqueness will help with market recognition.",
+     "cites": [
+      1026,
+      1032,
+      1034,
+      1035
+     ]
+    },
+    {
+     "text": "D described the remote control as having a plastic body with a standard colour.",
+     "cites": [
+      1105
+     ]
+    },
+    {
+     "text": "D suggested the colour options would be neutral, such as white or light blue, beneath a rubberised outer casing.",
+     "cites": [
+      1108
+     ]
+    },
+    {
+     "text": "D described the remote control as having a clam shell design with a top LCD screen that is inset and fully closes flat.",
+     "cites": [
+      1112,
+      1114,
+      1115
+     ]
+    },
+    {
+     "text": "C confirmed the design has a black and white touch screen.",
+     "cites": [
+      1113
+     ]
+    },
+    {
+     "text": "D proposed that the kinetic batteries could be attached to the flipping open and shut mechanism.",
+     "cites": [
+      1118
+     ]
+    },
+    {
+     "text": "A suggested placing the batteries in the top section rather than the bottom sections.",
+     "cites": [
+      1119
+     ]
+    },
+    {
+     "text": "D stated that the voice recognition system was expected to be easy to use and relatively cheap, with a feature like 'where is the remote' and a response like 'I'm here'.",
+     "cites": [
+      1122
+     ]
+    },
+    {
+     "text": "B responded with 'or something' to D's voice recognition suggestion.",
+     "cites": [
+      1123
+     ]
+    },
+    {
+     "text": "D clarified that the voice system would not shout 'I'm here' but would instead respond with a similar effect.",
+     "cites": [
+      1124
+     ]
+    },
+    {
+     "text": "A said 'I'm under the sofa' as a hypothetical location for the remote.",
+     "cites": [
+      1127
+     ]
+    },
+    {
+     "text": "A said that having the remote report exact location would be too complicated.",
+     "cites": [
+      1129
+     ]
+    },
+    {
+     "text": "D proposed that the remote would use standard infrared transmission with the TV, using the same infrared medium as standard TVs.",
+     "cites": [
+      1132,
+      1133,
+      1134,
+      1135,
+      1136
+     ]
+    },
+    {
+     "text": "A said the infrared sender would need to be on the front of the device, not on the bottom layer.",
+     "cites": [
+      1138,
+      1139
+     ]
+    },
+    {
+     "text": "C confirmed that the infrared signal would work when the remote is open, facing the TV.",
+     "cites": [
+      1140,
+      1141,
+      1142
+     ]
+    },
+    {
+     "text": "D described the top screen as an inset black and white LCD touch screen with all available remote functions, while the bottom screen would have standard buttons (volume, channel,\u7535\u6e90",
+     "cites": [
+      1144,
+      1145,
+      1146,
+      1147,
+      1148
+     ]
+    },
+    {
+     "text": "D proposed that the device could have a logo or engraving on the top, but not interfering with the product's external appearance.",
+     "cites": [
+      1149,
+      1150,
+      1151,
+      1152,
+      1153
+     ]
+    },
+    {
+     "text": "D stated that the goal was to 'put the fashion back into electronics' through the company logo.",
+     "cites": [
+      1158
+     ]
+    },
+    {
+     "text": "B outlined the evaluation criteria for the remote control: fancy look and feel, technological innovation, ease of use, incorporation of current fashion trends (spongy texture, food",
+     "cites": [
+      1176,
+      1177
+     ]
+    },
+    {
+     "text": "B noted that the team was still ambivalent about using voice recognition, with a possible alternative being a beeper function.",
+     "cites": [
+      1178
+     ]
+    },
+    {
+     "text": "B proposed using a seven-point scale (1 = true, 7 = false) to evaluate each criterion.",
+     "cites": [
+      1180,
+      1181,
+      1184,
+      1185,
+      1186
+     ]
+    },
+    {
+     "text": "B stated that each team member would provide an individual rating, and the average would be calculated at the end.",
+     "cites": [
+      1196,
+      1197,
+      1198,
+      1199,
+      1200
+     ]
+    },
+    {
+     "text": "B assigned a rating of 2 to criterion A (fancy look and feel), stating 'one is true and seven is false'.",
+     "cites": [
+      1204
+     ]
+    },
+    {
+     "text": "A agreed with B's rating of 2 for criterion A.",
+     "cites": [
+      1205
+     ]
+    },
+    {
+     "text": "D rated criterion A as 2 or 3.",
+     "cites": [
+      1206
+     ]
+    },
+    {
+     "text": "C rated criterion A as 4.",
+     "cites": [
+      1215
+     ]
+    },
+    {
+     "text": "B calculated the average rating for criterion A as 2.75 (after summing 2, 2, 3, 4).",
+     "cites": [
+      1218,
+      1219,
+      1220,
+      1221,
+      1222
+     ]
+    },
+    {
+     "text": "B rated criterion B (technologically innovative) as 3.",
+     "cites": [
+      1225
+     ]
+    },
+    {
+     "text": "D rated criterion B as 1.",
+     "cites": [
+      1226
+     ]
+    },
+    {
+     "text": "B clarified that D was not biased as a designer.",
+     "cites": [
+      1227
+     ]
+    },
+    {
+     "text": "A rated criterion B as 2.",
+     "cites": [
+      1229
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decisions",
+   "sentences": [
+    {
+     "text": "B confirmed the LCD screen on the top and rubberized buttons on the bottom as a decision.",
+     "cites": [
+      1016
+     ]
+    },
+    {
+     "text": "A concluded that voice recognition software will be incorporated into the design, pending further cost analysis.",
+     "cites": [
+      1074
+     ]
+    },
+    {
+     "text": "The final decision includes using a kinetic charger with a watch-type battery, an LCD screen on the top, rubberized anti-RSI buttons on the bottom, plastic body with a soft rubbery",
+     "cites": [
+      1072
+     ]
+    },
+    {
+     "text": "The group agreed to incorporate voice recognition software into the design, pending cost evaluation.",
+     "cites": [
+      1074
+     ]
+    },
+    {
+     "text": "The group agreed to use a plastic shell with a rubberized outer layer for grip and feel, and to use fruit and vegetable-inspired colors for the rubber cover.",
+     "cites": [
+      1016,
+      1017,
+      1018
+     ]
+    },
+    {
+     "text": "The group confirmed that the final decisions include: kinetic charging, LCD on top, rubber buttons on bottom, plastic body, rubber cover with fruit/vegetable colors, and voice-rec-",
+     "cites": [
+      1072
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Actions",
+   "sentences": [
+    {
+     "text": "D and C agreed that C and William worked on a prototype, and William will present it.",
+     "cites": [
+      1080,
+      1081,
+      1082,
+      1083,
+      1084
+     ]
+    },
+    {
+     "text": "C will hold the prototype during the presentation, and D will show the presentation to the group.",
+     "cites": [
+      1085,
+      1086,
+      1087,
+      1088,
+      1089
+     ]
+    },
+    {
+     "text": "The prototype presentation will be delivered by William, who will present it with C and D working on it.",
+     "cites": [
+      1080,
+      1081,
+      1082,
+      1083
+     ]
+    }
+   ]
+  }
+ ]
+}

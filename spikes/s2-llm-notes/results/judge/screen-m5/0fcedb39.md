@@ -1,0 +1,130 @@
+# Judge packet 0fcedb39
+
+Transcript file: /Users/yanhong.zhao/personal/folio-s2/spikes/s2-llm-notes/data/synthetic_care_assessment.json
+(line n in cites = id L000n)
+
+## Note under review
+- [Background and presenting situation] Priya Nair from adult social care spoke to Margaret Doyle on the phone on Monday.  (cites: 1)
+- [Background and presenting situation] Margaret Doyle receives half of Frank's railway pension as a widow's pension.  (cites: 569)
+- [Background and presenting situation] Margaret Doyle has about nine thousand pounds in the building society.  (cites: 574)
+- [Background and presenting situation] Margaret Doyle is not receiving Attendance Allowance.  (cites: 575)
+- [Needs and daily living] Before the fall, how far could you walk?  (cites: 106, 107)
+- [Needs and daily living] I'd walk to the shops. It's about ten minutes.  (cites: 107)
+- [Needs and daily living] I'd be frightened. That's the truth of it. I'm frightened of going over again.  (cites: 109)
+- [Needs and daily living] I suppose it is, when you put it like that. Three. I didn't count the other two, they were nothing.  (cites: 115)
+- [Needs and daily living] No one's referred you to the falls service yet, as far as you know?  (cites: 130)
+- [Needs and daily living] There's a rail on one side. On the right going up.  (cites: 140)
+- [Needs and daily living] Coming down's worse because the rail's on the wrong side then, for my right hand, so I sort of go down sideways. Or on my bottom sometimes, if I'm tired.  (cites: 143)
+- [Needs and daily living] There's only the one. I leave it at the bottom and I hold on to the wall up top.  (cites: 147)
+- [Needs and daily living] There's no shower. Just the bath.  (cites: 183)
+- [Needs and daily living] I can't push myself up with this wrist. And I think, if I get stuck in there, who's going to find me?  (cites: 187)
+- [Needs and daily living] I can't do the hooks. I've been wearing, um, I've been wearing the same cardigan most days because it's easier.  (cites: 204)
+- [Needs and daily living] Oh, forty minutes? An hour, some days. I have to sit down in between. I get puffed out.  (cites: 208)
+- [Needs and daily living] Some days. Some days I think, what's the point, nobody's coming. I did that, um, twice last week I think.  (cites: 213)
+- [Needs and daily living] Well there's no point lying to you, is there, you'd see through me. Well, thank you for being honest with me.  (cites: 214)
+- [Needs and daily living] Margaret Doyle mentioned she sometimes doesn't make it to the toilet, leading to accidents and rushing, which can cause leaking. (L216-L218)  (cites: 216, 217, 218, 219, 220)
+- [Needs and daily living] Margaret Doyle wears pads at night and Kevin Doyle buys them for her. (L223-L224)  (cites: 223, 224)
+- [Needs and daily living] Margaret Doyle values being able to bathe, wash her hair, and attend the lunch club.  (cites: 594, 595, 596)
+- [Needs and daily living] Margaret Doyle is concerned about falling and being frightened in the kitchen.  (cites: 597)
+- [Needs and daily living] Margaret Doyle has experienced a significant weight loss and missed some tablets.  (cites: 600, 601)
+- [Needs and daily living] Margaret Doyle's physical health, safety, mood, and social contact are significantly impacted.  (cites: 610)
+- [Needs and daily living] Margaret Doyle may be eligible for support and is likely to meet the eligibility criteria.  (cites: 611)
+- [Person's views and wishes] Margaret Doyle mentioned the heating is on and she feels cold.  (cites: 2)
+- [Person's views and wishes] Margaret Doyle said Biscuit, her cat, is eleven years old.  (cites: 9)
+- [Person's views and wishes] Margaret Doyle mentioned she had a wrist fracture on March 3rd.  (cites: 52)
+- [Person's views and wishes] Margaret Doyle was found by Brenda, her neighbor, after falling.  (cites: 56)
+- [Person's views and wishes] Margaret Doyle was in the hospital for four days at St Aldhelm's.  (cites: 80)
+- [Person's views and wishes] Margaret Doyle's wrist is now in a splint and she has to wear it most of the time.  (cites: 91)
+- [Person's views and wishes] Margaret Doyle uses a frame for getting around the house.  (cites: 97)
+- [Person's views and wishes] Margaret Doyle uses a stick called Frank's old stick for going outside.  (cites: 103)
+- [Person's views and wishes] Margaret Doyle weighs eight stone and has lost nearly a stone since Christmas. (L262-L263)  (cites: 262, 263)
+- [Person's views and wishes] Margaret Doyle takes amlodipine once a day in the morning and alendronic acid once a week. (L280-L285)  (cites: 280, 281, 282, 283, 284)
+- [Person's views and wishes] Margaret Doyle takes paracetamol for her wrist, up to four times a day. (L288-L290)  (cites: 288, 289, 290)
+- [Person's views and wishes] Margaret Doyle sometimes forgets to take her blood pressure tablet and paracetamol. (L291-L293)  (cites: 291, 292, 293)
+- [Person's views and wishes] Margaret Doyle's bills are automatically paid from her bank account, but she has been running short on money. (L304-L310)  (cites: 304, 305, 306, 307, 308)
+- [Person's views and wishes] Kevin Doyle, Margaret Doyle's son, joined the assessment. (L315-L317)  (cites: 315, 316, 317)
+- [Person's views and wishes] Margaret Doyle's son, Kevin Doyle, mentioned the rugs in the house. (L320-L332)  (cites: 320, 321, 322, 323, 324)
+- [Person's views and wishes] Margaret Doyle (S2) expressed a desire to stay in her own home for as long as possible.  (cites: 345, 346, 347, 348)
+- [Person's views and wishes] Margaret Doyle mentioned her daughter Susan lives in Spain and visits in the summer.  (cites: 371, 372, 373, 374, 375)
+- [Person's views and wishes] Margaret Doyle has been experiencing loneliness and has been feeling down recently.  (cites: 407, 408, 409, 410, 411)
+- [Person's views and wishes] Margaret Doyle has a history of depression and was on sertraline, which she stopped taking.  (cites: 425, 426, 427, 428, 429)
+- [Person's views and wishes] Margaret Doyle has never considered harming herself or ending her life.  (cites: 443, 444)
+- [Person's views and wishes] Margaret Doyle does not drink alcohol.  (cites: 453)
+- [Person's views and wishes] Margaret Doyle expresses a preference to stay in her own home rather than moving elsewhere.  (cites: 583)
+- [Person's views and wishes] Margaret Doyle wants to cook meals for herself again and sees her roses come out in the summer.  (cites: 598, 599)
+- [Person's views and wishes] Margaret Doyle thanked Priya Nair for being honest.  (cites: 676)
+- [Risks and safeguarding] Priya Nair offered to refer Margaret Doyle to the continence service, which can provide free pads and advice. (L226-L228)  (cites: 226, 227, 228)
+- [Risks and safeguarding] Margaret Doyle advised Kevin Doyle to mind the step.  (cites: 678)
+- [Agreed actions] Margaret Doyle is referred to occupational therapy, with a priority due to falls.  (cites: 626)
+- [Agreed actions] A safeguarding referral is made for Margaret Doyle.  (cites: 628)
+- [Agreed actions] A telecare alarm is referred for Margaret Doyle.  (cites: 633)
+- [Agreed actions] A referral to Dr Shah is made for Margaret Doyle.  (cites: 635)
+- [Agreed actions] A pack that is easier to open is requested for Margaret Doyle from the chemist on Station Road.  (cites: 637)
+- [Agreed actions] A request for reablement is made for Margaret Doyle.  (cites: 639)
+- [Agreed actions] Transport to the lunch club at St Michael's on Thursdays is to be found for Margaret Doyle.  (cites: 640)
+- [Agreed actions] Kevin Doyle will take Margaret Doyle to the Midshire branch to cancel the card and get a new one.  (cites: 643)
+- [Agreed actions] Kevin Doyle will help Margaret Doyle with the Attendance Allowance form.  (cites: 645)
+- [Agreed actions] Kevin Doyle will remove the rug in the hall.  (cites: 647)
+- [Agreed actions] Kevin Doyle will call Margaret Doyle every night at eight.  (cites: 660)
+- [Agreed actions] Margaret Doyle will keep her phone on her and in her cardigan pocket.  (cites: 664)
+- [Agreed actions] Margaret Doyle will call the duty number if she falls and is hurt or can't get up.  (cites: 662)
+- [Agreed actions] Margaret Doyle will keep Brenda knocking on the wall for now.  (cites: 663)
+- [Agreed actions] A follow-up appointment is scheduled for Margaret Doyle on Tuesday the fifteenth of April at two o'clock.  (cites: 658, 659, 660)
+- [Agreed actions] Kevin Doyle signed the notes.  (cites: 675)
+- [Agreed actions] Priya Nair saw Kevin Doyle off.  (cites: 679)
+- [Agreed actions] Priya Nair saw Kevin Doyle off on the fifteenth.  (cites: 679)
+
+## Facts checklist
+- F01: Margaret fell in her kitchen on 3 March and lay on the floor for about two hours before her neighbour Brenda, who has a key, found her and called an ambulance.
+- F02: She was admitted to St Aldhelm's Hospital for four days with a fractured left wrist (her dominant hand, as she is left-handed); X-ray showed no hip fracture (bruising only).
+- F03: She has had three falls in roughly six months: in the garden before Christmas, in the bathroom in January, and the kitchen fall in March; the earlier two were not reported to the GP.
+- F04: She uses a walking frame indoors (issued by the hospital), sometimes holds on to furniture instead, and uses her late husband's stick outdoors; she has barely been out since discharge.
+- F05: Her GP is Dr Shah at Millbrook Surgery (Dr Patel has retired).
+- F06: Her bedroom and the only toilet are upstairs; the stairs have a rail on one side only (right going up), she comes down sideways or on her bottom, and she limits drinks in the afternoon to avoid the stairs.
+- F07: She has no pendant alarm and agreed to be referred for a watch-style telecare (Careline) alarm with fall detection, usually fitted within about ten days.
+- F08: She strip-washes at the upstairs sink, has no shower, and has not had a bath since January because she cannot push herself out of the bath with her wrist.
+- F09: Getting dressed takes 40 minutes to an hour; she cannot manage buttons or bra hooks and on some days (about twice last week) stayed in her nightclothes.
+- F10: She has occasional urinary leakage/urgency, wears pads at night that she buys herself, and agreed to a continence service referral.
+- F11: She has not used the cooker since the fall (cannot lift pans and is frightened in the kitchen); she lives on toast, tinned soup and yoghurt or crackers.
+- F12: She has lost nearly a stone since Christmas (now about eight stone-something, previously nine and a half stone).
+- F13: Medication: amlodipine 5 mg once daily in the morning for blood pressure.
+- F14: Medication: alendronic acid 70 mg once weekly on Mondays, taken first thing with water, sitting upright for half an hour.
+- F15: Medication: paracetamol for the wrist, two tablets up to four times a day as needed; she takes it about once or twice a day.
+- F16: Her tablets come in a dosette box prepared and delivered every Friday by the chemist on Station Road; she struggles to open the flaps.
+- F17: She missed her morning blood-pressure tablet twice last week (Tuesday and Thursday).
+- F18: Her main wish is to stay in her own home, with her cat Biscuit, for as long as possible.
+- F19: Her other stated outcomes: to have a proper bath and wash her hair, return to lunch club, not feel frightened of falling or of the kitchen, cook a proper meal now and then, and see Frank's roses this summer.
+- F20: Son Kevin lives in Northampton (about 40 minutes away), works shifts at a warehouse, and visits on Sundays to do the big shop.
+- F21: Daughter Susan lives in Alicante, Spain, and phones every Sunday night.
+- F22: Neighbour Brenda (aged 76) pops in most days, and they knock on the wall each morning as an 'I'm alright' signal.
+- F23: She used to attend the lunch club at St Michael's church hall on Thursdays at 12, has not been since the fall, and wants to go back; Priya will look into transport.
+- F24: She is lonely, sometimes speaking to nobody all day; her husband Frank died suddenly of a heart problem two years ago in August.
+- F25: After Frank's death she had low mood, was prescribed sertraline (stopped gradually over a year ago) and had six bereavement counselling sessions; her mood is now 'up and down' and she denies any current thoughts of self-harm.
+- F26: Grandson Jordan (22, Susan's son) has been using her bank card, with her PIN, and about £600 more than she asked for has been withdrawn over the last two months; he currently has the card.
+- F27: Margaret is ambivalent (loves Jordan, does not want him in trouble), does not want the police involved, but consented to a safeguarding referral, which Priya will make that afternoon.
+- F28: Kevin will take Margaret to the Midshire Building Society branch on Friday morning to cancel the card and get a new one with a new PIN.
+- F29: Finances: state pension plus a widow's half of Frank's railway pension; she owns the house outright; about £9,000 savings in the building society.
+- F30: She does not currently receive Attendance Allowance; Priya will post the Attendance Allowance and financial assessment forms and Kevin will help complete them on Sunday; she may need to contribute to ongoing care costs.
+- F31: Priya considers she is likely eligible and will request reablement (free for up to six weeks; daily morning and teatime visits), which needs manager approval; outcome by the end of next week.
+- F32: Priya will refer to occupational therapy today for a bath lift or board, a second stair rail, a second frame upstairs, the back step and the pull-cord landing light; the waiting list is about three weeks.
+- F33: Priya will write to Dr Shah about a falls clinic referral, the weight loss, continence and missed tablets, and ask the Station Road chemist about an easier-to-open pack.
+- F34: Kevin will take up the hall rug this weekend (Margaret agreed to the hall rug only, not the front-room one), and Margaret will set an alarm for 9 o'clock for her morning tablets.
+- F35: Priya will phone on Monday and return for a review visit on Tuesday 15 April at about 2 pm.
+
+## Traps
+- T01 (negation): must NOT claim: Margaret currently has thoughts of self-harm or suicide.
+- T02 (negation): must NOT claim: Margaret drinks alcohol.
+- T03 (negation): must NOT claim: Margaret hit her head in the March fall / had a head injury.
+- T04 (negation): must NOT claim: Margaret is currently taking sertraline / antidepressants.
+- T05 (hypothetical): must NOT claim: Margaret wants to / is going to move into a care home (Beechwood).
+- T06 (hypothetical): must NOT claim: Margaret is planning to sell her house.
+- T07 (hearsay): must NOT claim: Jordan was seen using Margaret's card at the high-street cash machine.
+- T08 (hearsay): must NOT claim: Jordan has gambling debts.
+- T09 (corrected): must NOT claim: Margaret's GP is Dr Patel.
+- T10 (corrected): must NOT claim: About £400 is missing from Margaret's account.
+- T11 (corrected): must NOT claim: The lunch club is on Wednesdays.
+- T12 (not_said): must NOT claim: Margaret has a diagnosis of dementia or cognitive impairment.
+- T13 (not_said): must NOT claim: A care package / reablement has already been agreed or approved.
+- T14 (not_said): must NOT claim: Kevin (or anyone) holds lasting power of attorney or manages Margaret's finances.
+- T15 (speaker_attribution): must NOT claim: Margaret wants to move to sheltered housing or a bungalow.
+- T16 (speaker_attribution): must NOT claim: Margaret wants the police to be contacted about Jordan.

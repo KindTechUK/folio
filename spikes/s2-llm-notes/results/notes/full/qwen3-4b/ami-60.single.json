@@ -1,0 +1,232 @@
+{
+ "sections": [
+  {
+   "title": "Summary",
+   "sentences": [
+    {
+     "text": "The meeting focused on refining the design of a new universal TV remote control, with participants discussing key features such as a flip-top design, user-friendly interface, and incorporation of corporate branding.",
+     "cites": [
+      11,
+      135,
+      191,
+      392,
+      400,
+      444
+     ]
+    },
+    {
+     "text": "Key decisions included adopting a flip-top design to improve usability and reduce repetitive strain injury, prioritizing a 'fancy look and feel' over functionality, and excluding voice recognition due to cost and technical limitations.",
+     "cites": [
+      15,
+      76,
+      77,
+      191,
+      392,
+      400
+     ]
+    },
+    {
+     "text": "The team agreed to focus on a young, business-oriented market segment initially, with future expansion to broader demographics, and to explore a range of design variations including different casings and spongy, rubber-like covers.",
+     "cites": [
+      265,
+      276,
+      433,
+      434,
+      440,
+      448
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Discussion",
+   "sentences": [
+    {
+     "text": "Participant A proposed a flip-top design with a flip-open mechanism to allow access to complex functions while keeping the primary functions on the top, citing that most users only use 10% of buttons and prefer simplicity.",
+     "cites": [
+      76,
+      121,
+      156,
+      157,
+      191,
+      209
+     ]
+    },
+    {
+     "text": "Participant C advocated for a design that is user-friendly and simple, emphasizing that users dislike current remote controls and prefer a modern, fashionable look, with a flip-top design that appeals to a wide age range.",
+     "cites": [
+      76,
+      191,
+      207,
+      208,
+      210,
+      211
+     ]
+    },
+    {
+     "text": "Participant B emphasized market research findings showing that 75% of users find current remote controls ugly and 80% would pay more for a fancy design, and noted that 50% of users only use 10% of buttons, suggesting a need to reduce complexity.",
+     "cites": [
+      119,
+      120,
+      121,
+      122,
+      123,
+      124
+     ]
+    },
+    {
+     "text": "Participant D presented a technical design concept involving infrared signal transmission, a flip-top structure, and a focus on reducing physical strain, suggesting a spongy, rubber-like material to reduce repetitive strain injury (RSI) and improve ergonomics.",
+     "cites": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+     ]
+    },
+    {
+     "text": "Participant C suggested a design with a 'spongy feel' and a removable rubber cover or 'fascia' that allows users to change the look and feel of the remote, noting that this feature is common in mobile phones and would be cost-effective and appealing.",
+     "cites": [
+      547,
+      704,
+      713,
+      714,
+      715,
+      716
+     ]
+    },
+    {
+     "text": "Participant B raised concerns about the feasibility of voice recognition due to high cost and poor performance, and questioned whether a touch screen or alternative interface would be more practical, suggesting that RSI remains a significant issue to address.",
+     "cites": [
+      161,
+      162,
+      176,
+      247,
+      248,
+      254
+     ]
+    },
+    {
+     "text": "The group discussed the exclusion of teletext and a combined control system, agreeing that the product would be limited to TV and video functions due to consumer perception of teletext as outdated.",
+     "cites": [
+      132,
+      133,
+      134,
+      140,
+      141,
+      142
+     ]
+    },
+    {
+     "text": "Participants debated battery options, with D suggesting that standard triple A batteries are bulky and that rechargeable options like solar or kinetic charging are technically possible but not practical due to cost, size, and user behavior, and that standard batteries remain the most viable option.",
+     "cites": [
+      570,
+      571,
+      572,
+      573,
+      580,
+      581
+     ]
+    },
+    {
+     "text": "The team acknowledged that while a rechargeable design could reduce user loss and improve convenience, it would require significant cost and technical investment, and was not currently a priority.",
+     "cites": [
+      366,
+      367,
+      373,
+      374,
+      375,
+      376
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decisions",
+   "sentences": [
+    {
+     "text": "The group agreed to adopt a flip-top design with a simplified interface, where primary functions are accessible on the top and complex functions are hidden in the flip-down section.",
+     "cites": [
+      76,
+      191,
+      209,
+      392,
+      400
+     ]
+    },
+    {
+     "text": "The team decided to exclude voice recognition and teletext functionality due to cost, technical limitations, and market research indicating low user interest.",
+     "cites": [
+      161,
+      162,
+      132,
+      133,
+      140,
+      141
+     ]
+    },
+    {
+     "text": "Participants agreed that the remote should have a 'fancy look and feel' and incorporate corporate branding, with a focus on fashion and design to appeal to younger, trend-conscious users.",
+     "cites": [
+      191,
+      192,
+      193,
+      194,
+      195,
+      196
+     ]
+    },
+    {
+     "text": "The group decided to explore a removable, spongy rubber cover or 'fascia' that allows users to change the appearance of the remote, citing its appeal in mobile phones and cost-effectiveness.",
+     "cites": [
+      713,
+      714,
+      715,
+      716,
+      717,
+      718
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Actions",
+   "sentences": [
+    {
+     "text": "Participant B will conduct a follow-up market research study to assess user preferences for design features, particularly regarding the appeal of different materials and aesthetics, and will present findings at the next meeting.",
+     "cites": [
+      124,
+      488,
+      489,
+      490,
+      491,
+      492
+     ]
+    },
+    {
+     "text": "Participant D will prepare a detailed technical design document outlining the circuit board layout, battery options, and component availability, to be shared with the team for review.",
+     "cites": [
+      568,
+      569,
+      570,
+      571,
+      572,
+      573
+     ]
+    },
+    {
+     "text": "Participant C will develop a list of five to six design concepts, including variations in shape, color, and material, to be presented in the next meeting for feedback and selection.",
+     "cites": [
+      440,
+      441,
+      442,
+      443,
+      444,
+      445
+     ]
+    }
+   ]
+  }
+ ]
+}

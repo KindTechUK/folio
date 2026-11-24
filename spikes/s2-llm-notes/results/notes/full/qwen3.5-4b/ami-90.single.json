@@ -1,0 +1,240 @@
+{
+ "sections": [
+  {
+   "title": "Summary",
+   "sentences": [
+    {
+     "text": "The meeting reviewed the conceptual design of a universal TV remote control, addressing market research findings regarding user preferences for fashion, innovation, and ease of use.",
+     "cites": [
+      524,
+      542,
+      1176
+     ]
+    },
+    {
+     "text": "The team discussed specific design features including a flip-top mechanism, kinetic charging, and a combination of LCD and rubber buttons to minimize repetitive strain injury (RSI).",
+     "cites": [
+      529,
+      904,
+      952
+     ]
+    },
+    {
+     "text": "Decisions were reached on the internal components and general aesthetic direction, while voice recognition was tentatively included pending cost verification.",
+     "cites": [
+      1013,
+      1020,
+      1025
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Discussion",
+   "sentences": [
+    {
+     "text": "Participant A noted that the previous meeting's agenda was postponed due to a need for more information, and the group agreed to proceed with the industrial design presentation first.",
+     "cites": [
+      6,
+      7,
+      17,
+      18,
+      19
+     ]
+    },
+    {
+     "text": "Participant D presented a working design concept for a device that sends signals to change TV states, noting that most current remotes use infrared and are powered by bulky triple-A batteries.",
+     "cites": [
+      30,
+      31,
+      36,
+      38,
+      40,
+      44
+     ]
+    },
+    {
+     "text": "Participant B questioned whether the triple-A batteries were the source of the bulkiness, and Participant D confirmed that the size is due to the batteries required to fit them.",
+     "cites": [
+      32,
+      33,
+      35,
+      36,
+      38,
+      39
+     ]
+    },
+    {
+     "text": "Participant D proposed looking at smaller battery options or other power sources to reduce the size of the control, suggesting a design that is easy to carry and less likely to be lost.",
+     "cites": [
+      40,
+      44,
+      46,
+      49
+     ]
+    },
+    {
+     "text": "Participant B highlighted that market research found 75% of users dislike the look and feel of current remotes, with 80% willing to spend more for a fancy design.",
+     "cites": [
+      119,
+      120,
+      121
+     ]
+    },
+    {
+     "text": "Participant B reported findings that 50% of users only use 10% of the buttons on their remotes, leading to frustration with lost controls and repetitive strain injury (RSI).",
+     "cites": [
+      121,
+      122,
+      123,
+      124
+     ]
+    },
+    {
+     "text": "Participant B mentioned that younger age groups (35 and under) preferred LCD screens and speech recognition, while older age groups did not.",
+     "cites": [
+      123,
+      124
+     ]
+    },
+    {
+     "text": "Participant A clarified that the new project requirements exclude teletext and combined controls, limiting the device to TV and Video Plus functions.",
+     "cites": [
+      131,
+      134,
+      137,
+      141
+     ]
+    },
+    {
+     "text": "Participant D suggested that incorporating speech recognition might be too expensive and not very effective, while Participant B noted that a substantial number of older respondents were 'don't knows' regarding new technology.",
+     "cites": [
+      162,
+      165,
+      167,
+      172,
+      173
+     ]
+    },
+    {
+     "text": "Participant A proposed a beeping alarm on the TV itself as a cheaper alternative to a keychain whistle or speech recognition for locating the remote.",
+     "cites": [
+      182,
+      183,
+      186,
+      187
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decisions",
+   "sentences": [
+    {
+     "text": "The team decided to use a kinetic charging system with a small watch-type battery instead of standard triple-A batteries.",
+     "cites": [
+      905,
+      906,
+      932,
+      938,
+      939
+     ]
+    },
+    {
+     "text": "The design was finalized as a flip-top model with a plastic body and a rubberized cover.",
+     "cites": [
+      955,
+      960,
+      961,
+      966
+     ]
+    },
+    {
+     "text": "The interface was decided to feature an LCD screen on the top flip section and rubberized buttons on the bottom section.",
+     "cites": [
+      955,
+      956,
+      957,
+      966
+     ]
+    },
+    {
+     "text": "The aesthetic direction was set to use fruit and vegetable colors for the rubber cover, avoiding specific fruit or shell shapes to remain non-tacky.",
+     "cites": [
+      969,
+      970,
+      974,
+      976
+     ]
+    },
+    {
+     "text": "The team agreed to incorporate voice recognition software into the design, pending further cost verification.",
+     "cites": [
+      1020,
+      1025,
+      1029
+     ]
+    },
+    {
+     "text": "The company logo was decided to be incorporated into the design, potentially as an engraving or inset, without interfering with the overall look.",
+     "cites": [
+      1026,
+      1029,
+      1032,
+      1036,
+      1150,
+      1158
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Actions",
+   "sentences": [
+    {
+     "text": "Participant B will look at functional requirements from the marketing point of view and may email extra details if needed.",
+     "cites": [
+      124,
+      125,
+      126
+     ]
+    },
+    {
+     "text": "Participant A will email any remaining questions until the team is fully connected.",
+     "cites": [
+      503,
+      504
+     ]
+    },
+    {
+     "text": "Participant D will present the prototype and the look and feel design.",
+     "cites": [
+      1080,
+      1081,
+      1100
+     ]
+    },
+    {
+     "text": "The team will evaluate the prototype against the criteria (fancy look, technological innovation, ease of use, RSI minimization, location features) using a seven-point scale to determine consensus ratings.",
+     "cites": [
+      1174,
+      1175,
+      1176,
+      1184,
+      1186,
+      1187
+     ]
+    },
+    {
+     "text": "Financial feasibility will be checked for voice recognition and the beeper function to decide on final inclusion.",
+     "cites": [
+      1020,
+      1025,
+      1042,
+      1043
+     ]
+    }
+   ]
+  }
+ ]
+}

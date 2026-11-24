@@ -1,0 +1,74 @@
+{
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "partial",
+    "F05": "present",
+    "F06": "absent",
+    "F07": "partial",
+    "F08": "present",
+    "F09": "partial",
+    "F10": "partial",
+    "F11": "present",
+    "F12": "present",
+    "F13": "present",
+    "F14": "absent",
+    "F15": "partial",
+    "F16": "present",
+    "F17": "present",
+    "F18": "present",
+    "F19": "partial",
+    "F20": "partial",
+    "F21": "partial",
+    "F22": "present",
+    "F23": "present",
+    "F24": "absent",
+    "F25": "absent",
+    "F26": "absent",
+    "F27": "partial",
+    "F28": "present",
+    "F29": "present"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "violated",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Client Aisha Rahman disclosed that Gary Whitlock started as her manager in January 2025 (specifically the 12th of January).",
+      "why": "Gary started on 12 January 2026: Linda left at the end of 2025 and Gary came in that January (L0051, L0056-L0057)."
+    },
+    {
+      "sentence": "Client Aisha Rahman stated Gary held an informal conversation with her on 19 May (Tuesday) regarding her team leaving the dock",
+      "why": "The 19 May conversation was about Aisha herself leaving the dock; Gary said her team were seeing her leave and it looked bad (L0082)."
+    },
+    {
+      "sentence": "Client Aisha Rahman stated no one had actually told her she was late, though she acknowledged they might have said it",
+      "why": "She said nobody has said it and she was only anticipating they might raise it in future (L0088); she did not acknowledge they might have said it."
+    },
+    {
+      "sentence": "Client stated the interview role pays approximately £27.",
+      "why": "She said it pays 'like twenty-seven', i.e. about £27,000 a year (L0218)."
+    },
+    {
+      "sentence": "Client disclosed she has not been sleeping and her diabetes levels have been rising since her diabetes nurse told her.",
+      "why": "Her levels have been all over the place since the dismissal, and her nurse said her average has gone up (L0228). The note gets the cause and effect backwards."
+    }
+  ],
+  "notes": "Thorough chronology from employment through appeal, objectives, funding and next steps. Has the same early errors as the shorter twin (lost consciousness, Gary 2025, 'team leaving the dock'). Leaves out the 13 Nov / 16 Oct ACAS dates (truncated) and the legal merits advice."
+}

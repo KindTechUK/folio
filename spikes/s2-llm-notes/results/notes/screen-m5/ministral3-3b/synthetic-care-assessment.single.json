@@ -1,0 +1,520 @@
+{
+ "sections": [
+  {
+   "title": "Background and presenting situation",
+   "sentences": [
+    {
+     "text": "The assessment is being conducted with Margaret Doyle, who was referred by the hospital after a fall on March 3rd.",
+     "cites": [
+      1,
+      23,
+      24
+     ]
+    },
+    {
+     "text": "The fall resulted in a fractured left wrist, which required hospitalisation for four days on orthopaedic ward.",
+     "cites": [
+      52,
+      80,
+      81,
+      83,
+      84
+     ]
+    },
+    {
+     "text": "The assessment aims to understand how Margaret is managing daily life, identify difficulties, and explore what matters most to her, under the Care Act.",
+     "cites": [
+      25,
+      26,
+      27,
+      28
+     ]
+    },
+    {
+     "text": "The assessment is not about placing Margaret in a care home; it is about supporting her to remain in her own home.",
+     "cites": [
+      29,
+      30,
+      31
+     ]
+    },
+    {
+     "text": "The visit was initially expected to take about an hour, but was extended due to Margaret\u2019s willingness to share more about her situation.",
+     "cites": [
+      33,
+      34,
+      510
+     ]
+    },
+    {
+     "text": "Kevin Doyle, Margaret\u2019s son, was present during parts of the assessment and provided additional perspectives on her needs and concerns.",
+     "cites": [
+      46,
+      47,
+      315,
+      321,
+      322,
+      323
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Needs and daily living",
+   "sentences": [
+    {
+     "text": "Margaret has difficulty with mobility due to her fractured wrist and reliance on a walking frame.",
+     "cites": [
+      97,
+      98,
+      103,
+      104,
+      109,
+      110
+     ]
+    },
+    {
+     "text": "She uses the frame indoors but sometimes holds onto furniture as a temporary measure, which is unsafe.",
+     "cites": [
+      98,
+      100,
+      101
+     ]
+    },
+    {
+     "text": "She has only walked a short distance since returning home, fearing another fall, and previously walked to the shops (about 10 minutes) before the fall.",
+     "cites": [
+      107,
+      108,
+      110
+     ]
+    },
+    {
+     "text": "Margaret struggles with stairs, using a rail on one side while going up and down, and sometimes sits on the floor to avoid using the rail.",
+     "cites": [
+      140,
+      141,
+      143,
+      144
+     ]
+    },
+    {
+     "text": "She has a second rail on the stairs but lacks a second frame for upstairs.",
+     "cites": [
+      146,
+      147,
+      149,
+      150
+     ]
+    },
+    {
+     "text": "She avoids baths due to difficulty getting out of the tub after a fall, preferring a strip wash at the sink.",
+     "cites": [
+      181,
+      184,
+      185,
+      186,
+      187,
+      188
+     ]
+    },
+    {
+     "text": "She misses having a proper bath and washing her hair, which she used to do regularly.",
+     "cites": [
+      190,
+      193,
+      194,
+      195,
+      196
+     ]
+    },
+    {
+     "text": "Dressing takes up to an hour, with difficulty managing buttons, hooks, and tights, often wearing the same cardigan and elasticated trousers.",
+     "cites": [
+      201,
+      202,
+      204,
+      205,
+      206,
+      207
+     ]
+    },
+    {
+     "text": "She occasionally stays in her nightclothes, admitting it happens on some days.",
+     "cites": [
+      212,
+      213
+     ]
+    },
+    {
+     "text": "She uses pads for continence at night, having missed some bladder accidents due to rushing to the toilet.",
+     "cites": [
+      221,
+      222,
+      223
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Person's views and wishes",
+   "sentences": [
+    {
+     "text": "Margaret values her independence and wants to remain in her own home for as long as possible.",
+     "cites": [
+      344,
+      345,
+      346,
+      347,
+      348
+     ]
+    },
+    {
+     "text": "She is deeply attached to her garden, especially Frank\u2019s roses, and fears losing them if she moves.",
+     "cites": [
+      348,
+      356,
+      357
+     ]
+    },
+    {
+     "text": "She misses her social life, particularly the lunch club at St Michael\u2019s, where she used to meet Joan and Pat.",
+     "cites": [
+      393,
+      394,
+      400,
+      401,
+      402
+     ]
+    },
+    {
+     "text": "She wants to regain confidence in her ability to cook and prepare meals, though she currently avoids the kitchen due to fear of another fall.",
+     "cites": [
+      251,
+      252,
+      258,
+      259,
+      299
+     ]
+    },
+    {
+     "text": "She expressed a desire to have a bath again and wash her hair properly, which she previously enjoyed as a nightly routine.",
+     "cites": [
+      190,
+      193,
+      194,
+      195,
+      196
+     ]
+    },
+    {
+     "text": "Margaret\u2019s son, Kevin, has expressed concerns about her safety and suggested she might benefit from a sheltered flat or a bungalow.",
+     "cites": [
+      337,
+      338,
+      339
+     ]
+    },
+    {
+     "text": "Kevin also mentioned that Brenda next door has been a helpful neighbour, especially in emergencies.",
+     "cites": [
+      379,
+      380,
+      381,
+      382
+     ]
+    },
+    {
+     "text": "Kevin has been helping with shopping and household tasks but admits he does more than he should.",
+     "cites": [
+      369,
+      370
+     ]
+    },
+    {
+     "text": "Margaret\u2019s daughter, Susan, visits regularly and is worried about her mother\u2019s well-being, especially after Frank\u2019s death.",
+     "cites": [
+      372,
+      373,
+      374,
+      375,
+      376
+     ]
+    },
+    {
+     "text": "Margaret has a strong desire to avoid being a burden on others and prefers to manage her own affairs.",
+     "cites": [
+      464,
+      465,
+      481
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Risks and safeguarding",
+   "sentences": [
+    {
+     "text": "Margaret has had three falls in the last six months, including a recent fall that resulted in a fractured wrist.",
+     "cites": [
+      112,
+      113,
+      116,
+      117
+     ]
+    },
+    {
+     "text": "She has not been referred to a falls clinic or received a falls assessment from her GP.",
+     "cites": [
+      123,
+      124,
+      125,
+      126,
+      130,
+      131
+     ]
+    },
+    {
+     "text": "She has not used a fall detection alarm or emergency pendant, despite Kevin mentioning it.",
+     "cites": [
+      165,
+      166,
+      170,
+      171,
+      172
+     ]
+    },
+    {
+     "text": "Margaret has admitted she is worried about falling again and fears losing independence.",
+     "cites": [
+      110,
+      111
+     ]
+    },
+    {
+     "text": "There is a risk of further falls and injuries due to unsafe mobility, lack of assistive equipment, and unsafe home environment (e.g., rugs, stairs).",
+     "cites": [
+      153,
+      154,
+      158,
+      160,
+      161,
+      164
+     ]
+    },
+    {
+     "text": "Margaret has disclosed that her grandson, Jordan, has been borrowing her bank card without her permission, leading to unauthorized withdrawals of approximately \u00a3600 over two months.",
+     "cites": [
+      466,
+      467,
+      473,
+      474,
+      475,
+      480
+     ]
+    },
+    {
+     "text": "Kevin has heard rumors that Jordan may be involved in gambling and has taken his card to prevent further unauthorized transactions.",
+     "cites": [
+      531,
+      532,
+      533
+     ]
+    },
+    {
+     "text": "Margaret has denied any thoughts of self-harm or suicide, but has mentioned feeling low after Frank\u2019s death and taking antidepressants.",
+     "cites": [
+      441,
+      442,
+      443,
+      423,
+      424,
+      426
+     ]
+    },
+    {
+     "text": "Margaret has not been taking her blood pressure medication consistently, missing two doses in the last week.",
+     "cites": [
+      290,
+      291,
+      293,
+      294
+     ]
+    },
+    {
+     "text": "The safeguarding team will be contacted to address the unauthorized withdrawals and ensure Margaret\u2019s safety.",
+     "cites": [
+      543,
+      544,
+      545,
+      546,
+      547,
+      548
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Support network and finances",
+   "sentences": [
+    {
+     "text": "Margaret\u2019s support network includes Kevin, who helps with shopping and household tasks, Brenda next door, and her daughter Susan.",
+     "cites": [
+      365,
+      366,
+      367,
+      372,
+      373,
+      374
+     ]
+    },
+    {
+     "text": "Brenda is a frequent neighbour who checks on Margaret daily and has been a lifeline during emergencies.",
+     "cites": [
+      379,
+      380,
+      381,
+      382
+     ]
+    },
+    {
+     "text": "Margaret misses her social life, particularly the lunch club at St Michael\u2019s, where she used to meet friends regularly.",
+     "cites": [
+      393,
+      394,
+      400,
+      401,
+      402
+     ]
+    },
+    {
+     "text": "Margaret\u2019s financial situation includes her state pension, Frank\u2019s widow\u2019s pension, and savings of approximately \u00a39,000 in the building society.",
+     "cites": [
+      570,
+      571,
+      573,
+      574
+     ]
+    },
+    {
+     "text": "She has not been receiving Attendance Allowance, despite meeting criteria for it.",
+     "cites": [
+      575,
+      576,
+      577,
+      578,
+      579
+     ]
+    },
+    {
+     "text": "Margaret\u2019s grandson, Jordan, has been borrowing her bank card for unauthorized transactions, leading to financial concerns.",
+     "cites": [
+      466,
+      467,
+      473,
+      474,
+      475,
+      480
+     ]
+    },
+    {
+     "text": "Kevin has agreed to cancel Margaret\u2019s bank card and order a new one to prevent further unauthorized transactions.",
+     "cites": [
+      555,
+      556,
+      557,
+      558,
+      559
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Agreed actions",
+   "sentences": [
+    {
+     "text": "Margaret will be referred to occupational therapy for a bath lift or board, a second rail on the stairs, and a second frame for upstairs.",
+     "cites": [
+      626,
+      627,
+      628
+     ]
+    },
+    {
+     "text": "A safeguarding adults referral will be made regarding unauthorized bank card withdrawals, with Margaret\u2019s wishes prioritized.",
+     "cites": [
+      629,
+      630,
+      543,
+      544,
+      545,
+      546
+     ]
+    },
+    {
+     "text": "Margaret will be referred for a fall detection alarm (Careline watch) to be fitted within ten days.",
+     "cites": [
+      632,
+      633,
+      634
+     ]
+    },
+    {
+     "text": "Margaret will be contacted by Dr Shah regarding a falls clinic referral, weight loss, continence service, and easier-to-open medication packs.",
+     "cites": [
+      635,
+      636,
+      637
+     ]
+    },
+    {
+     "text": "Kevin will take Margaret to the Midshire building society on Friday morning to cancel her bank card and order a new one.",
+     "cites": [
+      643,
+      644,
+      645,
+      646
+     ]
+    },
+    {
+     "text": "Kevin will help Margaret fill out the Attendance Allowance form and financial assessment form.",
+     "cites": [
+      645,
+      646
+     ]
+    },
+    {
+     "text": "Kevin will remove the rug in the hall this weekend.",
+     "cites": [
+      647,
+      648
+     ]
+    },
+    {
+     "text": "Margaret will set her alarm clock for her morning medication.",
+     "cites": [
+      651,
+      652
+     ]
+    },
+    {
+     "text": "A request for reablement support (short-term, daily visits for washing, dressing, meals, and medication) will be made, with a decision expected by the end of next week.",
+     "cites": [
+      613,
+      614,
+      615,
+      618,
+      619
+     ]
+    },
+    {
+     "text": "Margaret will be contacted on Monday to check on the bank card cancellation and to discuss next steps.",
+     "cites": [
+      653,
+      654
+     ]
+    }
+   ]
+  }
+ ]
+}

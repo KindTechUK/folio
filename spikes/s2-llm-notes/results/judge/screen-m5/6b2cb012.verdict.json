@@ -1,0 +1,68 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "partial",
+    "F03": "present",
+    "F04": "present",
+    "F05": "absent",
+    "F06": "absent",
+    "F07": "partial",
+    "F08": "present",
+    "F09": "partial",
+    "F10": "partial",
+    "F11": "present",
+    "F12": "partial",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "absent",
+    "F17": "partial",
+    "F18": "present",
+    "F19": "present",
+    "F20": "partial",
+    "F21": "present",
+    "F22": "present",
+    "F23": "present",
+    "F24": "partial",
+    "F25": "partial",
+    "F26": "partial",
+    "F27": "partial",
+    "F28": "present",
+    "F29": "partial",
+    "F30": "partial",
+    "F31": "partial",
+    "F32": "partial",
+    "F33": "partial",
+    "F34": "partial",
+    "F35": "absent"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "She does not own the house, she rents it.",
+      "why": "She says 'We own it. Paid it off years ago.' (L0572). This also contradicts the note's own earlier bullet."
+    },
+    {
+      "sentence": "She would prefer to be cared for at Beechwood if she ever needed to move, as she had positive experiences there.",
+      "why": "The good experience was Brenda's sister's, who was a resident there (L0351), not Margaret's."
+    }
+  ],
+  "notes": "Good structured coverage of falls, personal care, diet, Jordan (hearsay hedged) and most actions. It leaves out medication details, stairs, the GP and the review visit, and one bullet flatly reverses home ownership."
+}

@@ -1,0 +1,427 @@
+{
+ "sections": [
+  {
+   "title": "Summary",
+   "sentences": [
+    {
+     "text": "Sarah is the project manager.",
+     "cites": [
+      20
+     ]
+    },
+    {
+     "text": "The meeting is the first meeting of the project team.",
+     "cites": [
+      20
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Discussion",
+   "sentences": [
+    {
+     "text": "The agenda includes getting to know each other, tool training, project plan discussion, and sharing individual ideas.",
+     "cites": [
+      20
+     ]
+    },
+    {
+     "text": "The team is developing a remote control that is original, not currently available in stores, and appealing to a wide market including grannies, kids, and possibly pooches.",
+     "cites": [
+      21
+     ]
+    },
+    {
+     "text": "The product development process includes functional design, conceptual design, and detailed design.",
+     "cites": [
+      21
+     ]
+    },
+    {
+     "text": "B describes the functional design phase as where the team identifies what needs to be fulfilled by the product and how it will achieve those needs.",
+     "cites": [
+      21
+     ]
+    },
+    {
+     "text": "B proposes a group activity using pens to draw a favorite animal on the whiteboard, with B starting first and summarizing the animal's characteristics.",
+     "cites": [
+      23
+     ]
+    },
+    {
+     "text": "B identifies the tiger as the first animal drawn, describing it as majestic, independent, and proud.",
+     "cites": [
+      28,
+      30,
+      31,
+      33,
+      34
+     ]
+    },
+    {
+     "text": "A draws a cat, which is described as sitting rather than standing, and lists three features: supportive, loyal, and having intuition (e.g., detecting a thief).",
+     "cites": [
+      39,
+      40,
+      41,
+      42,
+      43
+     ]
+    },
+    {
+     "text": "C guesses A's drawing is of a dog, and A confirms this.",
+     "cites": [
+      45,
+      46
+     ]
+    },
+    {
+     "text": "D draws an animal that starts as a T. rex, then becomes a pelican, and later changes to a crocodile, describing it as scary and strong.",
+     "cites": [
+      61,
+      62,
+      64,
+      69,
+      70
+     ]
+    },
+    {
+     "text": "C describes their drawing as a big cat, but it does not look like what they intended, and they note it has a body behind it and is meant to be an eagle, which could also be a seagu",
+     "cites": [
+      92,
+      94,
+      100,
+      103,
+      104
+     ]
+    },
+    {
+     "text": "C describes eagles as independent, free-spirited, and intrepid, noting they are birds of prey.",
+     "cites": [
+      107,
+      110,
+      111,
+      112,
+      113
+     ]
+    },
+    {
+     "text": "D states their drawing skills are not great and that they are changing their original idea due to the drawing looking like a beak.",
+     "cites": [
+      64,
+      68,
+      69
+     ]
+    },
+    {
+     "text": "C says their artistic skills are dreadful and that their drawing is the worst yet.",
+     "cites": [
+      82
+     ]
+    },
+    {
+     "text": "C reports that their drawing is coming apart and attempts to reattach it, saying they hope it will stay on in a two-handed version.",
+     "cites": [
+      84,
+      85,
+      86,
+      87,
+      88
+     ]
+    },
+    {
+     "text": "The team discusses the selling price of the remote control as 25 euros.",
+     "cites": [
+      120
+     ]
+    },
+    {
+     "text": "D suggests that 25 euros is approximately 17 pounds, and A suggests 1.4 euros per pound.",
+     "cites": [
+      121,
+      122,
+      123,
+      124
+     ]
+    },
+    {
+     "text": "B states that 25 euros is equivalent to about 15 pounds, and C states it is 17 pounds.",
+     "cites": [
+      126,
+      127
+     ]
+    },
+    {
+     "text": "B expresses concern that the price is expensive, saying 'it's expensive'.",
+     "cites": [
+      128
+     ]
+    },
+    {
+     "text": "C suggests that notes on the price should be made and saved for future reference.",
+     "cites": [
+      129
+     ]
+    },
+    {
+     "text": "B suggests that the price information can be saved in a shared folder or pulled up later.",
+     "cites": [
+      131
+     ]
+    },
+    {
+     "text": "C agrees to the idea of saving notes on the price for later reference.",
+     "cites": [
+      132
+     ]
+    },
+    {
+     "text": "D notes that current market remote controls are priced around 20 pounds, so the proposed price would still be competitive.",
+     "cites": [
+      134
+     ]
+    },
+    {
+     "text": "The team is discussing the product's design and functionality, with participants contributing personal interpretations of animals and their traits.",
+     "cites": [
+      23,
+      24,
+      25,
+      26,
+      27
+     ]
+    },
+    {
+     "text": "The team is not allowed to dim the lights so people can see better.",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "text": "B asks if they are supposed to be standing up during the meeting.",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "text": "C states that both items (likely referring to the drawings or tools) are clipped on.",
+     "cites": [
+      6
+     ]
+    },
+    {
+     "text": "C expresses concern that a drawing might fall off, saying 'God', 'Jesus it's gonna fall off'.",
+     "cites": [
+      13,
+      14
+     ]
+    },
+    {
+     "text": "C says they are not sure if the drawing will stay on and will need to hold it in place.",
+     "cites": [
+      84,
+      85,
+      86,
+      87
+     ]
+    },
+    {
+     "text": "Participant C suggests that the product should be accessible and usable by all age groups, not focusing on the business market.",
+     "cites": [
+      154,
+      155,
+      156,
+      157,
+      158
+     ]
+    },
+    {
+     "text": "Participant B states that the product must be usable by all age groups, including older users like grandads and grannies, and that the design should avoid complexity.",
+     "cites": [
+      211,
+      212,
+      213,
+      214,
+      215
+     ]
+    },
+    {
+     "text": "Participant B expresses concern that older users, such as grandads, may not be able to program remote controls or use advanced features, and that this is a significant issue.",
+     "cites": [
+      213,
+      215,
+      216,
+      217,
+      218
+     ]
+    },
+    {
+     "text": "Participant B states that older users may not understand complex interfaces, such as those with many tiny buttons or unfamiliar symbols, and that the design should be intuitive.",
+     "cites": [
+      187,
+      188,
+      189,
+      190,
+      191
+     ]
+    },
+    {
+     "text": "Participant B suggests that the remote control should have a simple interface with main functions on the front and a section that opens to reveal additional functions, such as for\u97f3",
+     "cites": [
+      193,
+      194,
+      195,
+      196,
+      197
+     ]
+    },
+    {
+     "text": "Participant C suggests that a menu-based display, such as on a mobile phone, could be incorporated into the remote control design, including an LCD screen.",
+     "cites": [
+      202,
+      203,
+      204,
+      205,
+      206
+     ]
+    },
+    {
+     "text": "Participant A suggests that a menu-based remote control with an LCD display, similar to mobile phones, may help users navigate more easily.",
+     "cites": [
+      207,
+      208,
+      209,
+      210
+     ]
+    },
+    {
+     "text": "Participant B expresses that current remote controls, such as universal remotes, often lose signal and require reprogramming, and that one such remote was considered a 'cheapie' in",
+     "cites": [
+      165,
+      166,
+      167,
+      168,
+      169
+     ]
+    },
+    {
+     "text": "Participant B states that the remote control should not have a large number of tiny buttons with small text, as users may struggle to find specific functions like 'teletext'.",
+     "cites": [
+      187,
+      188,
+      189,
+      190,
+      191
+     ]
+    },
+    {
+     "text": "Participant D suggests that older users, such as their own grandad, are better at using teletext than the speaker, indicating some older users may have functional digital literacy.",
+     "cites": [
+      218,
+      219
+     ]
+    },
+    {
+     "text": "Participant B states that current smartphones with 'windows-based' operating systems are confusing and difficult to navigate, and that they personally got lost trying to use one.",
+     "cites": [
+      227,
+      228,
+      229,
+      230,
+      231
+     ]
+    },
+    {
+     "text": "Participant D suggests that due to cost constraints, the LCD screen on the remote control would likely need to be limited to a black and white display, as a 20 euro or 12.50 euro (",
+     "cites": [
+      233,
+      234,
+      235,
+      236,
+      237
+     ]
+    },
+    {
+     "text": "Participant C suggests that for older users, an extra button for 'large print' functionality, similar to large print books, could be considered.",
+     "cites": [
+      238
+     ]
+    },
+    {
+     "text": "Participant B states that the product must be accessible internationally, targeting markets such as Australia and America, and that language barriers are not a primary concern.",
+     "cites": [
+      161,
+      162,
+      163,
+      164
+     ]
+    },
+    {
+     "text": "Participant B states that the profit aim is fifty million euros in the first year.",
+     "cites": [
+      148,
+      149,
+      150
+     ]
+    },
+    {
+     "text": "Participant B states that production cost is twelve fifty euros per unit.",
+     "cites": [
+      141,
+      142
+     ]
+    },
+    {
+     "text": "Participant A states that the product's margin is 'pretty huge' given the production cost of 12.50 euros and the profit target of 50 million euros.",
+     "cites": [
+      143,
+      144
+     ]
+    },
+    {
+     "text": "Participant B states that half of the selling price is taken up by production cost, implying the production cost is half of the selling price.",
+     "cites": [
+      144
+     ]
+    },
+    {
+     "text": "Participant C states that their experience with remote controls has been limited to basic functions such as on/off, volume, channel change, and channel 1\u20132, and that they cannot go",
+     "cites": [
+      181,
+      182,
+      183,
+      184,
+      185
+     ]
+    },
+    {
+     "text": "Participant B states that the product should not be perceived as a 'cheapie' option, and that pricing decisions could affect product perception.",
+     "cites": [
+      139,
+      140
+     ]
+    },
+    {
+     "text": "Participant C raises a question about what the design team thinks regarding the integration of menu-based navigation into the remote control design.",
+     "cites": [
+      202,
+      203,
+      204,
+      205,
+      206
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decisions",
+   "sentences": []
+  },
+  {
+   "title": "Actions",
+   "sentences": []
+  }
+ ]
+}

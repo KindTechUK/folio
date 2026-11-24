@@ -1,0 +1,80 @@
+{
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "partial",
+    "F05": "present",
+    "F06": "present",
+    "F07": "partial",
+    "F08": "partial",
+    "F09": "partial",
+    "F10": "present",
+    "F11": "present",
+    "F12": "present",
+    "F13": "present",
+    "F14": "present",
+    "F15": "present",
+    "F16": "present",
+    "F17": "present",
+    "F18": "present",
+    "F19": "present",
+    "F20": "present",
+    "F21": "present",
+    "F22": "present",
+    "F23": "partial",
+    "F24": "partial",
+    "F25": "partial",
+    "F26": "present",
+    "F27": "partial",
+    "F28": "absent",
+    "F29": "present",
+    "F30": "partial",
+    "F31": "partial",
+    "F32": "partial",
+    "F33": "absent",
+    "F34": "absent",
+    "F35": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Frank (Margaret's husband) continues to smoke.",
+      "why": "Frank died two years ago (L0415); 'Frank carried on' (L0456) means he kept smoking back then."
+    },
+    {
+      "sentence": "Margaret experienced a significant decline in mood after Frank's death in August of the previous year.",
+      "why": "Frank died 'two years in August' (L0415), not August of last year."
+    },
+    {
+      "sentence": "Kevin said Brenda once thought she saw the Pope in the Co-op.",
+      "why": "Margaret said this, not Kevin (L0528)."
+    },
+    {
+      "sentence": "Kevin Doyle was on the phone with Margaret every day during her fall.",
+      "why": "Kevin says Susan was on the phone to him every day after the fall (L0376)."
+    },
+    {
+      "sentence": "The date of the next meeting is the 15th (of the month, not specified).",
+      "why": "The month was given: Tuesday 15 April at about two o'clock (L0656-L0657)."
+    }
+  ],
+  "notes": "Very thorough, accurate fact-by-fact coverage of history, needs, meds, family and Jordan, with hearsay handled correctly. But the closing action plan is mostly missing (Midshire visit, letter to Dr Shah and chemist, rug and alarm, telecare referral, Monday call) and there is no sertraline or self-harm content. A few speaker or date slips."
+}

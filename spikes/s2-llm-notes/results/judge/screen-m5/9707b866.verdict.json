@@ -1,0 +1,96 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "partial",
+    "F03": "partial",
+    "F04": "partial",
+    "F05": "absent",
+    "F06": "partial",
+    "F07": "present",
+    "F08": "partial",
+    "F09": "present",
+    "F10": "partial",
+    "F11": "partial",
+    "F12": "absent",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "absent",
+    "F17": "partial",
+    "F18": "present",
+    "F19": "partial",
+    "F20": "partial",
+    "F21": "absent",
+    "F22": "partial",
+    "F23": "partial",
+    "F24": "absent",
+    "F25": "partial",
+    "F26": "partial",
+    "F27": "partial",
+    "F28": "present",
+    "F29": "partial",
+    "F30": "partial",
+    "F31": "partial",
+    "F32": "partial",
+    "F33": "absent",
+    "F34": "partial",
+    "F35": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "The visit was initially expected to take about an hour, but was extended due to Margaret’s willingness to share more about her situation.",
+      "why": "Nothing says the visit was extended or why; Priya said about an hour (L0033) and that they would be done well before four (L0035)."
+    },
+    {
+      "sentence": "She has a second rail on the stairs but lacks a second frame for upstairs.",
+      "why": "There is a rail on one side only (L0140); a second rail is something the OT may provide (L0149, L0627)."
+    },
+    {
+      "sentence": "Kevin also mentioned that Brenda next door has been a helpful neighbour, especially in emergencies.",
+      "why": "Margaret, not Kevin, described Brenda's visits and wall-knocking (L0379-L0383)."
+    },
+    {
+      "sentence": "Kevin has been helping with shopping and household tasks but admits he does more than he should.",
+      "why": "It was Margaret who said 'He does more than he should' (L0370); Kevin said 'I do what I can' (L0369)."
+    },
+    {
+      "sentence": "Margaret’s daughter, Susan, visits regularly and is worried about her mother’s well-being, especially after Frank’s death.",
+      "why": "Susan lives in Alicante, rings on Sunday nights and comes over in the summer (L0372-L0374); she was worried after the fall (L0375-L0377), not after Frank's death."
+    },
+    {
+      "sentence": "Margaret has disclosed that her grandson, Jordan, has been borrowing her bank card without her permission, leading to unauthorized withdrawals of approximately £600 over two months.",
+      "why": "She lent him the card and gave him the PIN (L0471-L0472); the issue is withdrawals beyond what she asked for (L0475), not borrowing without permission."
+    },
+    {
+      "sentence": "Kevin has heard rumors that Jordan may be involved in gambling and has taken his card to prevent further unauthorized transactions.",
+      "why": "Kevin has not taken the card; Jordan still has it (L0487), and Kevin will take Margaret to the building society to cancel it on Friday (L0559)."
+    },
+    {
+      "sentence": "She has not been receiving Attendance Allowance, despite meeting criteria for it.",
+      "why": "Priya only said she 'might well be entitled to it' (L0578); eligibility was not established."
+    },
+    {
+      "sentence": "Margaret will be contacted by Dr Shah regarding a falls clinic referral, weight loss, continence service, and easier-to-open medication packs.",
+      "why": "Priya will write to Dr Shah about these (L0635) and will ring the Station Road chemist about the pack (L0636); Dr Shah is not to contact Margaret."
+    }
+  ],
+  "notes": "Reasonable thematic summary with most actions listed, but thin on specifics (meds, GP, dates, weights), the Dr Shah and chemist actions are garbled, and there are several misattributions and invented details (Kevin has the card, an existing second rail)."
+}

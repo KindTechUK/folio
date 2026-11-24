@@ -1,0 +1,82 @@
+{
+  "facts": {
+    "F01": "partial",
+    "F02": "present",
+    "F03": "present",
+    "F04": "present",
+    "F05": "present",
+    "F06": "partial",
+    "F07": "partial",
+    "F08": "present",
+    "F09": "present",
+    "F10": "partial",
+    "F11": "partial",
+    "F12": "present",
+    "F13": "partial",
+    "F14": "absent",
+    "F15": "partial",
+    "F16": "partial",
+    "F17": "absent",
+    "F18": "partial",
+    "F19": "partial",
+    "F20": "partial",
+    "F21": "absent",
+    "F22": "present",
+    "F23": "partial",
+    "F24": "present",
+    "F25": "present",
+    "F26": "present",
+    "F27": "absent",
+    "F28": "present",
+    "F29": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "She held the team leader position for eight and a half years until her dismissal on 14 August 2026.",
+      "why": "Eight and a half years is her total service from March 2018 (L015); she was team leader only from June 2021 (L016)."
+    },
+    {
+      "sentence": "The client was not given a warning, letter, or formal notice, and no written record of this meeting exists.",
+      "why": "She said there was no letter and nothing on her file 'that I know of' (L084-L086); the transcript does not establish that no written record exists."
+    },
+    {
+      "sentence": "On 1 July 2026, the client experienced two low glucose episodes and stepped off the dock twice, each time telling Tomasz to cover.",
+      "why": "She had one low mid-morning on each of 1 July and 3 July and stepped off once each day (L090)."
+    },
+    {
+      "sentence": "No accident form or first aid log was provided by Gary, though Marcus filled in the first aid log.",
+      "why": "She said she does not know whether Gary did anything, she just doubts it (L108); it is not established that Gary did nothing."
+    },
+    {
+      "sentence": "Tomasz is to be approached only if the client feels comfortable doing so, and Linda Chu is to be contacted to see if she would be willing to speak at a later date.",
+      "why": "The solicitor said 'Don't approach Tomasz for now' (L305) and she agreed to leave Tomasz (L306); there is no 'if comfortable' option."
+    },
+    {
+      "sentence": "The trainee Sophie Grant will draft a subject access request to Northgate by Monday 29 September 2026, which will be sent to both the HR inbox and the company's registered office.",
+      "why": "Monday is the 28th (L291); Tuesday is the 29th (L304). Sophie drafts by Monday and it goes out on Tuesday (L297)."
+    },
+    {
+      "sentence": "The solicitor advised that a reference could be negotiated as part of a settlement through ACAS, and that this would be the most important outcome for the client.",
+      "why": "The solicitor said an agreed reference can often be negotiated (L284); it was Aisha, not the solicitor, who said that would be the main thing (L285)."
+    }
+  ],
+  "notes": "Fairly full note with good advice and action coverage, but several factual slips (two lows on 1 July, Tomasz approach, DSAR date) and omits notice pay, caveats, job search and the invitation letter."
+}

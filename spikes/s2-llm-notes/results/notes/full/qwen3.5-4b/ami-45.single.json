@@ -1,0 +1,148 @@
+{
+ "sections": [
+  {
+   "title": "Summary",
+   "sentences": [
+    {
+     "text": "The meeting discussed the architecture of the GUI for speaker characterization, data storage formats, and the design of a start-up screen.",
+     "cites": [
+      23,
+      45,
+      325
+     ]
+    },
+    {
+     "text": "Participants agreed on using object files for pre-processed data and decided to implement a start-up screen with search and browse options.",
+     "cites": [
+      140,
+      338,
+      741
+     ]
+    },
+    {
+     "text": "The group also scheduled a follow-up meeting for Friday at 3:00 PM to discuss further implementation details.",
+     "cites": [
+      949
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Discussion",
+   "sentences": [
+    {
+     "text": "Participant A explained that the data processing for speaker characterization is currently fine but they do not want to build the GUI for it.",
+     "cites": [
+      36
+     ]
+    },
+    {
+     "text": "Participant C suggested that the data should be stored as object files rather than raw text, noting that the current hash tables contain speaker names and percentages.",
+     "cites": [
+      58,
+      78,
+      98
+     ]
+    },
+    {
+     "text": "Participant B proposed that the data structures should be modular, allowing different components to plug into a common architecture.",
+     "cites": [
+      69
+     ]
+    },
+    {
+     "text": "Participant A described the current data model where separate classes represent speakers and meetings, containing all necessary information within each object.",
+     "cites": [
+      45,
+      47
+     ]
+    },
+    {
+     "text": "Participant C asked if the data had already been calculated and stored, to which Participant A confirmed it is pre-processed and stored as object files.",
+     "cites": [
+      53,
+      55,
+      140
+     ]
+    },
+    {
+     "text": "Participant C inquired about the method for populating the topic box, and Participant A explained it is currently populated by the speaker present.",
+     "cites": [
+      109,
+      110
+     ]
+    },
+    {
+     "text": "Participant C discussed the need for a start-up screen, asking whether it should include general information about the project or specific meeting details.",
+     "cites": [
+      325,
+      327
+     ]
+    },
+    {
+     "text": "Participant B suggested that the start-up screen could guide users to common tasks, such as searching or browsing specific meetings or speakers.",
+     "cites": [
+      716,
+      718
+     ]
+    },
+    {
+     "text": "Participant B raised the issue of whether the search results should be ranked based on Term Frequency Inverse Document Frequency (TF-IDF) scores.",
+     "cites": [
+      539,
+      540,
+      542
+     ]
+    },
+    {
+     "text": "Participant C argued that ranking would be useful to distinguish between meetings where a term is frequently used versus those where it is only mentioned briefly.",
+     "cites": [
+      586,
+      588
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decisions",
+   "sentences": [
+    {
+     "text": "No formal decisions were reached regarding the ranking of search results or the specific layout of the start-up screen.",
+     "cites": [
+      975,
+      977
+     ]
+    },
+    {
+     "text": "The group agreed to schedule a follow-up meeting for Friday at 3:00 PM.",
+     "cites": [
+      949
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Actions",
+   "sentences": [
+    {
+     "text": "Participant C will write up the meeting minutes and send them to Participant B (Pernilla).",
+     "cites": [
+      953
+     ]
+    },
+    {
+     "text": "Participant B will create a modified copy of the file with the necessary changes for loading the search functionality.",
+     "cites": [
+      271
+     ]
+    },
+    {
+     "text": "Participant A will continue working on the data processing and object loading methods.",
+     "cites": [
+      233
+     ]
+    }
+   ]
+  }
+ ]
+}

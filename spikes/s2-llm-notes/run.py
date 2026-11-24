@@ -43,7 +43,10 @@ MODELS = {
 
 
 def find_transcript(name):
-    for p in [C.DATA / f"{name}.json", C.DATA / "ami" / f"{name}.json"]:
+    # Accepts the file stem (synthetic_care_assessment) or the transcript id used in note
+    # filenames (synthetic-care-assessment).
+    names = {name, name.replace("-", "_")}
+    for p in [C.DATA / f"{n}.json" for n in names] + [C.DATA / "ami" / f"{n}.json" for n in names]:
         if p.exists():
             return p
     raise SystemExit(f"unknown transcript {name}")

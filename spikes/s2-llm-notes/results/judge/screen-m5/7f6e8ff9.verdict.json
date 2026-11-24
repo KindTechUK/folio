@@ -1,0 +1,128 @@
+{
+  "facts": {
+    "F01": "present",
+    "F02": "partial",
+    "F03": "partial",
+    "F04": "partial",
+    "F05": "present",
+    "F06": "present",
+    "F07": "partial",
+    "F08": "partial",
+    "F09": "partial",
+    "F10": "present",
+    "F11": "present",
+    "F12": "present",
+    "F13": "present",
+    "F14": "present",
+    "F15": "partial",
+    "F16": "partial",
+    "F17": "present",
+    "F18": "present",
+    "F19": "present",
+    "F20": "present",
+    "F21": "present",
+    "F22": "partial",
+    "F23": "partial",
+    "F24": "partial",
+    "F25": "present",
+    "F26": "partial",
+    "F27": "partial",
+    "F28": "present",
+    "F29": "present",
+    "F30": "partial",
+    "F31": "partial",
+    "F32": "present",
+    "F33": "absent",
+    "F34": "absent",
+    "F35": "absent"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "violated",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "violated",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Margaret Doyle (S2) referred to the person as 'her' (likely the person being assessed), possibly indicating a care recipient.",
+      "why": "L0675 is 'Biscuit, get off her notes', referring to Priya's notes; nothing about a separate care recipient."
+    },
+    {
+      "sentence": "Margaret Doyle (S2) thanked Priya Nair (S1) for the tea and for being 'honest' with her today.",
+      "why": "Reversed: Priya thanks Margaret for the tea and for being honest (L0676)."
+    },
+    {
+      "sentence": "She had bruising on her right side (left side of her body) after the fall.",
+      "why": "She only says 'black and blue down this side' (L0089); no side is specified, and the parenthetical is self-contradictory."
+    },
+    {
+      "sentence": "Margaret Doyle’s wrist was in a splint after the cast came off on **Tuesday 17th March** (last Tuesday).",
+      "why": "Transcript says only 'last Tuesday' (L0091); no date is given."
+    },
+    {
+      "sentence": "Margaret Doyle has not used a bath lift or assistive device since January.",
+      "why": "She has never had a bath lift; it is equipment the OT might provide (L0198-L0199). The sentence implies prior use."
+    },
+    {
+      "sentence": "Margaret Doyle lost nearly a stone (6.35 oz or ~180g) since Christmas, weighing roughly 8 stone (504 lbs or ~229 kg) now (she previously weighed 9½ stone).",
+      "why": "The unit conversions are invented and wrong (a stone is about 6.35 kg; 8 stone is about 51 kg); transcript gives only stones (L0263, L0266)."
+    },
+    {
+      "sentence": "Margaret Doyle (S2) said she now attends the lunch club on Thursdays at 12:00.",
+      "why": "She has not been since the fall (L0392); the club is now on Thursdays at 12 but she does not currently attend."
+    },
+    {
+      "sentence": "Margaret Doyle does not want to discuss the removal of rugs with the social worker.",
+      "why": "She says she is thinking about it and is not promising (L0159, L0334); no refusal to discuss, and she later agrees to the hall rug going."
+    },
+    {
+      "sentence": "Margaret Doyle did not want to discuss financial matters further with Kevin Doyle.",
+      "why": "She agreed it could be discussed in front of Kevin and that she would tell him (L0489-L0490), which she then did."
+    },
+    {
+      "sentence": "Margaret Doyle said she loves Jordan but worries about his financial decisions, particularly his potential gambling.",
+      "why": "The gambling rumour came from Kevin (L0531); Margaret dismissed it as gossip (L0532)."
+    },
+    {
+      "sentence": "Margaret Doyle expressed concern that Jordan may have used the card for gambling via betting apps on his phone.",
+      "why": "Kevin relayed the betting-app rumour (L0531); Margaret did not express this concern."
+    },
+    {
+      "sentence": "Margaret Doyle denied knowing if Jordan had access to her PIN, but she gave it to him when she was out of hospital.",
+      "why": "She never denied knowing; she said plainly she gave him the PIN (L0472, L0525)."
+    },
+    {
+      "sentence": "Margaret is not currently in contact with a family member (Brenda) to help with personal care tasks.",
+      "why": "Brenda is a neighbour, not family, and she washed Margaret's hair last week (L0194)."
+    },
+    {
+      "sentence": "Margaret Doyle’s daughter, Brenda, provides milk and bread.",
+      "why": "Brenda is the neighbour; her daughter is Susan (L0270, L0372)."
+    },
+    {
+      "sentence": "Margaret Doyle (S2) said she has two teenagers and a working wife, limiting her son’s ability to help.",
+      "why": "Kevin said he has two teenagers and his wife works (L0369)."
+    },
+    {
+      "sentence": "Margaret Doyle’s grandson Jordan is described as 'lovely' by Margaret and 'young' by Kevin.",
+      "why": "Margaret said 'He's only young' (L0480); Kevin did not."
+    },
+    {
+      "sentence": "Margaret’s priorities include staying in her own home with her dog, Biscuit.",
+      "why": "Biscuit is her cat (L0009, L0593)."
+    }
+  ],
+  "notes": "Very long and detailed with good coverage of needs, meds, family and finances, but repeated speaker misattributions (Kevin's housing view and gambling rumour given to Margaret), an uncorrected Dr Patel reference, invented details, and most closing actions missing."
+}

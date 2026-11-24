@@ -1,0 +1,205 @@
+{
+ "sections": [
+  {
+   "title": "Summary",
+   "sentences": [
+    {
+     "text": "The meeting focused on finalizing design decisions for a new remote control, including a flip-top form factor with a touch screen on the top and rubberized buttons on the bottom, a kinetic charging system, and a spongy, customizable rubber exterior in fruit and vegetable-inspired colors.",
+     "cites": [
+      955,
+      956,
+      1074,
+      1075,
+      1104,
+      1113
+     ]
+    },
+    {
+     "text": "Participants agreed to incorporate a voice recognition feature to help users locate the remote, though acknowledged cost and feasibility concerns, and to include the company logo in a subtle, non-intrusive way.",
+     "cites": [
+      1017,
+      1020,
+      1022,
+      1027,
+      1121,
+      1158
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Discussion",
+   "sentences": [
+    {
+     "text": "Participant A proposed a flip-top design with a flip-open mechanism to reduce repetitive strain injury and improve usability, suggesting a curved or shell-like shape for better ergonomics and grip.",
+     "cites": [
+      392,
+      393,
+      400,
+      401,
+      404,
+      405
+     ]
+    },
+    {
+     "text": "Participant C advocated for a design that prioritizes user-friendliness and simplicity, noting that most users only use 10% of remote control buttons and that a flip-top design with essential functions on top and complex functions in the middle would improve accessibility.",
+     "cites": [
+      76,
+      77,
+      78,
+      79,
+      80,
+      81
+     ]
+    },
+    {
+     "text": "Participant D presented a technical design concept featuring a printed circuit board with a standard chip (TA double one eight three five) and discussed battery options, ultimately recommending kinetic charging with a watch-type battery as a low-cost, practical solution.",
+     "cites": [
+      568,
+      569,
+      570,
+      573,
+      574,
+      575
+     ]
+    },
+    {
+     "text": "Participant B emphasized market research findings indicating that users prefer a 'fancy look and feel' over functional design, with 75% of users finding current remote controls ugly and 80% willing to pay more for a more attractive design.",
+     "cites": [
+      111,
+      112,
+      113,
+      114,
+      115,
+      116
+     ]
+    },
+    {
+     "text": "Participant C suggested using fruit and vegetable-inspired colors and patterns for the rubberized outer casing to align with current fashion trends, while noting the design should avoid being 'tacky' and remain functional.",
+     "cites": [
+      969,
+      970,
+      971,
+      972,
+      973,
+      974
+     ]
+    },
+    {
+     "text": "Participant D proposed a combination of a black-and-white LCD touch screen on the top and rubberized buttons on the bottom, with the buttons designed to be anti-rs i and ergonomically suited for different hand sizes across markets.",
+     "cites": [
+      951,
+      952,
+      953,
+      954,
+      955,
+      956
+     ]
+    },
+    {
+     "text": "Participant B raised concerns about the cost of voice recognition technology, suggesting it may be too expensive and proposing a simpler alternative, such as a whistle-based 'lost remote' signal, as a more feasible option.",
+     "cites": [
+      1020,
+      1021,
+      1022,
+      1023,
+      1024,
+      1042
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decisions",
+   "sentences": [
+    {
+     "text": "The remote control will feature a flip-top design with a black-and-white LCD touch screen on the top and rubberized buttons on the bottom for complex functions.",
+     "cites": [
+      955,
+      956,
+      1074
+     ]
+    },
+    {
+     "text": "The remote will use a kinetic charging system with a watch-type battery, which is smaller and more practical than standard batteries or solar options.",
+     "cites": [
+      1013,
+      1014,
+      1074
+     ]
+    },
+    {
+     "text": "The exterior will have a plastic body with a soft, spongy rubberized outer casing in fruit and vegetable-inspired colors, allowing for user customization and a 'fancy look and feel'.",
+     "cites": [
+      960,
+      961,
+      962,
+      963,
+      964,
+      965
+     ]
+    },
+    {
+     "text": "The design will incorporate the company logo in a subtle, non-intrusive way, such as an engraved or inset element, without compromising the overall aesthetic.",
+     "cites": [
+      1150,
+      1151,
+      1152,
+      1153,
+      1154,
+      1155
+     ]
+    },
+    {
+     "text": "The remote will include a voice recognition feature to help users locate it, pending a cost feasibility review, with a fallback option of a whistle-based signal if voice recognition is not financially viable.",
+     "cites": [
+      1017,
+      1020,
+      1021,
+      1022,
+      1023,
+      1024
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Actions",
+   "sentences": [
+    {
+     "text": "Participant C will present a prototype of the remote control design to the team, including a demonstration of the flip-top mechanism and the LCD and button layout.",
+     "cites": [
+      1079,
+      1080,
+      1081,
+      1082,
+      1083,
+      1084
+     ]
+    },
+    {
+     "text": "Participant D will conduct a preliminary evaluation of the design against market research criteria using a seven-point scale, with individual ratings to be averaged for consensus.",
+     "cites": [
+      1174,
+      1175,
+      1176,
+      1177,
+      1180,
+      1181
+     ]
+    },
+    {
+     "text": "The team will review the cost feasibility of voice recognition technology and consider whether to proceed with its implementation or adopt a simpler alternative such as a whistle-based signal.",
+     "cites": [
+      1020,
+      1021,
+      1022,
+      1023,
+      1024,
+      1042
+     ]
+    }
+   ]
+  }
+ ]
+}

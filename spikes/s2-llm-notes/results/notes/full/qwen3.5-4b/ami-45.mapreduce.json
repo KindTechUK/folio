@@ -1,0 +1,1089 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Summary",
+    "sentences": [
+     {
+      "text": "The meeting focused on refining the system architecture, specifically regarding data storage, GUI development, and search functionality.",
+      "cites": [
+       46,
+       39,
+       122
+      ]
+     },
+     {
+      "text": "Participants discussed the implementation of a unified startup screen, search strategies involving TF-IDF, and the handling of speaker data.",
+      "cites": [
+       325,
+       478,
+       661
+      ]
+     },
+     {
+      "text": "The group agreed on a specific meeting time and finalized several design decisions for the user interface and search behavior.",
+      "cites": [
+       149,
+       764,
+       213
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Discussion",
+    "sentences": [
+     {
+      "text": "Participant A explained that the current architecture uses two separate classes: one for speakers and one for meetings, where information about both is contained within each object.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "Participant A noted that the speaker class contains information on who participated in meetings, the amount they spoke, and averages.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "Participant A stated that all data is stored as object files.",
+      "cites": [
+       58
+      ]
+     },
+     {
+      "text": "Participant A explained that the data structures currently use hash tables for meetings containing fields for percent talk, percent noise, and percent participation, with links to.",
+      "cites": [
+       79
+      ]
+     },
+     {
+      "text": "Participant A proposed that the data could be returned either as a hash table or as a vector/array of strings.",
+      "cites": [
+       81
+      ]
+     },
+     {
+      "text": "Participant A mentioned that the data is pre-processed offline and stored as object files which are much smaller than raw files.",
+      "cites": [
+       140
+      ]
+     },
+     {
+      "text": "Participant A stated that each meeting has one object.",
+      "cites": [
+       161
+      ]
+     },
+     {
+      "text": "Participant A proposed that methods should be created to return specific numbers (e.g., talking time) one at a time to populate windows.",
+      "cites": [
+       128
+      ]
+     },
+     {
+      "text": "Participant A suggested that the box should be populated by the speaker present, though they acknowledged it could be populated by the highlighted speaker.",
+      "cites": [
+       110
+      ]
+     },
+     {
+      "text": "Participant C proposed that the system could be used to iterate through topics and meetings to find the most interesting speakers.",
+      "cites": [
+       122
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Decisions",
+    "sentences": [
+     {
+      "text": "Participant A agreed to leave in methods that return one number at a time.",
+      "cites": [
+       128
+      ]
+     },
+     {
+      "text": "Participant A agreed that adding the topic would be easy.",
+      "cites": [
+       174
+      ]
+     },
+     {
+      "text": "Participant A agreed to implement the tool-tip feature.",
+      "cites": [
+       811
+      ]
+     },
+     {
+      "text": "Participant C agreed to disregard search results where terms do not appear together.",
+      "cites": [
+       213
+      ]
+     },
+     {
+      "text": "Participant C agreed to schedule the meeting for 3:00 PM pending any issues arising.",
+      "cites": [
+       149
+      ]
+     },
+     {
+      "text": "Participant C confirmed that Pernilla does not collect meeting summaries because she is not present.",
+      "cites": [
+       158
+      ]
+     },
+     {
+      "text": "Participant C stated they collect meeting summaries.",
+      "cites": [
+       161
+      ]
+     },
+     {
+      "text": "The group decided not to implement a start-up window for the search feature at this time.",
+      "cites": [
+       174
+      ]
+     },
+     {
+      "text": "Participant A decided to use the names found in the papers.",
+      "cites": [
+       452
+      ]
+     },
+     {
+      "text": "Participant C confirmed that Pernilla does not collect meeting summaries because she is not present.",
+      "cites": [
+       158
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Actions",
+    "sentences": [
+     {
+      "text": "Participant C will write up the meeting summary and send it to Pernilla.",
+      "cites": [
+       153
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Participant A stated that the data processing is fine but they do not want to build the GUI for it.",
+   "cites": [
+    46
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C agreed to build the GUI.",
+   "cites": [
+    39
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A explained that the current architecture uses two separate classes: one for speakers and one for meetings, where information about both is contained within each object",
+   "cites": [
+    45
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A noted that the speaker class contains information on who participated in meetings, the amount they spoke, and averages.",
+   "cites": [
+    45
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A stated that all data is stored as object files.",
+   "cites": [
+    58
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A explained that the data structures currently use hash tables for meetings containing fields for percent talk, percent noise, and percent participation, with links to ",
+   "cites": [
+    79
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A proposed that the data could be returned either as a hash table or as a vector/array of strings.",
+   "cites": [
+    81
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A mentioned that the data is pre-processed offline and stored as object files which are much smaller than raw files.",
+   "cites": [
+    140
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A stated that each meeting has one object.",
+   "cites": [
+    161
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A proposed that methods should be created to return specific numbers (e.g., talking time) one at a time to populate windows.",
+   "cites": [
+    128
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A suggested that the box should be populated by the speaker present, though they acknowledged it could be populated by the highlighted speaker.",
+   "cites": [
+    110
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C proposed that the system could be used to iterate through topics and meetings to find the most interesting speakers.",
+   "cites": [
+    122
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A agreed to leave in methods that return one number at a time.",
+   "cites": [
+    128
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C asked if the system could include the topic spoken about in the output.",
+   "cites": [
+    173
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A agreed that adding the topic would be easy.",
+   "cites": [
+    174
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C noted that the current system allows right-clicking on a topic window to open a list of all meetings containing that topic.",
+   "cites": [
+    190
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A suggested that the system could perform a search over the loaded meeting objects to find participants and topics.",
+   "cites": [
+    193
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A mentioned that there are default topics available.",
+   "cites": [
+    184
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A stated that global statistics come straight from the pre-processed data.",
+   "cites": [
+    200
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A mentioned that the speaker class knows about all the data stuff and the meeting class knows about that stuff.",
+   "cites": [
+    204
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A stated they have not yet completed the tasks mentioned by Participant C, estimating they would not be difficult.",
+   "cites": [
+    208,
+    209
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A explained that if Participant C were to work on the GUI before Participant A finished the classes, the object serial numbers would change, preventing re-loading of a ",
+   "cites": [
+    216,
+    218,
+    220,
+    224
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A requested that Participant C wait until the current work is finished before starting on the GUI to avoid objects becoming out of sync.",
+   "cites": [
+    225,
+    233,
+    235
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A indicated that Participant C could proceed with creating the picture and text box components without waiting, as these do not depend on the current unfinished work.",
+   "cites": [
+    226,
+    229,
+    231
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A stated that the data is currently stored on their home directory and has not yet been globalized.",
+   "cites": [
+    239,
+    241,
+    243
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B confirmed they have a copy of the file in their own directory and will create one with a specific change to load the correct search file.",
+   "cites": [
+    247,
+    249,
+    262,
+    271
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B mentioned they intend to update their copy of the file after making the necessary change.",
+   "cites": [
+    264,
+    268
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B described their current work as improving result presentation, specifically by wiring in topics and summaries.",
+   "cites": [
+    277,
+    279
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C explained that the text area already has defined highlights for user, selection, and time topics.",
+   "cites": [
+    282,
+    286
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C provided a code example suggesting setting highlights on a text area object (e.g., `area dot set highlights`).",
+   "cites": [
+    288,
+    290
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C mentioned they are working on pop-up windows for speaker characterization.",
+   "cites": [
+    316
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C explained that pop-up windows must be pre-initialized in memory because there may be ten speakers requiring different meeting windows.",
+   "cites": [
+    320,
+    322
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C proposed a start screen option that displays a welcome message for the meeting browser.",
+   "cites": [
+    325,
+    327,
+    338
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A suggested a start screen option featuring speech, music, and drum rolls.",
+   "cites": [
+    330
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A suggested a start screen option featuring a switchboard with buttons to load a meeting, perform a search, or load something else.",
+   "cites": [
+    342,
+    344
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C noted that the current interface uses a dropdown menu controlled by the dialogue class.",
+   "cites": [
+    347,
+    350
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C proposed two options for the start screen: either load a specific meeting or perform a global search to find a meeting.",
+   "cites": [
+    353,
+    383
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A explained that the search engine requires an observation (nom object) to function and cannot perform searches without it.",
+   "cites": [
+    362,
+    363,
+    371,
+    374
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B agreed that a check should be implemented to force the user to load a meeting before attempting a search.",
+   "cites": [
+    364,
+    366
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A explained that the search engine class only has one search method, which requires an observation to start.",
+   "cites": [
+    372,
+    374
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B noted that loading the entire corpus for a global search could be time-consuming if ten documents are returned.",
+   "cites": [
+    399,
+    402
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A stated that loading ten different search engines simultaneously would crash the system.",
+   "cites": [
+    297,
+    299,
+    302,
+    308
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A stated that the current loading speed is not too slow and should not be considered a problem.",
+   "cites": [
+    408,
+    410
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B noted that the system typically loads slowly for the first time and mentioned a workaround of loading, testing, and shutting down to reload.",
+   "cites": [
+    411,
+    414
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B suggested that if the loading time is not long each time, the situation would be acceptable.",
+   "cites": [
+    416
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C proposed a search strategy involving a global search for meeting names first, followed by narrowing down to specific meetings.",
+   "cites": [
+    417,
+    419,
+    421,
+    423
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A suggested making search strings as long as possible to limit search occurrences to when they are actually needed.",
+   "cites": [
+    427,
+    430
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B agreed that avoiding extra loading time is important for users.",
+   "cites": [
+    434
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B suggested users could check off specific items they want to review.",
+   "cites": [
+    437
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A raised the need for better names for the meetings.",
+   "cites": [
+    441
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B indicated that better names could be created by extracting strings from the text.",
+   "cites": [
+    442
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C mentioned that some papers contain names such as 'better understanding' or similar long names.",
+   "cites": [
+    443,
+    447
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B confirmed that the names include the working group they are part of.",
+   "cites": [
+    446
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A decided to use the names found in the papers.",
+   "cites": [
+    452
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A expressed a wish to see meetings related to 'even better understanding'.",
+   "cites": [
+    459
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C confirmed they had already added the 'even better understanding' name to the list.",
+   "cites": [
+    462
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C discussed the startup screen and libraries window.",
+   "cites": [
+    465
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A asked about the document frequencies (DFs) for each word in the corpus.",
+   "cites": [
+    467
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B questioned whether the frequencies were actually needed.",
+   "cites": [
+    469
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A confirmed that the frequencies are needed to perform topic labeling.",
+   "cites": [
+    472
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B mentioned that someone named Steve was trying to get a tool working on Friday, which had previously included standard stuff but was not working properly.",
+   "cites": [
+    475,
+    477
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A asked if the system could perform search without using term frequency (TF) or inverse document frequency (IDF).",
+   "cites": [
+    478
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B admitted they did not know if the system could do better without TF/IDF.",
+   "cites": [
+    479
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A explained that TF is the amount a word occurs in each document, IDF is the amount it occurs generally, and the combination (TF-IDF) indicates how informative a term's",
+   "cites": [
+    486
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A clarified that TF-IDF stands for Term Frequency Inverse Document Frequency.",
+   "cites": [
+    513
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A mentioned they have a Java class that performs TF-IDF calculations, though they were unsure if it would work with the current data.",
+   "cites": [
+    515
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C expressed that having the ability to test the tool on users would be really handy.",
+   "cites": [
+    520
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C noted that without testing against hand-annotated segmented tools, they cannot compare results effectively.",
+   "cites": [
+    522
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A explained that keyword search could function as topic search, searching for keywords while the user specifies topics.",
+   "cites": [
+    525,
+    526
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C agreed that calculating keyword frequencies based on whole occurrences in the corpus would be easier than calculating them per topic.",
+   "cites": [
+    531
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A stated that searching without TF-IDF allows for search but prevents ranking results.",
+   "cites": [
+    534
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C agreed that ranking results by the amount of occurrence would be a nice extra feature.",
+   "cites": [
+    554
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C suggested adding a longer meeting name and a list of users who spoke to the meeting to the startup screen.",
+   "cites": [
+    661,
+    663,
+    668
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B agreed that the list of users would likely be the same for the same group.",
+   "cites": [
+    664,
+    665
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A suggested placing this information on the startup screen to give users a general idea of available meetings.",
+   "cites": [
+    667,
+    668
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B proposed that users could either search for specific meetings or browse through them.",
+   "cites": [
+    670,
+    672,
+    673
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C agreed that users might want to look at specific meetings where particular speakers spoke.",
+   "cites": [
+    674,
+    677,
+    679
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B suggested that the startup screen could include options to browse by meeting, speaker, or working group.",
+   "cites": [
+    681,
+    683
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C disagreed with the need for detailed filtering options like browsing by speaker or working group.",
+   "cites": [
+    684
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C argued that once a user loads a meeting, they can browse through it sufficiently without needing pre-filtered lists.",
+   "cites": [
+    686
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B suggested that the system could default to showing meetings relevant to the user's specific working group based on their previous activity.",
+   "cites": [
+    689,
+    691,
+    693
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C questioned how the system would know which working group a user belongs to.",
+   "cites": [
+    692
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B proposed using a user model to determine the user's working group.",
+   "cites": [
+    694
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A suggested implementing a 'favourites' feature instead of automatic defaults.",
+   "cites": [
+    695,
+    701
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C agreed that users do not come back daily to perform the same browsing tasks.",
+   "cites": [
+    706
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B noted that users might want to see what has changed since their last visit.",
+   "cites": [
+    710,
+    711
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B proposed that the startup screen could include search options, browse options, and links to evaluation tasks.",
+   "cites": [
+    716,
+    718
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A agreed that having search buttons on the startup screen would be useful.",
+   "cites": [
+    725,
+    728
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C stated they did not want to include explanatory help text on the startup screen.",
+   "cites": [
+    726,
+    729
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B suggested that the startup screen should guide users to commonly used tasks or allow them to exit, similar to other programs.",
+   "cites": [
+    730,
+    734
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C agreed that the main function of the startup screen should be to view a meeting or search for one.",
+   "cites": [
+    736,
+    738,
+    739
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A proposed a design where the startup screen displays a single window with a search box, a 'go' button, and a dropdown menu for specific meetings.",
+   "cites": [
+    741,
+    743,
+    757
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A suggested that the search window could contain a dropdown menu with a 'go' button to take the user directly to a meeting.",
+   "cites": [
+    757,
+    760,
+    763
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C agreed with the proposal to have a single window containing all search functionality and a 'go' button.",
+   "cites": [
+    764,
+    765
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C expressed uncertainty about how to display all available information (name, longer name, speakers, users) in the startup screen.",
+   "cites": [
+    767,
+    770
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B noted that the system currently does not have user names, only codes like 'ami eleven'.",
+   "cites": [
+    771,
+    772
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A agreed that the codes are nonsense and should not be typed by the user.",
+   "cites": [
+    772,
+    776,
+    779
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B confirmed that a dropdown menu is preferred for selecting a specific speaker rather than typing codes.",
+   "cites": [
+    777,
+    780,
+    781
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A suggested that if a user wants to look at one specific meeting, they can simply click on it.",
+   "cites": [
+    782,
+    783
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C proposed an extended list of meetings with longer names and participants, potentially using a tool-tip mechanism when hovering over items.",
+   "cites": [
+    794,
+    796,
+    797,
+    798
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C suggested using a tool-tip to display information when the mouse hovers over a meeting item.",
+   "cites": [
+    800,
+    806,
+    808
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A agreed to implement the tool-tip feature.",
+   "cites": [
+    811
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C proposed a meeting time of 3:00 PM on Friday.",
+   "cites": [
+    149
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A suggested that 3:00 PM might be problematic because they would not be available at 5:00 PM or 6:00 PM.",
+   "cites": [
+    150
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C agreed to schedule the meeting for 3:00 PM pending any issues arising.",
+   "cites": [
+    149
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C stated they would write up the meeting summary and send it to Pernilla.",
+   "cites": [
+    153
+   ],
+   "section": "Actions"
+  },
+  {
+   "text": "Participant C confirmed that Pernilla does not collect meeting summaries because she is not present.",
+   "cites": [
+    158
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C stated they collect meeting summaries.",
+   "cites": [
+    161
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "The group discussed progress on speaker characterisation and topic labelling with keywords.",
+   "cites": [
+    168,
+    170
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B expressed uncertainty about whether the search results should be ranked, noting that Michael had no additional input on this.",
+   "cites": [
+    172,
+    173
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "The group decided not to implement a start-up window for the search feature at this time.",
+   "cites": [
+    174,
+    175,
+    177
+   ],
+   "section": "Decisions"
+  },
+  {
+   "text": "Participant B argued that ranking search results independently for specific documents would complicate things without providing significant benefit.",
+   "cites": [
+    179
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C argued that ranking would provide the most relevant results by distinguishing between topics that specifically discuss a word versus those that only mention it.",
+   "cites": [
+    182,
+    186,
+    188
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A agreed that ranking would be very useful for single terms.",
+   "cites": [
+    191
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B suggested that for multiple terms, a simple approach could be used instead of ranking.",
+   "cites": [
+    196
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant A proposed that for multiple terms, the system could disregard pairs that do not show up together or apply a negative weighting against them.",
+   "cites": [
+    199,
+    203,
+    207
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant B confirmed that if terms do not appear together, they would not show up in the search results.",
+   "cites": [
+    211
+   ],
+   "section": "Discussion"
+  },
+  {
+   "text": "Participant C agreed to disregard search results where terms do not appear together.",
+   "cites": [
+    213
+   ],
+   "section": "Discussion"
+  }
+ ]
+}

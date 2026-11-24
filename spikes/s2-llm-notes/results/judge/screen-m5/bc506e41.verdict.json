@@ -1,0 +1,106 @@
+{
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "present",
+    "F05": "partial",
+    "F06": "absent",
+    "F07": "absent",
+    "F08": "absent",
+    "F09": "absent",
+    "F10": "absent",
+    "F11": "partial",
+    "F12": "absent",
+    "F13": "partial",
+    "F14": "absent",
+    "F15": "partial",
+    "F16": "partial",
+    "F17": "absent",
+    "F18": "partial",
+    "F19": "partial",
+    "F20": "partial",
+    "F21": "partial",
+    "F22": "absent",
+    "F23": "partial",
+    "F24": "partial",
+    "F25": "present",
+    "F26": "absent",
+    "F27": "absent",
+    "F28": "partial",
+    "F29": "partial"
+  },
+  "traps": {
+    "T01": "ok",
+    "T02": "ok",
+    "T03": "ok",
+    "T04": "ok",
+    "T05": "ok",
+    "T06": "ok",
+    "T07": "ok",
+    "T08": "ok",
+    "T09": "ok",
+    "T10": "ok",
+    "T11": "ok",
+    "T12": "ok",
+    "T13": "ok",
+    "T14": "ok",
+    "T15": "ok",
+    "T16": "ok"
+  },
+  "other_fabrications": [
+    {
+      "sentence": "Gary Whitlock (operations manager for inbound goods, started 12th January 2023) initially accepted her diabetes but later imposed fixed break times and restricted leave without her manager's approval.",
+      "why": "Gary replaced Linda (who left end of 2025) and started on 12 January 2026 (L051, L056-L057)."
+    },
+    {
+      "sentence": "On 2nd February 2023, Gary sent an email requiring fixed break times and requiring her to seek permission before leaving the dock outside working hours.",
+      "why": "The email was 2 February 2026 and said no one leaves the dock outside the fixed break times without his say-so (L064), not 'outside working hours'."
+    },
+    {
+      "sentence": "Aisha requested an occupational health (OH) referral in March 2023, which resulted in a report dated 22nd April 2023 recommending short breaks for testing and eating as a reasonable adjustment.",
+      "why": "The referral and report followed Gary's 2026 email; they were March 2026 and 22 April 2026 (L071-L073), not 2023."
+    },
+    {
+      "sentence": "She lacks a copy of the February 2023 email regarding fixed break times.",
+      "why": "The break email was February 2026 (L064)."
+    },
+    {
+      "sentence": "She should submit a Subject Access Request (DSAR) to Northgate to obtain her personnel file, including disciplinary and investigation notes, emails, the break policy email, first aid logs, and CCTV footage (if available).",
+      "why": "The firm will send the DSAR: Sophie drafts it, Daniel checks and sends it (L195, L297); the client is not to submit it."
+    },
+    {
+      "sentence": "She should check with Castleford Mutual (her home insurance provider) for any legal expenses insurance coverage by Monday 28th October 2026 and provide the policy schedule and wording.",
+      "why": "The deadline is Monday 28 September (L289-L291: 'this Friday, the twenty-fifth' then 'Monday the twenty-eighth', with the meeting on 23 September)."
+    },
+    {
+      "sentence": "She should claim Universal Credit and keep a record of all applications.",
+      "why": "She has already applied for Universal Credit (L222); the solicitor gave no advice to claim it - his advice was to keep a record of job applications (L223)."
+    },
+    {
+      "sentence": "Aisha Rahman's primary objectives are to have her dismissal reconsidered, secure a proper reference, and receive compensation for the unfair treatment.",
+      "why": "She wants Northgate to acknowledge they got it wrong and a proper reference; compensation is secondary, 'not the main thing' (L234-L235). She did not ask for the dismissal to be reconsidered."
+    },
+    {
+      "sentence": "Aisha Rahman: By Friday 25th October 2026, email Daniel Okafor the OH report, Marcus's photo of the glucose sensor, and any additional payslips.",
+      "why": "The deadline is this Friday, 25 September 2026 (L289)."
+    },
+    {
+      "sentence": "Aisha Rahman: By Monday 28th October 2026, check with Castleford Mutual for legal expenses insurance coverage and send the policy schedule and wording to Daniel Okafor.",
+      "why": "The deadline is Monday 28 September 2026 (L291)."
+    },
+    {
+      "sentence": "Sophie Grant: Draft the Subject Access Request (DSAR) to Northgate and send it to the HR inbox and the registered office by Monday 29th October 2026.",
+      "why": "Sophie drafts it by Monday (28 September); Daniel checks it and it goes out on Tuesday (L297). Sophie does not send it, and the month is September."
+    },
+    {
+      "sentence": "Daniel Okafor: Review the DSAR and send it out on Tuesday 30th October 2026.",
+      "why": "It goes out on Tuesday 29 September (L297, L304)."
+    },
+    {
+      "sentence": "Daniel Okafor: Send a letter confirming today's advice and funding options to Aisha Rahman by Tuesday 29th October 2026.",
+      "why": "The letter is due by Tuesday 29 September 2026 (L304)."
+    }
+  ],
+  "notes": "Well-organised and detailed on background and documents, but systematically wrong years (2023) for Gary's arrival, the break email and the OH report, wrong month (October) on most action deadlines, misstated objectives, and no dismissal reason, notice pay, appeal hearing, 13 Nov deadline or merits advice."
+}

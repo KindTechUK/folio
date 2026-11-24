@@ -1,0 +1,373 @@
+{
+ "sections": [
+  {
+   "title": "Attendance",
+   "sentences": [
+    {
+     "text": "Aisha Rahman (client) attended the meeting in person.",
+     "cites": [
+      51,
+      320
+     ]
+    },
+    {
+     "text": "Daniel Okafor (solicitor) attended as the solicitor for the employment team.",
+     "cites": [
+      5,
+      15
+     ]
+    },
+    {
+     "text": "Sophie Grant (trainee) briefly attended to take copies of documents provided by Aisha Rahman.",
+     "cites": [
+      6,
+      185,
+      187,
+      261
+     ]
+    },
+    {
+     "text": "The purpose of the meeting was to document Aisha Rahman\u2019s account of her employment history, health concerns, and the events leading to her dismissal, and to outline next steps for potential legal proceedings.",
+     "cites": [
+      8,
+      10,
+      287
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Client's account",
+   "sentences": [
+    {
+     "text": "Aisha Rahman worked for Northgate Logistics Limited (the warehouse off the ring road, near the retail park with blue cladding) from the **5th March 2018** to **14th August 2026** (eight years and five months).",
+     "cites": [
+      14,
+      113,
+      147
+     ]
+    },
+    {
+     "text": "She started as a picker and progressed to team leader of the inbound goods team, managing **11 people** on shifts of **7:00 AM to 7:00 PM (with handover at 7:15 PM).",
+     "cites": [
+      16,
+      18,
+      20,
+      52
+     ]
+    },
+    {
+     "text": "Her basic salary was **\u00a329,400 per year**, with an additional **\u00a31,800 per year** for shift allowance (unsocial hours supplement).",
+     "cites": [
+      22,
+      23,
+      25
+     ]
+    },
+    {
+     "text": "She had a workplace pension contribution of **5% (possibly 4%)** from Northgate.",
+     "cites": [
+      27,
+      28
+     ]
+    },
+    {
+     "text": "She had type 1 diabetes since she was **14 years old** and managed it with a glucose sensor, insulin injections, and frequent glucose checks. She required short breaks to test and eat when her blood sugar dropped.",
+     "cites": [
+      31,
+      33,
+      34,
+      35,
+      36
+     ]
+    },
+    {
+     "text": "Linda Chu (manager, C-H-U) was her manager until the end of 2025. She arranged for Aisha to step off for short breaks when needed, but this was not formalized in writing.",
+     "cites": [
+      37,
+      38,
+      41,
+      42,
+      44
+     ]
+    },
+    {
+     "text": "Gary Whitlock (operations manager for inbound goods, started **12th January 2023**) initially accepted her diabetes but later imposed fixed break times and restricted leave without her manager\u2019s approval.",
+     "cites": [
+      57,
+      61,
+      62,
+      63,
+      64,
+      68
+     ]
+    },
+    {
+     "text": "On **2nd February 2023**, Gary sent an email requiring fixed break times and requiring her to seek permission before leaving the dock outside working hours.",
+     "cites": [
+      62,
+      64,
+      66
+     ]
+    },
+    {
+     "text": "Aisha requested an occupational health (OH) referral in **March 2023**, which resulted in a report dated **22nd April 2023** recommending short breaks for testing and eating as a reasonable adjustment.",
+     "cites": [
+      71,
+      72,
+      73,
+      74,
+      76
+     ]
+    },
+    {
+     "text": "The OH report was sent to her personal email and is awaiting retrieval from her inbox.",
+     "cites": [
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Documents and evidence",
+   "sentences": [
+    {
+     "text": "Aisha Rahman has the following documents: the original employment contract from 2018, the dismissal letter dated **14th August 2026**, the appeal outcome letter dated **16th September 2026**, and her appeal email.",
+     "cites": [
+      28,
+      124,
+      144,
+      145,
+      163,
+      188
+     ]
+    },
+    {
+     "text": "She has payslips for May, June, July, and August 2026.",
+     "cites": [
+      188
+     ]
+    },
+    {
+     "text": "She has a photo of her glucose sensor reading **2.1** taken by Marcus Bell on **9th July 2026**, when she left the dock after a severe hypoglycaemic episode.",
+     "cites": [
+      101,
+      200
+     ]
+    },
+    {
+     "text": "She lacks a copy of the February 2023 email regarding fixed break times.",
+     "cites": [
+      62,
+      64,
+      66,
+      289
+     ]
+    },
+    {
+     "text": "She lacks the notes from the investigation meeting on **17th July 2026** and the disciplinary meeting on **6th August 2026**.",
+     "cites": [
+      119,
+      120,
+      141
+     ]
+    },
+    {
+     "text": "She lacks the first aid log filled by Marcus Bell on **9th July 2026** and the break policy email.",
+     "cites": [
+      108,
+      289
+     ]
+    },
+    {
+     "text": "She has not yet retrieved the OH report from her email.",
+     "cites": [
+      76,
+      177,
+      289
+     ]
+    },
+    {
+     "text": "She has a certificate from **2023** indicating she was team leader of the quarter.",
+     "cites": [
+      52,
+      53
+     ]
+    },
+    {
+     "text": "She has no written record of the informal stepping-off arrangement with Linda Chu.",
+     "cites": [
+      43
+     ]
+    },
+    {
+     "text": "Potential witnesses include Marcus Bell (first aider) and Tomasz Nowak (unofficial deputy), though Tomasz is hesitant to give a statement due to Gary Whitlock\u2019s influence.",
+     "cites": [
+      204,
+      205,
+      206,
+      209,
+      211
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Client's objectives",
+   "sentences": [
+    {
+     "text": "Aisha Rahman\u2019s primary objectives are to have her dismissal reconsidered, secure a proper reference, and receive compensation for the unfair treatment.",
+     "cites": [
+      233,
+      234,
+      235,
+      236,
+      285
+     ]
+    },
+    {
+     "text": "She also wants Northgate to address the fixed break policy for employees with disabilities.",
+     "cites": [
+      236
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Advice given",
+   "sentences": [
+    {
+     "text": "Aisha Rahman should notify ACAS of her intention to pursue an employment tribunal claim within **three months less one day of her dismissal date (14th August 2026)**, ideally by **16th October 2026** to avoid missing the deadline.",
+     "cites": [
+      254,
+      255,
+      256,
+      257
+     ]
+    },
+    {
+     "text": "She should submit a **Subject Access Request (DSAR)** to Northgate to obtain her personnel file, including disciplinary and investigation notes, emails, the break policy email, first aid logs, and CCTV footage (if available).",
+     "cites": [
+      294,
+      295,
+      296,
+      297
+     ]
+    },
+    {
+     "text": "She should check with Castleford Mutual (her home insurance provider) for any legal expenses insurance coverage by **Monday 28th October 2026** and provide the policy schedule and wording.",
+     "cites": [
+      291,
+      292
+     ]
+    },
+    {
+     "text": "She should draft a timeline of events by **Friday 2nd October 2026**, including all dates and details from the meeting.",
+     "cites": [
+      293
+     ]
+    },
+    {
+     "text": "She should keep a record of all job applications, interviews, and rejections in her spreadsheet, as this will be relevant for compensation claims.",
+     "cites": [
+      223,
+      224,
+      225
+     ]
+    },
+    {
+     "text": "She should not sign any settlement agreement or response to Northgate without consulting her solicitor first.",
+     "cites": [
+      174,
+      175,
+      311
+     ]
+    },
+    {
+     "text": "She should not engage with Northgate directly regarding her dismissal unless instructed to do so by her solicitor.",
+     "cites": [
+      311
+     ]
+    },
+    {
+     "text": "She should ask Marcus Bell if he would be willing to give a statement regarding her hypoglycaemic episode on **9th July 2026** and ask Linda Chu if she would be willing to discuss the informal stepping-off arrangement.",
+     "cites": [
+      305,
+      306,
+      307
+     ]
+    },
+    {
+     "text": "She should claim Universal Credit and keep a record of all applications.",
+     "cites": [
+      221,
+      222
+     ]
+    },
+    {
+     "text": "She should see her GP about her stress and sleep issues, as they may be relevant to her case and her overall well-being.",
+     "cites": [
+      229,
+      230
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Next steps",
+   "sentences": [
+    {
+     "text": "Aisha Rahman: By **Friday 25th October 2026**, email Daniel Okafor the OH report, Marcus\u2019s photo of the glucose sensor, and any additional payslips. Also, if she can find a copy of the February 2023 email regarding fixed break times.",
+     "cites": [
+      289
+     ]
+    },
+    {
+     "text": "Aisha Rahman: By **Monday 28th October 2026**, check with Castleford Mutual for legal expenses insurance coverage and send the policy schedule and wording to Daniel Okafor.",
+     "cites": [
+      291,
+      292
+     ]
+    },
+    {
+     "text": "Aisha Rahman: By **Friday 2nd October 2026**, draft a timeline of events in her own words with dates and details from the meeting.",
+     "cites": [
+      293
+     ]
+    },
+    {
+     "text": "Aisha Rahman: Continue updating her job application spreadsheet with every new application, interview, and rejection.",
+     "cites": [
+      296
+     ]
+    },
+    {
+     "text": "Sophie Grant: Draft the Subject Access Request (DSAR) to Northgate and send it to the HR inbox and the registered office by **Monday 29th October 2026**.",
+     "cites": [
+      297,
+      298
+     ]
+    },
+    {
+     "text": "Daniel Okafor: Review the DSAR and send it out on **Tuesday 30th October 2026**.",
+     "cites": [
+      297
+     ]
+    },
+    {
+     "text": "Daniel Okafor: Send a letter confirming today\u2019s advice and funding options to Aisha Rahman by **Tuesday 29th October 2026**.",
+     "cites": [
+      304
+     ]
+    },
+    {
+     "text": "Daniel Okafor: Schedule a follow-up meeting with Aisha Rahman for **Thursday 8th October 2026, 10:00 AM** to discuss next steps and prepare for ACAS notification by **16th October 2026**.",
+     "cites": [
+      309,
+      310
+     ]
+    }
+   ]
+  }
+ ]
+}
