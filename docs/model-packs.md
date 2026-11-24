@@ -17,6 +17,27 @@ A pack is a directory of two files:
 `manifest.json` carries nine fields: `id`, `version`, `engine`, `engine_min_version`,
 `task`, `license`, `attribution`, `sha256`, and `signature`.
 
+`task` is one of `asr`, `diarization` or `llm`; `engine` is one of `sherpa-onnx`,
+`whisper.cpp` or `llama.cpp`. Packs are hashed and extracted as streams, so a
+multi-GB pack never has to fit in memory.
+
+### Language-model packs (`task: "llm"`)
+
+An LLM pack carries one GGUF file for the `llama.cpp` engine. The signer stores
+`.gguf` files in the zip **uncompressed** (they are already quantised; Deflate
+would cost minutes of CPU for almost nothing), and everything else Deflated as
+before. The app resolves an LLM pack separately from speech packs: speech
+resolution never extracts an LLM pack, and `resolve_verified_llm`
+(`app/src-tauri/src/models.rs`) returns the GGUF path only from a verified
+`task: "llm"` pack, failing closed otherwise. Nothing in the app calls it yet; it
+is groundwork for local notes (P2), measured in spike S5
+([`spikes/s5-llm-packaging.md`](spikes/s5-llm-packaging.md)).
+
+The `llama.cpp` engine version is llama.cpp's own release version (it uses semver
+since v0.6.0). This build records **0.6.0**: the llama.cpp commit `d812350` that
+`llama-cpp-sys-2 =0.1.161` vendors. An LLM pack should set
+`--engine-min-version 0.6.0` until a newer llama.cpp is linked.
+
 ## How verification works
 
 When you import a pack (or at transcription time), the verifier checks, in order, and
@@ -63,6 +84,10 @@ from upstream [k2-fsa/sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) weight
 | `asr-whisper-medium.en` | asr | Whisper medium.en (int8) + Silero VAD | MIT |
 | `diarization-pyannote-campplus` | diarization | pyannote segmentation-3.0 + 3D-Speaker CAM++ | MIT AND Apache-2.0 |
 
+No LLM pack ships yet. The candidate from spike S5 is `llm-qwen3-4b-instruct-2507`
+(Qwen3-4B-Instruct-2507, Q4_0 GGUF from `unsloth/Qwen3-4B-Instruct-2507-GGUF`,
+Apache-2.0, about 2.4 GB).
+
 Upstream weights are fetched file by file from the sherpa-onnx Hugging Face repositories
 (`csukuangfj/…`) at fixed revisions — ungated, no token — except Silero VAD, which comes
 from the `asr-models` release tag of k2-fsa/sherpa-onnx (no sherpa-onnx Hugging Face
@@ -96,7 +121,18 @@ cargo run --manifest-path tools/modelpack-sign/Cargo.toml -- pack \
 (cd app && VENDOR_PUBKEY_SPKI_PEM="$(cat ../keys/public.spki.pem)" npm run tauri dev)
 ```
 
-The `pack` command self-verifies before writing, so a pack that's produced is guaranteed
+An LLM pack is signed the same way, from a directory holding the one GGUF:
+
+```bash
+cargo run --release --manifest-path tools/modelpack-sign/Cargo.toml -- pack \
+  --model-dir <dir-with-the-gguf> --out llm-qwen3-4b-instruct-2507 --key keys/private.pkcs8.pem \
+  --id llm-qwen3-4b-instruct-2507 --version 1.0.0 \
+  --engine llama.cpp --engine-min-version 0.6.0 \
+  --task llm --license Apache-2.0 \
+  --attribution "Qwen3-4B-Instruct-2507 by the Qwen Team, Alibaba Cloud (Apache-2.0)"
+```
+
+The `pack` command self-verifies after writing, so a pack that's produced is guaranteed
 to pass the in-app verifier (with the matching key). To check an existing pack:
 
 ```bash
