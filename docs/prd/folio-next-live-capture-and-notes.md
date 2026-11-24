@@ -162,7 +162,7 @@ gets its own spike and phase. Lessons from their source and issue trackers
 
 **Assurance-pack changes (ship with each phase)**
 - `docs/assurance/data-at-rest.md`: recordings are now created by Folio (previously only referenced), and the
-  crash-recovery chunks and their deletion must be covered. The current claim that the engine writes no temp
+  recording file, its crash recovery (spike S6) and its deletion must be covered. The current claim that the engine writes no temp
   files must be reworded for the recording path.
 - `docs/assurance/third-party-components.md`: the audio capture crate, llama.cpp and the LLM weights licence.
 - `docs/assurance/data-flow.md`: mic → recorder → engine → LLM, all on-device.
@@ -184,7 +184,7 @@ Same philosophy as the base PRD: test **external behaviour and contracts** with 
 1. **Live pipeline equivalence:** replaying a fixture WAV through the live source at real-time speed
    produces a transcript whose text matches the file path's output within a small WER delta. It must not
    drop or duplicate words at chunk boundaries.
-2. **Crash recovery:** killing the app mid-recording loses at most the last chunk, and on restart the
+2. **Crash recovery:** killing the app mid-recording loses at most the last chunk (S6: under 0.3 s), and on restart the
    partial recording is offered for recovery. "Delete transcript and audio" removes finalised and partial files.
 3. **Template engine (pure, `core/`):** template JSON validation. Rendering the prompt from template +
    transcript is deterministic. Parsing model output into cited note sentences rejects malformed

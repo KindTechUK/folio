@@ -19,7 +19,7 @@ import type { EditorState, EditorSentence } from "@core/editor";
 import { UNKNOWN_SPEAKER } from "@core/types";
 import { activeWordIndex, flatWords } from "./highlight";
 import {
-  DRAFT_DISCLAIMER,
+  draftDisclaimer,
   exportJSONWithDisclaimer,
   exportTextWithDisclaimer,
 } from "./draft";
@@ -406,7 +406,7 @@ export default function Editor({
                   onClick={() => {
                     setExportOpen(false);
                     download(
-                      exportTextWithDisclaimer(state),
+                      exportTextWithDisclaimer(state, diarized),
                       "transcript_edited.txt",
                       "text/plain",
                     );
@@ -420,7 +420,7 @@ export default function Editor({
                   onClick={() => {
                     setExportOpen(false);
                     download(
-                      JSON.stringify(exportJSONWithDisclaimer(state), null, 2),
+                      JSON.stringify(exportJSONWithDisclaimer(state, diarized), null, 2),
                       "transcript_edited.json",
                       "application/json",
                     );
@@ -497,7 +497,7 @@ export default function Editor({
 
       <div className="draft-guidance">
         <Banner variant="info" role="note" aria-label="machine-generated draft disclaimer">
-          {DRAFT_DISCLAIMER}
+          {draftDisclaimer(diarized)}
         </Banner>
         <div className="correction-hint">
           <strong>Quick correction</strong>

@@ -1,0 +1,1 @@
+\b(ah-ha|a+h+m*|a+h+a+|e+h+m*|e+m+|e+r+m*|h+a+h+|h+e+h+|h+m+|h+u+h+|m{2,}|m+h+m*|t+s+k+|u+g+h+|u+h+m*|u+h+u+[hm]*|u+m+h*|ahem|eheh|ehehe|ehr|hmmph|hum|hunh|mhum|mmkay)\b

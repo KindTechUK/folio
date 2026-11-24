@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import type { Transcript } from "@core/types";
 import { loadTranscript } from "@core/editor";
 
@@ -14,6 +14,12 @@ let sessions: unknown[];
 let startRecording: () => Promise<unknown>;
 let discardRecording: () => Promise<unknown>;
 let stopRecording: () => Promise<unknown>;
+let interrupted: unknown[];
+let recoverRecording: () => Promise<unknown>;
+let deleteInterrupted: () => Promise<unknown>;
+let modelPacks: unknown[];
+let deviceProfile: () => Promise<unknown>;
+let recordingDuration: () => Promise<unknown>;
 // Event handlers registered through `listen`, so tests can emit backend events.
 let handlers: Record<string, (event: { payload: unknown }) => void>;
 
@@ -47,6 +53,29 @@ const transcript: Transcript = {
   ],
 };
 
+const ESSENTIALS = {
+  tier: "essentials",
+  reason: "7.7 GB of memory, under the 12 GB of the next group.",
+  ramGb: 7.7,
+  cpu: "Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz",
+  cores: 4,
+  npu: null,
+  minutesPerHour: 15,
+  measured: false,
+  microphone: { name: "Microphone Array (Realtek(R) Audio)", processing: "bypassable" },
+};
+const STANDARD = {
+  tier: "standard",
+  reason: "15.6 GB of memory.",
+  ramGb: 15.6,
+  cpu: "Intel(R) Core(TM) Ultra 5 225U",
+  cores: 12,
+  npu: "Intel(R) AI Boost",
+  minutesPerHour: 6,
+  measured: false,
+  microphone: { name: "Microphone Array (Realtek(R) Audio)", processing: "bypassable" },
+};
+
 beforeEach(() => {
   invokeMock.mockReset();
   openMock.mockReset();
@@ -68,23 +97,29 @@ beforeEach(() => {
   saveSession = () => Promise.resolve();
   transcribe = () => Promise.resolve(transcript);
   sessions = [];
+  interrupted = [];
+  recoverRecording = () => Promise.resolve({ notes: "Client agreed to mediation." });
+  deleteInterrupted = () => Promise.resolve();
+  deviceProfile = () => Promise.resolve(STANDARD);
+  recordingDuration = () => Promise.resolve(2892);
+  modelPacks = [
+    {
+      dir: "asr-small-en",
+      id: "asr-whisper-small.en",
+      version: "1.0.0",
+      engine: "sherpa-onnx",
+      task: "asr",
+      attribution: "OpenAI Whisper",
+      verified: true,
+      reason: null,
+    },
+  ];
   invokeMock.mockImplementation((command: string) => {
     switch (command) {
       case "volume_encryption_status":
         return Promise.resolve({ state: "encrypted", detail: "test volume" });
       case "list_model_packs":
-        return Promise.resolve([
-          {
-            dir: "asr-small-en",
-            id: "asr-whisper-small.en",
-            version: "1.0.0",
-            engine: "sherpa-onnx",
-            task: "asr",
-            attribution: "OpenAI Whisper",
-            verified: true,
-            reason: null,
-          },
-        ]);
+        return Promise.resolve(modelPacks);
       case "debug_asr_model_override":
         return Promise.resolve(null);
       case "list_sessions":
@@ -113,6 +148,16 @@ beforeEach(() => {
       case "save_recording_notes":
       case "forget_recording_notes":
         return Promise.resolve();
+      case "list_interrupted_recordings":
+        return Promise.resolve(interrupted);
+      case "recover_recording":
+        return recoverRecording();
+      case "delete_interrupted_recording":
+        return deleteInterrupted();
+      case "device_profile":
+        return deviceProfile();
+      case "recording_duration":
+        return recordingDuration();
       default:
         throw new Error(`unexpected command ${command}`);
     }
@@ -820,5 +865,228 @@ describe("Your notes", () => {
     });
 
     await waitFor(() => expect(savedNotes()).toContain("Follow up on the tenancy dates."));
+  });
+});
+
+describe("Recordings without a transcript", () => {
+  const LEFT = {
+    audioPath: "/library/recordings/Recording 2026-11-12 14-03-22.wav",
+    name: "Recording 2026-11-12 14-03-22",
+    durationSec: 2520,
+    hasNotes: true,
+  };
+
+  it("offers at launch to recover one, with its notes, into a saved transcript", async () => {
+    interrupted = [LEFT];
+    render(<App />);
+
+    const notice = await screen.findByTestId("interrupted-recording");
+    expect(notice).toHaveTextContent("Recording 2026-11-12 14-03-22 (42 min, with notes)");
+    fireEvent.click(screen.getByRole("button", { name: "Recover transcript" }));
+
+    expect(
+      await screen.findByText(
+        "Recovered from a recording that had no transcript. The last moment of audio may be missing.",
+      ),
+    ).toBeInTheDocument();
+    expect(invokeMock).toHaveBeenCalledWith("transcribe", expect.objectContaining({ path: LEFT.audioPath }));
+    await waitFor(() => expect(savedNotes()).toEqual(["Client agreed to mediation."]));
+    const saved = invokeMock.mock.calls.find(([command]) => command === "save_session")!;
+    expect((saved[1] as { session: { audioPath: string } }).session.audioPath).toBe(LEFT.audioPath);
+    expect(screen.queryByTestId("interrupted-recording")).not.toBeInTheDocument();
+  });
+
+  it("starts only one recovery at a time", async () => {
+    let prepared!: (value: unknown) => void;
+    recoverRecording = () => new Promise((resolve) => (prepared = resolve));
+    interrupted = [LEFT, { ...LEFT, audioPath: "/library/recordings/Recording 2.wav", name: "Recording 2" }];
+    render(<App />);
+
+    fireEvent.click((await screen.findAllByRole("button", { name: "Recover transcript" }))[0]!);
+    await waitFor(() =>
+      expect(invokeMock.mock.calls.filter(([c]) => c === "recover_recording")).toHaveLength(1),
+    );
+    fireEvent.click(screen.getAllByRole("button", { name: "Recover transcript" })[1]!);
+    prepared({ notes: "" });
+
+    await screen.findByTestId("paragraph");
+    expect(invokeMock.mock.calls.filter(([c]) => c === "recover_recording")).toHaveLength(1);
+  });
+
+  it("offers no other transcription while a recovery is being prepared", async () => {
+    recoverRecording = () => new Promise(() => {});
+    interrupted = [LEFT];
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+    await screen.findByRole("button", { name: "Create transcript" });
+
+    fireEvent.click(screen.getByRole("button", { name: "Recover transcript" }));
+
+    await waitFor(() =>
+      expect(screen.queryByRole("button", { name: "Create transcript" })).not.toBeInTheDocument(),
+    );
+  });
+
+  it("offers nothing else for a recording while it is being deleted", async () => {
+    deleteInterrupted = () => new Promise(() => {});
+    interrupted = [LEFT];
+    render(<App />);
+
+    fireEvent.click(await screen.findByRole("button", { name: "Delete" }));
+    fireEvent.click(screen.getByRole("button", { name: "Delete permanently" }));
+
+    await waitFor(() =>
+      expect(screen.getByRole("button", { name: "Recover transcript" })).toBeDisabled(),
+    );
+  });
+
+  it("says, in the notice, why a recording could not be recovered or deleted", async () => {
+    modelPacks = [];
+    deleteInterrupted = () => Promise.reject(new Error("permission denied"));
+    interrupted = [LEFT];
+    render(<App />);
+    const notice = await screen.findByTestId("interrupted-recording");
+
+    fireEvent.click(screen.getByRole("button", { name: "Recover transcript" }));
+    expect(
+      await within(notice).findByText(/install a verified transcription model/),
+    ).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Delete" }));
+    fireEvent.click(screen.getByRole("button", { name: "Delete permanently" }));
+    expect(await within(notice).findByText(/permission denied/)).toBeInTheDocument();
+  });
+
+  it("deletes one only after confirmation", async () => {
+    interrupted = [LEFT];
+    render(<App />);
+
+    fireEvent.click(await screen.findByRole("button", { name: "Delete" }));
+    expect(invokeMock).not.toHaveBeenCalledWith("delete_interrupted_recording", expect.anything());
+    fireEvent.click(screen.getByRole("button", { name: "Delete permanently" }));
+
+    await waitFor(() =>
+      expect(invokeMock).toHaveBeenCalledWith("delete_interrupted_recording", {
+        audioPath: LEFT.audioPath,
+      }),
+    );
+    await waitFor(() =>
+      expect(screen.queryByTestId("interrupted-recording")).not.toBeInTheDocument(),
+    );
+  });
+});
+
+describe("This computer", () => {
+  async function openModels(): Promise<void> {
+    render(<App />);
+    fireEvent.click(await screen.findByRole("button", { name: /^Models & settings/ }));
+  }
+
+  it("says what an Essentials computer can do, with advice for the next laptop", async () => {
+    deviceProfile = () => Promise.resolve(ESSENTIALS);
+    await openModels();
+
+    expect(
+      await screen.findByText("Folio works well on this computer for transcribing and recording."),
+    ).toBeInTheDocument();
+    expect(screen.getByText("about 15 minutes")).toBeInTheDocument();
+    expect(screen.getByText(/Ask for 16 GB of memory/)).toBeInTheDocument();
+  });
+
+  it("gives no laptop advice on a Standard computer", async () => {
+    await openModels();
+
+    expect(
+      await screen.findByText("Folio runs everything it offers on this computer."),
+    ).toBeInTheDocument();
+    expect(screen.getByText("about 6 minutes")).toBeInTheDocument();
+    expect(screen.queryByText(/Ask for 16 GB of memory/)).not.toBeInTheDocument();
+  });
+
+  it("shows the microphone that is the default when Models & settings opens", async () => {
+    render(<App />);
+    await screen.findByRole("button", { name: /^Models & settings/ });
+    // A USB microphone is plugged in after launch.
+    deviceProfile = () =>
+      Promise.resolve({
+        ...STANDARD,
+        microphone: { name: "USB Conference Mic", processing: "always" },
+      });
+    fireEvent.click(screen.getByRole("button", { name: /^Models & settings/ }));
+
+    expect(await screen.findByText("USB Conference Mic")).toBeInTheDocument();
+  });
+
+  it("says Windows can't skip a microphone's effects, not that they're on", async () => {
+    deviceProfile = () =>
+      Promise.resolve({
+        ...STANDARD,
+        microphone: { name: "Microphone (Conexant SmartAudio HD)", processing: "always" },
+      });
+    await openModels();
+
+    expect(
+      await screen.findByText(
+        /Windows can't give Folio this microphone's sound without its effects, if it has any\./,
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it("says the computer wasn't checked when the check fails", async () => {
+    deviceProfile = () => Promise.reject(new Error("PowerShell blocked"));
+    await openModels();
+
+    expect(await screen.findByText("Not checked")).toBeInTheDocument();
+    expect(screen.getByText(/couldn't check this computer/)).toBeInTheDocument();
+  });
+
+  it("hints on Record to close apps on Essentials only, until dismissed", async () => {
+    deviceProfile = () => Promise.resolve(ESSENTIALS);
+    render(<App />);
+    fireEvent.click(await screen.findByRole("button", { name: /^Record/ }));
+
+    expect(await screen.findByText(/This computer has 8 GB of memory/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Got it" }));
+    expect(screen.queryByText(/This computer has 8 GB of memory/)).not.toBeInTheDocument();
+  });
+
+  it("shows no hint on Record on a Standard computer", async () => {
+    render(<App />);
+    fireEvent.click(await screen.findByRole("button", { name: /^Record/ }));
+
+    await screen.findByRole("button", { name: "Start recording" });
+    expect(screen.queryByText(/This computer has/)).not.toBeInTheDocument();
+  });
+
+  async function chooseOnImport(): Promise<void> {
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+  }
+
+  it("estimates on Import how long the chosen recording takes on this computer", async () => {
+    deviceProfile = () => Promise.resolve(ESSENTIALS);
+    // 48 min 12 s at 15 minutes per hour of audio.
+    recordingDuration = () => Promise.resolve(2892);
+    await chooseOnImport();
+
+    expect(await screen.findByTestId("import-estimate")).toHaveTextContent(
+      "Ready to transcribe: about 12 minutes on this computer.",
+    );
+    expect(invokeMock).toHaveBeenCalledWith("recording_duration", {
+      path: "/recordings/interview.wav",
+    });
+  });
+
+  it("says on Import that it can't estimate when the computer wasn't checked", async () => {
+    deviceProfile = () => Promise.reject(new Error("PowerShell blocked"));
+    await chooseOnImport();
+
+    expect(await screen.findByTestId("import-estimate")).toHaveTextContent(
+      "Folio can't estimate the time on this computer.",
+    );
   });
 });

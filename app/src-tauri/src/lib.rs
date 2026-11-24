@@ -5,10 +5,13 @@
 //! in the dependency graph (enforced by scripts/check-no-network.sh).
 
 mod commands;
+mod device;
+mod microphone;
 mod library;
 mod models;
 mod recorder;
 mod system;
+mod vocab;
 
 #[cfg(test)]
 #[path = "../build_support.rs"]
@@ -45,6 +48,8 @@ pub fn run() {
             library::delete_session,
             system::volume_encryption_status,
             system::pick_recording,
+            system::recording_duration,
+            device::device_profile,
             system::delete_transcript,
             recorder::start_recording,
             recorder::pause_recording,
@@ -52,7 +57,10 @@ pub fn run() {
             recorder::stop_recording,
             recorder::save_recording_notes,
             recorder::forget_recording_notes,
-            recorder::discard_recording
+            recorder::discard_recording,
+            recorder::list_interrupted_recordings,
+            recorder::recover_recording,
+            recorder::delete_interrupted_recording
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

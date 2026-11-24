@@ -9,6 +9,8 @@ import type { Progress, ProgressView } from "./progress";
 import SpeakerBar from "./SpeakerBar";
 import { requestedSpeakers } from "./SpeakerOptions";
 import { Banner, Button } from "./ui";
+import { RecordHint } from "./Device";
+import type { DeviceProfile } from "./Device";
 
 /** One utterance as the backend emits it (`record-utterance`). */
 interface Utterance {
@@ -81,6 +83,9 @@ export default function Record({
   importRunning,
   onActiveChange,
   onFinished,
+  device,
+  hintDismissed,
+  onDismissHint,
 }: {
   asrModel: string | null;
   modelsChecked: boolean;
@@ -96,6 +101,10 @@ export default function Record({
   importRunning: boolean;
   onActiveChange: (active: boolean) => void;
   onFinished: (recording: FinishedRecording) => void;
+  /** This computer's tier; null while the check is still running. */
+  device: DeviceProfile | null;
+  hintDismissed: boolean;
+  onDismissHint: () => void;
 }) {
   const [phase, setPhase] = useState<Phase>("idle");
   const [utterances, setUtterances] = useState<Utterance[]>([]);
@@ -269,6 +278,8 @@ export default function Record({
 
   if (!active) {
     return (
+      <>
+      {device && !hintDismissed && <RecordHint device={device} onDismiss={onDismissHint} />}
       <section className="import-card">
         <h2>Record a conversation</h2>
         <p className="card-intro">
@@ -324,6 +335,7 @@ export default function Record({
           </Banner>
         )}
       </section>
+      </>
     );
   }
 

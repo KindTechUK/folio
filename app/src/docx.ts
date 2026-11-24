@@ -21,7 +21,7 @@ import { writeFile } from "@tauri-apps/plugin-fs";
 import { groupParagraphs } from "@core/editor";
 import type { EditorState } from "@core/editor";
 import { UNKNOWN_SPEAKER } from "@core/types";
-import { DRAFT_DISCLAIMER } from "./draft";
+import { draftDisclaimer } from "./draft";
 import { displayName, mmss } from "./format";
 
 function sentenceText(words: { text: string }[]): string {
@@ -97,7 +97,7 @@ export async function buildDocx(
           }),
           new Paragraph({
             spacing: { after: 200 },
-            children: [new TextRun({ text: DRAFT_DISCLAIMER, italics: true })],
+            children: [new TextRun({ text: draftDisclaimer(opts.diarized), italics: true })],
           }),
           ...body,
         ],

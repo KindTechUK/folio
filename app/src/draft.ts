@@ -6,14 +6,20 @@
 import { exportJSON, exportText } from "@core/editor";
 import type { EditorState } from "@core/editor";
 
-export const DRAFT_DISCLAIMER =
-  "MACHINE-GENERATED DRAFT — automatically transcribed and diarized. " +
-  "Verify against the source audio before relying on it. Speaker labels and " +
-  "wording may be inaccurate.";
+/** The disclaimer, claiming speaker labels only when the transcript has them. */
+export function draftDisclaimer(diarized: boolean): string {
+  return diarized
+    ? "MACHINE-GENERATED DRAFT — automatically transcribed and diarized. " +
+        "Verify against the source audio before relying on it. Speaker labels and " +
+        "wording may be inaccurate."
+    : "MACHINE-GENERATED DRAFT — automatically transcribed. " +
+        "Verify against the source audio before relying on it. Wording may be inaccurate.";
+}
 
 /** Text export with the disclaimer as a commented header block. */
-export function exportTextWithDisclaimer(state: EditorState): string {
-  const header = DRAFT_DISCLAIMER.split(". ")
+export function exportTextWithDisclaimer(state: EditorState, diarized: boolean): string {
+  const header = draftDisclaimer(diarized)
+    .split(". ")
     .map((line) => `# ${line.trim()}`)
     .join("\n");
   return `${header}\n${exportText(state)}`;
@@ -22,6 +28,7 @@ export function exportTextWithDisclaimer(state: EditorState): string {
 /** JSON export with an added top-level `disclaimer` field. */
 export function exportJSONWithDisclaimer(
   state: EditorState,
+  diarized: boolean,
 ): { disclaimer: string } & ReturnType<typeof exportJSON> {
-  return { disclaimer: DRAFT_DISCLAIMER, ...exportJSON(state) };
+  return { disclaimer: draftDisclaimer(diarized), ...exportJSON(state) };
 }

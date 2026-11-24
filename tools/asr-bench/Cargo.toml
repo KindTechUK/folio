@@ -1,0 +1,26 @@
+[package]
+name = "asr-bench"
+version = "0.1.0"
+edition = "2021"
+description = "Speech-to-text evaluation bench: decodes a bench pack with the engine Folio ships, scores it the way the Open ASR Leaderboard does, and reports WER with intervals, speed and memory. Dev/eval tool; NOT linked into the app."
+license = "Apache-2.0"
+
+[dependencies]
+engine = { path = "../../engine" }
+anyhow = "1"
+clap = { version = "4", features = ["derive", "env"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+regex = "1"
+unicode-normalization = "0.1"
+unicode-general-category = "1"
+num-bigint = "0.4"
+num-integer = "0.1"
+num-traits = "0.2"
+sysinfo = { version = "0.33", default-features = false, features = ["system"] }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = ["Win32_System_ProcessStatus", "Win32_System_Threading", "Win32_Foundation"] }
