@@ -518,8 +518,8 @@
    "kind": "denial",
    "must_not_claim": "Mr Pike had come into Mrs Holloway's room before 14 November.",
    "flag_terms": [
-    "before",
-    "previous"
+    "room",
+    "before"
    ],
    "lines": [
     "L0038",

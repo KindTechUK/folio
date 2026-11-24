@@ -529,7 +529,6 @@
    "kind": "hypothetical",
    "must_not_claim": "Martin has sold, or is selling, his mother's house.",
    "flag_terms": [
-    "sold",
     "selling",
     "house"
    ],

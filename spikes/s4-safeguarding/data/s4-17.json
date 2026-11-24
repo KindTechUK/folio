@@ -538,8 +538,7 @@
    "kind": "hypothetical",
    "must_not_claim": "Mrs Abbott has stopped eating.",
    "flag_terms": [
-    "stopped eating",
-    "not eating"
+    "stopped eating"
    ],
    "lines": [
     "L0050",

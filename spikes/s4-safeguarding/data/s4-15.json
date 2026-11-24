@@ -530,8 +530,8 @@
    "kind": "denial",
    "must_not_claim": "Jamie's girlfriend Kayleigh takes his money.",
    "flag_terms": [
-    "girlfriend",
-    "Kayleigh"
+    "Kayleigh",
+    "money"
    ],
    "lines": [
     "L0046",

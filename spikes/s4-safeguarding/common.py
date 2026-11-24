@@ -197,23 +197,27 @@ IRREGULAR = {
     "made": "make", "making": "make",
     "died": "die", "dying": "die",
     "said": "say", "says": "say", "told": "tell",
-    "slept": "sleep", "fell": "fall", "fallen": "fall",
+    "slept": "sleep", "fell": "fall", "fallen": "fall", "sold": "sell",
     "children": "child", "men": "man", "women": "woman",
 }
 
 
 def stem(w):
-    if w in IRREGULAR:
-        return IRREGULAR[w]
     if w in NUMBER_WORDS:
         return NUMBER_WORDS[w]
-    for suf in ("ing", "ed", "es", "s"):
-        if w.endswith(suf) and len(w) - len(suf) >= 3:
-            w = w[: -len(suf)]
-            # hitting -> hitt -> hit, stabbed -> stabb -> stab
-            if len(w) >= 3 and w[-1] == w[-2] and w[-1] not in "aeiouls":
-                w = w[:-1]
-            break
+    if w in IRREGULAR:
+        w = IRREGULAR[w]
+    else:
+        for suf in ("ing", "ed", "es", "s"):
+            if w.endswith(suf) and len(w) - len(suf) >= 3:
+                w = w[: -len(suf)]
+                # hitting -> hitt -> hit, stabbed -> stabb -> stab
+                if len(w) >= 3 and w[-1] == w[-2] and w[-1] not in "aeiouls":
+                    w = w[:-1]
+                break
+    # drive/driving -> driv, gamble/gambling -> gambl: drop a final e on both sides
+    if len(w) >= 3 and w.endswith("e"):
+        w = w[:-1]
     return w
 
 

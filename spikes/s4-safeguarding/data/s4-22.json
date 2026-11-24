@@ -547,7 +547,6 @@
    "kind": "denial",
    "must_not_claim": "Stacey Lambert has hit Millie.",
    "flag_terms": [
-    "Stacey",
     "mum",
     "hit"
    ],

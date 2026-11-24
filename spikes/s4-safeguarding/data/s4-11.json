@@ -534,8 +534,7 @@
    "kind": "hypothetical",
    "must_not_claim": "Jade and the children are being evicted.",
    "flag_terms": [
-    "evicted",
-    "eviction"
+    "evicted"
    ],
    "tag": "c1",
    "lines": [

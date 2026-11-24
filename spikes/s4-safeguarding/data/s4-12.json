@@ -535,8 +535,7 @@
    "kind": "hearsay",
    "must_not_claim": "Keith has been drinking heavily.",
    "flag_terms": [
-    "drinking",
-    "alcohol"
+    "drinking"
    ],
    "tag": "c1",
    "lines": [

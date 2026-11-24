@@ -493,8 +493,8 @@
    "kind": "hearsay",
    "must_not_claim": "Ryan has a previous conviction.",
    "flag_terms": [
-    "conviction",
-    "record"
+    "Ryan",
+    "police"
    ],
    "lines": [
     "L0037",

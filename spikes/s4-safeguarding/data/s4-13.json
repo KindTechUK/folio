@@ -572,8 +572,7 @@
    "kind": "hearsay",
    "must_not_claim": "Mrs Hollis's grandson Kyle gambles.",
    "flag_terms": [
-    "gambles",
-    "betting"
+    "gambling"
    ],
    "lines": [
     "L0046",

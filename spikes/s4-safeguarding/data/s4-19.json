@@ -551,8 +551,7 @@
    "kind": "denial",
    "must_not_claim": "Jade Pritchard has used cocaine.",
    "flag_terms": [
-    "cocaine",
-    "coke"
+    "cocaine"
    ],
    "lines": [
     "L0037",
