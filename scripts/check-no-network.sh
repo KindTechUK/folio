@@ -21,6 +21,7 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 APP_MANIFEST="$REPO_ROOT/app/src-tauri/Cargo.toml"
 ENGINE_MANIFEST="$REPO_ROOT/engine/Cargo.toml"
 MODELPACK_MANIFEST="$REPO_ROOT/modelpack/Cargo.toml"
+SPIKE_LLAMA_MANIFEST="$REPO_ROOT/spikes/s5-llama/Cargo.toml"
 
 # Denylist: HTTP/WebSocket clients, TLS stacks, and Tauri plugins that open
 # network connections or external URLs. Matched as whole crate names at the
@@ -84,11 +85,17 @@ scan "engine (default features)"          "$ENGINE_MANIFEST"
 # The model-pack verification crate runs at the Rust trust boundary and must be
 # network-free too (ed25519-dalek/sha2/serde have no network deps).
 scan "modelpack (default features)"        "$MODELPACK_MANIFEST"
+# Spike S5: llama.cpp (llama-cpp-2) linked next to the engine. `--target all`
+# because llama-cpp-2 pulls extra llama-cpp-sys-2 features on Apple Silicon
+# only, and `cargo tree` otherwise shows the host platform's graph alone.
+# llama.cpp's own CMake build is outside `cargo tree`; see
+# docs/spikes/s5-llm-packaging.md for how that was checked.
+scan "spikes/s5-llama (llama.cpp + engine, all targets)" "$SPIKE_LLAMA_MANIFEST" --target all
 
 echo
 if [[ "$FAIL" -ne 0 ]]; then
   echo "FAIL: zero-egress gate tripped — a network crate is in the dependency graph." >&2
   exit 1
 fi
-echo "PASS: zero-egress gate clean — no network crates in app, engine, or modelpack."
+echo "PASS: zero-egress gate clean — no network crates in app, engine, modelpack, or the S5 llama spike."
 exit 0

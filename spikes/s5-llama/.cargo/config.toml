@@ -1,0 +1,20 @@
+# Applies when cargo runs from this directory (CI uses working-directory).
+[env]
+# CPU-only: ggml's CMake turns Metal on by default on Apple, and llama-cpp-2
+# enables llama-cpp-sys-2's `metal` feature on Apple Silicon regardless of our
+# features. llama-cpp-sys-2 forwards GGML_* env vars to CMake, so this keeps the
+# Metal backend out of the build (only the Metal framework link stays).
+GGML_METAL = "OFF"
+# llama-cpp-2 depends on llama-cpp-sys-2 with its DEFAULT features on every
+# platform, so llama.cpp's `common` library and its vendored cpp-httplib (the
+# model downloader's HTTP client) get compiled; cpp-httplib links OpenSSL (HTTPS)
+# when CMake finds one (Homebrew's on a Mac, libssl-dev on a CI runner). Neither
+# ends up in our binary (nothing references them), but keep HTTPS out of the
+# build entirely. CMAKE_* env vars are forwarded to CMake as cache entries.
+CMAKE_DISABLE_FIND_PACKAGE_OpenSSL = "TRUE"
+# Windows (MSVC): sherpa-onnx's prebuilt archive is static-CRT (/MT), but
+# llama-cpp-sys-2 builds llama.cpp with the DLL CRT (/MD) unless this is set,
+# and the link then fails: "/failifmismatch: mismatch detected for
+# 'RuntimeLibrary' ... MD_DynamicRelease ... MT_StaticRelease". Ignored on
+# other targets.
+LLAMA_STATIC_CRT = "1"
