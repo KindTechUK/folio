@@ -10,6 +10,7 @@ use std::path::{Path, PathBuf};
 pub mod decode;
 pub mod merge;
 pub mod resample;
+pub mod segment;
 pub mod sherpa;
 pub mod vocab;
 
@@ -244,6 +245,15 @@ impl AsrModel {
     /// timestamps, beam search and hotwords possible).
     pub fn is_transducer(&self) -> bool {
         self.family() == ModelFamily::Transducer
+    }
+
+    /// Whether the record (an import, or a recording's saved transcript) is
+    /// decoded in energy-cut pieces ([`crate::sherpa::PIECE_S`]) rather than
+    /// VAD utterances. Only the transducers, which were benched on them:
+    /// pieces include silence, which Whisper and Cohere fill with invented
+    /// text, and Qwen3 has a short output budget.
+    pub fn decodes_pieces(&self) -> bool {
+        self.is_transducer()
     }
 
     /// The model-relative ASR file paths (relative to `models_dir`), NOT
@@ -614,6 +624,20 @@ mod process_tests {
             !files.iter().any(|f| f.contains("-encoder.int8.onnx")),
             "transducer must not use the Whisper <stem>-encoder naming: {files:?}"
         );
+    }
+
+    /// Pieces include silence, which Whisper and Cohere fill with invented
+    /// text, and Qwen3 has a short output budget: only the transducers take
+    /// the record in energy pieces.
+    #[test]
+    fn only_transducers_decode_the_record_in_energy_pieces() {
+        use AsrModel::*;
+        for model in [ParakeetV2, ParakeetV3, ParakeetUltra, ParakeetRedux, ParakeetUnifiedEn] {
+            assert!(model.decodes_pieces(), "{model:?}");
+        }
+        for model in [SmallEn, MediumEn, Qwen3Asr06b, CohereTranscribe] {
+            assert!(!model.decodes_pieces(), "{model:?}");
+        }
     }
 
     #[test]

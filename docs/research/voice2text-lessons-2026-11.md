@@ -171,7 +171,7 @@ sherpa-onnx 2.0.1 decodes the same windows correctly. Today's file path, before 
 | `vad-pad:0.8/120/300` | 37.1 | 31.8% | 7.8 | 3,589 | 0.040 |
 | `vad:0.8/15` (live profile) | 38.7 | 33.7% | 8.9 | 2,200 | 0.037 |
 | `energy:30/5` | **25.3** | 17.7% | **7.3** | **1,864** | 0.067 |
-| `energy:15/3` | 25.3 | 17.0% | 7.6 | 1,581 | 0.064 |
+| `energy:15/5` | 24.9 | 16.3% | 7.7 | 1,455 | 0.070 |
 
 - Energy cuts are better or level on **every one** of the 9 recordings. Per meeting: TS3003a 54.4 → 25.7,
   ES2004a 34.6 → 25.7, IS1009a 24.5 → 24.2. Per call: 4.1 → 1.7 down to 8.4 → 8.2.
@@ -187,6 +187,26 @@ sherpa-onnx 2.0.1 decodes the same windows correctly. Today's file path, before 
 - Upgrade sherpa-onnx to 2.0.1 ([PR #23](https://github.com/KindTechUK/folio/pull/23)).
 - Move the file path to energy cuts once the floor laptop's speed numbers are in, as a change of its
   own. Live capture keeps the VAD.
+
+**Decided (2026-11-24), superseding the last point.** The room-mic research
+(`room-mic-capture-2026-11.md`) showed that VAD gating is what loses speech when one laptop sits in
+the middle of a room, so neither path gates the record any more:
+- **Imports:** Parakeet decodes energy cuts (15 s pieces, cut at the quietest 100 ms within ±5 s,
+  so 10–20 s long), without waiting for the floor laptop's numbers. Whisper, Qwen3 and Cohere keep
+  a VAD: pieces include silence, which Whisper and Cohere fill with invented text, and Qwen3 has a
+  short output budget.
+- **Recordings:** with Parakeet, a recording's saved transcript is built from the same pieces, cut
+  from the live stream and decoded in the background. The live captions stay on the VAD and are
+  only a preview. With the other models the record stays the VAD utterances.
+- **Why 15 s, not 30 s:** on a room recording made through Folio, Parakeet v2 returned only the
+  last 2 s of a 30.5 s piece, at almost any gain, while 20 s and 25 s pieces of the same audio
+  came back whole (`engine/tests/long_pieces.rs`). `energy:15/5` scores the same as `energy:30/5`
+  on the bench above.
+- **Every VAD** (live captions, and imports for the other models) hears a levelled copy of the
+  audio (up to +30 dB towards −23 dBFS over 3 s), while the decoder gets the original. On Parakeet v2
+  this takes the live profile from 45.8% to 36.5% WER on `ami-sdm` (−9.3 points, 95% CI
+  [−13.7, −5.1]; empty clips 23 → 9) and from 38.7% to 27.4% on `ami-sdm-long`, with
+  `earnings22-long` level (8.9% → 8.7%).
 
 D1–D3 change no model and need no new crate. D4 and D5 are config changes plus a check that
 `nemo_transducer` supports beam search and hotwords. D6 is the only one that needs a new code path.

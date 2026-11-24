@@ -18,18 +18,27 @@ use sherpa_onnx::{
     VadModelConfig, VoiceActivityDetector,
 };
 
+use crate::segment::{energy_cuts, Leveller};
 use crate::{EMB_MODEL, SEG_MODEL, VAD_MODEL};
+
+/// The record with Parakeet (imports, and a recording's saved transcript):
+/// pieces of about this many seconds, each cut at the quietest 100 ms within
+/// [`PIECE_SEARCH_S`] of its mark, so 10–20 s long. Parakeet v2 can drop the
+/// opening of a ~30 s piece (`tests/long_pieces.rs`); 15/5 scored the same as
+/// 30/5 on the bench (docs/research/voice2text-lessons-2026-11.md).
+pub const PIECE_S: f32 = 15.0;
+pub const PIECE_SEARCH_S: f32 = 5.0;
 
 /// VAD segmentation tuning per model family, as
 /// `(min_silence_duration_s, max_speech_duration_s)`.
 ///
 /// `min_silence_duration` is the "redemption" time: how long a pause must last
 /// before a speech segment is closed. `max_speech_duration` caps a segment's
-/// length (Silero cuts at the cap).
+/// length: past it, sherpa-onnx asks for a shorter, clearer silence (0.1 s
+/// at 0.9), so a segment usually ends soon after, but it isn't cut.
 ///
-/// Folio is an offline/import workflow (no live-caption latency budget), so for
-/// the default transducer path (Parakeet) we bridge natural pauses into longer,
-/// more coherent segments — better ASR context and cleaner review paragraphs.
+/// Parakeet's file path no longer uses these: it decodes energy-cut pieces
+/// ([`PIECE_S`]). Its row stays for callers that ask for a VAD by model.
 /// The Whisper path is left at its validated params: it MUST stay under the 30 s
 /// decode window, so a raised cap there would silently truncate audio. The
 /// encoder-decoder evaluation candidates (Qwen3-ASR, Cohere) get the same
@@ -48,23 +57,60 @@ fn vad_params(family: ModelFamily) -> (f32, f32) {
 }
 
 /// VAD segmentation profile: `min_silence` closes an utterance after that much
-/// pause, `max_speech` caps its length (seconds).
+/// pause, `max_speech` caps its length (seconds). A `levelled` VAD judges a
+/// copy of the audio raised by a [`Leveller`]: quiet and distant speech falls
+/// under Silero's threshold otherwise (room-mic research, recommendation 2).
+/// The utterances it returns are always the original audio.
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct VadProfile {
     pub min_silence: f32,
     pub max_speech: f32,
+    pub levelled: bool,
 }
 
 impl VadProfile {
     /// Live capture: utterances close after 0.8 s of silence or 15 s of speech,
     /// which bounds how far text trails speech (spike S1:
     /// docs/spikes/s1-live-lag.md).
-    pub const LIVE: VadProfile = VadProfile { min_silence: 0.8, max_speech: 15.0 };
+    pub const LIVE: VadProfile = VadProfile { min_silence: 0.8, max_speech: 15.0, levelled: true };
 
     /// File transcription for `model` (see [`vad_params`]).
     pub fn offline(model: crate::AsrModel) -> Self {
         let (min_silence, max_speech) = vad_params(model.family());
-        VadProfile { min_silence, max_speech }
+        VadProfile { min_silence, max_speech, levelled: true }
+    }
+}
+
+/// The original samples a levelled VAD has been fed, kept long enough to cut
+/// its utterances from them.
+struct Originals {
+    /// Stream position of `buf[0]`.
+    base: usize,
+    buf: Vec<f32>,
+    /// How much [`Originals::trim`] keeps, for Silero's look-back once no
+    /// utterance is open.
+    keep: usize,
+}
+
+impl Originals {
+    fn get(&self, start: usize, len: usize) -> Option<Vec<f32>> {
+        let from = start.checked_sub(self.base)?;
+        self.buf.get(from..from + len).map(<[f32]>::to_vec)
+    }
+
+    fn push(&mut self, samples: &[f32]) {
+        self.buf.extend_from_slice(samples);
+    }
+
+    /// Drop all but the last `keep` samples. Only call it while no utterance
+    /// is open: sherpa-onnx doesn't cut at `max_speech` (it only asks for a
+    /// shorter, clearer silence), so an open one can be any length.
+    fn trim(&mut self) {
+        if self.buf.len() > 2 * self.keep {
+            let drop = self.buf.len() - self.keep;
+            self.buf.drain(..drop);
+            self.base += drop;
+        }
     }
 }
 
@@ -74,6 +120,9 @@ impl VadProfile {
 pub struct Vad {
     inner: VoiceActivityDetector,
     window: usize,
+    sample_rate: u32,
+    /// Set for a levelled profile.
+    levelling: Option<std::cell::RefCell<(Leveller, Originals)>>,
 }
 
 impl Vad {
@@ -82,8 +131,25 @@ impl Vad {
     pub fn accept(&self, samples: &[f32]) -> Vec<(usize, Vec<f32>)> {
         let mut out = Vec::new();
         for chunk in samples.chunks(self.window) {
-            self.inner.accept_waveform(chunk);
+            // One window at a time, so the original copy never runs ahead of
+            // what Silero has judged (and never trims what it still needs).
+            match &self.levelling {
+                Some(l) => {
+                    let levelled = {
+                        let (leveller, originals) = &mut *l.borrow_mut();
+                        originals.push(chunk);
+                        leveller.process(chunk)
+                    };
+                    self.inner.accept_waveform(&levelled);
+                }
+                None => self.inner.accept_waveform(chunk),
+            }
             self.drain(&mut out);
+            if let Some(l) = &self.levelling {
+                if !self.inner.detected() {
+                    l.borrow_mut().1.trim();
+                }
+            }
         }
         out
     }
@@ -99,6 +165,12 @@ impl Vad {
     /// Clear all state; sample positions restart at 0.
     pub fn reset(&self) {
         self.inner.reset();
+        if let Some(l) = &self.levelling {
+            let (leveller, originals) = &mut *l.borrow_mut();
+            *leveller = Leveller::new(self.sample_rate);
+            originals.buf.clear();
+            originals.base = 0;
+        }
     }
 
     /// Whether speech is currently detected (an utterance is open).
@@ -108,7 +180,14 @@ impl Vad {
 
     fn drain(&self, out: &mut Vec<(usize, Vec<f32>)>) {
         while let Some(seg) = self.inner.front() {
-            out.push((seg.start().max(0) as usize, seg.samples().to_vec()));
+            let start = seg.start().max(0) as usize;
+            let heard = seg.samples();
+            let samples = self
+                .levelling
+                .as_ref()
+                .and_then(|l| l.borrow().1.get(start, heard.len()))
+                .unwrap_or_else(|| heard.to_vec());
+            out.push((start, samples));
             self.inner.pop();
         }
     }
@@ -327,7 +406,16 @@ impl SherpaEngine {
         // loss) if a speech run exceeds it.
         let inner = VoiceActivityDetector::create(&vad_config, 100.0)
             .ok_or_else(|| EngineError::Sherpa("create VoiceActivityDetector returned None".into()))?;
-        Ok(Vad { inner, window })
+        let levelling = profile.levelled.then(|| {
+            // Kept between utterances, comfortably more than Silero looks
+            // back when one starts; an open utterance is never trimmed.
+            let keep = ((profile.max_speech + profile.min_silence + 10.0) * sample_rate as f32) as usize;
+            std::cell::RefCell::new((
+                Leveller::new(sample_rate),
+                Originals { base: 0, buf: Vec::new(), keep },
+            ))
+        });
+        Ok(Vad { inner, window, sample_rate, levelling })
     }
 
     /// VAD-chunk `samples` into `(start_sample, chunk_samples)` speech segments
@@ -454,9 +542,30 @@ impl TranscriptionEngine for SherpaEngine {
         // it as its own "loading" step.
         progress(Progress::new("loading", 0, 0, crate::PROGRESS_DECODE_END));
         let recognizer = Recognizer { inner: self.build_recognizer()?, sample_rate };
-        let chunks = self
-            .vad_chunks(samples, sample_rate, progress)
-            .context("VAD chunking")?;
+        let chunks: Vec<(usize, std::borrow::Cow<'_, [f32]>)> =
+            if self.asr_model.decodes_pieces() {
+                // Parakeet decodes every sample, in ~15 s pieces cut at the
+                // quietest moment: VAD gating deleted a third of the words on
+                // room-mic meetings (docs/research/room-mic-capture-2026-11.md).
+                let mut edges = vec![0];
+                edges.extend(energy_cuts(samples, sample_rate, PIECE_S, PIECE_SEARCH_S));
+                edges.push(samples.len());
+                progress(Progress::new("segmenting", 1, 1, crate::PROGRESS_VAD_END));
+                edges
+                    .windows(2)
+                    .filter(|w| w[1] > w[0])
+                    .map(|w| (w[0], std::borrow::Cow::Borrowed(&samples[w[0]..w[1]])))
+                    .collect()
+            } else {
+                // Whisper must stay under its 30 s window, the autoregressive
+                // models have short output budgets, and Cohere invents text
+                // over silence: these keep the (levelled) VAD.
+                self.vad_chunks(samples, sample_rate, progress)
+                    .context("VAD chunking")?
+                    .into_iter()
+                    .map(|(s, c)| (s, std::borrow::Cow::Owned(c)))
+                    .collect()
+            };
 
         let total = chunks.len() as u32;
         let mut segments = Vec::new();
@@ -545,6 +654,20 @@ impl TranscriptionEngine for SherpaEngine {
 mod new_tests {
     use super::*;
     use crate::AsrModel;
+
+    /// sherpa-onnx doesn't cut an utterance at `max_speech`: past it, it only
+    /// asks for a shorter, clearer silence. So an utterance can stay open
+    /// longer than any fixed `keep`, and its start must still be there when it
+    /// closes.
+    #[test]
+    fn an_open_utterance_keeps_its_original_samples_however_long_it_runs() {
+        let mut originals = Originals { base: 0, buf: Vec::new(), keep: 16_000 };
+        // 60 s of speech, one 512-sample VAD window at a time, never closing.
+        for k in 0..(60 * 16_000 / 512) {
+            originals.push(&[k as f32; 512]);
+        }
+        assert_eq!(originals.get(0, 512), Some(vec![0.0; 512]));
+    }
 
     /// VAD params are model-aware: Whisper must stay under its 30 s window; the
     /// offline transducer path may run long and bridges pauses at least as much.
