@@ -27,6 +27,8 @@
 
 use std::cmp::Ordering;
 use std::collections::BTreeMap;
+use std::io::Read;
+use std::path::Path;
 
 use base64::Engine as _;
 use base64::engine::general_purpose::STANDARD as BASE64_STANDARD;
@@ -37,10 +39,10 @@ use serde_json::Value;
 use sha2::{Digest, Sha256};
 
 /// Engines this build knows how to drive (mirrors `ENGINES` in the TS).
-pub const ENGINES: [&str; 2] = ["whisper.cpp", "sherpa-onnx"];
+pub const ENGINES: [&str; 3] = ["whisper.cpp", "sherpa-onnx", "llama.cpp"];
 
 /// Tasks a model pack can perform (mirrors `TASKS` in the TS).
-pub const TASKS: [&str; 2] = ["asr", "diarization"];
+pub const TASKS: [&str; 3] = ["asr", "diarization", "llm"];
 
 /// A validated model-pack manifest. Field NAMES match the TS interface; the
 /// declared field ORDER here is the canonical sorted order so that
@@ -257,11 +259,50 @@ pub fn verify_model_pack(
     pubkey: &PublicKey<'_>,
     engine_versions: &BTreeMap<String, String>,
 ) -> Result<Verified, String> {
+    verify_model_pack_reader(manifest_value, weights, pubkey, engine_versions)
+}
+
+/// Bytes read per step when hashing weights. Packs can be several GB (a Q4
+/// 4B LLM is ~2.4 GB), so weights are never held in memory whole.
+pub const HASH_CHUNK_BYTES: usize = 1 << 20;
+
+/// Lowercase-hex SHA-256 of everything `reader` yields, read
+/// [`HASH_CHUNK_BYTES`] at a time.
+pub fn sha256_hex_reader<R: Read>(mut reader: R) -> std::io::Result<String> {
+    let mut hasher = Sha256::new();
+    let mut buf = vec![0u8; HASH_CHUNK_BYTES];
+    loop {
+        let n = match reader.read(&mut buf) {
+            Ok(0) => break,
+            Ok(n) => n,
+            Err(e) if e.kind() == std::io::ErrorKind::Interrupted => continue,
+            Err(e) => return Err(e),
+        };
+        hasher.update(&buf[..n]);
+    }
+    Ok(hex_encode(&hasher.finalize()))
+}
+
+/// Lowercase-hex SHA-256 of the file at `path`, streamed in chunks.
+pub fn sha256_hex_file(path: &Path) -> std::io::Result<String> {
+    sha256_hex_reader(std::fs::File::open(path)?)
+}
+
+/// [`verify_model_pack`] over a weights STREAM (e.g. an open `weights.bin`),
+/// hashed in [`HASH_CHUNK_BYTES`] chunks so multi-GB packs never sit in RAM.
+/// Same steps, same order, same reasons; a read error mid-stream fails closed.
+pub fn verify_model_pack_reader<R: Read>(
+    manifest_value: &Value,
+    weights: R,
+    pubkey: &PublicKey<'_>,
+    engine_versions: &BTreeMap<String, String>,
+) -> Result<Verified, String> {
     // 1. structural validation
     let manifest = validate_manifest(manifest_value)?;
 
     // 2. weights integrity
-    let actual = hex_encode(&Sha256::digest(weights));
+    let actual = sha256_hex_reader(weights)
+        .map_err(|e| format!("cannot read weights (tampered or corrupt): {e}"))?;
     if !timing_safe_hex_equal(&actual, &manifest.sha256) {
         return Err("weights hash mismatch (tampered or corrupt)".to_string());
     }
@@ -373,6 +414,25 @@ mod tests {
         let mut m = base();
         m["version"] = json!("1.2.x");
         assert!(validate_manifest(&m).unwrap_err().contains("not valid semver"));
+    }
+
+    /// A file longer than one hash chunk hashes to its SHA-256 (the literal was
+    /// computed independently with `shasum -a 256` over the same bytes).
+    #[test]
+    fn streamed_hash_of_a_file_larger_than_one_chunk() {
+        let len = (1usize << 20) + 4097;
+        let bytes: Vec<u8> = (0..len).map(|i| ((i * 31 + 7) & 0xff) as u8).collect();
+        let path = std::env::temp_dir().join(format!("modelpack-chunk-{}.bin", std::process::id()));
+        std::fs::write(&path, &bytes).unwrap();
+
+        let digest = sha256_hex_file(&path).unwrap();
+        let _ = std::fs::remove_file(&path);
+
+        assert!(len > HASH_CHUNK_BYTES);
+        assert_eq!(
+            digest,
+            "b0fee64e0701324ea24d718618eb8e39ec084ac78a92948424f1b23b16e7804a"
+        );
     }
 
     #[test]

@@ -17,6 +17,11 @@ exist only to satisfy the resolver's required-file existence check
   `small.en` (`sherpa-onnx-whisper-small.en/small.en-{encoder,decoder}.int8.onnx`,
   `…-tokens.txt`, `silero_vad.onnx`) — all empty.
 
+- `llm-tiny/` — `id = test/llm-tiny`, `engine = llama.cpp`, `task = llm`. Its
+  `weights.bin` zips (Stored, uncompressed) one file, `tiny.gguf`, holding the
+  text `GGUF fixture: not a real model` and a newline. Used by the
+  `resolve_verified_llm_in` tests; the speech resolver must ignore it.
+
 ## Regenerating
 
 ```sh
@@ -32,5 +37,19 @@ cargo run --manifest-path tools/modelpack-sign/Cargo.toml -- pack \
   --id sightline/whisper-small.en --version 1.0.0 --engine sherpa-onnx \
   --engine-min-version 1.13.2 --task asr --license MIT \
   --attribution "Sightline Test ASR small.en"
+rm -rf "$TMP"
+```
+
+For `llm-tiny/`:
+
+```sh
+TMP=$(mktemp -d)
+printf 'GGUF fixture: not a real model\n' > "$TMP/tiny.gguf"
+cargo run --manifest-path tools/modelpack-sign/Cargo.toml -- pack \
+  --model-dir "$TMP" --out fixtures/modelpack/packs/llm-tiny \
+  --key fixtures/modelpack/keys/test-private.pkcs8.pem \
+  --id test/llm-tiny --version 1.0.0 --engine llama.cpp \
+  --engine-min-version 0.6.0 --task llm --license Apache-2.0 \
+  --attribution "Test LLM pack (not a real model)"
 rm -rf "$TMP"
 ```

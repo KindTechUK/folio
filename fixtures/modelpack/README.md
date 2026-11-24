@@ -52,6 +52,7 @@ are fixed in the script). It rewrites `cases/` and `context.json` only.
 | case | outcome | proves |
 | --- | --- | --- |
 | `valid` | ok | canonicalization + ed25519 parity (the decisive cross-impl check) |
+| `valid-llm` | ok | `task: "llm"` on the `llama.cpp` engine is accepted |
 | `tampered-weights` | reject | sha256 mismatch detected |
 | `unsigned` | reject | empty signature fails closed |
 | `untrusted` | reject | signature by a different key rejected |

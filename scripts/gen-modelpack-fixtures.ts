@@ -51,6 +51,7 @@ const untrustedPrivKey = createPrivateKey(untrustedPrivPem);
 const ENGINE_VERSIONS = {
   "whisper.cpp": "1.7.0",
   "sherpa-onnx": "1.13.2",
+  "llama.cpp": "0.6.0",
 };
 
 // --- helpers ---------------------------------------------------------------
@@ -127,6 +128,22 @@ function baseManifest(overrides: Record<string, unknown> = {}): Record<string, u
   const m = baseManifest({ sha256: sha256Hex(weights) });
   const signature = signWith(testPrivKey, m as Omit<Manifest, "signature">);
   writeCase("valid", { ...m, signature }, { outcome: "ok" }, weights);
+}
+
+// === ok: valid-llm (task "llm" on the llama.cpp engine) ===================
+{
+  const weights = makeWeights(7);
+  const m = baseManifest({
+    id: "acme/qwen3-4b-instruct",
+    engine: "llama.cpp",
+    engine_min_version: "0.6.0",
+    task: "llm",
+    license: "Apache-2.0",
+    attribution: "Acme Language Labs",
+    sha256: sha256Hex(weights),
+  });
+  const signature = signWith(testPrivKey, m as Omit<Manifest, "signature">);
+  writeCase("valid-llm", { ...m, signature }, { outcome: "ok" }, weights);
 }
 
 // === reject: tampered-weights (flip a byte after signing) ==================
