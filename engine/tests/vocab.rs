@@ -239,3 +239,59 @@ fn later_rules_see_what_earlier_rules_wrote() {
         vec![changed("Navier-Stokes", 0.0, 0.9, "navio stokes")]
     );
 }
+
+#[test]
+fn a_prose_a_and_i_are_not_joined_into_an_acronym() {
+    let words = vec![
+        w("give", 0.0, 0.2),
+        w("it", 0.2, 0.4),
+        w("a", 0.4, 0.5),
+        w("I", 0.5, 0.6),
+        w("don't", 0.6, 0.9),
+        w("know.", 0.9, 1.2),
+    ];
+    let mut t = transcript(words.clone());
+    assert_eq!(vocab("AI => AI").apply(&mut t), 0);
+    assert_eq!(t.segments[0].words, words);
+
+    // Spelled out, it's still joined.
+    let mut t = transcript(vec![w("the", 0.0, 0.2), w("A", 0.2, 0.4), w("I", 0.4, 0.6), w("team", 0.6, 1.0)]);
+    assert_eq!(vocab("AI => AI").apply(&mut t), 1);
+    assert_eq!(
+        t.segments[0].words,
+        vec![w("the", 0.0, 0.2), changed("AI", 0.2, 0.6, "A I"), w("team", 0.6, 1.0)]
+    );
+}
+
+/// `IT => IT` is for the acronym: the everyday "it" stays as it is.
+#[test]
+fn an_entry_that_only_changes_case_leaves_lowercase_words_alone() {
+    let words = vec![
+        w("we", 0.0, 0.2),
+        w("fixed", 0.2, 0.5),
+        w("it", 0.5, 0.6),
+        w("with", 0.6, 0.8),
+        w("the", 0.8, 0.9),
+        w("IT", 0.9, 1.1),
+        w("team.", 1.1, 1.4),
+    ];
+    let mut t = transcript(words.clone());
+    assert_eq!(vocab("IT => IT").apply(&mut t), 0);
+    assert_eq!(t.segments[0].words, words);
+}
+
+#[test]
+fn a_spelled_acronym_is_joined_after_a_sentence_initial_a() {
+    let mut t = transcript(vec![
+        w("A", 0.0, 0.2),
+        w("C", 0.2, 0.4),
+        w("L", 0.4, 0.6),
+        w("I", 0.6, 0.8),
+        w("tool", 0.8, 1.2),
+    ]);
+    assert_eq!(vocab("CLI => CLI").apply(&mut t), 1);
+    assert_eq!(
+        t.segments[0].words,
+        vec![w("A", 0.0, 0.2), changed("CLI", 0.2, 0.8, "C L I"), w("tool", 0.8, 1.2)]
+    );
+}

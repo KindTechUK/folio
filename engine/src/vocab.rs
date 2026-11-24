@@ -155,6 +155,17 @@ impl Replacement {
         let m = self
             .literal_at(words, i)
             .or_else(|| self.spelled_at(words, i))?;
+        // An acronym entry that only changes case (`IT => IT`) is for the
+        // acronym: the everyday lowercase word ("it") is left alone.
+        let acronym = self.written.chars().all(|c| c.is_uppercase());
+        if acronym
+            && self.heard.to_lowercase() == self.written.to_lowercase()
+            && words[i..m.end]
+                .iter()
+                .all(|w| core(&w.word).chars().all(|c| !c.is_uppercase()))
+        {
+            return None;
+        }
         let speaker = &words[i].speaker;
         words[i..m.end]
             .iter()
@@ -223,6 +234,11 @@ impl Replacement {
             return None;
         };
         let span = &words[i..i + k];
+        // Two letters with a lowercase "a" are prose ("it a I don't"), not
+        // a spelled acronym ("the A I team").
+        if k == 2 && span.iter().any(|w| core(&w.word) == "a") {
+            return None;
+        }
         if span[1..].iter().any(|w| !edges(&w.word).0.is_empty())
             || span[..k - 1].iter().any(|w| !edges(&w.word).1.is_empty())
         {
@@ -347,9 +363,10 @@ fn is_letter(w: &Word) -> bool {
     c.chars().count() == 1 && c.chars().all(char::is_alphabetic)
 }
 
-/// "a" or "I": a single letter that's usually a word of its own.
+/// "a" (or a sentence's "A") or "I": a single letter that's usually a word
+/// of its own.
 fn is_prose_letter(w: &Word) -> bool {
-    matches!(core(&w.word), "a" | "I")
+    matches!(core(&w.word), "a" | "A" | "I")
 }
 
 /// `cli` for `["cli"]` or `["c", "l", "i"]`; `None` when it can't be spelled.
