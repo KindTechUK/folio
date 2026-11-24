@@ -1,0 +1,156 @@
+# Housing and benefits needs assessment (synthetic)
+# id: synthetic-housing-assessment
+# Speakers: S1 = Housing options officer (Marcus Fenn); S2 = Tenant (Kayleigh Brennan); S3 = Support worker, Brightwater Advice Project (Moira Quinn)
+
+L1 [00:01] S1: Morning, come on through. It's Kayleigh, isn't it? I'm Marcus, Marcus Fenn, from housing options.
+L2 [00:07] S2: Yeah, hi. Sorry we're a bit late, the bus, um, the bus just didn't turn up.
+L3 [00:12] S1: No, honestly, don't worry about it. And you must be from, er, from Brightwater?
+L4 [00:18] S3: Moira, yes. Moira Quinn, from the Brightwater Advice Project. We spoke on the phone last week.
+L5 [00:23] S1: We did, yeah. Grab a seat. Water? The machine's broken, sorry.
+L6 [00:28] S3: Water's lovely, thanks. It's freezing out there.
+L7 [00:31] S1: So, um, today's a housing needs assessment. Your housing, your money, the family, then what we can do.
+L8 [00:38] S1: Is it okay if Moira stays in for all of it?
+L9 [00:42] S2: Yeah, I want her here. I get muddled with the forms and that.
+L10 [00:47] S1: Fine. And are you happy for me to talk to Universal Credit and the landlord's side if I need to?
+L11 [00:54] S2: Yeah. Go on.
+L12 [00:55] S1: Great. So, who lives with you at the moment?
+L13 [00:59] S2: Just me and the kids. Alfie, he's seven, and Mia, she's three.
+L14 [01:04] S1: And the address is Flat 4, 18 Cobden Street?
+L15 [01:08] S2: That's it. Top floor. Two bedrooms.
+L16 [01:11] S1: And how long have you been there?
+L17 [01:14] S2: Since, um, the summer of twenty-one. It's private, through Kerridge and Low, the agents. The landlord's a Mr Haskins.
+L18 [01:21] S1: Okay. And was it you and the children's dad on the tenancy?
+L19 [01:26] S2: No, just me on the tenancy. Liam moved in after. He was on the Universal Credit with me though, joint claim.
+L20 [01:34] S1: Right. And Liam's moved out now?
+L21 [01:36] S2: Yeah. End of July he went. No, sorry, it was August. It was the day after Alfie's birthday, so the ninth of August.
+L22 [01:46] S1: Ninth of August. Okay.
+L23 [01:48] S3: And that's where it all went wrong with the money.
+L24 [01:52] S1: I ask everyone this, was there any, um, violence or abuse in the relationship?
+L25 [01:57] S2: No. No, nothing like that. He never hurt us. He just left. He's in Bristol now.
+L26 [02:04] S1: Okay. And what's the rent on the flat?
+L27 [02:07] S2: It's eight-fifty a month. Oh, no, wait, it went up in April, didn't it. It's eight-ninety-five now.
+L28 [02:13] S3: Eight-ninety-five, yeah. I've got the increase letter.
+L29 [02:16] S1: Eight-nine-five. And how much does Universal Credit cover?
+L30 [02:19] S2: The housing bit's seven-two-five. So I'm, um, short a hundred and seventy every month.
+L31 [02:25] S1: Yeah, that's the local housing allowance rate for a two-bed.
+L32 [02:29] S2: Which I could do when Liam was there. But now it's just my wages.
+L33 [02:35] S1: And you're working?
+L34 [02:36] S2: Twelve hours a week. In the kitchen at Cobden Road Primary. I get about, um, six hundred and thirty a month.
+L35 [02:43] S1: Any other income? Child maintenance from Liam, anything?
+L36 [02:47] S2: No. Nothing. He's not paid a penny since he went. And there's nothing else. No savings, nothing.
+L37 [02:54] S3: Which is why I keep saying get the Child Maintenance Service onto him.
+L38 [02:59] S2: I don't want anything off him, Moira. I'm not chasing him. I just want him gone.
+L39 [03:06] S1: That's your call. And child benefit for both?
+L40 [03:10] S2: Oh, yeah, the child benefit. Sorry, didn't think of that as income.
+L41 [03:14] S1: So, the arrears. How much are you behind?
+L42 [03:17] S2: It's about two thousand four hundred.
+L43 [03:20] S3: Is it? I thought the letter said less than that.
+L44 [03:25] S2: Have you got it?
+L45 [03:27] S3: Here, the agent's letter, dated the second of November. It says one thousand nine hundred and sixty.
+L46 [03:33] S2: Oh. Yeah. Nineteen sixty then. The twenty-four was what Liam reckoned, but he's never right.
+L47 [03:39] S1: So one thousand nine hundred and sixty as of the second of November. How did it build up?
+L48 [03:45] S2: When Liam left, the joint claim got closed and I had to make a new claim, just me.
+L49 [03:51] S2: And it took like five weeks, so no housing money for, for August or September really.
+L50 [03:58] S1: So two missed months, plus the shortfall. Yeah, that adds up.
+L51 [04:03] S1: Have you ever been in arrears before? Or been evicted from anywhere?
+L52 [04:08] S2: No. Never. Never been behind before this. And I've never been evicted, no.
+L53 [04:13] S3: She's been a good tenant. Never missed till this.
+L54 [04:17] S1: Has the landlord or the agent served you any kind of notice?
+L55 [04:22] S2: He keeps texting me. Mr Haskins. Last Tuesday he sent one saying if I don't sort it by the end of the month he'll get his solicitor to serve papers.
+L56 [04:34] S2: Here, look.
+L57 [04:35] S1: Right, the seventeenth of November. Has anything actually come through the door? A notice seeking possession, a solicitor's letter?
+L58 [04:41] S2: No. Just the texts. Nothing in the post.
+L59 [04:44] S1: So as of today, no notice has been served. That's important.
+L60 [04:49] S1: Even so, given the text and the arrears, I'm opening a prevention case today. We work with you to keep you in the flat.
+L61 [04:57] S2: Okay. Yeah. Thank you.
+L62 [04:59] S3: What about temporary accommodation, though? If he did go to court, would they end up somewhere like Fenwick's House?
+L63 [05:05] S1: That's a long way off. If it ever got to that point we'd look at it then.
+L64 [05:11] S2: I don't want to go to Fenwick House. I've heard what it's like.
+L65 [05:17] S1: Okay, the other thing Moira mentioned was the damp.
+L66 [05:21] S2: Oh God. It's in the kids' bedroom, all round the window and down behind Alfie's bed. And the bathroom ceiling's black. Like, black.
+L67 [05:29] S1: How long has it been like that?
+L68 [05:32] S2: Since last winter. Better in the summer, but it's back now, worse.
+L69 [05:37] S1: And have you reported it?
+L70 [05:39] S2: Loads of times. Emailed the agents three times, I think, and rang them.
+L71 [05:44] S3: I've got copies of the emails. March, June, and the sixth of October.
+L72 [05:50] S1: Has the landlord been in to look at it?
+L73 [05:54] S2: No. Never. Not once. Not the landlord, not the agent, nobody.
+L74 [05:58] S2: The girl at Kerridge's, she told me on the phone that Mr Haskins says it's my fault, it's condensation, because I dry the washing in the flat.
+L75 [06:09] S2: Where else am I meant to dry it? There's no dryer.
+L76 [06:14] S3: Which is rubbish anyway, because the bathroom ceiling's been leaking from the roof. That's not washing.
+L77 [06:19] S1: I'll note that's what the agent said, but we'll get someone qualified to look.
+L78 [06:26] S2: Oh, and the plug socket by Alfie's bed, it sparked last week. It's gone all brown round it. I've put the bed in front of it.
+L79 [06:35] S1: Right. That's a concern. Don't use that one at all, okay?
+L80 [06:39] S2: No. It's the kids I'm worried about.
+L81 [06:42] S2: Alfie's got asthma. He's on his blue inhaler loads more since it got cold. We ended up in A and E with him in October, the fourteenth.
+L82 [06:51] S2: He's alright now, they gave him steroids. The doctor at the hospital asked if we had damp at home, and I said yeah.
+L83 [07:00] S1: And has a doctor said it's because of the damp?
+L84 [07:03] S2: Nobody's actually said that, no. They just asked. I think it is, but.
+L85 [07:09] S3: It obviously is.
+L86 [07:10] S1: We can ask the GP for a letter. That would help.
+L87 [07:15] S2: And he's, um, Alfie's, they think he might be autistic. The school think so. He's on the waiting list for the assessment.
+L88 [07:23] S1: Okay. Has he got a diagnosis?
+L89 [07:25] S2: No, not yet. They said the wait could be eighteen months. But he really struggles with change. Like, new places, he just, he melts down.
+L90 [07:33] S1: That's important. So moving him would be a big deal.
+L91 [07:37] S2: Massive. That's why I want to stay where we are. His school's round the corner, he knows the walk.
+L92 [07:44] S3: I'd disagree a bit, Kayleigh. The flat's not fit to live in. The council should be rehousing you, in a council place.
+L93 [07:51] S2: I know you do. But I don't want to move. I want him to fix it. That's all I want.
+L94 [07:59] S1: I'll write your wish as staying, with the repairs done. And Moira's view separately.
+L95 [08:05] S3: That's fair.
+L96 [08:06] S1: And how are you doing, health wise?
+L97 [08:09] S2: I'm alright. I'm on sertaline since the spring, for my depression.
+L98 [08:13] S1: Thanks. Are you managing day to day?
+L99 [08:16] S2: Have to, don't I. I've been skipping my tea most nights, to be honest, so they get fed. But it's fine.
+L100 [08:25] S3: And Mia's fine at nursery, isn't she?
+L101 [08:28] S2: Yeah, she loves it.
+L102 [08:30] S1: Okay, what we can do. The arrears first.
+L103 [08:33] S1: I can apply for a discretionary housing payment. A D H P. It's council money for shortfalls and arrears.
+L104 [08:41] S2: How much do you get?
+L105 [08:43] S1: I can't promise anything. A panel decides whether to award it and how much.
+L106 [08:49] S2: Okay.
+L107 [08:51] S1: I need three months of bank statements and UC statements by Thursday, and I'll get it in by Friday, the twenty-seventh.
+L108 [08:59] S2: Oh, that's the other thing. My phone's getting cut off on the first of December. I'm behind on the contract.
+L109 [09:06] S1: So how do we get hold of you after that?
+L110 [09:10] S2: Through Moira, probably. Is that alright?
+L111 [09:13] S3: Yeah, of course. Use my work number, it's on the referral.
+L112 [09:17] S1: Contact via Moira from the first. Now, could you pay anything towards the arrears each month?
+L113 [09:23] S2: Maybe, like, fifty? I could do fifty a month. Maybe.
+L114 [09:27] S3: Honestly, I'd hold back the rent until he fixes the place.
+L115 [09:31] S2: No. I'm not doing that, Moira. That'll just give him a reason. I want to pay what I owe.
+L116 [09:37] S1: I agree with Kayleigh. Withholding rent would make the arrears worse.
+L117 [09:42] S3: Okay. Okay, I hear you both.
+L118 [09:45] S1: I'll ring Kerridge and Lowe and put forward fifty pounds a month. It's up to the landlord.
+L119 [09:51] S2: He'll probably say no.
+L120 [09:53] S1: Let's see. Did they say anything else?
+L121 [09:56] S2: The girl there said he wants to sell the whole building. That's what she said, anyway.
+L122 [10:02] S1: In writing, or on the phone?
+L123 [10:05] S2: Just on the phone. And she said, um, if I get evicted the council would have to rehouse me straight away anyway, so not to worry.
+L124 [10:15] S1: That's not how it works, so don't rely on that.
+L125 [10:19] S1: Repairs. I'll refer the damp, mould and that socket to our private sector housing team, environmental health.
+L126 [10:26] S2: Will he know it was me?
+L127 [10:29] S1: They'll contact him. But he can't just evict you for complaining about repairs.
+L128 [10:33] S2: Okay. When would they come out?
+L129 [10:36] S1: I can't give you a date. I'll send the referral by the end of the week and they'll arrange it.
+L130 [10:43] S2: Mrs Patel downstairs said the council came out to her flat last year about damp.
+L131 [10:49] S1: I'll check the system for the building. I can't see it from here.
+L132 [10:54] S3: And we'd want a disrepair claim too. Compensation. A year of this with a poorly child.
+L133 [11:00] S2: I don't want to sue him. I just want it fixed. I'll lose the flat.
+L134 [11:05] S3: It's not suing exactly, it's.
+L135 [11:07] S2: No. Not now. Please.
+L136 [11:09] S1: Your choice. I'll note Moira raised it and you don't want to go ahead.
+L137 [11:15] S1: Moira, could you get the GP letter about Alfie's asthma and the damp? Millfield Surgery?
+L138 [11:21] S3: Yeah. Give me till the fourth of December, they're slow.
+L139 [11:25] S1: Just so I've asked, if things went badly, is there anyone you could stay with?
+L140 [11:32] S2: My mum, maybe. In Hull. But she's got a one-bed, and I haven't asked her.
+L141 [11:38] S1: That's fine. It's not a plan.
+L142 [11:40] S1: Let me read back.
+L143 [11:42] S1: Prevention case opened today. Statements to me by Thursday. D H P in by Friday the twenty-seventh.
+L144 [11:48] S1: I ring the agent this week about fifty a month. Referral to private sector housing by end of week.
+L145 [11:55] S1: GP letter by the fourth. And we meet again Monday the seventh. Oh, no, sorry, I'm not in Mondays. Tuesday the eighth, ten o'clock.
+L146 [12:04] S2: Tuesday the eighth. Can you write it down?
+L147 [12:08] S1: I'll print it. And if a notice or court letter comes, send it to Moira that same day.
+L148 [12:15] S1: And straight on to me.
+L149 [12:18] S2: Okay. Thank you.
+L150 [12:19] S3: Come on, pick-up.
+L151 [12:21] S2: Thanks, Marcus.
+L152 [12:22] S1: Take care. See you on the eighth.

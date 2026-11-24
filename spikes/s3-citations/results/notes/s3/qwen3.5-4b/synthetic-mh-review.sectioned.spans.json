@@ -1,0 +1,730 @@
+[
+ {
+  "id": "S001",
+  "section": "Background and presenting situation",
+  "sentence": "Hannah Rees reported that her mood has been flat and anxiety (panic attacks) has returned since September, noting a specific panic attack in a supermarket last week where she had a",
+  "cites": [
+   {
+    "start": 82.1,
+    "end": 86.2
+   },
+   {
+    "start": 87.2,
+    "end": 92.1
+   },
+   {
+    "start": 95.6,
+    "end": 102.9
+   }
+  ],
+  "lines": [
+   20,
+   21,
+   23
+  ]
+ },
+ {
+  "id": "S002",
+  "section": "Background and presenting situation",
+  "sentence": "Hannah Rees rated her low mood as a three out of ten, with a four on good days, contrasting this with a seven she reported during the summer.",
+  "cites": [
+   {
+    "start": 118.2,
+    "end": 120.5
+   },
+   {
+    "start": 124.7,
+    "end": 129.0
+   }
+  ],
+  "lines": [
+   27,
+   29
+  ]
+ },
+ {
+  "id": "S003",
+  "section": "Background and presenting situation",
+  "sentence": "Hannah Rees (S2) reported she has never experienced voices or seeing things that others do not.",
+  "cites": [
+   {
+    "start": 614.4,
+    "end": 616.3
+   }
+  ],
+  "lines": [
+   132
+  ]
+ },
+ {
+  "id": "S004",
+  "section": "Background and presenting situation",
+  "sentence": "Tom Whitfield (S3) expressed fear regarding Hannah's condition.",
+  "cites": [
+   {
+    "start": 635.8,
+    "end": 636.7
+   }
+  ],
+  "lines": [
+   137
+  ]
+ },
+ {
+  "id": "S005",
+  "section": "Background and presenting situation",
+  "sentence": "Tom Whitfield (S3) suggested Hannah should be admitted to hospital or have crisis people visit every day, noting he is at work all day and cannot watch her.",
+  "cites": [
+   {
+    "start": 619.5,
+    "end": 628.6
+   }
+  ],
+  "lines": [
+   135
+  ]
+ },
+ {
+  "id": "S006",
+  "section": "Background and presenting situation",
+  "sentence": "Hannah Rees (S2) denied needing hospital admission and stated she does not want that, noting she is not where she was last time.",
+  "cites": [
+   {
+    "start": 629.7,
+    "end": 635.4
+   }
+  ],
+  "lines": [
+   136
+  ]
+ },
+ {
+  "id": "S007",
+  "section": "Background and presenting situation",
+  "sentence": "Care coordinator Samuel Adeyemi (S1) stated he is not referring to home treatment right now but will firm up a safety plan.",
+  "cites": [
+   {
+    "start": 639.9,
+    "end": 648.2
+   }
+  ],
+  "lines": [
+   139
+  ]
+ },
+ {
+  "id": "S008",
+  "section": "Background and presenting situation",
+  "sentence": "Tom Whitfield (S3) stated he is away from home next week, specifically Monday to Thursday, for work in Leeds.",
+  "cites": [
+   {
+    "start": 648.7,
+    "end": 655.4
+   }
+  ],
+  "lines": [
+   140
+  ]
+ },
+ {
+  "id": "S009",
+  "section": "Background and presenting situation",
+  "sentence": "Hannah Rees (S2) reported that Megan said she could stay at Megan's house while Tom is away, but stated she has not decided yet.",
+  "cites": [
+   {
+    "start": 660.2,
+    "end": 664.2
+   }
+  ],
+  "lines": [
+   142
+  ]
+ },
+ {
+  "id": "S010",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees reported taking sertraline at 150mg since the 10th of November, and mirtazapine 15mg at night.",
+  "cites": [
+   {
+    "start": 135.1,
+    "end": 137.5
+   },
+   {
+    "start": 141.9,
+    "end": 149.9
+   },
+   {
+    "start": 170.8,
+    "end": 173.7
+   }
+  ],
+  "lines": [
+   31,
+   33,
+   39
+  ]
+ },
+ {
+  "id": "S011",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees reported waking at 3:30 am every night while on mirtazapine, lying awake for approximately four hours reviewing work-related thoughts.",
+  "cites": [
+   {
+    "start": 179.0,
+    "end": 183.4
+   },
+   {
+    "start": 186.9,
+    "end": 192.0
+   }
+  ],
+  "lines": [
+   41,
+   43
+  ]
+ },
+ {
+  "id": "S012",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees reported increased appetite as a side effect of mirtazapine, noting she had previously lost half a stone due to poor eating.",
+  "cites": [
+   {
+    "start": 195.1,
+    "end": 202.5
+   }
+  ],
+  "lines": [
+   45
+  ]
+ },
+ {
+  "id": "S013",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees reported taking her medication daily, with her partner Tom Whitfield managing the boxes in his drawer upstairs.",
+  "cites": [
+   {
+    "start": 211.3,
+    "end": 215.7
+   }
+  ],
+  "lines": [
+   49
+  ]
+ },
+ {
+  "id": "S014",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees reported being signed off from work until the 11th of December, with her workload having doubled since a new manager was appointed in August.",
+  "cites": [
+   {
+    "start": 237.5,
+    "end": 240.6
+   },
+   {
+    "start": 253.7,
+    "end": 259.6
+   }
+  ],
+  "lines": [
+   55,
+   58
+  ]
+ },
+ {
+  "id": "S015",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees reported receiving a text message from HR representative Leanne stating her manager believes she is not resilient enough and may be reviewing her position, though she (",
+  "cites": [
+   {
+    "start": 268.7,
+    "end": 279.3
+   },
+   {
+    "start": 281.6,
+    "end": 286.3
+   }
+  ],
+  "lines": [
+   61,
+   63
+  ]
+ },
+ {
+  "id": "S016",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees reported that her sister Megan has been avoiding contact, letting calls go to voicemail.",
+  "cites": [
+   {
+    "start": 354.6,
+    "end": 360.6
+   }
+  ],
+  "lines": [
+   78
+  ]
+ },
+ {
+  "id": "S017",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees reported drinking one glass of wine on Fridays, while her partner Tom Whitfield reported that his sister-in-law Megan observed empty bottles in the recycling bin, which",
+  "cites": [
+   {
+    "start": 367.0,
+    "end": 371.4
+   },
+   {
+    "start": 401.7,
+    "end": 409.3
+   },
+   {
+    "start": 409.9,
+    "end": 413.9
+   }
+  ],
+  "lines": [
+   82,
+   91,
+   92
+  ]
+ },
+ {
+  "id": "S018",
+  "section": "Needs and daily living",
+  "sentence": "Care coordinator Samuel Adeyemi (S1) confirmed the warning signs identified last time include not getting out of bed, stopping walking Pip, going quiet on Tom, and not answering a ",
+  "cites": [
+   {
+    "start": 670.0,
+    "end": 679.1
+   }
+  ],
+  "lines": [
+   144
+  ]
+ },
+ {
+  "id": "S019",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees (S2) confirmed the warning sign of not answering Megan is still right and stated she is already doing this.",
+  "cites": [
+   {
+    "start": 679.5,
+    "end": 682.5
+   }
+  ],
+  "lines": [
+   145
+  ]
+ },
+ {
+  "id": "S020",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees (S2) confirmed the crisis line number is still on the fridge.",
+  "cites": [
+   {
+    "start": 688.2,
+    "end": 689.7
+   }
+  ],
+  "lines": [
+   147
+  ]
+ },
+ {
+  "id": "S021",
+  "section": "Needs and daily living",
+  "sentence": "Tom Whitfield (S3) confirmed the crisis line number is also on his phone.",
+  "cites": [
+   {
+    "start": 690.2,
+    "end": 691.5
+   }
+  ],
+  "lines": [
+   148
+  ]
+ },
+ {
+  "id": "S022",
+  "section": "Person's views and wishes",
+  "sentence": "Care coordinator Samuel Adeyemi (S1) informed Tom Whitfield (S3) that he is entitled to a carer's assessment in his own right and asked if he would want one.",
+  "cites": [
+   {
+    "start": 692.1,
+    "end": 698.0
+   }
+  ],
+  "lines": [
+   149
+  ]
+ },
+ {
+  "id": "S023",
+  "section": "Person's views and wishes",
+  "sentence": "Tom Whitfield (S3) responded 'Maybe' to the offer of a carer's assessment and requested time to think about it.",
+  "cites": [
+   {
+    "start": 698.9,
+    "end": 701.8
+   }
+  ],
+  "lines": [
+   150
+  ]
+ },
+ {
+  "id": "S024",
+  "section": "Person's views and wishes",
+  "sentence": "Tom Whitfield (S3) stated he has another call at half eleven and asked Hannah Rees (S2) to go.",
+  "cites": [
+   {
+    "start": 705.8,
+    "end": 709.8
+   }
+  ],
+  "lines": [
+   152
+  ]
+ },
+ {
+  "id": "S025",
+  "section": "Person's views and wishes",
+  "sentence": "Hannah Rees (S2) reported that her friend Jo, who is under the same team, said the wait for psychology is like two years now.",
+  "cites": [
+   {
+    "start": 720.7,
+    "end": 728.3
+   }
+  ],
+  "lines": [
+   158
+  ]
+ },
+ {
+  "id": "S026",
+  "section": "Person's views and wishes",
+  "sentence": "Hannah Rees (S2) stated she cannot wait two years.",
+  "cites": [
+   {
+    "start": 734.8,
+    "end": 737.0
+   }
+  ],
+  "lines": [
+   160
+  ]
+ },
+ {
+  "id": "S027",
+  "section": "Risks and safeguarding",
+  "sentence": "Hannah Rees reported having thoughts of not waking up (suicidal ideation) a few times in the last fortnight, but denied having any plans to act on them or preparing any means.",
+  "cites": [
+   {
+    "start": 536.0,
+    "end": 544.9
+   },
+   {
+    "start": 551.9,
+    "end": 555.8
+   },
+   {
+    "start": 562.3,
+    "end": 565.8
+   }
+  ],
+  "lines": [
+   117,
+   119,
+   121
+  ]
+ },
+ {
+  "id": "S028",
+  "section": "Risks and safeguarding",
+  "sentence": "Hannah Rees reported no history of self-harm since her overdose.",
+  "cites": [
+   {
+    "start": 569.8,
+    "end": 571.6
+   }
+  ],
+  "lines": [
+   123
+  ]
+ },
+ {
+  "id": "S029",
+  "section": "Risks and safeguarding",
+  "sentence": "Hannah Rees reported a past overdose on paracetamol in October 2024, which resulted in an A&E visit and three weeks of home treatment.",
+  "cites": [
+   {
+    "start": 577.3,
+    "end": 581.4
+   },
+   {
+    "start": 584.2,
+    "end": 592.9
+   }
+  ],
+  "lines": [
+   125,
+   127
+  ]
+ },
+ {
+  "id": "S030",
+  "section": "Risks and safeguarding",
+  "sentence": "Hannah Rees reported that her partner Tom Whitfield believes the current medication is not working after two weeks and suggested she might need a different medication or that she",
+  "cites": [
+   {
+    "start": 466.3,
+    "end": 474.3
+   },
+   {
+    "start": 494.7,
+    "end": 500.7
+   }
+  ],
+  "lines": [
+   105,
+   109
+  ]
+ },
+ {
+  "id": "S031",
+  "section": "Risks and safeguarding",
+  "sentence": "Hannah Rees reported that her partner Tom Whitfield suggested she should pack in her job and hand in her notice.",
+  "cites": [
+   {
+    "start": 441.8,
+    "end": 450.0
+   }
+  ],
+  "lines": [
+   99
+  ]
+ },
+ {
+  "id": "S032",
+  "section": "Risks and safeguarding",
+  "sentence": "Hannah Rees reported that her partner Tom Whitfield raised the possibility of bipolar disorder, noting her friend's wife had similar symptoms.",
+  "cites": [
+   {
+    "start": 494.7,
+    "end": 500.7
+   }
+  ],
+  "lines": [
+   109
+  ]
+ },
+ {
+  "id": "S033",
+  "section": "Risks and safeguarding",
+  "sentence": "Hannah Rees reported that she is the godmother to her sister Megan's daughter and stated she would not do what she did to her niece.",
+  "cites": [
+   {
+    "start": 594.8,
+    "end": 597.5
+   }
+  ],
+  "lines": [
+   129
+  ]
+ },
+ {
+  "id": "S034",
+  "section": "Risks and safeguarding",
+  "sentence": "Care coordinator Samuel Adeyemi (S1) instructed Hannah Rees (S2) to ring the crisis line or the duty worker if thoughts get stronger before the next appointment.",
+  "cites": [
+   {
+    "start": 800.9,
+    "end": 806.1
+   }
+  ],
+  "lines": [
+   176
+  ]
+ },
+ {
+  "id": "S035",
+  "section": "Risks and safeguarding",
+  "sentence": "Hannah Rees (S2) promised she would ring the crisis line or duty worker if thoughts get stronger.",
+  "cites": [
+   {
+    "start": 806.7,
+    "end": 808.1
+   }
+  ],
+  "lines": [
+   177
+  ]
+ },
+ {
+  "id": "S036",
+  "section": "Support network and finances",
+  "sentence": "Hannah Rees reported that her partner Tom Whitfield is not seeing her drink more than she admits, despite Megan's observations.",
+  "cites": [
+   {
+    "start": 428.8,
+    "end": 432.1
+   }
+  ],
+  "lines": [
+   96
+  ]
+ },
+ {
+  "id": "S037",
+  "section": "Support network and finances",
+  "sentence": "Hannah Rees reported that her partner Tom Whitfield is concerned about the medication not working after two weeks and suggested she needs something different.",
+  "cites": [
+   {
+    "start": 466.3,
+    "end": 474.3
+   }
+  ],
+  "lines": [
+   105
+  ]
+ },
+ {
+  "id": "S038",
+  "section": "Support network and finances",
+  "sentence": "Hannah Rees reported that her partner Tom Whitfield suggested she should quit her job.",
+  "cites": [
+   {
+    "start": 441.8,
+    "end": 450.0
+   }
+  ],
+  "lines": [
+   99
+  ]
+ },
+ {
+  "id": "S039",
+  "section": "Support network and finances",
+  "sentence": "Hannah Rees reported that her partner Tom Whitfield suggested she might consider a phased return to work (mornings only) if offered.",
+  "cites": [
+   {
+    "start": 321.8,
+    "end": 329.7
+   }
+  ],
+  "lines": [
+   71
+  ]
+ },
+ {
+  "id": "S040",
+  "section": "Support network and finances",
+  "sentence": "Hannah Rees reported that her partner Tom Whitfield is not seeing her drink more than she admits, despite Megan's observations.",
+  "cites": [
+   {
+    "start": 428.8,
+    "end": 432.1
+   }
+  ],
+  "lines": [
+   96
+  ]
+ },
+ {
+  "id": "S041",
+  "section": "Agreed actions",
+  "sentence": "Care coordinator Samuel Adeyemi (S1) agreed to refer Hannah Rees (S2) to psychology and stated he will get that done by Friday.",
+  "cites": [
+   {
+    "start": 758.5,
+    "end": 764.7
+   }
+  ],
+  "lines": [
+   167
+  ]
+ },
+ {
+  "id": "S042",
+  "section": "Agreed actions",
+  "sentence": "Hannah Rees (S2) confirmed she has not yet had a date through for her next clinic appointment.",
+  "cites": [
+   {
+    "start": 774.5,
+    "end": 775.4
+   }
+  ],
+  "lines": [
+   170
+  ]
+ },
+ {
+  "id": "S043",
+  "section": "Agreed actions",
+  "sentence": "Care coordinator Samuel Adeyemi (S1) agreed to update the safety plan with the new warning sign and drop a copy round next week while Tom is away.",
+  "cites": [
+   {
+    "start": 776.1,
+    "end": 781.9
+   }
+  ],
+  "lines": [
+   171
+  ]
+ },
+ {
+  "id": "S044",
+  "section": "Agreed actions",
+  "sentence": "Care coordinator Samuel Adeyemi (S1) requested Hannah Rees (S2) do a sleep diary recording bedtime, waking, and how long she is awake in the night.",
+  "cites": [
+   {
+    "start": 782.8,
+    "end": 789.4
+   }
+  ],
+  "lines": [
+   172
+  ]
+ },
+ {
+  "id": "S045",
+  "section": "Agreed actions",
+  "sentence": "Hannah Rees (S2) confirmed she can do the sleep diary.",
+  "cites": [
+   {
+    "start": 790.4,
+    "end": 791.8
+   }
+  ],
+  "lines": [
+   173
+  ]
+ },
+ {
+  "id": "S046",
+  "section": "Agreed actions",
+  "sentence": "Care coordinator Samuel Adeyemi (S1) scheduled a follow-up appointment for Tuesday the eighth of December at ten o'clock.",
+  "cites": [
+   {
+    "start": 793.0,
+    "end": 797.6
+   }
+  ],
+  "lines": [
+   174
+  ]
+ },
+ {
+  "id": "S047",
+  "section": "Agreed actions",
+  "sentence": "Hannah Rees (S2) confirmed the date of the eighth of December.",
+  "cites": [
+   {
+    "start": 798.7,
+    "end": 800.4
+   }
+  ],
+  "lines": [
+   175
+  ]
+ }
+]

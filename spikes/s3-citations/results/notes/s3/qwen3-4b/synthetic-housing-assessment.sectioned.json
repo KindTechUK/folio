@@ -1,0 +1,407 @@
+{
+ "sections": [
+  {
+   "title": "Background and presenting situation",
+   "sentences": [
+    {
+     "text": "Kayleigh Brennan is the tenant at Flat 4, 18 Cobden Street.",
+     "cites": [
+      14,
+      15
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan lives with her children, Alfie (age 7) and Mia (age 3).",
+     "cites": [
+      13
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan has been living at Flat 4, 18 Cobden Street since the summer of 2021.",
+     "cites": [
+      14,
+      15,
+      17
+     ]
+    },
+    {
+     "text": "The flat is on the top floor and has two bedrooms.",
+     "cites": [
+      14,
+      15
+     ]
+    },
+    {
+     "text": "The landlord is Mr Haskins, and the property is managed by agents Kerridge and Lowe.",
+     "cites": [
+      17
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan is the sole tenant on the tenancy; Liam, her former partner, moved in after and was on a joint Universal Credit claim with her.",
+     "cites": [
+      19
+     ]
+    },
+    {
+     "text": "Liam moved out on the day after Alfie's birthday, which was the ninth of August.",
+     "cites": [
+      21
+     ]
+    },
+    {
+     "text": "The tenant (Kayleigh Brennan) stated that if she is evicted, the council would have to rehouse her straight away, according to her understanding.",
+     "cites": [
+      123
+     ]
+    },
+    {
+     "text": "The housing options officer (Marcus Fenn) stated that the tenant's belief about immediate rehousing upon eviction is incorrect and not how the system works.",
+     "cites": [
+      124
+     ]
+    },
+    {
+     "text": "The tenant asked whether the agent would know it was her who raised the repair concerns.",
+     "cites": [
+      126
+     ]
+    },
+    {
+     "text": "The tenant asked when the repair team would come out.",
+     "cites": [
+      128
+     ]
+    },
+    {
+     "text": "The tenant mentioned that Mrs Patel downstairs said the council came out to her flat last year about damp.",
+     "cites": [
+      130
+     ]
+    },
+    {
+     "text": "The housing options officer said he will check the building's system for damp issues, but cannot see it from here.",
+     "cites": [
+      131
+     ]
+    },
+    {
+     "text": "A prevention case was opened today, with statements to be submitted by the tenant by Thursday.",
+     "cites": [
+      143
+     ]
+    },
+    {
+     "text": "The Department of Health and Social Care (D H P) will submit a statement by Friday the 27th.",
+     "cites": [
+      143
+     ]
+    },
+    {
+     "text": "The housing options officer said he will contact the agent this week to discuss a rent of fifty pounds per month.",
+     "cites": [
+      144
+     ]
+    },
+    {
+     "text": "The housing options officer will refer the tenant to private sector housing by the end of the week.",
+     "cites": [
+      144
+     ]
+    },
+    {
+     "text": "The tenant said 'Okay. Thank you.' at the end of the conversation.",
+     "cites": [
+      149
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Needs and daily living",
+   "sentences": [
+    {
+     "text": "The rent on the flat is currently \u00a3895 per month, having increased from \u00a3850 in April.",
+     "cites": [
+      27,
+      28
+     ]
+    },
+    {
+     "text": "Universal Credit covers \u00a3725 for housing per month.",
+     "cites": [
+      30
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan has a monthly income of \u00a3630 from working 12 hours per week at Cobden Road Primary School.",
+     "cites": [
+      34,
+      35
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan has no other income, including no child maintenance from Liam, and no savings.",
+     "cites": [
+      36
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan receives child benefit, which is considered income.",
+     "cites": [
+      40
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan has reported the damp in the flat multiple times, including by email to the agents (March, June, and 6th October).",
+     "cites": [
+      70,
+      71
+     ]
+    },
+    {
+     "text": "The landlord and agent have never visited the property to inspect the damp issues.",
+     "cites": [
+      73
+     ]
+    },
+    {
+     "text": "The agent's representative (Kerridge's girl) told Kayleigh that Mr Haskins blames the damp on her drying washing in the flat, claiming it is condensation.",
+     "cites": [
+      74
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan has no dryer and has no alternative place to dry washing.",
+     "cites": [
+      75
+     ]
+    },
+    {
+     "text": "Moira Quinn from the Brightwater Advice Project stated that the bathroom ceiling leaking is due to a roof issue, not washing.",
+     "cites": [
+      76
+     ]
+    },
+    {
+     "text": "A plug socket near Alfie's bed sparked last week and is now brown around the edges; Kayleigh has moved the bed to avoid use.",
+     "cites": [
+      78,
+      80
+     ]
+    },
+    {
+     "text": "Alfie has asthma and uses his blue inhaler more frequently since the cold weather began.",
+     "cites": [
+      81
+     ]
+    },
+    {
+     "text": "Alfie is on a waiting list for an autism assessment, with a potential wait of up to 18 months.",
+     "cites": [
+      87,
+      89
+     ]
+    },
+    {
+     "text": "Alfie struggles with change and melts down in new environments.",
+     "cites": [
+      89
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan is currently on sertaline for depression, since the spring.",
+     "cites": [
+      97
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan skips her tea most nights to ensure her children are fed.",
+     "cites": [
+      99
+     ]
+    },
+    {
+     "text": "The housing options officer referred the issues of damp, mould, and a faulty socket to the private sector housing team and environmental health.",
+     "cites": [
+      125
+     ]
+    },
+    {
+     "text": "The housing options officer stated that he cannot give a date for when repairs will be carried out, but will send a referral by the end of the week and repairs will be arranged by ",
+     "cites": [
+      129
+     ]
+    },
+    {
+     "text": "The support worker (Moira Quinn) stated that a disrepair claim for compensation should be considered, specifically for a year of living with a poorly child due to damp.",
+     "cites": [
+      132
+     ]
+    },
+    {
+     "text": "The housing options officer asked Moira to obtain a GP letter about Alfie's asthma and the damp from Millfield Surgery.",
+     "cites": [
+      137
+     ]
+    },
+    {
+     "text": "Moira stated she will obtain the GP letter by the fourth of December, noting that the surgery is slow.",
+     "cites": [
+      138
+     ]
+    },
+    {
+     "text": "The GP letter about Alfie's asthma and damp will be obtained by Moira by the fourth of December.",
+     "cites": [
+      138
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Person's views and wishes",
+   "sentences": [
+    {
+     "text": "The tenant stated that she does not want to sue the agent and only wants the issues fixed, and that she would lose the flat if she did so.",
+     "cites": [
+      133
+     ]
+    },
+    {
+     "text": "The support worker clarified that a disrepair claim is not exactly suing, but a claim for compensation.",
+     "cites": [
+      134
+     ]
+    },
+    {
+     "text": "The tenant said she does not want to go ahead with a disrepair claim now.",
+     "cites": [
+      135
+     ]
+    },
+    {
+     "text": "The housing options officer noted that Moira raised the disrepair claim and the tenant declined to proceed with it.",
+     "cites": [
+      136
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Risks and safeguarding",
+   "sentences": [
+    {
+     "text": "Kayleigh Brennan is behind on rent by \u00a31,960 as of the 2nd of November.",
+     "cites": [
+      45,
+      46
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan missed August and September due to a joint claim being closed when Liam moved out, resulting in no housing support during those months.",
+     "cites": [
+      48,
+      49
+     ]
+    },
+    {
+     "text": "Mr Haskins has sent a text message on the 17th of November stating that if the arrears are not sorted by the end of the month, he will instruct his solicitor to serve possession.",
+     "cites": [
+      55,
+      57
+     ]
+    },
+    {
+     "text": "As of today, no formal notice of possession or solicitor's letter has been received by Kayleigh Brennan.",
+     "cites": [
+      58,
+      59
+     ]
+    },
+    {
+     "text": "Kayleigh Brennan and Alfie were admitted to A&E on the 14th of October due to Alfie's asthma exacerbation.",
+     "cites": [
+      81
+     ]
+    },
+    {
+     "text": "The doctor at the hospital inquired whether there was damp at home and Kayleigh confirmed there was.",
+     "cites": [
+      82
+     ]
+    },
+    {
+     "text": "No doctor has confirmed that Alfie's asthma is caused by the damp, though Kayleigh believes it may be.",
+     "cites": [
+      83,
+      84
+     ]
+    },
+    {
+     "text": "The housing options officer stated that the agent cannot evict the tenant for complaining about repairs.",
+     "cites": [
+      127
+     ]
+    },
+    {
+     "text": "The housing options officer asked if, in the event of a serious outcome, the tenant could stay with a family member.",
+     "cites": [
+      139
+     ]
+    },
+    {
+     "text": "The tenant said her mother is in Hull and could potentially stay with her, but she has not yet asked her mother.",
+     "cites": [
+      140
+     ]
+    },
+    {
+     "text": "The housing options officer said it is not a plan to stay with a family member, just a possibility.",
+     "cites": [
+      141
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Support network and finances",
+   "sentences": []
+  },
+  {
+   "title": "Agreed actions",
+   "sentences": [
+    {
+     "text": "The next meeting with the tenant and housing officer will be on Tuesday the eighth at ten o'clock.",
+     "cites": [
+      145
+     ]
+    },
+    {
+     "text": "The tenant asked if the meeting date could be written down.",
+     "cites": [
+      146
+     ]
+    },
+    {
+     "text": "The housing options officer said he will print the meeting details and send them to the tenant.",
+     "cites": [
+      147
+     ]
+    },
+    {
+     "text": "The housing options officer said that if a notice or court letter is received, it will be sent to Moira on the same day.",
+     "cites": [
+      148
+     ]
+    },
+    {
+     "text": "The housing options officer said that the letter will be sent directly to him as well.",
+     "cites": [
+      148
+     ]
+    }
+   ]
+  }
+ ]
+}

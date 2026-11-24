@@ -1,0 +1,2176 @@
+[
+ {
+  "id": "S001",
+  "section": "Attendance",
+  "sentence": "Solicitor Daniel Okafor attended the meeting on Wednesday, 23rd September.",
+  "cites": [
+   {
+    "start": 54.0,
+    "end": 66.8
+   }
+  ],
+  "lines": [
+   0,
+   6
+  ],
+  "invalid_cites": [
+   0
+  ]
+ },
+ {
+  "id": "S002",
+  "section": "Attendance",
+  "sentence": "Solicitor Daniel Okafor is a member of the employment team.",
+  "cites": [
+   {
+    "start": 41.6,
+    "end": 53.3
+   }
+  ],
+  "lines": [
+   5
+  ]
+ },
+ {
+  "id": "S003",
+  "section": "Attendance",
+  "sentence": "Trainee Sophie Grant may attend later to take copies of documents the client has brought.",
+  "cites": [
+   {
+    "start": 54.0,
+    "end": 66.8
+   }
+  ],
+  "lines": [
+   6
+  ]
+ },
+ {
+  "id": "S004",
+  "section": "Attendance",
+  "sentence": "The purpose of the meeting is for the solicitor to obtain the client's account of events and dates, and to provide an initial assessment at the end.",
+  "cites": [
+   {
+    "start": 69.8,
+    "end": 85.8
+   }
+  ],
+  "lines": [
+   8
+  ]
+ },
+ {
+  "id": "S005",
+  "section": "Attendance",
+  "sentence": "Aisha Rahman attended the meeting with solicitor Daniel Okafor and trainee Sophie Grant.",
+  "cites": [
+   {
+    "start": 610.8,
+    "end": 622.0
+   }
+  ],
+  "lines": [
+   69
+  ]
+ },
+ {
+  "id": "S006",
+  "section": "Attendance",
+  "sentence": "The purpose of the meeting was to discuss Aisha Rahman's workplace concerns, including medical conditions, management actions, and disciplinary proceedings.",
+  "cites": [
+   {
+    "start": 610.8,
+    "end": 622.0
+   }
+  ],
+  "lines": [
+   69
+  ]
+ },
+ {
+  "id": "S007",
+  "section": "Attendance",
+  "sentence": "Solicitor Daniel Okafor attended the meeting with client Aisha Rahman.",
+  "cites": [
+   {
+    "start": 1217.2,
+    "end": 1226.3
+   }
+  ],
+  "lines": [
+   138
+  ]
+ },
+ {
+  "id": "S008",
+  "section": "Attendance",
+  "sentence": "The purpose of the meeting was to discuss the client's dismissal, appeal, and documents related to her employment termination.",
+  "cites": [
+   {
+    "start": 1217.2,
+    "end": 1226.3
+   }
+  ],
+  "lines": [
+   138
+  ]
+ },
+ {
+  "id": "S009",
+  "section": "Attendance",
+  "sentence": "Solicitor (Daniel Okafor) asked if any interviews have been conducted.",
+  "cites": [
+   {
+    "start": 1825.5,
+    "end": 1826.7
+   }
+  ],
+  "lines": [
+   217
+  ]
+ },
+ {
+  "id": "S010",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman works for Northgate Logistics Limited, a warehouse located off the ring road near the retail park with blue cladding.",
+  "cites": [
+   {
+    "start": 104.8,
+    "end": 115.0
+   }
+  ],
+  "lines": [
+   11
+  ]
+ },
+ {
+  "id": "S011",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman started working at Northgate Logistics on 5th March 2018.",
+  "cites": [
+   {
+    "start": 121.0,
+    "end": 124.5
+   },
+   {
+    "start": 125.1,
+    "end": 136.1
+   }
+  ],
+  "lines": [
+   13,
+   14
+  ]
+ },
+ {
+  "id": "S012",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman began as a picker on the floor, doing general picking duties.",
+  "cites": [
+   {
+    "start": 147.1,
+    "end": 160.4
+   }
+  ],
+  "lines": [
+   16
+  ]
+ },
+ {
+  "id": "S013",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman was promoted to team leader of inbound goods in June 2021.",
+  "cites": [
+   {
+    "start": 147.1,
+    "end": 160.4
+   }
+  ],
+  "lines": [
+   16
+  ]
+ },
+ {
+  "id": "S014",
+  "section": "Client's account",
+  "sentence": "Inbound goods team duties include unloading, checking in goods, and booking onto the system.",
+  "cites": [
+   {
+    "start": 165.8,
+    "end": 177.4
+   }
+  ],
+  "lines": [
+   18
+  ]
+ },
+ {
+  "id": "S015",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman had eleven team members on her shift.",
+  "cites": [
+   {
+    "start": 165.8,
+    "end": 177.4
+   }
+  ],
+  "lines": [
+   18
+  ]
+ },
+ {
+  "id": "S016",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman's shift pattern is four on, four off, with hours from 7 a.m. to 7 p.m. (with handover at quarter past 7 p.m.).",
+  "cites": [
+   {
+    "start": 182.9,
+    "end": 191.6
+   }
+  ],
+  "lines": [
+   20
+  ]
+ },
+ {
+  "id": "S017",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman's basic annual pay was \u00a329,400.",
+  "cites": [
+   {
+    "start": 197.7,
+    "end": 199.3
+   },
+   {
+    "start": 200.1,
+    "end": 213.4
+   }
+  ],
+  "lines": [
+   22,
+   23
+  ]
+ },
+ {
+  "id": "S018",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman's total annual pay (including shift allowance and overtime) was approximately \u00a331,000.",
+  "cites": [
+   {
+    "start": 197.7,
+    "end": 199.3
+   },
+   {
+    "start": 200.1,
+    "end": 213.4
+   }
+  ],
+  "lines": [
+   22,
+   23
+  ]
+ },
+ {
+  "id": "S019",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman's shift allowance was approximately \u00a31,800 per year, listed as 'unsocial hours supplement' on payslips.",
+  "cites": [
+   {
+    "start": 222.2,
+    "end": 230.3
+   }
+  ],
+  "lines": [
+   25
+  ]
+ },
+ {
+  "id": "S020",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman's pension scheme was the workplace pension, with a contribution rate of approximately 5% (possibly 4%), though she would need to verify this.",
+  "cites": [
+   {
+    "start": 237.9,
+    "end": 245.6
+   }
+  ],
+  "lines": [
+   27
+  ]
+ },
+ {
+  "id": "S021",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman signed a new contract when promoted to team leader, but did not receive a copy; only the original 2018 paper contract remains.",
+  "cites": [
+   {
+    "start": 256.3,
+    "end": 268.0
+   }
+  ],
+  "lines": [
+   29
+  ]
+ },
+ {
+  "id": "S022",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman has type one diabetes, diagnosed since age 14.",
+  "cites": [
+   {
+    "start": 280.0,
+    "end": 285.3
+   }
+  ],
+  "lines": [
+   31
+  ]
+ },
+ {
+  "id": "S023",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman manages her diabetes with a continuous glucose sensor on her arm, which sends data to a phone app, and requires regular injections.",
+  "cites": [
+   {
+    "start": 295.4,
+    "end": 307.3
+   }
+  ],
+  "lines": [
+   33
+  ]
+ },
+ {
+  "id": "S024",
+  "section": "Client's account",
+  "sentence": "When blood sugar drops, client Aisha Rahman must stop and consume glucose (e.g. juice or glucose tablets), check again after 15 minutes, then eat a proper meal (e.g. biscuit orsand",
+  "cites": [
+   {
+    "start": 308.4,
+    "end": 322.6
+   }
+  ],
+  "lines": [
+   34
+  ]
+ },
+ {
+  "id": "S025",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman's diabetes is not something that can be scheduled in advance; it depends on workload, heat, and food intake.",
+  "cites": [
+   {
+    "start": 323.3,
+    "end": 326.3
+   },
+   {
+    "start": 327.0,
+    "end": 335.8
+   }
+  ],
+  "lines": [
+   35,
+   36
+  ]
+ },
+ {
+  "id": "S026",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman disclosed her type one diabetes to Northgate Logistics at the start of employment and informed her manager, Linda Chu, of it.",
+  "cites": [
+   {
+    "start": 341.4,
+    "end": 351.9
+   }
+  ],
+  "lines": [
+   38
+  ]
+ },
+ {
+  "id": "S027",
+  "section": "Client's account",
+  "sentence": "Manager Linda Chu (C-H-U) was in charge until the end of 2025, and left at the end of last year (end of 2023 or 2024, not specified).",
+  "cites": [
+   {
+    "start": 355.6,
+    "end": 368.7
+   },
+   {
+    "start": 461.6,
+    "end": 471.3
+   }
+  ],
+  "lines": [
+   40,
+   51
+  ]
+ },
+ {
+  "id": "S028",
+  "section": "Client's account",
+  "sentence": "Manager Linda Chu left to work at a supermarket on the distribution side.",
+  "cites": [
+   {
+    "start": 355.6,
+    "end": 368.7
+   }
+  ],
+  "lines": [
+   40
+  ]
+ },
+ {
+  "id": "S029",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman and manager Linda Chu had an informal arrangement where, if needed, she could step off for five minutes during a shift, with a team member covering, and this is",
+  "cites": [
+   {
+    "start": 378.4,
+    "end": 398.1
+   }
+  ],
+  "lines": [
+   42
+  ]
+ },
+ {
+  "id": "S030",
+  "section": "Client's account",
+  "sentence": "The stepping-off arrangement with Linda Chu was not documented in writing (no email or formal policy).",
+  "cites": [
+   {
+    "start": 398.6,
+    "end": 403.2
+   }
+  ],
+  "lines": [
+   43
+  ]
+ },
+ {
+  "id": "S031",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman has not found any written record of the stepping-off arrangement or email correspondence with Linda Chu.",
+  "cites": [
+   {
+    "start": 403.7,
+    "end": 415.2
+   }
+  ],
+  "lines": [
+   44
+  ]
+ },
+ {
+  "id": "S032",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman was team leader for a quarter in 2023, and has a certificate from that period.",
+  "cites": [
+   {
+    "start": 472.3,
+    "end": 484.3
+   }
+  ],
+  "lines": [
+   52
+  ]
+ },
+ {
+  "id": "S033",
+  "section": "Client's account",
+  "sentence": "Client Aisha Rahman believes the certificate is stored in the kitchen drawer, along with other office items like takeaway menus.",
+  "cites": [
+   {
+    "start": 492.3,
+    "end": 498.2
+   }
+  ],
+  "lines": [
+   54
+  ]
+ },
+ {
+  "id": "S034",
+  "section": "Client's account",
+  "sentence": "Manager Gary Whitlock started in January 2024, specifically on the 12th of January.",
+  "cites": [
+   {
+    "start": 508.0,
+    "end": 517.4
+   }
+  ],
+  "lines": [
+   57
+  ]
+ },
+ {
+  "id": "S035",
+  "section": "Client's account",
+  "sentence": "Manager Gary Whitlock is the operations manager for the inbound side.",
+  "cites": [
+   {
+    "start": 508.0,
+    "end": 517.4
+   }
+  ],
+  "lines": [
+   57
+  ]
+ },
+ {
+  "id": "S036",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman described being asked by HR in March to request an occupational health referral, which she did via email.",
+  "cites": [
+   {
+    "start": 628.3,
+    "end": 640.7
+   }
+  ],
+  "lines": [
+   71
+  ]
+ },
+ {
+  "id": "S037",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman stated she emailed HR in March to request an occupational health referral, citing her belief that a doctor's input would be taken seriously.",
+  "cites": [
+   {
+    "start": 628.3,
+    "end": 640.7
+   }
+  ],
+  "lines": [
+   71
+  ]
+ },
+ {
+  "id": "S038",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman had a phone appointment with a nurse as part of the occupational health referral process.",
+  "cites": [
+   {
+    "start": 645.0,
+    "end": 653.2
+   }
+  ],
+  "lines": [
+   73
+  ]
+ },
+ {
+  "id": "S039",
+  "section": "Client's account",
+  "sentence": "The occupational health report was dated 22 April.",
+  "cites": [
+   {
+    "start": 645.0,
+    "end": 653.2
+   }
+  ],
+  "lines": [
+   73
+  ]
+ },
+ {
+  "id": "S040",
+  "section": "Client's account",
+  "sentence": "The occupational health report stated that Aisha Rahman should be allowed short breaks when needed to test and eat, as a reasonable adjustment.",
+  "cites": [
+   {
+    "start": 653.7,
+    "end": 664.2
+   }
+  ],
+  "lines": [
+   74
+  ]
+ },
+ {
+  "id": "S041",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said she does not have a copy of the occupational health report, but believes it was sent to her personal email by HR as requested.",
+  "cites": [
+   {
+    "start": 668.7,
+    "end": 683.5
+   }
+  ],
+  "lines": [
+   76
+  ]
+ },
+ {
+  "id": "S042",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said her inbox is disorganized and she will need to search through it to find the report.",
+  "cites": [
+   {
+    "start": 668.7,
+    "end": 683.5
+   }
+  ],
+  "lines": [
+   76
+  ]
+ },
+ {
+  "id": "S043",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said Gary, her manager, said he would take the occupational health report on board.",
+  "cites": [
+   {
+    "start": 700.9,
+    "end": 714.5
+   }
+  ],
+  "lines": [
+   80
+  ]
+ },
+ {
+  "id": "S044",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said she was in the office on the 19th of May for a conversation with Gary, which she described as informal.",
+  "cites": [
+   {
+    "start": 717.1,
+    "end": 732.2
+   }
+  ],
+  "lines": [
+   82
+  ]
+ },
+ {
+  "id": "S045",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said the conversation took place on a Tuesday, the 19th of May.",
+  "cites": [
+   {
+    "start": 717.1,
+    "end": 732.2
+   }
+  ],
+  "lines": [
+   82
+  ]
+ },
+ {
+  "id": "S046",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said during the conversation, Gary told her that her team saw her leaving the dock and it looked bad, and that she needed to set an example as a team leader.",
+  "cites": [
+   {
+    "start": 717.1,
+    "end": 732.2
+   }
+  ],
+  "lines": [
+   82
+  ]
+ },
+ {
+  "id": "S047",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said no written warning, letter, or formal notice was issued after the May conversation.",
+  "cites": [
+   {
+    "start": 740.0,
+    "end": 753.9
+   }
+  ],
+  "lines": [
+   84
+  ]
+ },
+ {
+  "id": "S048",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said she has never received a warning, verbal or written, in eight years of employment.",
+  "cites": [
+   {
+    "start": 740.0,
+    "end": 753.9
+   }
+  ],
+  "lines": [
+   84
+  ]
+ },
+ {
+  "id": "S049",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said she has never been late to work, and is the one who opens up the dock early.",
+  "cites": [
+   {
+    "start": 761.2,
+    "end": 771.5
+   }
+  ],
+  "lines": [
+   86
+  ]
+ },
+ {
+  "id": "S050",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said no one has ever said she was late, and that it is only a possibility they might have said so.",
+  "cites": [
+   {
+    "start": 778.4,
+    "end": 786.4
+   }
+  ],
+  "lines": [
+   88
+  ]
+ },
+ {
+  "id": "S051",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said on 1st and 3rd July, she experienced low mid-morning blood sugar levels and stepped off the dock, telling Tomasz to cover.",
+  "cites": [
+   {
+    "start": 793.2,
+    "end": 807.1
+   }
+  ],
+  "lines": [
+   90
+  ]
+ },
+ {
+  "id": "S052",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said each time she stepped off, she was about ten to twelve minutes off the dock.",
+  "cites": [
+   {
+    "start": 793.2,
+    "end": 807.1
+   }
+  ],
+  "lines": [
+   90
+  ]
+ },
+ {
+  "id": "S053",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said on the 3rd of July, Gary said 'that's twice this week' in front of everyone.",
+  "cites": [
+   {
+    "start": 820.8,
+    "end": 835.5
+   }
+  ],
+  "lines": [
+   94
+  ]
+ },
+ {
+  "id": "S054",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said on the 9th of July, it was very hot, around 30 degrees, and the dock was hot due to open doors and tarmac.",
+  "cites": [
+   {
+    "start": 838.7,
+    "end": 855.8
+   }
+  ],
+  "lines": [
+   96
+  ]
+ },
+ {
+  "id": "S055",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said on the 9th of July, she was trying not to step off due to concerns with Gary, and at about 2 p.m. she went very low, shaking and unable to read the scanner.",
+  "cites": [
+   {
+    "start": 856.2,
+    "end": 871.2
+   }
+  ],
+  "lines": [
+   97
+  ]
+ },
+ {
+  "id": "S056",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said on the 9th of July, she sat down on a pallet and Marcus Bell, a first aider, came over and gave her Lucozade from the machine and stayed with her.",
+  "cites": [
+   {
+    "start": 874.3,
+    "end": 888.0
+   }
+  ],
+  "lines": [
+   99
+  ]
+ },
+ {
+  "id": "S057",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said on the 9th of July, her blood glucose sensor read 2.1, and Marcus took a photo of her phone showing the reading.",
+  "cites": [
+   {
+    "start": 891.2,
+    "end": 905.1
+   }
+  ],
+  "lines": [
+   101
+  ]
+ },
+ {
+  "id": "S058",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said after about twenty minutes, she was okay and went to the canteen to eat properly.",
+  "cites": [
+   {
+    "start": 910.0,
+    "end": 922.8
+   }
+  ],
+  "lines": [
+   103
+  ]
+ },
+ {
+  "id": "S059",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said on the 9th of July, Gary came in and said 'you've left the dock with no team leader, go home. He said, 'you're not fit to be here'",
+  "cites": [
+   {
+    "start": 923.8,
+    "end": 936.0
+   }
+  ],
+  "lines": [
+   104
+  ]
+ },
+ {
+  "id": "S060",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said she lost about four and a half hours of work on the 9th of July, and was not paid for that time.",
+  "cites": [
+   {
+    "start": 942.3,
+    "end": 954.7
+   }
+  ],
+  "lines": [
+   106
+  ]
+ },
+ {
+  "id": "S061",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said Marcus Bell filled in the first aid log, but she does not know if Gary did anything else.",
+  "cites": [
+   {
+    "start": 960.2,
+    "end": 968.1
+   }
+  ],
+  "lines": [
+   108
+  ]
+ },
+ {
+  "id": "S062",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said if she had told Gary earlier that her levels were unstable, he might have moved her off the dock.",
+  "cites": [
+   {
+    "start": 969.1,
+    "end": 983.6
+   }
+  ],
+  "lines": [
+   109
+  ]
+ },
+ {
+  "id": "S063",
+  "section": "Client's account",
+  "sentence": "Aisha Rahman said on the 17th of July, she was called to an investigation meeting with Dean Farrow, a shift manager.",
+  "cites": [
+   {
+    "start": 1021.2,
+    "end": 1035.4
+   }
+  ],
+  "lines": [
+   116
+  ]
+ },
+ {
+  "id": "S064",
+  "section": "Client's account",
+  "sentence": "The meeting lasted approximately forty minutes, possibly less.",
+  "cites": [
+   {
+    "start": 1229.7,
+    "end": 1239.8
+   }
+  ],
+  "lines": [
+   140
+  ]
+ },
+ {
+  "id": "S065",
+  "section": "Client's account",
+  "sentence": "The client was not given notes from the disciplinary meeting or the appeal meeting.",
+  "cites": [
+   {
+    "start": 1246.3,
+    "end": 1251.2
+   }
+  ],
+  "lines": [
+   142
+  ]
+ },
+ {
+  "id": "S066",
+  "section": "Client's account",
+  "sentence": "The client received the dismissal letter on the fourteenth of August 2026, which states employment ends with effect from that date.",
+  "cites": [
+   {
+    "start": 1257.5,
+    "end": 1261.2
+   },
+   {
+    "start": 1262.2,
+    "end": 1273.2
+   },
+   {
+    "start": 1286.1,
+    "end": 1298.2
+   }
+  ],
+  "lines": [
+   144,
+   145,
+   147
+  ]
+ },
+ {
+  "id": "S067",
+  "section": "Client's account",
+  "sentence": "The dismissal letter states the reason is 'misconduct, namely repeated failure to follow reasonable management instructions'.",
+  "cites": [
+   {
+    "start": 1298.7,
+    "end": 1310.6
+   }
+  ],
+  "lines": [
+   148
+  ]
+ },
+ {
+  "id": "S068",
+  "section": "Client's account",
+  "sentence": "The client was paid in lieu of notice for eight weeks, amounting to \u00a34,523.",
+  "cites": [
+   {
+    "start": 1311.4,
+    "end": 1315.9
+   },
+   {
+    "start": 1316.8,
+    "end": 1326.7
+   }
+  ],
+  "lines": [
+   149,
+   150
+  ]
+ },
+ {
+  "id": "S069",
+  "section": "Client's account",
+  "sentence": "The payment of \u00a34,523 in lieu of notice arrived in the client's bank account with the final pay at the end of August.",
+  "cites": [
+   {
+    "start": 1327.7,
+    "end": 1332.8
+   }
+  ],
+  "lines": [
+   151
+  ]
+ },
+ {
+  "id": "S070",
+  "section": "Client's account",
+  "sentence": "The client does not know if any holiday pay is owed, estimating possibly six days remaining but being uncertain due to confusing payslip codes.",
+  "cites": [
+   {
+    "start": 1336.9,
+    "end": 1346.3
+   }
+  ],
+  "lines": [
+   153
+  ]
+ },
+ {
+  "id": "S071",
+  "section": "Client's account",
+  "sentence": "The dismissal letter does not mention the client's diabetes or the occupational health report.",
+  "cites": [
+   {
+    "start": 1355.8,
+    "end": 1360.7
+   },
+   {
+    "start": 1361.4,
+    "end": 1369.0
+   }
+  ],
+  "lines": [
+   155,
+   156
+  ]
+ },
+ {
+  "id": "S072",
+  "section": "Client's account",
+  "sentence": "The dismissal letter states the client has a right to appeal within five working days, in writing, to HR.",
+  "cites": [
+   {
+    "start": 1369.5,
+    "end": 1373.9
+   },
+   {
+    "start": 1374.1,
+    "end": 1379.5
+   }
+  ],
+  "lines": [
+   157,
+   158
+  ]
+ },
+ {
+  "id": "S073",
+  "section": "Client's account",
+  "sentence": "The client appealed on the nineteenth of August by emailing HR and copying Kerry in.",
+  "cites": [
+   {
+    "start": 1396.5,
+    "end": 1404.8
+   }
+  ],
+  "lines": [
+   163
+  ]
+ },
+ {
+  "id": "S074",
+  "section": "Client's account",
+  "sentence": "The appeal was heard by Claire Ashdown, regional manager, on the second of September via Teams.",
+  "cites": [
+   {
+    "start": 1427.5,
+    "end": 1434.8
+   },
+   {
+    "start": 1435.8,
+    "end": 1445.1
+   }
+  ],
+  "lines": [
+   166,
+   167
+  ]
+ },
+ {
+  "id": "S075",
+  "section": "Client's account",
+  "sentence": "The appeal hearing had technical issues, with the client's camera freezing during the call.",
+  "cites": [
+   {
+    "start": 1435.8,
+    "end": 1445.1
+   }
+  ],
+  "lines": [
+   167
+  ]
+ },
+ {
+  "id": "S076",
+  "section": "Client's account",
+  "sentence": "The appeal outcome letter, issued on the sixteenth of September, upheld the dismissal.",
+  "cites": [
+   {
+    "start": 1449.9,
+    "end": 1460.0
+   }
+  ],
+  "lines": [
+   169
+  ]
+ },
+ {
+  "id": "S077",
+  "section": "Client's account",
+  "sentence": "The appeal letter from Claire Ashdown addressed each of the client's points in a paragraph, including that Gary was the right person to hear the complaint due to knowledge of facts",
+  "cites": [
+   {
+    "start": 1465.6,
+    "end": 1480.4
+   }
+  ],
+  "lines": [
+   171
+  ]
+ },
+ {
+  "id": "S078",
+  "section": "Client's account",
+  "sentence": "The appeal letter stated that fixed breaks were offered as an adjustment, and the client did not use them properly.",
+  "cites": [
+   {
+    "start": 1465.6,
+    "end": 1480.4
+   }
+  ],
+  "lines": [
+   171
+  ]
+ },
+ {
+  "id": "S079",
+  "section": "Client's account",
+  "sentence": "During the appeal call, Kerry from HR said if the client wanted to go quietly, there might be something they could do, but did not specify any amount or action.",
+  "cites": [
+   {
+    "start": 1487.5,
+    "end": 1503.2
+   }
+  ],
+  "lines": [
+   173
+  ]
+ },
+ {
+  "id": "S080",
+  "section": "Client's account",
+  "sentence": "No settlement agreement, document to sign, or further communication was sent by the employer after the appeal outcome.",
+  "cites": [
+   {
+    "start": 1503.9,
+    "end": 1510.8
+   },
+   {
+    "start": 1511.3,
+    "end": 1522.2
+   }
+  ],
+  "lines": [
+   174,
+   175
+  ]
+ },
+ {
+  "id": "S081",
+  "section": "Client's account",
+  "sentence": "The client has not signed any documents related to the dismissal or appeal.",
+  "cites": [
+   {
+    "start": 1511.3,
+    "end": 1522.2
+   }
+  ],
+  "lines": [
+   175
+  ]
+ },
+ {
+  "id": "S082",
+  "section": "Client's account",
+  "sentence": "One of the girls on the other shift, Jodie, told the client she heard that Gary called her a liability in a managers' meeting on a Monday.",
+  "cites": [
+   {
+    "start": 1539.5,
+    "end": 1552.2
+   }
+  ],
+  "lines": [
+   179
+  ]
+ },
+ {
+  "id": "S083",
+  "section": "Client's account",
+  "sentence": "Jodie was not present in the managers' meeting and did not hear the statement directly.",
+  "cites": [
+   {
+    "start": 1556.1,
+    "end": 1568.3
+   }
+  ],
+  "lines": [
+   181
+  ]
+ },
+ {
+  "id": "S084",
+  "section": "Client's account",
+  "sentence": "The client does not know if the statement about being called a liability is true, as it is second-hand and possibly third-hand.",
+  "cites": [
+   {
+    "start": 1556.1,
+    "end": 1568.3
+   }
+  ],
+  "lines": [
+   181
+  ]
+ },
+ {
+  "id": "S085",
+  "section": "Client's account",
+  "sentence": "Client (Aisha Rahman) stated one interview has been conducted, scheduled for next Tuesday at Harbour Freight, a parcel company near the airport.",
+  "cites": [
+   {
+    "start": 1827.6,
+    "end": 1837.8
+   }
+  ],
+  "lines": [
+   218
+  ]
+ },
+ {
+  "id": "S086",
+  "section": "Client's account",
+  "sentence": "Client described the job as a team leader position, paying less than \u00a327 per hour.",
+  "cites": [
+   {
+    "start": 1827.6,
+    "end": 1837.8
+   }
+  ],
+  "lines": [
+   218
+  ]
+ },
+ {
+  "id": "S087",
+  "section": "Client's account",
+  "sentence": "Solicitor identified references as the main concern in the client's job search.",
+  "cites": [
+   {
+    "start": 1838.0,
+    "end": 1843.4
+   }
+  ],
+  "lines": [
+   219
+  ]
+ },
+ {
+  "id": "S088",
+  "section": "Client's account",
+  "sentence": "Client stated that if the employer contacts Northgate, Northgate will say the employee was dismissed, which would end the job search process.",
+  "cites": [
+   {
+    "start": 1843.8,
+    "end": 1855.1
+   }
+  ],
+  "lines": [
+   220
+  ]
+ },
+ {
+  "id": "S089",
+  "section": "Client's account",
+  "sentence": "Client has applied for Universal Credit, which is still pending.",
+  "cites": [
+   {
+    "start": 1858.6,
+    "end": 1869.6
+   }
+  ],
+  "lines": [
+   222
+  ]
+ },
+ {
+  "id": "S090",
+  "section": "Client's account",
+  "sentence": "Client's husband works as a bus driver and is employed, so the client is uncertain about the amount of Universal Credit she may receive.",
+  "cites": [
+   {
+    "start": 1858.6,
+    "end": 1869.6
+   }
+  ],
+  "lines": [
+   222
+  ]
+ },
+ {
+  "id": "S091",
+  "section": "Client's account",
+  "sentence": "Client maintains a spreadsheet for tracking job applications, with green for interviews and red for rejections.",
+  "cites": [
+   {
+    "start": 1883.8,
+    "end": 1893.3
+   }
+  ],
+  "lines": [
+   224
+  ]
+ },
+ {
+  "id": "S092",
+  "section": "Client's account",
+  "sentence": "Client's eleven-year-old child created the spreadsheet with colours and formatting.",
+  "cites": [
+   {
+    "start": 1883.8,
+    "end": 1893.3
+   }
+  ],
+  "lines": [
+   224
+  ]
+ },
+ {
+  "id": "S093",
+  "section": "Client's account",
+  "sentence": "Client noted that the spreadsheet has many red entries, indicating most applications were rejected.",
+  "cites": [
+   {
+    "start": 1898.7,
+    "end": 1900.6
+   }
+  ],
+  "lines": [
+   226
+  ]
+ },
+ {
+  "id": "S094",
+  "section": "Client's account",
+  "sentence": "Solicitor acknowledged that a high number of red entries is normal in current job market conditions.",
+  "cites": [
+   {
+    "start": 1901.7,
+    "end": 1907.0
+   }
+  ],
+  "lines": [
+   227
+  ]
+ },
+ {
+  "id": "S095",
+  "section": "Client's account",
+  "sentence": "Client reported experiencing stress, with poor sleep and fluctuating blood sugar levels since the dismissal.",
+  "cites": [
+   {
+    "start": 1907.6,
+    "end": 1918.7
+   }
+  ],
+  "lines": [
+   228
+  ]
+ },
+ {
+  "id": "S096",
+  "section": "Client's account",
+  "sentence": "Client's diabetes nurse confirmed that the client's average blood sugar levels have increased significantly since the dismissal.",
+  "cites": [
+   {
+    "start": 1907.6,
+    "end": 1918.7
+   }
+  ],
+  "lines": [
+   228
+  ]
+ },
+ {
+  "id": "S097",
+  "section": "Client's account",
+  "sentence": "Client has not yet seen a GP about stress or sleep issues, although the diabetes nurse did speak to her in early September.",
+  "cites": [
+   {
+    "start": 1924.3,
+    "end": 1928.0
+   }
+  ],
+  "lines": [
+   230
+  ]
+ },
+ {
+  "id": "S098",
+  "section": "Client's account",
+  "sentence": "Client said she would book a GP appointment if possible, but described trying to get through on the phone as difficult, like trying to get concert tickets.",
+  "cites": [
+   {
+    "start": 1940.7,
+    "end": 1947.9
+   }
+  ],
+  "lines": [
+   232
+  ]
+ },
+ {
+  "id": "S099",
+  "section": "Client's account",
+  "sentence": "Solicitor confirmed that the client has no legal expenses insurance, though she does have home insurance with Castleford Mutual.",
+  "cites": [
+   {
+    "start": 2020.7,
+    "end": 2034.4
+   }
+  ],
+  "lines": [
+   240
+  ]
+ },
+ {
+  "id": "S100",
+  "section": "Client's account",
+  "sentence": "Client said her husband ticked a box for legal expenses when renewing home insurance, but she does not know if it was included.",
+  "cites": [
+   {
+    "start": 2020.7,
+    "end": 2034.4
+   }
+  ],
+  "lines": [
+   240
+  ]
+ },
+ {
+  "id": "S101",
+  "section": "Client's account",
+  "sentence": "Client stated the dismissal date was the 14th of August.",
+  "cites": [
+   {
+    "start": 2154.7,
+    "end": 2171.0
+   }
+  ],
+  "lines": [
+   254
+  ]
+ },
+ {
+  "id": "S102",
+  "section": "Client's account",
+  "sentence": "The client, Aisha Rahman, stated that an agreed reference would be the main thing she wants, and that it would be 'everything'.",
+  "cites": [
+   {
+    "start": 2471.2,
+    "end": 2476.0
+   }
+  ],
+  "lines": [
+   285
+  ]
+ },
+ {
+  "id": "S103",
+  "section": "Client's account",
+  "sentence": "The solicitor clarified that nothing has been issued, there is no claim in the tribunal, and nothing has gone to ACAS. They are at the start of the process.",
+  "cites": [
+   {
+    "start": 2477.0,
+    "end": 2486.7
+   }
+  ],
+  "lines": [
+   286
+  ]
+ },
+ {
+  "id": "S104",
+  "section": "Client's account",
+  "sentence": "The client said she was dreading being asked about why she left, and that she thought she might be the problem.",
+  "cites": [
+   {
+    "start": 2702.7,
+    "end": 2707.0
+   }
+  ],
+  "lines": [
+   314
+  ]
+ },
+ {
+  "id": "S105",
+  "section": "Client's account",
+  "sentence": "The client said she felt better after the meeting and that she thought she was being mad, and that she thought she might be the problem.",
+  "cites": [
+   {
+    "start": 2713.8,
+    "end": 2726.4
+   }
+  ],
+  "lines": [
+   316
+  ]
+ },
+ {
+  "id": "S106",
+  "section": "Client's account",
+  "sentence": "The client said she is currently on Cromwell Road, by the church, and hopes to avoid a ticket.",
+  "cites": [
+   {
+    "start": 2752.5,
+    "end": 2756.7
+   }
+  ],
+  "lines": [
+   320
+  ]
+ },
+ {
+  "id": "S107",
+  "section": "Client's account",
+  "sentence": "The client said she will be glad when the rain finally comes, and thanked Daniel.",
+  "cites": [
+   {
+    "start": 2769.5,
+    "end": 2772.6
+   }
+  ],
+  "lines": [
+   322
+  ]
+ },
+ {
+  "id": "S108",
+  "section": "Documents and evidence",
+  "sentence": "The client has the following documents: the invite letter, the dismissal letter, the appeal outcome letter, her old contract (2018), payslips for May, June, July, and August, and a",
+  "cites": [
+   {
+    "start": 1605.7,
+    "end": 1619.4
+   }
+  ],
+  "lines": [
+   188
+  ]
+ },
+ {
+  "id": "S109",
+  "section": "Documents and evidence",
+  "sentence": "The client does not have a copy of the occupational health report, which is on her email and will be forwarded.",
+  "cites": [
+   {
+    "start": 1624.7,
+    "end": 1629.0
+   }
+  ],
+  "lines": [
+   190
+  ]
+ },
+ {
+  "id": "S110",
+  "section": "Documents and evidence",
+  "sentence": "The client has a copy of the appeal email, printed off at her sister's house.",
+  "cites": [
+   {
+    "start": 1635.9,
+    "end": 1641.1
+   }
+  ],
+  "lines": [
+   192
+  ]
+ },
+ {
+  "id": "S111",
+  "section": "Documents and evidence",
+  "sentence": "The client does not have the break policy email from February, which is on the work system.",
+  "cites": [
+   {
+    "start": 1641.8,
+    "end": 1654.3
+   }
+  ],
+  "lines": [
+   193
+  ]
+ },
+ {
+  "id": "S112",
+  "section": "Documents and evidence",
+  "sentence": "The client does not have the meeting notes from the investigation or disciplinary meeting, which are also on the work system.",
+  "cites": [
+   {
+    "start": 1641.8,
+    "end": 1654.3
+   }
+  ],
+  "lines": [
+   193
+  ]
+ },
+ {
+  "id": "S113",
+  "section": "Documents and evidence",
+  "sentence": "The solicitor advised the client to submit a Data Subject Access Request (DSAR) to Northgate for her personnel file, including both sets of meeting notes, emails mentioning her, a ",
+  "cites": [
+   {
+    "start": 1654.9,
+    "end": 1658.4
+   },
+   {
+    "start": 1659.1,
+    "end": 1671.5
+   }
+  ],
+  "lines": [
+   194,
+   195
+  ]
+ },
+ {
+  "id": "S114",
+  "section": "Documents and evidence",
+  "sentence": "The solicitor noted that CCTV footage may have been deleted, as it often retains only 30 days or less.",
+  "cites": [
+   {
+    "start": 1672.2,
+    "end": 1675.8
+   },
+   {
+    "start": 1676.3,
+    "end": 1681.3
+   }
+  ],
+  "lines": [
+   196,
+   197
+  ]
+ },
+ {
+  "id": "S115",
+  "section": "Client's objectives",
+  "sentence": "Client stated her primary wish is for the employer to acknowledge that they treated her unfairly due to her illness.",
+  "cites": [
+   {
+    "start": 1958.7,
+    "end": 1977.1
+   }
+  ],
+  "lines": [
+   234
+  ]
+ },
+ {
+  "id": "S116",
+  "section": "Client's objectives",
+  "sentence": "Client stated she wants a proper, decent reference to help her get a job.",
+  "cites": [
+   {
+    "start": 1958.7,
+    "end": 1977.1
+   }
+  ],
+  "lines": [
+   234
+  ]
+ },
+ {
+  "id": "S117",
+  "section": "Client's objectives",
+  "sentence": "Client said compensation is secondary to the above two objectives.",
+  "cites": [
+   {
+    "start": 1958.7,
+    "end": 1977.1
+   }
+  ],
+  "lines": [
+   234
+  ]
+ },
+ {
+  "id": "S118",
+  "section": "Client's objectives",
+  "sentence": "Client expressed a wish that the employer would address the issue of night shifts for a colleague with epilepsy, which she worries about.",
+  "cites": [
+   {
+    "start": 1983.0,
+    "end": 1994.1
+   }
+  ],
+  "lines": [
+   236
+  ]
+ },
+ {
+  "id": "S119",
+  "section": "Advice given",
+  "sentence": "Solicitor advised the client to consider contacting her GP if struggling, to ensure it is on record and to access support.",
+  "cites": [
+   {
+    "start": 1928.9,
+    "end": 1940.1
+   }
+  ],
+  "lines": [
+   231
+  ]
+ },
+ {
+  "id": "S120",
+  "section": "Advice given",
+  "sentence": "Solicitor explained that a tribunal can make recommendations but has limited powers on issues like workplace adjustments or policy changes.",
+  "cites": [
+   {
+    "start": 1994.4,
+    "end": 2006.4
+   }
+  ],
+  "lines": [
+   237
+  ]
+ },
+ {
+  "id": "S121",
+  "section": "Advice given",
+  "sentence": "Solicitor suggested that some aspects of the client's concerns, such as the break policy, might be more achievable through negotiation than through tribunal.",
+  "cites": [
+   {
+    "start": 1994.4,
+    "end": 2006.4
+   }
+  ],
+  "lines": [
+   237
+  ]
+ },
+ {
+  "id": "S122",
+  "section": "Advice given",
+  "sentence": "Solicitor advised that legal expenses insurance, if available, may cover costs of this claim.",
+  "cites": [
+   {
+    "start": 2035.3,
+    "end": 2040.7
+   }
+  ],
+  "lines": [
+   241
+  ]
+ },
+ {
+  "id": "S123",
+  "section": "Advice given",
+  "sentence": "Solicitor noted that insurers often require the case to have reasonable prospects and may require use of their panel solicitors, though the client can usually insist on her own if/",
+  "cites": [
+   {
+    "start": 2041.8,
+    "end": 2054.8
+   }
+  ],
+  "lines": [
+   242
+  ]
+ },
+ {
+  "id": "S124",
+  "section": "Advice given",
+  "sentence": "Solicitor said he would need the policy schedule and wording to assess whether legal expenses cover applies.",
+  "cites": [
+   {
+    "start": 2060.3,
+    "end": 2070.4
+   }
+  ],
+  "lines": [
+   244
+  ]
+ },
+ {
+  "id": "S125",
+  "section": "Advice given",
+  "sentence": "Solicitor confirmed that fees will not be discussed today as they depend on the policy terms, and no fees will be charged until agreement is reached.",
+  "cites": [
+   {
+    "start": 2071.2,
+    "end": 2084.8
+   }
+  ],
+  "lines": [
+   245
+  ]
+ },
+ {
+  "id": "S126",
+  "section": "Advice given",
+  "sentence": "Solicitor confirmed that the initial meeting is free and no bill will be issued for this consultation.",
+  "cites": [
+   {
+    "start": 2094.6,
+    "end": 2101.5
+   }
+  ],
+  "lines": [
+   247
+  ]
+ },
+ {
+  "id": "S127",
+  "section": "Advice given",
+  "sentence": "The solicitor, Daniel Okafor, stated that it is too early to give a figure for compensation, and that the amount depends on how quickly the client finds work and other factors.",
+  "cites": [
+   {
+    "start": 2438.4,
+    "end": 2456.3
+   }
+  ],
+  "lines": [
+   283
+  ]
+ },
+ {
+  "id": "S128",
+  "section": "Advice given",
+  "sentence": "The solicitor mentioned that an agreed reference can often be negotiated as part of a settlement through ACAS.",
+  "cites": [
+   {
+    "start": 2456.9,
+    "end": 2470.2
+   }
+  ],
+  "lines": [
+   284
+  ]
+ },
+ {
+  "id": "S129",
+  "section": "Advice given",
+  "sentence": "The solicitor confirmed that the letter confirming today's advice and funding options will be sent by Tuesday the 29th.",
+  "cites": [
+   {
+    "start": 2603.9,
+    "end": 2617.5
+   }
+  ],
+  "lines": [
+   304
+  ]
+ },
+ {
+  "id": "S130",
+  "section": "Advice given",
+  "sentence": "The letter confirming today's advice and funding options will include the time limits, with the 13th of November in bold.",
+  "cites": [
+   {
+    "start": 2603.9,
+    "end": 2617.5
+   }
+  ],
+  "lines": [
+   304
+  ]
+ },
+ {
+  "id": "S131",
+  "section": "Advice given",
+  "sentence": "The solicitor advised the client that if asked why she left, she should say it is subject to an ongoing process and that she would rather not go into detail, keeping it short and '",
+  "cites": [
+   {
+    "start": 2689.1,
+    "end": 2701.7
+   }
+  ],
+  "lines": [
+   313
+  ]
+ },
+ {
+  "id": "S132",
+  "section": "Advice given",
+  "sentence": "The solicitor stated that there are real questions about how the situation was handled, and that no promises are being made, and that more will be known once documents are obtained",
+  "cites": [
+   {
+    "start": 2726.8,
+    "end": 2739.2
+   }
+  ],
+  "lines": [
+   317
+  ]
+ },
+ {
+  "id": "S133",
+  "section": "Advice given",
+  "sentence": "The solicitor said the wardens in the area are ruthless and advised the client to take a coat on Tuesday, as rain is expected all week and the weather may break at the weekend.",
+  "cites": [
+   {
+    "start": 2757.2,
+    "end": 2768.4
+   }
+  ],
+  "lines": [
+   321
+  ]
+ },
+ {
+  "id": "S134",
+  "section": "Next steps",
+  "sentence": "The solicitor outlined next steps: the client (Aisha) must email the solicitor by Friday the 25th with the OH report, Marcus's photo of the sensor, any payslips not brought today,\u548c",
+  "cites": [
+   {
+    "start": 2503.2,
+    "end": 2517.9
+   }
+  ],
+  "lines": [
+   289
+  ]
+ },
+ {
+  "id": "S135",
+  "section": "Next steps",
+  "sentence": "The client agreed to send the documents by Friday the 25th.",
+  "cites": [
+   {
+    "start": 2518.7,
+    "end": 2519.9
+   }
+  ],
+  "lines": [
+   290
+  ]
+ },
+ {
+  "id": "S136",
+  "section": "Next steps",
+  "sentence": "The client will check with Castleford Mutual by Monday the 28th to confirm legal expenses cover and send the policy schedule and wording to the solicitor.",
+  "cites": [
+   {
+    "start": 2520.3,
+    "end": 2530.4
+   }
+  ],
+  "lines": [
+   291
+  ]
+ },
+ {
+  "id": "S137",
+  "section": "Next steps",
+  "sentence": "The client will ask her husband to contact Castleford Mutual as her husband is off on Monday.",
+  "cites": [
+   {
+    "start": 2531.2,
+    "end": 2537.4
+   }
+  ],
+  "lines": [
+   292
+  ]
+ },
+ {
+  "id": "S138",
+  "section": "Next steps",
+  "sentence": "The client will write a timeline in her own words by Friday the 2nd of October, including dates, as best she can, in bullet points if needed.",
+  "cites": [
+   {
+    "start": 2537.9,
+    "end": 2552.1
+   }
+  ],
+  "lines": [
+   293
+  ]
+ },
+ {
+  "id": "S139",
+  "section": "Next steps",
+  "sentence": "The client agreed to the timeline: Friday the 25th, Monday the 28th, and Friday the 2nd of October.",
+  "cites": [
+   {
+    "start": 2553.1,
+    "end": 2557.6
+   }
+  ],
+  "lines": [
+   294
+  ]
+ },
+ {
+  "id": "S140",
+  "section": "Next steps",
+  "sentence": "The solicitor instructed the trainee, Sophie Grant, to draft a subject access request to Northgate by Monday, which the solicitor would then check and send out on Tuesday.",
+  "cites": [
+   {
+    "start": 2568.1,
+    "end": 2577.0
+   }
+  ],
+  "lines": [
+   297
+  ]
+ },
+ {
+  "id": "S141",
+  "section": "Next steps",
+  "sentence": "The trainee asked whether the subject access request should be sent to the HR inbox or to a registered office.",
+  "cites": [
+   {
+    "start": 2577.6,
+    "end": 2583.4
+   }
+  ],
+  "lines": [
+   298
+  ]
+ },
+ {
+  "id": "S142",
+  "section": "Next steps",
+  "sentence": "The solicitor instructed the trainee to send the subject access request to both HR and the registered office, as the registered office address will be verified via Companies House.",
+  "cites": [
+   {
+    "start": 2584.3,
+    "end": 2591.0
+   }
+  ],
+  "lines": [
+   299
+  ]
+ },
+ {
+  "id": "S143",
+  "section": "Next steps",
+  "sentence": "The solicitor advised the client to ask Marcus whether he would be willing to give a statement, without going into detail, and not to approach Tomasz at this stage.",
+  "cites": [
+   {
+    "start": 2618.1,
+    "end": 2631.4
+   }
+  ],
+  "lines": [
+   305
+  ]
+ },
+ {
+  "id": "S144",
+  "section": "Next steps",
+  "sentence": "The client agreed to message Marcus to ask if he would be willing to give a statement, and to leave Tomasz out.",
+  "cites": [
+   {
+    "start": 2632.5,
+    "end": 2635.2
+   }
+  ],
+  "lines": [
+   306
+  ]
+ },
+ {
+  "id": "S145",
+  "section": "Next steps",
+  "sentence": "The solicitor suggested that the client may ask Linda whether she would be happy to talk to the solicitor at some point, with no rush on that.",
+  "cites": [
+   {
+    "start": 2635.8,
+    "end": 2646.0
+   }
+  ],
+  "lines": [
+   307
+  ]
+ },
+ {
+  "id": "S146",
+  "section": "Next steps",
+  "sentence": "The client agreed to message Linda to ask if she would be happy to talk to the solicitor.",
+  "cites": [
+   {
+    "start": 2646.8,
+    "end": 2649.4
+   }
+  ],
+  "lines": [
+   308
+  ]
+ },
+ {
+  "id": "S147",
+  "section": "Next steps",
+  "sentence": "The solicitor and client agreed to meet again on Thursday the 8th of October at 10 o'clock.",
+  "cites": [
+   {
+    "start": 2649.8,
+    "end": 2663.1
+   }
+  ],
+  "lines": [
+   309
+  ]
+ },
+ {
+  "id": "S148",
+  "section": "Next steps",
+  "sentence": "The client confirmed that the 8th of October is acceptable, noting that her child has an assembly on the 9th, not the 8th.",
+  "cites": [
+   {
+    "start": 2663.3,
+    "end": 2674.5
+   }
+  ],
+  "lines": [
+   310
+  ]
+ },
+ {
+  "id": "S149",
+  "section": "Next steps",
+  "sentence": "The solicitor advised the client that if anything comes from Northgate (e.g., a letter, offer, or document) in the meantime, she should send it to the solicitor before replying, do",
+  "cites": [
+   {
+    "start": 2675.0,
+    "end": 2685.9
+   }
+  ],
+  "lines": [
+   311
+  ]
+ },
+ {
+  "id": "S150",
+  "section": "Next steps",
+  "sentence": "The client confirmed she will not sign anything from Northgate.",
+  "cites": [
+   {
+    "start": 2686.2,
+    "end": 2688.6
+   }
+  ],
+  "lines": [
+   312
+  ]
+ }
+]

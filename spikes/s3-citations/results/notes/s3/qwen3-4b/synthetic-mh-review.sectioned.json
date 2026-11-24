@@ -1,0 +1,387 @@
+{
+ "sections": [
+  {
+   "title": "Background and presenting situation",
+   "sentences": [
+    {
+     "text": "S1 (Samuel Adeyemi) is a care coordinator from the community mental health team.",
+     "cites": [
+      1,
+      11,
+      15,
+      17,
+      20
+     ]
+    },
+    {
+     "text": "S2 (Hannah Rees) is the person being assessed.",
+     "cites": [
+      2,
+      14,
+      15,
+      19,
+      20
+     ]
+    },
+    {
+     "text": "S3 (Tom Whitfield) is Hannah's partner.",
+     "cites": [
+      10,
+      18,
+      85,
+      86,
+      87
+     ]
+    },
+    {
+     "text": "The assessment is a care review conducted about six weeks after the last contact.",
+     "cites": [
+      13
+     ]
+    },
+    {
+     "text": "The last contact was before Bonfire Night, approximately in September.",
+     "cites": [
+      14
+     ]
+    },
+    {
+     "text": "Hannah has a dog named Pip, a cocker spaniel.",
+     "cites": [
+      4,
+      6
+     ]
+    },
+    {
+     "text": "Tom is currently on a work call and will come down after the assessment.",
+     "cites": [
+      10,
+      12
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Needs and daily living",
+   "sentences": [
+    {
+     "text": "Hannah is currently on sertraline 150mg daily, started on the 10th of November.",
+     "cites": [
+      31,
+      33,
+      35,
+      36
+     ]
+    },
+    {
+     "text": "Hannah is also taking mirtazapine 15mg at night.",
+     "cites": [
+      39
+     ]
+    },
+    {
+     "text": "Hannah reports experiencing panic attacks two to three times per week, with some days having a constant hum.",
+     "cites": [
+      23,
+      25
+     ]
+    },
+    {
+     "text": "Hannah reports a low mood score of 3 out of 10, with a high of 4 on a good day.",
+     "cites": [
+      27
+     ]
+    },
+    {
+     "text": "Hannah reported a mood score of 7 during the summer, indicating improvement.",
+     "cites": [
+      29
+     ]
+    },
+    {
+     "text": "Hannah reports waking up at 3:30 a.m. every night despite taking mirtazapine.",
+     "cites": [
+      41
+     ]
+    },
+    {
+     "text": "Hannah reports getting only about four hours of sleep per night.",
+     "cites": [
+      43
+     ]
+    },
+    {
+     "text": "Hannah reports increased hunger, which she attributes to improved eating habits after stopping poor diet.",
+     "cites": [
+      45
+     ]
+    },
+    {
+     "text": "Hannah lost about half a stone (approximately 22.5 lbs) due to poor eating habits before medication.",
+     "cites": [
+      45
+     ]
+    },
+    {
+     "text": "Hannah reports a dry mouth as a side effect of mirtazapine.",
+     "cites": [
+      47
+     ]
+    },
+    {
+     "text": "Hannah takes her medication every day and has not missed any doses.",
+     "cites": [
+      48,
+      49
+     ]
+    },
+    {
+     "text": "Tom currently manages the medication boxes and stores them in his drawer upstairs.",
+     "cites": [
+      49,
+      50
+     ]
+    },
+    {
+     "text": "Hannah believes the medication is too early to assess for effectiveness, and she wants to continue for six weeks.",
+     "cites": [
+      53
+     ]
+    },
+    {
+     "text": "Hannah's work is signed off until the 11th of December.",
+     "cites": [
+      55,
+      56
+     ]
+    },
+    {
+     "text": "Hannah's manager changed in August, and there was a merger of payroll and accounts, doubling her workload.",
+     "cites": [
+      58,
+      60
+     ]
+    },
+    {
+     "text": "Hannah's manager sends emails at 11 p.m. and expects responses by 9 a.m.",
+     "cites": [
+      60
+     ]
+    },
+    {
+     "text": "Hannah believes her manager has said she is not resilient enough and that her position may be reviewed.",
+     "cites": [
+      61,
+      62
+     ]
+    },
+    {
+     "text": "Hannah has an occupational health appointment scheduled for the 2nd of December (phone appointment).",
+     "cites": [
+      69
+     ]
+    },
+    {
+     "text": "Hannah would consider a phased return to work (e.g., mornings only) if offered, but no such option has been proposed.",
+     "cites": [
+      71
+     ]
+    },
+    {
+     "text": "Hannah gets up around 7 a.m. when Tom wakes her.",
+     "cites": [
+      75
+     ]
+    },
+    {
+     "text": "Hannah walks Pip every day as a routine.",
+     "cites": [
+      75
+     ]
+    },
+    {
+     "text": "Hannah spends most of her day on the sofa and sometimes does not get dressed.",
+     "cites": [
+      76
+     ]
+    },
+    {
+     "text": "Hannah has not seen any friends recently and has been avoiding social contact.",
+     "cites": [
+      78
+     ]
+    },
+    {
+     "text": "Hannah Rees denied needing hospital care and stated she is not in the same condition as previously.",
+     "cites": [
+      136
+     ]
+    },
+    {
+     "text": "The safety plan will include the warning signs: not getting out of bed, stopping walking Pip, going quiet, and not answering Megan.",
+     "cites": [
+      144,
+      145
+     ]
+    },
+    {
+     "text": "The crisis line number is currently on the fridge.",
+     "cites": [
+      146,
+      147
+     ]
+    },
+    {
+     "text": "Tom Whitfield confirmed the crisis line number is also on his phone.",
+     "cites": [
+      148
+     ]
+    },
+    {
+     "text": "The care coordinator (Samuel Adeyemi) will refer Hannah to psychology and complete the referral by Friday.",
+     "cites": [
+      167
+     ]
+    },
+    {
+     "text": "The care coordinator will contact Dr Mensah's secretary to follow up on Hannah's next clinic appointment, as she has not yet had one.",
+     "cites": [
+      169,
+      170
+     ]
+    },
+    {
+     "text": "Hannah Rees will complete a sleep diary for the care coordinator, including bedtime, waking time, and duration of nighttime awakenings.",
+     "cites": [
+      172,
+      173
+     ]
+    },
+    {
+     "text": "Hannah Rees stated that her friend Jo, who is under the same care team, said the wait for psychology is two years.",
+     "cites": [
+      158,
+      159
+     ]
+    },
+    {
+     "text": "The care coordinator stated that the wait for psychology varies and cannot provide a specific number today.",
+     "cites": [
+      159
+     ]
+    },
+    {
+     "text": "The care coordinator will update the safety plan with a new warning sign (not answering Megan) and will include the week when Tom is away.",
+     "cites": [
+      144,
+      145,
+      171
+     ]
+    },
+    {
+     "text": "The care coordinator advised against assuming the two-year wait for psychology and recommended checking with the service first.",
+     "cites": [
+      161
+     ]
+    },
+    {
+     "text": "The care coordinator will perform a PHQ-9 mood questionnaire with Hannah, but it will be postponed due to her appearance of being 'shattered'.",
+     "cites": [
+      163,
+      165
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Person's views and wishes",
+   "sentences": [
+    {
+     "text": "Hannah Rees described feeling tired and said Tom 'means well but just panics'.",
+     "cites": [
+      157
+     ]
+    },
+    {
+     "text": "Hannah Rees expressed frustration about the two-year wait for psychology, saying 'I can't wait two years'.",
+     "cites": [
+      160
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Risks and safeguarding",
+   "sentences": [
+    {
+     "text": "Tom Whitfield expressed concern that Hannah should be in hospital or have crisis workers come every day, referencing the previous crisis.",
+     "cites": [
+      135
+     ]
+    },
+    {
+     "text": "Tom Whitfield stated he is scared about Hannah's condition and is unable to monitor her due to being at work.",
+     "cites": [
+      135,
+      137
+     ]
+    },
+    {
+     "text": "Hannah Rees agreed to call the crisis line or duty worker if her thoughts become stronger before the follow-up appointment on the eighth of December.",
+     "cites": [
+      176,
+      177
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Support network and finances",
+   "sentences": [
+    {
+     "text": "Tom Whitfield will be away from home Monday to Thursday next week due to work in Leeds.",
+     "cites": [
+      140
+     ]
+    },
+    {
+     "text": "Hannah Rees indicated that Megan may be able to let her stay at her house while Tom is away, but has not decided.",
+     "cites": [
+      142
+     ]
+    },
+    {
+     "text": "Tom Whitfield expressed interest in a carer's assessment for himself, but said he is not sure and will think about it.",
+     "cites": [
+      149,
+      150
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Agreed actions",
+   "sentences": [
+    {
+     "text": "The care coordinator will return for a follow-up appointment on Tuesday, the eighth of December, at 10 o'clock.",
+     "cites": [
+      174,
+      175
+     ]
+    },
+    {
+     "text": "The care coordinator will drop a copy of the updated safety plan during the week when Tom is away.",
+     "cites": [
+      171
+     ]
+    },
+    {
+     "text": "The care coordinator will refer Hannah to psychology and complete the referral by Friday.",
+     "cites": [
+      167
+     ]
+    }
+   ]
+  }
+ ]
+}

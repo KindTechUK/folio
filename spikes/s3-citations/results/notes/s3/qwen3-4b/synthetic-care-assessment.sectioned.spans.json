@@ -1,0 +1,2845 @@
+[
+ {
+  "id": "S001",
+  "section": "Background and presenting situation",
+  "sentence": "Priya Nair is a social worker from adult social care.",
+  "cites": [
+   {
+    "start": 0.6,
+    "end": 7.6
+   }
+  ],
+  "lines": [
+   1
+  ]
+ },
+ {
+  "id": "S002",
+  "section": "Background and presenting situation",
+  "sentence": "Priya Nair spoke to Margaret Doyle on Monday.",
+  "cites": [
+   {
+    "start": 0.6,
+    "end": 7.6
+   }
+  ],
+  "lines": [
+   1
+  ]
+ },
+ {
+  "id": "S003",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle lives with a heating system that is turned on despite the season.",
+  "cites": [
+   {
+    "start": 19.7,
+    "end": 28.4
+   }
+  ],
+  "lines": [
+   4
+  ]
+ },
+ {
+  "id": "S004",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle reports that she feels cold and relies on heating to feel warm.",
+  "cites": [
+   {
+    "start": 19.7,
+    "end": 28.4
+   }
+  ],
+  "lines": [
+   4
+  ]
+ },
+ {
+  "id": "S005",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle lives in a home with a high step that she warns visitors about.",
+  "cites": [
+   {
+    "start": 8.0,
+    "end": 15.6
+   }
+  ],
+  "lines": [
+   2
+  ]
+ },
+ {
+  "id": "S006",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle has a cat named Biscuit who is 11 years old.",
+  "cites": [
+   {
+    "start": 55.6,
+    "end": 61.2
+   }
+  ],
+  "lines": [
+   9
+  ]
+ },
+ {
+  "id": "S007",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle was referred to social care by the hospital after discharge.",
+  "cites": [
+   {
+    "start": 138.3,
+    "end": 144.2
+   }
+  ],
+  "lines": [
+   23
+  ]
+ },
+ {
+  "id": "S008",
+  "section": "Background and presenting situation",
+  "sentence": "The purpose of the visit is a needs assessment under the Care Act.",
+  "cites": [
+   {
+    "start": 144.5,
+    "end": 151.2
+   }
+  ],
+  "lines": [
+   24
+  ]
+ },
+ {
+  "id": "S009",
+  "section": "Background and presenting situation",
+  "sentence": "The needs assessment aims to understand how Margaret is managing daily life, what is difficult, what is working, and what matters to her.",
+  "cites": [
+   {
+    "start": 153.7,
+    "end": 165.2
+   }
+  ],
+  "lines": [
+   26
+  ]
+ },
+ {
+  "id": "S010",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle does not want to be placed in a care home or institution.",
+  "cites": [
+   {
+    "start": 177.4,
+    "end": 184.4
+   }
+  ],
+  "lines": [
+   29
+  ]
+ },
+ {
+  "id": "S011",
+  "section": "Background and presenting situation",
+  "sentence": "The needs assessment is not about placing Margaret in a care home or institution.",
+  "cites": [
+   {
+    "start": 184.9,
+    "end": 192.8
+   }
+  ],
+  "lines": [
+   30
+  ]
+ },
+ {
+  "id": "S012",
+  "section": "Background and presenting situation",
+  "sentence": "The needs assessment is about supporting Margaret in her current home environment.",
+  "cites": [
+   {
+    "start": 193.0,
+    "end": 198.7
+   }
+  ],
+  "lines": [
+   31
+  ]
+ },
+ {
+  "id": "S013",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle has a quiz programme she watches at 4:00 p.m.",
+  "cites": [
+   {
+    "start": 209.4,
+    "end": 214.4
+   }
+  ],
+  "lines": [
+   34
+  ]
+ },
+ {
+  "id": "S014",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle said she never gets the answers to the quiz and shouts at the television.",
+  "cites": [
+   {
+    "start": 218.5,
+    "end": 223.3
+   }
+  ],
+  "lines": [
+   36
+  ]
+ },
+ {
+  "id": "S015",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle said she would allow the social worker to take notes during the assessment.",
+  "cites": [
+   {
+    "start": 223.5,
+    "end": 230.0
+   }
+  ],
+  "lines": [
+   37
+  ]
+ },
+ {
+  "id": "S016",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle said her handwriting has deteriorated since the last time she wrote anything.",
+  "cites": [
+   {
+    "start": 231.3,
+    "end": 237.5
+   }
+  ],
+  "lines": [
+   38
+  ]
+ },
+ {
+  "id": "S017",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle said she is comfortable with the social worker sharing information with her GP and any other involved support services.",
+  "cites": [
+   {
+    "start": 268.0,
+    "end": 271.0
+   }
+  ],
+  "lines": [
+   43
+  ]
+ },
+ {
+  "id": "S018",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle said she has nothing to hide, but added 'mostly'.",
+  "cites": [
+   {
+    "start": 272.7,
+    "end": 276.1
+   }
+  ],
+  "lines": [
+   45
+  ]
+ },
+ {
+  "id": "S019",
+  "section": "Background and presenting situation",
+  "sentence": "Kevin Doyle is Margaret's son.",
+  "cites": [
+   {
+    "start": 276.4,
+    "end": 281.8
+   }
+  ],
+  "lines": [
+   46
+  ]
+ },
+ {
+  "id": "S020",
+  "section": "Background and presenting situation",
+  "sentence": "Kevin Doyle said he would try to come over after finishing an early shift.",
+  "cites": [
+   {
+    "start": 282.0,
+    "end": 290.7
+   }
+  ],
+  "lines": [
+   47
+  ]
+ },
+ {
+  "id": "S021",
+  "section": "Background and presenting situation",
+  "sentence": "Kevin Doyle said he might arrive around half past eleven.",
+  "cites": [
+   {
+    "start": 291.9,
+    "end": 293.1
+   }
+  ],
+  "lines": [
+   48
+  ]
+ },
+ {
+  "id": "S022",
+  "section": "Background and presenting situation",
+  "sentence": "Kevin Doyle said he will 'put his tuppence in' when he visits.",
+  "cites": [
+   {
+    "start": 299.8,
+    "end": 304.0
+   }
+  ],
+  "lines": [
+   50
+  ]
+ },
+ {
+  "id": "S023",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle's GP is Dr Shah at Millbrook Surgery on Church Lane.",
+  "cites": [
+   {
+    "start": 690.2,
+    "end": 693.5
+   }
+  ],
+  "lines": [
+   122
+  ]
+ },
+ {
+  "id": "S024",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle previously saw Dr Patel at Millbrook Surgery, who retired last summer.",
+  "cites": [
+   {
+    "start": 709.3,
+    "end": 715.3
+   }
+  ],
+  "lines": [
+   126
+  ]
+ },
+ {
+  "id": "S025",
+  "section": "Background and presenting situation",
+  "sentence": "Kevin Doyle expressed concern that the house is too much for Margaret due to stairs and garden.",
+  "cites": [
+   {
+    "start": 1815.6,
+    "end": 1825.3
+   }
+  ],
+  "lines": [
+   337
+  ]
+ },
+ {
+  "id": "S026",
+  "section": "Background and presenting situation",
+  "sentence": "Kevin Doyle suggested that Margaret might be better off in a sheltered flat or bungalow with a warden on site.",
+  "cites": [
+   {
+    "start": 1826.4,
+    "end": 1831.0
+   },
+   {
+    "start": 1831.3,
+    "end": 1835.6
+   },
+   {
+    "start": 1835.9,
+    "end": 1839.3
+   }
+  ],
+  "lines": [
+   338,
+   339,
+   340
+  ]
+ },
+ {
+  "id": "S027",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle stated she is not moving from the house, saying she has been over this with Kevin.",
+  "cites": [
+   {
+    "start": 1835.9,
+    "end": 1839.3
+   }
+  ],
+  "lines": [
+   340
+  ]
+ },
+ {
+  "id": "S028",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle said she came to the house as a bride and will not move to a flat with strangers.",
+  "cites": [
+   {
+    "start": 1841.9,
+    "end": 1846.0
+   }
+  ],
+  "lines": [
+   342
+  ]
+ },
+ {
+  "id": "S029",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle smokes, but she gave up thirty years ago when Kevin was little.",
+  "cites": [
+   {
+    "start": 2416.1,
+    "end": 2417.5
+   },
+   {
+    "start": 2418.0,
+    "end": 2424.1
+   }
+  ],
+  "lines": [
+   455,
+   456
+  ]
+ },
+ {
+  "id": "S030",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle is concerned about money going missing and is unsure where it has gone.",
+  "cites": [
+   {
+    "start": 2443.2,
+    "end": 2449.4
+   }
+  ],
+  "lines": [
+   462
+  ]
+ },
+ {
+  "id": "S031",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle says her grandson Jordan, Susan's son, stayed in the UK when his family went to Spain and is twenty-two years old.",
+  "cites": [
+   {
+    "start": 2463.4,
+    "end": 2465.8
+   },
+   {
+    "start": 2467.5,
+    "end": 2472.4
+   }
+  ],
+  "lines": [
+   466,
+   468
+  ]
+ },
+ {
+  "id": "S032",
+  "section": "Background and presenting situation",
+  "sentence": "Jordan lives in town in a flat with his girlfriend and visits Margaret occasionally.",
+  "cites": [
+   {
+    "start": 2472.8,
+    "end": 2481.9
+   }
+  ],
+  "lines": [
+   469
+  ]
+ },
+ {
+  "id": "S033",
+  "section": "Background and presenting situation",
+  "sentence": "Jordan sometimes borrows Margaret's bank card to get cash or for himself.",
+  "cites": [
+   {
+    "start": 2483.3,
+    "end": 2490.2
+   }
+  ],
+  "lines": [
+   471
+  ]
+ },
+ {
+  "id": "S034",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret gave Jordan her bank card number so he could get her shopping when she first came out of hospital.",
+  "cites": [
+   {
+    "start": 2490.4,
+    "end": 2497.5
+   }
+  ],
+  "lines": [
+   472
+  ]
+ },
+ {
+  "id": "S035",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret says there were a lot of withdrawals from her bank account, more than she asked Jordan for, over the last two months.",
+  "cites": [
+   {
+    "start": 2499.4,
+    "end": 2505.2
+   },
+   {
+    "start": 2505.4,
+    "end": 2508.6
+   }
+  ],
+  "lines": [
+   474,
+   475
+  ]
+ },
+ {
+  "id": "S036",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret estimates the total amount withdrawn is about six hundred pounds over the last two months.",
+  "cites": [
+   {
+    "start": 2511.8,
+    "end": 2515.6
+   },
+   {
+    "start": 2516.0,
+    "end": 2522.9
+   }
+  ],
+  "lines": [
+   477,
+   478
+  ]
+ },
+ {
+  "id": "S037",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret says she does not want Jordan to get into trouble because he is young and has had a hard time with his mother going to Spain.",
+  "cites": [
+   {
+    "start": 2526.4,
+    "end": 2530.7
+   },
+   {
+    "start": 2531.1,
+    "end": 2538.3
+   }
+  ],
+  "lines": [
+   480,
+   481
+  ]
+ },
+ {
+  "id": "S038",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret says she does not know if she gave Jordan permission to use her card, and she cannot remember everything she said.",
+  "cites": [
+   {
+    "start": 2550.6,
+    "end": 2553.8
+   },
+   {
+    "start": 2554.2,
+    "end": 2558.8
+   }
+  ],
+  "lines": [
+   484,
+   485
+  ]
+ },
+ {
+  "id": "S039",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret says Jordan currently has her bank card.",
+  "cites": [
+   {
+    "start": 2565.0,
+    "end": 2570.2
+   }
+  ],
+  "lines": [
+   487
+  ]
+ },
+ {
+  "id": "S040",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret says she would be happy for Kevin to know about the money issue and that he will have to know to sort it out.",
+  "cites": [
+   {
+    "start": 2570.8,
+    "end": 2578.1
+   },
+   {
+    "start": 2578.6,
+    "end": 2583.5
+   },
+   {
+    "start": 2583.8,
+    "end": 2589.0
+   }
+  ],
+  "lines": [
+   488,
+   489,
+   490
+  ]
+ },
+ {
+  "id": "S041",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret says Kevin will be angry when he hears about the money issue.",
+  "cites": [
+   {
+    "start": 2589.5,
+    "end": 2591.4
+   }
+  ],
+  "lines": [
+   491
+  ]
+ },
+ {
+  "id": "S042",
+  "section": "Background and presenting situation",
+  "sentence": "Kevin Doyle says he is currently out with the bins and is talking to Brenda over the fence.",
+  "cites": [
+   {
+    "start": 2697.0,
+    "end": 2705.7
+   },
+   {
+    "start": 2600.9,
+    "end": 2606.9
+   }
+  ],
+  "lines": [
+   512,
+   494
+  ]
+ },
+ {
+  "id": "S043",
+  "section": "Background and presenting situation",
+  "sentence": "Kevin Doyle says he put a brick on the bin lid to keep it from blowing off.",
+  "cites": [
+   {
+    "start": 2709.5,
+    "end": 2712.1
+   }
+  ],
+  "lines": [
+   514
+  ]
+ },
+ {
+  "id": "S044",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret says the bin lid previously went all the way down to number twelve.",
+  "cites": [
+   {
+    "start": 2712.7,
+    "end": 2717.1
+   }
+  ],
+  "lines": [
+   515
+  ]
+ },
+ {
+  "id": "S045",
+  "section": "Background and presenting situation",
+  "sentence": "Kevin Doyle says Brenda told him a few weeks ago she thought she saw Jordan at the cash machine on the high street by the chemist, with a card, but she wasn't sure it was him.",
+  "cites": [
+   {
+    "start": 2768.8,
+    "end": 2781.0
+   },
+   {
+    "start": 2781.3,
+    "end": 2788.2
+   }
+  ],
+  "lines": [
+   526,
+   527
+  ]
+ },
+ {
+  "id": "S046",
+  "section": "Background and presenting situation",
+  "sentence": "Kevin Doyle says one of Jordan's old mates' mothers told him Jordan has been in debt with gambling apps on his phone.",
+  "cites": [
+   {
+    "start": 2804.8,
+    "end": 2815.1
+   }
+  ],
+  "lines": [
+   531
+  ]
+ },
+ {
+  "id": "S047",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret says the information about Jordan being in debt with gambling is just gossip and that Kevin does not know it.",
+  "cites": [
+   {
+    "start": 2815.5,
+    "end": 2819.1
+   },
+   {
+    "start": 2819.4,
+    "end": 2825.3
+   }
+  ],
+  "lines": [
+   532,
+   533
+  ]
+ },
+ {
+  "id": "S048",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle is the person being assessed.",
+  "cites": [
+   {
+    "start": 3176.7,
+    "end": 3181.8
+   }
+  ],
+  "lines": [
+   599
+  ]
+ },
+ {
+  "id": "S049",
+  "section": "Background and presenting situation",
+  "sentence": "The person owns the house and paid it off years ago.",
+  "cites": [
+   {
+    "start": 3034.8,
+    "end": 3040.3
+   }
+  ],
+  "lines": [
+   572
+  ]
+ },
+ {
+  "id": "S050",
+  "section": "Background and presenting situation",
+  "sentence": "The person receives state pension and Frank's widow's pension (half of Frank's railway pension).",
+  "cites": [
+   {
+    "start": 3024.0,
+    "end": 3030.6
+   }
+  ],
+  "lines": [
+   570
+  ]
+ },
+ {
+  "id": "S051",
+  "section": "Background and presenting situation",
+  "sentence": "The person has about \u00a39,000 in a building society account, which is for funeral money and grandchildren.",
+  "cites": [
+   {
+    "start": 3043.9,
+    "end": 3050.7
+   }
+  ],
+  "lines": [
+   574
+  ]
+ },
+ {
+  "id": "S052",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle is present during the conversation with the social worker and Kevin Doyle.",
+  "cites": [
+   {
+    "start": 3623.6,
+    "end": 3627.7
+   }
+  ],
+  "lines": [
+   675
+  ]
+ },
+ {
+  "id": "S053",
+  "section": "Background and presenting situation",
+  "sentence": "Kevin Doyle is present during the conversation with the social worker and Margaret Doyle.",
+  "cites": [
+   {
+    "start": 3623.6,
+    "end": 3627.7
+   }
+  ],
+  "lines": [
+   675
+  ]
+ },
+ {
+  "id": "S054",
+  "section": "Background and presenting situation",
+  "sentence": "Margaret Doyle tells the social worker to 'put it by the phone, love. Biscuit, get off her notes.'",
+  "cites": [
+   {
+    "start": 3623.6,
+    "end": 3627.7
+   }
+  ],
+  "lines": [
+   675
+  ]
+ },
+ {
+  "id": "S055",
+  "section": "Background and presenting situation",
+  "sentence": "The social worker acknowledges that Kevin wants to sign documents, saying 'he wants to sign them.'",
+  "cites": [
+   {
+    "start": 3628.2,
+    "end": 3636.1
+   }
+  ],
+  "lines": [
+   676
+  ]
+ },
+ {
+  "id": "S056",
+  "section": "Background and presenting situation",
+  "sentence": "The social worker thanks Margaret for being honest with her during the conversation.",
+  "cites": [
+   {
+    "start": 3628.2,
+    "end": 3636.1
+   }
+  ],
+  "lines": [
+   676
+  ]
+ },
+ {
+  "id": "S057",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle said she does not trust herself to carry two cups and a frame.",
+  "cites": [
+   {
+    "start": 99.9,
+    "end": 105.7
+   }
+  ],
+  "lines": [
+   17
+  ]
+ },
+ {
+  "id": "S058",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle fell on the third of March, a Monday.",
+  "cites": [
+   {
+    "start": 311.9,
+    "end": 318.6
+   }
+  ],
+  "lines": [
+   52
+  ]
+ },
+ {
+  "id": "S059",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle was in the kitchen when she fell.",
+  "cites": [
+   {
+    "start": 320.5,
+    "end": 327.2
+   }
+  ],
+  "lines": [
+   54
+  ]
+ },
+ {
+  "id": "S060",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle does not know if she tripped or if she went dizzy.",
+  "cites": [
+   {
+    "start": 327.5,
+    "end": 333.2
+   }
+  ],
+  "lines": [
+   55
+  ]
+ },
+ {
+  "id": "S061",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle fell from the sink to the floor by the back door.",
+  "cites": [
+   {
+    "start": 334.6,
+    "end": 341.9
+   }
+  ],
+  "lines": [
+   56
+  ]
+ },
+ {
+  "id": "S062",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle was on the floor for about two hours.",
+  "cites": [
+   {
+    "start": 363.8,
+    "end": 369.4
+   }
+  ],
+  "lines": [
+   61
+  ]
+ },
+ {
+  "id": "S063",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle could not get up after the fall.",
+  "cites": [
+   {
+    "start": 344.7,
+    "end": 348.4
+   }
+  ],
+  "lines": [
+   58
+  ]
+ },
+ {
+  "id": "S064",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle tried to turn over but could not put any weight on her wrist.",
+  "cites": [
+   {
+    "start": 348.6,
+    "end": 357.4
+   }
+  ],
+  "lines": [
+   59
+  ]
+ },
+ {
+  "id": "S065",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle can walk about ten minutes to the shops before the fall.",
+  "cites": [
+   {
+    "start": 609.4,
+    "end": 612.8
+   }
+  ],
+  "lines": [
+   106
+  ]
+ },
+ {
+  "id": "S066",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle walked to the shops slowly, with a sense of control, and said she would do it.",
+  "cites": [
+   {
+    "start": 613.2,
+    "end": 617.0
+   }
+  ],
+  "lines": [
+   107
+  ]
+ },
+ {
+  "id": "S067",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle is frightened of going over again after the fall.",
+  "cites": [
+   {
+    "start": 627.1,
+    "end": 632.6
+   }
+  ],
+  "lines": [
+   110
+  ]
+ },
+ {
+  "id": "S068",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle had a fall in the garden before Christmas, where she sat down on the grass.",
+  "cites": [
+   {
+    "start": 642.1,
+    "end": 649.7
+   }
+  ],
+  "lines": [
+   114
+  ]
+ },
+ {
+  "id": "S069",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle had a fall in the bathroom in January, where she caught herself on the sink.",
+  "cites": [
+   {
+    "start": 650.0,
+    "end": 656.6
+   }
+  ],
+  "lines": [
+   115
+  ]
+ },
+ {
+  "id": "S070",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle had a fall in March, which is the third fall in the last six months.",
+  "cites": [
+   {
+    "start": 657.1,
+    "end": 663.6
+   }
+  ],
+  "lines": [
+   116
+  ]
+ },
+ {
+  "id": "S071",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle has not been referred to a falls clinic or had a falls assessment by her GP.",
+  "cites": [
+   {
+    "start": 729.5,
+    "end": 736.3
+   }
+  ],
+  "lines": [
+   130
+  ]
+ },
+ {
+  "id": "S072",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle has to go up and down stairs to use the toilet during the day.",
+  "cites": [
+   {
+    "start": 756.6,
+    "end": 762.8
+   }
+  ],
+  "lines": [
+   134
+  ]
+ },
+ {
+  "id": "S073",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle tries not to drink too much in the afternoons to reduce the need to go to the toilet.",
+  "cites": [
+   {
+    "start": 765.3,
+    "end": 772.1
+   }
+  ],
+  "lines": [
+   136
+  ]
+ },
+ {
+  "id": "S074",
+  "section": "Needs and daily living",
+  "sentence": "The bedroom and bathroom are upstairs, and the only toilet is upstairs.",
+  "cites": [
+   {
+    "start": 749.3,
+    "end": 756.0
+   }
+  ],
+  "lines": [
+   133
+  ]
+ },
+ {
+  "id": "S075",
+  "section": "Needs and daily living",
+  "sentence": "There is a rail on the right side of the stairs when going up.",
+  "cites": [
+   {
+    "start": 787.8,
+    "end": 792.0
+   }
+  ],
+  "lines": [
+   140
+  ]
+ },
+ {
+  "id": "S076",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle goes up the stairs one at a time, holding on with her right hand.",
+  "cites": [
+   {
+    "start": 792.3,
+    "end": 800.5
+   }
+  ],
+  "lines": [
+   141
+  ]
+ },
+ {
+  "id": "S077",
+  "section": "Needs and daily living",
+  "sentence": "When coming down the stairs, the rail is on the wrong side for her right hand, so she goes down sideways or on her bottom if tired.",
+  "cites": [
+   {
+    "start": 802.8,
+    "end": 814.0
+   }
+  ],
+  "lines": [
+   143
+  ]
+ },
+ {
+  "id": "S078",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle sometimes goes down the stairs on her bottom, especially when tired, and says it is safer and done in private.",
+  "cites": [
+   {
+    "start": 815.7,
+    "end": 818.1
+   }
+  ],
+  "lines": [
+   145
+  ]
+ },
+ {
+  "id": "S079",
+  "section": "Needs and daily living",
+  "sentence": "There is only one frame, which is left at the bottom and used by holding onto the wall upstairs.",
+  "cites": [
+   {
+    "start": 826.3,
+    "end": 833.4
+   }
+  ],
+  "lines": [
+   147
+  ]
+ },
+ {
+  "id": "S080",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle would like a second rail and a second frame for the upstairs stairs.",
+  "cites": [
+   {
+    "start": 855.8,
+    "end": 862.2
+   }
+  ],
+  "lines": [
+   152
+  ]
+ },
+ {
+  "id": "S081",
+  "section": "Needs and daily living",
+  "sentence": "There are several rugs in the hall and in the living room, which were Frank's mother's or brought back from a holiday in Wales.",
+  "cites": [
+   {
+    "start": 870.8,
+    "end": 874.2
+   }
+  ],
+  "lines": [
+   154
+  ]
+ },
+ {
+  "id": "S082",
+  "section": "Needs and daily living",
+  "sentence": "The rugs are a trip hazard, especially with a frame.",
+  "cites": [
+   {
+    "start": 881.0,
+    "end": 887.3
+   }
+  ],
+  "lines": [
+   156
+  ]
+ },
+ {
+  "id": "S083",
+  "section": "Needs and daily living",
+  "sentence": "Kevin has repeatedly told Margaret Doyle about the rugs being a hazard.",
+  "cites": [
+   {
+    "start": 887.6,
+    "end": 890.2
+   }
+  ],
+  "lines": [
+   157
+  ]
+ },
+ {
+  "id": "S084",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle gets up in the night to use the toilet once or twice.",
+  "cites": [
+   {
+    "start": 900.2,
+    "end": 906.0
+   }
+  ],
+  "lines": [
+   160
+  ]
+ },
+ {
+  "id": "S085",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle now leaves the landing light on at night to help with nighttime toilet use.",
+  "cites": [
+   {
+    "start": 906.3,
+    "end": 911.4
+   }
+  ],
+  "lines": [
+   161
+  ]
+ },
+ {
+  "id": "S086",
+  "section": "Needs and daily living",
+  "sentence": "The bathroom is only a few steps from the bedroom.",
+  "cites": [
+   {
+    "start": 918.1,
+    "end": 923.2
+   }
+  ],
+  "lines": [
+   163
+  ]
+ },
+ {
+  "id": "S087",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle does not currently have a pendant alarm or a fall-detecting button on her person.",
+  "cites": [
+   {
+    "start": 932.4,
+    "end": 937.5
+   }
+  ],
+  "lines": [
+   165
+  ]
+ },
+ {
+  "id": "S088",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle said she does not want to wear a necklace or look like an 'old woman'.",
+  "cites": [
+   {
+    "start": 937.7,
+    "end": 942.7
+   }
+  ],
+  "lines": [
+   166
+  ]
+ },
+ {
+  "id": "S089",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle expressed interest in a wrist-worn fall-detecting device that can call for help automatically.",
+  "cites": [
+   {
+    "start": 964.4,
+    "end": 972.4
+   }
+  ],
+  "lines": [
+   171
+  ]
+ },
+ {
+  "id": "S090",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle reports that she sometimes does not make it to the toilet and leaks when she leaves it too long, especially when going upstairs.",
+  "cites": [
+   {
+    "start": 1229.7,
+    "end": 1236.3
+   },
+   {
+    "start": 1236.6,
+    "end": 1240.0
+   }
+  ],
+  "lines": [
+   220,
+   221
+  ]
+ },
+ {
+  "id": "S091",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle wears pads at night and buys them from the supermarket.",
+  "cites": [
+   {
+    "start": 1241.5,
+    "end": 1246.2
+   }
+  ],
+  "lines": [
+   223
+  ]
+ },
+ {
+  "id": "S092",
+  "section": "Needs and daily living",
+  "sentence": "Kevin Doyle buys the night pads for Margaret at the big shop.",
+  "cites": [
+   {
+    "start": 1246.5,
+    "end": 1252.1
+   }
+  ],
+  "lines": [
+   224
+  ]
+ },
+ {
+  "id": "S093",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle is interested in seeing the continence service, which can assess her and provide free pads if eligible, advice, and exercises.",
+  "cites": [
+   {
+    "start": 1252.6,
+    "end": 1258.2
+   },
+   {
+    "start": 1258.5,
+    "end": 1266.9
+   }
+  ],
+  "lines": [
+   225,
+   226
+  ]
+ },
+ {
+  "id": "S094",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle confirms she is happy to receive a referral to the continence service.",
+  "cites": [
+   {
+    "start": 1279.9,
+    "end": 1283.5
+   }
+  ],
+  "lines": [
+   229
+  ]
+ },
+ {
+  "id": "S095",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle eats one slice of toast with marmalade and a cup of tea for breakfast.",
+  "cites": [
+   {
+    "start": 1365.0,
+    "end": 1370.2
+   }
+  ],
+  "lines": [
+   247
+  ]
+ },
+ {
+  "id": "S096",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle has soup (tin of tomato or chicken) with bread sometimes for lunch or dinner.",
+  "cites": [
+   {
+    "start": 1371.6,
+    "end": 1379.5
+   }
+  ],
+  "lines": [
+   249
+  ]
+ },
+ {
+  "id": "S097",
+  "section": "Needs and daily living",
+  "sentence": "In the evening, Margaret Doyle eats yoghurt and sometimes crackers and cheese if she can cut the cheese, but it is hard with one hand.",
+  "cites": [
+   {
+    "start": 1382.0,
+    "end": 1389.2
+   },
+   {
+    "start": 1389.4,
+    "end": 1391.8
+   }
+  ],
+  "lines": [
+   251,
+   252
+  ]
+ },
+ {
+  "id": "S098",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle does not cook since the fall and has not turned the cooker on since coming home.",
+  "cites": [
+   {
+    "start": 1397.0,
+    "end": 1402.6
+   }
+  ],
+  "lines": [
+   254
+  ]
+ },
+ {
+  "id": "S099",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle cannot lift pans and does not like being in the kitchen due to fear of falling, which happened in the kitchen at the sink.",
+  "cites": [
+   {
+    "start": 1406.5,
+    "end": 1412.9
+   },
+   {
+    "start": 1413.3,
+    "end": 1418.4
+   }
+  ],
+  "lines": [
+   256,
+   257
+  ]
+ },
+ {
+  "id": "S100",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle lost nearly a stone since Christmas and her clothes are hanging off her.",
+  "cites": [
+   {
+    "start": 1446.1,
+    "end": 1454.2
+   }
+  ],
+  "lines": [
+   263
+  ]
+ },
+ {
+  "id": "S101",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle weighed nine and a half stone all her married life and currently weighs eight stone something.",
+  "cites": [
+   {
+    "start": 1463.4,
+    "end": 1470.9
+   }
+  ],
+  "lines": [
+   266
+  ]
+ },
+ {
+  "id": "S102",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle's appetite comes and goes and she does not feel hungry like she used to, especially when alone.",
+  "cites": [
+   {
+    "start": 1474.1,
+    "end": 1481.8
+   }
+  ],
+  "lines": [
+   268
+  ]
+ },
+ {
+  "id": "S103",
+  "section": "Needs and daily living",
+  "sentence": "Kevin Doyle does the weekly shopping at the big shop on Sundays.",
+  "cites": [
+   {
+    "start": 1485.4,
+    "end": 1495.3
+   }
+  ],
+  "lines": [
+   270
+  ]
+ },
+ {
+  "id": "S104",
+  "section": "Needs and daily living",
+  "sentence": "Brenda gets Margaret milk and bread in the week if she runs out.",
+  "cites": [
+   {
+    "start": 1485.4,
+    "end": 1495.3
+   }
+  ],
+  "lines": [
+   270
+  ]
+ },
+ {
+  "id": "S105",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle has a microwave and uses it to cook a jacket potato sometimes.",
+  "cites": [
+   {
+    "start": 1498.4,
+    "end": 1502.9
+   }
+  ],
+  "lines": [
+   272
+  ]
+ },
+ {
+  "id": "S106",
+  "section": "Needs and daily living",
+  "sentence": "Kevin Doyle put ready meals in the freezer, but Margaret cannot remove the film off the top.",
+  "cites": [
+   {
+    "start": 1503.3,
+    "end": 1510.1
+   }
+  ],
+  "lines": [
+   273
+  ]
+ },
+ {
+  "id": "S107",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle stabs the film with a fork, but it goes everywhere.",
+  "cites": [
+   {
+    "start": 1515.2,
+    "end": 1519.3
+   }
+  ],
+  "lines": [
+   275
+  ]
+ },
+ {
+  "id": "S108",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle takes amlodipine (5mg) once a day in the morning for blood pressure.",
+  "cites": [
+   {
+    "start": 1549.0,
+    "end": 1554.5
+   },
+   {
+    "start": 1555.0,
+    "end": 1559.9
+   }
+  ],
+  "lines": [
+   282,
+   283
+  ]
+ },
+ {
+  "id": "S109",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle takes alendronic acid (70mg) once a week on Mondays, which must be taken first thing with a large glass of water and she must sit up straight for half an hour.",
+  "cites": [
+   {
+    "start": 1560.3,
+    "end": 1567.2
+   },
+   {
+    "start": 1567.6,
+    "end": 1570.2
+   },
+   {
+    "start": 1570.5,
+    "end": 1579.3
+   }
+  ],
+  "lines": [
+   284,
+   285,
+   286
+  ]
+ },
+ {
+  "id": "S110",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle takes paracetamol for her wrist, two tablets up to four times a day, but only takes it once or twice a day if aching.",
+  "cites": [
+   {
+    "start": 1583.5,
+    "end": 1591.0
+   },
+   {
+    "start": 1591.3,
+    "end": 1594.8
+   }
+  ],
+  "lines": [
+   288,
+   289
+  ]
+ },
+ {
+  "id": "S111",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle missed two blood pressure tablets (on Tuesday and Thursday morning) last week and is not normally like that.",
+  "cites": [
+   {
+    "start": 1613.6,
+    "end": 1617.3
+   },
+   {
+    "start": 1617.9,
+    "end": 1624.1
+   }
+  ],
+  "lines": [
+   295,
+   296
+  ]
+ },
+ {
+  "id": "S112",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle sometimes has trouble opening the tablet box flaps with her wrist and uses a butter knife.",
+  "cites": [
+   {
+    "start": 1624.4,
+    "end": 1629.6
+   },
+   {
+    "start": 1630.1,
+    "end": 1633.5
+   }
+  ],
+  "lines": [
+   297,
+   298
+  ]
+ },
+ {
+  "id": "S113",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle has a dosette box (blister pack) delivered every Friday by the chemist on Station Road, which has days marked on it.",
+  "cites": [
+   {
+    "start": 1536.9,
+    "end": 1539.0
+   },
+   {
+    "start": 1541.5,
+    "end": 1548.4
+   }
+  ],
+  "lines": [
+   279,
+   281
+  ]
+ },
+ {
+  "id": "S114",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle manages her own money, including paying bills and getting cash out, and bills are auto-debited.",
+  "cites": [
+   {
+    "start": 1671.5,
+    "end": 1675.4
+   },
+   {
+    "start": 1675.8,
+    "end": 1680.9
+   }
+  ],
+  "lines": [
+   305,
+   306
+  ]
+ },
+ {
+  "id": "S115",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle has been short on money lately and is not sure where it has gone, and she thinks she may not be keeping track like she used to.",
+  "cites": [
+   {
+    "start": 1683.8,
+    "end": 1689.8
+   },
+   {
+    "start": 1690.0,
+    "end": 1693.7
+   }
+  ],
+  "lines": [
+   308,
+   309
+  ]
+ },
+ {
+  "id": "S116",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle said the house is her home where she raised her children.",
+  "cites": [
+   {
+    "start": 1858.4,
+    "end": 1863.1
+   }
+  ],
+  "lines": [
+   345
+  ]
+ },
+ {
+  "id": "S117",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle said her garden has Frank's roses and Brenda lives next door.",
+  "cites": [
+   {
+    "start": 1863.5,
+    "end": 1869.5
+   }
+  ],
+  "lines": [
+   346
+  ]
+ },
+ {
+  "id": "S118",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle said she wants to stay in her own home for as long as possible.",
+  "cites": [
+   {
+    "start": 1869.8,
+    "end": 1876.7
+   }
+  ],
+  "lines": [
+   347
+  ]
+ },
+ {
+  "id": "S119",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle said if she ever had to go into a home, she would want it to be Beechwood because Brenda's sister was there and they were lovely.",
+  "cites": [
+   {
+    "start": 1888.2,
+    "end": 1900.6
+   }
+  ],
+  "lines": [
+   351
+  ]
+ },
+ {
+  "id": "S120",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle said she is not going to any home, not by a long chalk.",
+  "cites": [
+   {
+    "start": 1900.9,
+    "end": 1904.9
+   }
+  ],
+  "lines": [
+   352
+  ]
+ },
+ {
+  "id": "S121",
+  "section": "Needs and daily living",
+  "sentence": "Kevin Doyle mentioned the back step into the garden is a big drop.",
+  "cites": [
+   {
+    "start": 1937.0,
+    "end": 1950.0
+   }
+  ],
+  "lines": [
+   360
+  ]
+ },
+ {
+  "id": "S122",
+  "section": "Needs and daily living",
+  "sentence": "Kevin Doyle mentioned the light at the top of the stairs is on a pull cord, requiring Margaret to reach around for it.",
+  "cites": [
+   {
+    "start": 1937.0,
+    "end": 1950.0
+   }
+  ],
+  "lines": [
+   360
+  ]
+ },
+ {
+  "id": "S123",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle said the house is warm enough now because the boiler was replaced last year.",
+  "cites": [
+   {
+    "start": 1958.2,
+    "end": 1962.7
+   }
+  ],
+  "lines": [
+   362
+  ]
+ },
+ {
+  "id": "S124",
+  "section": "Needs and daily living",
+  "sentence": "Kevin Doyle said it took him three months to persuade Margaret to replace the boiler.",
+  "cites": [
+   {
+    "start": 1963.0,
+    "end": 1965.8
+   }
+  ],
+  "lines": [
+   363
+  ]
+ },
+ {
+  "id": "S125",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle reports her memory is generally okay, though she sometimes forgets where she has put her glasses.",
+  "cites": [
+   {
+    "start": 2424.5,
+    "end": 2428.7
+   },
+   {
+    "start": 2429.1,
+    "end": 2434.8
+   }
+  ],
+  "lines": [
+   457,
+   458
+  ]
+ },
+ {
+  "id": "S126",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle can still recall all the kings and queens.",
+  "cites": [
+   {
+    "start": 2435.2,
+    "end": 2438.8
+   }
+  ],
+  "lines": [
+   459
+  ]
+ },
+ {
+  "id": "S127",
+  "section": "Needs and daily living",
+  "sentence": "The person has experienced three falls: one on the third of March, and two before that.",
+  "cites": [
+   {
+    "start": 3205.6,
+    "end": 3219.9
+   }
+  ],
+  "lines": [
+   606
+  ]
+ },
+ {
+  "id": "S128",
+  "section": "Needs and daily living",
+  "sentence": "The person is unable to bathe properly and wash her hair due to difficulty with mobility and confidence.",
+  "cites": [
+   {
+    "start": 3205.6,
+    "end": 3219.9
+   }
+  ],
+  "lines": [
+   606
+  ]
+ },
+ {
+  "id": "S129",
+  "section": "Needs and daily living",
+  "sentence": "The person takes up to an hour to get dressed, which wears her out.",
+  "cites": [
+   {
+    "start": 3205.6,
+    "end": 3219.9
+   }
+  ],
+  "lines": [
+   606
+  ]
+ },
+ {
+  "id": "S130",
+  "section": "Needs and daily living",
+  "sentence": "The person is unable to prepare proper meals and eats very little.",
+  "cites": [
+   {
+    "start": 3221.0,
+    "end": 3227.3
+   }
+  ],
+  "lines": [
+   607
+  ]
+ },
+ {
+  "id": "S131",
+  "section": "Needs and daily living",
+  "sentence": "The person has lost nearly a stone in weight.",
+  "cites": [
+   {
+    "start": 3221.0,
+    "end": 3227.3
+   }
+  ],
+  "lines": [
+   607
+  ]
+ },
+ {
+  "id": "S132",
+  "section": "Needs and daily living",
+  "sentence": "The person has missed some of her tablets.",
+  "cites": [
+   {
+    "start": 3227.6,
+    "end": 3235.8
+   }
+  ],
+  "lines": [
+   608
+  ]
+ },
+ {
+  "id": "S133",
+  "section": "Needs and daily living",
+  "sentence": "The person is on her own a lot and feels lonely and more low than usual.",
+  "cites": [
+   {
+    "start": 3227.6,
+    "end": 3235.8
+   }
+  ],
+  "lines": [
+   608
+  ]
+ },
+ {
+  "id": "S134",
+  "section": "Needs and daily living",
+  "sentence": "The person is concerned about falling and the safety of the kitchen environment.",
+  "cites": [
+   {
+    "start": 3164.8,
+    "end": 3169.2
+   }
+  ],
+  "lines": [
+   596
+  ]
+ },
+ {
+  "id": "S135",
+  "section": "Needs and daily living",
+  "sentence": "The person would like to be able to cook a proper dinner now and then, such as mince and potatoes.",
+  "cites": [
+   {
+    "start": 3176.7,
+    "end": 3181.8
+   }
+  ],
+  "lines": [
+   599
+  ]
+ },
+ {
+  "id": "S136",
+  "section": "Needs and daily living",
+  "sentence": "The person wants to stay in her own home, specifically in the current house, with Biscuit (a pet or family member).",
+  "cites": [
+   {
+    "start": 3149.1,
+    "end": 3153.6
+   }
+  ],
+  "lines": [
+   593
+  ]
+ },
+ {
+  "id": "S137",
+  "section": "Needs and daily living",
+  "sentence": "The person wants to have a proper bath and wash her hair.",
+  "cites": [
+   {
+    "start": 3153.8,
+    "end": 3159.1
+   }
+  ],
+  "lines": [
+   594
+  ]
+ },
+ {
+  "id": "S138",
+  "section": "Needs and daily living",
+  "sentence": "The person wants to return to the lunch club, seeing Joan and Pat.",
+  "cites": [
+   {
+    "start": 3160.5,
+    "end": 3164.4
+   }
+  ],
+  "lines": [
+   595
+  ]
+ },
+ {
+  "id": "S139",
+  "section": "Needs and daily living",
+  "sentence": "The person does not want to be frightened of falling or of the kitchen.",
+  "cites": [
+   {
+    "start": 3164.8,
+    "end": 3169.2
+   }
+  ],
+  "lines": [
+   596
+  ]
+ },
+ {
+  "id": "S140",
+  "section": "Needs and daily living",
+  "sentence": "The person would like to see her roses (Frank's roses) come out this summer and be well enough to go out and look at them.",
+  "cites": [
+   {
+    "start": 3186.5,
+    "end": 3194.4
+   }
+  ],
+  "lines": [
+   602
+  ]
+ },
+ {
+  "id": "S141",
+  "section": "Needs and daily living",
+  "sentence": "The person does not currently receive Attendance Allowance, despite being over state pension age and needing help with personal care.",
+  "cites": [
+   {
+    "start": 3059.1,
+    "end": 3061.4
+   }
+  ],
+  "lines": [
+   576
+  ]
+ },
+ {
+  "id": "S142",
+  "section": "Needs and daily living",
+  "sentence": "The person is eligible for Attendance Allowance, as it is not means-tested and based on need for personal care.",
+  "cites": [
+   {
+    "start": 3062.0,
+    "end": 3067.4
+   }
+  ],
+  "lines": [
+   577
+  ]
+ },
+ {
+  "id": "S143",
+  "section": "Needs and daily living",
+  "sentence": "The person is not aware of her eligibility for Attendance Allowance.",
+  "cites": [
+   {
+    "start": 3076.0,
+    "end": 3078.3
+   }
+  ],
+  "lines": [
+   579
+  ]
+ },
+ {
+  "id": "S144",
+  "section": "Needs and daily living",
+  "sentence": "The person would rather pay a small amount and stay in her home than anything else.",
+  "cites": [
+   {
+    "start": 3126.0,
+    "end": 3130.5
+   }
+  ],
+  "lines": [
+   588
+  ]
+ },
+ {
+  "id": "S145",
+  "section": "Needs and daily living",
+  "sentence": "The social worker will refer the person to occupational therapy for a bath lift, a board, a second rail on the stairs, a second frame for upstairs, and a check on the back step and",
+  "cites": [
+   {
+    "start": 3357.4,
+    "end": 3370.1
+   }
+  ],
+  "lines": [
+   627
+  ]
+ },
+ {
+  "id": "S146",
+  "section": "Needs and daily living",
+  "sentence": "The occupational therapy waiting list is currently about three weeks.",
+  "cites": [
+   {
+    "start": 3373.6,
+    "end": 3383.8
+   }
+  ],
+  "lines": [
+   629
+  ]
+ },
+ {
+  "id": "S147",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle advises the social worker to 'mind how you go in that wind' and to 'have a think about the umbrella.'",
+  "cites": [
+   {
+    "start": 3636.4,
+    "end": 3641.9
+   }
+  ],
+  "lines": [
+   677
+  ]
+ },
+ {
+  "id": "S148",
+  "section": "Needs and daily living",
+  "sentence": "The social worker states she will be fine and says goodbye to Kevin.",
+  "cites": [
+   {
+    "start": 3642.5,
+    "end": 3646.4
+   }
+  ],
+  "lines": [
+   678
+  ]
+ },
+ {
+  "id": "S149",
+  "section": "Needs and daily living",
+  "sentence": "Margaret Doyle says 'Bye love. Mind the step.'",
+  "cites": [
+   {
+    "start": 3646.7,
+    "end": 3649.4
+   }
+  ],
+  "lines": [
+   679
+  ]
+ },
+ {
+  "id": "S150",
+  "section": "Risks and safeguarding",
+  "sentence": "Margaret Doyle did not tell her GP about the two falls in the garden and bathroom.",
+  "cites": [
+   {
+    "start": 672.0,
+    "end": 676.8
+   }
+  ],
+  "lines": [
+   118
+  ]
+ },
+ {
+  "id": "S151",
+  "section": "Risks and safeguarding",
+  "sentence": "Margaret Doyle told Kevin about the garden fall because he found mud on her coat.",
+  "cites": [
+   {
+    "start": 677.2,
+    "end": 683.0
+   }
+  ],
+  "lines": [
+   119
+  ]
+ },
+ {
+  "id": "S152",
+  "section": "Risks and safeguarding",
+  "sentence": "Margaret Doyle said a fall-detecting device might have been useful on March 3rd, when she fell and lay there for two hours.",
+  "cites": [
+   {
+    "start": 972.9,
+    "end": 977.5
+   }
+  ],
+  "lines": [
+   172
+  ]
+ },
+ {
+  "id": "S153",
+  "section": "Risks and safeguarding",
+  "sentence": "Kevin Doyle says he thinks they should call the police because Jordan is taking Margaret's money, which he says is theft, even if it's family.",
+  "cites": [
+   {
+    "start": 2837.3,
+    "end": 2843.6
+   }
+  ],
+  "lines": [
+   537
+  ]
+ },
+ {
+  "id": "S154",
+  "section": "Risks and safeguarding",
+  "sentence": "Margaret says she does not want the police involved and will not have them come to the house for Jordan.",
+  "cites": [
+   {
+    "start": 2844.0,
+    "end": 2849.5
+   },
+   {
+    "start": 2852.2,
+    "end": 2855.7
+   }
+  ],
+  "lines": [
+   538,
+   540
+  ]
+ },
+ {
+  "id": "S155",
+  "section": "Risks and safeguarding",
+  "sentence": "Margaret says she wants Jordan to stop and for her to get her card back.",
+  "cites": [
+   {
+    "start": 2856.0,
+    "end": 2862.0
+   }
+  ],
+  "lines": [
+   541
+  ]
+ },
+ {
+  "id": "S156",
+  "section": "Risks and safeguarding",
+  "sentence": "The social worker says she will raise the issue of unauthorised withdrawals as a safeguarding concern because it sounds like someone may be taking Margaret's money without her full",
+  "cites": [
+   {
+    "start": 2870.5,
+    "end": 2884.9
+   }
+  ],
+  "lines": [
+   544
+  ]
+ },
+ {
+  "id": "S157",
+  "section": "Risks and safeguarding",
+  "sentence": "The social worker explains that the safeguarding concern does not mean Jordan will be arrested.",
+  "cites": [
+   {
+    "start": 2889.3,
+    "end": 2891.1
+   }
+  ],
+  "lines": [
+   546
+  ]
+ },
+ {
+  "id": "S158",
+  "section": "Risks and safeguarding",
+  "sentence": "The social worker says she will pass Margaret's account details and concerns to the council's safeguarding adults team for review.",
+  "cites": [
+   {
+    "start": 2891.4,
+    "end": 2903.1
+   }
+  ],
+  "lines": [
+   547
+  ]
+ },
+ {
+  "id": "S159",
+  "section": "Risks and safeguarding",
+  "sentence": "The social worker says the safeguarding team will focus on Margaret's wishes: not involving police and wanting Jordan to stop and get the card back.",
+  "cites": [
+   {
+    "start": 2903.5,
+    "end": 2907.5
+   },
+   {
+    "start": 2907.8,
+    "end": 2918.5
+   }
+  ],
+  "lines": [
+   548,
+   549
+  ]
+ },
+ {
+  "id": "S160",
+  "section": "Risks and safeguarding",
+  "sentence": "Margaret says she does not want the police involved, and confirms this is not about police involvement.",
+  "cites": [
+   {
+    "start": 2918.8,
+    "end": 2920.6
+   }
+  ],
+  "lines": [
+   550
+  ]
+ },
+ {
+  "id": "S161",
+  "section": "Risks and safeguarding",
+  "sentence": "The social worker says that if there was a risk to someone else, police involvement would be considered, but only if Margaret decided or if there was a risk to another person.",
+  "cites": [
+   {
+    "start": 2921.6,
+    "end": 2933.3
+   }
+  ],
+  "lines": [
+   551
+  ]
+ },
+ {
+  "id": "S162",
+  "section": "Risks and safeguarding",
+  "sentence": "The person may have to contribute financially to ongoing care if it is arranged by the council, depending on income and savings.",
+  "cites": [
+   {
+    "start": 3098.8,
+    "end": 3107.5
+   }
+  ],
+  "lines": [
+   584
+  ]
+ },
+ {
+  "id": "S163",
+  "section": "Risks and safeguarding",
+  "sentence": "The house is not counted in the financial assessment for care at home.",
+  "cites": [
+   {
+    "start": 3116.4,
+    "end": 3124.8
+   }
+  ],
+  "lines": [
+   587
+  ]
+ },
+ {
+  "id": "S164",
+  "section": "Risks and safeguarding",
+  "sentence": "The social worker will make a safeguarding referral about the card (a financial card) this afternoon.",
+  "cites": [
+   {
+    "start": 3384.2,
+    "end": 3397.3
+   }
+  ],
+  "lines": [
+   630
+  ]
+ },
+ {
+  "id": "S165",
+  "section": "Risks and safeguarding",
+  "sentence": "The safeguarding team will contact Margaret directly after the referral.",
+  "cites": [
+   {
+    "start": 3384.2,
+    "end": 3397.3
+   }
+  ],
+  "lines": [
+   630
+  ]
+ },
+ {
+  "id": "S166",
+  "section": "Risks and safeguarding",
+  "sentence": "The social worker will refer the person for a telecare alarm (Careline watch) that detects falls.",
+  "cites": [
+   {
+    "start": 3399.7,
+    "end": 3407.4
+   }
+  ],
+  "lines": [
+   632
+  ]
+ },
+ {
+  "id": "S167",
+  "section": "Risks and safeguarding",
+  "sentence": "Margaret Doyle is concerned about a step in the home environment, indicating a risk of falling.",
+  "cites": [
+   {
+    "start": 3646.7,
+    "end": 3649.4
+   }
+  ],
+  "lines": [
+   679
+  ]
+ },
+ {
+  "id": "S168",
+  "section": "Support network and finances",
+  "sentence": "Kevin Doyle has a key to the house and can enter the property.",
+  "cites": [
+   {
+    "start": 1708.8,
+    "end": 1713.0
+   }
+  ],
+  "lines": [
+   314
+  ]
+ },
+ {
+  "id": "S169",
+  "section": "Support network and finances",
+  "sentence": "Kevin Doyle is Margaret\u2019s son and is present during the assessment.",
+  "cites": [
+   {
+    "start": 1713.5,
+    "end": 1716.5
+   }
+  ],
+  "lines": [
+   315
+  ]
+ },
+ {
+  "id": "S170",
+  "section": "Support network and finances",
+  "sentence": "Kevin Doyle says he came straight from work and is a bit tired.",
+  "cites": [
+   {
+    "start": 1723.2,
+    "end": 1729.9
+   }
+  ],
+  "lines": [
+   317
+  ]
+ },
+ {
+  "id": "S171",
+  "section": "Support network and finances",
+  "sentence": "Margaret Doyle says Kevin smells of the warehouse.",
+  "cites": [
+   {
+    "start": 1730.5,
+    "end": 1732.3
+   }
+  ],
+  "lines": [
+   318
+  ]
+ },
+ {
+  "id": "S172",
+  "section": "Support network and finances",
+  "sentence": "Kevin Doyle visits Margaret mainly on Sundays, sometimes midweek if he is on early shifts.",
+  "cites": [
+   {
+    "start": 1976.1,
+    "end": 1983.8
+   }
+  ],
+  "lines": [
+   366
+  ]
+ },
+ {
+  "id": "S173",
+  "section": "Support network and finances",
+  "sentence": "Kevin Doyle lives in Northampton, 40 minutes away by car.",
+  "cites": [
+   {
+    "start": 1984.1,
+    "end": 1991.5
+   }
+  ],
+  "lines": [
+   367
+  ]
+ },
+ {
+  "id": "S174",
+  "section": "Support network and finances",
+  "sentence": "Kevin Doyle works shifts at a warehouse.",
+  "cites": [
+   {
+    "start": 1984.1,
+    "end": 1991.5
+   }
+  ],
+  "lines": [
+   367
+  ]
+ },
+ {
+  "id": "S175",
+  "section": "Support network and finances",
+  "sentence": "Kevin Doyle has two teenagers and his wife works.",
+  "cites": [
+   {
+    "start": 1996.0,
+    "end": 2002.2
+   }
+  ],
+  "lines": [
+   369
+  ]
+ },
+ {
+  "id": "S176",
+  "section": "Support network and finances",
+  "sentence": "Margaret Doyle said Kevin does more than he should.",
+  "cites": [
+   {
+    "start": 2002.8,
+    "end": 2006.7
+   }
+  ],
+  "lines": [
+   370
+  ]
+ },
+ {
+  "id": "S177",
+  "section": "Support network and finances",
+  "sentence": "Margaret Doyle has a daughter, Susan, who lives in Alicante, Spain.",
+  "cites": [
+   {
+    "start": 2009.6,
+    "end": 2016.0
+   }
+  ],
+  "lines": [
+   372
+  ]
+ },
+ {
+  "id": "S178",
+  "section": "Support network and finances",
+  "sentence": "Susan moved to Spain with her husband eight years ago.",
+  "cites": [
+   {
+    "start": 2009.6,
+    "end": 2016.0
+   }
+  ],
+  "lines": [
+   372
+  ]
+ },
+ {
+  "id": "S179",
+  "section": "Support network and finances",
+  "sentence": "Margaret Doyle said Susan calls every week, on Sunday nights, and visits in summer.",
+  "cites": [
+   {
+    "start": 2019.3,
+    "end": 2025.4
+   }
+  ],
+  "lines": [
+   374
+  ]
+ },
+ {
+  "id": "S180",
+  "section": "Support network and finances",
+  "sentence": "Margaret Doyle said Susan was unable to visit after the fall due to time constraints.",
+  "cites": [
+   {
+    "start": 2025.8,
+    "end": 2032.1
+   }
+  ],
+  "lines": [
+   375
+  ]
+ },
+ {
+  "id": "S181",
+  "section": "Support network and finances",
+  "sentence": "Kevin Doyle said Susan was on the phone to him every day during the fall.",
+  "cites": [
+   {
+    "start": 2032.6,
+    "end": 2036.3
+   }
+  ],
+  "lines": [
+   376
+  ]
+ },
+ {
+  "id": "S182",
+  "section": "Support network and finances",
+  "sentence": "Margaret Doyle said Susan was worried sick during the fall.",
+  "cites": [
+   {
+    "start": 2036.8,
+    "end": 2039.1
+   }
+  ],
+  "lines": [
+   377
+  ]
+ },
+ {
+  "id": "S183",
+  "section": "Support network and finances",
+  "sentence": "Brenda, who lives next door, visits Margaret most days for a minute.",
+  "cites": [
+   {
+    "start": 2043.6,
+    "end": 2045.9
+   }
+  ],
+  "lines": [
+   379
+  ]
+ },
+ {
+  "id": "S184",
+  "section": "Support network and finances",
+  "sentence": "Margaret Doyle said Brenda knocks on the wall in the morning and she knocks back as a signal that she is okay.",
+  "cites": [
+   {
+    "start": 2046.3,
+    "end": 2052.5
+   }
+  ],
+  "lines": [
+   380
+  ]
+ },
+ {
+  "id": "S185",
+  "section": "Support network and finances",
+  "sentence": "Margaret Doyle said Brenda is 76 years old and has knee problems, so she cannot lean on her.",
+  "cites": [
+   {
+    "start": 2060.5,
+    "end": 2066.2
+   }
+  ],
+  "lines": [
+   383
+  ]
+ },
+ {
+  "id": "S186",
+  "section": "Support network and finances",
+  "sentence": "Margaret Doyle used to attend a lunch club at St Michael's church hall every Wednesday.",
+  "cites": [
+   {
+    "start": 2072.2,
+    "end": 2078.8
+   }
+  ],
+  "lines": [
+   385
+  ]
+ },
+ {
+  "id": "S187",
+  "section": "Support network and finances",
+  "sentence": "Margaret Doyle said the lunch club had a cooked dinner, pudding, and activities like bingo or quizzes or guest talks.",
+  "cites": [
+   {
+    "start": 2082.5,
+    "end": 2092.3
+   }
+  ],
+  "lines": [
+   387
+  ]
+ },
+ {
+  "id": "S188",
+  "section": "Support network and finances",
+  "sentence": "Margaret Doyle said there was a man who brought real owls, one of which sat on her arm.",
+  "cites": [
+   {
+    "start": 2092.5,
+    "end": 2095.6
+   },
+   {
+    "start": 2096.0,
+    "end": 2096.9
+   },
+   {
+    "start": 2097.2,
+    "end": 2101.6
+   }
+  ],
+  "lines": [
+   388,
+   389,
+   390
+  ]
+ },
+ {
+  "id": "S189",
+  "section": "Support network and finances",
+  "sentence": "The social worker will send the Attendance Allowance form and financial assessment form to the family.",
+  "cites": [
+   {
+    "start": 3078.7,
+    "end": 3087.3
+   }
+  ],
+  "lines": [
+   580
+  ]
+ },
+ {
+  "id": "S190",
+  "section": "Support network and finances",
+  "sentence": "Kevin Doyle is the son of Margaret Doyle and is involved in the interaction with the social worker.",
+  "cites": [
+   {
+    "start": 3623.6,
+    "end": 3627.7
+   }
+  ],
+  "lines": [
+   675
+  ]
+ },
+ {
+  "id": "S191",
+  "section": "Agreed actions",
+  "sentence": "Kevin Doyle says 'Cheers, Priya. See you on the fifteenth.'",
+  "cites": [
+   {
+    "start": 3646.7,
+    "end": 3649.4
+   }
+  ],
+  "lines": [
+   679
+  ]
+ },
+ {
+  "id": "S192",
+  "section": "Agreed actions",
+  "sentence": "The next scheduled meeting with the social worker is on the 15th.",
+  "cites": [
+   {
+    "start": 3646.7,
+    "end": 3649.4
+   }
+  ],
+  "lines": [
+   679
+  ]
+ }
+]

@@ -49,7 +49,8 @@ python run.py --run s3 --models qwen3-4b,qwen3.5-4b --transcripts all    # one m
 python score.py auto --run s3                                    # per-sentence automatic metrics
 python score.py packets --run s3                                 # blind sentence-level judge packets
 V=<venv with transformers torch sentencepiece protobuf>
-$V/bin/python flag.py nli --run s3                               # NLI score per sentence (downloads the model once)
+HF_HUB_DISABLE_XET=1 $V/bin/python flag.py nli --run s3          # NLI score per sentence (downloads the model once;
+                                                                 # the xet downloader hung here, hence the env var)
 python report.py --run s3                                        # markdown tables
 # ...blind judges write results/judge/s3/<packet>.verdict.json per judge_instructions_s3.md, then:
 python score.py collect --run s3                                 # verdicts -> s3.verdicts.jsonl, judge metrics in s3.scores.jsonl

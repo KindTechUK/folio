@@ -1,0 +1,385 @@
+# Judge packet ade81ae4
+
+Full transcript (read it all): `/Users/yanhong.zhao/personal/folio-worktrees/s3-citations/spikes/s3-citations/results/judge/s3/transcripts/synthetic-tribunal-interview.txt`  
+Same transcript as JSON: `/Users/yanhong.zhao/personal/folio-worktrees/s3-citations/spikes/s3-citations/data/synthetic_tribunal_interview.json`
+
+Note type: solicitor's attendance note. Speakers: S1 = Solicitor (Priya Nandakumar); S2 = Megan Farrell (client); S3 = Union representative (Callum Ashworth)
+
+Line references: `L52` in a note's cites = line `L52` in the transcript file (id `L0052` in the JSON). Times are [mm:ss] from the start.
+
+## Sentences to judge (53)
+
+### S001 · Attendance
+The meeting took place on Tuesday, 24 November 2024.
+
+Cited lines:
+    L8 [00:27] S1: For the note, it's Tuesday the twenty-fourth of November, I'm meeting Megan Farrell, and Megan, you've brought, um, Callum?
+
+### S002 · Attendance
+Solicitor Priya Nandakumar attended in the capacity of a solicitor in the employment team at Lindqvist Moore.
+
+Cited lines:
+    L7 [00:21] S1: Ha, happens every day. So, I'm Priya Nandakumar, I'm a solicitor in the employment team here at Lindqvist Moore.
+
+### S003 · Attendance
+Client Megan Farrell attended as herself.
+
+Cited lines:
+    L8 [00:27] S1: For the note, it's Tuesday the twenty-fourth of November, I'm meeting Megan Farrell, and Megan, you've brought, um, Callum?
+
+### S004 · Attendance
+Union representative Callum Ashworth attended as Megan's area union representative for support.
+
+Cited lines:
+    L9 [00:33] S3: Callum Ashworth. Megan's union rep. Area rep really. I'm just here for support.
+
+### S005 · Client's account
+Megan works at Willowbank House, a care home located on Fenwick Lane, operated by Brightmere Care Limited.
+
+Cited lines:
+    L13 [00:50] S2: Bright Mere Care. Brightmere Care Limited. I work at Willowbank House, the care home on, um, Fenwick Lane.
+
+### S006 · Client's account
+Megan is employed as a Senior Care Assistant.
+
+Cited lines:
+    L17 [01:08] S2: Senior care assistant. I started as a carer in March twenty-one and got senior in, er, twenty twenty-three.
+
+### S007 · Client's account
+Megan started as a carer in March 2021 and was promoted to Senior Care Assistant in 2023.
+
+Cited lines:
+    L17 [01:08] S2: Senior care assistant. I started as a carer in March twenty-one and got senior in, er, twenty twenty-three.
+
+### S008 · Client's account
+Megan's current contracted hours are 37.5 hours per week at a rate of £12.85 per hour.
+
+Cited lines:
+    L23 [01:30] S2: Contracted thirty-seven and a half a week. And it's twelve sixty an hour.
+    L24 [01:35] S2: No, sorry, it went up in April, it's twelve eighty-five now. Twelve sixty was last year.
+
+### S009 · Client's account
+Megan's role involves running the floor on her shift, conducting medication rounds, signing MAR (medication record) charts, and performing handovers.
+
+Cited lines:
+    L19 [01:16] S2: I run the floor on my shift, do the medication rounds, the ma charts, handovers.
+    L21 [01:23] S2: Yeah. The charts you sign when you give the meds.
+
+### S010 · Client's account
+On 28 August, a resident in room 14 was admitted to hospital.
+
+Cited lines:
+    L27 [01:50] S2: Yeah. So, um, end of August, a resident, room fourteen, went into hospital on the twenty-eighth.
+
+### S011 · Client's account
+Megan states that when she returned from hospital on 28 August, the MAR charts showed medications were signed as given for the entire duration of the resident's stay, including the
+
+Cited lines:
+    L28 [01:55] S2: He was in three days, and when I came back on, his meds were signed as given the whole time he was in hospital.
+
+### S012 · Client's account
+Megan states that the resident was in hospital for three days.
+
+Cited lines:
+    L28 [01:55] S2: He was in three days, and when I came back on, his meds were signed as given the whole time he was in hospital.
+
+### S013 · Client's account
+Megan states that medication charts were signed as given for both morning and night shifts while the resident was in hospital.
+
+Cited lines:
+    L29 [02:03] S1: Signed as given while he wasn't in the building.
+    L30 [02:06] S2: Yeah. Mornings and nights.
+
+### S014 · Client's account
+Megan states that she personally saw the signed charts while doing a medication round.
+
+Cited lines:
+    L32 [02:12] S2: No, I saw it myself, I was doing the round.
+
+### S015 · Client's account
+Megan states that she emailed Denise Hartigan, the registered manager, on 4 September regarding the medication charts and night staffing.
+
+Cited lines:
+    L34 [02:18] S2: I emailed Denise. Denise Hartigan, the registered manager. On the Wednesday, the second of September.
+    L35 [02:24] S2: Wait, no. The Friday, the fourth. I'd done a late on the Thursday, wrote it at home, sent it in the morning.
+
+### S016 · Client's account
+Megan states that the email was sent from her work email account and forwarded to her Gmail account on the same day.
+
+Cited lines:
+    L37 [02:34] S2: Yeah, but I forwarded it to my Gmail the same day. Callum said to.
+
+### S017 · Client's account
+Megan states that the email raised two concerns: the MAR charts and night staffing levels.
+
+Cited lines:
+    L40 [02:46] S2: The chart thing, and nights. Nights is two carers for thirty-eight residents, so if both are hoisting there's nobody on the floor.
+
+### S018 · Client's account
+Megan states that Denise Hartigan replied verbally in the corridor the following week, stating she received the email, but there was no written response.
+
+Cited lines:
+    L42 [02:57] S2: No. Never, not in writing. She just said got your email in the corridor the week after.
+
+### S019 · Client's account
+Megan states that she had never received a warning or disciplinary action and had never made a medication error in five years.
+
+Cited lines:
+    L46 [03:10] S2: No, never. I've never had a med error in five years. Never been in a disciplinary.
+
+### S020 · Client's account
+Megan states that on 5 October, her rota was changed from 37.5 hours to 24 hours.
+
+Cited lines:
+    L48 [03:19] S2: The October rota came out and I'd been cut to twenty-four hours. From Monday the fifth of October.
+    L49 [03:26] S1: From thirty-seven and a half down to twenty-four.
+
+### S021 · Client's account
+Megan states that from 5 October, she was taken off senior shifts and medication rounds, reduced to a care assistant role only.
+
+Cited lines:
+    L50 [03:28] S2: Yeah. And I was taken off meds. No senior shifts at all, just care assistant.
+
+### S022 · Client's account
+Megan states that Denise Hartigan gave the reason for the change as 'operational needs' without providing anything in writing.
+
+Cited lines:
+    L52 [03:35] S2: Denise said operational needs. Nothing in writing.
+
+### S023 · Client's account
+Megan states that Shauna Price, a day carer, told her that Denise had said in the office that Megan was a 'troublemaker' and needed to be cut down.
+
+Cited lines:
+    L55 [03:46] S2: Well. Shauna Price, one of the day carers, told me she heard Denise in the office saying I was a troublemaker and to cut her down.
+
+### S024 · Client's account
+Megan states that she does not know if Shauna heard the comment herself or if someone told Shauna, noting that the door was open when Shauna said she heard it.
+
+Cited lines:
+    L57 [03:58] S2: She said she heard it, the door was open. I wasn't there, I only know what she told me.
+
+### S025 · Client's account
+Megan states that she booked holiday leave from 14 to 18 September, which was approved on the app with a green tick.
+
+Cited lines:
+    L61 [04:17] S2: Yeah, two things. First, my holiday. I booked the, um, fourteenth to the eighteenth of September.
+    L62 [04:22] S2: It was approved on the app, I've got a screenshot, the little green tick.
+
+### S026 · Client's account
+Megan states that her September pay, due on 30 September, was deducted as unpaid leave for the whole week.
+
+Cited lines:
+    L64 [04:27] S2: Then the September pay, we get paid on the last day, so the thirtieth, it came through as unpaid leave. The whole week.
+
+### S027 · Client's account
+Megan states that the deduction for unpaid leave was £481.88.
+
+Cited lines:
+    L66 [04:37] S2: Four hundred and eighty-one pounds eighty-eight. Unpaid leave deduction, on the payslip.
+
+### S028 · Client's account
+Megan states that she emailed Lorraine in payroll, who stated the deduction was 'as instructed by the home'.
+
+Cited lines:
+    L68 [04:46] S2: I emailed Lorraine in payroll. She said as instructed by the home, that's all.
+
+### S029 · Client's account
+Megan states that on her October payslip, there was a deduction of £420.00 described as 'training cost recovery'.
+
+Cited lines:
+    L70 [04:52] S2: October. A deduction, it said training cost recovery. Two hundred and forty pounds.
+    L71 [04:56] S2: Sorry, wrong way round, it's four hundred and twenty. Four two zero. I always do that.
+
+### S030 · Client's account
+Megan states that the October pay was paid on 30 October.
+
+Cited lines:
+    L72 [05:02] S1: Four hundred and twenty, October payslip. Paid on the thirtieth of October?
+    L73 [05:06] S2: Yeah, the thirtieth.
+
+### S031 · Client's account
+Solicitor Priya Nandakumar stated that the earliest deduction was on the thirtieth of September, making the ACAS deadline Tuesday, 29 December 2026,
+
+Cited lines:
+    L137 [10:28] S1: It doesn't. The earliest deduction was in the pay on the thirtieth of September. Three months less a day from that is Tuesday the twenty-ninth of December twenty twenty-six.
+
+### S032 · Client's account
+Solicitor Priya Nandakumar advised that ACAS must be contacted by no later than the twenty-ninth of December,
+
+Cited lines:
+    L138 [10:38] S1: So ACAS must be contacted by the twenty-ninth of December at the very latest. Megan, write that down.
+
+### S033 · Client's account
+Client Megan Farrell stated she wanted to notify ACAS by Friday, 4 December,
+
+Cited lines:
+    L140 [10:47] S1: Exactly, so I don't want to go near it. I want to notify ACAS by Friday the fourth of December.
+
+### S034 · Client's account
+Solicitor Priya Nandakumar stated that if the employer dismissed Megan because of her disclosure, it could be automatically unfair,
+
+Cited lines:
+    L148 [11:37] S1: If they did dismiss you, and I'm not saying they will, that could be automatically unfair if it was because of the disclosure. But that's not where we are.
+
+### S035 · Client's account
+Solicitor Priya Nandakumar instructed Megan Farrell to keep doing her shifts and keep a diary of every rota change and every conversation with Denise,
+
+Cited lines:
+    L150 [11:48] S1: Meanwhile, keep doing your shifts and keep a diary. Every rota change, every conversation with Denise.
+
+### S036 · Client's account
+Solicitor Priya Nandakumar instructed Megan Farrell to ask Shauna if she would be willing to talk to the solicitor, specifying to just ask without going into detail,
+
+Cited lines:
+    L152 [11:56] S1: Good. And ask Shauna if she'd be willing to talk to me. Just ask, don't go into detail.
+
+### S037 · Client's account
+Solicitor Priya Nandakumar instructed Megan Farrell to leave Femi for now and see what Shauna says first,
+
+Cited lines:
+    L154 [12:05] S1: No, text her. Leave Femi for now, let's see what Shauna says first.
+
+### S038 · Client's account
+Union representative Callum Ashworth stated that Megan Farrell only joined the union in October and noted there is sometimes a rule about problems from before joining,
+
+Cited lines:
+    L156 [12:13] S3: Honestly, she only joined in October. There's sometimes a rule about problems from before joining. I'll check with regional.
+
+### S039 · Client's account
+Union representative Callum Ashworth stated he would check with the regional office and let the solicitor know by Monday,
+
+Cited lines:
+    L158 [12:23] S3: No. I'll ring them and let you know by Monday.
+
+### S040 · Client's account
+Client Megan Farrell stated she thought her home insurance was with the contents one,
+
+Cited lines:
+    L160 [12:34] S2: I'll look. I think it's with the contents one.
+
+### S041 · Client's account
+Client Megan Farrell stated she would not sign anything,
+
+Cited lines:
+    L166 [13:06] S2: I will. I won't sign anything.
+
+### S042 · Client's account
+Client Megan Farrell stated she felt a bit less mad after the meeting,
+
+Cited lines:
+    L168 [13:11] S2: No, I think that's it. Thank you. I feel a bit less mad, honestly.
+
+### S043 · Advice given
+Solicitor Priya Nandakumar stated that ACAS early conciliation must be started within three months less one day from the act complained about, noting that waiting for a grievance's
+
+Cited lines:
+    L133 [10:01] S1: Before a tribunal claim you must start ACAS early conciliation. The deadline is three months less one day from the act you're complaining about.
+
+### S044 · Advice given
+Solicitor Priya Nandakumar advised that she would work to the twenty-ninth of December rather than relying on an argument that deductions occurred in a series,
+
+Cited lines:
+    L142 [11:02] S1: You might argue that, if a tribunal accepted it was a series. But I wouldn't rely on it. We work to the twenty-ninth of December.
+
+### S045 · Advice given
+Solicitor Priya Nandakumar advised that one ACAS notification by the fourth of December would cover the hours cut from the fifth of October,
+
+Cited lines:
+    L144 [11:13] S1: The hours cut from the fifth of October is later anyway, so one ACAS notification by the fourth covers everything.
+
+### S046 · Advice given
+Solicitor Priya Nandakumar strongly advised against Megan Farrell resigning, stating that resigning while employed and being paid makes the situation riskier,
+
+Cited lines:
+    L146 [11:26] S1: I'd strongly advise against that. Megan, please don't resign. You're still employed, still being paid, and resigning makes everything riskier.
+
+### S047 · Advice given
+Solicitor Priya Nandakumar advised Megan Farrell to check for legal expenses cover on her home insurance if the union cannot help,
+
+Cited lines:
+    L159 [12:27] S1: Monday the thirtieth, thanks. Megan, if the union can't help, check for legal expenses cover on your home insurance.
+
+### S048 · Next steps
+Solicitor Priya Nandakumar instructed Megan Farrell to send documents and her new address to the solicitor by Friday, 27 December,
+
+Cited lines:
+    L161 [12:38] S1: So, next steps. Megan, documents to me by Friday the twenty-seventh, plus the new address. And start the diary.
+
+### S049 · Next steps
+Solicitor Priya Nandakumar instructed Megan Farrell to start the diary,
+
+Cited lines:
+    L161 [12:38] S1: So, next steps. Megan, documents to me by Friday the twenty-seventh, plus the new address. And start the diary.
+
+### S050 · Next steps
+Solicitor Priya Nandakumar instructed Union representative Callum Ashworth to confirm the union scheme status by Monday, 30 December,
+
+Cited lines:
+    L162 [12:45] S1: Callum, the union scheme by Monday the thirtieth.
+
+### S051 · Next steps
+Solicitor Priya Nandakumar stated she would send a letter confirming today's advice with a draft ACAS form by Wednesday, 2 December,
+
+Cited lines:
+    L163 [12:49] S1: I'll send a letter confirming today's advice with a draft ACAS form by Wednesday the second. You check it, I submit by Friday the fourth of December.
+
+### S052 · Next steps
+Solicitor Priya Nandakumar stated she would submit the ACAS form by Friday, 4 December,
+
+Cited lines:
+    L163 [12:49] S1: I'll send a letter confirming today's advice with a draft ACAS form by Wednesday the second. You check it, I submit by Friday the fourth of December.
+
+### S053 · Next steps
+Solicitor Priya Nandakumar instructed Megan Farrell to send any grievance dates or documents from Brightmere to the solicitor before replying,
+
+Cited lines:
+    L165 [13:00] S1: If Brightmere sends you anything, a grievance date, anything to sign, send it to me before you reply.
+
+
+## Facts checklist (judge each: present | partial | absent)
+
+- F01: Megan Farrell is a senior care assistant at Willowbank House care home, run by Brightmere Care Ltd; she started as a carer in March 2021, became senior in 2023, and is still employed (she has not resigned or been dismissed).
+- F02: Her contract is 37.5 hours a week at £12.85 an hour (rate since April).
+- F03: On Friday 4 September 2026 she emailed the registered manager, Denise Hartigan, from her work email (forwarded to her personal email the same day), raising (a) that the room 14 resident's medication was signed as given on the MAR chart for three days while he was in hospital from 28 August, which she saw herself, and (b) night staffing of two carers for 38 residents.
+- F04: From Monday 5 October 2026 her hours were cut from 37.5 to 24 a week and she was taken off medication rounds/senior shifts; the only reason given was verbal ('operational needs'), nothing in writing.
+- F05: The rota from Monday 30 November 2026 cuts her further to 16 hours a week.
+- F06: Her approved holiday of 14-18 September 2026 was treated as unpaid leave in the pay of 30 September, with £481.88 deducted; payroll (Lorraine) said only that it was 'as instructed by the home'.
+- F07: Her October pay (30 October 2026) had a £420 'training cost recovery' deduction for the level 3 medication course she was put on in February.
+- F08: She raised a grievance on 9 November 2026 (sent to Denise Hartigan, copied to area manager Rob Ellery); it has only been acknowledged.
+- F09: Documents she has: September and October payslips, screenshot of the holiday approval, the printed 4 September email, photos of rotas, and her original carer contract; she does not have the senior contract or any training agreement; she will screenshot the handbook's holiday and pay sections and send everything electronically by Friday 27 November.
+- F10: She has a photo of the MAR chart on her phone; she was told not to send it to anyone (including Callum) because it is resident data, and not to delete it.
+- F11: She moved on 1 November 2026; correspondence by email only, not post, and she will send the new address for the file.
+- F12: Her objectives in order: (1) her hours and senior/medication role back, (2) the deducted money back, (3) the MAR chart concerns properly investigated.
+- F13: Advice: there appear to be two possible claims, unlawful deduction from wages (holiday and training deductions) and whistleblowing detriment (hours cut and removal from medication duties).
+- F14: Advice on time limits: ACAS early conciliation must be started within three months less one day; the grievance does not stop the clock; counting from the 30 September deduction the latest date is Tuesday 29 December 2026, and Priya aims to notify ACAS by Friday 4 December 2026.
+- F15: Advice: do not resign; keep working and keep a diary of rota changes and conversations with Denise; send anything from Brightmere to Priya before replying and sign nothing.
+- F16: Next steps: Megan to send documents and new address by Fri 27 Nov, ask Shauna Price (by text, not at work) whether she would talk to Priya, and check home insurance for legal expenses cover; Callum to check union legal scheme cover by Mon 30 Nov; Priya to send an advice letter and draft ACAS form by Wed 2 Dec and submit to ACAS by Fri 4 Dec.
+- F17: Megan only joined the union in October 2026, so union legal cover may be excluded for a pre-existing problem; Callum is checking.
+
+
+## Traps (a sentence that makes one of these claims, even implicitly, hits the trap)
+
+- T01 (negation): must NOT claim: Megan signed a training agreement or contract clause agreeing to repay training costs.
+- T02 (negation): must NOT claim: Megan had previously received a warning, been through a disciplinary, or made a medication error.
+- T03 (negation): must NOT claim: Denise Hartigan replied in writing to Megan's 4 September email.
+- T04 (hypothetical): must NOT claim: Megan has decided to report (or has reported) her concerns to the CQC.
+- T05 (hypothetical): must NOT claim: Megan has a claim for automatically unfair dismissal.
+- T06 (hypothetical): must NOT claim: Megan would drop her money claim if her hours were restored.
+- T07 (hypothetical): must NOT claim: The deadline for contacting ACAS is the end of January 2027.
+- T08 (hearsay): must NOT claim: Denise Hartigan called Megan a troublemaker and said to cut her hours.
+- T09 (hearsay): must NOT claim: Megan is the only employee who has had a training-cost deduction.
+- T10 (hearsay): must NOT claim: The area manager Rob Ellery knew about the night staffing levels months ago.
+- T11 (corrected): must NOT claim: Megan's hourly rate is £12.60.
+- T12 (corrected): must NOT claim: Megan sent her concerns email on Wednesday 2 September 2026.
+- T13 (corrected): must NOT claim: The October training cost deduction was £240.
+- T14 (not_said): must NOT claim: The solicitor assessed Megan's prospects of success (as good, or as a percentage such as 70-80%).
+- T15 (not_said): must NOT claim: The solicitor gave an estimate of how much the claim is worth.
+- T16 (not_said): must NOT claim: A grievance hearing date has been set.
+- T17 (not_said): must NOT claim: The union has agreed to fund Megan's legal costs.
+- T18 (speaker_attribution): must NOT claim: The solicitor advised waiting for the grievance outcome before contacting ACAS.
+- T19 (speaker_attribution): must NOT claim: The solicitor advised Megan to resign and claim constructive dismissal.
+- T20 (speaker_attribution): must NOT claim: Megan wants to take her concerns to the local press.
+- T21 (speaker_attribution): must NOT claim: Megan's main objective is getting her money back.
+
+
+Write your verdict to `/Users/yanhong.zhao/personal/folio-worktrees/s3-citations/spikes/s3-citations/results/judge/s3/ade81ae4.verdict.json` following `/Users/yanhong.zhao/personal/folio-worktrees/s3-citations/spikes/s3-citations/judge_instructions_s3.md`.
