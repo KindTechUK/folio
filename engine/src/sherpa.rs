@@ -506,6 +506,7 @@ fn group_tokens_to_words(
                     start: round3(offset + cur_start.unwrap_or(0.0)),
                     end: round3(end_of(i - 1)),
                     speaker: None,
+                    original: None,
                 });
                 cur_word.clear();
                 cur_start = None;
@@ -521,6 +522,7 @@ fn group_tokens_to_words(
                 start: round3(offset + cur_start.unwrap_or(0.0)),
                 end: round3(end_of(tokens.len() - 1)),
                 speaker: None,
+                original: None,
             });
         }
     } else {
@@ -535,6 +537,7 @@ fn group_tokens_to_words(
                 start: round3(seg_start + k as f64 * step),
                 end: round3(seg_start + (k as f64 + 1.0) * step),
                 speaker: None,
+                original: None,
             });
         }
     }

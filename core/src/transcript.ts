@@ -45,7 +45,13 @@ export function flattenWords(segments: Segment[]): FlatWord[] {
       const spk = w.speaker || segSpeaker || lastSpeaker;
       const start = w.start != null ? Number(w.start) : lastEnd;
       const end = w.end != null ? Number(w.end) : start;
-      words.push({ text: tok, start, end, speaker: spk });
+      words.push({
+        text: tok,
+        start,
+        end,
+        speaker: spk,
+        ...(w.original != null ? { original: w.original } : {}),
+      });
       lastSpeaker = spk;
       lastEnd = end;
     }

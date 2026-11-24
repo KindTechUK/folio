@@ -23,7 +23,7 @@ describe("draft exports", () => {
   const state = loadTranscript(FIXTURE);
 
   it("prefixes the text export with the disclaimer as a commented header", () => {
-    const lines = exportTextWithDisclaimer(state).split("\n");
+    const lines = exportTextWithDisclaimer(state, true).split("\n");
     expect(lines.slice(0, 3)).toEqual([
       "# MACHINE-GENERATED DRAFT — automatically transcribed and diarized",
       "# Verify against the source audio before relying on it",
@@ -33,7 +33,7 @@ describe("draft exports", () => {
   });
 
   it("adds the disclaimer to the JSON export", () => {
-    const json = exportJSONWithDisclaimer(state);
+    const json = exportJSONWithDisclaimer(state, true);
     expect(json.disclaimer).toBe(
       "MACHINE-GENERATED DRAFT — automatically transcribed and diarized. " +
         "Verify against the source audio before relying on it. Speaker labels and " +

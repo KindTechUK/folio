@@ -11,6 +11,7 @@ mod library;
 mod models;
 mod recorder;
 mod system;
+mod vocab;
 
 #[cfg(test)]
 #[path = "../build_support.rs"]

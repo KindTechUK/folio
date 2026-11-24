@@ -92,6 +92,37 @@ describe("loadTranscript", () => {
     const state2 = loadTranscript(makeTranscript());
     expect(state2.sentences.map((s) => s.id)).toEqual(ids);
   });
+
+  it("keeps what the model wrote for a word the vocabulary replaced", () => {
+    const state = loadTranscript({
+      segments: [
+        {
+          start: 0.0,
+          end: 1.1,
+          text: "Navier-Stokes.",
+          speaker: "SPEAKER_00",
+          words: [
+            {
+              word: "Navier-Stokes.",
+              start: 0.0,
+              end: 1.1,
+              speaker: "SPEAKER_00",
+              original: "navio stokes.",
+            },
+          ],
+        },
+      ],
+    });
+    expect(state.sentences[0]!.words).toEqual([
+      {
+        text: "Navier-Stokes.",
+        start: 0.0,
+        end: 1.1,
+        speaker: "SPEAKER_00",
+        original: "navio stokes.",
+      },
+    ]);
+  });
 });
 
 describe("editSentence", () => {
