@@ -3,6 +3,13 @@ import { Chip } from "./ui";
 // "This computer": what Folio can do on this machine, in outcomes rather than
 // specs. The tier is decided in Rust (`device.rs`); this file only words it.
 
+/** Mirrors the Rust `Microphone` (`microphone.rs`): the default microphone,
+ * and whether the system processes its sound before Folio gets it. */
+export type Microphone = {
+  name: string | null;
+  processing: "bypassable" | "always" | "builtInMac" | "unknown";
+};
+
 /** Mirrors the Rust `DeviceProfile` returned by `device_profile`. */
 export type DeviceProfile = {
   tier: "essentials" | "standard" | "copilot_plus" | "unknown";
@@ -15,6 +22,7 @@ export type DeviceProfile = {
   minutesPerHour: number | null;
   /** Whether `minutesPerHour` was timed on this computer. */
   measured: boolean;
+  microphone: Microphone;
 };
 
 /** Shown when the check fails: never an error, just no estimates. */
@@ -27,6 +35,7 @@ export const UNCHECKED: DeviceProfile = {
   npu: null,
   minutesPerHour: null,
   measured: false,
+  microphone: { name: null, processing: "unknown" },
 };
 
 type TierCopy = {
@@ -89,6 +98,18 @@ function npuNote(device: DeviceProfile): string {
     ? "40 TOPS or more"
     : "Below the 40 TOPS that Copilot+ features need";
 }
+
+const MICROPHONE_NOTES: Record<Microphone["processing"], string> = {
+  bypassable:
+    "Windows can give Folio this microphone's sound without its effects. Folio doesn't ask for " +
+    "that yet; it's being tested on meeting rooms.",
+  always:
+    "Windows always applies this microphone's sound effects. For meetings in a room, choose a " +
+    "setting for several voices in the laptop's audio app, if it has one (for example Lenovo " +
+    "Vantage).",
+  builtInMac: "macOS always processes the built-in microphone, and apps can't turn that off.",
+  unknown: "Folio couldn't read this microphone's settings.",
+};
 
 export function ThisComputer({ device }: { device: DeviceProfile }) {
   if (device.tier === "unknown") {
@@ -172,6 +193,13 @@ export function ThisComputer({ device }: { device: DeviceProfile }) {
             <dd>
               {device.npu ?? "None"}
               <small>{npuNote(device)}</small>
+            </dd>
+          </div>
+          <div>
+            <dt>Microphone</dt>
+            <dd>
+              {device.microphone.name ?? "Not checked"}
+              <small>{MICROPHONE_NOTES[device.microphone.processing]}</small>
             </dd>
           </div>
         </dl>

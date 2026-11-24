@@ -62,6 +62,7 @@ const ESSENTIALS = {
   npu: null,
   minutesPerHour: 15,
   measured: false,
+  microphone: { name: "Microphone Array (Realtek(R) Audio)", processing: "bypassable" },
 };
 const STANDARD = {
   tier: "standard",
@@ -72,6 +73,7 @@ const STANDARD = {
   npu: "Intel(R) AI Boost",
   minutesPerHour: 6,
   measured: false,
+  microphone: { name: "Microphone Array (Realtek(R) Audio)", processing: "bypassable" },
 };
 
 beforeEach(() => {

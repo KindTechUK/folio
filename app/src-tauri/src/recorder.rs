@@ -1197,6 +1197,7 @@ pub async fn start_recording(
         let input = ready_rx
             .recv()
             .map_err(|_| "The microphone thread stopped unexpectedly.".to_string())??;
+        eprintln!("recording from {:?}", crate::microphone::default_microphone());
 
         let (file, path) = match RecordingFile::create_in(&library, &local_name()) {
             Ok(v) => v,

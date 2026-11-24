@@ -183,6 +183,8 @@ pub struct DeviceProfile {
     pub npu: Option<String>,
     pub minutes_per_hour: Option<f64>,
     pub measured: bool,
+    /// The default microphone, read fresh each time (it can change).
+    pub microphone: crate::microphone::Microphone,
 }
 
 const RUNS_FILE: &str = "import-speed.json";
@@ -273,6 +275,12 @@ pub async fn device_profile(app: tauri::AppHandle) -> DeviceProfile {
     let facts = tauri::async_runtime::spawn_blocking(|| facts().clone())
         .await
         .unwrap_or_default();
+    let microphone = tauri::async_runtime::spawn_blocking(crate::microphone::default_microphone)
+        .await
+        .unwrap_or(crate::microphone::Microphone {
+            name: None,
+            processing: crate::microphone::Processing::Unknown,
+        });
     let (tier, reason) = classify(&facts);
     let (minutes_per_hour, measured) = minutes_per_hour(tier, &runs);
     DeviceProfile {
@@ -284,6 +292,7 @@ pub async fn device_profile(app: tauri::AppHandle) -> DeviceProfile {
         npu: facts.npu,
         minutes_per_hour,
         measured,
+        microphone,
     }
 }
 

@@ -6,6 +6,7 @@
 
 mod commands;
 mod device;
+mod microphone;
 mod library;
 mod models;
 mod recorder;
