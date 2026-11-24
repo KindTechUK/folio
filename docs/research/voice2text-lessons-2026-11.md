@@ -188,6 +188,20 @@ sherpa-onnx 2.0.1 decodes the same windows correctly. Today's file path, before 
 - Move the file path to energy cuts once the floor laptop's speed numbers are in, as a change of its
   own. Live capture keeps the VAD.
 
+**Decided (2026-11-24), superseding the last point.** The room-mic research
+(`room-mic-capture-2026-11.md`) showed that VAD gating is what loses speech when one laptop sits in
+the middle of a room, so neither path gates the record any more:
+- **Imports:** Parakeet decodes energy cuts (30 s pieces, cut at the quietest 100 ms within ±5 s),
+  without waiting for the floor laptop's numbers. Whisper, Qwen3 and Cohere keep a VAD, because
+  30 s pieces don't fit their windows and Cohere invents text over silence.
+- **Recordings:** a recording's saved transcript is built from energy pieces cut from the live
+  stream and decoded in the background. The live captions stay on the VAD and are only a preview.
+- **Every VAD** (live captions, and imports for the other models) hears a levelled copy of the
+  audio (up to +30 dB towards −23 dBFS over 3 s), while the decoder gets the original. On Parakeet v2
+  this takes the live profile from 45.8% to 36.5% WER on `ami-sdm` (−9.3 points, 95% CI
+  [−13.7, −5.1]; empty clips 23 → 9) and from 38.7% to 27.4% on `ami-sdm-long`, with
+  `earnings22-long` level (8.9% → 8.7%).
+
 D1–D3 change no model and need no new crate. D4 and D5 are config changes plus a check that
 `nemo_transducer` supports beam search and hotwords. D6 is the only one that needs a new code path.
 

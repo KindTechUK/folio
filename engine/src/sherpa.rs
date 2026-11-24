@@ -18,7 +18,13 @@ use sherpa_onnx::{
     VadModelConfig, VoiceActivityDetector,
 };
 
+use crate::segment::{energy_cuts, Leveller};
 use crate::{EMB_MODEL, SEG_MODEL, VAD_MODEL};
+
+/// File transcription with Parakeet: pieces of about this many seconds, each
+/// cut at the quietest 100 ms within [`PIECE_SEARCH_S`] of its mark.
+pub const PIECE_S: f32 = 30.0;
+pub const PIECE_SEARCH_S: f32 = 5.0;
 
 /// VAD segmentation tuning per model family, as
 /// `(min_silence_duration_s, max_speech_duration_s)`.
@@ -27,9 +33,8 @@ use crate::{EMB_MODEL, SEG_MODEL, VAD_MODEL};
 /// before a speech segment is closed. `max_speech_duration` caps a segment's
 /// length (Silero cuts at the cap).
 ///
-/// Folio is an offline/import workflow (no live-caption latency budget), so for
-/// the default transducer path (Parakeet) we bridge natural pauses into longer,
-/// more coherent segments — better ASR context and cleaner review paragraphs.
+/// Parakeet's file path no longer uses these: it decodes energy-cut pieces
+/// ([`PIECE_S`]). Its row stays for callers that ask for a VAD by model.
 /// The Whisper path is left at its validated params: it MUST stay under the 30 s
 /// decode window, so a raised cap there would silently truncate audio. The
 /// encoder-decoder evaluation candidates (Qwen3-ASR, Cohere) get the same
@@ -48,23 +53,53 @@ fn vad_params(family: ModelFamily) -> (f32, f32) {
 }
 
 /// VAD segmentation profile: `min_silence` closes an utterance after that much
-/// pause, `max_speech` caps its length (seconds).
+/// pause, `max_speech` caps its length (seconds). A `levelled` VAD judges a
+/// copy of the audio raised by a [`Leveller`]: quiet and distant speech falls
+/// under Silero's threshold otherwise (room-mic research, recommendation 2).
+/// The utterances it returns are always the original audio.
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct VadProfile {
     pub min_silence: f32,
     pub max_speech: f32,
+    pub levelled: bool,
 }
 
 impl VadProfile {
     /// Live capture: utterances close after 0.8 s of silence or 15 s of speech,
     /// which bounds how far text trails speech (spike S1:
     /// docs/spikes/s1-live-lag.md).
-    pub const LIVE: VadProfile = VadProfile { min_silence: 0.8, max_speech: 15.0 };
+    pub const LIVE: VadProfile = VadProfile { min_silence: 0.8, max_speech: 15.0, levelled: true };
 
     /// File transcription for `model` (see [`vad_params`]).
     pub fn offline(model: crate::AsrModel) -> Self {
         let (min_silence, max_speech) = vad_params(model.family());
-        VadProfile { min_silence, max_speech }
+        VadProfile { min_silence, max_speech, levelled: true }
+    }
+}
+
+/// The original samples a levelled VAD has been fed, kept long enough to cut
+/// its utterances from them.
+struct Originals {
+    /// Stream position of `buf[0]`.
+    base: usize,
+    buf: Vec<f32>,
+    /// How much to keep: an utterance can start this long before it closes.
+    keep: usize,
+}
+
+impl Originals {
+    fn get(&self, start: usize, len: usize) -> Option<Vec<f32>> {
+        let from = start.checked_sub(self.base)?;
+        self.buf.get(from..from + len).map(<[f32]>::to_vec)
+    }
+
+    fn push(&mut self, samples: &[f32]) {
+        self.buf.extend_from_slice(samples);
+        if self.buf.len() > 2 * self.keep {
+            let drop = self.buf.len() - self.keep;
+            self.buf.drain(..drop);
+            self.base += drop;
+        }
     }
 }
 
@@ -74,6 +109,9 @@ impl VadProfile {
 pub struct Vad {
     inner: VoiceActivityDetector,
     window: usize,
+    sample_rate: u32,
+    /// Set for a levelled profile.
+    levelling: Option<std::cell::RefCell<(Leveller, Originals)>>,
 }
 
 impl Vad {
@@ -82,7 +120,19 @@ impl Vad {
     pub fn accept(&self, samples: &[f32]) -> Vec<(usize, Vec<f32>)> {
         let mut out = Vec::new();
         for chunk in samples.chunks(self.window) {
-            self.inner.accept_waveform(chunk);
+            // One window at a time, so the original copy never runs ahead of
+            // what Silero has judged (and never trims what it still needs).
+            match &self.levelling {
+                Some(l) => {
+                    let levelled = {
+                        let (leveller, originals) = &mut *l.borrow_mut();
+                        originals.push(chunk);
+                        leveller.process(chunk)
+                    };
+                    self.inner.accept_waveform(&levelled);
+                }
+                None => self.inner.accept_waveform(chunk),
+            }
             self.drain(&mut out);
         }
         out
@@ -99,6 +149,12 @@ impl Vad {
     /// Clear all state; sample positions restart at 0.
     pub fn reset(&self) {
         self.inner.reset();
+        if let Some(l) = &self.levelling {
+            let (leveller, originals) = &mut *l.borrow_mut();
+            *leveller = Leveller::new(self.sample_rate);
+            originals.buf.clear();
+            originals.base = 0;
+        }
     }
 
     /// Whether speech is currently detected (an utterance is open).
@@ -108,7 +164,14 @@ impl Vad {
 
     fn drain(&self, out: &mut Vec<(usize, Vec<f32>)>) {
         while let Some(seg) = self.inner.front() {
-            out.push((seg.start().max(0) as usize, seg.samples().to_vec()));
+            let start = seg.start().max(0) as usize;
+            let heard = seg.samples();
+            let samples = self
+                .levelling
+                .as_ref()
+                .and_then(|l| l.borrow().1.get(start, heard.len()))
+                .unwrap_or_else(|| heard.to_vec());
+            out.push((start, samples));
             self.inner.pop();
         }
     }
@@ -327,7 +390,16 @@ impl SherpaEngine {
         // loss) if a speech run exceeds it.
         let inner = VoiceActivityDetector::create(&vad_config, 100.0)
             .ok_or_else(|| EngineError::Sherpa("create VoiceActivityDetector returned None".into()))?;
-        Ok(Vad { inner, window })
+        let levelling = profile.levelled.then(|| {
+            // An utterance closes at most `max_speech + min_silence` after it
+            // starts; 10 s more covers Silero's own look-back.
+            let keep = ((profile.max_speech + profile.min_silence + 10.0) * sample_rate as f32) as usize;
+            std::cell::RefCell::new((
+                Leveller::new(sample_rate),
+                Originals { base: 0, buf: Vec::new(), keep },
+            ))
+        });
+        Ok(Vad { inner, window, sample_rate, levelling })
     }
 
     /// VAD-chunk `samples` into `(start_sample, chunk_samples)` speech segments
@@ -451,9 +523,30 @@ impl TranscriptionEngine for SherpaEngine {
         // it as its own "loading" step.
         progress(Progress::new("loading", 0, 0, crate::PROGRESS_DECODE_END));
         let recognizer = Recognizer { inner: self.build_recognizer()?, sample_rate };
-        let chunks = self
-            .vad_chunks(samples, sample_rate, progress)
-            .context("VAD chunking")?;
+        let chunks: Vec<(usize, std::borrow::Cow<'_, [f32]>)> =
+            if self.asr_model.family() == ModelFamily::Transducer {
+                // Parakeet decodes every sample, in ~30 s pieces cut at the
+                // quietest moment: VAD gating deleted a third of the words on
+                // room-mic meetings (docs/research/room-mic-capture-2026-11.md).
+                let mut edges = vec![0];
+                edges.extend(energy_cuts(samples, sample_rate, PIECE_S, PIECE_SEARCH_S));
+                edges.push(samples.len());
+                progress(Progress::new("segmenting", 1, 1, crate::PROGRESS_VAD_END));
+                edges
+                    .windows(2)
+                    .filter(|w| w[1] > w[0])
+                    .map(|w| (w[0], std::borrow::Cow::Borrowed(&samples[w[0]..w[1]])))
+                    .collect()
+            } else {
+                // Whisper must stay under its 30 s window, the autoregressive
+                // models have short output budgets, and Cohere invents text
+                // over silence: these keep the (levelled) VAD.
+                self.vad_chunks(samples, sample_rate, progress)
+                    .context("VAD chunking")?
+                    .into_iter()
+                    .map(|(s, c)| (s, std::borrow::Cow::Owned(c)))
+                    .collect()
+            };
 
         let total = chunks.len() as u32;
         let mut segments = Vec::new();

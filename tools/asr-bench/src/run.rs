@@ -170,17 +170,18 @@ fn segment(
     sr: u32,
     seg: Segmenter,
 ) -> Result<Vec<(usize, usize)>> {
-    let vad_ranges = |silence: f32, max: f32| -> Result<Vec<(usize, usize)>> {
-        let vad = engine.vad(VadProfile { min_silence: silence, max_speech: max })?;
+    let vad_ranges = |silence: f32, max: f32, levelled: bool| -> Result<Vec<(usize, usize)>> {
+        let vad = engine.vad(VadProfile { min_silence: silence, max_speech: max, levelled })?;
         let mut chunks = vad.accept(samples);
         chunks.extend(vad.flush());
         Ok(chunks.into_iter().map(|(s, c)| (s, (s + c.len()).min(samples.len()))).collect())
     };
     Ok(match seg {
-        Segmenter::Vad { silence, max } => vad_ranges(silence, max)?,
+        Segmenter::Vad { silence, max } => vad_ranges(silence, max, false)?,
+        Segmenter::VadAgc { silence, max } => vad_ranges(silence, max, true)?,
         Segmenter::VadPad { silence, max, pad_ms } => {
             let pad = (pad_ms as usize * sr as usize) / 1000;
-            pad_ranges(&vad_ranges(silence, max)?, pad, samples.len())
+            pad_ranges(&vad_ranges(silence, max, false)?, pad, samples.len())
         }
         Segmenter::Energy { piece, search } => {
             let mut edges = vec![0];

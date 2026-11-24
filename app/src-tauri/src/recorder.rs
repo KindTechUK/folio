@@ -1,17 +1,28 @@
 //! In-app recording with a live transcript.
 //!
 //! The microphone is captured on its own thread (cpal), converted to 16 kHz
-//! mono, appended to a WAV in `<library>/recordings/`, and cut into utterances
-//! by the live VAD profile. A decoder thread transcribes each utterance as it
-//! closes and emits it to the UI. On stop, the WAV is finalised and the
-//! utterances (optionally with speaker labels from diarizing the whole WAV)
-//! become a normal transcript.
+//! mono and appended to a WAV in `<library>/recordings/`. The audio is cut two
+//! ways:
+//!
+//! - **Live captions:** the live VAD (judging a levelled copy) closes
+//!   utterances, which are decoded as they close and emitted to the UI. They're
+//!   a preview only.
+//! - **The record:** every sample, in ~30 s pieces cut at the quietest moment
+//!   (`engine::segment::PieceCutter`), the same rule the file path uses. VAD
+//!   gating deleted a third of the words on room-mic meetings
+//!   (docs/research/room-mic-capture-2026-11.md).
+//!
+//! One decoder serves both, captions first; record pieces fill the gaps. On
+//! stop, waiting captions are dropped, the last piece is decoded, and the
+//! pieces (optionally with speaker labels from diarizing the whole WAV) become
+//! a normal transcript.
 //!
 //! The WAV header is rewritten every few seconds, so a crash leaves a playable
 //! file missing at most the last few seconds. Recordings are approved in the
 //! same registry as picked files, so "Delete transcript and audio" removes
 //! them like any other source recording.
 
+use std::collections::VecDeque;
 use std::path::{Path, PathBuf};
 use std::sync::mpsc::{self, Receiver, Sender};
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
@@ -20,6 +31,8 @@ use std::thread::JoinHandle;
 use std::time::{Duration, Instant};
 
 use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
+use engine::segment::PieceCutter;
+use engine::sherpa::{PIECE_S, PIECE_SEARCH_S};
 use engine::{
     load_wav_16k_mono, merge, AsrSegment, EngineConfig, SherpaEngine, StreamResampler,
     TranscriptionEngine, VadProfile,
@@ -473,6 +486,18 @@ impl Utterance {
     }
 }
 
+/// Work for the decoder.
+enum Job {
+    /// A live caption (preview only).
+    Caption(Utterance),
+    /// A piece of the record, as `(start, len)` in the WAV.
+    Record(usize, usize),
+}
+
+fn new_cutter() -> PieceCutter {
+    PieceCutter::new(SAMPLE_RATE, PIECE_S, PIECE_SEARCH_S)
+}
+
 /// Backlog held in memory before utterances are queued as WAV spans.
 const MAX_QUEUED: usize = 120 * SAMPLE_RATE as usize;
 /// No callbacks for this long while recording means the device is gone.
@@ -486,8 +511,10 @@ struct Level {
     level: f32,
     speaking: bool,
     elapsed_s: f64,
-    /// Seconds of speech waiting to be transcribed.
+    /// Seconds of speech waiting to be transcribed for the live captions.
     backlog_s: f64,
+    /// Seconds of audio waiting to be transcribed for the record.
+    record_backlog_s: f64,
 }
 
 #[derive(Clone, Serialize, PartialEq)]
@@ -876,8 +903,9 @@ fn process_thread(
     file: RecordingFile,
     input: Input,
     audio: Receiver<Audio>,
-    utterances: Sender<Utterance>,
+    jobs: Sender<Job>,
     backlog: Arc<AtomicUsize>,
+    record_backlog: Arc<AtomicUsize>,
 ) -> Result<(), String> {
     let vad = engine.vad(VadProfile::LIVE).map_err(|e| e.to_string())?;
     let mut resampler = StreamResampler::new(input.rate, input.channels).map_err(|e| e.to_string())?;
@@ -885,8 +913,10 @@ fn process_thread(
         app,
         file,
         vad,
-        utterances,
+        pieces: new_cutter(),
+        jobs,
         backlog,
+        record_backlog,
         base: 0,
         since_level: 0,
         level_acc: 0.0,
@@ -905,7 +935,7 @@ fn process_thread(
             }
             Audio::Pause => {
                 paused = true;
-                p.close_utterance();
+                p.close_utterance()?;
                 p.file.flush()?;
                 let change = p.silence.reset();
                 p.set_silent(change);
@@ -917,7 +947,7 @@ fn process_thread(
             Audio::Reopened(input, gap_s) => {
                 let tail = resampler.finish().map_err(|e| e.to_string())?;
                 p.samples(&tail)?;
-                p.close_utterance();
+                p.close_utterance()?;
                 p.file.append_silence(gap_s)?;
                 p.restart_vad();
                 let change = p.silence.reset();
@@ -933,7 +963,7 @@ fn process_thread(
     }
     let tail = resampler.finish().map_err(|e| e.to_string())?;
     p.samples(&tail)?;
-    p.close_utterance();
+    p.close_utterance()?;
     p.file.finish()
 }
 
@@ -941,10 +971,15 @@ struct Processor {
     app: AppHandle,
     file: RecordingFile,
     vad: engine::Vad,
-    utterances: Sender<Utterance>,
-    /// Samples queued for the decoder and not yet transcribed.
+    /// Cuts the record's pieces.
+    pieces: PieceCutter,
+    jobs: Sender<Job>,
+    /// Caption samples queued for the decoder and not yet transcribed.
     backlog: Arc<AtomicUsize>,
-    /// VAD positions restart after a pause; `base` maps them back onto the WAV.
+    /// Record samples queued for the decoder and not yet transcribed.
+    record_backlog: Arc<AtomicUsize>,
+    /// VAD and piece positions restart after a pause; `base` maps them back
+    /// onto the WAV.
     base: usize,
     since_level: usize,
     level_acc: f64,
@@ -962,17 +997,35 @@ impl Processor {
             } else {
                 Utterance::Samples(start, chunk)
             };
-            let _ = self.utterances.send(utt);
+            let _ = self.jobs.send(Job::Caption(utt));
         }
     }
 
-    fn close_utterance(&mut self) {
+    /// Queue record pieces. The decoder reads them back from the WAV, so the
+    /// file is flushed first.
+    fn send_pieces(&mut self, pieces: Vec<(usize, usize)>) -> Result<(), String> {
+        if pieces.is_empty() {
+            return Ok(());
+        }
+        self.file.flush()?;
+        for (start, len) in pieces {
+            self.record_backlog.fetch_add(len, Ordering::Relaxed);
+            let _ = self.jobs.send(Job::Record(self.base + start, len));
+        }
+        Ok(())
+    }
+
+    /// Close the open utterance and the open piece (pause, reconnection, end).
+    fn close_utterance(&mut self) -> Result<(), String> {
         let closed = self.vad.flush();
         self.send(closed);
+        let last = self.pieces.flush().into_iter().collect();
+        self.send_pieces(last)
     }
 
     fn restart_vad(&mut self) {
         self.vad.reset();
+        self.pieces = new_cutter();
         self.base = self.file.written();
     }
 
@@ -989,6 +1042,8 @@ impl Processor {
 
     fn samples(&mut self, samples: &[f32]) -> Result<(), String> {
         self.file.append(samples)?;
+        let pieces = self.pieces.push(samples);
+        self.send_pieces(pieces)?;
         let closed = self.vad.accept(samples);
         self.send(closed);
         let change = self.silence.feed(samples);
@@ -1004,6 +1059,8 @@ impl Processor {
                     speaking: self.vad.speaking(),
                     elapsed_s: self.file.written() as f64 / SAMPLE_RATE as f64,
                     backlog_s: self.backlog.load(Ordering::Relaxed) as f64 / SAMPLE_RATE as f64,
+                    record_backlog_s: self.record_backlog.load(Ordering::Relaxed) as f64
+                        / SAMPLE_RATE as f64,
                 },
             );
             self.since_level = 0;
@@ -1013,26 +1070,55 @@ impl Processor {
     }
 }
 
-/// Decoder thread: transcribe utterances in order and emit each one. After
-/// Stop it reports progress through the remaining backlog.
+/// Decoder thread. Captions are decoded first, in order, and emitted; record
+/// pieces fill the gaps and become the transcript. After Stop, waiting captions
+/// are dropped and progress is reported through the remaining pieces.
 #[allow(clippy::too_many_arguments)]
 fn decode_thread(
     app: AppHandle,
     engine: SherpaEngine,
     path: PathBuf,
-    utterances: Receiver<Utterance>,
+    jobs: Receiver<Job>,
     segments: Arc<Mutex<Vec<AsrSegment>>>,
     mut recognizer: engine::Recognizer,
     backlog: Arc<AtomicUsize>,
+    record_backlog: Arc<AtomicUsize>,
     cancel: Arc<AtomicBool>,
     stopping: Arc<AtomicBool>,
 ) {
     let mut built = Instant::now();
     // Samples transcribed since Stop, for the drain progress bar.
     let mut drained = 0usize;
-    while let Ok(utt) = utterances.recv() {
-        let len = utt.len();
-        if !cancel.load(Ordering::Relaxed) {
+    let mut captions: VecDeque<Utterance> = VecDeque::new();
+    let mut pieces: VecDeque<(usize, usize)> = VecDeque::new();
+    let mut open = true;
+    loop {
+        // Take everything waiting; block only when there's nothing to do.
+        fn queue(job: Job, captions: &mut VecDeque<Utterance>, pieces: &mut VecDeque<(usize, usize)>) {
+            match job {
+                Job::Caption(utt) => captions.push_back(utt),
+                Job::Record(start, len) => pieces.push_back((start, len)),
+            }
+        }
+        while let Ok(job) = jobs.try_recv() {
+            queue(job, &mut captions, &mut pieces);
+        }
+        if open && captions.is_empty() && pieces.is_empty() {
+            match jobs.recv() {
+                Ok(job) => queue(job, &mut captions, &mut pieces),
+                Err(_) => open = false,
+            }
+            continue;
+        }
+        let finishing = stopping.load(Ordering::Relaxed) || cancel.load(Ordering::Relaxed);
+        if finishing {
+            // Captions are only a preview: once stopping, skip them.
+            for utt in captions.drain(..) {
+                backlog.fetch_sub(utt.len(), Ordering::Relaxed);
+            }
+        }
+        if let Some(utt) = captions.pop_front() {
+            let len = utt.len();
             let decoded = match utt {
                 Utterance::Samples(start, chunk) => recognizer.decode_utterance(start, &chunk),
                 Utterance::Span(start, n) => read_span(&path, start, n)
@@ -1041,22 +1127,33 @@ fn decode_thread(
             };
             if let Some(seg) = decoded {
                 let _ = app.emit("record-utterance", &seg);
-                segments.lock().unwrap().push(seg);
             }
-        }
-        let remaining = backlog.fetch_sub(len, Ordering::Relaxed).saturating_sub(len);
-        if stopping.load(Ordering::Relaxed) && !cancel.load(Ordering::Relaxed) {
-            drained += len;
-            let total = drained + remaining;
-            let _ = app.emit(
-                "transcribe-progress",
-                engine::Progress::new(
-                    "transcribing",
-                    (drained / SAMPLE_RATE as usize) as u32,
-                    (total / SAMPLE_RATE as usize) as u32,
-                    0.9 * drained as f32 / total.max(1) as f32,
-                ),
-            );
+            backlog.fetch_sub(len, Ordering::Relaxed);
+        } else if let Some((start, len)) = pieces.pop_front() {
+            if !cancel.load(Ordering::Relaxed) {
+                let decoded = read_span(&path, start, len)
+                    .ok()
+                    .and_then(|chunk| recognizer.decode_utterance(start, &chunk));
+                if let Some(seg) = decoded {
+                    segments.lock().unwrap().push(seg);
+                }
+            }
+            let remaining = record_backlog.fetch_sub(len, Ordering::Relaxed).saturating_sub(len);
+            if stopping.load(Ordering::Relaxed) && !cancel.load(Ordering::Relaxed) {
+                drained += len;
+                let total = drained + remaining;
+                let _ = app.emit(
+                    "transcribe-progress",
+                    engine::Progress::new(
+                        "transcribing",
+                        (drained / SAMPLE_RATE as usize) as u32,
+                        (total / SAMPLE_RATE as usize) as u32,
+                        0.9 * drained as f32 / total.max(1) as f32,
+                    ),
+                );
+            }
+        } else if !open {
+            break;
         }
         if built.elapsed() >= RECOGNIZER_REFRESH {
             if let Ok(fresh) = engine.recognizer() {
@@ -1111,18 +1208,20 @@ pub async fn start_recording(
         };
 
         let segments = Arc::new(Mutex::new(Vec::new()));
-        let (utt_tx, utt_rx) = mpsc::channel();
+        let (job_tx, job_rx) = mpsc::channel();
         let decode_engine = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
         let cancel = Arc::new(AtomicBool::new(false));
         let stopping = Arc::new(AtomicBool::new(false));
         let backlog = Arc::new(AtomicUsize::new(0));
+        let record_backlog = Arc::new(AtomicUsize::new(0));
         let decode = {
             let (app, path, segments) = (app.clone(), path.clone(), segments.clone());
-            let (backlog, cancel, stopping) = (backlog.clone(), cancel.clone(), stopping.clone());
+            let (backlog, record_backlog) = (backlog.clone(), record_backlog.clone());
+            let (cancel, stopping) = (cancel.clone(), stopping.clone());
             std::thread::spawn(move || {
                 decode_thread(
-                    app, decode_engine, path, utt_rx, segments, recognizer, backlog, cancel,
-                    stopping,
+                    app, decode_engine, path, job_rx, segments, recognizer, backlog,
+                    record_backlog, cancel, stopping,
                 )
             })
         };
@@ -1134,8 +1233,9 @@ pub async fn start_recording(
                 file,
                 input,
                 audio_rx,
-                utt_tx,
+                job_tx,
                 backlog,
+                record_backlog,
             );
             if let Err(e) = &result {
                 // Report at once: capture may still be running, but nothing more is saved.
@@ -1227,8 +1327,8 @@ pub struct StoppedRecording {
     note: Option<String>,
 }
 
-/// Stop recording and build the transcript: the live utterances, with speaker
-/// labels from diarizing the whole recording if `diarize` is set. If labelling
+/// Stop recording and build the transcript from the record's pieces, with
+/// speaker labels from diarizing the whole recording if `diarize` is set. If labelling
 /// fails, the transcript is returned without labels and with a note.
 #[tauri::command]
 pub async fn stop_recording(
@@ -1266,7 +1366,7 @@ pub async fn stop_recording(
     .map_err(|e| format!("recording task failed: {e}"))?
 }
 
-/// Diarize the whole recording and attach speakers to the live utterances.
+/// Diarize the whole recording and attach speakers to the record's pieces.
 fn label_speakers(
     app: &AppHandle,
     done: &Finished,
