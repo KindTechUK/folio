@@ -20,6 +20,14 @@
   no VAD gating. Folio decodes only what Silero VAD calls speech, and keeps the live utterances as the
   record. Section 1b has six eval cells (D1–D6), from VAD gating through beam search and hotwords to a
   Nemotron or Unified streaming preview.
+- **Mac results (2026-11-23).**
+  - **VAD gating loses speech.** Energy cuts take the room-mic meetings from 38.8% to about 25% WER,
+    and halve peak memory.
+  - Piece length and beam search make no real difference.
+  - Unified EN beats Parakeet v2 on short clips but not on long meetings.
+  - Cohere is the most accurate, but has no word timestamps, which the editor's speaker labels and
+    cursor need. So the default stays in the Parakeet family.
+  - Ultra, v3, Redux and Qwen3-ASR drop out.
 - **Vocabulary.** v2t has no ASR-level biasing. A plain-text dictionary holds two kinds of line:
   `heard => written` replacements, which are deterministic, and `Term` hints for the LLM cleanup. A
   word guard stops the LLM from adding words that were not said. Folio can do better at the ASR step:
@@ -98,7 +106,8 @@ It drops S1's "WER of live vs human" condition, because the live text is never t
 The **Folio-specific constraint v2t doesn't have** is word timestamps for the karaoke cursor and
 diarization mapping. The Parakeet family keeps them natively. For Qwen3-ASR and Cohere, check what
 `OfflineRecognizerResult` returns before investing; they may only be worth it as a slow, more accurate
-batch pass.
+batch pass. Checked on 2026-11-23: neither returns word timestamps. See "Word timings constrain the model"
+in section 1b.
 
 ## 1b. Decoding: how v2t does it, how Folio does it, what to evaluate
 
@@ -211,6 +220,128 @@ the middle of a room, so neither path gates the record any more:
 D1–D3 change no model and need no new crate. D4 and D5 are config changes plus a check that
 `nemo_transducer` supports beam search and hotwords. D6 is the only one that needs a new code path.
 
+### Full Mac grid (Apple M5 Pro, 2026-11-23, sherpa-onnx 2.0.1)
+
+Same pack and scorer as above. The short sets have 150 clips each, with 95% bootstrap intervals. The long
+sets are 3 meetings and 6 calls, too few for an interval. Peak memory moves by a few hundred MB between
+runs, so compare it within one table only. Raw results are in `~/folio-bench-results` on the bench Mac.
+
+**D2: piece length barely changes accuracy, but memory grows with it.** Parakeet v2, energy cuts with
+a ±5 s search:
+
+| Segmenter | ami-sdm-long WER | deleted | earnings22-long WER | peak MB (AMI) |
+|---|--:|--:|--:|--:|
+| `vad:0.8/120` (today) | 38.8 | 34.1% | 8.6 | 3,092 |
+| `vad-pad:0.8/120/200` | 38.3 | 33.2% | 8.2 | 2,890 |
+| `energy:15/5` | 24.9 | 16.3% | 7.7 | 1,455 |
+| `energy:30/5` | 25.3 | 17.7% | 7.3 | 1,554 |
+| `energy:60/5` | 24.9 | 17.8% | 7.1 | 1,947 |
+
+- On the bench, 30 s (v2t's default) and 15 s score alike, and 15 s saves about 100 MB on the AMI
+  meetings.
+- **Folio ships 15 s (2026-11-24).** On a room recording made through Folio, Parakeet v2 dropped
+  all but the last 2 s of a 30.5 s piece, while 20 s and 25 s pieces of the same audio came back
+  whole (`engine/tests/long_pieces.rs`; see "Decided (2026-11-24)" above).
+- 200 ms of VAD padding helps no more than the 300 ms above.
+
+**D4: beam search gains nothing.** Parakeet v2 with today's VAD, `modified_beam_search` with beam 4
+against greedy:
+
+| Set | greedy | beam 4 | Δ [95%] |
+|---|--:|--:|--:|
+| ami-sdm | 45.6 | 46.9 | +1.3 [−1.3, +4.1] |
+| ami-ihm | 16.9 | 16.1 | −0.8 [−2.2, +0.6] |
+| earnings22 | 11.7 | 11.7 | 0.0 [−0.5, +0.5] |
+
+- No difference on any set.
+- It also cost nothing in speed on this Mac: RTF was the same or lower.
+- So D5 can test hotwords on beam without a speed penalty to weigh. The Windows laptop still has to
+  confirm the speed.
+- Beam 8 wasn't run.
+
+**Models, with every short clip decoded whole.** Each clip is decoded in one piece with no VAD, so this
+table compares models rather than gating. The table gives WER, with Δ against v2 and its 95% interval.
+
+| Model | ami-sdm | ami-ihm | earnings22 | RTF | peak MB | word timings |
+|---|--:|--:|--:|--:|--:|--:|
+| Cohere Transcribe | **24.4** (−6.2 [−10.4, −2.4]) | **7.1** (−2.7 [−5.4, −0.4]) | 8.8 (−0.9 [−1.7, −0.0]) | 0.14–0.17 | 3,600–4,400 | none |
+| Parakeet Unified EN | 28.1 (−2.4 [−4.9, +0.1]) | 7.3 (−2.5 [−5.1, −0.3]) | **8.7** (−1.0 [−1.9, −0.2]) | 0.08 | ~1,400 | 93–98% |
+| Parakeet v2 (current) | 30.6 | 9.9 | 9.7 | 0.08 | ~1,400 | 95–98% |
+| Parakeet Ultra | 32.3 (+1.8 [−1.1, +4.6]) | 8.5 (−1.4 [−3.7, +0.8]) | 9.8 (+0.1 [−0.9, +1.1]) | 0.08 | ~1,400 | 95–98% |
+| Parakeet v3 | 31.9 (+1.4 [−1.5, +4.2]) | 11.4 (+1.6 [−1.3, +4.3]) | 10.6 (+0.9 [−0.4, +2.1]) | 0.08 | ~1,400 | 97–98% |
+| Qwen3-ASR 0.6B | 35.0 (+4.4 [+1.2, +7.5]) | 11.8 (+1.9 [−1.6, +5.8]) | 9.3 (−0.4 [−1.4, +0.5]) | 0.19–0.25 | 1,800–2,900 | none |
+| Parakeet Redux | 40.6 (+10.0 [+5.6, +14.3]) | 9.4 (−0.5 [−2.8, +1.6]) | 11.2 (+1.5 [+0.2, +2.8]) | 0.08 | ~1,400 | 84–97% |
+
+- **VAD gating costs accuracy on short clips too (D1).**
+  - Parakeet v2 on the same clips, VAD against whole: 45.6 → 30.6 on `ami-sdm`, 16.9 → 9.9 on
+    `ami-ihm`, and 11.7 → 9.7 on `earnings22`.
+  - Empty room-mic clips fall from 23 to 7.
+  - With VAD in front, v3 is clearly worse than v2 on all three sets (+4.4, +8.1 and +2.8), and Ultra
+    is level. Decoded whole, both are level with v2. The gating makes v3's deletions worse.
+- **Cohere is the most accurate model, but it can't be the record as things stand.**
+  - It returns no word timestamps, and the karaoke cursor and speaker mapping need them.
+  - It uses about 3× Parakeet's memory, takes 3–6 s to load, and is 2.7 GB on disk.
+  - The ways round that are under "Word timings constrain the model" below.
+- **Qwen3-ASR has a language problem.** Some short English clips come back in Chinese: 8 of 150 on
+  `ami-sdm` and 10 on `ami-ihm`, for example "我懂。". sherpa-onnx 2.0.1 has no language setting for
+  it. It also has no word timestamps and is 2–3× slower than Parakeet.
+- **Redux isn't a useful 8 GB fallback.** v2 already peaks at about 1.4 GB, and Redux returns nothing
+  for 24 of 150 room-mic clips.
+
+**Unified EN on long recordings isn't a clear win.** With `energy:30/5`:
+
+| Set | Parakeet v2 | Unified EN |
+|---|--:|--:|
+| ami-sdm-long | 25.3 (17.7% deleted) | 28.4 (23.4% deleted) |
+| earnings22-long | 7.3 | 6.8 |
+
+It also returned word timings for 88% of the AMI segments, against 95% for v2. Three meetings can't
+settle this, but they point the other way from the short clips.
+
+**Word timings constrain the model.** The review editor is built on per-word times, and three
+things depend on them:
+
+- **The karaoke cursor and click-to-seek.** Native times (±200–500 ms) are enough for these.
+- **Speaker labels.** `engine/src/merge.rs` gives each word the speaker whose diarized span it overlaps
+  most. A word placed at the wrong time can get the wrong speaker, and speaker labels are part of the
+  record.
+- **Paragraphs.** Without speaker labels, the editor and the Word export break paragraphs at pauses
+  between words.
+
+A model that returns no word times still runs: `group_tokens_to_words` (`engine/src/sherpa.rs`) spreads
+the words evenly across the segment. The error grows with segment length. In a 30 s energy-cut piece a
+word can land many seconds from where it was said. A speaker change inside the piece becomes a guess,
+and the pauses that make paragraphs disappear.
+
+So the default model must return native word timestamps. That leaves the Parakeet family: v2 and
+Unified EN. The cost is Cohere's accuracy, 24.4% against 30.6% WER on `ami-sdm`, though only 1–3 points
+on `ami-ihm` and `earnings22`, where Unified EN closes most of the gap.
+
+If Cohere's accuracy is ever wanted, there are three ways round the missing timestamps:
+
+1. **Short pieces with the even spread.** About 5–8 s pieces bound the timing error to a few seconds.
+   Speaker changes and paragraphs are still guesses, and it's untested whether short pieces cost Cohere
+   accuracy.
+2. **Two passes.** Parakeet provides times, Cohere provides words, and a word-level alignment (edit
+   distance) moves Parakeet's times onto Cohere's words. Inserted words take times from their
+   neighbours. The editor keeps working fully. It costs both decodes (RTF about 0.08 + 0.15) and both
+   models in memory, about 5 GB, so it's only realistic on Standard or Copilot+ machines, as an
+   optional accuracy pass.
+3. **A separate forced-alignment model.** Another download and more memory, so it's worth trying only
+   if option 2 falls short.
+
+Option 2 is the one to try first. It's worth building only if the Windows runs show the room-mic gap
+matters in practice.
+
+**Recommendation for the Windows reference laptop:**
+- **File path:** energy cuts at 15 s (`energy:15/5`), as shipped on 2026-11-24.
+- **Decoding:** keep greedy.
+- **Models:** run v2 and Unified EN with `energy:15/5`, on the short and the long sets. Keep v2 as the
+  default unless Unified EN also wins on the long sets.
+- **Cohere:** one run on a Standard or Copilot+ machine, for speed and memory only. That's enough to
+  judge the two-pass option above.
+- **Dropped:** Ultra, v3, Redux and Qwen3-ASR.
+
 ## 2. How v2t's vocabulary works
 
 One file, `~/.v2t/dictionary.txt` (mode 0600), shared by the Mac app, CLI and iOS app (App Group).
@@ -308,14 +439,17 @@ after user testing. A clickable prototype of B–E exists for that testing.
 
 ## Suggested next steps
 
-1. Port the `oasr` scorer and add `ami-sdm`, `ami-ihm` and `earnings22` at 150 clips, with bootstrap
-   intervals, to the eval harness.
-2. Decoding cells D1–D4 (section 1b) on Mac, then on the Windows reference laptop. They need no new
-   model or crate.
-3. On the Windows reference laptop: Parakeet v2 (baseline), Ultra, Unified EN, Qwen3-ASR 0.6B and
-   Cohere. Record WER, RTF, peak memory, load time, and whether word timestamps come back.
-4. Vocabulary: adopt v2t's file format (`Term` / `heard => written`, plus acronym joining), add
-   deterministic replacements after ASR, then the D5 hotwords spike.
+1. ~~Port the `oasr` scorer and add `ami-sdm`, `ami-ihm` and `earnings22` at 150 clips, with bootstrap
+   intervals, to the eval harness.~~ Done: `tools/asr-bench` ([PR #24](https://github.com/KindTechUK/folio/pull/24)).
+2. Decoding cells D1–D4 (section 1b): done on Mac (2026-11-23, section 1b). Still to run on the
+   Windows reference laptop.
+3. On the Windows reference laptop: Parakeet v2 (baseline) and Unified EN, both with `energy:15/5`,
+   plus one Cohere run on a Standard or Copilot+ machine. The Mac grid dropped Ultra, v3, Redux and
+   Qwen3-ASR. Record WER, RTF, peak memory, load time, and whether word timestamps come back.
+4. Vocabulary: adopt v2t's file format (`Term` / `heard => written`, plus acronym joining) and add
+   deterministic replacements after ASR. Both are in
+   [PR #26](https://github.com/KindTechUK/folio/pull/26), with acronyms joined only when an entry asks
+   for it. Next comes the D5 hotwords spike.
 5. Prototype the suggestion UX (B + C + D) against the review editor.
 6. Device tiers, modelled on v2t's `Recommendation`: see
    [`windows-device-tiers-2026-11.md`](windows-device-tiers-2026-11.md). Run the bench on its
