@@ -66,6 +66,23 @@ Installers land under `app/src-tauri/target/{release,debug}/bundle/`:
 - Windows → `nsis/*.exe`
 - Linux → `appimage/*.AppImage`, `deb/*.deb`
 
+### Windows installer from a Mac
+
+Without CI, a Mac can cross-build the Windows installer with
+[`scripts/build-windows-on-mac.sh`](https://github.com/KindTechUK/folio/blob/main/scripts/build-windows-on-mac.sh):
+
+```bash
+brew install nsis llvm lld                 # one-time setup
+rustup target add x86_64-pc-windows-msvc
+cargo install --locked cargo-xwin
+scripts/build-windows-on-mac.sh /path/to/vendor-public.spki.pem
+```
+
+The key must be the one the official model packs are signed with. The script checks that the key
+is embedded and that the app needs no DLL that Windows doesn't ship. Tauri calls cross-compilation
+experimental, and the installer is unsigned, so test it on Windows before you share it. The installer
+lands in `app/src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/`.
+
 ## The zero-egress gate
 
 The product guarantee is that the shipped binaries link **no** networking crates. Prove
