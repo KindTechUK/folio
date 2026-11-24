@@ -1,0 +1,384 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S003": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L15-16: Leanne, not Amelia, made the request; Sandra is Leanne's mother, not Amelia's. Wish given to wrong person."
+    },
+    "S004": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L21-22: 84% is 'below where we'd want'; 80% (L29) is the panel threshold, not a target, and 84% is above it."
+    },
+    "S005": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S006": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Jordan as Amelia's father/ex-partner comes from uncited L42."
+    },
+    "S008": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Sertraline content is in uncited L59; cited L57-58 only say Sandra rang."
+    },
+    "S009": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S010": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S011": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S012": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": "T09",
+      "why": "L59: Sandra's unverified claim stated as fact; 'confirmed by Sandra' overstates; Ruth doesn't know if true."
+    },
+    "S013": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L100: no contact is Leanne's own account; stated as established fact, attribution dropped (police check part fine, L101)."
+    },
+    "S014": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S015": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S016": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L70-72: Ruth's view, disputed by Darren (L69), stated as fact; survey pending (L73); 'back bedroom' not said."
+    },
+    "S017": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S018": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L75 gives the date; that it's the surveyor needs uncited L74."
+    },
+    "S019": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L53-54: weight/chest triggers refer to Amelia, not Leanne; condition attributed to wrong person."
+    },
+    "S020": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S021": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S023": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S024": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S025": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S026": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L107 alone doesn't say what the concern was; context L102."
+    },
+    "S027": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Clare's Law named only in uncited L109."
+    },
+    "S028": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S029": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L115: 'she' is Leanne (L114), not a child, who is lovely with Amelia."
+    },
+    "S030": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L116: Tyler adores 'her' = Leanne, his mum, not 'the child'."
+    },
+    "S031": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S032": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S033": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S034": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S035": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S036": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S037": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S038": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S039": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L124-125: Ruth offered the stay and play referral, not a perinatal referral 'for Amelia'."
+    },
+    "S040": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L64 'I'll do it' doesn't name the referral; perinatal in uncited L63."
+    },
+    "S041": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L66 gives the date but not which referral; context L63-65."
+    },
+    "S042": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S043": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L137 'By Friday. Yep.' doesn't name the referral; L136 uncited."
+    },
+    "S044": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L139 doesn't name stay and play; L138 uncited."
+    },
+    "S045": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S046": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L74, L140: Darren arranged the surveyor; he is not the surveyor. Wrong role/owner."
+    },
+    "S047": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S048": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Lates by day detail is in uncited L143."
+    },
+    "S049": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S050": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S051": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L146 doesn't name CAMHS; L145 uncited."
+    },
+    "S052": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S053": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S054": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L151 'Correct' only makes sense with uncited L150."
+    },
+    "S055": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S056": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S057": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S058": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S059": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S060": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {
+    "F01": "partial",
+    "F02": "partial",
+    "F03": "partial",
+    "F04": "partial",
+    "F05": "present",
+    "F06": "absent",
+    "F07": "present",
+    "F08": "partial",
+    "F09": "present",
+    "F10": "present",
+    "F11": "partial",
+    "F12": "present",
+    "F13": "present",
+    "F14": "present",
+    "F15": "present",
+    "F16": "present",
+    "F17": "present"
+  },
+  "notes": "Mostly faithful, but several wrong-person slips (S003, S019, S029, S030, S039, S046), a false '80% target' comparison (S004), and sertraline hearsay stated as fact (S012). S024 is truncated with stray non-English characters."
+}
