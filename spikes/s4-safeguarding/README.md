@@ -58,7 +58,9 @@ left out, as in S2). Finished notes are skipped on a re-run unless `--force`. Sp
 
 ## Outputs (`results/`)
 
-- `runs.jsonl`: one record per map call, including the raw model output.
+- `runs.jsonl`: one record per map call, including the raw model output. (The qwen3-4b/neutral/s4-07
+  record comes from a smoke run with the same settings; `run.log` is the main run's console output.)
+  `logs/` (llama-server logs) is not committed.
 - `notes/<model>/<prompt>/<vignette>.json`: `{"note": ..., "facts": [...]}`.
 - `scores.jsonl`, `auto_summary.md`: automatic checks (see the `score.py` docstring): refusal signals
   (JSON failure or salvage, no facts, refusal phrases not in the transcript, empty "Risks and safeguarding"

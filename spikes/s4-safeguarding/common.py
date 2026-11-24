@@ -184,7 +184,9 @@ def salvage_json(content, list_key):
 # dropped, a few irregular verb forms folded. Matching is on whole normalised tokens, in sequence.
 
 NUMBER_WORDS = {w: str(i) for i, w in enumerate(
-    "zero one two three four five six seven eight nine ten eleven twelve".split())}
+    "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen "
+    "sixteen seventeen eighteen nineteen twenty".split())}
+NUMBER_WORDS.update({"thirty": "30", "forty": "40", "fifty": "50", "sixty": "60", "hundred": "100"})
 IRREGULAR = {
     "took": "take", "taken": "take", "taking": "take", "takes": "take",
     "beaten": "beat", "beating": "beat", "beats": "beat",
