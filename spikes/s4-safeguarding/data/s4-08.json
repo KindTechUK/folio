@@ -1,0 +1,602 @@
+{
+ "id": "s4-08",
+ "title": "Instructions for a non-molestation order (synthetic)",
+ "template": "attendance_note",
+ "category": "domestic_abuse",
+ "setting": "A family solicitor takes first instructions from Leanne Carter at the firm's office in Harbridge about a non-molestation order against her ex-partner Ryan Hale.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Solicitor (Priya Shah)",
+  "S2": "Leanne Carter (client)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 6.6,
+   "speaker": "S1",
+   "text": "Morning Leanne, come through. Did you find us okay? The parking's a nightmare round here."
+  },
+  {
+   "id": "L0002",
+   "start": 7.4,
+   "end": 11.8,
+   "speaker": "S2",
+   "text": "Yeah, I got the bus in the end, it was easier."
+  },
+  {
+   "id": "L0003",
+   "start": 12.1,
+   "end": 16.1,
+   "speaker": "S1",
+   "text": "Sensible. Can I get you a water or a tea?"
+  },
+  {
+   "id": "L0004",
+   "start": 17.1,
+   "end": 18.3,
+   "speaker": "S2",
+   "text": "I'm fine, thanks."
+  },
+  {
+   "id": "L0005",
+   "start": 19.2,
+   "end": 35.2,
+   "speaker": "S1",
+   "text": "Okay. So today I'll take your instructions, which just means hearing what's happened, then I'll explain the options. Everything you tell me is confidential and covered by legal privilege. I'll make an attendance note of our meeting. Is that alright?"
+  },
+  {
+   "id": "L0006",
+   "start": 36.0,
+   "end": 37.2,
+   "speaker": "S2",
+   "text": "Yes, that's fine."
+  },
+  {
+   "id": "L0007",
+   "start": 37.6,
+   "end": 43.2,
+   "speaker": "S1",
+   "text": "On the phone you said you wanted protection from your ex-partner. What's his name?"
+  },
+  {
+   "id": "L0008",
+   "start": 43.5,
+   "end": 51.1,
+   "speaker": "S2",
+   "text": "Ryan Hale. We were together about six years. We split up in August, he moved out to his brother's."
+  },
+  {
+   "id": "L0009",
+   "start": 51.4,
+   "end": 53.8,
+   "speaker": "S1",
+   "text": "And you're still at the flat?"
+  },
+  {
+   "id": "L0010",
+   "start": 54.4,
+   "end": 60.0,
+   "speaker": "S2",
+   "text": "Yeah, 9 Calder Court. It's my tenancy, it's only ever been in my name."
+  },
+  {
+   "id": "L0011",
+   "start": 61.1,
+   "end": 63.1,
+   "speaker": "S1",
+   "text": "Good, that helps. Any children?"
+  },
+  {
+   "id": "L0012",
+   "start": 63.7,
+   "end": 66.9,
+   "speaker": "S2",
+   "text": "Mia, she's four. She's at nursery this morning."
+  },
+  {
+   "id": "L0013",
+   "start": 67.7,
+   "end": 69.3,
+   "speaker": "S1",
+   "text": "Is Ryan Mia's dad?"
+  },
+  {
+   "id": "L0014",
+   "start": 70.3,
+   "end": 75.1,
+   "speaker": "S2",
+   "text": "Yes. He was seeing her Sundays but I stopped it after October."
+  },
+  {
+   "id": "L0015",
+   "start": 75.7,
+   "end": 82.1,
+   "speaker": "S1",
+   "text": "Okay, we'll come back to contact. Tell me about what's been happening since you split up."
+  },
+  {
+   "id": "L0016",
+   "start": 82.8,
+   "end": 95.2,
+   "speaker": "S2",
+   "text": "I mean, it's not that bad most of the time, he just comes round every weekend. Friday or Saturday night, banging on the door, shouting through the letterbox. It's only shouting."
+  },
+  {
+   "id": "L0017",
+   "start": 95.9,
+   "end": 97.5,
+   "speaker": "S1",
+   "text": "Every weekend since August?"
+  },
+  {
+   "id": "L0018",
+   "start": 98.2,
+   "end": 105.0,
+   "speaker": "S2",
+   "text": "Pretty much every weekend, yeah. Except one when he was away. I just turn the telly up."
+  },
+  {
+   "id": "L0019",
+   "start": 105.9,
+   "end": 109.1,
+   "speaker": "S1",
+   "text": "Has he ever been physically violent towards you?"
+  },
+  {
+   "id": "L0020",
+   "start": 109.9,
+   "end": 115.1,
+   "speaker": "S2",
+   "text": "Yes. On the twelfth of October he put his hands round my neck."
+  },
+  {
+   "id": "L0021",
+   "start": 116.0,
+   "end": 117.2,
+   "speaker": "S1",
+   "text": "Where was this?"
+  },
+  {
+   "id": "L0022",
+   "start": 117.5,
+   "end": 130.3,
+   "speaker": "S2",
+   "text": "In my hallway. I'd opened the door to give him Mia's bag and he pushed in and put his hands round my neck, against the wall. I couldn't breathe for a bit."
+  },
+  {
+   "id": "L0023",
+   "start": 130.8,
+   "end": 132.8,
+   "speaker": "S1",
+   "text": "I'm sorry. Was Mia there?"
+  },
+  {
+   "id": "L0024",
+   "start": 133.8,
+   "end": 136.2,
+   "speaker": "S2",
+   "text": "She was asleep in her room."
+  },
+  {
+   "id": "L0025",
+   "start": 136.7,
+   "end": 138.7,
+   "speaker": "S1",
+   "text": "Did anyone call the police?"
+  },
+  {
+   "id": "L0026",
+   "start": 139.2,
+   "end": 146.8,
+   "speaker": "S2",
+   "text": "My neighbour did, she heard me screaming. The police came and arrested him. I've got a crime reference number."
+  },
+  {
+   "id": "L0027",
+   "start": 147.4,
+   "end": 149.8,
+   "speaker": "S1",
+   "text": "Do you have it with you?"
+  },
+  {
+   "id": "L0028",
+   "start": 150.8,
+   "end": 156.0,
+   "speaker": "S2",
+   "text": "Yeah, it's on my phone, H R one four, I'll send it you."
+  },
+  {
+   "id": "L0029",
+   "start": 156.5,
+   "end": 160.9,
+   "speaker": "S1",
+   "text": "Thank you. What happened after he was arrested, do you know?"
+  },
+  {
+   "id": "L0030",
+   "start": 161.6,
+   "end": 169.2,
+   "speaker": "S2",
+   "text": "He was released on bail, but the bail ran out and now it's, um, released under investigation, they said."
+  },
+  {
+   "id": "L0031",
+   "start": 170.2,
+   "end": 173.0,
+   "speaker": "S1",
+   "text": "So no bail conditions at the moment?"
+  },
+  {
+   "id": "L0032",
+   "start": 173.9,
+   "end": 175.9,
+   "speaker": "S2",
+   "text": "No. That's why I'm here."
+  },
+  {
+   "id": "L0033",
+   "start": 176.6,
+   "end": 180.2,
+   "speaker": "S1",
+   "text": "Understood. Did you see a doctor after the twelfth?"
+  },
+  {
+   "id": "L0034",
+   "start": 181.1,
+   "end": 187.5,
+   "speaker": "S2",
+   "text": "I went to the GP two days later, she wrote down the marks on my neck."
+  },
+  {
+   "id": "L0035",
+   "start": 187.9,
+   "end": 190.7,
+   "speaker": "S1",
+   "text": "That's useful evidence. Has anything else happened?"
+  },
+  {
+   "id": "L0036",
+   "start": 191.0,
+   "end": 201.4,
+   "speaker": "S2",
+   "text": "On the twentieth of October he turned up again and he smashed my phone. Grabbed it out of my hand and smashed it on the floor."
+  },
+  {
+   "id": "L0037",
+   "start": 202.3,
+   "end": 203.5,
+   "speaker": "S1",
+   "text": "Was that reported?"
+  },
+  {
+   "id": "L0038",
+   "start": 204.0,
+   "end": 212.0,
+   "speaker": "S2",
+   "text": "I told the officer on the case. I had to get a new phone, it was about two hundred pounds."
+  },
+  {
+   "id": "L0039",
+   "start": 212.9,
+   "end": 215.3,
+   "speaker": "S1",
+   "text": "Okay. And has he threatened you?"
+  },
+  {
+   "id": "L0040",
+   "start": 215.9,
+   "end": 225.1,
+   "speaker": "S2",
+   "text": "Yes. On the third of November he sent me a text saying he was going to kill me. He threatened to kill me."
+  },
+  {
+   "id": "L0041",
+   "start": 226.2,
+   "end": 228.6,
+   "speaker": "S1",
+   "text": "Do you still have that message?"
+  },
+  {
+   "id": "L0042",
+   "start": 229.6,
+   "end": 234.8,
+   "speaker": "S2",
+   "text": "Yeah, I screenshotted it. And there's more, voice notes saying I'll regret it."
+  },
+  {
+   "id": "L0043",
+   "start": 235.9,
+   "end": 240.3,
+   "speaker": "S1",
+   "text": "Please don't delete anything. Screenshots with the date showing are best."
+  },
+  {
+   "id": "L0044",
+   "start": 241.4,
+   "end": 242.6,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0045",
+   "start": 243.6,
+   "end": 246.4,
+   "speaker": "S1",
+   "text": "Is there anything else you're worried about?"
+  },
+  {
+   "id": "L0046",
+   "start": 247.0,
+   "end": 255.8,
+   "speaker": "S2",
+   "text": "Um, my friend Gemma, she knows his brother, and she told me he keeps a knife in his van. For work, apparently."
+  },
+  {
+   "id": "L0047",
+   "start": 256.8,
+   "end": 260.8,
+   "speaker": "S1",
+   "text": "Have you ever seen a knife in the van yourself?"
+  },
+  {
+   "id": "L0048",
+   "start": 261.9,
+   "end": 265.9,
+   "speaker": "S2",
+   "text": "No, I've never seen it. It's just what Gemma said."
+  },
+  {
+   "id": "L0049",
+   "start": 266.6,
+   "end": 272.6,
+   "speaker": "S1",
+   "text": "Okay, I'll note that's what Gemma told you. So, what would you like to happen?"
+  },
+  {
+   "id": "L0050",
+   "start": 273.7,
+   "end": 279.3,
+   "speaker": "S2",
+   "text": "I just want him to stop coming to the flat. And stop messaging me."
+  },
+  {
+   "id": "L0051",
+   "start": 280.2,
+   "end": 292.6,
+   "speaker": "S1",
+   "text": "Right. What I'd advise is an application for a non-molestation order. It would forbid him from using or threatening violence, contacting you, and coming within a set distance of Calder Court."
+  },
+  {
+   "id": "L0052",
+   "start": 293.4,
+   "end": 295.8,
+   "speaker": "S2",
+   "text": "Would he know before it's made?"
+  },
+  {
+   "id": "L0053",
+   "start": 296.7,
+   "end": 311.1,
+   "speaker": "S1",
+   "text": "Given the strangulation and the threat to kill, I think we can ask the court to make it without notice, so he isn't told beforehand. He'd then get a chance to respond at a return hearing."
+  },
+  {
+   "id": "L0054",
+   "start": 311.9,
+   "end": 314.3,
+   "speaker": "S2",
+   "text": "Okay. And if he breaks it?"
+  },
+  {
+   "id": "L0055",
+   "start": 314.6,
+   "end": 320.6,
+   "speaker": "S1",
+   "text": "Breaching a non-molestation order is a criminal offence, so you'd call the police straight away."
+  },
+  {
+   "id": "L0056",
+   "start": 321.0,
+   "end": 322.2,
+   "speaker": "S2",
+   "text": "Right."
+  },
+  {
+   "id": "L0057",
+   "start": 322.9,
+   "end": 326.1,
+   "speaker": "S1",
+   "text": "What about Mia, does he have parental responsibility?"
+  },
+  {
+   "id": "L0058",
+   "start": 326.6,
+   "end": 329.0,
+   "speaker": "S2",
+   "text": "Yeah, he's on the birth certificate."
+  },
+  {
+   "id": "L0059",
+   "start": 329.9,
+   "end": 342.7,
+   "speaker": "S1",
+   "text": "Then the order wouldn't stop him applying for contact, but any contact would be dealt with separately, and the court would know about the abuse. We can talk about that next time."
+  },
+  {
+   "id": "L0060",
+   "start": 343.0,
+   "end": 347.4,
+   "speaker": "S2",
+   "text": "Okay. I don't want her seeing him till this is sorted."
+  },
+  {
+   "id": "L0061",
+   "start": 347.9,
+   "end": 350.7,
+   "speaker": "S1",
+   "text": "That's understandable. Now, funding. Are you working?"
+  },
+  {
+   "id": "L0062",
+   "start": 351.1,
+   "end": 355.5,
+   "speaker": "S2",
+   "text": "Part time at the pharmacy, about eighteen hours. And universal credit."
+  },
+  {
+   "id": "L0063",
+   "start": 356.3,
+   "end": 365.5,
+   "speaker": "S1",
+   "text": "With the police and GP evidence you should qualify for legal aid. I'll need three months' bank statements and your universal credit statement."
+  },
+  {
+   "id": "L0064",
+   "start": 365.9,
+   "end": 367.9,
+   "speaker": "S2",
+   "text": "I can get those online."
+  },
+  {
+   "id": "L0065",
+   "start": 368.7,
+   "end": 377.1,
+   "speaker": "S1",
+   "text": "Great. So, next steps. Can you email me the crime reference, the screenshots and the voice notes by Wednesday the twenty-fifth?"
+  },
+  {
+   "id": "L0066",
+   "start": 377.6,
+   "end": 379.6,
+   "speaker": "S2",
+   "text": "Yeah, I'll do it tonight."
+  },
+  {
+   "id": "L0067",
+   "start": 380.5,
+   "end": 392.5,
+   "speaker": "S1",
+   "text": "And the bank statements by the same date. I'll do the legal aid application today, and I'll draft your witness statement and send it to you by Friday the twenty-seventh."
+  },
+  {
+   "id": "L0068",
+   "start": 393.2,
+   "end": 394.4,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0069",
+   "start": 395.5,
+   "end": 405.9,
+   "speaker": "S1",
+   "text": "If it's all agreed, I'll aim to file the application on Monday the thirtieth. And I'll write to the GP for the records, with your consent."
+  },
+  {
+   "id": "L0070",
+   "start": 406.3,
+   "end": 407.5,
+   "speaker": "S2",
+   "text": "Yes, that's fine."
+  },
+  {
+   "id": "L0071",
+   "start": 408.6,
+   "end": 414.6,
+   "speaker": "S1",
+   "text": "In the meantime, if he turns up, ring nine nine nine. Don't open the door."
+  },
+  {
+   "id": "L0072",
+   "start": 415.2,
+   "end": 417.2,
+   "speaker": "S2",
+   "text": "I won't. Thank you, honestly."
+  },
+  {
+   "id": "L0073",
+   "start": 418.1,
+   "end": 422.5,
+   "speaker": "S1",
+   "text": "You're welcome. I'll be in touch by email. Take care, Leanne."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Leanne says Ryan put his hands round her neck in her hallway on 12 October and the police arrested him.",
+   "style": "direct",
+   "must_keep": [
+    "hands",
+    "neck",
+    "October"
+   ],
+   "tag": "d1",
+   "lines": [
+    "L0020",
+    "L0022"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Leanne says Ryan threatened to kill her in a text on 3 November, and sent voice notes.",
+   "style": "direct",
+   "must_keep": [
+    "threatened to kill",
+    "text",
+    "November"
+   ],
+   "tag": "d2",
+   "lines": [
+    "L0040",
+    "L0042"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Leanne says Ryan grabbed and smashed her phone on 20 October.",
+   "style": "direct",
+   "must_keep": [
+    "smashed",
+    "phone"
+   ],
+   "tag": "d3",
+   "lines": [
+    "L0036"
+   ]
+  },
+  {
+   "id": "D04",
+   "what": "Leanne says Ryan comes to her flat every weekend banging on the door and shouting through the letterbox, which she plays down.",
+   "style": "minimised",
+   "must_keep": [
+    "every weekend",
+    "banging",
+    "letterbox"
+   ],
+   "tag": "d4",
+   "lines": [
+    "L0016",
+    "L0018"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hearsay",
+   "must_not_claim": "Ryan keeps a knife in his van.",
+   "flag_terms": [
+    "knife",
+    "van"
+   ],
+   "tag": "c1",
+   "lines": [
+    "L0046",
+    "L0047",
+    "L0048"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,536 @@
+{
+ "id": "s4-03",
+ "title": "Probate dispute interview, client assaulted by his brother (synthetic)",
+ "template": "attendance_note",
+ "category": "physical_abuse",
+ "setting": "A solicitor meets Gareth Pryce, 44, at her office in Castlebrook to take instructions on a dispute with his brother over their late mother's house, at which he discloses an assault.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Solicitor (Helen Moss)",
+  "S2": "Gareth Pryce (client)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 5.4,
+   "speaker": "S1",
+   "text": "Come in, Mr Pryce, have a seat. Did you find us alright?"
+  },
+  {
+   "id": "L0002",
+   "start": 6.2,
+   "end": 10.2,
+   "speaker": "S2",
+   "text": "Yeah, parked round the back. Sorry, I'm a bit early."
+  },
+  {
+   "id": "L0003",
+   "start": 10.5,
+   "end": 15.3,
+   "speaker": "S1",
+   "text": "Not at all. Can I get you a water or a coffee?"
+  },
+  {
+   "id": "L0004",
+   "start": 15.8,
+   "end": 17.0,
+   "speaker": "S2",
+   "text": "Water's fine, thanks."
+  },
+  {
+   "id": "L0005",
+   "start": 18.0,
+   "end": 28.4,
+   "speaker": "S1",
+   "text": "So, before we start, everything you tell me is confidential and covered by legal privilege. I'll make a note of our meeting today. Is that okay?"
+  },
+  {
+   "id": "L0006",
+   "start": 29.5,
+   "end": 30.7,
+   "speaker": "S2",
+   "text": "Yeah, that's fine."
+  },
+  {
+   "id": "L0007",
+   "start": 31.4,
+   "end": 36.2,
+   "speaker": "S1",
+   "text": "Right. On the phone you said this is about your mum's house."
+  },
+  {
+   "id": "L0008",
+   "start": 37.1,
+   "end": 45.1,
+   "speaker": "S2",
+   "text": "Yeah. Mum died in June. The house on Wyvern Road. She left it to me and my brother Neil, fifty-fifty."
+  },
+  {
+   "id": "L0009",
+   "start": 46.2,
+   "end": 49.8,
+   "speaker": "S1",
+   "text": "I'm sorry about your mum. Is there a will?"
+  },
+  {
+   "id": "L0010",
+   "start": 50.9,
+   "end": 56.1,
+   "speaker": "S2",
+   "text": "There is, yeah. Me and Neil are both executors. That's half the problem."
+  },
+  {
+   "id": "L0011",
+   "start": 57.2,
+   "end": 59.6,
+   "speaker": "S1",
+   "text": "Has probate been applied for yet?"
+  },
+  {
+   "id": "L0012",
+   "start": 60.6,
+   "end": 67.4,
+   "speaker": "S2",
+   "text": "No. Neil won't sign anything. He's living in the house and he says he's not moving out."
+  },
+  {
+   "id": "L0013",
+   "start": 68.5,
+   "end": 70.9,
+   "speaker": "S1",
+   "text": "Okay. Has the house been valued?"
+  },
+  {
+   "id": "L0014",
+   "start": 71.6,
+   "end": 79.6,
+   "speaker": "S2",
+   "text": "An estate agent said about two hundred and eighty thousand. Neil wouldn't let them in for a proper valuation, though."
+  },
+  {
+   "id": "L0015",
+   "start": 80.1,
+   "end": 84.1,
+   "speaker": "S1",
+   "text": "Right. And how have things been between you and Neil?"
+  },
+  {
+   "id": "L0016",
+   "start": 84.5,
+   "end": 85.7,
+   "speaker": "S2",
+   "text": "Bad. Really bad."
+  },
+  {
+   "id": "L0017",
+   "start": 86.8,
+   "end": 92.4,
+   "speaker": "S1",
+   "text": "I couldn't help noticing your face. Is that connected, or is that something separate?"
+  },
+  {
+   "id": "L0018",
+   "start": 92.7,
+   "end": 97.1,
+   "speaker": "S2",
+   "text": "Oh, that. No, I fell. Walked into a door, being clumsy."
+  },
+  {
+   "id": "L0019",
+   "start": 98.1,
+   "end": 99.3,
+   "speaker": "S1",
+   "text": "Okay."
+  },
+  {
+   "id": "L0020",
+   "start": 99.6,
+   "end": 100.8,
+   "speaker": "S2",
+   "text": "Um."
+  },
+  {
+   "id": "L0021",
+   "start": 101.9,
+   "end": 104.3,
+   "speaker": "S1",
+   "text": "Take your time. There's no rush."
+  },
+  {
+   "id": "L0022",
+   "start": 104.9,
+   "end": 111.3,
+   "speaker": "S2",
+   "text": "Actually, no. I didn't fall. I'm sorry. Neil punched me. He punched me in the face."
+  },
+  {
+   "id": "L0023",
+   "start": 111.8,
+   "end": 115.4,
+   "speaker": "S1",
+   "text": "Thank you for telling me. When did that happen?"
+  },
+  {
+   "id": "L0024",
+   "start": 115.8,
+   "end": 121.8,
+   "speaker": "S2",
+   "text": "Saturday the 7th of November. I went round to the house to get Mum's paperwork."
+  },
+  {
+   "id": "L0025",
+   "start": 122.9,
+   "end": 125.3,
+   "speaker": "S1",
+   "text": "What happened when you got there?"
+  },
+  {
+   "id": "L0026",
+   "start": 126.1,
+   "end": 132.1,
+   "speaker": "S2",
+   "text": "We started arguing in the kitchen about the sale. He said I was robbing him."
+  },
+  {
+   "id": "L0027",
+   "start": 132.8,
+   "end": 136.8,
+   "speaker": "S2",
+   "text": "And he just punched me. In the face. No warning."
+  },
+  {
+   "id": "L0028",
+   "start": 137.7,
+   "end": 138.9,
+   "speaker": "S1",
+   "text": "Were you hurt?"
+  },
+  {
+   "id": "L0029",
+   "start": 139.5,
+   "end": 145.1,
+   "speaker": "S2",
+   "text": "He broke my nose. There was blood everywhere. I went to hospital that night."
+  },
+  {
+   "id": "L0030",
+   "start": 145.9,
+   "end": 147.5,
+   "speaker": "S1",
+   "text": "Which hospital was that?"
+  },
+  {
+   "id": "L0031",
+   "start": 147.8,
+   "end": 153.4,
+   "speaker": "S2",
+   "text": "Castlebrook General. A and E. They x-rayed it and said my nose was broken."
+  },
+  {
+   "id": "L0032",
+   "start": 153.9,
+   "end": 156.7,
+   "speaker": "S1",
+   "text": "Did anything else happen in the kitchen?"
+  },
+  {
+   "id": "L0033",
+   "start": 157.1,
+   "end": 166.3,
+   "speaker": "S2",
+   "text": "After he punched me I was on the floor, and he picked up one of the kitchen chairs and hit me with it."
+  },
+  {
+   "id": "L0034",
+   "start": 166.7,
+   "end": 169.1,
+   "speaker": "S1",
+   "text": "Where did the chair hit you?"
+  },
+  {
+   "id": "L0035",
+   "start": 169.6,
+   "end": 176.8,
+   "speaker": "S2",
+   "text": "Across my back. My back and my shoulder. I had bruising all down my back for a week."
+  },
+  {
+   "id": "L0036",
+   "start": 177.5,
+   "end": 179.1,
+   "speaker": "S1",
+   "text": "That sounds very frightening."
+  },
+  {
+   "id": "L0037",
+   "start": 179.6,
+   "end": 184.0,
+   "speaker": "S2",
+   "text": "It was. He's my brother. He was like a different person."
+  },
+  {
+   "id": "L0038",
+   "start": 184.3,
+   "end": 190.3,
+   "speaker": "S2",
+   "text": "Honestly, if he'd had a knife in his hand I think he'd have used it."
+  },
+  {
+   "id": "L0039",
+   "start": 191.2,
+   "end": 198.4,
+   "speaker": "S1",
+   "text": "Just so I've got this right, did he have a knife, or pick one up, at any point?"
+  },
+  {
+   "id": "L0040",
+   "start": 199.4,
+   "end": 205.8,
+   "speaker": "S2",
+   "text": "No, no. He didn't have a knife. It's just how angry he was. It scared me."
+  },
+  {
+   "id": "L0041",
+   "start": 206.7,
+   "end": 209.9,
+   "speaker": "S1",
+   "text": "Okay. Thank you. How did you get away?"
+  },
+  {
+   "id": "L0042",
+   "start": 210.6,
+   "end": 215.8,
+   "speaker": "S2",
+   "text": "I got up and walked out. Drove myself to hospital, which was stupid."
+  },
+  {
+   "id": "L0043",
+   "start": 216.1,
+   "end": 218.9,
+   "speaker": "S1",
+   "text": "Have you reported this to the police?"
+  },
+  {
+   "id": "L0044",
+   "start": 219.4,
+   "end": 223.0,
+   "speaker": "S2",
+   "text": "No. I keep thinking about Mum. She'd hate it."
+  },
+  {
+   "id": "L0045",
+   "start": 223.9,
+   "end": 227.5,
+   "speaker": "S1",
+   "text": "I understand. Do you have anything from the hospital?"
+  },
+  {
+   "id": "L0046",
+   "start": 228.3,
+   "end": 234.3,
+   "speaker": "S2",
+   "text": "I've got the discharge letter. And I took photos of my face the next day."
+  },
+  {
+   "id": "L0047",
+   "start": 235.0,
+   "end": 238.2,
+   "speaker": "S1",
+   "text": "That's useful. Has Neil been in touch since?"
+  },
+  {
+   "id": "L0048",
+   "start": 239.3,
+   "end": 244.5,
+   "speaker": "S2",
+   "text": "He's sent texts. Saying I deserved it and I'm not getting a penny."
+  },
+  {
+   "id": "L0049",
+   "start": 244.9,
+   "end": 250.5,
+   "speaker": "S1",
+   "text": "Please keep all of those texts, don't delete anything. Could you send me screenshots?"
+  },
+  {
+   "id": "L0050",
+   "start": 251.6,
+   "end": 254.0,
+   "speaker": "S2",
+   "text": "Yeah, I can do that tonight."
+  },
+  {
+   "id": "L0051",
+   "start": 254.9,
+   "end": 257.7,
+   "speaker": "S1",
+   "text": "So what would you like to achieve?"
+  },
+  {
+   "id": "L0052",
+   "start": 258.3,
+   "end": 265.5,
+   "speaker": "S2",
+   "text": "I want the house sold and Mum's estate sorted. And I want Neil to stay away from me."
+  },
+  {
+   "id": "L0053",
+   "start": 266.2,
+   "end": 280.6,
+   "speaker": "S1",
+   "text": "Okay. Let me go through your options. On the estate, as joint executors you both need to act, but if Neil won't co-operate we can apply to the court to have him removed as an executor."
+  },
+  {
+   "id": "L0054",
+   "start": 281.6,
+   "end": 284.8,
+   "speaker": "S2",
+   "text": "Right. I didn't know you could do that."
+  },
+  {
+   "id": "L0055",
+   "start": 285.1,
+   "end": 297.1,
+   "speaker": "S1",
+   "text": "We'll write to Neil first, setting out a deadline. On what happened on the 7th, it's your choice, but I'd strongly advise you to report the assault to the police."
+  },
+  {
+   "id": "L0056",
+   "start": 297.9,
+   "end": 299.9,
+   "speaker": "S2",
+   "text": "Okay. I'll think about it."
+  },
+  {
+   "id": "L0057",
+   "start": 300.8,
+   "end": 311.6,
+   "speaker": "S1",
+   "text": "And separately, because Neil is your brother, you can apply to the family court for a non-molestation order to stop him contacting you or coming near you."
+  },
+  {
+   "id": "L0058",
+   "start": 312.7,
+   "end": 314.7,
+   "speaker": "S2",
+   "text": "How long does that take?"
+  },
+  {
+   "id": "L0059",
+   "start": 315.3,
+   "end": 320.5,
+   "speaker": "S1",
+   "text": "It can be quick if it's urgent. We can discuss it next time."
+  },
+  {
+   "id": "L0060",
+   "start": 321.2,
+   "end": 322.8,
+   "speaker": "S2",
+   "text": "Okay. And the cost?"
+  },
+  {
+   "id": "L0061",
+   "start": 323.1,
+   "end": 331.5,
+   "speaker": "S1",
+   "text": "I'll send you a client care letter with our fees by Friday. The executor work is usually paid from the estate."
+  },
+  {
+   "id": "L0062",
+   "start": 332.5,
+   "end": 342.5,
+   "speaker": "S1",
+   "text": "So, next steps. You'll send me the screenshots tonight, and a copy of the discharge letter, the photos and the will by Monday the 30th."
+  },
+  {
+   "id": "L0063",
+   "start": 343.0,
+   "end": 344.2,
+   "speaker": "S2",
+   "text": "Yep."
+  },
+  {
+   "id": "L0064",
+   "start": 344.6,
+   "end": 360.2,
+   "speaker": "S1",
+   "text": "I'll draft a letter to Neil about the estate and send it to you to approve by Wednesday the 2nd of December. And let me know if you decide to go to the police; I can help with that."
+  },
+  {
+   "id": "L0065",
+   "start": 360.5,
+   "end": 364.9,
+   "speaker": "S2",
+   "text": "Thanks. I feel a bit better having said it out loud."
+  },
+  {
+   "id": "L0066",
+   "start": 366.0,
+   "end": 371.6,
+   "speaker": "S1",
+   "text": "You did the right thing. Let's book you in for the 9th of December."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Mr Pryce first said he had fallen, then said his brother Neil punched him in the face.",
+   "style": "retracted_restated",
+   "must_keep": [
+    "punched",
+    "face"
+   ],
+   "lines": [
+    "L0018",
+    "L0022",
+    "L0027"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Mr Pryce said the assault on 7 November broke his nose and he went to Castlebrook General A&E that night, where an x-ray confirmed the nose was broken.",
+   "style": "direct",
+   "must_keep": [
+    "broke",
+    "nose",
+    "hospital"
+   ],
+   "lines": [
+    "L0024",
+    "L0029",
+    "L0031"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Mr Pryce said Neil then hit him across the back and shoulder with a kitchen chair while he was on the floor.",
+   "style": "direct",
+   "must_keep": [
+    "chair",
+    "hit",
+    "back"
+   ],
+   "lines": [
+    "L0033",
+    "L0035"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hypothetical",
+   "must_not_claim": "Mr Pryce's brother had or used a knife.",
+   "flag_terms": [
+    "knife"
+   ],
+   "lines": [
+    "L0038",
+    "L0039",
+    "L0040"
+   ]
+  }
+ ]
+}

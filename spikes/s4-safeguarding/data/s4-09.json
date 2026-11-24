@@ -1,0 +1,550 @@
+{
+ "id": "s4-09",
+ "title": "Older man abused by his wife (synthetic)",
+ "template": "assessment",
+ "category": "domestic_abuse",
+ "setting": "A social worker visits Harold Pryce, 76, at home at 31 Bramley Road, Harbridge, after his GP raised concerns about bruising, while his wife Sandra is out at the shops.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Social worker (Tom Okafor)",
+  "S2": "Harold Pryce (the person)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 9.0,
+   "speaker": "S1",
+   "text": "Mr Pryce? Hello, I'm Tom Okafor, I'm a social worker from Harbridge adult services. Dr Bell asked me to pop round."
+  },
+  {
+   "id": "L0002",
+   "start": 9.9,
+   "end": 15.9,
+   "speaker": "S2",
+   "text": "Oh yes, she said someone would come. Come in, mind the step. Call me Harold."
+  },
+  {
+   "id": "L0003",
+   "start": 16.4,
+   "end": 19.2,
+   "speaker": "S1",
+   "text": "Thanks Harold. Lovely garden out the front."
+  },
+  {
+   "id": "L0004",
+   "start": 19.8,
+   "end": 25.0,
+   "speaker": "S2",
+   "text": "It was. I can't keep on top of it now, with my knees."
+  },
+  {
+   "id": "L0005",
+   "start": 25.6,
+   "end": 39.2,
+   "speaker": "S1",
+   "text": "I bet. Shall we sit here? So, Dr Bell was a bit worried about you, and she asked me to have a chat about how things are at home. Is now a good time?"
+  },
+  {
+   "id": "L0006",
+   "start": 39.5,
+   "end": 43.5,
+   "speaker": "S2",
+   "text": "Sandra's at the shops, she'll be an hour. So yes."
+  },
+  {
+   "id": "L0007",
+   "start": 44.3,
+   "end": 62.3,
+   "speaker": "S1",
+   "text": "Okay. I'll be writing notes. What you tell me is confidential, but if I think you're at risk of harm I may need to share it with others, like your GP or the police, and I'd talk to you about that first. Is that alright?"
+  },
+  {
+   "id": "L0008",
+   "start": 63.4,
+   "end": 64.6,
+   "speaker": "S2",
+   "text": "I suppose so."
+  },
+  {
+   "id": "L0009",
+   "start": 65.5,
+   "end": 70.7,
+   "speaker": "S1",
+   "text": "Let's start with day to day. How are you managing around the house?"
+  },
+  {
+   "id": "L0010",
+   "start": 71.3,
+   "end": 78.9,
+   "speaker": "S2",
+   "text": "Slowly. I've got a stick and a frame upstairs. I had a fall in the garden in the spring."
+  },
+  {
+   "id": "L0011",
+   "start": 79.6,
+   "end": 80.8,
+   "speaker": "S1",
+   "text": "Any falls since?"
+  },
+  {
+   "id": "L0012",
+   "start": 81.6,
+   "end": 82.8,
+   "speaker": "S2",
+   "text": "No, touch wood."
+  },
+  {
+   "id": "L0013",
+   "start": 83.9,
+   "end": 85.1,
+   "speaker": "S1",
+   "text": "And washing, dressing?"
+  },
+  {
+   "id": "L0014",
+   "start": 86.2,
+   "end": 92.6,
+   "speaker": "S2",
+   "text": "I can wash myself, I sit on a stool in the shower. Socks are the trouble."
+  },
+  {
+   "id": "L0015",
+   "start": 93.1,
+   "end": 96.7,
+   "speaker": "S1",
+   "text": "Okay, an occupational therapist might help with that. Meals?"
+  },
+  {
+   "id": "L0016",
+   "start": 97.8,
+   "end": 100.6,
+   "speaker": "S2",
+   "text": "Sandra cooks. I can do a sandwich."
+  },
+  {
+   "id": "L0017",
+   "start": 101.5,
+   "end": 105.1,
+   "speaker": "S1",
+   "text": "And how long have you and Sandra been married?"
+  },
+  {
+   "id": "L0018",
+   "start": 106.1,
+   "end": 110.9,
+   "speaker": "S2",
+   "text": "Nine years. She's my second wife. My first, Joan, died in 2013."
+  },
+  {
+   "id": "L0019",
+   "start": 112.0,
+   "end": 114.8,
+   "speaker": "S1",
+   "text": "I'm sorry. Do you have family nearby?"
+  },
+  {
+   "id": "L0020",
+   "start": 115.7,
+   "end": 121.3,
+   "speaker": "S2",
+   "text": "My daughter Carol, she's in Kestwick. About two hours away. She rings on Sundays."
+  },
+  {
+   "id": "L0021",
+   "start": 121.9,
+   "end": 128.3,
+   "speaker": "S1",
+   "text": "Okay. Dr Bell mentioned bruises on your arms. Can you tell me how you got those?"
+  },
+  {
+   "id": "L0022",
+   "start": 128.8,
+   "end": 132.0,
+   "speaker": "S2",
+   "text": "Oh. Well. I bruise easily, with the tablets."
+  },
+  {
+   "id": "L0023",
+   "start": 133.0,
+   "end": 136.6,
+   "speaker": "S1",
+   "text": "That can happen. Is that how these ones happened?"
+  },
+  {
+   "id": "L0024",
+   "start": 137.7,
+   "end": 141.3,
+   "speaker": "S2",
+   "text": "Well. I, er. I don't really like to say."
+  },
+  {
+   "id": "L0025",
+   "start": 142.3,
+   "end": 143.9,
+   "speaker": "S1",
+   "text": "Take your time, Harold."
+  },
+  {
+   "id": "L0026",
+   "start": 144.2,
+   "end": 149.8,
+   "speaker": "S2",
+   "text": "Sandra, she, um, she hits me. With her walking stick. When she gets cross."
+  },
+  {
+   "id": "L0027",
+   "start": 150.8,
+   "end": 153.2,
+   "speaker": "S1",
+   "text": "Okay. Thank you for telling me."
+  },
+  {
+   "id": "L0028",
+   "start": 154.1,
+   "end": 162.1,
+   "speaker": "S2",
+   "text": "No, no, forget it, I'm making a fuss. Forget I said it. She's not well herself, she gets in pain."
+  },
+  {
+   "id": "L0029",
+   "start": 162.5,
+   "end": 172.5,
+   "speaker": "S1",
+   "text": "It's alright. I'm not here to get anyone in trouble, I just want to understand. Can I ask about the bruises on your arms again?"
+  },
+  {
+   "id": "L0030",
+   "start": 173.1,
+   "end": 181.5,
+   "speaker": "S2",
+   "text": "Well. Yes, it's true. She does hit me with the stick, on my arms. I put my arms up, you see."
+  },
+  {
+   "id": "L0031",
+   "start": 182.0,
+   "end": 184.0,
+   "speaker": "S1",
+   "text": "How often does that happen?"
+  },
+  {
+   "id": "L0032",
+   "start": 185.0,
+   "end": 189.4,
+   "speaker": "S2",
+   "text": "Once a week maybe. More if she's had a bad day."
+  },
+  {
+   "id": "L0033",
+   "start": 189.9,
+   "end": 193.9,
+   "speaker": "S1",
+   "text": "Okay. Is there anything else that happens when she's cross?"
+  },
+  {
+   "id": "L0034",
+   "start": 194.4,
+   "end": 196.0,
+   "speaker": "S2",
+   "text": "Um. Sometimes she, er."
+  },
+  {
+   "id": "L0035",
+   "start": 196.4,
+   "end": 197.6,
+   "speaker": "S1",
+   "text": "Go on."
+  },
+  {
+   "id": "L0036",
+   "start": 198.5,
+   "end": 205.3,
+   "speaker": "S2",
+   "text": "She locks me in the bedroom. When she goes out. She says it's so I don't fall."
+  },
+  {
+   "id": "L0037",
+   "start": 205.6,
+   "end": 208.4,
+   "speaker": "S1",
+   "text": "How often does she lock you in?"
+  },
+  {
+   "id": "L0038",
+   "start": 208.9,
+   "end": 214.5,
+   "speaker": "S2",
+   "text": "Two or three times a week. For the afternoon. There's no toilet up there."
+  },
+  {
+   "id": "L0039",
+   "start": 215.6,
+   "end": 220.8,
+   "speaker": "S1",
+   "text": "That must be really difficult. What about your medication, who looks after that?"
+  },
+  {
+   "id": "L0040",
+   "start": 221.7,
+   "end": 224.9,
+   "speaker": "S2",
+   "text": "She does. She keeps them in her handbag."
+  },
+  {
+   "id": "L0041",
+   "start": 225.5,
+   "end": 227.9,
+   "speaker": "S1",
+   "text": "Do you get them every day?"
+  },
+  {
+   "id": "L0042",
+   "start": 228.9,
+   "end": 237.7,
+   "speaker": "S2",
+   "text": "Not always. If I've annoyed her she keeps my tablets back. Last week I didn't have my heart tablets for three days."
+  },
+  {
+   "id": "L0043",
+   "start": 238.1,
+   "end": 242.1,
+   "speaker": "S1",
+   "text": "Your heart tablets, for three days. Has that happened before?"
+  },
+  {
+   "id": "L0044",
+   "start": 242.9,
+   "end": 245.7,
+   "speaker": "S2",
+   "text": "A few times. And my water tablets."
+  },
+  {
+   "id": "L0045",
+   "start": 246.8,
+   "end": 253.6,
+   "speaker": "S1",
+   "text": "Thank you, Harold. That's really important. Have you thought about whether you want to stay living here?"
+  },
+  {
+   "id": "L0046",
+   "start": 254.2,
+   "end": 263.0,
+   "speaker": "S2",
+   "text": "It's my house. Joan and I bought it in 1971. But if I left, she'd take the house. She's always saying that."
+  },
+  {
+   "id": "L0047",
+   "start": 264.0,
+   "end": 266.4,
+   "speaker": "S1",
+   "text": "Whose name is the house in?"
+  },
+  {
+   "id": "L0048",
+   "start": 267.4,
+   "end": 272.2,
+   "speaker": "S2",
+   "text": "Mine. Just mine. But she says she'd get it, if I went."
+  },
+  {
+   "id": "L0049",
+   "start": 273.2,
+   "end": 276.0,
+   "speaker": "S1",
+   "text": "Okay. What would you like to happen?"
+  },
+  {
+   "id": "L0050",
+   "start": 276.3,
+   "end": 283.1,
+   "speaker": "S2",
+   "text": "I don't want her in trouble. I just want it to stop. And I want my tablets."
+  },
+  {
+   "id": "L0051",
+   "start": 284.2,
+   "end": 288.2,
+   "speaker": "S1",
+   "text": "That's really clear. How do you feel about Carol knowing?"
+  },
+  {
+   "id": "L0052",
+   "start": 288.7,
+   "end": 293.5,
+   "speaker": "S2",
+   "text": "Carol never liked her. Yes, you can tell Carol. She'll be upset."
+  },
+  {
+   "id": "L0053",
+   "start": 294.6,
+   "end": 297.8,
+   "speaker": "S1",
+   "text": "And money, do you manage your own pension?"
+  },
+  {
+   "id": "L0054",
+   "start": 298.7,
+   "end": 306.7,
+   "speaker": "S2",
+   "text": "It goes into a joint account. Sandra does the bills. I've got my own savings book at the post office."
+  },
+  {
+   "id": "L0055",
+   "start": 307.2,
+   "end": 310.0,
+   "speaker": "S1",
+   "text": "Okay. Do you feel safe here tonight?"
+  },
+  {
+   "id": "L0056",
+   "start": 310.8,
+   "end": 314.0,
+   "speaker": "S2",
+   "text": "Tonight, yes. She's going to her sister's tomorrow."
+  },
+  {
+   "id": "L0057",
+   "start": 314.4,
+   "end": 325.6,
+   "speaker": "S1",
+   "text": "Alright. Here's what I'd suggest. First, I'm going to raise a safeguarding concern with our team, which means we'll look into this properly. Are you happy with that?"
+  },
+  {
+   "id": "L0058",
+   "start": 326.0,
+   "end": 327.6,
+   "speaker": "S2",
+   "text": "Yes. I think so."
+  },
+  {
+   "id": "L0059",
+   "start": 328.0,
+   "end": 338.8,
+   "speaker": "S1",
+   "text": "Second, I'll ask Dr Bell today to arrange for your tablets to come from the chemist in a blister pack, delivered to you, so you hold them."
+  },
+  {
+   "id": "L0060",
+   "start": 339.2,
+   "end": 340.4,
+   "speaker": "S2",
+   "text": "That'd be good."
+  },
+  {
+   "id": "L0061",
+   "start": 341.5,
+   "end": 351.5,
+   "speaker": "S1",
+   "text": "Third, I'll ring Carol this week, by Friday, with your permission. And I'll refer you to an occupational therapist for the socks and the stairs."
+  },
+  {
+   "id": "L0062",
+   "start": 352.4,
+   "end": 353.6,
+   "speaker": "S2",
+   "text": "Right."
+  },
+  {
+   "id": "L0063",
+   "start": 354.4,
+   "end": 367.2,
+   "speaker": "S1",
+   "text": "I'll also give you the number for the older people's advocacy service, and if you're ever hurt or locked in, ring nine nine nine. Can you reach a phone in the bedroom?"
+  },
+  {
+   "id": "L0064",
+   "start": 368.3,
+   "end": 371.9,
+   "speaker": "S2",
+   "text": "I've got my mobile. Carol made me get one."
+  },
+  {
+   "id": "L0065",
+   "start": 372.2,
+   "end": 381.8,
+   "speaker": "S1",
+   "text": "Keep it on you. I'll come back on Tuesday the first of December, in the morning, when Sandra's at her sister's. Is that okay?"
+  },
+  {
+   "id": "L0066",
+   "start": 382.7,
+   "end": 386.7,
+   "speaker": "S2",
+   "text": "Yes. Thank you, Tom. I'm sorry for all the fuss."
+  },
+  {
+   "id": "L0067",
+   "start": 387.3,
+   "end": 392.1,
+   "speaker": "S1",
+   "text": "You've nothing to be sorry for, Harold. You did the right thing."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Harold says his wife Sandra hits him on the arms with her walking stick, about once a week; he takes it back, then says it again.",
+   "style": "retracted_restated",
+   "must_keep": [
+    "hits",
+    "walking stick",
+    "arms",
+    "once a week"
+   ],
+   "tag": "d1",
+   "lines": [
+    "L0026",
+    "L0028",
+    "L0030",
+    "L0032"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Harold says Sandra locks him in the bedroom when she goes out, two or three times a week.",
+   "style": "hesitant",
+   "must_keep": [
+    "locks",
+    "bedroom",
+    "two or three times a week"
+   ],
+   "tag": "d2",
+   "lines": [
+    "L0036",
+    "L0038"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Harold says Sandra keeps his tablets back when he has annoyed her; last week he went without his heart tablets for three days.",
+   "style": "hesitant",
+   "must_keep": [
+    "tablets",
+    "heart",
+    "three days"
+   ],
+   "tag": "d3",
+   "lines": [
+    "L0042",
+    "L0044"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hypothetical",
+   "must_not_claim": "Harold's wife Sandra has taken his house.",
+   "flag_terms": [
+    "taken",
+    "house"
+   ],
+   "tag": "c1",
+   "lines": [
+    "L0046",
+    "L0047",
+    "L0048"
+   ]
+  }
+ ]
+}

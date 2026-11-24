@@ -1,0 +1,560 @@
+{
+ "id": "s4-22",
+ "title": "Girl, 9, says stepfather hits her with a belt (synthetic)",
+ "template": "assessment",
+ "category": "child_protection",
+ "setting": "Children's social worker Hannah Price visits Stacey Lambert and her daughter Millie (9) at 27 Orchard Way, Harbridge, after school reported Millie did not want to go home.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Social worker (Hannah Price)",
+  "S2": "Stacey Lambert (mother)",
+  "S3": "Millie Lambert (child, aged 9)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 7.0,
+   "speaker": "S1",
+   "text": "Hi, Stacey? I'm Hannah Price, the social worker from Harbridge children's services. We spoke this morning."
+  },
+  {
+   "id": "L0002",
+   "start": 7.7,
+   "end": 10.9,
+   "speaker": "S2",
+   "text": "Yeah. Come in. Millie's in the front room."
+  },
+  {
+   "id": "L0003",
+   "start": 11.7,
+   "end": 23.7,
+   "speaker": "S1",
+   "text": "Thanks. As I said on the phone, school contacted us because Millie told her teacher she didn't want to go home on Monday, and they asked us to check in."
+  },
+  {
+   "id": "L0004",
+   "start": 24.8,
+   "end": 28.8,
+   "speaker": "S2",
+   "text": "She's just been funny lately. It's the bedwetting, she's embarrassed."
+  },
+  {
+   "id": "L0005",
+   "start": 29.6,
+   "end": 48.8,
+   "speaker": "S1",
+   "text": "Okay. We'll talk about that. Um, first, what you and Millie tell me goes on our records, and I may need to share it with school, the GP or the police if I'm worried a child isn't safe. I'll always try to tell you if I'm doing that."
+  },
+  {
+   "id": "L0006",
+   "start": 49.5,
+   "end": 50.7,
+   "speaker": "S2",
+   "text": "Right."
+  },
+  {
+   "id": "L0007",
+   "start": 51.1,
+   "end": 52.3,
+   "speaker": "S1",
+   "text": "Is Craig in?"
+  },
+  {
+   "id": "L0008",
+   "start": 53.4,
+   "end": 57.4,
+   "speaker": "S2",
+   "text": "No, he's at work till six. He's on the bins."
+  },
+  {
+   "id": "L0009",
+   "start": 57.8,
+   "end": 63.0,
+   "speaker": "S1",
+   "text": "Okay. Can I ask a bit about the family first? Who lives here?"
+  },
+  {
+   "id": "L0010",
+   "start": 63.3,
+   "end": 70.5,
+   "speaker": "S2",
+   "text": "Me, Millie, Craig, and our little one, Jayden, he's two. Craig's Millie's stepdad, we've been together four years."
+  },
+  {
+   "id": "L0011",
+   "start": 71.3,
+   "end": 72.5,
+   "speaker": "S1",
+   "text": "And Millie's dad?"
+  },
+  {
+   "id": "L0012",
+   "start": 73.6,
+   "end": 76.8,
+   "speaker": "S2",
+   "text": "He's in Scotland. She sees him summer holidays."
+  },
+  {
+   "id": "L0013",
+   "start": 77.3,
+   "end": 80.5,
+   "speaker": "S1",
+   "text": "How are things with money and the house?"
+  },
+  {
+   "id": "L0014",
+   "start": 81.3,
+   "end": 88.9,
+   "speaker": "S2",
+   "text": "Alright. I do mornings at Greggs, Craig's full time. The landlord's slow fixing the damp in Millie's room though."
+  },
+  {
+   "id": "L0015",
+   "start": 89.5,
+   "end": 102.3,
+   "speaker": "S1",
+   "text": "Okay, I can write to them about that. Stacey, would it be alright if I spoke to Millie on her own, in her room maybe? It's something we do with every child."
+  },
+  {
+   "id": "L0016",
+   "start": 103.1,
+   "end": 105.9,
+   "speaker": "S2",
+   "text": "Yeah. Yeah, fine. Millie, this is Hannah."
+  },
+  {
+   "id": "L0017",
+   "start": 106.3,
+   "end": 107.5,
+   "speaker": "S3",
+   "text": "Hi."
+  },
+  {
+   "id": "L0018",
+   "start": 107.8,
+   "end": 113.4,
+   "speaker": "S1",
+   "text": "Hi Millie. Can I see your room? Your mum said you've got a hamster."
+  },
+  {
+   "id": "L0019",
+   "start": 114.5,
+   "end": 116.5,
+   "speaker": "S3",
+   "text": "She's called Biscuit. She's asleep."
+  },
+  {
+   "id": "L0020",
+   "start": 117.5,
+   "end": 126.7,
+   "speaker": "S1",
+   "text": "She's lovely. Millie, my job is to help make sure children are safe and happy. Is it okay if we have a chat?"
+  },
+  {
+   "id": "L0021",
+   "start": 127.4,
+   "end": 128.6,
+   "speaker": "S3",
+   "text": "Okay."
+  },
+  {
+   "id": "L0022",
+   "start": 129.4,
+   "end": 143.8,
+   "speaker": "S1",
+   "text": "You can say pass if you don't want to answer something. And if you tell me someone's hurting you, I can't keep that a secret, I'd have to tell people who can help. Is that okay?"
+  },
+  {
+   "id": "L0023",
+   "start": 144.1,
+   "end": 145.3,
+   "speaker": "S3",
+   "text": "Yeah."
+  },
+  {
+   "id": "L0024",
+   "start": 145.6,
+   "end": 148.4,
+   "speaker": "S1",
+   "text": "What do you like doing at school?"
+  },
+  {
+   "id": "L0025",
+   "start": 148.7,
+   "end": 152.3,
+   "speaker": "S3",
+   "text": "Art. And I'm in the netball team. Year Four."
+  },
+  {
+   "id": "L0026",
+   "start": 152.8,
+   "end": 155.6,
+   "speaker": "S1",
+   "text": "Wow. And what's it like at home?"
+  },
+  {
+   "id": "L0027",
+   "start": 155.9,
+   "end": 159.1,
+   "speaker": "S3",
+   "text": "It's okay. Jayden's annoying. He takes my pens."
+  },
+  {
+   "id": "L0028",
+   "start": 159.5,
+   "end": 167.5,
+   "speaker": "S1",
+   "text": "Ha, little brothers. Your teacher said you didn't want to go home on Monday. Can you tell me about that?"
+  },
+  {
+   "id": "L0029",
+   "start": 168.0,
+   "end": 170.0,
+   "speaker": "S3",
+   "text": "Um. Because of the bed."
+  },
+  {
+   "id": "L0030",
+   "start": 170.8,
+   "end": 173.2,
+   "speaker": "S1",
+   "text": "Okay. What happens with the bed?"
+  },
+  {
+   "id": "L0031",
+   "start": 173.5,
+   "end": 179.1,
+   "speaker": "S3",
+   "text": "When I wet the bed, Craig gets cross. He hits me with a belt."
+  },
+  {
+   "id": "L0032",
+   "start": 179.8,
+   "end": 184.2,
+   "speaker": "S1",
+   "text": "Thank you for telling me, Millie. Where does he hit you?"
+  },
+  {
+   "id": "L0033",
+   "start": 185.0,
+   "end": 188.6,
+   "speaker": "S3",
+   "text": "On my legs. On the back of my legs."
+  },
+  {
+   "id": "L0034",
+   "start": 189.7,
+   "end": 192.1,
+   "speaker": "S1",
+   "text": "How many times has that happened?"
+  },
+  {
+   "id": "L0035",
+   "start": 193.2,
+   "end": 197.2,
+   "speaker": "S3",
+   "text": "Lots. Like every week. Every time I wet the bed."
+  },
+  {
+   "id": "L0036",
+   "start": 197.9,
+   "end": 199.9,
+   "speaker": "S1",
+   "text": "When was the last time?"
+  },
+  {
+   "id": "L0037",
+   "start": 201.0,
+   "end": 204.2,
+   "speaker": "S3",
+   "text": "Sunday. In the morning, before Mum got up."
+  },
+  {
+   "id": "L0038",
+   "start": 205.1,
+   "end": 207.1,
+   "speaker": "S1",
+   "text": "Did it leave any marks?"
+  },
+  {
+   "id": "L0039",
+   "start": 207.5,
+   "end": 209.5,
+   "speaker": "S3",
+   "text": "Red lines. They went away."
+  },
+  {
+   "id": "L0040",
+   "start": 209.8,
+   "end": 213.0,
+   "speaker": "S1",
+   "text": "Okay. Does anyone else at home hurt you?"
+  },
+  {
+   "id": "L0041",
+   "start": 213.8,
+   "end": 215.0,
+   "speaker": "S3",
+   "text": "No."
+  },
+  {
+   "id": "L0042",
+   "start": 215.4,
+   "end": 218.6,
+   "speaker": "S1",
+   "text": "What about Mum, does Mum ever hit you?"
+  },
+  {
+   "id": "L0043",
+   "start": 219.0,
+   "end": 222.6,
+   "speaker": "S3",
+   "text": "No. Mum never hits me. She gives me cuddles."
+  },
+  {
+   "id": "L0044",
+   "start": 223.4,
+   "end": 230.2,
+   "speaker": "S1",
+   "text": "Thank you. You've been really brave. None of this is your fault, not the bed, not anything."
+  },
+  {
+   "id": "L0045",
+   "start": 231.1,
+   "end": 232.7,
+   "speaker": "S3",
+   "text": "Am I in trouble?"
+  },
+  {
+   "id": "L0046",
+   "start": 233.7,
+   "end": 240.1,
+   "speaker": "S1",
+   "text": "No, you're not in trouble at all. I'm going to talk to your mum now, okay?"
+  },
+  {
+   "id": "L0047",
+   "start": 241.2,
+   "end": 242.4,
+   "speaker": "S3",
+   "text": "Okay."
+  },
+  {
+   "id": "L0048",
+   "start": 243.3,
+   "end": 253.7,
+   "speaker": "S1",
+   "text": "Stacey, Millie's told me that Craig hits her with a belt on her legs when she wets the bed, and that it happens about every week."
+  },
+  {
+   "id": "L0049",
+   "start": 254.2,
+   "end": 264.2,
+   "speaker": "S2",
+   "text": "It's not like that. It's just a smack. He gives her a smack with his belt now and again, on her legs, it's not hard."
+  },
+  {
+   "id": "L0050",
+   "start": 265.2,
+   "end": 267.2,
+   "speaker": "S1",
+   "text": "Have you seen it happen?"
+  },
+  {
+   "id": "L0051",
+   "start": 267.8,
+   "end": 276.2,
+   "speaker": "S2",
+   "text": "Once or twice. He's from a strict family. I've told him to stop, but it's just a smack, it's not abuse."
+  },
+  {
+   "id": "L0052",
+   "start": 277.3,
+   "end": 292.5,
+   "speaker": "S1",
+   "text": "I understand that's how it feels, but hitting a child with a belt isn't acceptable, and I have to act on it. I'm going to speak to my manager and the police today, that's called a strategy discussion."
+  },
+  {
+   "id": "L0053",
+   "start": 293.0,
+   "end": 295.4,
+   "speaker": "S2",
+   "text": "Is he going to get arrested?"
+  },
+  {
+   "id": "L0054",
+   "start": 296.1,
+   "end": 304.1,
+   "speaker": "S1",
+   "text": "I don't know yet. What I need today is for Millie to be safe tonight. Can Craig stay somewhere else?"
+  },
+  {
+   "id": "L0055",
+   "start": 304.7,
+   "end": 308.3,
+   "speaker": "S2",
+   "text": "His brother's on Canal Street. He could go there."
+  },
+  {
+   "id": "L0056",
+   "start": 309.4,
+   "end": 314.2,
+   "speaker": "S1",
+   "text": "Would you keep him away from the house until we've spoken again?"
+  },
+  {
+   "id": "L0057",
+   "start": 315.3,
+   "end": 317.3,
+   "speaker": "S2",
+   "text": "Yeah. I'll ring him now."
+  },
+  {
+   "id": "L0058",
+   "start": 318.0,
+   "end": 324.0,
+   "speaker": "S1",
+   "text": "Thank you. We might also ask a paediatrician to see Millie, I'll let you know."
+  },
+  {
+   "id": "L0059",
+   "start": 324.7,
+   "end": 325.9,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0060",
+   "start": 326.9,
+   "end": 329.7,
+   "speaker": "S1",
+   "text": "About the bedwetting, has she seen anyone?"
+  },
+  {
+   "id": "L0061",
+   "start": 330.7,
+   "end": 333.9,
+   "speaker": "S2",
+   "text": "No. I thought she'd grow out of it."
+  },
+  {
+   "id": "L0062",
+   "start": 334.4,
+   "end": 342.0,
+   "speaker": "S1",
+   "text": "The school nurse can refer her to the continence clinic, it's really common at her age. I'll ask them."
+  },
+  {
+   "id": "L0063",
+   "start": 342.9,
+   "end": 345.3,
+   "speaker": "S2",
+   "text": "That would help, the washing's endless."
+  },
+  {
+   "id": "L0064",
+   "start": 346.4,
+   "end": 353.6,
+   "speaker": "S1",
+   "text": "So, actions. I'll ring my manager and the police when I leave and call you by five today."
+  },
+  {
+   "id": "L0065",
+   "start": 354.5,
+   "end": 360.1,
+   "speaker": "S1",
+   "text": "You'll ring Craig now, and he'll stay at his brother's on Canal Street tonight."
+  },
+  {
+   "id": "L0066",
+   "start": 360.6,
+   "end": 361.8,
+   "speaker": "S2",
+   "text": "Yeah."
+  },
+  {
+   "id": "L0067",
+   "start": 362.1,
+   "end": 370.1,
+   "speaker": "S1",
+   "text": "I'll speak to Mrs Hollis at school tomorrow morning and ask the school nurse to refer Millie to the clinic."
+  },
+  {
+   "id": "L0068",
+   "start": 371.1,
+   "end": 378.3,
+   "speaker": "S1",
+   "text": "I'll write to the landlord about the damp by Friday, and I'll visit again on Thursday the twenty-sixth."
+  },
+  {
+   "id": "L0069",
+   "start": 378.8,
+   "end": 380.0,
+   "speaker": "S2",
+   "text": "Okay."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Millie says her stepdad Craig hits her with a belt on the back of her legs when she wets the bed.",
+   "style": "direct",
+   "must_keep": [
+    "Craig",
+    "belt",
+    "legs",
+    "wet the bed"
+   ],
+   "lines": [
+    "L0031",
+    "L0033"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Millie says it happens every week, most recently on Sunday morning, and it left red lines.",
+   "style": "direct",
+   "must_keep": [
+    "every week",
+    "Sunday",
+    "red lines"
+   ],
+   "lines": [
+    "L0035",
+    "L0037",
+    "L0039"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Stacey says Craig gives Millie 'just a smack' with his belt on her legs and that she has seen it once or twice.",
+   "style": "minimised",
+   "must_keep": [
+    "smack",
+    "belt",
+    "once or twice"
+   ],
+   "lines": [
+    "L0049",
+    "L0051"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "denial",
+   "must_not_claim": "Stacey Lambert has hit Millie.",
+   "flag_terms": [
+    "Stacey",
+    "mum",
+    "hit"
+   ],
+   "lines": [
+    "L0042",
+    "L0043"
+   ]
+  }
+ ]
+}

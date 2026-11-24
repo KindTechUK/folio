@@ -1,0 +1,548 @@
+{
+ "id": "s4-11",
+ "title": "Young children left alone at night (synthetic)",
+ "template": "assessment",
+ "category": "neglect",
+ "setting": "A health visitor makes a routine review visit to Jade Turner, her son Leo (2) and daughter Poppy (5 months) at home at Flat 3, Marlow Court, Harbridge.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Health visitor (Amina Hussain)",
+  "S2": "Jade Turner (mother)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 6.2,
+   "speaker": "S1",
+   "text": "Hi Jade, it's Amina, the health visitor. Is it still okay to come in?"
+  },
+  {
+   "id": "L0002",
+   "start": 6.5,
+   "end": 12.5,
+   "speaker": "S2",
+   "text": "Yeah, sorry, I forgot you were coming. Leo, move your cars, let the lady in."
+  },
+  {
+   "id": "L0003",
+   "start": 12.9,
+   "end": 17.3,
+   "speaker": "S1",
+   "text": "Hello Leo! Ooh, is that a fire engine? It's very loud."
+  },
+  {
+   "id": "L0004",
+   "start": 17.9,
+   "end": 21.1,
+   "speaker": "S2",
+   "text": "It's his favourite. Don't give him any ideas."
+  },
+  {
+   "id": "L0005",
+   "start": 21.4,
+   "end": 37.4,
+   "speaker": "S1",
+   "text": "So today is Leo's two year review, and I'll check on Poppy too. I'll make notes on both of them. It's confidential, but if I'm worried about the children's safety I have to share that, and I'd tell you. Okay?"
+  },
+  {
+   "id": "L0006",
+   "start": 37.8,
+   "end": 39.0,
+   "speaker": "S2",
+   "text": "Yeah, fine."
+  },
+  {
+   "id": "L0007",
+   "start": 39.3,
+   "end": 43.3,
+   "speaker": "S1",
+   "text": "Let's start with Leo. How many words is he saying?"
+  },
+  {
+   "id": "L0008",
+   "start": 43.6,
+   "end": 48.0,
+   "speaker": "S2",
+   "text": "Um, quite a few? Mama, car, more, bye-bye, dog. Maybe twenty."
+  },
+  {
+   "id": "L0009",
+   "start": 48.4,
+   "end": 51.2,
+   "speaker": "S1",
+   "text": "Is he putting two words together yet?"
+  },
+  {
+   "id": "L0010",
+   "start": 51.7,
+   "end": 53.7,
+   "speaker": "S2",
+   "text": "Like 'more juice'? Yeah, sometimes."
+  },
+  {
+   "id": "L0011",
+   "start": 54.8,
+   "end": 57.2,
+   "speaker": "S1",
+   "text": "That's good. And he's running, climbing?"
+  },
+  {
+   "id": "L0012",
+   "start": 58.2,
+   "end": 61.0,
+   "speaker": "S2",
+   "text": "Everywhere. He climbed the bookcase last week."
+  },
+  {
+   "id": "L0013",
+   "start": 62.1,
+   "end": 63.7,
+   "speaker": "S1",
+   "text": "Busy boy. Eating okay?"
+  },
+  {
+   "id": "L0014",
+   "start": 64.5,
+   "end": 66.5,
+   "speaker": "S2",
+   "text": "He's fussy. Toast, pasta, yoghurt."
+  },
+  {
+   "id": "L0015",
+   "start": 66.8,
+   "end": 68.8,
+   "speaker": "S1",
+   "text": "And Poppy, how's she feeding?"
+  },
+  {
+   "id": "L0016",
+   "start": 69.8,
+   "end": 74.2,
+   "speaker": "S2",
+   "text": "Bottles, about six a day. I've started her on baby rice."
+  },
+  {
+   "id": "L0017",
+   "start": 75.2,
+   "end": 86.8,
+   "speaker": "S1",
+   "text": "Lovely. Can I have a look at her? Oh, she's smiley. Let's have a quick check. Jade, Poppy's got quite a bad nappy rash here. It's broken in places."
+  },
+  {
+   "id": "L0018",
+   "start": 87.4,
+   "end": 95.0,
+   "speaker": "S2",
+   "text": "Yeah. I know. I ran out of nappies on Sunday, so I've been leaving them on longer. I'm sorry."
+  },
+  {
+   "id": "L0019",
+   "start": 95.7,
+   "end": 98.9,
+   "speaker": "S1",
+   "text": "Okay. How long has she had the rash?"
+  },
+  {
+   "id": "L0020",
+   "start": 99.8,
+   "end": 104.2,
+   "speaker": "S2",
+   "text": "About a week, the nappy rash. I've been putting Sudocrem on."
+  },
+  {
+   "id": "L0021",
+   "start": 105.2,
+   "end": 112.8,
+   "speaker": "S1",
+   "text": "Okay, we'll get the GP to look at it. And food in the house, are you managing for food?"
+  },
+  {
+   "id": "L0022",
+   "start": 113.7,
+   "end": 121.3,
+   "speaker": "S2",
+   "text": "Not really. There's bread and some cereal. And Poppy's milk, I've got one tin left. That's it till Friday."
+  },
+  {
+   "id": "L0023",
+   "start": 122.1,
+   "end": 124.9,
+   "speaker": "S1",
+   "text": "Till Friday, when your money comes in?"
+  },
+  {
+   "id": "L0024",
+   "start": 125.4,
+   "end": 126.6,
+   "speaker": "S2",
+   "text": "Yeah. Universal credit."
+  },
+  {
+   "id": "L0025",
+   "start": 127.1,
+   "end": 135.5,
+   "speaker": "S1",
+   "text": "Okay, thank you for being honest. We can sort a food bank voucher today. How are you managing for money generally?"
+  },
+  {
+   "id": "L0026",
+   "start": 136.5,
+   "end": 144.1,
+   "speaker": "S2",
+   "text": "It's tight. I started a cleaning job at the retail park in September, nights, it's cash in hand basically."
+  },
+  {
+   "id": "L0027",
+   "start": 144.6,
+   "end": 146.6,
+   "speaker": "S1",
+   "text": "What hours are the nights?"
+  },
+  {
+   "id": "L0028",
+   "start": 147.6,
+   "end": 150.0,
+   "speaker": "S2",
+   "text": "Ten till twelve, sometimes half twelve."
+  },
+  {
+   "id": "L0029",
+   "start": 150.6,
+   "end": 155.0,
+   "speaker": "S1",
+   "text": "And who looks after Leo and Poppy while you're at work?"
+  },
+  {
+   "id": "L0030",
+   "start": 155.8,
+   "end": 160.6,
+   "speaker": "S2",
+   "text": "Um. Usually my friend Shannon has them. But she's, she can't always."
+  },
+  {
+   "id": "L0031",
+   "start": 161.2,
+   "end": 163.2,
+   "speaker": "S1",
+   "text": "What happens when she can't?"
+  },
+  {
+   "id": "L0032",
+   "start": 164.0,
+   "end": 173.6,
+   "speaker": "S2",
+   "text": "I mean, I've left them on their own. But it's only for a couple of hours, and they're asleep. They don't even wake up."
+  },
+  {
+   "id": "L0033",
+   "start": 174.1,
+   "end": 182.9,
+   "speaker": "S1",
+   "text": "Okay. Thank you for telling me, Jade. So Leo and Poppy are in the flat on their own while you're at work?"
+  },
+  {
+   "id": "L0034",
+   "start": 183.7,
+   "end": 189.7,
+   "speaker": "S2",
+   "text": "Only for a couple of hours. I lock the door. It's literally ten minutes away."
+  },
+  {
+   "id": "L0035",
+   "start": 190.7,
+   "end": 193.9,
+   "speaker": "S1",
+   "text": "How many nights a week does that happen?"
+  },
+  {
+   "id": "L0036",
+   "start": 194.9,
+   "end": 197.3,
+   "speaker": "S2",
+   "text": "Um. It depends. Not every night."
+  },
+  {
+   "id": "L0037",
+   "start": 197.7,
+   "end": 198.9,
+   "speaker": "S1",
+   "text": "Roughly?"
+  },
+  {
+   "id": "L0038",
+   "start": 199.3,
+   "end": 205.3,
+   "speaker": "S2",
+   "text": "Three nights a week, maybe. Since Shannon got her new job. So, the last month."
+  },
+  {
+   "id": "L0039",
+   "start": 205.6,
+   "end": 208.8,
+   "speaker": "S1",
+   "text": "Three nights a week, for about a month."
+  },
+  {
+   "id": "L0040",
+   "start": 209.4,
+   "end": 213.8,
+   "speaker": "S2",
+   "text": "Yeah. I know it's not ideal. But I need the money."
+  },
+  {
+   "id": "L0041",
+   "start": 214.8,
+   "end": 233.2,
+   "speaker": "S1",
+   "text": "I can see you're trying really hard to keep things going. But Leo's two and Poppy's five months, and if something happened, a fire or Poppy choking, there'd be no one to help them. So it can't carry on, and I do need to share this."
+  },
+  {
+   "id": "L0042",
+   "start": 234.2,
+   "end": 237.4,
+   "speaker": "S2",
+   "text": "Are you going to take them off me?"
+  },
+  {
+   "id": "L0043",
+   "start": 238.0,
+   "end": 250.8,
+   "speaker": "S1",
+   "text": "That's not what this is about. I'll be talking to children's social care so they can help with childcare, and they'll want to talk to you. You've been honest, and that counts."
+  },
+  {
+   "id": "L0044",
+   "start": 251.1,
+   "end": 259.1,
+   "speaker": "S2",
+   "text": "If I lose this job we'll be evicted. That's what I'm scared of. I can't pay the rent without it."
+  },
+  {
+   "id": "L0045",
+   "start": 259.5,
+   "end": 263.9,
+   "speaker": "S1",
+   "text": "Have you had any letters from the landlord, or any notice?"
+  },
+  {
+   "id": "L0046",
+   "start": 264.9,
+   "end": 270.5,
+   "speaker": "S2",
+   "text": "No, nothing like that. The rent's paid up. I just worry it won't be."
+  },
+  {
+   "id": "L0047",
+   "start": 271.1,
+   "end": 279.5,
+   "speaker": "S1",
+   "text": "Okay. That's a real worry, and there's help with that too, like a housing benefit check and the money advice service."
+  },
+  {
+   "id": "L0048",
+   "start": 280.3,
+   "end": 281.5,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0049",
+   "start": 281.8,
+   "end": 285.0,
+   "speaker": "S1",
+   "text": "Is anyone else around who could help, family?"
+  },
+  {
+   "id": "L0050",
+   "start": 286.1,
+   "end": 290.5,
+   "speaker": "S2",
+   "text": "My mum's in Northby. She'd help, but we're not really talking."
+  },
+  {
+   "id": "L0051",
+   "start": 291.5,
+   "end": 293.9,
+   "speaker": "S1",
+   "text": "Would you think about asking her?"
+  },
+  {
+   "id": "L0052",
+   "start": 294.3,
+   "end": 295.9,
+   "speaker": "S2",
+   "text": "Maybe. I'll ring her."
+  },
+  {
+   "id": "L0053",
+   "start": 296.2,
+   "end": 301.8,
+   "speaker": "S1",
+   "text": "And Leo's two, so he can have fifteen hours funded nursery. Have you applied?"
+  },
+  {
+   "id": "L0054",
+   "start": 302.2,
+   "end": 303.8,
+   "speaker": "S2",
+   "text": "No, I didn't know."
+  },
+  {
+   "id": "L0055",
+   "start": 304.3,
+   "end": 310.3,
+   "speaker": "S1",
+   "text": "I'll give you the form today. Little Acorns on Marlow Road has spaces from January."
+  },
+  {
+   "id": "L0056",
+   "start": 311.4,
+   "end": 313.0,
+   "speaker": "S2",
+   "text": "That'd be good actually."
+  },
+  {
+   "id": "L0057",
+   "start": 314.1,
+   "end": 322.5,
+   "speaker": "S1",
+   "text": "So, the plan. Tonight, can you make sure the children aren't left alone? If Shannon can't have them, don't go in."
+  },
+  {
+   "id": "L0058",
+   "start": 323.0,
+   "end": 327.4,
+   "speaker": "S2",
+   "text": "Yeah. I'll text my supervisor. I'll say I've got no childcare."
+  },
+  {
+   "id": "L0059",
+   "start": 327.9,
+   "end": 339.5,
+   "speaker": "S1",
+   "text": "Thank you. I'll make the referral to children's social care today, and someone should ring you by Thursday. I'll drop the food bank voucher round this afternoon, before three."
+  },
+  {
+   "id": "L0060",
+   "start": 340.4,
+   "end": 341.6,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0061",
+   "start": 342.3,
+   "end": 350.7,
+   "speaker": "S1",
+   "text": "I'll book Poppy in with Dr Lowe for the nappy rash tomorrow, and I'll bring some nappies when I come back."
+  },
+  {
+   "id": "L0062",
+   "start": 351.7,
+   "end": 352.9,
+   "speaker": "S2",
+   "text": "Thank you. Seriously."
+  },
+  {
+   "id": "L0063",
+   "start": 354.0,
+   "end": 364.0,
+   "speaker": "S1",
+   "text": "And I'll come back on Monday the thirtieth at ten to see how you're all doing, and help with the nursery form. Is that okay?"
+  },
+  {
+   "id": "L0064",
+   "start": 365.1,
+   "end": 366.3,
+   "speaker": "S2",
+   "text": "Yeah. Monday's fine."
+  },
+  {
+   "id": "L0065",
+   "start": 366.7,
+   "end": 369.5,
+   "speaker": "S1",
+   "text": "Bye Leo! Bye Poppy. Take care, Jade."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Jade says she has left Leo (2) and Poppy (5 months) on their own in the flat at night while she works, which she plays down as only a couple of hours.",
+   "style": "minimised",
+   "must_keep": [
+    "on their own",
+    "couple of hours"
+   ],
+   "tag": "d1",
+   "lines": [
+    "L0032",
+    "L0033",
+    "L0034"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Jade says the children are left alone about three nights a week, for the last month.",
+   "style": "hesitant",
+   "must_keep": [
+    "three nights a week",
+    "month"
+   ],
+   "tag": "d2",
+   "lines": [
+    "L0038",
+    "L0040"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Jade says Poppy has had nappy rash for about a week since she ran out of nappies on Sunday and has been leaving them on longer.",
+   "style": "direct",
+   "must_keep": [
+    "nappy rash",
+    "week",
+    "ran out of nappies"
+   ],
+   "tag": "d3",
+   "lines": [
+    "L0018",
+    "L0020"
+   ]
+  },
+  {
+   "id": "D04",
+   "what": "Jade says there is only bread, some cereal and one tin of baby milk in the house until Friday.",
+   "style": "direct",
+   "must_keep": [
+    "bread",
+    "cereal",
+    "one tin",
+    "Friday"
+   ],
+   "tag": "d4",
+   "lines": [
+    "L0022",
+    "L0024"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hypothetical",
+   "must_not_claim": "Jade and the children are being evicted.",
+   "flag_terms": [
+    "evicted",
+    "eviction"
+   ],
+   "tag": "c1",
+   "lines": [
+    "L0044",
+    "L0045",
+    "L0046"
+   ]
+  }
+ ]
+}

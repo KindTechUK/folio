@@ -1,0 +1,563 @@
+{
+ "id": "s4-19",
+ "title": "Health visitor review, mother's drinking and cannabis use (synthetic)",
+ "template": "assessment",
+ "category": "substance_use",
+ "setting": "Health visitor Claire Dunmore visits Jade Pritchard at 14 Willow Rise, Harbridge, for her baby Lily's eight-month review; Jade's son Mason (3) is also at home.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Health visitor (Claire Dunmore)",
+  "S2": "Jade Pritchard (mother)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 6.6,
+   "speaker": "S1",
+   "text": "Hiya Jade, it's Claire, the health visitor. Thanks for having me, is now still okay?"
+  },
+  {
+   "id": "L0002",
+   "start": 7.5,
+   "end": 12.7,
+   "speaker": "S2",
+   "text": "Yeah, come in, sorry about the mess, Mason's had all his cars out."
+  },
+  {
+   "id": "L0003",
+   "start": 13.2,
+   "end": 19.2,
+   "speaker": "S1",
+   "text": "Oh don't worry, honestly, you should see mine. Hello Mason! Is that a fire engine?"
+  },
+  {
+   "id": "L0004",
+   "start": 20.2,
+   "end": 25.8,
+   "speaker": "S2",
+   "text": "He's obsessed. Um, Lily's just gone down, she should be alright for a bit."
+  },
+  {
+   "id": "L0005",
+   "start": 26.9,
+   "end": 38.9,
+   "speaker": "S1",
+   "text": "Lovely. So this is Lily's eight month review, um, so I'll do her weight, ask about feeding, sleep, how she's moving, and how you're doing as well. Is that okay?"
+  },
+  {
+   "id": "L0006",
+   "start": 40.0,
+   "end": 41.2,
+   "speaker": "S2",
+   "text": "Yeah, fine."
+  },
+  {
+   "id": "L0007",
+   "start": 42.3,
+   "end": 55.5,
+   "speaker": "S1",
+   "text": "Before we start, just so you know, what we talk about stays between us and your GP, unless I'm worried about someone's safety, and then I'd tell you first if I possibly can."
+  },
+  {
+   "id": "L0008",
+   "start": 56.4,
+   "end": 58.8,
+   "speaker": "S2",
+   "text": "Yeah, they said that last time."
+  },
+  {
+   "id": "L0009",
+   "start": 59.9,
+   "end": 62.7,
+   "speaker": "S1",
+   "text": "Great. So feeding, how's the weaning going?"
+  },
+  {
+   "id": "L0010",
+   "start": 63.1,
+   "end": 71.1,
+   "speaker": "S2",
+   "text": "Good, she has porridge in the morning, then like mashed veg at dinner, and she's still on about four bottles."
+  },
+  {
+   "id": "L0011",
+   "start": 71.8,
+   "end": 74.6,
+   "speaker": "S1",
+   "text": "Four bottles, and how much in each?"
+  },
+  {
+   "id": "L0012",
+   "start": 74.9,
+   "end": 78.5,
+   "speaker": "S2",
+   "text": "Seven ounces. Sometimes she don't finish the night one."
+  },
+  {
+   "id": "L0013",
+   "start": 79.3,
+   "end": 84.5,
+   "speaker": "S1",
+   "text": "That sounds about right for her age. Is she trying finger foods yet?"
+  },
+  {
+   "id": "L0014",
+   "start": 85.5,
+   "end": 90.7,
+   "speaker": "S2",
+   "text": "Bits of toast, banana. She gags a bit and it freaks me out."
+  },
+  {
+   "id": "L0015",
+   "start": 91.1,
+   "end": 99.1,
+   "speaker": "S1",
+   "text": "That's normal, gagging's how they learn. Choking is different, it's silent, so, um, I'll leave you the leaflet on that."
+  },
+  {
+   "id": "L0016",
+   "start": 99.7,
+   "end": 100.9,
+   "speaker": "S2",
+   "text": "Okay, thanks."
+  },
+  {
+   "id": "L0017",
+   "start": 101.5,
+   "end": 102.7,
+   "speaker": "S1",
+   "text": "And sleep?"
+  },
+  {
+   "id": "L0018",
+   "start": 103.8,
+   "end": 111.4,
+   "speaker": "S2",
+   "text": "She goes down about seven, wakes once around three for a bottle. Mason's worse than her to be honest."
+  },
+  {
+   "id": "L0019",
+   "start": 112.3,
+   "end": 115.1,
+   "speaker": "S1",
+   "text": "Ha, yeah. Is Dean still working away?"
+  },
+  {
+   "id": "L0020",
+   "start": 115.4,
+   "end": 123.0,
+   "speaker": "S2",
+   "text": "Yeah, he's on the lorries, he's gone Monday to Friday, back weekends. So it's just me in the week."
+  },
+  {
+   "id": "L0021",
+   "start": 123.7,
+   "end": 127.3,
+   "speaker": "S1",
+   "text": "That's a lot on your own. Who helps out?"
+  },
+  {
+   "id": "L0022",
+   "start": 127.7,
+   "end": 135.3,
+   "speaker": "S2",
+   "text": "My mum, she's on Thornfield Road, she has Mason Tuesdays. And he does his fifteen hours at Little Acorns."
+  },
+  {
+   "id": "L0023",
+   "start": 136.3,
+   "end": 139.9,
+   "speaker": "S1",
+   "text": "Okay. How are you finding money at the moment?"
+  },
+  {
+   "id": "L0024",
+   "start": 140.6,
+   "end": 147.4,
+   "speaker": "S2",
+   "text": "Tight. Universal Credit and what Dean sends. The electric's gone up loads, we're on the key meter."
+  },
+  {
+   "id": "L0025",
+   "start": 148.1,
+   "end": 158.1,
+   "speaker": "S1",
+   "text": "I can give you the number for the Harbridge energy fund, they do top-ups. Um, can I ask about you now, how's your mood been?"
+  },
+  {
+   "id": "L0026",
+   "start": 158.9,
+   "end": 161.7,
+   "speaker": "S2",
+   "text": "Alright. Tired. Bored, sometimes, in the evenings."
+  },
+  {
+   "id": "L0027",
+   "start": 162.2,
+   "end": 169.0,
+   "speaker": "S1",
+   "text": "I ask everyone this, so don't take it the wrong way. Do you drink alcohol at all?"
+  },
+  {
+   "id": "L0028",
+   "start": 169.3,
+   "end": 178.9,
+   "speaker": "S2",
+   "text": "Um, yeah, a bit. I have a glass of wine when they're in bed. Well, a bottle of wine a night, if I'm honest."
+  },
+  {
+   "id": "L0029",
+   "start": 179.7,
+   "end": 182.1,
+   "speaker": "S1",
+   "text": "A bottle a night, every night?"
+  },
+  {
+   "id": "L0030",
+   "start": 182.4,
+   "end": 190.8,
+   "speaker": "S2",
+   "text": "Most nights, yeah. But everyone does it, don't they, all my mates are the same. It's not like I'm falling about."
+  },
+  {
+   "id": "L0031",
+   "start": 191.7,
+   "end": 197.7,
+   "speaker": "S1",
+   "text": "Okay, thank you for being honest with me. Is that a standard bottle, seventy-five centilitres?"
+  },
+  {
+   "id": "L0032",
+   "start": 198.5,
+   "end": 204.5,
+   "speaker": "S2",
+   "text": "Yeah, the normal ones from the Co-op. I start it about eight, once they're down."
+  },
+  {
+   "id": "L0033",
+   "start": 204.8,
+   "end": 207.6,
+   "speaker": "S1",
+   "text": "And anything else, any drugs at all?"
+  },
+  {
+   "id": "L0034",
+   "start": 208.7,
+   "end": 216.7,
+   "speaker": "S2",
+   "text": "I, um, I smoke a bit of weed. Only when the kids are in bed, never in front of them."
+  },
+  {
+   "id": "L0035",
+   "start": 217.3,
+   "end": 218.9,
+   "speaker": "S1",
+   "text": "How often is that?"
+  },
+  {
+   "id": "L0036",
+   "start": 219.5,
+   "end": 229.5,
+   "speaker": "S2",
+   "text": "Couple of nights a week, a joint or two. I smoke it in the garden, out the back door, so it's not in the house."
+  },
+  {
+   "id": "L0037",
+   "start": 230.4,
+   "end": 234.4,
+   "speaker": "S1",
+   "text": "Okay. And have you ever used anything else, like cocaine?"
+  },
+  {
+   "id": "L0038",
+   "start": 235.3,
+   "end": 239.3,
+   "speaker": "S2",
+   "text": "No. Never. I've never done coke, not once, I wouldn't."
+  },
+  {
+   "id": "L0039",
+   "start": 240.2,
+   "end": 241.4,
+   "speaker": "S1",
+   "text": "Okay. Thanks."
+  },
+  {
+   "id": "L0040",
+   "start": 242.3,
+   "end": 244.7,
+   "speaker": "S2",
+   "text": "Are you gonna report me now?"
+  },
+  {
+   "id": "L0041",
+   "start": 245.1,
+   "end": 261.5,
+   "speaker": "S1",
+   "text": "I'm not here to judge you, Jade. What I'm thinking about is the nights you're on your own with Lily and Mason. If one of them woke up poorly at two in the morning, could you drive, or deal with it?"
+  },
+  {
+   "id": "L0042",
+   "start": 262.5,
+   "end": 274.1,
+   "speaker": "S2",
+   "text": "Um. Probably not, no. There's been, there's been a couple of times I fell asleep on the sofa and Lily was crying and I didn't hear her straight away."
+  },
+  {
+   "id": "L0043",
+   "start": 274.6,
+   "end": 279.0,
+   "speaker": "S1",
+   "text": "Thank you for telling me that. How long was she crying?"
+  },
+  {
+   "id": "L0044",
+   "start": 280.1,
+   "end": 285.7,
+   "speaker": "S2",
+   "text": "I don't know. Mason woke me up. He come downstairs and said Lily's crying."
+  },
+  {
+   "id": "L0045",
+   "start": 286.6,
+   "end": 301.0,
+   "speaker": "S1",
+   "text": "Okay. So, I need to be straight with you about what happens next. I'd like to let your GP know, and I'd like to refer you to the Harbridge Recovery Hub. Are you okay with that?"
+  },
+  {
+   "id": "L0046",
+   "start": 301.7,
+   "end": 302.9,
+   "speaker": "S2",
+   "text": "Yeah. I suppose."
+  },
+  {
+   "id": "L0047",
+   "start": 303.6,
+   "end": 318.4,
+   "speaker": "S1",
+   "text": "I also have to think about whether children's social care needs to know. I'm going to talk it through with my safeguarding lead today and I'll ring you tomorrow either way, so nothing happens behind your back."
+  },
+  {
+   "id": "L0048",
+   "start": 319.4,
+   "end": 321.4,
+   "speaker": "S2",
+   "text": "They're not taking my kids."
+  },
+  {
+   "id": "L0049",
+   "start": 322.1,
+   "end": 329.7,
+   "speaker": "S1",
+   "text": "That's not what this is about. It's about getting you some support. Can we agree some things for now?"
+  },
+  {
+   "id": "L0050",
+   "start": 330.6,
+   "end": 331.8,
+   "speaker": "S2",
+   "text": "Like what?"
+  },
+  {
+   "id": "L0051",
+   "start": 332.4,
+   "end": 339.6,
+   "speaker": "S1",
+   "text": "No drinking and no weed on the nights you're on your own with them. Could you manage that?"
+  },
+  {
+   "id": "L0052",
+   "start": 340.3,
+   "end": 345.1,
+   "speaker": "S2",
+   "text": "I can try. I'll get rid of the wine in the fridge."
+  },
+  {
+   "id": "L0053",
+   "start": 346.2,
+   "end": 351.4,
+   "speaker": "S1",
+   "text": "And could your mum stay over a couple of nights in the week?"
+  },
+  {
+   "id": "L0054",
+   "start": 352.1,
+   "end": 355.3,
+   "speaker": "S2",
+   "text": "She'd do Wednesday and Thursday, she's offered before."
+  },
+  {
+   "id": "L0055",
+   "start": 355.9,
+   "end": 363.9,
+   "speaker": "S1",
+   "text": "Great. And Lily always sleeps in her cot, never on the sofa with you, especially if you've had a drink."
+  },
+  {
+   "id": "L0056",
+   "start": 364.6,
+   "end": 367.0,
+   "speaker": "S2",
+   "text": "Yeah. She's always in her cot."
+  },
+  {
+   "id": "L0057",
+   "start": 367.8,
+   "end": 374.2,
+   "speaker": "S1",
+   "text": "Okay. Oh, she's stirring. Shall we weigh her? She was seven point nine kilos last time."
+  },
+  {
+   "id": "L0058",
+   "start": 375.0,
+   "end": 379.0,
+   "speaker": "S2",
+   "text": "She feels heavier, she's in nine to twelve months clothes."
+  },
+  {
+   "id": "L0059",
+   "start": 379.5,
+   "end": 385.5,
+   "speaker": "S1",
+   "text": "Eight point four. That's fine, she's following her line. Is she sitting on her own?"
+  },
+  {
+   "id": "L0060",
+   "start": 386.6,
+   "end": 391.4,
+   "speaker": "S2",
+   "text": "Yeah, and she's trying to crawl but she goes backwards, it's hilarious."
+  },
+  {
+   "id": "L0061",
+   "start": 391.9,
+   "end": 396.7,
+   "speaker": "S1",
+   "text": "Ha, they often do. Any worries about her hearing or her eyes?"
+  },
+  {
+   "id": "L0062",
+   "start": 397.5,
+   "end": 400.7,
+   "speaker": "S2",
+   "text": "No, she turns round when Mason screams, so."
+  },
+  {
+   "id": "L0063",
+   "start": 401.5,
+   "end": 409.1,
+   "speaker": "S1",
+   "text": "Right, so actions. I'll make the Recovery Hub referral today and write to Dr Anand at Elm Street surgery."
+  },
+  {
+   "id": "L0064",
+   "start": 410.1,
+   "end": 411.3,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0065",
+   "start": 411.7,
+   "end": 421.7,
+   "speaker": "S1",
+   "text": "I'll ring you tomorrow after I've spoken to my lead, and I'll come back on the eighth of December to see how you're getting on."
+  },
+  {
+   "id": "L0066",
+   "start": 422.4,
+   "end": 424.8,
+   "speaker": "S2",
+   "text": "The eighth, that's a Tuesday? Fine."
+  },
+  {
+   "id": "L0067",
+   "start": 425.5,
+   "end": 429.5,
+   "speaker": "S1",
+   "text": "And you'll ring your mum tonight about Wednesdays and Thursdays."
+  },
+  {
+   "id": "L0068",
+   "start": 430.3,
+   "end": 433.5,
+   "speaker": "S2",
+   "text": "I'll text her now while you're here, actually."
+  },
+  {
+   "id": "L0069",
+   "start": 434.4,
+   "end": 438.8,
+   "speaker": "S1",
+   "text": "Brilliant. And here's the energy fund number, and the choking leaflet."
+  },
+  {
+   "id": "L0070",
+   "start": 439.2,
+   "end": 440.4,
+   "speaker": "S2",
+   "text": "Thanks, Claire."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Jade says she drinks a bottle of wine a night, most nights, once the children are in bed, and plays it down ('everyone does it').",
+   "style": "minimised",
+   "must_keep": [
+    "bottle of wine",
+    "most nights"
+   ],
+   "lines": [
+    "L0028",
+    "L0030",
+    "L0032"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Jade says she smokes weed a couple of nights a week when the children are in bed, in the garden.",
+   "style": "direct",
+   "must_keep": [
+    "weed",
+    "in bed",
+    "couple of nights a week"
+   ],
+   "lines": [
+    "L0034",
+    "L0036"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Jade says a couple of times she fell asleep on the sofa and did not hear Lily crying; Mason woke her.",
+   "style": "direct",
+   "must_keep": [
+    "fell asleep",
+    "sofa",
+    "crying"
+   ],
+   "lines": [
+    "L0042",
+    "L0044"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "denial",
+   "must_not_claim": "Jade Pritchard has used cocaine.",
+   "flag_terms": [
+    "cocaine",
+    "coke"
+   ],
+   "lines": [
+    "L0037",
+    "L0038"
+   ]
+  }
+ ]
+}

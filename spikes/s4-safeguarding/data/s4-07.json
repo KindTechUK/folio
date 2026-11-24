@@ -1,0 +1,634 @@
+{
+ "id": "s4-07",
+ "title": "New-birth visit, mother discloses partner's abuse (synthetic)",
+ "template": "assessment",
+ "category": "domestic_abuse",
+ "setting": "A health visitor makes the new-birth visit to Kayleigh Morris and her 12-day-old daughter Ruby at home at 14 Elm Close, Harbridge, while Kayleigh's partner is at work.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Health visitor (Bethan Lloyd)",
+  "S2": "Kayleigh Morris (mother)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 6.2,
+   "speaker": "S1",
+   "text": "Hiya, Kayleigh? I'm Bethan, the health visitor. We spoke on the phone on Friday."
+  },
+  {
+   "id": "L0002",
+   "start": 7.0,
+   "end": 12.6,
+   "speaker": "S2",
+   "text": "Yeah, come in, sorry about the mess, it's, um, it's been a bit mad."
+  },
+  {
+   "id": "L0003",
+   "start": 13.3,
+   "end": 19.7,
+   "speaker": "S1",
+   "text": "Oh don't worry at all, you've got a twelve day old, nobody's tidying. Is this Ruby?"
+  },
+  {
+   "id": "L0004",
+   "start": 20.0,
+   "end": 22.4,
+   "speaker": "S2",
+   "text": "Yeah, she's just gone off, finally."
+  },
+  {
+   "id": "L0005",
+   "start": 23.5,
+   "end": 33.1,
+   "speaker": "S1",
+   "text": "She's gorgeous. Okay, so today's the new birth visit, I'll ask about feeding, sleep, how you're doing, and weigh her if she wakes up."
+  },
+  {
+   "id": "L0006",
+   "start": 33.4,
+   "end": 34.6,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0007",
+   "start": 35.4,
+   "end": 49.4,
+   "speaker": "S1",
+   "text": "I'll write notes afterwards. What you tell me stays with us, your GP and midwife, unless I'm worried someone's at risk, then I might need to share it, but I'd talk to you first. Okay?"
+  },
+  {
+   "id": "L0008",
+   "start": 50.3,
+   "end": 51.5,
+   "speaker": "S2",
+   "text": "Yeah, that's fine."
+  },
+  {
+   "id": "L0009",
+   "start": 52.6,
+   "end": 54.6,
+   "speaker": "S1",
+   "text": "Lovely. So how's feeding going?"
+  },
+  {
+   "id": "L0010",
+   "start": 55.4,
+   "end": 64.2,
+   "speaker": "S2",
+   "text": "Um, I'm breastfeeding mostly, but she has a bottle of formula at night, like one bottle, because I was just so tired."
+  },
+  {
+   "id": "L0011",
+   "start": 64.9,
+   "end": 68.9,
+   "speaker": "S1",
+   "text": "That's fine. How often is she feeding in the day?"
+  },
+  {
+   "id": "L0012",
+   "start": 69.9,
+   "end": 76.3,
+   "speaker": "S2",
+   "text": "Every two, two and a half hours? Sometimes she just wants to be on all evening."
+  },
+  {
+   "id": "L0013",
+   "start": 77.2,
+   "end": 82.8,
+   "speaker": "S1",
+   "text": "Cluster feeding, yeah, that's really normal at this age. Wet and dirty nappies okay?"
+  },
+  {
+   "id": "L0014",
+   "start": 83.9,
+   "end": 87.1,
+   "speaker": "S2",
+   "text": "Yeah, loads. Like six or seven wet ones."
+  },
+  {
+   "id": "L0015",
+   "start": 87.7,
+   "end": 98.1,
+   "speaker": "S1",
+   "text": "Good. And the midwife weighed her on day five, she was three point two, so we'll see. And how are you, physically? How are your stitches?"
+  },
+  {
+   "id": "L0016",
+   "start": 98.4,
+   "end": 101.2,
+   "speaker": "S2",
+   "text": "Bit sore still but better. I'm alright."
+  },
+  {
+   "id": "L0017",
+   "start": 102.3,
+   "end": 105.1,
+   "speaker": "S1",
+   "text": "And in yourself? How's your mood been?"
+  },
+  {
+   "id": "L0018",
+   "start": 105.7,
+   "end": 110.9,
+   "speaker": "S2",
+   "text": "Up and down. I cry a lot. But my sister says that's normal."
+  },
+  {
+   "id": "L0019",
+   "start": 112.0,
+   "end": 122.4,
+   "speaker": "S1",
+   "text": "It can be, the first couple of weeks especially. We'll keep an eye on it. Who's at home with you, is it you and Ruby's dad?"
+  },
+  {
+   "id": "L0020",
+   "start": 123.1,
+   "end": 129.5,
+   "speaker": "S2",
+   "text": "Yeah, Dean. He's at work, he does early shifts at the warehouse, he's back about three."
+  },
+  {
+   "id": "L0021",
+   "start": 130.5,
+   "end": 134.9,
+   "speaker": "S1",
+   "text": "And how are things between you and Dean at the moment?"
+  },
+  {
+   "id": "L0022",
+   "start": 135.7,
+   "end": 139.3,
+   "speaker": "S2",
+   "text": "Fine. I mean, normal. Bit tense with no sleep."
+  },
+  {
+   "id": "L0023",
+   "start": 140.2,
+   "end": 148.2,
+   "speaker": "S1",
+   "text": "I ask everyone this, it's a routine question. Has anyone at home ever hurt you, or made you feel frightened?"
+  },
+  {
+   "id": "L0024",
+   "start": 148.9,
+   "end": 155.7,
+   "speaker": "S2",
+   "text": "Um. Not really. I mean, he's, erm, he only pushed me. It wasn't, like, a big thing."
+  },
+  {
+   "id": "L0025",
+   "start": 156.2,
+   "end": 161.0,
+   "speaker": "S1",
+   "text": "Okay. Thank you for telling me. Can you tell me what happened?"
+  },
+  {
+   "id": "L0026",
+   "start": 161.6,
+   "end": 170.0,
+   "speaker": "S2",
+   "text": "We were arguing and he pushed me into the wardrobe door. But he was stressed, it's only been a few times."
+  },
+  {
+   "id": "L0027",
+   "start": 170.5,
+   "end": 173.3,
+   "speaker": "S1",
+   "text": "How many times would you say, roughly?"
+  },
+  {
+   "id": "L0028",
+   "start": 173.8,
+   "end": 179.0,
+   "speaker": "S2",
+   "text": "Three or four times? Since the summer. It's not every week or anything."
+  },
+  {
+   "id": "L0029",
+   "start": 179.8,
+   "end": 183.8,
+   "speaker": "S1",
+   "text": "Okay. Has he ever done anything else, when he's angry?"
+  },
+  {
+   "id": "L0030",
+   "start": 184.2,
+   "end": 187.4,
+   "speaker": "S2",
+   "text": "Erm. I don't know if I should say."
+  },
+  {
+   "id": "L0031",
+   "start": 188.1,
+   "end": 190.5,
+   "speaker": "S1",
+   "text": "Take your time. There's no rush."
+  },
+  {
+   "id": "L0032",
+   "start": 191.6,
+   "end": 194.4,
+   "speaker": "S2",
+   "text": "When I was pregnant. Um. In August."
+  },
+  {
+   "id": "L0033",
+   "start": 195.0,
+   "end": 196.2,
+   "speaker": "S1",
+   "text": "Mm-hm."
+  },
+  {
+   "id": "L0034",
+   "start": 197.2,
+   "end": 200.0,
+   "speaker": "S2",
+   "text": "He, he punched me. In my stomach."
+  },
+  {
+   "id": "L0035",
+   "start": 200.9,
+   "end": 207.3,
+   "speaker": "S1",
+   "text": "He punched you in the stomach when you were pregnant. How many weeks were you then?"
+  },
+  {
+   "id": "L0036",
+   "start": 208.3,
+   "end": 218.7,
+   "speaker": "S2",
+   "text": "About thirty weeks pregnant. I went to the hospital the next day because she wasn't moving much, but she was fine. I told them I fell."
+  },
+  {
+   "id": "L0037",
+   "start": 219.1,
+   "end": 225.1,
+   "speaker": "S1",
+   "text": "Thank you, Kayleigh. That must have been really frightening. Has that happened more than once?"
+  },
+  {
+   "id": "L0038",
+   "start": 225.6,
+   "end": 228.8,
+   "speaker": "S2",
+   "text": "Just the once. The punching. Just that time."
+  },
+  {
+   "id": "L0039",
+   "start": 229.4,
+   "end": 237.0,
+   "speaker": "S1",
+   "text": "Okay. And are there other things he does, not hitting, but controlling things, like money or who you see?"
+  },
+  {
+   "id": "L0040",
+   "start": 237.8,
+   "end": 242.6,
+   "speaker": "S2",
+   "text": "He checks my phone. Every night, he goes through all my messages."
+  },
+  {
+   "id": "L0041",
+   "start": 243.4,
+   "end": 244.6,
+   "speaker": "S1",
+   "text": "Every night?"
+  },
+  {
+   "id": "L0042",
+   "start": 245.7,
+   "end": 250.5,
+   "speaker": "S2",
+   "text": "Yeah. And if I've messaged someone he doesn't like, he goes mad."
+  },
+  {
+   "id": "L0043",
+   "start": 250.8,
+   "end": 254.0,
+   "speaker": "S1",
+   "text": "What about your family, do you see them?"
+  },
+  {
+   "id": "L0044",
+   "start": 254.9,
+   "end": 260.9,
+   "speaker": "S2",
+   "text": "Not really. He won't let me see my mum. He says she's a bad influence."
+  },
+  {
+   "id": "L0045",
+   "start": 261.5,
+   "end": 264.3,
+   "speaker": "S1",
+   "text": "When did you last see your mum?"
+  },
+  {
+   "id": "L0046",
+   "start": 264.8,
+   "end": 268.8,
+   "speaker": "S2",
+   "text": "September. Before Ruby was born. She hasn't even met her."
+  },
+  {
+   "id": "L0047",
+   "start": 269.1,
+   "end": 278.7,
+   "speaker": "S1",
+   "text": "I'm sorry. I'm going to ask you something about Ruby now, and it's important. Has Dean ever hurt Ruby, or been rough with her?"
+  },
+  {
+   "id": "L0048",
+   "start": 279.0,
+   "end": 284.2,
+   "speaker": "S2",
+   "text": "No. No, never. He's really good with her, honestly. He's never hurt her."
+  },
+  {
+   "id": "L0049",
+   "start": 285.0,
+   "end": 289.0,
+   "speaker": "S1",
+   "text": "Okay, thank you. Do you feel safe at home today?"
+  },
+  {
+   "id": "L0050",
+   "start": 289.7,
+   "end": 292.5,
+   "speaker": "S2",
+   "text": "Today, yeah. He's at work till three."
+  },
+  {
+   "id": "L0051",
+   "start": 293.3,
+   "end": 302.9,
+   "speaker": "S1",
+   "text": "Okay. There's an outreach service, Harbridge Women's Aid, they can ring you when Dean's at work. Would you be okay with me referring you?"
+  },
+  {
+   "id": "L0052",
+   "start": 303.3,
+   "end": 304.9,
+   "speaker": "S2",
+   "text": "Would he find out?"
+  },
+  {
+   "id": "L0053",
+   "start": 305.3,
+   "end": 312.5,
+   "speaker": "S1",
+   "text": "They'd only ring at times you choose, and they wouldn't leave messages. You can pick a safe number."
+  },
+  {
+   "id": "L0054",
+   "start": 312.9,
+   "end": 316.5,
+   "speaker": "S2",
+   "text": "Maybe my sister's number. Kirsty. Yeah, okay. Do it."
+  },
+  {
+   "id": "L0055",
+   "start": 317.3,
+   "end": 330.1,
+   "speaker": "S1",
+   "text": "Thank you. Because Ruby's in the house, I'll need to let our safeguarding lead and the GP know. That's not about taking her away, it's so everyone's looking out for you both."
+  },
+  {
+   "id": "L0056",
+   "start": 330.9,
+   "end": 336.5,
+   "speaker": "S2",
+   "text": "Okay. I get it. Just don't put it in a letter to the house."
+  },
+  {
+   "id": "L0057",
+   "start": 337.0,
+   "end": 343.4,
+   "speaker": "S1",
+   "text": "Nothing will be posted to the house, I'll make a note of that on the system."
+  },
+  {
+   "id": "L0058",
+   "start": 343.7,
+   "end": 344.9,
+   "speaker": "S2",
+   "text": "Thanks."
+  },
+  {
+   "id": "L0059",
+   "start": 345.4,
+   "end": 350.6,
+   "speaker": "S1",
+   "text": "Oh, she's stirring. Shall we get her on the scales while she's awake?"
+  },
+  {
+   "id": "L0060",
+   "start": 350.9,
+   "end": 353.3,
+   "speaker": "S2",
+   "text": "Yeah go on. Come on, baby."
+  },
+  {
+   "id": "L0061",
+   "start": 354.4,
+   "end": 360.8,
+   "speaker": "S1",
+   "text": "There we go. Three point four one kilos. That's lovely, she's back above her birth weight."
+  },
+  {
+   "id": "L0062",
+   "start": 361.3,
+   "end": 364.5,
+   "speaker": "S2",
+   "text": "Oh good. I was worried about the formula."
+  },
+  {
+   "id": "L0063",
+   "start": 365.5,
+   "end": 373.9,
+   "speaker": "S1",
+   "text": "No, that's all fine. Her cord's off, skin looks good, she's tracking my face. Is she sleeping in the Moses basket?"
+  },
+  {
+   "id": "L0064",
+   "start": 374.5,
+   "end": 377.7,
+   "speaker": "S2",
+   "text": "Yeah, next to our bed, on her back."
+  },
+  {
+   "id": "L0065",
+   "start": 378.8,
+   "end": 382.8,
+   "speaker": "S1",
+   "text": "Perfect. And money, are you managing okay? Any benefits sorted?"
+  },
+  {
+   "id": "L0066",
+   "start": 383.9,
+   "end": 392.3,
+   "speaker": "S2",
+   "text": "Dean deals with the money really. I've applied for child benefit. I haven't got my own bank card at the minute."
+  },
+  {
+   "id": "L0067",
+   "start": 393.3,
+   "end": 399.7,
+   "speaker": "S1",
+   "text": "Okay, that's something the Women's Aid worker can help with too. Have you registered Ruby's birth?"
+  },
+  {
+   "id": "L0068",
+   "start": 400.0,
+   "end": 401.2,
+   "speaker": "S2",
+   "text": "Yeah, last Tuesday."
+  },
+  {
+   "id": "L0069",
+   "start": 401.6,
+   "end": 412.8,
+   "speaker": "S1",
+   "text": "Brilliant. Your GP six week check is due around the eighth of January, they'll send it out. I'll text your sister's number about that, not yours, shall I?"
+  },
+  {
+   "id": "L0070",
+   "start": 413.2,
+   "end": 418.0,
+   "speaker": "S2",
+   "text": "Yeah, Kirsty's number. Oh seven seven, I'll write it down for you."
+  },
+  {
+   "id": "L0071",
+   "start": 418.3,
+   "end": 427.9,
+   "speaker": "S1",
+   "text": "Thank you. So, just to go over what happens next. I'll make the Women's Aid referral today, and they'll ring Kirsty's phone by Friday."
+  },
+  {
+   "id": "L0072",
+   "start": 428.9,
+   "end": 430.1,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0073",
+   "start": 430.9,
+   "end": 437.3,
+   "speaker": "S1",
+   "text": "I'll speak to our safeguarding lead today and let your GP know, Dr Anand isn't it?"
+  },
+  {
+   "id": "L0074",
+   "start": 438.1,
+   "end": 439.3,
+   "speaker": "S2",
+   "text": "Yeah."
+  },
+  {
+   "id": "L0075",
+   "start": 439.7,
+   "end": 451.3,
+   "speaker": "S1",
+   "text": "And I'll come back on Thursday the third of December, at eleven, when Dean's at work. If you're ever in danger, you ring nine nine nine. Is that okay?"
+  },
+  {
+   "id": "L0076",
+   "start": 451.9,
+   "end": 455.1,
+   "speaker": "S2",
+   "text": "Yeah. Thanks, Bethan. Sorry I didn't say before."
+  },
+  {
+   "id": "L0077",
+   "start": 455.5,
+   "end": 461.1,
+   "speaker": "S1",
+   "text": "Don't be sorry. You've done really well telling me. Look after yourself, and Ruby."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Kayleigh says her partner Dean pushed her into the wardrobe door, three or four times since the summer, which she plays down.",
+   "style": "minimised",
+   "must_keep": [
+    "pushed",
+    "wardrobe",
+    "three or four times"
+   ],
+   "tag": "d1",
+   "lines": [
+    "L0024",
+    "L0026",
+    "L0028"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Kayleigh says Dean punched her in the stomach once in August when she was about 30 weeks pregnant.",
+   "style": "hesitant",
+   "must_keep": [
+    "punched",
+    "stomach",
+    "pregnant",
+    "August"
+   ],
+   "tag": "d2",
+   "lines": [
+    "L0032",
+    "L0034",
+    "L0036",
+    "L0038"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Kayleigh says Dean checks her phone every night and goes through her messages.",
+   "style": "direct",
+   "must_keep": [
+    "checks",
+    "phone",
+    "every night"
+   ],
+   "tag": "d3",
+   "lines": [
+    "L0040",
+    "L0042"
+   ]
+  },
+  {
+   "id": "D04",
+   "what": "Kayleigh says Dean won't let her see her mum, whom she last saw in September.",
+   "style": "direct",
+   "must_keep": [
+    "mum",
+    "September"
+   ],
+   "tag": "d4",
+   "lines": [
+    "L0044",
+    "L0046"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "denial",
+   "must_not_claim": "Dean has hurt the baby, Ruby.",
+   "flag_terms": [
+    "hurt",
+    "Ruby"
+   ],
+   "tag": "c1",
+   "lines": [
+    "L0047",
+    "L0048"
+   ]
+  }
+ ]
+}

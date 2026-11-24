@@ -1,0 +1,509 @@
+{
+ "id": "s4-21",
+ "title": "Parent in care proceedings discloses relapse to solicitor (synthetic)",
+ "template": "attendance_note",
+ "category": "substance_use",
+ "setting": "Solicitor Priya Mehta sees her client Kerry Dobson at the Harbridge office to prepare for a care proceedings hearing about Kerry's son Tyler (6), who is in foster care.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Solicitor (Priya Mehta)",
+  "S2": "Kerry Dobson (client)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 5.4,
+   "speaker": "S1",
+   "text": "Hi Kerry, come through. Do you want a tea or a water?"
+  },
+  {
+   "id": "L0002",
+   "start": 6.3,
+   "end": 8.7,
+   "speaker": "S2",
+   "text": "Water's fine. It's freezing out there."
+  },
+  {
+   "id": "L0003",
+   "start": 9.7,
+   "end": 23.7,
+   "speaker": "S1",
+   "text": "I know, the heating in here's not much better. So, um, thanks for coming in. This is to get ready for the hearing on the fifteenth of December and go through the local authority's letter."
+  },
+  {
+   "id": "L0004",
+   "start": 24.5,
+   "end": 25.7,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0005",
+   "start": 26.2,
+   "end": 40.2,
+   "speaker": "S1",
+   "text": "Just to remind you, what you tell me is confidential and privileged, I don't pass it on without your say-so. The one thing I can't do is tell the court something I know isn't true."
+  },
+  {
+   "id": "L0006",
+   "start": 40.6,
+   "end": 41.8,
+   "speaker": "S2",
+   "text": "Yeah, you said."
+  },
+  {
+   "id": "L0007",
+   "start": 42.3,
+   "end": 44.3,
+   "speaker": "S1",
+   "text": "How's contact with Tyler going?"
+  },
+  {
+   "id": "L0008",
+   "start": 44.8,
+   "end": 52.4,
+   "speaker": "S2",
+   "text": "Good. Tuesdays and Thursdays at the family centre on Mill Lane. He keeps asking when he can come home."
+  },
+  {
+   "id": "L0009",
+   "start": 53.2,
+   "end": 56.4,
+   "speaker": "S1",
+   "text": "That's hard. What did the contact notes say?"
+  },
+  {
+   "id": "L0010",
+   "start": 57.0,
+   "end": 65.0,
+   "speaker": "S2",
+   "text": "The worker said it was warm, that's the word she used, warm. We did Lego. He's lost his front tooth."
+  },
+  {
+   "id": "L0011",
+   "start": 65.4,
+   "end": 69.4,
+   "speaker": "S1",
+   "text": "Aw. And how's he getting on with the foster carers?"
+  },
+  {
+   "id": "L0012",
+   "start": 69.9,
+   "end": 75.9,
+   "speaker": "S2",
+   "text": "He likes them. He says they've got a dog. That kills me a bit, honest."
+  },
+  {
+   "id": "L0013",
+   "start": 77.0,
+   "end": 80.2,
+   "speaker": "S1",
+   "text": "I understand. Is he still at Ashgrove Primary?"
+  },
+  {
+   "id": "L0014",
+   "start": 81.1,
+   "end": 87.1,
+   "speaker": "S2",
+   "text": "Yeah, the carers drive him in. His teacher says he's doing better with his reading."
+  },
+  {
+   "id": "L0015",
+   "start": 88.2,
+   "end": 89.8,
+   "speaker": "S1",
+   "text": "That's good to hear."
+  },
+  {
+   "id": "L0016",
+   "start": 90.9,
+   "end": 104.5,
+   "speaker": "S1",
+   "text": "Um, so, the local authority's letter is asking you to do a hair-strand test, and it asks about drug use. I need to ask you straight, have you used anything since we last met?"
+  },
+  {
+   "id": "L0017",
+   "start": 105.0,
+   "end": 108.2,
+   "speaker": "S2",
+   "text": "No. I'm clean. I've been clean since June."
+  },
+  {
+   "id": "L0018",
+   "start": 109.2,
+   "end": 110.4,
+   "speaker": "S1",
+   "text": "Okay."
+  },
+  {
+   "id": "L0019",
+   "start": 111.2,
+   "end": 114.0,
+   "speaker": "S2",
+   "text": "I go to the group on Wednesdays."
+  },
+  {
+   "id": "L0020",
+   "start": 114.9,
+   "end": 119.7,
+   "speaker": "S1",
+   "text": "That's good. Is there anything that might come up, anything at all?"
+  },
+  {
+   "id": "L0021",
+   "start": 120.1,
+   "end": 125.7,
+   "speaker": "S2",
+   "text": "I mean... I had a slip. I used crack last weekend. Just the once."
+  },
+  {
+   "id": "L0022",
+   "start": 126.6,
+   "end": 128.6,
+   "speaker": "S1",
+   "text": "Okay. Thank you for -"
+  },
+  {
+   "id": "L0023",
+   "start": 129.5,
+   "end": 134.7,
+   "speaker": "S2",
+   "text": "No, forget I said that. It was nothing. I'm fine, honestly, I'm clean."
+  },
+  {
+   "id": "L0024",
+   "start": 135.8,
+   "end": 146.6,
+   "speaker": "S1",
+   "text": "Kerry, I'm not here to judge you. I can only help you properly if I know what's actually happened, and like I said, this stays with me."
+  },
+  {
+   "id": "L0025",
+   "start": 147.0,
+   "end": 152.6,
+   "speaker": "S2",
+   "text": "Okay. Um. I did. I used crack on Saturday night, at my cousin's flat."
+  },
+  {
+   "id": "L0026",
+   "start": 153.7,
+   "end": 156.5,
+   "speaker": "S1",
+   "text": "Thank you. Was that the only time?"
+  },
+  {
+   "id": "L0027",
+   "start": 156.9,
+   "end": 161.7,
+   "speaker": "S2",
+   "text": "No. Um. I've been using heroin again. Since the 3rd of November."
+  },
+  {
+   "id": "L0028",
+   "start": 162.2,
+   "end": 164.2,
+   "speaker": "S1",
+   "text": "How often are you using?"
+  },
+  {
+   "id": "L0029",
+   "start": 165.2,
+   "end": 169.6,
+   "speaker": "S2",
+   "text": "Every day. Smoking it, not injecting. It's about £40 a day."
+  },
+  {
+   "id": "L0030",
+   "start": 170.0,
+   "end": 172.8,
+   "speaker": "S1",
+   "text": "And how are you paying for that?"
+  },
+  {
+   "id": "L0031",
+   "start": 173.1,
+   "end": 179.5,
+   "speaker": "S2",
+   "text": "My Universal Credit, and I've been borrowing off my nan. She thinks it's for the gas."
+  },
+  {
+   "id": "L0032",
+   "start": 180.2,
+   "end": 187.0,
+   "speaker": "S1",
+   "text": "Okay. I appreciate you telling me, I know it's not easy. Are you still on your script?"
+  },
+  {
+   "id": "L0033",
+   "start": 187.6,
+   "end": 191.2,
+   "speaker": "S2",
+   "text": "I stopped picking it up. About three weeks ago."
+  },
+  {
+   "id": "L0034",
+   "start": 191.8,
+   "end": 197.8,
+   "speaker": "S1",
+   "text": "Right. Can I check where you're living, is that still the flat on Corporation Street?"
+  },
+  {
+   "id": "L0035",
+   "start": 198.3,
+   "end": 202.7,
+   "speaker": "S2",
+   "text": "Yeah. Rent's paid direct. I'm behind on the council tax though."
+  },
+  {
+   "id": "L0036",
+   "start": 203.3,
+   "end": 209.3,
+   "speaker": "S1",
+   "text": "We can look at that separately. Kerry, what do you want out of the proceedings?"
+  },
+  {
+   "id": "L0037",
+   "start": 209.6,
+   "end": 212.8,
+   "speaker": "S2",
+   "text": "I want Tyler home. That's all I want."
+  },
+  {
+   "id": "L0038",
+   "start": 213.8,
+   "end": 218.6,
+   "speaker": "S2",
+   "text": "If the hair-strand test comes back positive, will they stop my contact?"
+  },
+  {
+   "id": "L0039",
+   "start": 218.9,
+   "end": 233.7,
+   "speaker": "S1",
+   "text": "The test hasn't been done yet, so we don't know what it'll show. But I have to be honest, a hair test usually covers about three months, so what you've told me is likely to show up."
+  },
+  {
+   "id": "L0040",
+   "start": 234.8,
+   "end": 236.0,
+   "speaker": "S2",
+   "text": "Oh god."
+  },
+  {
+   "id": "L0041",
+   "start": 236.3,
+   "end": 250.7,
+   "speaker": "S1",
+   "text": "My advice is that it's better coming from you first than from the test. If you tell the social worker before the result, and you're already back in treatment, that looks very different to the court."
+  },
+  {
+   "id": "L0042",
+   "start": 251.7,
+   "end": 253.7,
+   "speaker": "S2",
+   "text": "Will it stop contact, though?"
+  },
+  {
+   "id": "L0043",
+   "start": 254.8,
+   "end": 265.2,
+   "speaker": "S1",
+   "text": "I can't promise, but courts don't usually stop contact over a relapse alone, if you're turning up sober and engaging. What worries them is hiding it."
+  },
+  {
+   "id": "L0044",
+   "start": 265.5,
+   "end": 266.7,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0045",
+   "start": 267.5,
+   "end": 275.1,
+   "speaker": "S1",
+   "text": "You don't have to decide today. But I can't file a statement saying you're clean. Do you understand that?"
+  },
+  {
+   "id": "L0046",
+   "start": 276.0,
+   "end": 277.6,
+   "speaker": "S2",
+   "text": "Yeah. I get it."
+  },
+  {
+   "id": "L0047",
+   "start": 278.5,
+   "end": 289.3,
+   "speaker": "S1",
+   "text": "One more thing, and this is about your safety. Going back to heroin after a break is when the overdose risk is highest. Do you have naloxone?"
+  },
+  {
+   "id": "L0048",
+   "start": 290.1,
+   "end": 293.7,
+   "speaker": "S2",
+   "text": "I've got a kit somewhere. Probably out of date."
+  },
+  {
+   "id": "L0049",
+   "start": 294.2,
+   "end": 300.6,
+   "speaker": "S1",
+   "text": "Please get a new one from the Recovery Hub. They'll give you one the same day."
+  },
+  {
+   "id": "L0050",
+   "start": 300.9,
+   "end": 302.1,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0051",
+   "start": 303.2,
+   "end": 310.8,
+   "speaker": "S1",
+   "text": "So, next steps. You'll ring the Harbridge Recovery Hub and ask to restart your script, by Friday the twenty-seventh."
+  },
+  {
+   "id": "L0052",
+   "start": 311.3,
+   "end": 313.3,
+   "speaker": "S2",
+   "text": "Yeah. I'll go in tomorrow."
+  },
+  {
+   "id": "L0053",
+   "start": 313.6,
+   "end": 323.6,
+   "speaker": "S1",
+   "text": "You'll think about telling the social worker, Ms Carter, and let me know by Monday whether you want me to write to her for you."
+  },
+  {
+   "id": "L0054",
+   "start": 324.5,
+   "end": 325.7,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0055",
+   "start": 326.6,
+   "end": 335.0,
+   "speaker": "S1",
+   "text": "I'll send you a letter confirming my advice today, and I'll chase the local authority for the date of the test."
+  },
+  {
+   "id": "L0056",
+   "start": 335.6,
+   "end": 339.6,
+   "speaker": "S1",
+   "text": "And keep going to contact. Tuesday and Thursday, every time."
+  },
+  {
+   "id": "L0057",
+   "start": 340.2,
+   "end": 341.8,
+   "speaker": "S2",
+   "text": "I won't miss it."
+  },
+  {
+   "id": "L0058",
+   "start": 342.7,
+   "end": 351.1,
+   "speaker": "S1",
+   "text": "I'll also write to the council about a payment plan for the council tax. Can you bring in the latest bill?"
+  },
+  {
+   "id": "L0059",
+   "start": 352.2,
+   "end": 355.0,
+   "speaker": "S2",
+   "text": "Yeah, it's on the side at home."
+  },
+  {
+   "id": "L0060",
+   "start": 355.5,
+   "end": 359.9,
+   "speaker": "S1",
+   "text": "Great. Our next appointment is the eighth of December at ten."
+  },
+  {
+   "id": "L0061",
+   "start": 360.2,
+   "end": 361.8,
+   "speaker": "S2",
+   "text": "Okay. Thanks, Priya. Sorry."
+  },
+  {
+   "id": "L0062",
+   "start": 362.9,
+   "end": 368.5,
+   "speaker": "S1",
+   "text": "You've nothing to apologise to me for. You did the right thing telling me."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Kerry says she used crack last weekend (Saturday night at her cousin's flat), takes it back, then says it again.",
+   "style": "retracted_restated",
+   "must_keep": [
+    "crack",
+    "last weekend",
+    "Saturday"
+   ],
+   "lines": [
+    "L0021",
+    "L0023",
+    "L0025"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Kerry says she has been using heroin again every day since the 3rd of November, smoking it.",
+   "style": "direct",
+   "must_keep": [
+    "heroin",
+    "3rd of November",
+    "every day"
+   ],
+   "lines": [
+    "L0027",
+    "L0029"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Kerry says she spends about £40 a day, funded from her Universal Credit and borrowing from her nan.",
+   "style": "direct",
+   "must_keep": [
+    "£40 a day",
+    "Universal Credit",
+    "borrowing",
+    "nan"
+   ],
+   "lines": [
+    "L0029",
+    "L0031"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hypothetical",
+   "must_not_claim": "Kerry Dobson's hair-strand test has come back positive.",
+   "flag_terms": [
+    "hair-strand",
+    "positive"
+   ],
+   "lines": [
+    "L0038",
+    "L0039"
+   ]
+  }
+ ]
+}

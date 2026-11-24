@@ -1,0 +1,535 @@
+{
+ "id": "s4-20",
+ "title": "Older man after a fall, drinking reported by daughter (synthetic)",
+ "template": "assessment",
+ "category": "substance_use",
+ "setting": "Adult social worker Tom Ashby visits Ronald Keegan (78) at 3 Furnace Lane, Coldmere, after his hospital discharge following a fall; his daughter Lisa is present.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Social worker (Tom Ashby)",
+  "S2": "Ronald Keegan (the person)",
+  "S3": "Lisa Keegan (daughter)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 8.6,
+   "speaker": "S1",
+   "text": "Hello Mr Keegan, I'm Tom Ashby, a social worker from the adult team at Coldmere. We spoke on the phone."
+  },
+  {
+   "id": "L0002",
+   "start": 9.2,
+   "end": 12.8,
+   "speaker": "S2",
+   "text": "Ron, call me Ron. Come in, mind the step."
+  },
+  {
+   "id": "L0003",
+   "start": 13.6,
+   "end": 17.6,
+   "speaker": "S3",
+   "text": "Hi, I'm Lisa, his daughter. I've took the morning off."
+  },
+  {
+   "id": "L0004",
+   "start": 18.3,
+   "end": 25.1,
+   "speaker": "S1",
+   "text": "Thanks Lisa, that's really helpful. Ron, is it okay with you if Lisa stays while we talk?"
+  },
+  {
+   "id": "L0005",
+   "start": 25.8,
+   "end": 29.0,
+   "speaker": "S2",
+   "text": "Yeah, she'll only nag me if she doesn't."
+  },
+  {
+   "id": "L0006",
+   "start": 29.9,
+   "end": 55.1,
+   "speaker": "S1",
+   "text": "Ha. So, um, the hospital asked us to come out after your fall, to see how you're managing and what help might be useful. What you tell me goes on your record, and with your agreement I'd share it with your GP. If I was worried about your safety, or someone else's, I might have to share it anyway, but I'd tell you."
+  },
+  {
+   "id": "L0007",
+   "start": 55.9,
+   "end": 57.1,
+   "speaker": "S2",
+   "text": "Fair enough."
+  },
+  {
+   "id": "L0008",
+   "start": 57.7,
+   "end": 62.1,
+   "speaker": "S1",
+   "text": "How have you been since you came home from Coldmere General?"
+  },
+  {
+   "id": "L0009",
+   "start": 62.7,
+   "end": 67.1,
+   "speaker": "S2",
+   "text": "Not bad. Bit stiff. The hip's sore going up the stairs."
+  },
+  {
+   "id": "L0010",
+   "start": 67.6,
+   "end": 69.6,
+   "speaker": "S1",
+   "text": "Are you managing the stairs?"
+  },
+  {
+   "id": "L0011",
+   "start": 70.3,
+   "end": 76.7,
+   "speaker": "S2",
+   "text": "I go up on my backside some nights, if I'm honest. There's only the one rail."
+  },
+  {
+   "id": "L0012",
+   "start": 77.7,
+   "end": 85.3,
+   "speaker": "S1",
+   "text": "Okay, that's useful. Our occupational therapist could look at a second rail, maybe a perching stool. How about washing?"
+  },
+  {
+   "id": "L0013",
+   "start": 86.2,
+   "end": 91.8,
+   "speaker": "S2",
+   "text": "I have a strip wash. I can't get in the bath since the fall."
+  },
+  {
+   "id": "L0014",
+   "start": 92.9,
+   "end": 94.1,
+   "speaker": "S1",
+   "text": "And meals?"
+  },
+  {
+   "id": "L0015",
+   "start": 95.2,
+   "end": 102.4,
+   "speaker": "S2",
+   "text": "Lisa does a shop on a Sunday. I have them microwave dinners. Pat did all the cooking, see."
+  },
+  {
+   "id": "L0016",
+   "start": 102.8,
+   "end": 104.4,
+   "speaker": "S1",
+   "text": "Pat was your wife?"
+  },
+  {
+   "id": "L0017",
+   "start": 104.8,
+   "end": 107.2,
+   "speaker": "S2",
+   "text": "Forty-six years. She died last March."
+  },
+  {
+   "id": "L0018",
+   "start": 107.5,
+   "end": 108.7,
+   "speaker": "S1",
+   "text": "I'm sorry, Ron."
+  },
+  {
+   "id": "L0019",
+   "start": 109.3,
+   "end": 111.7,
+   "speaker": "S2",
+   "text": "Ah, well. It's quiet without her."
+  },
+  {
+   "id": "L0020",
+   "start": 112.5,
+   "end": 114.9,
+   "speaker": "S1",
+   "text": "How do you fill your days?"
+  },
+  {
+   "id": "L0021",
+   "start": 115.2,
+   "end": 122.8,
+   "speaker": "S2",
+   "text": "Telly. The racing. I used to go to the British Legion on a Friday but I haven't bothered lately."
+  },
+  {
+   "id": "L0022",
+   "start": 123.3,
+   "end": 126.5,
+   "speaker": "S1",
+   "text": "Can I ask about alcohol? I ask everybody."
+  },
+  {
+   "id": "L0023",
+   "start": 127.3,
+   "end": 136.5,
+   "speaker": "S2",
+   "text": "I like a drink, I won't lie. A couple of cans of an evening, that's all. A couple of cans with my tea."
+  },
+  {
+   "id": "L0024",
+   "start": 137.4,
+   "end": 146.2,
+   "speaker": "S3",
+   "text": "Dad. It's not a couple. Sorry, but I clear the recycling. It's eight cans a day, the big ones, the strong lager."
+  },
+  {
+   "id": "L0025",
+   "start": 146.9,
+   "end": 148.1,
+   "speaker": "S2",
+   "text": "Here we go."
+  },
+  {
+   "id": "L0026",
+   "start": 148.8,
+   "end": 156.0,
+   "speaker": "S3",
+   "text": "And there's vodka. He gets a bottle of vodka from the Spar and it's gone in two days."
+  },
+  {
+   "id": "L0027",
+   "start": 156.5,
+   "end": 160.9,
+   "speaker": "S1",
+   "text": "Lisa, how do you know that, have you seen it yourself?"
+  },
+  {
+   "id": "L0028",
+   "start": 162.0,
+   "end": 169.6,
+   "speaker": "S3",
+   "text": "I see the empties in the bin every Sunday. And the cans, eight cans a day, I've counted them."
+  },
+  {
+   "id": "L0029",
+   "start": 169.9,
+   "end": 172.7,
+   "speaker": "S1",
+   "text": "Ron, does that sound right to you?"
+  },
+  {
+   "id": "L0030",
+   "start": 173.8,
+   "end": 179.4,
+   "speaker": "S2",
+   "text": "It's a couple of cans, it's not like I'm drunk. I'm not hurting anybody."
+  },
+  {
+   "id": "L0031",
+   "start": 179.8,
+   "end": 183.4,
+   "speaker": "S1",
+   "text": "Okay. Can I ask about the fall? What happened?"
+  },
+  {
+   "id": "L0032",
+   "start": 184.4,
+   "end": 186.4,
+   "speaker": "S2",
+   "text": "I tripped on the mat."
+  },
+  {
+   "id": "L0033",
+   "start": 187.2,
+   "end": 198.8,
+   "speaker": "S3",
+   "text": "He'd been drinking since dinner time. I found him in the morning. He fell in the kitchen and he was on the floor all night, he couldn't get up."
+  },
+  {
+   "id": "L0034",
+   "start": 199.2,
+   "end": 202.4,
+   "speaker": "S1",
+   "text": "That must have been frightening for you both."
+  },
+  {
+   "id": "L0035",
+   "start": 203.5,
+   "end": 211.9,
+   "speaker": "S3",
+   "text": "And it's not the first time. He fell in the hall in the summer as well, after he'd had a drink."
+  },
+  {
+   "id": "L0036",
+   "start": 212.5,
+   "end": 215.3,
+   "speaker": "S2",
+   "text": "That was the step. I've told you."
+  },
+  {
+   "id": "L0037",
+   "start": 216.0,
+   "end": 219.6,
+   "speaker": "S1",
+   "text": "Okay. Lisa, is there anything else you're worried about?"
+  },
+  {
+   "id": "L0038",
+   "start": 220.3,
+   "end": 230.7,
+   "speaker": "S3",
+   "text": "Mrs Okafor next door told me she's seen him driving to the Co-op after he's had a drink. I haven't seen it myself, I'm at work."
+  },
+  {
+   "id": "L0039",
+   "start": 231.6,
+   "end": 237.6,
+   "speaker": "S2",
+   "text": "That's rubbish. I only drive Sundays, to the cemetery. She wants to mind her own."
+  },
+  {
+   "id": "L0040",
+   "start": 238.1,
+   "end": 248.9,
+   "speaker": "S1",
+   "text": "Okay, I'll note that's what Mrs Okafor said to Lisa, and that you dispute it, Ron. I would just say, if you're ever unsure, please don't drive."
+  },
+  {
+   "id": "L0041",
+   "start": 250.0,
+   "end": 251.6,
+   "speaker": "S2",
+   "text": "I know, I know."
+  },
+  {
+   "id": "L0042",
+   "start": 252.4,
+   "end": 256.8,
+   "speaker": "S1",
+   "text": "Ron, what would you like to happen? What matters to you?"
+  },
+  {
+   "id": "L0043",
+   "start": 257.2,
+   "end": 262.8,
+   "speaker": "S2",
+   "text": "I want to stay here. This is my house. I don't want a home."
+  },
+  {
+   "id": "L0044",
+   "start": 263.4,
+   "end": 268.6,
+   "speaker": "S1",
+   "text": "That's what we'll work towards. Can I ask about money, are you managing?"
+  },
+  {
+   "id": "L0045",
+   "start": 269.1,
+   "end": 275.9,
+   "speaker": "S2",
+   "text": "I've got the state pension and the works pension from the foundry. About fourteen hundred a month."
+  },
+  {
+   "id": "L0046",
+   "start": 276.6,
+   "end": 278.6,
+   "speaker": "S1",
+   "text": "Are you getting Attendance Allowance?"
+  },
+  {
+   "id": "L0047",
+   "start": 279.7,
+   "end": 281.7,
+   "speaker": "S2",
+   "text": "No, never heard of it."
+  },
+  {
+   "id": "L0048",
+   "start": 282.1,
+   "end": 287.3,
+   "speaker": "S1",
+   "text": "With your mobility you might qualify. Lisa, could you help with the form?"
+  },
+  {
+   "id": "L0049",
+   "start": 287.9,
+   "end": 289.9,
+   "speaker": "S3",
+   "text": "Yeah, I can do that."
+  },
+  {
+   "id": "L0050",
+   "start": 290.9,
+   "end": 304.5,
+   "speaker": "S1",
+   "text": "I'd also like to talk to your GP about the drinking, because stopping suddenly can make you poorly. There's the Coldmere alcohol service, they do home visits. Would you be willing to see them?"
+  },
+  {
+   "id": "L0051",
+   "start": 305.0,
+   "end": 307.4,
+   "speaker": "S2",
+   "text": "I'm not going to some meeting."
+  },
+  {
+   "id": "L0052",
+   "start": 307.9,
+   "end": 312.3,
+   "speaker": "S1",
+   "text": "It's not a meeting, they come to you. Just a chat."
+  },
+  {
+   "id": "L0053",
+   "start": 313.1,
+   "end": 315.1,
+   "speaker": "S2",
+   "text": "Go on then. One chat."
+  },
+  {
+   "id": "L0054",
+   "start": 316.0,
+   "end": 323.6,
+   "speaker": "S1",
+   "text": "Thank you. And would you think about a pendant alarm, so if you fall you can call for help?"
+  },
+  {
+   "id": "L0055",
+   "start": 324.2,
+   "end": 327.0,
+   "speaker": "S2",
+   "text": "Lisa's been on at me about that."
+  },
+  {
+   "id": "L0056",
+   "start": 327.3,
+   "end": 328.5,
+   "speaker": "S3",
+   "text": "Please, Dad."
+  },
+  {
+   "id": "L0057",
+   "start": 329.4,
+   "end": 330.6,
+   "speaker": "S2",
+   "text": "Alright, alright."
+  },
+  {
+   "id": "L0058",
+   "start": 330.9,
+   "end": 339.7,
+   "speaker": "S1",
+   "text": "So, actions. I'll refer you to the occupational therapist for the stair rail and a bathing assessment, by the second of December."
+  },
+  {
+   "id": "L0059",
+   "start": 340.8,
+   "end": 348.0,
+   "speaker": "S1",
+   "text": "I'll write to Dr Haines at Bridge Street surgery about the falls and the alcohol, with your consent."
+  },
+  {
+   "id": "L0060",
+   "start": 348.8,
+   "end": 350.0,
+   "speaker": "S2",
+   "text": "Yeah, that's fine."
+  },
+  {
+   "id": "L0061",
+   "start": 351.0,
+   "end": 357.8,
+   "speaker": "S1",
+   "text": "I'll make the referral to the alcohol service this week, and arrange the pendant alarm through Careline."
+  },
+  {
+   "id": "L0062",
+   "start": 358.3,
+   "end": 362.3,
+   "speaker": "S3",
+   "text": "I'll do the Attendance Allowance form with him on Sunday."
+  },
+  {
+   "id": "L0063",
+   "start": 363.3,
+   "end": 370.1,
+   "speaker": "S1",
+   "text": "Great. Ron, would you think about the Legion again on Fridays? It might help with the quiet."
+  },
+  {
+   "id": "L0064",
+   "start": 370.7,
+   "end": 372.3,
+   "speaker": "S2",
+   "text": "Maybe. Bill keeps asking."
+  },
+  {
+   "id": "L0065",
+   "start": 372.8,
+   "end": 378.4,
+   "speaker": "S1",
+   "text": "And I'll ring you on the ninth of December to see how things are."
+  },
+  {
+   "id": "L0066",
+   "start": 378.7,
+   "end": 379.9,
+   "speaker": "S2",
+   "text": "Righto. Thanks, son."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Lisa says her father drinks eight cans a day of strong lager and a bottle of vodka every two days, which she has seen in the bin.",
+   "style": "third_party",
+   "must_keep": [
+    "eight cans a day",
+    "vodka",
+    "two days"
+   ],
+   "lines": [
+    "L0024",
+    "L0026",
+    "L0028"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Ronald says he only has a couple of cans with his tea.",
+   "style": "minimised",
+   "must_keep": [
+    "couple of cans"
+   ],
+   "lines": [
+    "L0023",
+    "L0030"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Lisa says her father fell in the kitchen after drinking and was on the floor all night, and fell in the hall in the summer after drinking.",
+   "style": "third_party",
+   "must_keep": [
+    "fell",
+    "kitchen",
+    "on the floor all night"
+   ],
+   "lines": [
+    "L0033",
+    "L0035"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hearsay",
+   "must_not_claim": "Mr Keegan drives after drinking.",
+   "flag_terms": [
+    "driving",
+    "drink"
+   ],
+   "lines": [
+    "L0038",
+    "L0039"
+   ]
+  }
+ ]
+}

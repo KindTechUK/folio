@@ -1,0 +1,508 @@
+{
+ "id": "s4-24",
+ "title": "Mother changes her account of her son's bruise (synthetic)",
+ "template": "attendance_note",
+ "category": "child_protection",
+ "setting": "Solicitor Daniel Hughes sees Chloe Mason at his Harbridge office before a pre-proceedings meeting about her son Alfie (4) and daughter Poppy (14 months).",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Solicitor (Daniel Hughes)",
+  "S2": "Chloe Mason (client)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 5.0,
+   "speaker": "S1",
+   "text": "Morning Chloe, come and sit down. Did you find us okay?"
+  },
+  {
+   "id": "L0002",
+   "start": 5.8,
+   "end": 10.6,
+   "speaker": "S2",
+   "text": "Yeah, I got the 42 bus. I've left Poppy with my mum."
+  },
+  {
+   "id": "L0003",
+   "start": 11.6,
+   "end": 13.6,
+   "speaker": "S1",
+   "text": "How old is Poppy now?"
+  },
+  {
+   "id": "L0004",
+   "start": 14.1,
+   "end": 16.1,
+   "speaker": "S2",
+   "text": "Fourteen months. She's walking everywhere."
+  },
+  {
+   "id": "L0005",
+   "start": 16.5,
+   "end": 19.3,
+   "speaker": "S1",
+   "text": "And Alfie, is he still at nursery?"
+  },
+  {
+   "id": "L0006",
+   "start": 20.3,
+   "end": 26.7,
+   "speaker": "S2",
+   "text": "Yeah, Little Stars on Bank Street, mornings, Monday to Friday. He loves it, he's always painting."
+  },
+  {
+   "id": "L0007",
+   "start": 27.7,
+   "end": 30.9,
+   "speaker": "S1",
+   "text": "How's he sleeping, eating, that sort of thing?"
+  },
+  {
+   "id": "L0008",
+   "start": 31.9,
+   "end": 37.5,
+   "speaker": "S2",
+   "text": "Fussy eater. He'll only have pasta and fish fingers. Sleeps fine, seven till seven."
+  },
+  {
+   "id": "L0009",
+   "start": 38.6,
+   "end": 51.4,
+   "speaker": "S1",
+   "text": "Lovely. So, um, today's about the letter before proceedings from the council, and the meeting on the first of December. I'll go through what it says and what you want to happen."
+  },
+  {
+   "id": "L0010",
+   "start": 51.7,
+   "end": 52.9,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0011",
+   "start": 53.9,
+   "end": 70.3,
+   "speaker": "S1",
+   "text": "Just so you know, what you tell me is confidential. I won't share it with the social worker or anyone else unless you agree, apart from very rare cases where a child's at serious risk, and I'd talk to you first."
+  },
+  {
+   "id": "L0012",
+   "start": 71.4,
+   "end": 72.6,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0013",
+   "start": 73.4,
+   "end": 85.4,
+   "speaker": "S1",
+   "text": "So the letter says the concerns are the bruise on Alfie's arm that nursery saw on the ninth of November, and the police being called to the house in October."
+  },
+  {
+   "id": "L0014",
+   "start": 86.0,
+   "end": 87.2,
+   "speaker": "S2",
+   "text": "Yeah."
+  },
+  {
+   "id": "L0015",
+   "start": 88.1,
+   "end": 94.1,
+   "speaker": "S1",
+   "text": "It says you told the social worker, Ms Okoye, that Alfie fell off the sofa."
+  },
+  {
+   "id": "L0016",
+   "start": 94.8,
+   "end": 96.8,
+   "speaker": "S2",
+   "text": "Yeah, that's what I said."
+  },
+  {
+   "id": "L0017",
+   "start": 97.7,
+   "end": 99.3,
+   "speaker": "S1",
+   "text": "Is that what happened?"
+  },
+  {
+   "id": "L0018",
+   "start": 99.9,
+   "end": 102.7,
+   "speaker": "S2",
+   "text": "No. It was Jordan. He slapped Alfie."
+  },
+  {
+   "id": "L0019",
+   "start": 103.3,
+   "end": 104.9,
+   "speaker": "S1",
+   "text": "Okay. Take your time."
+  },
+  {
+   "id": "L0020",
+   "start": 105.6,
+   "end": 110.8,
+   "speaker": "S2",
+   "text": "No, forget it, I'm just stressed. He fell. He's always falling off stuff."
+  },
+  {
+   "id": "L0021",
+   "start": 111.9,
+   "end": 120.7,
+   "speaker": "S1",
+   "text": "Chloe, whatever you tell me, I'm on your side. But I can't help you or Alfie if I've got the wrong story."
+  },
+  {
+   "id": "L0022",
+   "start": 121.2,
+   "end": 127.6,
+   "speaker": "S2",
+   "text": "Okay. He slapped him. Jordan slapped Alfie across the face, because he wouldn't eat his tea."
+  },
+  {
+   "id": "L0023",
+   "start": 128.7,
+   "end": 130.7,
+   "speaker": "S1",
+   "text": "Thank you. When was that?"
+  },
+  {
+   "id": "L0024",
+   "start": 131.1,
+   "end": 134.3,
+   "speaker": "S2",
+   "text": "Sunday the 8th of November, about five o'clock."
+  },
+  {
+   "id": "L0025",
+   "start": 135.1,
+   "end": 139.5,
+   "speaker": "S1",
+   "text": "And the bruise on his arm, where did that come from?"
+  },
+  {
+   "id": "L0026",
+   "start": 140.5,
+   "end": 147.3,
+   "speaker": "S2",
+   "text": "Jordan grabbed him by the arm, really hard, and pulled him off the chair. That's the bruise."
+  },
+  {
+   "id": "L0027",
+   "start": 148.4,
+   "end": 149.6,
+   "speaker": "S1",
+   "text": "Were you there?"
+  },
+  {
+   "id": "L0028",
+   "start": 150.1,
+   "end": 153.3,
+   "speaker": "S2",
+   "text": "I was at the sink. I saw it."
+  },
+  {
+   "id": "L0029",
+   "start": 154.4,
+   "end": 158.4,
+   "speaker": "S1",
+   "text": "Why did you tell Ms Okoye it was the sofa?"
+  },
+  {
+   "id": "L0030",
+   "start": 159.4,
+   "end": 167.4,
+   "speaker": "S2",
+   "text": "Jordan told me to say he fell off the sofa. He was sat right next to me when she came."
+  },
+  {
+   "id": "L0031",
+   "start": 167.8,
+   "end": 173.0,
+   "speaker": "S1",
+   "text": "Okay. Thank you for telling me. What about October, when the police came?"
+  },
+  {
+   "id": "L0032",
+   "start": 173.7,
+   "end": 179.3,
+   "speaker": "S2",
+   "text": "We were arguing, shouting, and the neighbour rang them. They just talked to us."
+  },
+  {
+   "id": "L0033",
+   "start": 180.3,
+   "end": 181.9,
+   "speaker": "S1",
+   "text": "Where is Jordan now?"
+  },
+  {
+   "id": "L0034",
+   "start": 182.9,
+   "end": 186.5,
+   "speaker": "S2",
+   "text": "At his mum's this week. He'll be back Saturday."
+  },
+  {
+   "id": "L0035",
+   "start": 186.8,
+   "end": 189.2,
+   "speaker": "S1",
+   "text": "And what do you want, Chloe?"
+  },
+  {
+   "id": "L0036",
+   "start": 189.5,
+   "end": 193.9,
+   "speaker": "S2",
+   "text": "I want my kids. I want them to stay with me."
+  },
+  {
+   "id": "L0037",
+   "start": 194.9,
+   "end": 202.5,
+   "speaker": "S2",
+   "text": "But if I leave him, he says he'll take the kids. He says he'll take Poppy because she's his."
+  },
+  {
+   "id": "L0038",
+   "start": 203.3,
+   "end": 207.3,
+   "speaker": "S1",
+   "text": "Has he ever taken the children anywhere without your agreement?"
+  },
+  {
+   "id": "L0039",
+   "start": 208.1,
+   "end": 212.1,
+   "speaker": "S2",
+   "text": "No. Not yet. He just says it when we argue."
+  },
+  {
+   "id": "L0040",
+   "start": 212.7,
+   "end": 231.9,
+   "speaker": "S1",
+   "text": "Okay. Let me explain. Jordan can't just take the children. If he wanted Poppy to live with him he'd have to go to court, and a court would hear about what happened to Alfie. You can also apply for an order to stop him coming to the house."
+  },
+  {
+   "id": "L0041",
+   "start": 232.9,
+   "end": 234.1,
+   "speaker": "S2",
+   "text": "Can I?"
+  },
+  {
+   "id": "L0042",
+   "start": 234.5,
+   "end": 239.3,
+   "speaker": "S1",
+   "text": "Yes, a non-molestation order, and you'd likely get legal aid for it."
+  },
+  {
+   "id": "L0043",
+   "start": 239.9,
+   "end": 241.1,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0044",
+   "start": 241.9,
+   "end": 261.5,
+   "speaker": "S1",
+   "text": "My advice is that you tell Ms Okoye what really happened, before the meeting. Social services are most worried when a parent can't keep the children safe or isn't honest with them. Telling the truth and keeping Jordan away is what protects Alfie, and protects you in this process."
+  },
+  {
+   "id": "L0045",
+   "start": 262.0,
+   "end": 264.4,
+   "speaker": "S2",
+   "text": "What if they take Alfie anyway?"
+  },
+  {
+   "id": "L0046",
+   "start": 265.2,
+   "end": 278.8,
+   "speaker": "S1",
+   "text": "I can't promise anything. But in my experience, a mum who tells the truth and acts to keep her child safe is in a much stronger position than one who backs her partner's story."
+  },
+  {
+   "id": "L0047",
+   "start": 279.5,
+   "end": 281.5,
+   "speaker": "S2",
+   "text": "Okay. Will you tell her?"
+  },
+  {
+   "id": "L0048",
+   "start": 281.8,
+   "end": 290.6,
+   "speaker": "S1",
+   "text": "Only if you want me to. Do you give me permission to write to Ms Okoye with what you've told me today?"
+  },
+  {
+   "id": "L0049",
+   "start": 291.1,
+   "end": 292.7,
+   "speaker": "S2",
+   "text": "Yeah. Yeah, do it."
+  },
+  {
+   "id": "L0050",
+   "start": 293.2,
+   "end": 296.0,
+   "speaker": "S1",
+   "text": "Okay. How are you managing for money?"
+  },
+  {
+   "id": "L0051",
+   "start": 297.1,
+   "end": 303.9,
+   "speaker": "S2",
+   "text": "Universal Credit, and child benefit for both. Jordan has the bank card for the joint account though."
+  },
+  {
+   "id": "L0052",
+   "start": 304.6,
+   "end": 313.0,
+   "speaker": "S1",
+   "text": "You can ask for your Universal Credit to be paid into your own account. I'll give you the number to ring."
+  },
+  {
+   "id": "L0053",
+   "start": 313.7,
+   "end": 316.5,
+   "speaker": "S2",
+   "text": "I didn't know you could do that."
+  },
+  {
+   "id": "L0054",
+   "start": 317.3,
+   "end": 321.7,
+   "speaker": "S1",
+   "text": "Most people don't. And are you okay for food this week?"
+  },
+  {
+   "id": "L0055",
+   "start": 322.3,
+   "end": 324.3,
+   "speaker": "S2",
+   "text": "Yeah, my mum's been helping."
+  },
+  {
+   "id": "L0056",
+   "start": 325.4,
+   "end": 333.8,
+   "speaker": "S1",
+   "text": "So, next steps. I'll write to Ms Okoye by Thursday the twenty-sixth with your account, and I'll send you a copy."
+  },
+  {
+   "id": "L0057",
+   "start": 334.1,
+   "end": 343.7,
+   "speaker": "S1",
+   "text": "You'll ring Harbridge Women's Aid today, here's the number, and talk to them about a safety plan for when Jordan's due back on Saturday."
+  },
+  {
+   "id": "L0058",
+   "start": 344.6,
+   "end": 345.8,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0059",
+   "start": 346.2,
+   "end": 356.6,
+   "speaker": "S1",
+   "text": "I'll prepare a non-molestation application, and we'll meet again on Monday the thirtieth to go through it and get ready for the meeting on the first."
+  },
+  {
+   "id": "L0060",
+   "start": 356.9,
+   "end": 360.1,
+   "speaker": "S2",
+   "text": "Monday's fine. My mum can have the kids."
+  },
+  {
+   "id": "L0061",
+   "start": 360.6,
+   "end": 365.0,
+   "speaker": "S1",
+   "text": "And if Jordan turns up and you feel unsafe, ring 999."
+  },
+  {
+   "id": "L0062",
+   "start": 365.7,
+   "end": 367.3,
+   "speaker": "S2",
+   "text": "I will. Thank you."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Chloe says Jordan slapped Alfie, takes it back ('he fell'), then says again that Jordan slapped Alfie across the face.",
+   "style": "retracted_restated",
+   "must_keep": [
+    "Jordan",
+    "slapped",
+    "face"
+   ],
+   "lines": [
+    "L0018",
+    "L0020",
+    "L0022"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Chloe says Jordan grabbed Alfie by the arm, causing the bruise, on Sunday the 8th of November, and she saw it.",
+   "style": "direct",
+   "must_keep": [
+    "grabbed",
+    "arm",
+    "bruise",
+    "8th of November"
+   ],
+   "lines": [
+    "L0024",
+    "L0026"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Chloe says Jordan told her to tell the social worker Alfie fell off the sofa.",
+   "style": "direct",
+   "must_keep": [
+    "Jordan told",
+    "fell off the sofa"
+   ],
+   "lines": [
+    "L0030"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hypothetical",
+   "must_not_claim": "Jordan has taken the children.",
+   "flag_terms": [
+    "taken",
+    "children"
+   ],
+   "lines": [
+    "L0037",
+    "L0038",
+    "L0039"
+   ]
+  }
+ ]
+}

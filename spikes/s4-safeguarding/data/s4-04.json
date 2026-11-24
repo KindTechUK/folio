@@ -1,0 +1,616 @@
+{
+ "id": "s4-04",
+ "title": "Day centre review, woman says minibus driver touched her (synthetic)",
+ "template": "assessment",
+ "category": "sexual_abuse",
+ "setting": "A social worker meets Leanne Marsh, 32, who has a learning disability, in a quiet room at Brookside Day Centre, Harbridge, for her annual review, after staff noticed she had become upset about the minibus.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Social worker (Angela Okafor)",
+  "S2": "Leanne Marsh (the person)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 6.2,
+   "speaker": "S1",
+   "text": "Hello Leanne. Is it okay if we sit in here? It's a bit quieter."
+  },
+  {
+   "id": "L0002",
+   "start": 7.1,
+   "end": 9.1,
+   "speaker": "S2",
+   "text": "Yeah. Is this my review?"
+  },
+  {
+   "id": "L0003",
+   "start": 10.2,
+   "end": 18.2,
+   "speaker": "S1",
+   "text": "It is, yes. We'll talk about what you do here, home, and anything you want to change. Is that okay?"
+  },
+  {
+   "id": "L0004",
+   "start": 18.7,
+   "end": 19.9,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0005",
+   "start": 21.0,
+   "end": 38.6,
+   "speaker": "S1",
+   "text": "I'll write some notes as we go. Most of what you tell me stays private. But if you tell me someone's hurting you or not being nice to you, I might have to tell other people so we can help. I'd tell you first."
+  },
+  {
+   "id": "L0006",
+   "start": 38.9,
+   "end": 40.1,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0007",
+   "start": 40.5,
+   "end": 43.3,
+   "speaker": "S1",
+   "text": "So what do you like doing here?"
+  },
+  {
+   "id": "L0008",
+   "start": 43.8,
+   "end": 48.2,
+   "speaker": "S2",
+   "text": "Art. I'm doing a big painting. It's of my cat, Biscuit."
+  },
+  {
+   "id": "L0009",
+   "start": 48.5,
+   "end": 52.1,
+   "speaker": "S1",
+   "text": "Oh, I'd love to see it after. What else?"
+  },
+  {
+   "id": "L0010",
+   "start": 52.9,
+   "end": 56.1,
+   "speaker": "S2",
+   "text": "Cooking on Mondays. And the disco on Friday."
+  },
+  {
+   "id": "L0011",
+   "start": 56.4,
+   "end": 60.4,
+   "speaker": "S1",
+   "text": "And at home, is it still you and your mum?"
+  },
+  {
+   "id": "L0012",
+   "start": 61.3,
+   "end": 66.1,
+   "speaker": "S2",
+   "text": "Yeah. Mum's knees are bad now. I help her with the hoovering."
+  },
+  {
+   "id": "L0013",
+   "start": 66.4,
+   "end": 70.8,
+   "speaker": "S1",
+   "text": "That's kind of you. Are you still doing the travel training?"
+  },
+  {
+   "id": "L0014",
+   "start": 71.7,
+   "end": 76.5,
+   "speaker": "S2",
+   "text": "Sometimes. I want to get the bus on my own. To town."
+  },
+  {
+   "id": "L0015",
+   "start": 76.8,
+   "end": 81.6,
+   "speaker": "S1",
+   "text": "That's a good goal. How do you get here at the moment?"
+  },
+  {
+   "id": "L0016",
+   "start": 82.4,
+   "end": 83.6,
+   "speaker": "S2",
+   "text": "The minibus."
+  },
+  {
+   "id": "L0017",
+   "start": 84.1,
+   "end": 85.3,
+   "speaker": "S1",
+   "text": "How's the minibus?"
+  },
+  {
+   "id": "L0018",
+   "start": 85.8,
+   "end": 87.0,
+   "speaker": "S2",
+   "text": "Um."
+  },
+  {
+   "id": "L0019",
+   "start": 87.8,
+   "end": 95.8,
+   "speaker": "S1",
+   "text": "Sue said you got a bit upset about the bus last week. Do you want to tell me about it?"
+  },
+  {
+   "id": "L0020",
+   "start": 96.6,
+   "end": 98.2,
+   "speaker": "S2",
+   "text": "I don't like Dave."
+  },
+  {
+   "id": "L0021",
+   "start": 98.9,
+   "end": 100.1,
+   "speaker": "S1",
+   "text": "Who's Dave?"
+  },
+  {
+   "id": "L0022",
+   "start": 100.7,
+   "end": 102.7,
+   "speaker": "S2",
+   "text": "He drives it. The minibus."
+  },
+  {
+   "id": "L0023",
+   "start": 103.6,
+   "end": 107.2,
+   "speaker": "S1",
+   "text": "Okay. What is it you don't like about Dave?"
+  },
+  {
+   "id": "L0024",
+   "start": 107.9,
+   "end": 109.1,
+   "speaker": "S2",
+   "text": "He does things."
+  },
+  {
+   "id": "L0025",
+   "start": 110.0,
+   "end": 113.2,
+   "speaker": "S1",
+   "text": "Can you tell me what sort of things?"
+  },
+  {
+   "id": "L0026",
+   "start": 114.2,
+   "end": 115.8,
+   "speaker": "S2",
+   "text": "He. He touched me."
+  },
+  {
+   "id": "L0027",
+   "start": 116.9,
+   "end": 121.3,
+   "speaker": "S1",
+   "text": "Thank you for telling me, Leanne. Where did he touch you?"
+  },
+  {
+   "id": "L0028",
+   "start": 122.4,
+   "end": 125.2,
+   "speaker": "S2",
+   "text": "Here. On my chest. On the minibus."
+  },
+  {
+   "id": "L0029",
+   "start": 126.1,
+   "end": 130.1,
+   "speaker": "S1",
+   "text": "On your chest. Where was the minibus when that happened?"
+  },
+  {
+   "id": "L0030",
+   "start": 131.2,
+   "end": 134.0,
+   "speaker": "S2",
+   "text": "Outside my house. When I'm getting off."
+  },
+  {
+   "id": "L0031",
+   "start": 134.6,
+   "end": 137.0,
+   "speaker": "S1",
+   "text": "Did he touch you anywhere else?"
+  },
+  {
+   "id": "L0032",
+   "start": 138.0,
+   "end": 140.8,
+   "speaker": "S2",
+   "text": "Um. Between my legs. Over my trousers."
+  },
+  {
+   "id": "L0033",
+   "start": 141.7,
+   "end": 143.7,
+   "speaker": "S1",
+   "text": "Okay. You're doing really well."
+  },
+  {
+   "id": "L0034",
+   "start": 144.4,
+   "end": 148.4,
+   "speaker": "S2",
+   "text": "No. No, I'm telling stories. Forget it. I'm telling stories."
+  },
+  {
+   "id": "L0035",
+   "start": 149.5,
+   "end": 158.3,
+   "speaker": "S1",
+   "text": "That's alright. You don't have to say anything you don't want to. Can I ask what made you say you're telling stories?"
+  },
+  {
+   "id": "L0036",
+   "start": 158.6,
+   "end": 161.0,
+   "speaker": "S2",
+   "text": "Dave said nobody would believe me."
+  },
+  {
+   "id": "L0037",
+   "start": 162.0,
+   "end": 165.6,
+   "speaker": "S1",
+   "text": "I'm listening to you, Leanne. Was it a story?"
+  },
+  {
+   "id": "L0038",
+   "start": 166.7,
+   "end": 171.1,
+   "speaker": "S2",
+   "text": "No. It's true. He did. He touched me between my legs."
+  },
+  {
+   "id": "L0039",
+   "start": 171.5,
+   "end": 174.3,
+   "speaker": "S1",
+   "text": "Thank you. Did Dave do anything else?"
+  },
+  {
+   "id": "L0040",
+   "start": 174.8,
+   "end": 178.8,
+   "speaker": "S2",
+   "text": "He kissed me. On my mouth. I didn't like it."
+  },
+  {
+   "id": "L0041",
+   "start": 179.7,
+   "end": 182.1,
+   "speaker": "S1",
+   "text": "Did Dave say anything to you?"
+  },
+  {
+   "id": "L0042",
+   "start": 182.9,
+   "end": 187.3,
+   "speaker": "S2",
+   "text": "He said it's our secret. Our secret, and don't tell Mum."
+  },
+  {
+   "id": "L0043",
+   "start": 187.9,
+   "end": 190.7,
+   "speaker": "S1",
+   "text": "How often has Dave done these things?"
+  },
+  {
+   "id": "L0044",
+   "start": 191.7,
+   "end": 195.7,
+   "speaker": "S2",
+   "text": "Every week. When I'm the last one on the bus."
+  },
+  {
+   "id": "L0045",
+   "start": 196.3,
+   "end": 199.5,
+   "speaker": "S1",
+   "text": "When you're the last one on the bus?"
+  },
+  {
+   "id": "L0046",
+   "start": 200.3,
+   "end": 205.1,
+   "speaker": "S2",
+   "text": "Yeah. The others get off first. Then it's just me. Every week."
+  },
+  {
+   "id": "L0047",
+   "start": 206.1,
+   "end": 208.9,
+   "speaker": "S1",
+   "text": "When did it start, can you remember?"
+  },
+  {
+   "id": "L0048",
+   "start": 209.2,
+   "end": 212.4,
+   "speaker": "S2",
+   "text": "After the summer. After my birthday in August."
+  },
+  {
+   "id": "L0049",
+   "start": 213.5,
+   "end": 221.9,
+   "speaker": "S1",
+   "text": "Okay. I need to ask you something else, Leanne. Has anyone else touched you like that? Any of the staff here?"
+  },
+  {
+   "id": "L0050",
+   "start": 222.4,
+   "end": 224.8,
+   "speaker": "S2",
+   "text": "No. Not the staff. They're nice."
+  },
+  {
+   "id": "L0051",
+   "start": 225.5,
+   "end": 230.7,
+   "speaker": "S1",
+   "text": "So none of the staff at Brookside have ever touched you like that?"
+  },
+  {
+   "id": "L0052",
+   "start": 231.7,
+   "end": 233.7,
+   "speaker": "S2",
+   "text": "No. Only Dave. Nobody else."
+  },
+  {
+   "id": "L0053",
+   "start": 234.8,
+   "end": 238.4,
+   "speaker": "S1",
+   "text": "Okay. Thank you. You've been really brave telling me."
+  },
+  {
+   "id": "L0054",
+   "start": 239.0,
+   "end": 240.6,
+   "speaker": "S2",
+   "text": "Am I in trouble?"
+  },
+  {
+   "id": "L0055",
+   "start": 241.0,
+   "end": 245.4,
+   "speaker": "S1",
+   "text": "No. You haven't done anything wrong. Dave shouldn't have done that."
+  },
+  {
+   "id": "L0056",
+   "start": 246.2,
+   "end": 247.4,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0057",
+   "start": 248.2,
+   "end": 257.8,
+   "speaker": "S1",
+   "text": "I need to tell some people so we can keep you safe. The safeguarding team at the council, and the police. Is that alright?"
+  },
+  {
+   "id": "L0058",
+   "start": 258.4,
+   "end": 259.6,
+   "speaker": "S2",
+   "text": "The police?"
+  },
+  {
+   "id": "L0059",
+   "start": 260.6,
+   "end": 269.8,
+   "speaker": "S1",
+   "text": "They help keep people safe. If they want to talk to you, I'll make sure there's someone with you who helps you understand."
+  },
+  {
+   "id": "L0060",
+   "start": 270.8,
+   "end": 272.0,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0061",
+   "start": 273.1,
+   "end": 275.1,
+   "speaker": "S1",
+   "text": "Can I tell your mum?"
+  },
+  {
+   "id": "L0062",
+   "start": 275.9,
+   "end": 277.9,
+   "speaker": "S2",
+   "text": "Yeah. Will she be cross?"
+  },
+  {
+   "id": "L0063",
+   "start": 278.7,
+   "end": 285.9,
+   "speaker": "S1",
+   "text": "I don't think she'll be cross with you. I can talk to her with you if you like."
+  },
+  {
+   "id": "L0064",
+   "start": 286.7,
+   "end": 288.3,
+   "speaker": "S2",
+   "text": "Yeah, you do it."
+  },
+  {
+   "id": "L0065",
+   "start": 288.7,
+   "end": 297.5,
+   "speaker": "S1",
+   "text": "Okay. And from tomorrow you won't be going on Dave's bus. Can your mum bring you, or would you like a taxi?"
+  },
+  {
+   "id": "L0066",
+   "start": 298.3,
+   "end": 301.5,
+   "speaker": "S2",
+   "text": "A taxi. Mum can't drive with her knees."
+  },
+  {
+   "id": "L0067",
+   "start": 302.3,
+   "end": 315.1,
+   "speaker": "S1",
+   "text": "Okay. So, here's what's going to happen. Today, I'll ring the safeguarding team and the police. I'll talk to Joanne, the centre manager, so she can arrange a taxi from tomorrow, Wednesday."
+  },
+  {
+   "id": "L0068",
+   "start": 315.8,
+   "end": 317.0,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0069",
+   "start": 318.1,
+   "end": 324.1,
+   "speaker": "S1",
+   "text": "I'll come to your house tomorrow at 4 o'clock and we'll tell your mum together."
+  },
+  {
+   "id": "L0070",
+   "start": 325.1,
+   "end": 327.1,
+   "speaker": "S2",
+   "text": "Okay. Can Biscuit be there?"
+  },
+  {
+   "id": "L0071",
+   "start": 327.8,
+   "end": 337.8,
+   "speaker": "S1",
+   "text": "Of course. And we'll carry on with the travel training plan. I'll ask Sue to set up two practice bus trips into town in December."
+  },
+  {
+   "id": "L0072",
+   "start": 338.8,
+   "end": 340.0,
+   "speaker": "S2",
+   "text": "I like that."
+  },
+  {
+   "id": "L0073",
+   "start": 340.3,
+   "end": 344.7,
+   "speaker": "S1",
+   "text": "Good. And I'll bring you something easy-read about what happens next."
+  },
+  {
+   "id": "L0074",
+   "start": 345.1,
+   "end": 347.9,
+   "speaker": "S2",
+   "text": "Can I go back to art now?"
+  },
+  {
+   "id": "L0075",
+   "start": 348.8,
+   "end": 352.0,
+   "speaker": "S1",
+   "text": "Yes. Thank you for talking to me, Leanne."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Leanne said the minibus driver, Dave, touched her on her chest on the minibus outside her house.",
+   "style": "hesitant",
+   "must_keep": [
+    "touched",
+    "chest",
+    "minibus"
+   ],
+   "lines": [
+    "L0026",
+    "L0028",
+    "L0030"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Leanne said Dave touched her between her legs over her trousers, then said she was telling stories, then restated that it was true.",
+   "style": "retracted_restated",
+   "must_keep": [
+    "between",
+    "legs",
+    "trousers"
+   ],
+   "lines": [
+    "L0032",
+    "L0034",
+    "L0038"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Leanne said Dave kissed her on the mouth and told her it was their secret and not to tell her mum.",
+   "style": "direct",
+   "must_keep": [
+    "kissed",
+    "mouth",
+    "secret"
+   ],
+   "lines": [
+    "L0040",
+    "L0042"
+   ]
+  },
+  {
+   "id": "D04",
+   "what": "Leanne said this happens every week when she is the last one on the bus, and started after her birthday in August.",
+   "style": "direct",
+   "must_keep": [
+    "every week",
+    "last one",
+    "August"
+   ],
+   "lines": [
+    "L0044",
+    "L0046",
+    "L0048"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "denial",
+   "must_not_claim": "Day centre staff have touched Leanne.",
+   "flag_terms": [
+    "staff",
+    "touched"
+   ],
+   "lines": [
+    "L0050",
+    "L0051",
+    "L0052"
+   ]
+  }
+ ]
+}

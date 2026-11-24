@@ -1,0 +1,584 @@
+{
+ "id": "s4-13",
+ "title": "Review visit: grandson taking money from purse and bank card (synthetic)",
+ "template": "assessment",
+ "category": "financial_abuse",
+ "setting": "A social worker visits Mrs Edna Hollis, 84, at her bungalow in Elm Close, Harbridge, to review her care package after a fall in October.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Social worker (Priya Nandra)",
+  "S2": "Edna Hollis (the person)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 7.0,
+   "speaker": "S1",
+   "text": "Hello, Mrs Hollis? It's Priya, from adult social care. We spoke on the phone on Friday."
+  },
+  {
+   "id": "L0002",
+   "start": 8.0,
+   "end": 13.6,
+   "speaker": "S2",
+   "text": "Oh yes, come in, love, come in. Mind the step, it's a bit uneven."
+  },
+  {
+   "id": "L0003",
+   "start": 14.5,
+   "end": 18.1,
+   "speaker": "S1",
+   "text": "Thank you. Oh, it's nice and warm in here."
+  },
+  {
+   "id": "L0004",
+   "start": 18.7,
+   "end": 24.3,
+   "speaker": "S2",
+   "text": "Well, I've only just put it on, for you coming. Sit yourself down there."
+  },
+  {
+   "id": "L0005",
+   "start": 24.6,
+   "end": 37.0,
+   "speaker": "S1",
+   "text": "Thanks. Um, so, just to say why I'm here, it's the review after your fall back in October, and to see how the carers are working out. Is that all right?"
+  },
+  {
+   "id": "L0006",
+   "start": 37.8,
+   "end": 39.4,
+   "speaker": "S2",
+   "text": "Yes, yes, that's fine."
+  },
+  {
+   "id": "L0007",
+   "start": 40.4,
+   "end": 61.6,
+   "speaker": "S1",
+   "text": "And before we start, erm, I'll be writing notes from what we talk about. Most of it stays with me and the team, but if I'm worried someone's at risk of harm I might need to share that with the right people. I'd always try and talk to you first. Is that okay?"
+  },
+  {
+   "id": "L0008",
+   "start": 62.3,
+   "end": 65.1,
+   "speaker": "S2",
+   "text": "That's fine, dear. I've nothing to hide."
+  },
+  {
+   "id": "L0009",
+   "start": 66.1,
+   "end": 70.9,
+   "speaker": "S1",
+   "text": "Lovely. So how have you been since the fall? How's the hip?"
+  },
+  {
+   "id": "L0010",
+   "start": 71.3,
+   "end": 79.3,
+   "speaker": "S2",
+   "text": "Oh, it's stiff in the mornings. I use the frame in the house now. I don't go out without someone."
+  },
+  {
+   "id": "L0011",
+   "start": 79.6,
+   "end": 83.2,
+   "speaker": "S1",
+   "text": "And the carers come in the morning, is it?"
+  },
+  {
+   "id": "L0012",
+   "start": 84.2,
+   "end": 91.4,
+   "speaker": "S2",
+   "text": "Morning and teatime. The morning girl, Jade, she's very good. She does my tablets and helps me wash."
+  },
+  {
+   "id": "L0013",
+   "start": 92.0,
+   "end": 94.0,
+   "speaker": "S1",
+   "text": "Mm. And the teatime call?"
+  },
+  {
+   "id": "L0014",
+   "start": 94.3,
+   "end": 101.9,
+   "speaker": "S2",
+   "text": "It's all right, it's a bit quick sometimes, they're in and out, you know, but they do my tea."
+  },
+  {
+   "id": "L0015",
+   "start": 102.5,
+   "end": 107.7,
+   "speaker": "S1",
+   "text": "Okay. And how are you managing with food in between, and the shopping?"
+  },
+  {
+   "id": "L0016",
+   "start": 108.3,
+   "end": 118.3,
+   "speaker": "S2",
+   "text": "Well, erm, my daughter Sandra does a shop on a Saturday when she can. She lives over in Castleford, so it's a drive for her."
+  },
+  {
+   "id": "L0017",
+   "start": 119.4,
+   "end": 122.2,
+   "speaker": "S1",
+   "text": "And who else is around? Family, friends?"
+  },
+  {
+   "id": "L0018",
+   "start": 123.1,
+   "end": 129.9,
+   "speaker": "S2",
+   "text": "There's my grandson, Kyle. He's twenty-three. He pops in, um, most weeks. He's a good lad really."
+  },
+  {
+   "id": "L0019",
+   "start": 130.2,
+   "end": 134.2,
+   "speaker": "S1",
+   "text": "That's nice. What sort of things does he help with?"
+  },
+  {
+   "id": "L0020",
+   "start": 134.8,
+   "end": 144.0,
+   "speaker": "S2",
+   "text": "He brings my paper sometimes. And he goes to the cash machine for me, because I can't get to the post office now."
+  },
+  {
+   "id": "L0021",
+   "start": 144.7,
+   "end": 147.9,
+   "speaker": "S1",
+   "text": "Okay. So does he use your bank card?"
+  },
+  {
+   "id": "L0022",
+   "start": 149.0,
+   "end": 153.8,
+   "speaker": "S2",
+   "text": "Yes, he's got my card. I gave him the number, it's easier."
+  },
+  {
+   "id": "L0023",
+   "start": 154.9,
+   "end": 159.3,
+   "speaker": "S1",
+   "text": "And how does that work, how much does he take out?"
+  },
+  {
+   "id": "L0024",
+   "start": 160.3,
+   "end": 167.1,
+   "speaker": "S2",
+   "text": "Well, he gets my bits out, and, erm... he has fifty for himself. Fifty pounds. Every week."
+  },
+  {
+   "id": "L0025",
+   "start": 168.2,
+   "end": 170.6,
+   "speaker": "S1",
+   "text": "Fifty pounds for himself, every week?"
+  },
+  {
+   "id": "L0026",
+   "start": 171.1,
+   "end": 177.5,
+   "speaker": "S2",
+   "text": "Yes, £50 a week, with my bank card. I don't say anything, he's struggling, bless him."
+  },
+  {
+   "id": "L0027",
+   "start": 178.1,
+   "end": 182.1,
+   "speaker": "S1",
+   "text": "Did you agree to that, Mrs Hollis? The fifty pounds?"
+  },
+  {
+   "id": "L0028",
+   "start": 183.0,
+   "end": 189.4,
+   "speaker": "S2",
+   "text": "Well... he never asked, not really. He just has it. I see it on the statement."
+  },
+  {
+   "id": "L0029",
+   "start": 189.8,
+   "end": 195.4,
+   "speaker": "S1",
+   "text": "Okay. Thank you for telling me that. Has anything else, um, happened with money?"
+  },
+  {
+   "id": "L0030",
+   "start": 196.3,
+   "end": 199.9,
+   "speaker": "S2",
+   "text": "Oh, it's nothing really. There was the four hundred."
+  },
+  {
+   "id": "L0031",
+   "start": 200.5,
+   "end": 201.7,
+   "speaker": "S1",
+   "text": "The four hundred?"
+  },
+  {
+   "id": "L0032",
+   "start": 202.6,
+   "end": 211.4,
+   "speaker": "S2",
+   "text": "I had £400 in my purse, for Christmas, for the presents. And Kyle took my money. It was gone after he'd been."
+  },
+  {
+   "id": "L0033",
+   "start": 212.0,
+   "end": 217.6,
+   "speaker": "S1",
+   "text": "So the money was in your purse, and after Kyle visited it had gone?"
+  },
+  {
+   "id": "L0034",
+   "start": 218.7,
+   "end": 226.3,
+   "speaker": "S2",
+   "text": "Yes. But he's only borrowing it, he said he'd pay me back. It's not stealing, not from his nan."
+  },
+  {
+   "id": "L0035",
+   "start": 226.9,
+   "end": 228.1,
+   "speaker": "S1",
+   "text": "When was that?"
+  },
+  {
+   "id": "L0036",
+   "start": 229.2,
+   "end": 235.6,
+   "speaker": "S2",
+   "text": "Erm, three weeks ago? Three weeks Sunday. He hasn't paid it back yet, but he will."
+  },
+  {
+   "id": "L0037",
+   "start": 236.1,
+   "end": 242.5,
+   "speaker": "S1",
+   "text": "Okay. I can hear he matters a lot to you. Can I ask a bit more?"
+  },
+  {
+   "id": "L0038",
+   "start": 243.6,
+   "end": 244.8,
+   "speaker": "S2",
+   "text": "Go on."
+  },
+  {
+   "id": "L0039",
+   "start": 245.7,
+   "end": 250.1,
+   "speaker": "S1",
+   "text": "Has the money going made things hard? Bills, food, the heating?"
+  },
+  {
+   "id": "L0040",
+   "start": 250.6,
+   "end": 256.6,
+   "speaker": "S2",
+   "text": "Well, I don't put the heating on in the day now. Only when someone's coming."
+  },
+  {
+   "id": "L0041",
+   "start": 257.3,
+   "end": 258.5,
+   "speaker": "S1",
+   "text": "Because of money?"
+  },
+  {
+   "id": "L0042",
+   "start": 259.5,
+   "end": 266.7,
+   "speaker": "S2",
+   "text": "Yes. And at the end of the month I have toast for my dinner, because there's nothing left."
+  },
+  {
+   "id": "L0043",
+   "start": 267.7,
+   "end": 273.7,
+   "speaker": "S1",
+   "text": "Thank you for being honest with me. Has Kyle ever threatened you, or hurt you?"
+  },
+  {
+   "id": "L0044",
+   "start": 274.3,
+   "end": 277.9,
+   "speaker": "S2",
+   "text": "No, no, nothing like that. He's not like that."
+  },
+  {
+   "id": "L0045",
+   "start": 278.5,
+   "end": 282.5,
+   "speaker": "S1",
+   "text": "Okay. Is there anything else that worries you about him?"
+  },
+  {
+   "id": "L0046",
+   "start": 282.8,
+   "end": 290.4,
+   "speaker": "S2",
+   "text": "Sandra says he gambles. On his phone, these betting things. I wouldn't know, I've never seen him do it."
+  },
+  {
+   "id": "L0047",
+   "start": 291.4,
+   "end": 296.2,
+   "speaker": "S1",
+   "text": "So that's what Sandra's told you, but you haven't seen it yourself?"
+  },
+  {
+   "id": "L0048",
+   "start": 296.6,
+   "end": 301.8,
+   "speaker": "S2",
+   "text": "No. She says that's where it all goes. I don't know about that."
+  },
+  {
+   "id": "L0049",
+   "start": 302.1,
+   "end": 306.1,
+   "speaker": "S1",
+   "text": "Okay. Does Sandra know about the purse, and the card?"
+  },
+  {
+   "id": "L0050",
+   "start": 306.5,
+   "end": 312.5,
+   "speaker": "S2",
+   "text": "She knows about the purse. She was cross. I haven't told her about the card."
+  },
+  {
+   "id": "L0051",
+   "start": 313.5,
+   "end": 316.7,
+   "speaker": "S1",
+   "text": "What would you like to happen, Mrs Hollis?"
+  },
+  {
+   "id": "L0052",
+   "start": 317.3,
+   "end": 326.5,
+   "speaker": "S2",
+   "text": "I don't want him in trouble. I don't want the police. I just want my money to be my money, if you understand."
+  },
+  {
+   "id": "L0053",
+   "start": 327.1,
+   "end": 334.7,
+   "speaker": "S1",
+   "text": "I do understand. And you're entitled to that. There are things we can do that don't mean the police."
+  },
+  {
+   "id": "L0054",
+   "start": 335.8,
+   "end": 348.6,
+   "speaker": "S1",
+   "text": "It's your decision, and you clearly understand it. But because money's being taken, I do need to log a safeguarding concern with our team. It's not the police. Is that all right?"
+  },
+  {
+   "id": "L0055",
+   "start": 349.7,
+   "end": 352.5,
+   "speaker": "S2",
+   "text": "As long as he doesn't get arrested."
+  },
+  {
+   "id": "L0056",
+   "start": 352.8,
+   "end": 361.2,
+   "speaker": "S1",
+   "text": "I'll write down that you don't want the police involved. I can't promise everything, but I'll keep you in the loop."
+  },
+  {
+   "id": "L0057",
+   "start": 361.6,
+   "end": 362.8,
+   "speaker": "S2",
+   "text": "All right, love."
+  },
+  {
+   "id": "L0058",
+   "start": 363.5,
+   "end": 372.7,
+   "speaker": "S1",
+   "text": "Practical things, then. Would you ring the bank with me, to stop the card and get a new one with a new number?"
+  },
+  {
+   "id": "L0059",
+   "start": 373.2,
+   "end": 375.6,
+   "speaker": "S2",
+   "text": "I suppose so. He'll ask why."
+  },
+  {
+   "id": "L0060",
+   "start": 376.2,
+   "end": 384.2,
+   "speaker": "S1",
+   "text": "We can think about what you'd say to him. And could the shopping be delivered, so nobody needs your card?"
+  },
+  {
+   "id": "L0061",
+   "start": 384.8,
+   "end": 388.8,
+   "speaker": "S2",
+   "text": "Sandra said she could do the online shopping for me."
+  },
+  {
+   "id": "L0062",
+   "start": 389.9,
+   "end": 395.9,
+   "speaker": "S1",
+   "text": "That would help. And I'd like to check your benefits. Do you get Attendance Allowance?"
+  },
+  {
+   "id": "L0063",
+   "start": 396.6,
+   "end": 399.4,
+   "speaker": "S2",
+   "text": "I don't think so. Just my pension."
+  },
+  {
+   "id": "L0064",
+   "start": 400.4,
+   "end": 408.0,
+   "speaker": "S1",
+   "text": "You might well be entitled, with the frame and needing help to wash. I'll do the form with you."
+  },
+  {
+   "id": "L0065",
+   "start": 408.5,
+   "end": 416.1,
+   "speaker": "S1",
+   "text": "And please don't sit in the cold. I'll ask the council about the winter support fund for your gas."
+  },
+  {
+   "id": "L0066",
+   "start": 417.1,
+   "end": 419.5,
+   "speaker": "S1",
+   "text": "Can I phone Sandra as well?"
+  },
+  {
+   "id": "L0067",
+   "start": 419.9,
+   "end": 422.3,
+   "speaker": "S2",
+   "text": "Yes, you can talk to Sandra."
+  },
+  {
+   "id": "L0068",
+   "start": 423.2,
+   "end": 435.6,
+   "speaker": "S1",
+   "text": "So, to sum up. I'll log the safeguarding concern today. Thursday the twenty-sixth I'll come back at ten and we'll ring the bank together, and I'll bring the Attendance Allowance form."
+  },
+  {
+   "id": "L0069",
+   "start": 435.9,
+   "end": 440.7,
+   "speaker": "S2",
+   "text": "Thursday at ten. Write it on the calendar for me, would you?"
+  },
+  {
+   "id": "L0070",
+   "start": 441.0,
+   "end": 449.4,
+   "speaker": "S1",
+   "text": "I will. I'll ring Sandra this week about the online shopping. And I'll mention the rushed teatime calls to the agency."
+  },
+  {
+   "id": "L0071",
+   "start": 450.4,
+   "end": 452.8,
+   "speaker": "S2",
+   "text": "Don't get the girls in trouble."
+  },
+  {
+   "id": "L0072",
+   "start": 453.9,
+   "end": 463.5,
+   "speaker": "S1",
+   "text": "I won't. If Kyle asks for money before Thursday and you're worried, ring me on the number on this card, or the duty line."
+  },
+  {
+   "id": "L0073",
+   "start": 463.9,
+   "end": 465.9,
+   "speaker": "S2",
+   "text": "I will. Thank you, Priya."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Mrs Hollis says her grandson Kyle took £400 she kept in her purse for Christmas and has not paid it back; she says he is only borrowing it.",
+   "style": "minimised",
+   "must_keep": [
+    "£400",
+    "purse",
+    "Kyle"
+   ],
+   "lines": [
+    "L0032",
+    "L0034",
+    "L0036"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Mrs Hollis says Kyle has her bank card and PIN and takes £50 a week for himself, which she never agreed to.",
+   "style": "direct",
+   "must_keep": [
+    "£50 a week",
+    "bank card"
+   ],
+   "lines": [
+    "L0024",
+    "L0026",
+    "L0028"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Mrs Hollis says that because of the money going she does not put the heating on in the day and eats toast for her dinner at the end of the month.",
+   "style": "direct",
+   "must_keep": [
+    "heating",
+    "toast"
+   ],
+   "lines": [
+    "L0040",
+    "L0042"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hearsay",
+   "must_not_claim": "Mrs Hollis's grandson Kyle gambles.",
+   "flag_terms": [
+    "gambles",
+    "betting"
+   ],
+   "lines": [
+    "L0046",
+    "L0048"
+   ]
+  }
+ ]
+}

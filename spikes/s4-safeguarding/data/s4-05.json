@@ -1,0 +1,549 @@
+{
+ "id": "s4-05",
+ "title": "Civil claim instructions, historic abuse by swimming coach (synthetic)",
+ "template": "attendance_note",
+ "category": "sexual_abuse",
+ "setting": "A solicitor takes first instructions from Matthew Kerr, 41, by video call, about a possible civil claim for abuse by his swimming coach at Harbridge Swimming Club in the 1990s.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Solicitor (Rachel Dunne)",
+  "S2": "Matthew Kerr (client)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 3.4,
+   "speaker": "S1",
+   "text": "Hi Matthew, can you hear me okay?"
+  },
+  {
+   "id": "L0002",
+   "start": 4.3,
+   "end": 9.1,
+   "speaker": "S2",
+   "text": "Yeah, I can hear you. Sorry, the Wi-Fi's a bit dodgy here."
+  },
+  {
+   "id": "L0003",
+   "start": 10.0,
+   "end": 16.4,
+   "speaker": "S1",
+   "text": "No problem, you're coming through fine. Thanks for getting in touch. How are you doing today?"
+  },
+  {
+   "id": "L0004",
+   "start": 16.9,
+   "end": 22.1,
+   "speaker": "S2",
+   "text": "Bit nervous, to be honest. I've been putting this call off for months."
+  },
+  {
+   "id": "L0005",
+   "start": 22.6,
+   "end": 28.6,
+   "speaker": "S1",
+   "text": "That's completely understandable. We'll go at your pace, and you can stop at any time."
+  },
+  {
+   "id": "L0006",
+   "start": 29.4,
+   "end": 30.6,
+   "speaker": "S2",
+   "text": "Okay. Thanks."
+  },
+  {
+   "id": "L0007",
+   "start": 31.6,
+   "end": 40.0,
+   "speaker": "S1",
+   "text": "Everything you tell me is confidential and covered by legal privilege. I'll make a note of our conversation. Is that alright?"
+  },
+  {
+   "id": "L0008",
+   "start": 40.6,
+   "end": 41.8,
+   "speaker": "S2",
+   "text": "Yeah, that's fine."
+  },
+  {
+   "id": "L0009",
+   "start": 42.7,
+   "end": 48.7,
+   "speaker": "S1",
+   "text": "In your email you said this is about your swimming coach when you were young."
+  },
+  {
+   "id": "L0010",
+   "start": 49.5,
+   "end": 54.3,
+   "speaker": "S2",
+   "text": "Yeah. Brian Hollis. He ran the junior squad at Harbridge Swimming Club."
+  },
+  {
+   "id": "L0011",
+   "start": 55.0,
+   "end": 58.2,
+   "speaker": "S1",
+   "text": "And when did you start at the club?"
+  },
+  {
+   "id": "L0012",
+   "start": 58.6,
+   "end": 66.2,
+   "speaker": "S2",
+   "text": "I joined when I was nine. He became my coach when I moved up to the squad at eleven."
+  },
+  {
+   "id": "L0013",
+   "start": 66.7,
+   "end": 70.7,
+   "speaker": "S1",
+   "text": "Can you tell me, in your own words, what happened?"
+  },
+  {
+   "id": "L0014",
+   "start": 71.0,
+   "end": 76.6,
+   "speaker": "S2",
+   "text": "He touched me. In the changing room, after training, when the others had gone."
+  },
+  {
+   "id": "L0015",
+   "start": 77.2,
+   "end": 80.8,
+   "speaker": "S1",
+   "text": "Thank you. I know that's not easy to say."
+  },
+  {
+   "id": "L0016",
+   "start": 81.9,
+   "end": 84.3,
+   "speaker": "S1",
+   "text": "Was there anything else he did?"
+  },
+  {
+   "id": "L0017",
+   "start": 85.4,
+   "end": 90.2,
+   "speaker": "S2",
+   "text": "Um. Yeah. This is the bit I've never really said out loud."
+  },
+  {
+   "id": "L0018",
+   "start": 90.9,
+   "end": 93.3,
+   "speaker": "S1",
+   "text": "Take your time. There's no rush."
+  },
+  {
+   "id": "L0019",
+   "start": 94.0,
+   "end": 97.2,
+   "speaker": "S2",
+   "text": "He made me. He made me touch him."
+  },
+  {
+   "id": "L0020",
+   "start": 97.8,
+   "end": 99.0,
+   "speaker": "S1",
+   "text": "Okay. Thank you."
+  },
+  {
+   "id": "L0021",
+   "start": 99.8,
+   "end": 105.4,
+   "speaker": "S2",
+   "text": "He said it was part of being in the squad. That everyone did it."
+  },
+  {
+   "id": "L0022",
+   "start": 106.1,
+   "end": 108.1,
+   "speaker": "S1",
+   "text": "How often did this happen?"
+  },
+  {
+   "id": "L0023",
+   "start": 108.4,
+   "end": 111.2,
+   "speaker": "S2",
+   "text": "Every Saturday. Saturday mornings after squad training."
+  },
+  {
+   "id": "L0024",
+   "start": 111.5,
+   "end": 113.9,
+   "speaker": "S1",
+   "text": "And over how long a period?"
+  },
+  {
+   "id": "L0025",
+   "start": 114.8,
+   "end": 120.0,
+   "speaker": "S2",
+   "text": "About two years. From when I was eleven until I was nearly thirteen."
+  },
+  {
+   "id": "L0026",
+   "start": 121.0,
+   "end": 123.0,
+   "speaker": "S1",
+   "text": "So roughly 1996 to 1998?"
+  },
+  {
+   "id": "L0027",
+   "start": 123.3,
+   "end": 126.9,
+   "speaker": "S2",
+   "text": "Yeah, about then. It stopped when I quit swimming."
+  },
+  {
+   "id": "L0028",
+   "start": 127.5,
+   "end": 130.3,
+   "speaker": "S1",
+   "text": "Did you tell anyone at the time?"
+  },
+  {
+   "id": "L0029",
+   "start": 131.1,
+   "end": 140.3,
+   "speaker": "S2",
+   "text": "I told my mum when I was 13. She didn't really know what to do. She just took me out of the club."
+  },
+  {
+   "id": "L0030",
+   "start": 141.2,
+   "end": 145.6,
+   "speaker": "S1",
+   "text": "Did she report it to anyone, as far as you know?"
+  },
+  {
+   "id": "L0031",
+   "start": 146.7,
+   "end": 151.1,
+   "speaker": "S2",
+   "text": "No. I don't think so. We never talked about it again."
+  },
+  {
+   "id": "L0032",
+   "start": 152.2,
+   "end": 154.6,
+   "speaker": "S1",
+   "text": "Who else have you told since?"
+  },
+  {
+   "id": "L0033",
+   "start": 155.4,
+   "end": 164.6,
+   "speaker": "S2",
+   "text": "My wife, Claire, in 2020. Then my GP. And I went to the police last year, in March. I gave them a statement."
+  },
+  {
+   "id": "L0034",
+   "start": 165.3,
+   "end": 169.3,
+   "speaker": "S1",
+   "text": "Do you know where the police investigation has got to?"
+  },
+  {
+   "id": "L0035",
+   "start": 170.3,
+   "end": 173.9,
+   "speaker": "S2",
+   "text": "The officer said they've interviewed him. It's still ongoing."
+  },
+  {
+   "id": "L0036",
+   "start": 175.0,
+   "end": 179.8,
+   "speaker": "S1",
+   "text": "Okay. Do you have the officer's name or a crime reference number?"
+  },
+  {
+   "id": "L0037",
+   "start": 180.5,
+   "end": 184.1,
+   "speaker": "S2",
+   "text": "Yeah, I've got it in an email. DC Farrow."
+  },
+  {
+   "id": "L0038",
+   "start": 185.0,
+   "end": 189.0,
+   "speaker": "S1",
+   "text": "That's helpful. Do you know whether anyone else was affected?"
+  },
+  {
+   "id": "L0039",
+   "start": 190.1,
+   "end": 202.1,
+   "speaker": "S2",
+   "text": "I've heard he did it to other boys. A lad who was in the squad messaged me on Facebook and said he'd heard the same about a couple of others."
+  },
+  {
+   "id": "L0040",
+   "start": 202.9,
+   "end": 206.5,
+   "speaker": "S1",
+   "text": "Did you see anything happen to anyone else yourself?"
+  },
+  {
+   "id": "L0041",
+   "start": 206.8,
+   "end": 211.2,
+   "speaker": "S2",
+   "text": "No. I never saw anything. It's just what people have said."
+  },
+  {
+   "id": "L0042",
+   "start": 212.0,
+   "end": 216.8,
+   "speaker": "S1",
+   "text": "Okay, thank you. Can I ask how all this has affected you?"
+  },
+  {
+   "id": "L0043",
+   "start": 217.1,
+   "end": 222.7,
+   "speaker": "S2",
+   "text": "I've had anxiety for years. Panic attacks. I had counselling through work in 2021."
+  },
+  {
+   "id": "L0044",
+   "start": 223.8,
+   "end": 226.6,
+   "speaker": "S1",
+   "text": "And are you working at the moment?"
+  },
+  {
+   "id": "L0045",
+   "start": 227.7,
+   "end": 233.3,
+   "speaker": "S2",
+   "text": "Yeah, I'm a site manager. I had three months off sick in 2021, though."
+  },
+  {
+   "id": "L0046",
+   "start": 234.1,
+   "end": 237.7,
+   "speaker": "S1",
+   "text": "Do you have anything from that time, letters, records?"
+  },
+  {
+   "id": "L0047",
+   "start": 238.3,
+   "end": 243.9,
+   "speaker": "S2",
+   "text": "I've got the sick notes. And the counsellor wrote a letter for the police."
+  },
+  {
+   "id": "L0048",
+   "start": 244.3,
+   "end": 248.7,
+   "speaker": "S1",
+   "text": "Good. So, what would you like to achieve from a claim?"
+  },
+  {
+   "id": "L0049",
+   "start": 249.2,
+   "end": 261.2,
+   "speaker": "S2",
+   "text": "I want the club to admit it. I want them to say they let it happen. And, honestly, some money for the counselling, because the NHS waiting list is huge."
+  },
+  {
+   "id": "L0050",
+   "start": 261.7,
+   "end": 271.7,
+   "speaker": "S1",
+   "text": "That's helpful. Let me explain a few things. Normally there's a three-year time limit for personal injury claims, which for a child starts at eighteen."
+  },
+  {
+   "id": "L0051",
+   "start": 272.7,
+   "end": 274.7,
+   "speaker": "S2",
+   "text": "So I'm way past that?"
+  },
+  {
+   "id": "L0052",
+   "start": 275.0,
+   "end": 293.4,
+   "speaker": "S1",
+   "text": "In abuse cases the court can allow a claim to go ahead outside the time limit. It looks at things like why there was a delay and whether a fair trial is still possible. It's an important hurdle, but it's not the end of the road."
+  },
+  {
+   "id": "L0053",
+   "start": 293.7,
+   "end": 294.9,
+   "speaker": "S2",
+   "text": "Right. Okay."
+  },
+  {
+   "id": "L0054",
+   "start": 295.6,
+   "end": 303.2,
+   "speaker": "S1",
+   "text": "The claim could be against Mr Hollis himself and against the club, if he was acting as their coach."
+  },
+  {
+   "id": "L0055",
+   "start": 303.7,
+   "end": 307.3,
+   "speaker": "S2",
+   "text": "The club's still going. Different people run it now."
+  },
+  {
+   "id": "L0056",
+   "start": 308.3,
+   "end": 317.9,
+   "speaker": "S1",
+   "text": "That's fine, it can still be responsible. On funding, we'd usually act on a no win, no fee agreement. I'll send you the details."
+  },
+  {
+   "id": "L0057",
+   "start": 318.7,
+   "end": 320.3,
+   "speaker": "S2",
+   "text": "Okay, that's a relief."
+  },
+  {
+   "id": "L0058",
+   "start": 321.0,
+   "end": 331.4,
+   "speaker": "S1",
+   "text": "So, next steps. Could you send me the crime reference, DC Farrow's details, the counsellor's letter and the sick notes by Friday the 4th of December?"
+  },
+  {
+   "id": "L0059",
+   "start": 332.3,
+   "end": 334.3,
+   "speaker": "S2",
+   "text": "Yeah, I can do that."
+  },
+  {
+   "id": "L0060",
+   "start": 334.9,
+   "end": 341.7,
+   "speaker": "S1",
+   "text": "With your permission, I'll request your GP records. I'll send you a form to sign this week."
+  },
+  {
+   "id": "L0061",
+   "start": 342.7,
+   "end": 343.9,
+   "speaker": "S2",
+   "text": "That's fine."
+  },
+  {
+   "id": "L0062",
+   "start": 344.4,
+   "end": 355.2,
+   "speaker": "S1",
+   "text": "I'll also write to the police to ask about the investigation, and I'll send you our client care letter and the funding agreement by Monday the 30th."
+  },
+  {
+   "id": "L0063",
+   "start": 356.3,
+   "end": 357.5,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0064",
+   "start": 358.4,
+   "end": 371.2,
+   "speaker": "S1",
+   "text": "And please look after yourself. If you need support, the counsellor you saw or your GP are good places to start. I'll also send you details of a support service for survivors."
+  },
+  {
+   "id": "L0065",
+   "start": 371.5,
+   "end": 376.7,
+   "speaker": "S2",
+   "text": "Thanks. It's a weight off, actually, saying it to someone who isn't family."
+  },
+  {
+   "id": "L0066",
+   "start": 377.3,
+   "end": 382.1,
+   "speaker": "S1",
+   "text": "You've done really well. Let's speak again on the 10th of December."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Mr Kerr said his swimming coach, Brian Hollis, touched him in the changing room after training when the others had gone.",
+   "style": "direct",
+   "must_keep": [
+    "touched",
+    "changing room",
+    "after training"
+   ],
+   "lines": [
+    "L0014"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Mr Kerr said the coach made him touch him, saying it was part of being in the squad.",
+   "style": "hesitant",
+   "must_keep": [
+    "made",
+    "touch"
+   ],
+   "lines": [
+    "L0017",
+    "L0019",
+    "L0021"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Mr Kerr said this happened every Saturday after squad training for about two years, from when he was eleven.",
+   "style": "direct",
+   "must_keep": [
+    "every Saturday",
+    "two years",
+    "eleven"
+   ],
+   "lines": [
+    "L0023",
+    "L0025"
+   ]
+  },
+  {
+   "id": "D04",
+   "what": "Mr Kerr said he told his mum at thirteen, who took him out of the club, and later his wife, his GP and the police, to whom he gave a statement last March.",
+   "style": "direct",
+   "must_keep": [
+    "mum",
+    "13",
+    "police",
+    "statement"
+   ],
+   "lines": [
+    "L0029",
+    "L0033"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hearsay",
+   "must_not_claim": "The coach abused other boys.",
+   "flag_terms": [
+    "other boys"
+   ],
+   "lines": [
+    "L0039",
+    "L0040",
+    "L0041"
+   ]
+  }
+ ]
+}

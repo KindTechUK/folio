@@ -1,0 +1,551 @@
+{
+ "id": "s4-12",
+ "title": "Self-neglect and missed care visits (synthetic)",
+ "template": "assessment",
+ "category": "neglect",
+ "setting": "A social worker visits Keith Dawson, 64, at home at 27 Holloway Terrace, Harbridge, jointly with his district nurse after the nurse raised concerns about self-neglect and missed home-care visits.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Social worker (Rachel Burns)",
+  "S2": "Keith Dawson (the person)",
+  "S3": "District nurse (Siobhan Kelly)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 5.0,
+   "speaker": "S3",
+   "text": "Keith, it's Siobhan. I've brought Rachel, the social worker I mentioned."
+  },
+  {
+   "id": "L0002",
+   "start": 6.1,
+   "end": 9.3,
+   "speaker": "S2",
+   "text": "Yeah, come in. Keep your coats on, mind."
+  },
+  {
+   "id": "L0003",
+   "start": 9.8,
+   "end": 15.4,
+   "speaker": "S1",
+   "text": "Hi Keith, I'm Rachel. Thanks for letting me come. It's freezing out there today."
+  },
+  {
+   "id": "L0004",
+   "start": 15.9,
+   "end": 18.3,
+   "speaker": "S2",
+   "text": "It's freezing in here and all."
+  },
+  {
+   "id": "L0005",
+   "start": 18.7,
+   "end": 23.9,
+   "speaker": "S1",
+   "text": "I can see. Is it okay if we sit in the front room?"
+  },
+  {
+   "id": "L0006",
+   "start": 24.4,
+   "end": 26.0,
+   "speaker": "S2",
+   "text": "Wherever. Move the papers."
+  },
+  {
+   "id": "L0007",
+   "start": 26.8,
+   "end": 44.4,
+   "speaker": "S1",
+   "text": "Thanks. So Siobhan asked me to come because she's a bit worried about how things are at home. I'll be writing notes. It's confidential, but if I think you're at risk I may need to share information, like with your GP. Is that okay?"
+  },
+  {
+   "id": "L0008",
+   "start": 44.9,
+   "end": 46.1,
+   "speaker": "S2",
+   "text": "S'pose so."
+  },
+  {
+   "id": "L0009",
+   "start": 46.9,
+   "end": 50.1,
+   "speaker": "S1",
+   "text": "Siobhan, you've been seeing Keith for his legs?"
+  },
+  {
+   "id": "L0010",
+   "start": 51.2,
+   "end": 56.4,
+   "speaker": "S3",
+   "text": "Yes, twice a week for leg ulcers, both legs. They're slow to heal."
+  },
+  {
+   "id": "L0011",
+   "start": 57.2,
+   "end": 62.0,
+   "speaker": "S1",
+   "text": "Okay. Keith, tell me about the heating. It's very cold in here."
+  },
+  {
+   "id": "L0012",
+   "start": 62.8,
+   "end": 66.4,
+   "speaker": "S2",
+   "text": "Boiler packed up. There's been no heating since October."
+  },
+  {
+   "id": "L0013",
+   "start": 66.9,
+   "end": 69.7,
+   "speaker": "S1",
+   "text": "Since October? Have you got hot water?"
+  },
+  {
+   "id": "L0014",
+   "start": 70.5,
+   "end": 79.7,
+   "speaker": "S2",
+   "text": "No. No heating, no hot water. I've got that little fan heater but it costs a fortune, so I don't put it on."
+  },
+  {
+   "id": "L0015",
+   "start": 80.5,
+   "end": 82.1,
+   "speaker": "S1",
+   "text": "Is the house rented?"
+  },
+  {
+   "id": "L0016",
+   "start": 82.6,
+   "end": 85.8,
+   "speaker": "S2",
+   "text": "Housing association. I rang them once. Nobody came."
+  },
+  {
+   "id": "L0017",
+   "start": 86.4,
+   "end": 90.4,
+   "speaker": "S1",
+   "text": "Okay, we'll chase that. How are you managing with washing?"
+  },
+  {
+   "id": "L0018",
+   "start": 91.1,
+   "end": 94.3,
+   "speaker": "S2",
+   "text": "Not great. I, er. Well, without hot water."
+  },
+  {
+   "id": "L0019",
+   "start": 95.0,
+   "end": 98.2,
+   "speaker": "S1",
+   "text": "When did you last have a wash, roughly?"
+  },
+  {
+   "id": "L0020",
+   "start": 99.3,
+   "end": 103.3,
+   "speaker": "S2",
+   "text": "Honestly? I haven't washed in weeks. Three, four weeks maybe."
+  },
+  {
+   "id": "L0021",
+   "start": 104.4,
+   "end": 107.2,
+   "speaker": "S1",
+   "text": "Okay. Thanks for being straight with me."
+  },
+  {
+   "id": "L0022",
+   "start": 108.2,
+   "end": 110.6,
+   "speaker": "S2",
+   "text": "It's not like I'm going anywhere."
+  },
+  {
+   "id": "L0023",
+   "start": 111.3,
+   "end": 114.5,
+   "speaker": "S1",
+   "text": "And the kitchen, are you able to cook?"
+  },
+  {
+   "id": "L0024",
+   "start": 115.4,
+   "end": 121.4,
+   "speaker": "S2",
+   "text": "There's rats in the kitchen. I've seen two. I don't go in there much now."
+  },
+  {
+   "id": "L0025",
+   "start": 122.5,
+   "end": 126.1,
+   "speaker": "S1",
+   "text": "Rats in the kitchen. How long has that been?"
+  },
+  {
+   "id": "L0026",
+   "start": 127.0,
+   "end": 133.4,
+   "speaker": "S2",
+   "text": "Few weeks. They've been at the bread. I keep the food in here now, in tins."
+  },
+  {
+   "id": "L0027",
+   "start": 133.8,
+   "end": 137.0,
+   "speaker": "S1",
+   "text": "Okay. What are you eating day to day?"
+  },
+  {
+   "id": "L0028",
+   "start": 137.3,
+   "end": 143.3,
+   "speaker": "S2",
+   "text": "Soup, beans. Out the tin mostly. The carers were supposed to do me a meal."
+  },
+  {
+   "id": "L0029",
+   "start": 143.6,
+   "end": 148.0,
+   "speaker": "S1",
+   "text": "Tell me about the carers. You've got a home care package?"
+  },
+  {
+   "id": "L0030",
+   "start": 149.1,
+   "end": 152.7,
+   "speaker": "S2",
+   "text": "Supposed to. Bright Days, they're called. Morning and teatime."
+  },
+  {
+   "id": "L0031",
+   "start": 153.7,
+   "end": 163.3,
+   "speaker": "S3",
+   "text": "Can I come in on that? I've been looking at the log book in the folder by the door, the one the carers sign."
+  },
+  {
+   "id": "L0032",
+   "start": 164.0,
+   "end": 165.2,
+   "speaker": "S1",
+   "text": "Please."
+  },
+  {
+   "id": "L0033",
+   "start": 165.9,
+   "end": 175.1,
+   "speaker": "S3",
+   "text": "In the last two weeks, there should have been 28 visits, and they've missed 16 of them. There's nothing written for 16 visits."
+  },
+  {
+   "id": "L0034",
+   "start": 175.8,
+   "end": 177.4,
+   "speaker": "S1",
+   "text": "16 out of 28?"
+  },
+  {
+   "id": "L0035",
+   "start": 177.8,
+   "end": 185.8,
+   "speaker": "S3",
+   "text": "Yes. And four days last week no one came at all. Keith told me he had no meal those days."
+  },
+  {
+   "id": "L0036",
+   "start": 186.3,
+   "end": 191.5,
+   "speaker": "S2",
+   "text": "Yeah. Nobody turned up. I didn't ring them, I didn't want the bother."
+  },
+  {
+   "id": "L0037",
+   "start": 192.0,
+   "end": 197.6,
+   "speaker": "S1",
+   "text": "Okay, thank you, that's really helpful. I'll be contacting the agency about that today."
+  },
+  {
+   "id": "L0038",
+   "start": 198.0,
+   "end": 210.4,
+   "speaker": "S3",
+   "text": "There's one other thing, and I want to be careful. The neighbour at number twenty-five stopped me on the way in last week. She told me Keith has been drinking heavily."
+  },
+  {
+   "id": "L0039",
+   "start": 211.4,
+   "end": 213.8,
+   "speaker": "S1",
+   "text": "Did you see anything yourself, Siobhan?"
+  },
+  {
+   "id": "L0040",
+   "start": 214.7,
+   "end": 220.7,
+   "speaker": "S3",
+   "text": "No, I haven't seen any sign of it myself. It's just what she told me."
+  },
+  {
+   "id": "L0041",
+   "start": 221.1,
+   "end": 225.5,
+   "speaker": "S1",
+   "text": "Okay. Keith, is there anything you want to say about that?"
+  },
+  {
+   "id": "L0042",
+   "start": 226.5,
+   "end": 230.1,
+   "speaker": "S2",
+   "text": "She's a nosy cow. I'm not getting into it."
+  },
+  {
+   "id": "L0043",
+   "start": 231.0,
+   "end": 235.4,
+   "speaker": "S1",
+   "text": "Fair enough. Let's talk about your health generally. Who's your GP?"
+  },
+  {
+   "id": "L0044",
+   "start": 235.8,
+   "end": 239.8,
+   "speaker": "S2",
+   "text": "Dr Morgan at Holloway surgery. I've not been for ages."
+  },
+  {
+   "id": "L0045",
+   "start": 240.9,
+   "end": 243.3,
+   "speaker": "S1",
+   "text": "And family, is there anyone around?"
+  },
+  {
+   "id": "L0046",
+   "start": 244.4,
+   "end": 250.0,
+   "speaker": "S2",
+   "text": "My brother Phil, in Northby. We talk at Christmas. My wife left in 2015."
+  },
+  {
+   "id": "L0047",
+   "start": 250.3,
+   "end": 253.5,
+   "speaker": "S1",
+   "text": "Okay. And money, what do you live on?"
+  },
+  {
+   "id": "L0048",
+   "start": 254.2,
+   "end": 257.8,
+   "speaker": "S2",
+   "text": "ESA. And I'm waiting on the pension next year."
+  },
+  {
+   "id": "L0049",
+   "start": 258.7,
+   "end": 261.5,
+   "speaker": "S1",
+   "text": "Are you up to date with bills?"
+  },
+  {
+   "id": "L0050",
+   "start": 262.1,
+   "end": 265.7,
+   "speaker": "S2",
+   "text": "I think so. The gas is on a meter."
+  },
+  {
+   "id": "L0051",
+   "start": 266.6,
+   "end": 269.4,
+   "speaker": "S1",
+   "text": "What would you like to happen, Keith?"
+  },
+  {
+   "id": "L0052",
+   "start": 269.7,
+   "end": 276.5,
+   "speaker": "S2",
+   "text": "I just want the heating fixed. And the rats gone. I don't want a home or anything."
+  },
+  {
+   "id": "L0053",
+   "start": 277.4,
+   "end": 292.6,
+   "speaker": "S1",
+   "text": "Nobody's talking about a home. You can stay here, but you need heat, hot water and the right support. Would you agree to me raising a safeguarding concern about the care visits and the state of the house?"
+  },
+  {
+   "id": "L0054",
+   "start": 293.6,
+   "end": 296.4,
+   "speaker": "S2",
+   "text": "If it gets the boiler done. Yeah."
+  },
+  {
+   "id": "L0055",
+   "start": 296.9,
+   "end": 308.9,
+   "speaker": "S1",
+   "text": "Thank you. So, today I'll ring the housing association and log the boiler as an emergency repair. I'll ask for two oil heaters to be dropped off today or tomorrow."
+  },
+  {
+   "id": "L0056",
+   "start": 309.6,
+   "end": 310.8,
+   "speaker": "S2",
+   "text": "Right."
+  },
+  {
+   "id": "L0057",
+   "start": 311.6,
+   "end": 321.2,
+   "speaker": "S1",
+   "text": "I'll contact environmental health for pest control in the kitchen, and I'll raise the missed visits with Bright Days and our commissioning team today."
+  },
+  {
+   "id": "L0058",
+   "start": 321.6,
+   "end": 329.6,
+   "speaker": "S3",
+   "text": "I'll keep coming Tuesdays and Fridays for the legs, and I'll let you know if visits are still being missed."
+  },
+  {
+   "id": "L0059",
+   "start": 329.9,
+   "end": 341.5,
+   "speaker": "S1",
+   "text": "Thanks Siobhan. Keith, I'll also arrange a review of your care package and an occupational therapy assessment for the bathroom, so you can wash safely once there's hot water."
+  },
+  {
+   "id": "L0060",
+   "start": 342.5,
+   "end": 345.7,
+   "speaker": "S2",
+   "text": "Okay. Would be nice to have a bath."
+  },
+  {
+   "id": "L0061",
+   "start": 346.4,
+   "end": 351.6,
+   "speaker": "S1",
+   "text": "And I'd like to ask Dr Morgan to see you. Is that okay?"
+  },
+  {
+   "id": "L0062",
+   "start": 351.9,
+   "end": 353.1,
+   "speaker": "S2",
+   "text": "Yeah, go on."
+  },
+  {
+   "id": "L0063",
+   "start": 353.6,
+   "end": 364.4,
+   "speaker": "S1",
+   "text": "I'll come back on Thursday the third of December, at two, to check the boiler's done and the agency's turning up. Here's my number if nobody comes."
+  },
+  {
+   "id": "L0064",
+   "start": 365.1,
+   "end": 367.9,
+   "speaker": "S2",
+   "text": "Cheers. Sorry about the state of it."
+  },
+  {
+   "id": "L0065",
+   "start": 368.2,
+   "end": 371.0,
+   "speaker": "S1",
+   "text": "No need to apologise. Stay warm, Keith."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Keith says he has not washed in weeks, three or four weeks, because there is no hot water.",
+   "style": "hesitant",
+   "must_keep": [
+    "washed",
+    "weeks"
+   ],
+   "tag": "d1",
+   "lines": [
+    "L0020",
+    "L0022"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Keith says the boiler broke and he has had no heating and no hot water since October.",
+   "style": "direct",
+   "must_keep": [
+    "no heating",
+    "October",
+    "hot water"
+   ],
+   "tag": "d2",
+   "lines": [
+    "L0012",
+    "L0014"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Keith says there are rats in the kitchen; he has seen two, for a few weeks.",
+   "style": "direct",
+   "must_keep": [
+    "rats",
+    "kitchen",
+    "two"
+   ],
+   "tag": "d3",
+   "lines": [
+    "L0024",
+    "L0026"
+   ]
+  },
+  {
+   "id": "D04",
+   "what": "Siobhan, the district nurse, says the home-care agency missed 16 of 28 visits in the last two weeks, including four days with no visit at all.",
+   "style": "third_party",
+   "must_keep": [
+    "missed",
+    "16",
+    "28",
+    "four days"
+   ],
+   "tag": "d4",
+   "lines": [
+    "L0033",
+    "L0035"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hearsay",
+   "must_not_claim": "Keith has been drinking heavily.",
+   "flag_terms": [
+    "drinking",
+    "alcohol"
+   ],
+   "tag": "c1",
+   "lines": [
+    "L0038",
+    "L0039",
+    "L0040",
+    "L0041",
+    "L0042"
+   ]
+  }
+ ]
+}

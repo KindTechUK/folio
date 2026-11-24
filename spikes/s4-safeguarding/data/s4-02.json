@@ -1,0 +1,602 @@
+{
+ "id": "s4-02",
+ "title": "Supported living visit, tenant says night worker pushed and kicked him (synthetic)",
+ "template": "assessment",
+ "category": "physical_abuse",
+ "setting": "A social worker visits Jamie Rowe, 28, who has a learning disability, at his supported-living flat at Larch House, Fenmoor, for a planned review of his support.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Social worker (Tom Ashworth)",
+  "S2": "Jamie Rowe (the person)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 5.8,
+   "speaker": "S1",
+   "text": "Hiya Jamie, it's Tom. Is it still okay for me to come in?"
+  },
+  {
+   "id": "L0002",
+   "start": 6.9,
+   "end": 8.9,
+   "speaker": "S2",
+   "text": "Yeah. I've tidied up. Mostly."
+  },
+  {
+   "id": "L0003",
+   "start": 9.3,
+   "end": 12.5,
+   "speaker": "S1",
+   "text": "It looks great. Is that a new poster?"
+  },
+  {
+   "id": "L0004",
+   "start": 12.9,
+   "end": 17.3,
+   "speaker": "S2",
+   "text": "Yeah, it's Leeds. My mum got it me for my birthday."
+  },
+  {
+   "id": "L0005",
+   "start": 18.2,
+   "end": 29.0,
+   "speaker": "S1",
+   "text": "Nice. So, um, today is your review, like we talked about. We'll talk about how things are going here, your college, money, all that. Is that okay?"
+  },
+  {
+   "id": "L0006",
+   "start": 29.7,
+   "end": 30.9,
+   "speaker": "S2",
+   "text": "Yeah."
+  },
+  {
+   "id": "L0007",
+   "start": 31.9,
+   "end": 49.5,
+   "speaker": "S1",
+   "text": "And I'll write some notes. Most of it stays between us and your support team. But if you tell me someone is hurting you, I might need to tell other people to keep you safe. I'd always tell you first. Does that make sense?"
+  },
+  {
+   "id": "L0008",
+   "start": 50.4,
+   "end": 52.8,
+   "speaker": "S2",
+   "text": "Yeah. Like if someone's hurting me."
+  },
+  {
+   "id": "L0009",
+   "start": 53.8,
+   "end": 55.8,
+   "speaker": "S1",
+   "text": "Exactly. So, how's college going?"
+  },
+  {
+   "id": "L0010",
+   "start": 56.7,
+   "end": 61.9,
+   "speaker": "S2",
+   "text": "Good. I do catering on Tuesdays and Wednesdays. We made pizzas last week."
+  },
+  {
+   "id": "L0011",
+   "start": 62.5,
+   "end": 66.1,
+   "speaker": "S1",
+   "text": "Brilliant. And you're still volunteering at the garden centre?"
+  },
+  {
+   "id": "L0012",
+   "start": 67.1,
+   "end": 70.3,
+   "speaker": "S2",
+   "text": "Fridays. I do the watering and the trolleys."
+  },
+  {
+   "id": "L0013",
+   "start": 71.1,
+   "end": 75.5,
+   "speaker": "S1",
+   "text": "And here at the flat, are you doing your own cooking?"
+  },
+  {
+   "id": "L0014",
+   "start": 76.6,
+   "end": 82.2,
+   "speaker": "S2",
+   "text": "Sometimes. Staff help me with the oven. I can do pasta on my own."
+  },
+  {
+   "id": "L0015",
+   "start": 82.9,
+   "end": 86.9,
+   "speaker": "S1",
+   "text": "That's good. What about money? Are you managing your shopping?"
+  },
+  {
+   "id": "L0016",
+   "start": 87.9,
+   "end": 93.9,
+   "speaker": "S2",
+   "text": "Sandra helps me. I get my money on a Monday and I do a list."
+  },
+  {
+   "id": "L0017",
+   "start": 94.2,
+   "end": 97.4,
+   "speaker": "S1",
+   "text": "And your mum, are you still seeing her?"
+  },
+  {
+   "id": "L0018",
+   "start": 97.7,
+   "end": 102.5,
+   "speaker": "S2",
+   "text": "Sundays. She picks me up and we go to Nan's for dinner."
+  },
+  {
+   "id": "L0019",
+   "start": 103.1,
+   "end": 108.3,
+   "speaker": "S1",
+   "text": "Lovely. So what about the staff here? Who do you get on with?"
+  },
+  {
+   "id": "L0020",
+   "start": 109.2,
+   "end": 112.0,
+   "speaker": "S2",
+   "text": "Sandra's the best. And Priya. They're nice."
+  },
+  {
+   "id": "L0021",
+   "start": 113.1,
+   "end": 116.3,
+   "speaker": "S1",
+   "text": "What about the nights? Who's on at night?"
+  },
+  {
+   "id": "L0022",
+   "start": 117.3,
+   "end": 119.3,
+   "speaker": "S2",
+   "text": "Um. Different ones. Craig, mostly."
+  },
+  {
+   "id": "L0023",
+   "start": 119.9,
+   "end": 122.7,
+   "speaker": "S1",
+   "text": "How do you get on with Craig?"
+  },
+  {
+   "id": "L0024",
+   "start": 123.7,
+   "end": 125.7,
+   "speaker": "S2",
+   "text": "He's, um. He's alright. Sometimes."
+  },
+  {
+   "id": "L0025",
+   "start": 126.8,
+   "end": 128.0,
+   "speaker": "S1",
+   "text": "Sometimes?"
+  },
+  {
+   "id": "L0026",
+   "start": 128.8,
+   "end": 131.6,
+   "speaker": "S2",
+   "text": "He gets cross. When I get up."
+  },
+  {
+   "id": "L0027",
+   "start": 132.2,
+   "end": 135.8,
+   "speaker": "S1",
+   "text": "Can you tell me about when he gets cross?"
+  },
+  {
+   "id": "L0028",
+   "start": 136.1,
+   "end": 141.7,
+   "speaker": "S2",
+   "text": "I get up for a drink. In the night. And he doesn't like it."
+  },
+  {
+   "id": "L0029",
+   "start": 142.4,
+   "end": 144.0,
+   "speaker": "S1",
+   "text": "Okay. What happens then?"
+  },
+  {
+   "id": "L0030",
+   "start": 144.4,
+   "end": 147.6,
+   "speaker": "S2",
+   "text": "He tells me to go back to bed."
+  },
+  {
+   "id": "L0031",
+   "start": 148.4,
+   "end": 150.4,
+   "speaker": "S1",
+   "text": "And does anything else happen?"
+  },
+  {
+   "id": "L0032",
+   "start": 151.5,
+   "end": 153.9,
+   "speaker": "S2",
+   "text": "Sometimes he. Um. He pushed me."
+  },
+  {
+   "id": "L0033",
+   "start": 154.4,
+   "end": 159.6,
+   "speaker": "S1",
+   "text": "Okay. Thanks for telling me, Jamie. Where were you when he pushed you?"
+  },
+  {
+   "id": "L0034",
+   "start": 159.9,
+   "end": 164.7,
+   "speaker": "S2",
+   "text": "In the hall. Outside the kitchen. He pushed me into the wall."
+  },
+  {
+   "id": "L0035",
+   "start": 165.8,
+   "end": 168.6,
+   "speaker": "S1",
+   "text": "Into the wall. Did you get hurt?"
+  },
+  {
+   "id": "L0036",
+   "start": 169.0,
+   "end": 173.0,
+   "speaker": "S2",
+   "text": "My shoulder. It hit the wall. It hurt a bit."
+  },
+  {
+   "id": "L0037",
+   "start": 173.9,
+   "end": 176.7,
+   "speaker": "S1",
+   "text": "When did that happen, can you remember?"
+  },
+  {
+   "id": "L0038",
+   "start": 177.2,
+   "end": 181.6,
+   "speaker": "S2",
+   "text": "Not this week. Last week. The night before the garden centre."
+  },
+  {
+   "id": "L0039",
+   "start": 182.4,
+   "end": 184.0,
+   "speaker": "S1",
+   "text": "So a Thursday night?"
+  },
+  {
+   "id": "L0040",
+   "start": 184.9,
+   "end": 186.1,
+   "speaker": "S2",
+   "text": "Yeah, Thursday."
+  },
+  {
+   "id": "L0041",
+   "start": 186.4,
+   "end": 189.2,
+   "speaker": "S1",
+   "text": "Has Craig done anything else to you?"
+  },
+  {
+   "id": "L0042",
+   "start": 190.1,
+   "end": 193.7,
+   "speaker": "S2",
+   "text": "Um. I don't want him to get in trouble."
+  },
+  {
+   "id": "L0043",
+   "start": 194.0,
+   "end": 200.0,
+   "speaker": "S1",
+   "text": "I know. You're not in trouble, and you've done the right thing talking to me."
+  },
+  {
+   "id": "L0044",
+   "start": 201.0,
+   "end": 205.0,
+   "speaker": "S2",
+   "text": "He kicked my leg. But it was only messing about."
+  },
+  {
+   "id": "L0045",
+   "start": 205.8,
+   "end": 209.4,
+   "speaker": "S1",
+   "text": "Can you tell me how he kicked your leg?"
+  },
+  {
+   "id": "L0046",
+   "start": 210.2,
+   "end": 217.4,
+   "speaker": "S2",
+   "text": "With his foot. On the back of my leg. It was just messing, he says it's a joke."
+  },
+  {
+   "id": "L0047",
+   "start": 218.2,
+   "end": 221.4,
+   "speaker": "S1",
+   "text": "How many times has he kicked your leg?"
+  },
+  {
+   "id": "L0048",
+   "start": 221.7,
+   "end": 226.1,
+   "speaker": "S2",
+   "text": "Three times. Three times, I think. It's not a big deal."
+  },
+  {
+   "id": "L0049",
+   "start": 226.8,
+   "end": 229.6,
+   "speaker": "S1",
+   "text": "Did it hurt when he kicked you?"
+  },
+  {
+   "id": "L0050",
+   "start": 230.6,
+   "end": 235.0,
+   "speaker": "S2",
+   "text": "A bit. I had a bruise. But he's alright, Craig, honestly."
+  },
+  {
+   "id": "L0051",
+   "start": 235.4,
+   "end": 239.0,
+   "speaker": "S1",
+   "text": "Okay. Has he said anything to you about it?"
+  },
+  {
+   "id": "L0052",
+   "start": 239.8,
+   "end": 245.4,
+   "speaker": "S2",
+   "text": "He said don't tell anyone. He said if I tell, I'll lose my flat."
+  },
+  {
+   "id": "L0053",
+   "start": 246.3,
+   "end": 248.3,
+   "speaker": "S1",
+   "text": "That must have been worrying."
+  },
+  {
+   "id": "L0054",
+   "start": 249.0,
+   "end": 251.8,
+   "speaker": "S2",
+   "text": "I don't want to lose my flat."
+  },
+  {
+   "id": "L0055",
+   "start": 252.5,
+   "end": 258.1,
+   "speaker": "S1",
+   "text": "Jamie, you will not lose your flat because you told me. That's a promise."
+  },
+  {
+   "id": "L0056",
+   "start": 258.7,
+   "end": 259.9,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0057",
+   "start": 260.4,
+   "end": 264.8,
+   "speaker": "S1",
+   "text": "Have you seen Craig do anything like that to anyone else?"
+  },
+  {
+   "id": "L0058",
+   "start": 265.9,
+   "end": 271.1,
+   "speaker": "S2",
+   "text": "No. But Marcus told me Craig hit Sophie. I didn't see it though."
+  },
+  {
+   "id": "L0059",
+   "start": 271.7,
+   "end": 276.1,
+   "speaker": "S1",
+   "text": "So Marcus told you that, but you didn't see anything yourself?"
+  },
+  {
+   "id": "L0060",
+   "start": 276.6,
+   "end": 280.6,
+   "speaker": "S2",
+   "text": "No. I was in my room. Marcus just said it."
+  },
+  {
+   "id": "L0061",
+   "start": 281.3,
+   "end": 286.5,
+   "speaker": "S1",
+   "text": "Okay, thank you, that's helpful to know. Is there anything else about Craig?"
+  },
+  {
+   "id": "L0062",
+   "start": 287.2,
+   "end": 288.4,
+   "speaker": "S2",
+   "text": "No. That's all."
+  },
+  {
+   "id": "L0063",
+   "start": 289.0,
+   "end": 298.6,
+   "speaker": "S1",
+   "text": "You've been really brave. Is it alright if I tell Sandra and my manager what you've told me, so we can keep you safe?"
+  },
+  {
+   "id": "L0064",
+   "start": 298.9,
+   "end": 301.7,
+   "speaker": "S2",
+   "text": "Yeah. Can you tell my mum too?"
+  },
+  {
+   "id": "L0065",
+   "start": 302.1,
+   "end": 306.1,
+   "speaker": "S1",
+   "text": "Yes, I can ring your mum today if you want."
+  },
+  {
+   "id": "L0066",
+   "start": 306.7,
+   "end": 307.9,
+   "speaker": "S2",
+   "text": "Yeah."
+  },
+  {
+   "id": "L0067",
+   "start": 308.9,
+   "end": 324.5,
+   "speaker": "S1",
+   "text": "So this is what's going to happen. Today I'm going to report this to the safeguarding team at the council. I'll also ring Sandra, the manager, and ask that Craig doesn't work here at night while it's looked into."
+  },
+  {
+   "id": "L0068",
+   "start": 325.4,
+   "end": 327.0,
+   "speaker": "S2",
+   "text": "Who'll do nights then?"
+  },
+  {
+   "id": "L0069",
+   "start": 327.4,
+   "end": 335.0,
+   "speaker": "S1",
+   "text": "Sandra will sort out other staff. I'll check that with her today. And I'll ring your mum this afternoon."
+  },
+  {
+   "id": "L0070",
+   "start": 335.5,
+   "end": 336.7,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0071",
+   "start": 337.0,
+   "end": 349.8,
+   "speaker": "S1",
+   "text": "Someone from the safeguarding team might want to talk to you. I can be with you when they do, or your mum can. And I'll bring you some easy-read information about it."
+  },
+  {
+   "id": "L0072",
+   "start": 350.9,
+   "end": 352.1,
+   "speaker": "S2",
+   "text": "You come."
+  },
+  {
+   "id": "L0073",
+   "start": 353.2,
+   "end": 362.8,
+   "speaker": "S1",
+   "text": "I will. I'll come back on Tuesday the 1st of December at 4 o'clock, after college, to see how you're doing. Is that alright?"
+  },
+  {
+   "id": "L0074",
+   "start": 363.3,
+   "end": 368.9,
+   "speaker": "S2",
+   "text": "Yeah. Can we talk about the holiday then? I want to go to Blackpool."
+  },
+  {
+   "id": "L0075",
+   "start": 369.7,
+   "end": 373.3,
+   "speaker": "S1",
+   "text": "Definitely. We'll look at your holiday money then too."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Jamie said the night support worker Craig pushed him into the wall in the hall last Thursday night and he hurt his shoulder.",
+   "style": "hesitant",
+   "must_keep": [
+    "pushed",
+    "wall",
+    "shoulder"
+   ],
+   "lines": [
+    "L0032",
+    "L0034",
+    "L0036"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Jamie said Craig kicked the back of his leg three times, leaving a bruise, while describing it as \"only messing about\".",
+   "style": "minimised",
+   "must_keep": [
+    "kicked",
+    "leg",
+    "3 times",
+    "bruise"
+   ],
+   "lines": [
+    "L0044",
+    "L0046",
+    "L0048",
+    "L0050"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Jamie said Craig told him not to tell anyone and that if he did he would lose his flat.",
+   "style": "direct",
+   "must_keep": [
+    "tell anyone",
+    "lose",
+    "flat"
+   ],
+   "lines": [
+    "L0052"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hearsay",
+   "must_not_claim": "Craig hit another tenant, Sophie.",
+   "flag_terms": [
+    "hit",
+    "Sophie"
+   ],
+   "lines": [
+    "L0058",
+    "L0059",
+    "L0060"
+   ]
+  }
+ ]
+}

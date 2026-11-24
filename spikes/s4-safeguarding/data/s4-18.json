@@ -1,0 +1,522 @@
+{
+ "id": "s4-18",
+ "title": "Possession claim client discloses overdose (synthetic)",
+ "template": "attendance_note",
+ "category": "self_harm",
+ "setting": "A housing solicitor meets Lee Whitfield, 46, at a law centre in Harbridge about a possession claim for rent arrears and his debts.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Solicitor (Sophie Grant)",
+  "S2": "Lee Whitfield (client)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 7.0,
+   "speaker": "S1",
+   "text": "Mr Whitfield? Hi, I'm Sophie Grant, I'm one of the housing solicitors. Come and sit down."
+  },
+  {
+   "id": "L0002",
+   "start": 7.8,
+   "end": 9.4,
+   "speaker": "S2",
+   "text": "Cheers. Call me Lee."
+  },
+  {
+   "id": "L0003",
+   "start": 10.1,
+   "end": 24.1,
+   "speaker": "S1",
+   "text": "Lee. Thanks for bringing everything in. Before we start, everything you tell me is confidential. The only time I'd share something without your agreement is if I thought someone's life was at serious risk. Okay?"
+  },
+  {
+   "id": "L0004",
+   "start": 25.0,
+   "end": 26.2,
+   "speaker": "S2",
+   "text": "Yeah, fine."
+  },
+  {
+   "id": "L0005",
+   "start": 27.2,
+   "end": 30.4,
+   "speaker": "S1",
+   "text": "So, tell me what's happened with the flat."
+  },
+  {
+   "id": "L0006",
+   "start": 31.0,
+   "end": 42.6,
+   "speaker": "S2",
+   "text": "I lost my job in January. At the depot. And the Universal Credit took ages, and the housing bit, um, it went wrong, so the rent just built up."
+  },
+  {
+   "id": "L0007",
+   "start": 43.0,
+   "end": 45.4,
+   "speaker": "S1",
+   "text": "How much are the arrears now?"
+  },
+  {
+   "id": "L0008",
+   "start": 45.9,
+   "end": 51.1,
+   "speaker": "S2",
+   "text": "The letter says three thousand eight hundred and fifty. Three months, maybe four."
+  },
+  {
+   "id": "L0009",
+   "start": 52.2,
+   "end": 54.2,
+   "speaker": "S1",
+   "text": "And you've had court papers?"
+  },
+  {
+   "id": "L0010",
+   "start": 55.3,
+   "end": 60.5,
+   "speaker": "S2",
+   "text": "Yeah. This. The hearing's on the ninth of December. At Harbridge County Court."
+  },
+  {
+   "id": "L0011",
+   "start": 60.8,
+   "end": 71.6,
+   "speaker": "S1",
+   "text": "Okay, let me look. So this is a possession claim on rent arrears grounds, ground eight, ten and eleven, by Ashcroft Lettings. Is it a private landlord?"
+  },
+  {
+   "id": "L0012",
+   "start": 72.2,
+   "end": 75.0,
+   "speaker": "S2",
+   "text": "Yeah, private. I've been there six years."
+  },
+  {
+   "id": "L0013",
+   "start": 75.4,
+   "end": 77.4,
+   "speaker": "S1",
+   "text": "And who lives with you?"
+  },
+  {
+   "id": "L0014",
+   "start": 77.8,
+   "end": 80.2,
+   "speaker": "S2",
+   "text": "Just me. Me and the cat."
+  },
+  {
+   "id": "L0015",
+   "start": 80.5,
+   "end": 84.5,
+   "speaker": "S1",
+   "text": "Has the landlord offered a payment plan, or have you?"
+  },
+  {
+   "id": "L0016",
+   "start": 85.3,
+   "end": 90.9,
+   "speaker": "S2",
+   "text": "I offered fifty a month in September. They said no, they wanted it all."
+  },
+  {
+   "id": "L0017",
+   "start": 91.5,
+   "end": 93.9,
+   "speaker": "S1",
+   "text": "Do you have that in writing?"
+  },
+  {
+   "id": "L0018",
+   "start": 94.3,
+   "end": 97.9,
+   "speaker": "S2",
+   "text": "It's a text. I've got it on my phone."
+  },
+  {
+   "id": "L0019",
+   "start": 98.4,
+   "end": 102.0,
+   "speaker": "S1",
+   "text": "And is there anything wrong with the flat? Repairs?"
+  },
+  {
+   "id": "L0020",
+   "start": 102.3,
+   "end": 109.1,
+   "speaker": "S2",
+   "text": "The damp. In the bedroom, it's black up the wall. I've told them loads. I've got photos."
+  },
+  {
+   "id": "L0021",
+   "start": 110.2,
+   "end": 114.2,
+   "speaker": "S1",
+   "text": "That's useful, it might be a counterclaim. And other debts?"
+  },
+  {
+   "id": "L0022",
+   "start": 114.7,
+   "end": 122.7,
+   "speaker": "S2",
+   "text": "Council tax, they've sent the bailiffs letter. A credit card, about two grand. And the electric's on a meter now."
+  },
+  {
+   "id": "L0023",
+   "start": 123.1,
+   "end": 126.3,
+   "speaker": "S1",
+   "text": "Okay. Is anyone helping you with the debts?"
+  },
+  {
+   "id": "L0024",
+   "start": 126.7,
+   "end": 129.1,
+   "speaker": "S2",
+   "text": "No. I just stopped opening things."
+  },
+  {
+   "id": "L0025",
+   "start": 129.7,
+   "end": 136.1,
+   "speaker": "S1",
+   "text": "That's really common. Um, how have you been coping with all this, Lee? It's a lot."
+  },
+  {
+   "id": "L0026",
+   "start": 136.8,
+   "end": 138.8,
+   "speaker": "S2",
+   "text": "Not great, to be honest."
+  },
+  {
+   "id": "L0027",
+   "start": 139.5,
+   "end": 142.3,
+   "speaker": "S1",
+   "text": "Have you got support? Family, your GP?"
+  },
+  {
+   "id": "L0028",
+   "start": 142.7,
+   "end": 148.7,
+   "speaker": "S2",
+   "text": "My brother, in Doncaster. We don't really talk. My GP, I went in March, after..."
+  },
+  {
+   "id": "L0029",
+   "start": 149.8,
+   "end": 151.8,
+   "speaker": "S1",
+   "text": "After what, can I ask?"
+  },
+  {
+   "id": "L0030",
+   "start": 152.5,
+   "end": 154.5,
+   "speaker": "S2",
+   "text": "Um. It's... it doesn't matter."
+  },
+  {
+   "id": "L0031",
+   "start": 154.9,
+   "end": 161.7,
+   "speaker": "S1",
+   "text": "You don't have to tell me. But if it's affecting you, it might help me help you."
+  },
+  {
+   "id": "L0032",
+   "start": 162.3,
+   "end": 167.5,
+   "speaker": "S2",
+   "text": "In March I, um, I took an overdose. When the first letter came."
+  },
+  {
+   "id": "L0033",
+   "start": 168.0,
+   "end": 172.0,
+   "speaker": "S1",
+   "text": "I'm sorry, Lee. Thank you for telling me. What happened?"
+  },
+  {
+   "id": "L0034",
+   "start": 172.5,
+   "end": 179.3,
+   "speaker": "S2",
+   "text": "Sixteen paracetamol. Sixteen paracetamol. My neighbour found me and rang an ambulance. They kept me in overnight."
+  },
+  {
+   "id": "L0035",
+   "start": 179.8,
+   "end": 183.8,
+   "speaker": "S1",
+   "text": "Okay. And did you get any follow-up after the hospital?"
+  },
+  {
+   "id": "L0036",
+   "start": 184.3,
+   "end": 187.9,
+   "speaker": "S2",
+   "text": "A nurse rang a couple of times. Then nothing."
+  },
+  {
+   "id": "L0037",
+   "start": 188.5,
+   "end": 190.9,
+   "speaker": "S1",
+   "text": "Have you hurt yourself since March?"
+  },
+  {
+   "id": "L0038",
+   "start": 191.6,
+   "end": 194.4,
+   "speaker": "S2",
+   "text": "No. Not since March. Nothing like that."
+  },
+  {
+   "id": "L0039",
+   "start": 195.1,
+   "end": 199.9,
+   "speaker": "S1",
+   "text": "Okay. And how about now, this week? With the court date coming?"
+  },
+  {
+   "id": "L0040",
+   "start": 200.9,
+   "end": 208.1,
+   "speaker": "S2",
+   "text": "Honestly? I've thought about ending it. This week. Sunday night, I sat there and thought about ending it."
+  },
+  {
+   "id": "L0041",
+   "start": 208.9,
+   "end": 211.7,
+   "speaker": "S1",
+   "text": "Thank you for being honest with me."
+  },
+  {
+   "id": "L0042",
+   "start": 212.4,
+   "end": 217.6,
+   "speaker": "S2",
+   "text": "Forget that, actually. I'm just stressed. Ignore me, I shouldn't have said it."
+  },
+  {
+   "id": "L0043",
+   "start": 218.3,
+   "end": 227.1,
+   "speaker": "S1",
+   "text": "I'm not going to ignore it, Lee, because it matters. Is it true that you've thought about ending your life this week?"
+  },
+  {
+   "id": "L0044",
+   "start": 228.0,
+   "end": 233.6,
+   "speaker": "S2",
+   "text": "...Yeah. It's true. I did think about ending it, Sunday. I didn't do anything."
+  },
+  {
+   "id": "L0045",
+   "start": 234.0,
+   "end": 236.8,
+   "speaker": "S1",
+   "text": "Okay. Are you safe today, right now?"
+  },
+  {
+   "id": "L0046",
+   "start": 237.7,
+   "end": 242.1,
+   "speaker": "S2",
+   "text": "Yeah. Today I'm all right. Talking about it helps, a bit."
+  },
+  {
+   "id": "L0047",
+   "start": 243.0,
+   "end": 250.6,
+   "speaker": "S1",
+   "text": "Would you let me ring your GP today, so they can see you? Or we can ring together now."
+  },
+  {
+   "id": "L0048",
+   "start": 251.3,
+   "end": 254.1,
+   "speaker": "S2",
+   "text": "Can we do it together? I'd rather."
+  },
+  {
+   "id": "L0049",
+   "start": 254.5,
+   "end": 262.1,
+   "speaker": "S1",
+   "text": "Yes. We'll do it before you leave. I'll also give you the crisis team number and Samaritans, 116 123."
+  },
+  {
+   "id": "L0050",
+   "start": 263.0,
+   "end": 264.2,
+   "speaker": "S2",
+   "text": "Okay. Thanks."
+  },
+  {
+   "id": "L0051",
+   "start": 264.6,
+   "end": 277.8,
+   "speaker": "S1",
+   "text": "Now, the housing. The good news is you've got a defence. The arrears built up because the housing element went wrong, and the damp could be a counterclaim that reduces what you owe."
+  },
+  {
+   "id": "L0052",
+   "start": 278.8,
+   "end": 281.6,
+   "speaker": "S2",
+   "text": "So I might not lose the flat?"
+  },
+  {
+   "id": "L0053",
+   "start": 282.7,
+   "end": 293.9,
+   "speaker": "S1",
+   "text": "There's a real chance, yes. I'll file a defence and counterclaim. And I'll ask the court to adjourn if we need more time to sort the Universal Credit."
+  },
+  {
+   "id": "L0054",
+   "start": 294.4,
+   "end": 295.6,
+   "speaker": "S2",
+   "text": "Right."
+  },
+  {
+   "id": "L0055",
+   "start": 296.7,
+   "end": 307.5,
+   "speaker": "S1",
+   "text": "For the debts, I'll refer you to the Citizens Advice debt team. They can apply for a breathing space, which stops creditors chasing you for sixty days."
+  },
+  {
+   "id": "L0056",
+   "start": 307.9,
+   "end": 309.9,
+   "speaker": "S2",
+   "text": "That'd be a relief, honestly."
+  },
+  {
+   "id": "L0057",
+   "start": 310.6,
+   "end": 315.8,
+   "speaker": "S1",
+   "text": "And the Universal Credit, have you reported the problem with the housing costs?"
+  },
+  {
+   "id": "L0058",
+   "start": 316.2,
+   "end": 319.8,
+   "speaker": "S2",
+   "text": "I put it on the journal. Twice. No answer."
+  },
+  {
+   "id": "L0059",
+   "start": 320.7,
+   "end": 325.1,
+   "speaker": "S1",
+   "text": "I'll write to them as well, it's part of the defence."
+  },
+  {
+   "id": "L0060",
+   "start": 325.8,
+   "end": 333.4,
+   "speaker": "S1",
+   "text": "Documents I need: your tenancy agreement, the rent statement, your Universal Credit statements since January, and the damp photos."
+  },
+  {
+   "id": "L0061",
+   "start": 334.1,
+   "end": 338.5,
+   "speaker": "S2",
+   "text": "I've got the tenancy here. The rest is on my phone."
+  },
+  {
+   "id": "L0062",
+   "start": 339.4,
+   "end": 343.4,
+   "speaker": "S1",
+   "text": "Could you email them to me by Friday the twenty-seventh?"
+  },
+  {
+   "id": "L0063",
+   "start": 344.4,
+   "end": 346.4,
+   "speaker": "S2",
+   "text": "Yeah, I can do that."
+  },
+  {
+   "id": "L0064",
+   "start": 346.7,
+   "end": 362.3,
+   "speaker": "S1",
+   "text": "So, next steps. Today, we ring your GP together. I'll make the debt referral today. I'll file the defence by Tuesday the first of December. I'll ring you on Thursday to check in. And the hearing is the ninth."
+  },
+  {
+   "id": "L0065",
+   "start": 363.0,
+   "end": 366.2,
+   "speaker": "S2",
+   "text": "Okay. Thanks, Sophie. I feel a bit better."
+  },
+  {
+   "id": "L0066",
+   "start": 366.5,
+   "end": 368.9,
+   "speaker": "S1",
+   "text": "Good. Let's ring the surgery now."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Mr Whitfield says, hesitantly, that in March he took an overdose of sixteen paracetamol and was kept in hospital overnight.",
+   "style": "hesitant",
+   "must_keep": [
+    "overdose",
+    "March",
+    "sixteen paracetamol"
+   ],
+   "lines": [
+    "L0028",
+    "L0030",
+    "L0032",
+    "L0034"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Mr Whitfield says he thought about ending it this week, on Sunday night, then takes it back as stress, then says it again.",
+   "style": "retracted_restated",
+   "must_keep": [
+    "ending it",
+    "this week"
+   ],
+   "lines": [
+    "L0040",
+    "L0042",
+    "L0044"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "denial",
+   "must_not_claim": "Mr Whitfield has hurt himself since March.",
+   "flag_terms": [
+    "hurt",
+    "since March"
+   ],
+   "lines": [
+    "L0038"
+   ]
+  }
+ ]
+}
