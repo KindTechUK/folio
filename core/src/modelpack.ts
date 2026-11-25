@@ -31,11 +31,11 @@ import { createHash, verify as nodeVerify, createPublicKey } from "node:crypto";
 import type { KeyObject } from "node:crypto";
 
 /** Engines this build knows how to drive. */
-export const ENGINES = ["whisper.cpp", "sherpa-onnx"] as const;
+export const ENGINES = ["whisper.cpp", "sherpa-onnx", "llama.cpp"] as const;
 export type Engine = (typeof ENGINES)[number];
 
 /** Tasks a model pack can perform. */
-export const TASKS = ["asr", "diarization"] as const;
+export const TASKS = ["asr", "diarization", "llm"] as const;
 export type Task = (typeof TASKS)[number];
 
 /**
@@ -170,6 +170,11 @@ export function validateManifest(obj: unknown): ValidateResult {
       ok: false,
       reason: `manifest task "${m.task}" is not one of: ${TASKS.join(", ")}`,
     };
+  }
+  // A language model runs only on llama.cpp, and llama.cpp runs nothing else,
+  // so a pack can't pass the engine check for one runtime and be loaded by another.
+  if ((m.task === "llm") !== (m.engine === "llama.cpp")) {
+    return { ok: false, reason: `manifest task "${m.task}" cannot run on engine "${m.engine}"` };
   }
 
   if (!SEMVER_RE.test(m.version as string)) {

@@ -1,0 +1,919 @@
+[
+ {
+  "id": "S001",
+  "section": "Background and presenting situation",
+  "sentence": "S1 (Samuel Adeyemi) is a care coordinator from the community mental health team.",
+  "cites": [
+   {
+    "start": 0.7,
+    "end": 4.8
+   },
+   {
+    "start": 38.2,
+    "end": 41.4
+   },
+   {
+    "start": 57.6,
+    "end": 66.0
+   },
+   {
+    "start": 68.4,
+    "end": 74.5
+   },
+   {
+    "start": 82.1,
+    "end": 86.2
+   }
+  ],
+  "lines": [
+   1,
+   11,
+   15,
+   17,
+   20
+  ]
+ },
+ {
+  "id": "S002",
+  "section": "Background and presenting situation",
+  "sentence": "S2 (Hannah Rees) is the person being assessed.",
+  "cites": [
+   {
+    "start": 5.5,
+    "end": 9.5
+   },
+   {
+    "start": 53.6,
+    "end": 56.5
+   },
+   {
+    "start": 57.6,
+    "end": 66.0
+   },
+   {
+    "start": 78.0,
+    "end": 81.1
+   },
+   {
+    "start": 82.1,
+    "end": 86.2
+   }
+  ],
+  "lines": [
+   2,
+   14,
+   15,
+   19,
+   20
+  ]
+ },
+ {
+  "id": "S003",
+  "section": "Background and presenting situation",
+  "sentence": "S3 (Tom Whitfield) is Hannah's partner.",
+  "cites": [
+   {
+    "start": 32.3,
+    "end": 37.7
+   },
+   {
+    "start": 75.3,
+    "end": 77.5
+   },
+   {
+    "start": 378.2,
+    "end": 380.6
+   },
+   {
+    "start": 381.2,
+    "end": 385.4
+   },
+   {
+    "start": 386.4,
+    "end": 389.5
+   }
+  ],
+  "lines": [
+   10,
+   18,
+   85,
+   86,
+   87
+  ]
+ },
+ {
+  "id": "S004",
+  "section": "Background and presenting situation",
+  "sentence": "The assessment is a care review conducted about six weeks after the last contact.",
+  "cites": [
+   {
+    "start": 46.7,
+    "end": 53.0
+   }
+  ],
+  "lines": [
+   13
+  ]
+ },
+ {
+  "id": "S005",
+  "section": "Background and presenting situation",
+  "sentence": "The last contact was before Bonfire Night, approximately in September.",
+  "cites": [
+   {
+    "start": 53.6,
+    "end": 56.5
+   }
+  ],
+  "lines": [
+   14
+  ]
+ },
+ {
+  "id": "S006",
+  "section": "Background and presenting situation",
+  "sentence": "Hannah has a dog named Pip, a cocker spaniel.",
+  "cites": [
+   {
+    "start": 12.9,
+    "end": 15.4
+   },
+   {
+    "start": 18.6,
+    "end": 21.6
+   }
+  ],
+  "lines": [
+   4,
+   6
+  ]
+ },
+ {
+  "id": "S007",
+  "section": "Background and presenting situation",
+  "sentence": "Tom is currently on a work call and will come down after the assessment.",
+  "cites": [
+   {
+    "start": 32.3,
+    "end": 37.7
+   },
+   {
+    "start": 42.5,
+    "end": 45.6
+   }
+  ],
+  "lines": [
+   10,
+   12
+  ]
+ },
+ {
+  "id": "S008",
+  "section": "Needs and daily living",
+  "sentence": "Hannah is currently on sertraline 150mg daily, started on the 10th of November.",
+  "cites": [
+   {
+    "start": 135.1,
+    "end": 137.5
+   },
+   {
+    "start": 141.9,
+    "end": 149.9
+   },
+   {
+    "start": 157.6,
+    "end": 162.7
+   },
+   {
+    "start": 163.5,
+    "end": 165.5
+   }
+  ],
+  "lines": [
+   31,
+   33,
+   35,
+   36
+  ]
+ },
+ {
+  "id": "S009",
+  "section": "Needs and daily living",
+  "sentence": "Hannah is also taking mirtazapine 15mg at night.",
+  "cites": [
+   {
+    "start": 170.8,
+    "end": 173.7
+   }
+  ],
+  "lines": [
+   39
+  ]
+ },
+ {
+  "id": "S010",
+  "section": "Needs and daily living",
+  "sentence": "Hannah reports experiencing panic attacks two to three times per week, with some days having a constant hum.",
+  "cites": [
+   {
+    "start": 95.6,
+    "end": 102.9
+   },
+   {
+    "start": 106.8,
+    "end": 110.7
+   }
+  ],
+  "lines": [
+   23,
+   25
+  ]
+ },
+ {
+  "id": "S011",
+  "section": "Needs and daily living",
+  "sentence": "Hannah reports a low mood score of 3 out of 10, with a high of 4 on a good day.",
+  "cites": [
+   {
+    "start": 118.2,
+    "end": 120.5
+   }
+  ],
+  "lines": [
+   27
+  ]
+ },
+ {
+  "id": "S012",
+  "section": "Needs and daily living",
+  "sentence": "Hannah reported a mood score of 7 during the summer, indicating improvement.",
+  "cites": [
+   {
+    "start": 124.7,
+    "end": 129.0
+   }
+  ],
+  "lines": [
+   29
+  ]
+ },
+ {
+  "id": "S013",
+  "section": "Needs and daily living",
+  "sentence": "Hannah reports waking up at 3:30 a.m. every night despite taking mirtazapine.",
+  "cites": [
+   {
+    "start": 179.0,
+    "end": 183.4
+   }
+  ],
+  "lines": [
+   41
+  ]
+ },
+ {
+  "id": "S014",
+  "section": "Needs and daily living",
+  "sentence": "Hannah reports getting only about four hours of sleep per night.",
+  "cites": [
+   {
+    "start": 186.9,
+    "end": 192.0
+   }
+  ],
+  "lines": [
+   43
+  ]
+ },
+ {
+  "id": "S015",
+  "section": "Needs and daily living",
+  "sentence": "Hannah reports increased hunger, which she attributes to improved eating habits after stopping poor diet.",
+  "cites": [
+   {
+    "start": 195.1,
+    "end": 202.5
+   }
+  ],
+  "lines": [
+   45
+  ]
+ },
+ {
+  "id": "S016",
+  "section": "Needs and daily living",
+  "sentence": "Hannah lost about half a stone (approximately 22.5 lbs) due to poor eating habits before medication.",
+  "cites": [
+   {
+    "start": 195.1,
+    "end": 202.5
+   }
+  ],
+  "lines": [
+   45
+  ]
+ },
+ {
+  "id": "S017",
+  "section": "Needs and daily living",
+  "sentence": "Hannah reports a dry mouth as a side effect of mirtazapine.",
+  "cites": [
+   {
+    "start": 206.0,
+    "end": 208.2
+   }
+  ],
+  "lines": [
+   47
+  ]
+ },
+ {
+  "id": "S018",
+  "section": "Needs and daily living",
+  "sentence": "Hannah takes her medication every day and has not missed any doses.",
+  "cites": [
+   {
+    "start": 208.6,
+    "end": 210.9
+   },
+   {
+    "start": 211.3,
+    "end": 215.7
+   }
+  ],
+  "lines": [
+   48,
+   49
+  ]
+ },
+ {
+  "id": "S019",
+  "section": "Needs and daily living",
+  "sentence": "Tom currently manages the medication boxes and stores them in his drawer upstairs.",
+  "cites": [
+   {
+    "start": 211.3,
+    "end": 215.7
+   },
+   {
+    "start": 216.7,
+    "end": 220.2
+   }
+  ],
+  "lines": [
+   49,
+   50
+  ]
+ },
+ {
+  "id": "S020",
+  "section": "Needs and daily living",
+  "sentence": "Hannah believes the medication is too early to assess for effectiveness, and she wants to continue for six weeks.",
+  "cites": [
+   {
+    "start": 226.2,
+    "end": 233.9
+   }
+  ],
+  "lines": [
+   53
+  ]
+ },
+ {
+  "id": "S021",
+  "section": "Needs and daily living",
+  "sentence": "Hannah's work is signed off until the 11th of December.",
+  "cites": [
+   {
+    "start": 237.5,
+    "end": 240.6
+   },
+   {
+    "start": 241.8,
+    "end": 246.3
+   }
+  ],
+  "lines": [
+   55,
+   56
+  ]
+ },
+ {
+  "id": "S022",
+  "section": "Needs and daily living",
+  "sentence": "Hannah's manager changed in August, and there was a merger of payroll and accounts, doubling her workload.",
+  "cites": [
+   {
+    "start": 253.7,
+    "end": 259.6
+   },
+   {
+    "start": 266.5,
+    "end": 268.3
+   }
+  ],
+  "lines": [
+   58,
+   60
+  ]
+ },
+ {
+  "id": "S023",
+  "section": "Needs and daily living",
+  "sentence": "Hannah's manager sends emails at 11 p.m. and expects responses by 9 a.m.",
+  "cites": [
+   {
+    "start": 266.5,
+    "end": 268.3
+   }
+  ],
+  "lines": [
+   60
+  ]
+ },
+ {
+  "id": "S024",
+  "section": "Needs and daily living",
+  "sentence": "Hannah believes her manager has said she is not resilient enough and that her position may be reviewed.",
+  "cites": [
+   {
+    "start": 268.7,
+    "end": 279.3
+   },
+   {
+    "start": 279.6,
+    "end": 281.1
+   }
+  ],
+  "lines": [
+   61,
+   62
+  ]
+ },
+ {
+  "id": "S025",
+  "section": "Needs and daily living",
+  "sentence": "Hannah has an occupational health appointment scheduled for the 2nd of December (phone appointment).",
+  "cites": [
+   {
+    "start": 311.4,
+    "end": 320.0
+   }
+  ],
+  "lines": [
+   69
+  ]
+ },
+ {
+  "id": "S026",
+  "section": "Needs and daily living",
+  "sentence": "Hannah would consider a phased return to work (e.g., mornings only) if offered, but no such option has been proposed.",
+  "cites": [
+   {
+    "start": 321.8,
+    "end": 329.7
+   }
+  ],
+  "lines": [
+   71
+  ]
+ },
+ {
+  "id": "S027",
+  "section": "Needs and daily living",
+  "sentence": "Hannah gets up around 7 a.m. when Tom wakes her.",
+  "cites": [
+   {
+    "start": 341.8,
+    "end": 346.5
+   }
+  ],
+  "lines": [
+   75
+  ]
+ },
+ {
+  "id": "S028",
+  "section": "Needs and daily living",
+  "sentence": "Hannah walks Pip every day as a routine.",
+  "cites": [
+   {
+    "start": 341.8,
+    "end": 346.5
+   }
+  ],
+  "lines": [
+   75
+  ]
+ },
+ {
+  "id": "S029",
+  "section": "Needs and daily living",
+  "sentence": "Hannah spends most of her day on the sofa and sometimes does not get dressed.",
+  "cites": [
+   {
+    "start": 347.3,
+    "end": 351.9
+   }
+  ],
+  "lines": [
+   76
+  ]
+ },
+ {
+  "id": "S030",
+  "section": "Needs and daily living",
+  "sentence": "Hannah has not seen any friends recently and has been avoiding social contact.",
+  "cites": [
+   {
+    "start": 354.6,
+    "end": 360.6
+   }
+  ],
+  "lines": [
+   78
+  ]
+ },
+ {
+  "id": "S031",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees denied needing hospital care and stated she is not in the same condition as previously.",
+  "cites": [
+   {
+    "start": 629.7,
+    "end": 635.4
+   }
+  ],
+  "lines": [
+   136
+  ]
+ },
+ {
+  "id": "S032",
+  "section": "Needs and daily living",
+  "sentence": "The safety plan will include the warning signs: not getting out of bed, stopping walking Pip, going quiet, and not answering Megan.",
+  "cites": [
+   {
+    "start": 670.0,
+    "end": 679.1
+   },
+   {
+    "start": 679.5,
+    "end": 682.5
+   }
+  ],
+  "lines": [
+   144,
+   145
+  ]
+ },
+ {
+  "id": "S033",
+  "section": "Needs and daily living",
+  "sentence": "The crisis line number is currently on the fridge.",
+  "cites": [
+   {
+    "start": 683.0,
+    "end": 687.3
+   },
+   {
+    "start": 688.2,
+    "end": 689.7
+   }
+  ],
+  "lines": [
+   146,
+   147
+  ]
+ },
+ {
+  "id": "S034",
+  "section": "Needs and daily living",
+  "sentence": "Tom Whitfield confirmed the crisis line number is also on his phone.",
+  "cites": [
+   {
+    "start": 690.2,
+    "end": 691.5
+   }
+  ],
+  "lines": [
+   148
+  ]
+ },
+ {
+  "id": "S035",
+  "section": "Needs and daily living",
+  "sentence": "The care coordinator (Samuel Adeyemi) will refer Hannah to psychology and complete the referral by Friday.",
+  "cites": [
+   {
+    "start": 758.5,
+    "end": 764.7
+   }
+  ],
+  "lines": [
+   167
+  ]
+ },
+ {
+  "id": "S036",
+  "section": "Needs and daily living",
+  "sentence": "The care coordinator will contact Dr Mensah's secretary to follow up on Hannah's next clinic appointment, as she has not yet had one.",
+  "cites": [
+   {
+    "start": 767.3,
+    "end": 773.6
+   },
+   {
+    "start": 774.5,
+    "end": 775.4
+   }
+  ],
+  "lines": [
+   169,
+   170
+  ]
+ },
+ {
+  "id": "S037",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees will complete a sleep diary for the care coordinator, including bedtime, waking time, and duration of nighttime awakenings.",
+  "cites": [
+   {
+    "start": 782.8,
+    "end": 789.4
+   },
+   {
+    "start": 790.4,
+    "end": 791.8
+   }
+  ],
+  "lines": [
+   172,
+   173
+  ]
+ },
+ {
+  "id": "S038",
+  "section": "Needs and daily living",
+  "sentence": "Hannah Rees stated that her friend Jo, who is under the same care team, said the wait for psychology is two years.",
+  "cites": [
+   {
+    "start": 720.7,
+    "end": 728.3
+   },
+   {
+    "start": 728.8,
+    "end": 734.0
+   }
+  ],
+  "lines": [
+   158,
+   159
+  ]
+ },
+ {
+  "id": "S039",
+  "section": "Needs and daily living",
+  "sentence": "The care coordinator stated that the wait for psychology varies and cannot provide a specific number today.",
+  "cites": [
+   {
+    "start": 728.8,
+    "end": 734.0
+   }
+  ],
+  "lines": [
+   159
+  ]
+ },
+ {
+  "id": "S040",
+  "section": "Needs and daily living",
+  "sentence": "The care coordinator will update the safety plan with a new warning sign (not answering Megan) and will include the week when Tom is away.",
+  "cites": [
+   {
+    "start": 670.0,
+    "end": 679.1
+   },
+   {
+    "start": 679.5,
+    "end": 682.5
+   },
+   {
+    "start": 776.1,
+    "end": 781.9
+   }
+  ],
+  "lines": [
+   144,
+   145,
+   171
+  ]
+ },
+ {
+  "id": "S041",
+  "section": "Needs and daily living",
+  "sentence": "The care coordinator advised against assuming the two-year wait for psychology and recommended checking with the service first.",
+  "cites": [
+   {
+    "start": 737.5,
+    "end": 740.7
+   }
+  ],
+  "lines": [
+   161
+  ]
+ },
+ {
+  "id": "S042",
+  "section": "Needs and daily living",
+  "sentence": "The care coordinator will perform a PHQ-9 mood questionnaire with Hannah, but it will be postponed due to her appearance of being 'shattered'.",
+  "cites": [
+   {
+    "start": 743.4,
+    "end": 749.2
+   },
+   {
+    "start": 751.7,
+    "end": 756.0
+   }
+  ],
+  "lines": [
+   163,
+   165
+  ]
+ },
+ {
+  "id": "S043",
+  "section": "Person's views and wishes",
+  "sentence": "Hannah Rees described feeling tired and said Tom 'means well but just panics'.",
+  "cites": [
+   {
+    "start": 718.0,
+    "end": 720.3
+   }
+  ],
+  "lines": [
+   157
+  ]
+ },
+ {
+  "id": "S044",
+  "section": "Person's views and wishes",
+  "sentence": "Hannah Rees expressed frustration about the two-year wait for psychology, saying 'I can't wait two years'.",
+  "cites": [
+   {
+    "start": 734.8,
+    "end": 737.0
+   }
+  ],
+  "lines": [
+   160
+  ]
+ },
+ {
+  "id": "S045",
+  "section": "Risks and safeguarding",
+  "sentence": "Tom Whitfield expressed concern that Hannah should be in hospital or have crisis workers come every day, referencing the previous crisis.",
+  "cites": [
+   {
+    "start": 619.5,
+    "end": 628.6
+   }
+  ],
+  "lines": [
+   135
+  ]
+ },
+ {
+  "id": "S046",
+  "section": "Risks and safeguarding",
+  "sentence": "Tom Whitfield stated he is scared about Hannah's condition and is unable to monitor her due to being at work.",
+  "cites": [
+   {
+    "start": 619.5,
+    "end": 628.6
+   },
+   {
+    "start": 635.8,
+    "end": 636.7
+   }
+  ],
+  "lines": [
+   135,
+   137
+  ]
+ },
+ {
+  "id": "S047",
+  "section": "Risks and safeguarding",
+  "sentence": "Hannah Rees agreed to call the crisis line or duty worker if her thoughts become stronger before the follow-up appointment on the eighth of December.",
+  "cites": [
+   {
+    "start": 800.9,
+    "end": 806.1
+   },
+   {
+    "start": 806.7,
+    "end": 808.1
+   }
+  ],
+  "lines": [
+   176,
+   177
+  ]
+ },
+ {
+  "id": "S048",
+  "section": "Support network and finances",
+  "sentence": "Tom Whitfield will be away from home Monday to Thursday next week due to work in Leeds.",
+  "cites": [
+   {
+    "start": 648.7,
+    "end": 655.4
+   }
+  ],
+  "lines": [
+   140
+  ]
+ },
+ {
+  "id": "S049",
+  "section": "Support network and finances",
+  "sentence": "Hannah Rees indicated that Megan may be able to let her stay at her house while Tom is away, but has not decided.",
+  "cites": [
+   {
+    "start": 660.2,
+    "end": 664.2
+   }
+  ],
+  "lines": [
+   142
+  ]
+ },
+ {
+  "id": "S050",
+  "section": "Support network and finances",
+  "sentence": "Tom Whitfield expressed interest in a carer's assessment for himself, but said he is not sure and will think about it.",
+  "cites": [
+   {
+    "start": 692.1,
+    "end": 698.0
+   },
+   {
+    "start": 698.9,
+    "end": 701.8
+   }
+  ],
+  "lines": [
+   149,
+   150
+  ]
+ },
+ {
+  "id": "S051",
+  "section": "Agreed actions",
+  "sentence": "The care coordinator will return for a follow-up appointment on Tuesday, the eighth of December, at 10 o'clock.",
+  "cites": [
+   {
+    "start": 793.0,
+    "end": 797.6
+   },
+   {
+    "start": 798.7,
+    "end": 800.4
+   }
+  ],
+  "lines": [
+   174,
+   175
+  ]
+ },
+ {
+  "id": "S052",
+  "section": "Agreed actions",
+  "sentence": "The care coordinator will drop a copy of the updated safety plan during the week when Tom is away.",
+  "cites": [
+   {
+    "start": 776.1,
+    "end": 781.9
+   }
+  ],
+  "lines": [
+   171
+  ]
+ },
+ {
+  "id": "S053",
+  "section": "Agreed actions",
+  "sentence": "The care coordinator will refer Hannah to psychology and complete the referral by Friday.",
+  "cites": [
+   {
+    "start": 758.5,
+    "end": 764.7
+   }
+  ],
+  "lines": [
+   167
+  ]
+ }
+]

@@ -1,0 +1,11 @@
+{
+  "id": "acme/qwen3-4b-instruct",
+  "version": "1.2.3",
+  "engine": "llama.cpp",
+  "engine_min_version": "0.6.0",
+  "task": "llm",
+  "license": "Apache-2.0",
+  "attribution": "Acme Language Labs",
+  "sha256": "c8c6e02d597fa6c407a5fec30c981c7bbad08972240eea89841b8f37e2fbf32c",
+  "signature": "X4BLQdG+1TRWoNXBdBWatNKWzbzsbrylnohCmys5TNVhHvP+XPfluLrg49KFRtZz2CRfYep+Tn8iEpKmBoYUBA=="
+}

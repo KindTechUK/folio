@@ -1,0 +1,41 @@
+[package]
+name = "s5-llama"
+version = "0.0.0"
+edition = "2021"
+publish = false
+description = "Spike S5: link llama.cpp (llama-cpp-2) and sherpa-onnx (via engine) into one CPU-only binary. Throwaway; NOT linked into the app."
+license = "Apache-2.0"
+
+[dependencies]
+# The production engine (sherpa-onnx, static). Path dep, not a registry fetch.
+engine = { path = "../../engine" }
+# Same exact version the engine pins, so Cargo unifies it (no second copy). Used
+# to call into the native sherpa-onnx / onnxruntime code directly.
+sherpa-onnx = { version = "=2.0.1", default-features = false, features = ["static"] }
+
+# llama.cpp bindings, pinned EXACTLY (0.1.161 was published 2026-11-03; it
+# vendors llama.cpp v0.6.0, commit d812350). default-features = false drops
+# llama-cpp-2's `openmp` (ggml's own threadpool instead), `common` and
+# `android-shared-stdcxx`. No GPU features.
+# NOTE: llama-cpp-2 depends on llama-cpp-sys-2 WITH its default features, so the
+# sys crate's `common` is on whatever we say here (llama.cpp's common library and
+# its vendored cpp-httplib get compiled, but nothing links them into the binary),
+# and on Apple Silicon it also turns on `metal`. .cargo/config.toml keeps Metal
+# and OpenSSL out of the CMake build.
+llama-cpp-2 = { version = "=0.1.161", default-features = false, optional = true }
+llama-cpp-sys-2 = { version = "=0.1.161", default-features = false, optional = true }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = ["Win32_System_ProcessStatus", "Win32_System_Threading", "Win32_Foundation"] }
+
+[features]
+# `llama` off = the size/build-time baseline (sherpa-onnx only).
+default = ["llama"]
+llama = ["dep:llama-cpp-2", "dep:llama-cpp-sys-2"]
+
+[profile.release]
+# Match a shipping build closely enough for size comparisons.
+strip = "symbols"

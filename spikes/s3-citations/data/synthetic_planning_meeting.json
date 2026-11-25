@@ -1,0 +1,1542 @@
+{
+ "id": "synthetic-planning-meeting",
+ "title": "Child in need review: Haddon family (synthetic)",
+ "template": "general_minutes",
+ "speakers": {
+  "S1": "Social worker and chair (Hannah Brightwell)",
+  "S2": "Deputy head and designated safeguarding lead, Millbrook Primary (Gareth Pryce)",
+  "S3": "Health visitor (Ruth Lindqvist)",
+  "S4": "Housing officer, Fernvale Homes (Darren Achebe)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.7,
+   "end": 6.5,
+   "speaker": "S1",
+   "text": "Right, I think that's everyone. Can everyone hear me okay? Darren, you're on the screen, are you?"
+  },
+  {
+   "id": "L0002",
+   "start": 7.4,
+   "end": 14.3,
+   "speaker": "S4",
+   "text": "Yeah, I'm here. Sorry, I'm in the car, I've just come out of a, um, a void inspection over in Kelso Road."
+  },
+  {
+   "id": "L0003",
+   "start": 15.0,
+   "end": 20.2,
+   "speaker": "S1",
+   "text": "No worries at all. Gareth, thanks for the room. It's actually warm in here for once."
+  },
+  {
+   "id": "L0004",
+   "start": 21.4,
+   "end": 26.1,
+   "speaker": "S2",
+   "text": "Don't get used to it. The boiler in this block is on its last legs."
+  },
+  {
+   "id": "L0005",
+   "start": 26.8,
+   "end": 28.2,
+   "speaker": "S3",
+   "text": "Is there tea going, or—"
+  },
+  {
+   "id": "L0006",
+   "start": 28.9,
+   "end": 32.9,
+   "speaker": "S2",
+   "text": "There's a flask on the side, help yourself. Sorry, it's Ruth, isn't it?"
+  },
+  {
+   "id": "L0007",
+   "start": 33.6,
+   "end": 39.3,
+   "speaker": "S3",
+   "text": "Ruth, yes. Ruth Lindqvist, health visitor. We met at the, er, the cluster meeting in September."
+  },
+  {
+   "id": "L0008",
+   "start": 39.7,
+   "end": 41.6,
+   "speaker": "S2",
+   "text": "That's it. With the terrible sandwiches."
+  },
+  {
+   "id": "L0009",
+   "start": 41.9,
+   "end": 42.5,
+   "speaker": "S3",
+   "text": "Ha. Don't."
+  },
+  {
+   "id": "L0010",
+   "start": 43.6,
+   "end": 50.3,
+   "speaker": "S1",
+   "text": "Okay, shall we make a start? So this is the child in need review for the Haddon family. It's Tuesday the twenty-fourth of November."
+  },
+  {
+   "id": "L0011",
+   "start": 50.9,
+   "end": 55.2,
+   "speaker": "S1",
+   "text": "I'm Hannah Brightwell, social worker from children's services. I'll chair and I'll do the notes."
+  },
+  {
+   "id": "L0012",
+   "start": 56.4,
+   "end": 58.8,
+   "speaker": "S4",
+   "text": "Darren Achebe, housing officer, Fern Vale Homes."
+  },
+  {
+   "id": "L0013",
+   "start": 59.2,
+   "end": 61.5,
+   "speaker": "S2",
+   "text": "Gareth Pryce, deputy head and DSL at Millbrook."
+  },
+  {
+   "id": "L0014",
+   "start": 62.5,
+   "end": 69.0,
+   "speaker": "S1",
+   "text": "Lovely. So, the family. We've got Leanne, mum. Tyler, who's eight, Year Four at Millbrook. And baby Amelia, who's seven months."
+  },
+  {
+   "id": "L0015",
+   "start": 69.4,
+   "end": 75.1,
+   "speaker": "S1",
+   "text": "Leanne's sent her apologies. Amelia's got a GP appointment this morning, she did ring me first thing."
+  },
+  {
+   "id": "L0016",
+   "start": 75.9,
+   "end": 84.6,
+   "speaker": "S1",
+   "text": "And, um, one thing she asked when I saw her on Thursday. She's happy for us all to share information, but she doesn't want anything passed on to her mum. To Sandra."
+  },
+  {
+   "id": "L0017",
+   "start": 85.7,
+   "end": 89.8,
+   "speaker": "S3",
+   "text": "Ah. Okay. That's, um, that's relevant, actually. I'll come back to that."
+  },
+  {
+   "id": "L0018",
+   "start": 90.9,
+   "end": 94.4,
+   "speaker": "S1",
+   "text": "Okay. Shall we go round? Gareth, do you want to start with school?"
+  },
+  {
+   "id": "L0019",
+   "start": 94.7,
+   "end": 99.8,
+   "speaker": "S2",
+   "text": "Yeah. So, Tyler. Lovely lad. Really bright. But attendance is the big thing. He's on seventy-eight percent."
+  },
+  {
+   "id": "L0020",
+   "start": 100.2,
+   "end": 100.8,
+   "speaker": "S1",
+   "text": "Seventy-eight."
+  },
+  {
+   "id": "L0021",
+   "start": 101.5,
+   "end": 107.8,
+   "speaker": "S2",
+   "text": "No, sorry, hang on, that's, that's last year's figure, I've picked up the wrong sheet. This term he's on eighty-four percent."
+  },
+  {
+   "id": "L0022",
+   "start": 108.8,
+   "end": 111.4,
+   "speaker": "S1",
+   "text": "Eighty-four. Okay. Still below where we'd want him."
+  },
+  {
+   "id": "L0023",
+   "start": 112.2,
+   "end": 118.9,
+   "speaker": "S2",
+   "text": "It is. And it's mostly lates rather than whole days. Mondays especially. He's rolling in at quarter past nine, half nine."
+  },
+  {
+   "id": "L0024",
+   "start": 119.6,
+   "end": 123.2,
+   "speaker": "S4",
+   "text": "Is that the bus? Because the number twelve's been cancelled half the—"
+  },
+  {
+   "id": "L0025",
+   "start": 123.8,
+   "end": 133.3,
+   "speaker": "S2",
+   "text": "Partly, maybe. But, um, he did say something to Miss Carter last week. That he has to get Amelia's bottles ready in the morning before he can come."
+  },
+  {
+   "id": "L0026",
+   "start": 133.6,
+   "end": 134.2,
+   "speaker": "S3",
+   "text": "Oh. Right."
+  },
+  {
+   "id": "L0027",
+   "start": 135.2,
+   "end": 139.0,
+   "speaker": "S1",
+   "text": "Okay, I'm, I'm noting that. That's potentially a young carer thing."
+  },
+  {
+   "id": "L0028",
+   "start": 139.6,
+   "end": 143.7,
+   "speaker": "S2",
+   "text": "Yeah. He said it quite matter of fact, like it was nothing. Anyway."
+  },
+  {
+   "id": "L0029",
+   "start": 144.8,
+   "end": 152.2,
+   "speaker": "S2",
+   "text": "Now, if it drops below eighty percent, we'd normally have to go to the attendance panel, and potentially a penalty notice."
+  },
+  {
+   "id": "L0030",
+   "start": 153.2,
+   "end": 154.5,
+   "speaker": "S1",
+   "text": "But we're not there."
+  },
+  {
+   "id": "L0031",
+   "start": 154.9,
+   "end": 160.0,
+   "speaker": "S2",
+   "text": "We're not there, no. And I'd rather not go down that road with this family, to be honest."
+  },
+  {
+   "id": "L0032",
+   "start": 160.5,
+   "end": 164.4,
+   "speaker": "S1",
+   "text": "Any concerns about how he presents? Hungry, clothing, hygiene, anything like that?"
+  },
+  {
+   "id": "L0033",
+   "start": 165.0,
+   "end": 171.8,
+   "speaker": "S2",
+   "text": "Sometimes a bit hungry first thing. Uniform's fine. And I should say, there's been no disclosure from Tyler. Nothing at all."
+  },
+  {
+   "id": "L0034",
+   "start": 172.2,
+   "end": 178.1,
+   "speaker": "S2",
+   "text": "And no marks, no injuries, nothing like that. Staff have been asked to keep an eye and there's been nothing."
+  },
+  {
+   "id": "L0035",
+   "start": 178.8,
+   "end": 180.2,
+   "speaker": "S1",
+   "text": "Okay. Thank you. That's helpful."
+  },
+  {
+   "id": "L0036",
+   "start": 180.5,
+   "end": 189.7,
+   "speaker": "S2",
+   "text": "Behaviour's a bit up and down. Erm, he's had a couple of meltdowns at lunch. Miss Carter's wondered about, you know, CAMHS, or whether it's an ADHD thing."
+  },
+  {
+   "id": "L0037",
+   "start": 190.3,
+   "end": 191.5,
+   "speaker": "S3",
+   "text": "Has that been referred?"
+  },
+  {
+   "id": "L0038",
+   "start": 192.3,
+   "end": 199.1,
+   "speaker": "S2",
+   "text": "No, no. It's just been talked about in the staff room. It's something to think about, I'm not saying we do it today."
+  },
+  {
+   "id": "L0039",
+   "start": 199.5,
+   "end": 204.1,
+   "speaker": "S1",
+   "text": "Let's park that. I'd want to hear what Leanne thinks before anything like that anyway."
+  },
+  {
+   "id": "L0040",
+   "start": 205.0,
+   "end": 209.9,
+   "speaker": "S2",
+   "text": "Fair enough. Oh, and one more thing, and I want to be careful how I put this."
+  },
+  {
+   "id": "L0041",
+   "start": 210.9,
+   "end": 218.7,
+   "speaker": "S2",
+   "text": "One of our lunchtime supervisors, she says a parent told her that Jordan's been dropping Tyler off at the gate. A couple of mornings."
+  },
+  {
+   "id": "L0042",
+   "start": 219.2,
+   "end": 220.5,
+   "speaker": "S1",
+   "text": "Jordan. The ex-partner. Amelia's dad."
+  },
+  {
+   "id": "L0043",
+   "start": 221.5,
+   "end": 226.3,
+   "speaker": "S2",
+   "text": "Yeah. Now, I haven't seen him myself. None of the office staff have. It's second-hand, third-hand really."
+  },
+  {
+   "id": "L0044",
+   "start": 227.5,
+   "end": 231.4,
+   "speaker": "S1",
+   "text": "Okay. That is important though, given the history. I'll come back to it."
+  },
+  {
+   "id": "L0045",
+   "start": 232.0,
+   "end": 234.6,
+   "speaker": "S1",
+   "text": "Ruth, do you want to go next? Amelia."
+  },
+  {
+   "id": "L0046",
+   "start": 235.5,
+   "end": 243.4,
+   "speaker": "S3",
+   "text": "Yeah. So, um, Amelia. I saw her on the, er, the seventeenth. Weighing in fine. She's tracking along the twenty-fifth centile, which is where she's always been."
+  },
+  {
+   "id": "L0047",
+   "start": 243.9,
+   "end": 247.9,
+   "speaker": "S3",
+   "text": "So there's no faltering growth. I'm not worried about her weight at all."
+  },
+  {
+   "id": "L0048",
+   "start": 248.8,
+   "end": 249.4,
+   "speaker": "S1",
+   "text": "Good."
+  },
+  {
+   "id": "L0049",
+   "start": 249.7,
+   "end": 255.8,
+   "speaker": "S3",
+   "text": "She's still on the hypoallergenic formula, because of the cow's milk protein allergy, but that's all going fine."
+  },
+  {
+   "id": "L0050",
+   "start": 256.4,
+   "end": 266.8,
+   "speaker": "S3",
+   "text": "The thing I'm more worried about is her chest. She's had this cough for about three weeks now. And she sleeps in the back bedroom, which is the one with the mould."
+  },
+  {
+   "id": "L0051",
+   "start": 267.1,
+   "end": 270.0,
+   "speaker": "S4",
+   "text": "The back bedroom. Yeah, that's on my list."
+  },
+  {
+   "id": "L0052",
+   "start": 270.6,
+   "end": 276.4,
+   "speaker": "S3",
+   "text": "There's black mould on the wall right behind the cot. I've got photos. I'll send them over."
+  },
+  {
+   "id": "L0053",
+   "start": 277.0,
+   "end": 280.6,
+   "speaker": "S1",
+   "text": "Okay. And how often are you seeing them at the moment?"
+  },
+  {
+   "id": "L0054",
+   "start": 281.5,
+   "end": 290.4,
+   "speaker": "S3",
+   "text": "Fortnightly. If her weight did drop, or the chest got worse, then I'd want to go up to weekly. But at the moment fortnightly's right."
+  },
+  {
+   "id": "L0055",
+   "start": 291.2,
+   "end": 292.2,
+   "speaker": "S1",
+   "text": "Okay. And mum?"
+  },
+  {
+   "id": "L0056",
+   "start": 293.2,
+   "end": 299.3,
+   "speaker": "S3",
+   "text": "Yeah. So, Leanne. Her mood's quite low. She scored fairly high on the, um, the questionnaire, the PHQ."
+  },
+  {
+   "id": "L0057",
+   "start": 300.1,
+   "end": 304.5,
+   "speaker": "S3",
+   "text": "And this is the bit I mentioned. Sandra rang me. Leanne's mum. Last Wednesday."
+  },
+  {
+   "id": "L0058",
+   "start": 305.4,
+   "end": 306.0,
+   "speaker": "S1",
+   "text": "Right."
+  },
+  {
+   "id": "L0059",
+   "start": 306.6,
+   "end": 316.9,
+   "speaker": "S3",
+   "text": "And she told me Leanne's stopped taking her sertraline. Now I haven't been able to check that with Leanne, or with the GP. So I don't know if it's true."
+  },
+  {
+   "id": "L0060",
+   "start": 317.4,
+   "end": 318.7,
+   "speaker": "S1",
+   "text": "And Sandra rang you directly."
+  },
+  {
+   "id": "L0061",
+   "start": 319.5,
+   "end": 325.9,
+   "speaker": "S3",
+   "text": "She did. And bearing in mind what you've just said, I didn't tell her anything. I just listened and thanked her."
+  },
+  {
+   "id": "L0062",
+   "start": 326.2,
+   "end": 327.1,
+   "speaker": "S1",
+   "text": "Good. Thank you."
+  },
+  {
+   "id": "L0063",
+   "start": 328.2,
+   "end": 334.8,
+   "speaker": "S1",
+   "text": "I think, given all that, we should get a perinatal mental health referral in. I'm happy to do that one."
+  },
+  {
+   "id": "L0064",
+   "start": 335.2,
+   "end": 341.8,
+   "speaker": "S3",
+   "text": "Ah, it can't come from social care, Hannah, sorry. It has to come from the GP or from health visiting. I'll do it."
+  },
+  {
+   "id": "L0065",
+   "start": 342.3,
+   "end": 345.1,
+   "speaker": "S1",
+   "text": "Oh, is that right? Okay. Ruth, then. By when?"
+  },
+  {
+   "id": "L0066",
+   "start": 345.6,
+   "end": 350.6,
+   "speaker": "S3",
+   "text": "Friday. This Friday, the twenty-seventh. I'll speak to Leanne first so it's not a shock."
+  },
+  {
+   "id": "L0067",
+   "start": 350.9,
+   "end": 353.1,
+   "speaker": "S1",
+   "text": "Lovely. Darren, sorry, you've been very patient. Housing."
+  },
+  {
+   "id": "L0068",
+   "start": 354.2,
+   "end": 359.4,
+   "speaker": "S4",
+   "text": "No, you're alright. So, um, yeah. The flat. Twenty-two Ashby Court. Second floor, two bed."
+  },
+  {
+   "id": "L0069",
+   "start": 360.5,
+   "end": 369.6,
+   "speaker": "S4",
+   "text": "So the damp. I'll be honest, a lot of what we see in those flats is condensation. Washing drying on the radiators, windows shut. That kind of thing."
+  },
+  {
+   "id": "L0070",
+   "start": 370.0,
+   "end": 377.2,
+   "speaker": "S3",
+   "text": "I'd, sorry, I'd push back on that. I've been in that flat. It's coming through the external wall. It's not the washing."
+  },
+  {
+   "id": "L0071",
+   "start": 377.7,
+   "end": 378.9,
+   "speaker": "S4",
+   "text": "I'm not saying it's—"
+  },
+  {
+   "id": "L0072",
+   "start": 379.2,
+   "end": 381.5,
+   "speaker": "S3",
+   "text": "The wall's wet to the touch, Darren."
+  },
+  {
+   "id": "L0073",
+   "start": 382.3,
+   "end": 386.2,
+   "speaker": "S4",
+   "text": "Okay. Okay, fair. That's why I've got the surveyor going out."
+  },
+  {
+   "id": "L0074",
+   "start": 386.9,
+   "end": 389.9,
+   "speaker": "S4",
+   "text": "I've got the surveyor booked for, er, Friday the twenty-seventh."
+  },
+  {
+   "id": "L0075",
+   "start": 391.1,
+   "end": 396.2,
+   "speaker": "S4",
+   "text": "No, sorry, I'm reading the wrong line. It's Tuesday. Tuesday the first of December. In the morning."
+  },
+  {
+   "id": "L0076",
+   "start": 396.6,
+   "end": 397.8,
+   "speaker": "S1",
+   "text": "Tuesday the first. Okay."
+  },
+  {
+   "id": "L0077",
+   "start": 399.0,
+   "end": 406.6,
+   "speaker": "S4",
+   "text": "And if the surveyor says it's a category one hazard, then, um, then we could look at a management move. Or decanting them while we do the works."
+  },
+  {
+   "id": "L0078",
+   "start": 407.6,
+   "end": 408.2,
+   "speaker": "S1",
+   "text": "But that's—"
+  },
+  {
+   "id": "L0079",
+   "start": 409.1,
+   "end": 413.9,
+   "speaker": "S4",
+   "text": "That's an if. I can't promise any of that. It depends what he finds."
+  },
+  {
+   "id": "L0080",
+   "start": 415.0,
+   "end": 419.9,
+   "speaker": "S3",
+   "text": "And, sorry, when would the works actually be done? Because that baby's sleeping next to that wall now."
+  },
+  {
+   "id": "L0081",
+   "start": 421.0,
+   "end": 430.5,
+   "speaker": "S4",
+   "text": "Honestly, I can't say. It depends on the survey. Could be a week, could be, I don't know. I'm not going to give you a date I can't keep."
+  },
+  {
+   "id": "L0082",
+   "start": 431.5,
+   "end": 434.5,
+   "speaker": "S3",
+   "text": "Okay. I'd just, I'd like it on record that it's urgent."
+  },
+  {
+   "id": "L0083",
+   "start": 435.6,
+   "end": 436.2,
+   "speaker": "S1",
+   "text": "It's noted."
+  },
+  {
+   "id": "L0084",
+   "start": 436.6,
+   "end": 442.8,
+   "speaker": "S4",
+   "text": "What I was thinking, actually, in the meantime. Could they go to Leanne's mum's? Sandra's. Just while we sort it."
+  },
+  {
+   "id": "L0085",
+   "start": 443.3,
+   "end": 446.0,
+   "speaker": "S1",
+   "text": "Hmm. I'm not keen on that, Darren, to be honest."
+  },
+  {
+   "id": "L0086",
+   "start": 446.4,
+   "end": 452.3,
+   "speaker": "S3",
+   "text": "No. No, I'd say not. Sandra's in a one-bed. And there's her partner, which, we've talked about before."
+  },
+  {
+   "id": "L0087",
+   "start": 453.1,
+   "end": 458.1,
+   "speaker": "S1",
+   "text": "And Leanne's been clear she doesn't want Sandra involved. So no, I don't think that's one for us."
+  },
+  {
+   "id": "L0088",
+   "start": 458.6,
+   "end": 460.9,
+   "speaker": "S4",
+   "text": "Fair enough. It was just a thought."
+  },
+  {
+   "id": "L0089",
+   "start": 461.2,
+   "end": 464.5,
+   "speaker": "S1",
+   "text": "What about moving the cot? Into the front bedroom, in with Leanne?"
+  },
+  {
+   "id": "L0090",
+   "start": 464.9,
+   "end": 469.3,
+   "speaker": "S3",
+   "text": "I've suggested it. She said she'd try. I'll check on my next visit."
+  },
+  {
+   "id": "L0091",
+   "start": 470.0,
+   "end": 475.6,
+   "speaker": "S4",
+   "text": "Can I just, on the tenancy side as well. The rent account's clear. I checked yesterday. There's no arrears."
+  },
+  {
+   "id": "L0092",
+   "start": 476.2,
+   "end": 478.2,
+   "speaker": "S1",
+   "text": "Oh, good. That's one less thing."
+  },
+  {
+   "id": "L0093",
+   "start": 479.1,
+   "end": 485.7,
+   "speaker": "S4",
+   "text": "Yeah. Only thing, it's an introductory tenancy, so it's up for review on the eleventh of January. Just so you're aware."
+  },
+  {
+   "id": "L0094",
+   "start": 486.0,
+   "end": 494.5,
+   "speaker": "S4",
+   "text": "And, um, the other thing, and I'm only passing this on. We had a complaint from a neighbour. Shouting, late at night, couple of weeks ago."
+  },
+  {
+   "id": "L0095",
+   "start": 494.9,
+   "end": 495.7,
+   "speaker": "S1",
+   "text": "From the flat?"
+  },
+  {
+   "id": "L0096",
+   "start": 496.1,
+   "end": 504.0,
+   "speaker": "S4",
+   "text": "That's what the complaint said. It was anonymous. Nobody from us has heard anything, we haven't been able to verify it. So, you know. Take it how you will."
+  },
+  {
+   "id": "L0097",
+   "start": 504.7,
+   "end": 505.8,
+   "speaker": "S2",
+   "text": "That ties in with—"
+  },
+  {
+   "id": "L0098",
+   "start": 506.3,
+   "end": 510.9,
+   "speaker": "S1",
+   "text": "It might. It might not. Let's not join dots we can't join yet."
+  },
+  {
+   "id": "L0099",
+   "start": 511.6,
+   "end": 514.9,
+   "speaker": "S2",
+   "text": "I'm just saying. Jordan at the gate, shouting at night."
+  },
+  {
+   "id": "L0100",
+   "start": 515.2,
+   "end": 527.0,
+   "speaker": "S1",
+   "text": "Yeah. So, on Jordan. I asked Leanne directly on Thursday. She was very clear. She says she's had no contact with him since he left in June, and he hasn't been to the flat."
+  },
+  {
+   "id": "L0101",
+   "start": 527.8,
+   "end": 533.5,
+   "speaker": "S1",
+   "text": "And I've done a police check. There've been no call-outs to the address since June. None."
+  },
+  {
+   "id": "L0102",
+   "start": 534.7,
+   "end": 540.9,
+   "speaker": "S2",
+   "text": "With respect, Hannah, I think we're at the point where this should go to a child protection conference."
+  },
+  {
+   "id": "L0103",
+   "start": 541.7,
+   "end": 544.2,
+   "speaker": "S1",
+   "text": "I hear that, Gareth. I don't agree, though."
+  },
+  {
+   "id": "L0104",
+   "start": 545.1,
+   "end": 554.3,
+   "speaker": "S1",
+   "text": "What we've got on Jordan is second-hand. Mum denies it, and the police check's clear. If we had evidence he was actually at the address, that would be different."
+  },
+  {
+   "id": "L0105",
+   "start": 554.9,
+   "end": 560.7,
+   "speaker": "S3",
+   "text": "I'd agree with Hannah. I don't see child protection threshold, not from health. Not from what I've seen."
+  },
+  {
+   "id": "L0106",
+   "start": 561.9,
+   "end": 566.1,
+   "speaker": "S4",
+   "text": "I'm not really, um, that's not my area. I'll go with whatever you decide."
+  },
+  {
+   "id": "L0107",
+   "start": 567.3,
+   "end": 569.6,
+   "speaker": "S2",
+   "text": "Okay. I'd like my concern noted, though."
+  },
+  {
+   "id": "L0108",
+   "start": 570.3,
+   "end": 572.0,
+   "speaker": "S1",
+   "text": "Absolutely. It'll be in the minutes."
+  },
+  {
+   "id": "L0109",
+   "start": 572.7,
+   "end": 577.7,
+   "speaker": "S2",
+   "text": "And what about a Clare's Law? The domestic violence disclosure thing. Should we be doing that for Leanne?"
+  },
+  {
+   "id": "L0110",
+   "start": 578.6,
+   "end": 584.0,
+   "speaker": "S1",
+   "text": "Possibly. I'm, I'm not going to decide that here. I want to talk it through with my manager first."
+  },
+  {
+   "id": "L0111",
+   "start": 585.0,
+   "end": 585.6,
+   "speaker": "S2",
+   "text": "When?"
+  },
+  {
+   "id": "L0112",
+   "start": 586.7,
+   "end": 593.1,
+   "speaker": "S1",
+   "text": "I'll speak to her by Thursday, and I'll email you all by Monday the thirtieth with where we've got to."
+  },
+  {
+   "id": "L0113",
+   "start": 594.0,
+   "end": 595.0,
+   "speaker": "S2",
+   "text": "Okay. Thank you."
+  },
+  {
+   "id": "L0114",
+   "start": 595.9,
+   "end": 602.7,
+   "speaker": "S1",
+   "text": "Right. Can we talk about support? Because I don't want this to be all concerns. There's a lot Leanne's doing well."
+  },
+  {
+   "id": "L0115",
+   "start": 603.2,
+   "end": 605.5,
+   "speaker": "S3",
+   "text": "There is. She's lovely with Amelia. Really attentive."
+  },
+  {
+   "id": "L0116",
+   "start": 606.7,
+   "end": 609.9,
+   "speaker": "S2",
+   "text": "And Tyler adores her. He talks about his mum all the time."
+  },
+  {
+   "id": "L0117",
+   "start": 610.9,
+   "end": 617.1,
+   "speaker": "S2",
+   "text": "So, from school, we'd like to offer Tyler a breakfast club place. Free. Every day. Doors open at eight."
+  },
+  {
+   "id": "L0118",
+   "start": 617.9,
+   "end": 619.6,
+   "speaker": "S3",
+   "text": "Oh, that'd help with the lates."
+  },
+  {
+   "id": "L0119",
+   "start": 619.9,
+   "end": 621.8,
+   "speaker": "S2",
+   "text": "And he gets fed. Which, you know."
+  },
+  {
+   "id": "L0120",
+   "start": 622.1,
+   "end": 626.7,
+   "speaker": "S1",
+   "text": "I mentioned it to Leanne on Thursday, actually, and she's keen. So yes, let's do that."
+  },
+  {
+   "id": "L0121",
+   "start": 627.6,
+   "end": 629.7,
+   "speaker": "S2",
+   "text": "He can start Monday. The thirtieth."
+  },
+  {
+   "id": "L0122",
+   "start": 630.5,
+   "end": 638.3,
+   "speaker": "S2",
+   "text": "And honestly, I think mum would really benefit from a parenting course. The, er, the one the Family Hub runs on Wednesdays."
+  },
+  {
+   "id": "L0123",
+   "start": 639.2,
+   "end": 646.9,
+   "speaker": "S1",
+   "text": "So, I did raise that with her. She said no to a parenting course. She felt it'd be, her words, being told she's a bad mum."
+  },
+  {
+   "id": "L0124",
+   "start": 647.6,
+   "end": 653.6,
+   "speaker": "S1",
+   "text": "What she did say she'd like is the stay and play at the Family Hub. For Amelia. Meet some other mums."
+  },
+  {
+   "id": "L0125",
+   "start": 654.3,
+   "end": 657.3,
+   "speaker": "S3",
+   "text": "I can do that referral. It's easy, it's an online form."
+  },
+  {
+   "id": "L0126",
+   "start": 657.9,
+   "end": 658.5,
+   "speaker": "S1",
+   "text": "Brilliant."
+  },
+  {
+   "id": "L0127",
+   "start": 659.0,
+   "end": 663.1,
+   "speaker": "S2",
+   "text": "I still think the course would help her. But, okay. Her call."
+  },
+  {
+   "id": "L0128",
+   "start": 663.8,
+   "end": 669.4,
+   "speaker": "S1",
+   "text": "And on Tyler and the bottles, I'll talk to Leanne about the morning routine, and whether a young carers assessment's appropriate."
+  },
+  {
+   "id": "L0129",
+   "start": 670.6,
+   "end": 674.2,
+   "speaker": "S3",
+   "text": "Sorry, can I just, the, the bottles. Is he making up formula?"
+  },
+  {
+   "id": "L0130",
+   "start": 674.7,
+   "end": 676.8,
+   "speaker": "S2",
+   "text": "I don't know. He just said bottles."
+  },
+  {
+   "id": "L0131",
+   "start": 677.6,
+   "end": 680.6,
+   "speaker": "S3",
+   "text": "Only because the hypoallergenic one's fiddly. I'll ask Leanne."
+  },
+  {
+   "id": "L0132",
+   "start": 681.3,
+   "end": 688.4,
+   "speaker": "S1",
+   "text": "Okay. I'm conscious of time. Let me go through what I think we've agreed, and stop me if I've got it wrong."
+  },
+  {
+   "id": "L0133",
+   "start": 689.3,
+   "end": 696.1,
+   "speaker": "S1",
+   "text": "So, one. The case stays at child in need. Gareth's disagreement is noted. He thinks it should go to conference."
+  },
+  {
+   "id": "L0134",
+   "start": 696.8,
+   "end": 697.7,
+   "speaker": "S2",
+   "text": "Yeah. That's fair."
+  },
+  {
+   "id": "L0135",
+   "start": 698.9,
+   "end": 701.8,
+   "speaker": "S1",
+   "text": "Two. Tyler starts breakfast club Monday the thirtieth."
+  },
+  {
+   "id": "L0136",
+   "start": 702.8,
+   "end": 705.1,
+   "speaker": "S1",
+   "text": "Three. Ruth makes the perinatal referral by Friday."
+  },
+  {
+   "id": "L0137",
+   "start": 706.2,
+   "end": 707.0,
+   "speaker": "S3",
+   "text": "By Friday. Yep."
+  },
+  {
+   "id": "L0138",
+   "start": 708.1,
+   "end": 711.2,
+   "speaker": "S1",
+   "text": "Four. Ruth refers Leanne and Amelia to the stay and play."
+  },
+  {
+   "id": "L0139",
+   "start": 711.6,
+   "end": 714.9,
+   "speaker": "S3",
+   "text": "By, um, by the end of next week? Friday the fourth."
+  },
+  {
+   "id": "L0140",
+   "start": 715.3,
+   "end": 720.3,
+   "speaker": "S1",
+   "text": "Friday the fourth. Five, Darren, the surveyor on Tuesday the first, and you'll send me the report."
+  },
+  {
+   "id": "L0141",
+   "start": 721.4,
+   "end": 726.1,
+   "speaker": "S4",
+   "text": "Soon as I've got it. I'll aim for within a week of the visit."
+  },
+  {
+   "id": "L0142",
+   "start": 727.0,
+   "end": 729.5,
+   "speaker": "S1",
+   "text": "And Gareth, you'll send me the attendance breakdown."
+  },
+  {
+   "id": "L0143",
+   "start": 729.9,
+   "end": 733.0,
+   "speaker": "S2",
+   "text": "By Friday. With the lates broken down by day."
+  },
+  {
+   "id": "L0144",
+   "start": 733.7,
+   "end": 741.2,
+   "speaker": "S1",
+   "text": "And I'll speak to my manager about the Jordan information and the Clare's Law question, and email everyone by Monday the thirtieth."
+  },
+  {
+   "id": "L0145",
+   "start": 742.4,
+   "end": 743.5,
+   "speaker": "S2",
+   "text": "And the CAMHS thing?"
+  },
+  {
+   "id": "L0146",
+   "start": 744.5,
+   "end": 749.2,
+   "speaker": "S1",
+   "text": "Not agreed. Not today. I'll talk to Leanne about it and we'll pick it up at review."
+  },
+  {
+   "id": "L0147",
+   "start": 750.3,
+   "end": 754.4,
+   "speaker": "S3",
+   "text": "And the move to Sandra's, just to be clear, that's not happening."
+  },
+  {
+   "id": "L0148",
+   "start": 755.0,
+   "end": 757.2,
+   "speaker": "S1",
+   "text": "No. That's not happening. That's not a decision."
+  },
+  {
+   "id": "L0149",
+   "start": 758.4,
+   "end": 759.8,
+   "speaker": "S4",
+   "text": "No, that's fine, that's fine."
+  },
+  {
+   "id": "L0150",
+   "start": 760.4,
+   "end": 765.3,
+   "speaker": "S1",
+   "text": "And the management move is Darren's if, depending on the survey. Nothing's agreed on that."
+  },
+  {
+   "id": "L0151",
+   "start": 766.4,
+   "end": 767.0,
+   "speaker": "S4",
+   "text": "Correct."
+  },
+  {
+   "id": "L0152",
+   "start": 767.7,
+   "end": 769.8,
+   "speaker": "S1",
+   "text": "Next review. Tuesday the eighth of December?"
+  },
+  {
+   "id": "L0153",
+   "start": 770.6,
+   "end": 773.6,
+   "speaker": "S3",
+   "text": "Oh, I'm on leave the eighth. That whole week."
+  },
+  {
+   "id": "L0154",
+   "start": 774.1,
+   "end": 778.4,
+   "speaker": "S1",
+   "text": "Okay. The fifteenth, then? Tuesday the fifteenth of December, ten o'clock, here at school?"
+  },
+  {
+   "id": "L0155",
+   "start": 779.6,
+   "end": 781.3,
+   "speaker": "S2",
+   "text": "Fifteenth's fine. I'll book the room."
+  },
+  {
+   "id": "L0156",
+   "start": 782.5,
+   "end": 785.5,
+   "speaker": "S4",
+   "text": "I can do the fifteenth. I'll dial in again, probably."
+  },
+  {
+   "id": "L0157",
+   "start": 786.1,
+   "end": 786.8,
+   "speaker": "S3",
+   "text": "Fifteenth, yes."
+  },
+  {
+   "id": "L0158",
+   "start": 788.0,
+   "end": 790.7,
+   "speaker": "S1",
+   "text": "Lovely. And I'll share these notes with Leanne."
+  },
+  {
+   "id": "L0159",
+   "start": 791.4,
+   "end": 792.7,
+   "speaker": "S1",
+   "text": "Anything else from anyone?"
+  },
+  {
+   "id": "L0160",
+   "start": 793.6,
+   "end": 796.7,
+   "speaker": "S3",
+   "text": "Just the photos. I'll send those to you and Darren today."
+  },
+  {
+   "id": "L0161",
+   "start": 797.7,
+   "end": 799.9,
+   "speaker": "S4",
+   "text": "Cheers, Ruth. That'll help with the surveyor."
+  },
+  {
+   "id": "L0162",
+   "start": 800.9,
+   "end": 804.4,
+   "speaker": "S1",
+   "text": "Okay. Thanks everyone. Gareth, thanks for the room. And the flask."
+  },
+  {
+   "id": "L0163",
+   "start": 804.8,
+   "end": 808.4,
+   "speaker": "S2",
+   "text": "Any time. Mind the car park, they've coned half of it off."
+  }
+ ],
+ "facts": [
+  {
+   "id": "F01",
+   "fact": "The meeting was a child in need review for the Haddon family (mum Leanne; Tyler, 8, Year 4 at Millbrook; Amelia, 7 months), held on Tuesday 24 November 2026 and chaired by social worker Hannah Brightwell. Leanne did not attend; she sent apologies because Amelia had a GP appointment.",
+   "lines": [
+    "L0010",
+    "L0011",
+    "L0014",
+    "L0015"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F02",
+   "fact": "Leanne consents to information-sharing between the agencies but does not want anything passed on to her mother, Sandra.",
+   "lines": [
+    "L0016"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F03",
+   "fact": "Tyler's attendance this term is 84%, mostly lateness rather than whole days, especially on Mondays.",
+   "lines": [
+    "L0021",
+    "L0023"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F04",
+   "fact": "Tyler told his teacher he has to get Amelia's bottles ready in the morning before school (a possible young carer issue); Hannah will discuss the morning routine and whether a young carers assessment is appropriate with Leanne.",
+   "lines": [
+    "L0025",
+    "L0027",
+    "L0128"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F05",
+   "fact": "Amelia's growth is fine (tracking the 25th centile, no faltering growth) and the health visitor visits fortnightly, but Amelia has had a cough for about three weeks and sleeps in the back bedroom with black mould on the wall behind her cot.",
+   "lines": [
+    "L0046",
+    "L0047",
+    "L0050",
+    "L0052",
+    "L0054"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F06",
+   "fact": "Amelia has a cow's milk protein allergy and is on hypoallergenic formula.",
+   "lines": [
+    "L0049"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F07",
+   "fact": "Leanne's mood is low (she scored fairly high on the PHQ questionnaire); Ruth (health visitor) will make a perinatal mental health referral by Friday 27 November, after speaking to Leanne.",
+   "lines": [
+    "L0056",
+    "L0064",
+    "L0066",
+    "L0136"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F08",
+   "fact": "The damp survey of the flat (22 Ashby Court) is booked for the morning of Tuesday 1 December; Darren will send Hannah the report, aiming for within a week of the visit.",
+   "lines": [
+    "L0075",
+    "L0140",
+    "L0141"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F09",
+   "fact": "Leanne's tenancy is an introductory tenancy due for review on 11 January.",
+   "lines": [
+    "L0093"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F10",
+   "fact": "Leanne told Hannah she has had no contact with Jordan (ex-partner, Amelia's father) since he left in June and that he has not been to the flat; a police check found no call-outs to the address since June.",
+   "lines": [
+    "L0100",
+    "L0101"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F11",
+   "fact": "The case remains at child in need level; Gareth (school) disagreed and wanted a child protection conference, and his disagreement is recorded. Ruth agreed with Hannah that the child protection threshold is not met.",
+   "lines": [
+    "L0102",
+    "L0103",
+    "L0105",
+    "L0107",
+    "L0133"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F12",
+   "fact": "Agreed: Tyler will be given a free daily breakfast club place at school, starting Monday 30 November; Leanne is keen.",
+   "lines": [
+    "L0117",
+    "L0120",
+    "L0121",
+    "L0135"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F13",
+   "fact": "Leanne declined a parenting course but would like to attend the Family Hub stay and play with Amelia; Ruth will make that referral by Friday 4 December.",
+   "lines": [
+    "L0123",
+    "L0124",
+    "L0125",
+    "L0139"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F14",
+   "fact": "Hannah will discuss the second-hand information about Jordan and the Clare's Law question with her manager by Thursday and email everyone by Monday 30 November.",
+   "lines": [
+    "L0110",
+    "L0112",
+    "L0144"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F15",
+   "fact": "Gareth will send Hannah Tyler's attendance breakdown, with lates by day, by Friday.",
+   "lines": [
+    "L0143"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F16",
+   "fact": "Ruth will send her photos of the mould to Hannah and Darren today.",
+   "lines": [
+    "L0052",
+    "L0160"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F17",
+   "fact": "The next review is on Tuesday 15 December at 10am at the school; Hannah will share the notes with Leanne.",
+   "lines": [
+    "L0154",
+    "L0158"
+   ],
+   "omission": false
+  }
+ ],
+ "traps": [
+  {
+   "id": "T01",
+   "kind": "negation",
+   "must_not_claim": "Tyler has made a disclosure to school staff.",
+   "lines": [
+    "L0033"
+   ],
+   "note": "Gareth said there has been no disclosure from Tyler at all."
+  },
+  {
+   "id": "T02",
+   "kind": "negation",
+   "must_not_claim": "Marks or injuries have been seen on Tyler.",
+   "lines": [
+    "L0034"
+   ],
+   "note": "Gareth said there have been no marks or injuries; staff are watching and have seen nothing."
+  },
+  {
+   "id": "T03",
+   "kind": "negation",
+   "must_not_claim": "Amelia has faltering growth or there are concerns about her weight.",
+   "lines": [
+    "L0046",
+    "L0047"
+   ],
+   "note": "Ruth said Amelia is tracking the 25th centile, there is no faltering growth and she is not worried about her weight; her concern is Amelia's chest."
+  },
+  {
+   "id": "T04",
+   "kind": "negation",
+   "must_not_claim": "The family is in rent arrears.",
+   "lines": [
+    "L0091"
+   ],
+   "note": "Darren checked the day before: the rent account is clear, with no arrears."
+  },
+  {
+   "id": "T05",
+   "kind": "hypothetical",
+   "must_not_claim": "Tyler has been referred to the attendance panel or a penalty notice has been issued.",
+   "lines": [
+    "L0029",
+    "L0031"
+   ],
+   "note": "Gareth said this would normally follow if attendance dropped below 80%; it is 84% and Gareth would rather not go down that road."
+  },
+  {
+   "id": "T06",
+   "kind": "hypothetical",
+   "must_not_claim": "Health visiting for Amelia has been increased to weekly.",
+   "lines": [
+    "L0054"
+   ],
+   "note": "Ruth would go weekly only if Amelia's weight dropped or her chest got worse; visits stay fortnightly."
+  },
+  {
+   "id": "T07",
+   "kind": "hypothetical",
+   "must_not_claim": "A management move or decant has been agreed or arranged for the family.",
+   "lines": [
+    "L0077",
+    "L0079",
+    "L0150"
+   ],
+   "note": "Darren said this could be looked at only if the survey finds a category 1 hazard; he could not promise it, and Hannah confirmed nothing is agreed."
+  },
+  {
+   "id": "T08",
+   "kind": "hearsay",
+   "must_not_claim": "Jordan has been dropping Tyler off at the school gate.",
+   "lines": [
+    "L0041",
+    "L0043"
+   ],
+   "note": "Third-hand: a parent told a lunchtime supervisor. Gareth and the office staff have not seen him, and Leanne denies contact."
+  },
+  {
+   "id": "T09",
+   "kind": "hearsay",
+   "must_not_claim": "Leanne has stopped taking her sertraline.",
+   "lines": [
+    "L0059"
+   ],
+   "note": "Only Sandra's report to Ruth; Ruth has not been able to check it with Leanne or the GP and does not know if it is true."
+  },
+  {
+   "id": "T10",
+   "kind": "hearsay",
+   "must_not_claim": "There has been shouting late at night at the family's flat.",
+   "lines": [
+    "L0094",
+    "L0096"
+   ],
+   "note": "An anonymous neighbour complaint to housing; nobody from housing has heard anything and it has not been verified."
+  },
+  {
+   "id": "T11",
+   "kind": "corrected",
+   "must_not_claim": "Tyler's attendance is 78%.",
+   "lines": [
+    "L0019",
+    "L0021"
+   ],
+   "note": "78% was last year's figure, read from the wrong sheet; this term it is 84%."
+  },
+  {
+   "id": "T12",
+   "kind": "corrected",
+   "must_not_claim": "The damp survey is booked for Friday 27 November.",
+   "lines": [
+    "L0074",
+    "L0075"
+   ],
+   "note": "Darren corrected himself: the survey is on the morning of Tuesday 1 December."
+  },
+  {
+   "id": "T13",
+   "kind": "corrected",
+   "must_not_claim": "Hannah (social care) will make the perinatal mental health referral.",
+   "lines": [
+    "L0063",
+    "L0064"
+   ],
+   "note": "Hannah offered, but Ruth said the referral must come from the GP or health visiting; Ruth will make it by Friday 27 November."
+  },
+  {
+   "id": "T14",
+   "kind": "corrected",
+   "must_not_claim": "The next review meeting is on 8 December.",
+   "lines": [
+    "L0152",
+    "L0153",
+    "L0154"
+   ],
+   "note": "8 December was suggested but Ruth is on leave; the review is Tuesday 15 December at 10am at the school."
+  },
+  {
+   "id": "T15",
+   "kind": "not_said",
+   "must_not_claim": "The meeting agreed to make a Clare's Law (domestic violence disclosure scheme) application.",
+   "lines": [
+    "L0109",
+    "L0110",
+    "L0144"
+   ],
+   "note": "Hannah would not decide at the meeting; she will discuss it with her manager and report back by email."
+  },
+  {
+   "id": "T16",
+   "kind": "not_said",
+   "must_not_claim": "A CAMHS referral or ADHD assessment for Tyler was agreed or made.",
+   "lines": [
+    "L0036",
+    "L0038",
+    "L0039",
+    "L0146"
+   ],
+   "note": "It had only been talked about at school; Hannah said it was not agreed and she will raise it with Leanne before the review."
+  },
+  {
+   "id": "T17",
+   "kind": "not_said",
+   "must_not_claim": "The damp works will be completed by a specific date (for example, before Christmas).",
+   "lines": [
+    "L0080",
+    "L0081"
+   ],
+   "note": "Darren refused to give a date; it depends on the survey."
+  },
+  {
+   "id": "T18",
+   "kind": "speaker_attribution",
+   "must_not_claim": "The meeting agreed that the family would stay with Leanne's mother, Sandra, while the damp is fixed.",
+   "lines": [
+    "L0084",
+    "L0085",
+    "L0086",
+    "L0087",
+    "L0148"
+   ],
+   "note": "This was Darren's (housing) suggestion; Hannah and Ruth rejected it (Sandra lives in a one-bed, her partner has been discussed before, and Leanne does not want Sandra involved) and Hannah confirmed it is not a decision."
+  },
+  {
+   "id": "T19",
+   "kind": "speaker_attribution",
+   "must_not_claim": "The meeting agreed to escalate the case to a child protection conference.",
+   "lines": [
+    "L0102",
+    "L0103",
+    "L0105",
+    "L0133"
+   ],
+   "note": "Only Gareth (school) wanted a conference; Hannah and Ruth disagreed, and the case stays at child in need with Gareth's disagreement noted."
+  },
+  {
+   "id": "T20",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Leanne wants or has agreed to attend a parenting course.",
+   "lines": [
+    "L0122",
+    "L0123",
+    "L0127"
+   ],
+   "note": "The parenting course was Gareth's (school) idea; Leanne declined it and asked for the stay and play instead."
+  },
+  {
+   "id": "T21",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Health and housing agreed that the mould is caused by condensation from the family drying washing indoors.",
+   "lines": [
+    "L0069",
+    "L0070",
+    "L0072",
+    "L0073"
+   ],
+   "note": "Condensation was Darren's general view of those flats; Ruth said the damp is coming through the external wall (the wall is wet to the touch) and Darren accepted this."
+  }
+ ]
+}

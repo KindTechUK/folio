@@ -1,0 +1,1515 @@
+{
+ "id": "synthetic-housing-assessment",
+ "title": "Housing and benefits needs assessment (synthetic)",
+ "template": "assessment",
+ "speakers": {
+  "S1": "Housing options officer (Marcus Fenn)",
+  "S2": "Tenant (Kayleigh Brennan)",
+  "S3": "Support worker, Brightwater Advice Project (Moira Quinn)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 1.3,
+   "end": 6.6,
+   "speaker": "S1",
+   "text": "Morning, come on through. It's Kayleigh, isn't it? I'm Marcus, Marcus Fenn, from housing options."
+  },
+  {
+   "id": "L0002",
+   "start": 7.1,
+   "end": 11.7,
+   "speaker": "S2",
+   "text": "Yeah, hi. Sorry we're a bit late, the bus, um, the bus just didn't turn up."
+  },
+  {
+   "id": "L0003",
+   "start": 12.6,
+   "end": 17.6,
+   "speaker": "S1",
+   "text": "No, honestly, don't worry about it. And you must be from, er, from Brightwater?"
+  },
+  {
+   "id": "L0004",
+   "start": 18.1,
+   "end": 22.7,
+   "speaker": "S3",
+   "text": "Moira, yes. Moira Quinn, from the Brightwater Advice Project. We spoke on the phone last week."
+  },
+  {
+   "id": "L0005",
+   "start": 23.9,
+   "end": 27.4,
+   "speaker": "S1",
+   "text": "We did, yeah. Grab a seat. Water? The machine's broken, sorry."
+  },
+  {
+   "id": "L0006",
+   "start": 28.0,
+   "end": 30.2,
+   "speaker": "S3",
+   "text": "Water's lovely, thanks. It's freezing out there."
+  },
+  {
+   "id": "L0007",
+   "start": 31.4,
+   "end": 37.3,
+   "speaker": "S1",
+   "text": "So, um, today's a housing needs assessment. Your housing, your money, the family, then what we can do."
+  },
+  {
+   "id": "L0008",
+   "start": 38.1,
+   "end": 41.6,
+   "speaker": "S1",
+   "text": "Is it okay if Moira stays in for all of it?"
+  },
+  {
+   "id": "L0009",
+   "start": 42.6,
+   "end": 46.6,
+   "speaker": "S2",
+   "text": "Yeah, I want her here. I get muddled with the forms and that."
+  },
+  {
+   "id": "L0010",
+   "start": 47.0,
+   "end": 53.7,
+   "speaker": "S1",
+   "text": "Fine. And are you happy for me to talk to Universal Credit and the landlord's side if I need to?"
+  },
+  {
+   "id": "L0011",
+   "start": 54.2,
+   "end": 55.1,
+   "speaker": "S2",
+   "text": "Yeah. Go on."
+  },
+  {
+   "id": "L0012",
+   "start": 55.9,
+   "end": 58.7,
+   "speaker": "S1",
+   "text": "Great. So, who lives with you at the moment?"
+  },
+  {
+   "id": "L0013",
+   "start": 59.6,
+   "end": 63.7,
+   "speaker": "S2",
+   "text": "Just me and the kids. Alfie, he's seven, and Mia, she's three."
+  },
+  {
+   "id": "L0014",
+   "start": 64.2,
+   "end": 67.4,
+   "speaker": "S1",
+   "text": "And the address is Flat 4, 18 Cobden Street?"
+  },
+  {
+   "id": "L0015",
+   "start": 68.6,
+   "end": 70.5,
+   "speaker": "S2",
+   "text": "That's it. Top floor. Two bedrooms."
+  },
+  {
+   "id": "L0016",
+   "start": 71.7,
+   "end": 73.9,
+   "speaker": "S1",
+   "text": "And how long have you been there?"
+  },
+  {
+   "id": "L0017",
+   "start": 74.6,
+   "end": 80.1,
+   "speaker": "S2",
+   "text": "Since, um, the summer of twenty-one. It's private, through Kerridge and Low, the agents. The landlord's a Mr Haskins."
+  },
+  {
+   "id": "L0018",
+   "start": 81.3,
+   "end": 85.3,
+   "speaker": "S1",
+   "text": "Okay. And was it you and the children's dad on the tenancy?"
+  },
+  {
+   "id": "L0019",
+   "start": 86.2,
+   "end": 93.4,
+   "speaker": "S2",
+   "text": "No, just me on the tenancy. Liam moved in after. He was on the Universal Credit with me though, joint claim."
+  },
+  {
+   "id": "L0020",
+   "start": 94.4,
+   "end": 96.6,
+   "speaker": "S1",
+   "text": "Right. And Liam's moved out now?"
+  },
+  {
+   "id": "L0021",
+   "start": 96.9,
+   "end": 105.6,
+   "speaker": "S2",
+   "text": "Yeah. End of July he went. No, sorry, it was August. It was the day after Alfie's birthday, so the ninth of August."
+  },
+  {
+   "id": "L0022",
+   "start": 106.0,
+   "end": 107.3,
+   "speaker": "S1",
+   "text": "Ninth of August. Okay."
+  },
+  {
+   "id": "L0023",
+   "start": 108.2,
+   "end": 111.2,
+   "speaker": "S3",
+   "text": "And that's where it all went wrong with the money."
+  },
+  {
+   "id": "L0024",
+   "start": 112.1,
+   "end": 116.3,
+   "speaker": "S1",
+   "text": "I ask everyone this, was there any, um, violence or abuse in the relationship?"
+  },
+  {
+   "id": "L0025",
+   "start": 117.5,
+   "end": 123.1,
+   "speaker": "S2",
+   "text": "No. No, nothing like that. He never hurt us. He just left. He's in Bristol now."
+  },
+  {
+   "id": "L0026",
+   "start": 124.2,
+   "end": 126.9,
+   "speaker": "S1",
+   "text": "Okay. And what's the rent on the flat?"
+  },
+  {
+   "id": "L0027",
+   "start": 127.2,
+   "end": 132.3,
+   "speaker": "S2",
+   "text": "It's eight-fifty a month. Oh, no, wait, it went up in April, didn't it. It's eight-ninety-five now."
+  },
+  {
+   "id": "L0028",
+   "start": 133.2,
+   "end": 135.3,
+   "speaker": "S3",
+   "text": "Eight-ninety-five, yeah. I've got the increase letter."
+  },
+  {
+   "id": "L0029",
+   "start": 136.2,
+   "end": 138.8,
+   "speaker": "S1",
+   "text": "Eight-nine-five. And how much does Universal Credit cover?"
+  },
+  {
+   "id": "L0030",
+   "start": 139.8,
+   "end": 144.7,
+   "speaker": "S2",
+   "text": "The housing bit's seven-two-five. So I'm, um, short a hundred and seventy every month."
+  },
+  {
+   "id": "L0031",
+   "start": 145.9,
+   "end": 149.4,
+   "speaker": "S1",
+   "text": "Yeah, that's the local housing allowance rate for a two-bed."
+  },
+  {
+   "id": "L0032",
+   "start": 149.9,
+   "end": 154.5,
+   "speaker": "S2",
+   "text": "Which I could do when Liam was there. But now it's just my wages."
+  },
+  {
+   "id": "L0033",
+   "start": 155.0,
+   "end": 155.9,
+   "speaker": "S1",
+   "text": "And you're working?"
+  },
+  {
+   "id": "L0034",
+   "start": 156.7,
+   "end": 163.4,
+   "speaker": "S2",
+   "text": "Twelve hours a week. In the kitchen at Cobden Road Primary. I get about, um, six hundred and thirty a month."
+  },
+  {
+   "id": "L0035",
+   "start": 163.9,
+   "end": 166.3,
+   "speaker": "S1",
+   "text": "Any other income? Child maintenance from Liam, anything?"
+  },
+  {
+   "id": "L0036",
+   "start": 167.4,
+   "end": 173.2,
+   "speaker": "S2",
+   "text": "No. Nothing. He's not paid a penny since he went. And there's nothing else. No savings, nothing."
+  },
+  {
+   "id": "L0037",
+   "start": 174.2,
+   "end": 178.5,
+   "speaker": "S3",
+   "text": "Which is why I keep saying get the Child Maintenance Service onto him."
+  },
+  {
+   "id": "L0038",
+   "start": 179.6,
+   "end": 185.5,
+   "speaker": "S2",
+   "text": "I don't want anything off him, Moira. I'm not chasing him. I just want him gone."
+  },
+  {
+   "id": "L0039",
+   "start": 186.6,
+   "end": 189.7,
+   "speaker": "S1",
+   "text": "That's your call. And child benefit for both?"
+  },
+  {
+   "id": "L0040",
+   "start": 190.1,
+   "end": 193.7,
+   "speaker": "S2",
+   "text": "Oh, yeah, the child benefit. Sorry, didn't think of that as income."
+  },
+  {
+   "id": "L0041",
+   "start": 194.7,
+   "end": 197.0,
+   "speaker": "S1",
+   "text": "So, the arrears. How much are you behind?"
+  },
+  {
+   "id": "L0042",
+   "start": 197.9,
+   "end": 199.7,
+   "speaker": "S2",
+   "text": "It's about two thousand four hundred."
+  },
+  {
+   "id": "L0043",
+   "start": 200.8,
+   "end": 204.5,
+   "speaker": "S3",
+   "text": "Is it? I thought the letter said less than that."
+  },
+  {
+   "id": "L0044",
+   "start": 205.5,
+   "end": 206.8,
+   "speaker": "S2",
+   "text": "Have you got it?"
+  },
+  {
+   "id": "L0045",
+   "start": 207.8,
+   "end": 212.6,
+   "speaker": "S3",
+   "text": "Here, the agent's letter, dated the second of November. It says one thousand nine hundred and sixty."
+  },
+  {
+   "id": "L0046",
+   "start": 213.5,
+   "end": 218.5,
+   "speaker": "S2",
+   "text": "Oh. Yeah. Nineteen sixty then. The twenty-four was what Liam reckoned, but he's never right."
+  },
+  {
+   "id": "L0047",
+   "start": 219.4,
+   "end": 225.3,
+   "speaker": "S1",
+   "text": "So one thousand nine hundred and sixty as of the second of November. How did it build up?"
+  },
+  {
+   "id": "L0048",
+   "start": 225.6,
+   "end": 231.5,
+   "speaker": "S2",
+   "text": "When Liam left, the joint claim got closed and I had to make a new claim, just me."
+  },
+  {
+   "id": "L0049",
+   "start": 231.9,
+   "end": 238.0,
+   "speaker": "S2",
+   "text": "And it took like five weeks, so no housing money for, for August or September really."
+  },
+  {
+   "id": "L0050",
+   "start": 238.5,
+   "end": 242.5,
+   "speaker": "S1",
+   "text": "So two missed months, plus the shortfall. Yeah, that adds up."
+  },
+  {
+   "id": "L0051",
+   "start": 243.5,
+   "end": 248.0,
+   "speaker": "S1",
+   "text": "Have you ever been in arrears before? Or been evicted from anywhere?"
+  },
+  {
+   "id": "L0052",
+   "start": 248.7,
+   "end": 252.5,
+   "speaker": "S2",
+   "text": "No. Never. Never been behind before this. And I've never been evicted, no."
+  },
+  {
+   "id": "L0053",
+   "start": 253.3,
+   "end": 256.4,
+   "speaker": "S3",
+   "text": "She's been a good tenant. Never missed till this."
+  },
+  {
+   "id": "L0054",
+   "start": 257.6,
+   "end": 261.9,
+   "speaker": "S1",
+   "text": "Has the landlord or the agent served you any kind of notice?"
+  },
+  {
+   "id": "L0055",
+   "start": 262.3,
+   "end": 273.4,
+   "speaker": "S2",
+   "text": "He keeps texting me. Mr Haskins. Last Tuesday he sent one saying if I don't sort it by the end of the month he'll get his solicitor to serve papers."
+  },
+  {
+   "id": "L0056",
+   "start": 274.3,
+   "end": 275.0,
+   "speaker": "S2",
+   "text": "Here, look."
+  },
+  {
+   "id": "L0057",
+   "start": 275.3,
+   "end": 280.8,
+   "speaker": "S1",
+   "text": "Right, the seventeenth of November. Has anything actually come through the door? A notice seeking possession, a solicitor's letter?"
+  },
+  {
+   "id": "L0058",
+   "start": 281.8,
+   "end": 284.1,
+   "speaker": "S2",
+   "text": "No. Just the texts. Nothing in the post."
+  },
+  {
+   "id": "L0059",
+   "start": 284.8,
+   "end": 288.1,
+   "speaker": "S1",
+   "text": "So as of today, no notice has been served. That's important."
+  },
+  {
+   "id": "L0060",
+   "start": 289.1,
+   "end": 297.1,
+   "speaker": "S1",
+   "text": "Even so, given the text and the arrears, I'm opening a prevention case today. We work with you to keep you in the flat."
+  },
+  {
+   "id": "L0061",
+   "start": 297.7,
+   "end": 299.2,
+   "speaker": "S2",
+   "text": "Okay. Yeah. Thank you."
+  },
+  {
+   "id": "L0062",
+   "start": 299.6,
+   "end": 305.5,
+   "speaker": "S3",
+   "text": "What about temporary accommodation, though? If he did go to court, would they end up somewhere like Fenwick's House?"
+  },
+  {
+   "id": "L0063",
+   "start": 305.9,
+   "end": 311.1,
+   "speaker": "S1",
+   "text": "That's a long way off. If it ever got to that point we'd look at it then."
+  },
+  {
+   "id": "L0064",
+   "start": 311.9,
+   "end": 316.8,
+   "speaker": "S2",
+   "text": "I don't want to go to Fenwick House. I've heard what it's like."
+  },
+  {
+   "id": "L0065",
+   "start": 317.4,
+   "end": 320.7,
+   "speaker": "S1",
+   "text": "Okay, the other thing Moira mentioned was the damp."
+  },
+  {
+   "id": "L0066",
+   "start": 321.4,
+   "end": 328.4,
+   "speaker": "S2",
+   "text": "Oh God. It's in the kids' bedroom, all round the window and down behind Alfie's bed. And the bathroom ceiling's black. Like, black."
+  },
+  {
+   "id": "L0067",
+   "start": 329.4,
+   "end": 332.0,
+   "speaker": "S1",
+   "text": "How long has it been like that?"
+  },
+  {
+   "id": "L0068",
+   "start": 332.6,
+   "end": 336.7,
+   "speaker": "S2",
+   "text": "Since last winter. Better in the summer, but it's back now, worse."
+  },
+  {
+   "id": "L0069",
+   "start": 337.2,
+   "end": 338.8,
+   "speaker": "S1",
+   "text": "And have you reported it?"
+  },
+  {
+   "id": "L0070",
+   "start": 339.4,
+   "end": 343.8,
+   "speaker": "S2",
+   "text": "Loads of times. Emailed the agents three times, I think, and rang them."
+  },
+  {
+   "id": "L0071",
+   "start": 344.6,
+   "end": 349.5,
+   "speaker": "S3",
+   "text": "I've got copies of the emails. March, June, and the sixth of October."
+  },
+  {
+   "id": "L0072",
+   "start": 350.0,
+   "end": 353.3,
+   "speaker": "S1",
+   "text": "Has the landlord been in to look at it?"
+  },
+  {
+   "id": "L0073",
+   "start": 354.0,
+   "end": 357.5,
+   "speaker": "S2",
+   "text": "No. Never. Not once. Not the landlord, not the agent, nobody."
+  },
+  {
+   "id": "L0074",
+   "start": 358.2,
+   "end": 368.3,
+   "speaker": "S2",
+   "text": "The girl at Kerridge's, she told me on the phone that Mr Haskins says it's my fault, it's condensation, because I dry the washing in the flat."
+  },
+  {
+   "id": "L0075",
+   "start": 369.5,
+   "end": 373.3,
+   "speaker": "S2",
+   "text": "Where else am I meant to dry it? There's no dryer."
+  },
+  {
+   "id": "L0076",
+   "start": 374.0,
+   "end": 378.7,
+   "speaker": "S3",
+   "text": "Which is rubbish anyway, because the bathroom ceiling's been leaking from the roof. That's not washing."
+  },
+  {
+   "id": "L0077",
+   "start": 379.8,
+   "end": 385.1,
+   "speaker": "S1",
+   "text": "I'll note that's what the agent said, but we'll get someone qualified to look."
+  },
+  {
+   "id": "L0078",
+   "start": 386.0,
+   "end": 394.7,
+   "speaker": "S2",
+   "text": "Oh, and the plug socket by Alfie's bed, it sparked last week. It's gone all brown round it. I've put the bed in front of it."
+  },
+  {
+   "id": "L0079",
+   "start": 395.1,
+   "end": 398.9,
+   "speaker": "S1",
+   "text": "Right. That's a concern. Don't use that one at all, okay?"
+  },
+  {
+   "id": "L0080",
+   "start": 399.7,
+   "end": 402.1,
+   "speaker": "S2",
+   "text": "No. It's the kids I'm worried about."
+  },
+  {
+   "id": "L0081",
+   "start": 402.5,
+   "end": 410.6,
+   "speaker": "S2",
+   "text": "Alfie's got asthma. He's on his blue inhaler loads more since it got cold. We ended up in A and E with him in October, the fourteenth."
+  },
+  {
+   "id": "L0082",
+   "start": 411.4,
+   "end": 419.5,
+   "speaker": "S2",
+   "text": "He's alright now, they gave him steroids. The doctor at the hospital asked if we had damp at home, and I said yeah."
+  },
+  {
+   "id": "L0083",
+   "start": 420.3,
+   "end": 423.5,
+   "speaker": "S1",
+   "text": "And has a doctor said it's because of the damp?"
+  },
+  {
+   "id": "L0084",
+   "start": 423.9,
+   "end": 428.8,
+   "speaker": "S2",
+   "text": "Nobody's actually said that, no. They just asked. I think it is, but."
+  },
+  {
+   "id": "L0085",
+   "start": 429.3,
+   "end": 430.3,
+   "speaker": "S3",
+   "text": "It obviously is."
+  },
+  {
+   "id": "L0086",
+   "start": 430.9,
+   "end": 434.8,
+   "speaker": "S1",
+   "text": "We can ask the GP for a letter. That would help."
+  },
+  {
+   "id": "L0087",
+   "start": 435.7,
+   "end": 442.2,
+   "speaker": "S2",
+   "text": "And he's, um, Alfie's, they think he might be autistic. The school think so. He's on the waiting list for the assessment."
+  },
+  {
+   "id": "L0088",
+   "start": 443.2,
+   "end": 445.1,
+   "speaker": "S1",
+   "text": "Okay. Has he got a diagnosis?"
+  },
+  {
+   "id": "L0089",
+   "start": 445.4,
+   "end": 452.8,
+   "speaker": "S2",
+   "text": "No, not yet. They said the wait could be eighteen months. But he really struggles with change. Like, new places, he just, he melts down."
+  },
+  {
+   "id": "L0090",
+   "start": 453.5,
+   "end": 457.1,
+   "speaker": "S1",
+   "text": "That's important. So moving him would be a big deal."
+  },
+  {
+   "id": "L0091",
+   "start": 457.6,
+   "end": 463.5,
+   "speaker": "S2",
+   "text": "Massive. That's why I want to stay where we are. His school's round the corner, he knows the walk."
+  },
+  {
+   "id": "L0092",
+   "start": 464.4,
+   "end": 470.6,
+   "speaker": "S3",
+   "text": "I'd disagree a bit, Kayleigh. The flat's not fit to live in. The council should be rehousing you, in a council place."
+  },
+  {
+   "id": "L0093",
+   "start": 471.6,
+   "end": 478.8,
+   "speaker": "S2",
+   "text": "I know you do. But I don't want to move. I want him to fix it. That's all I want."
+  },
+  {
+   "id": "L0094",
+   "start": 479.5,
+   "end": 484.7,
+   "speaker": "S1",
+   "text": "I'll write your wish as staying, with the repairs done. And Moira's view separately."
+  },
+  {
+   "id": "L0095",
+   "start": 485.7,
+   "end": 486.4,
+   "speaker": "S3",
+   "text": "That's fair."
+  },
+  {
+   "id": "L0096",
+   "start": 486.8,
+   "end": 489.1,
+   "speaker": "S1",
+   "text": "And how are you doing, health wise?"
+  },
+  {
+   "id": "L0097",
+   "start": 489.5,
+   "end": 492.7,
+   "speaker": "S2",
+   "text": "I'm alright. I'm on sertaline since the spring, for my depression."
+  },
+  {
+   "id": "L0098",
+   "start": 493.1,
+   "end": 495.2,
+   "speaker": "S1",
+   "text": "Thanks. Are you managing day to day?"
+  },
+  {
+   "id": "L0099",
+   "start": 496.4,
+   "end": 503.9,
+   "speaker": "S2",
+   "text": "Have to, don't I. I've been skipping my tea most nights, to be honest, so they get fed. But it's fine."
+  },
+  {
+   "id": "L0100",
+   "start": 505.0,
+   "end": 507.3,
+   "speaker": "S3",
+   "text": "And Mia's fine at nursery, isn't she?"
+  },
+  {
+   "id": "L0101",
+   "start": 508.2,
+   "end": 509.6,
+   "speaker": "S2",
+   "text": "Yeah, she loves it."
+  },
+  {
+   "id": "L0102",
+   "start": 510.2,
+   "end": 512.6,
+   "speaker": "S1",
+   "text": "Okay, what we can do. The arrears first."
+  },
+  {
+   "id": "L0103",
+   "start": 513.0,
+   "end": 520.2,
+   "speaker": "S1",
+   "text": "I can apply for a discretionary housing payment. A D H P. It's council money for shortfalls and arrears."
+  },
+  {
+   "id": "L0104",
+   "start": 521.3,
+   "end": 522.8,
+   "speaker": "S2",
+   "text": "How much do you get?"
+  },
+  {
+   "id": "L0105",
+   "start": 523.4,
+   "end": 528.5,
+   "speaker": "S1",
+   "text": "I can't promise anything. A panel decides whether to award it and how much."
+  },
+  {
+   "id": "L0106",
+   "start": 529.3,
+   "end": 529.9,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0107",
+   "start": 531.0,
+   "end": 538.3,
+   "speaker": "S1",
+   "text": "I need three months of bank statements and UC statements by Thursday, and I'll get it in by Friday, the twenty-seventh."
+  },
+  {
+   "id": "L0108",
+   "start": 539.3,
+   "end": 545.8,
+   "speaker": "S2",
+   "text": "Oh, that's the other thing. My phone's getting cut off on the first of December. I'm behind on the contract."
+  },
+  {
+   "id": "L0109",
+   "start": 546.2,
+   "end": 549.8,
+   "speaker": "S1",
+   "text": "So how do we get hold of you after that?"
+  },
+  {
+   "id": "L0110",
+   "start": 550.4,
+   "end": 552.2,
+   "speaker": "S2",
+   "text": "Through Moira, probably. Is that alright?"
+  },
+  {
+   "id": "L0111",
+   "start": 553.4,
+   "end": 556.9,
+   "speaker": "S3",
+   "text": "Yeah, of course. Use my work number, it's on the referral."
+  },
+  {
+   "id": "L0112",
+   "start": 557.9,
+   "end": 562.5,
+   "speaker": "S1",
+   "text": "Contact via Moira from the first. Now, could you pay anything towards the arrears each month?"
+  },
+  {
+   "id": "L0113",
+   "start": 563.4,
+   "end": 566.9,
+   "speaker": "S2",
+   "text": "Maybe, like, fifty? I could do fifty a month. Maybe."
+  },
+  {
+   "id": "L0114",
+   "start": 567.7,
+   "end": 570.8,
+   "speaker": "S3",
+   "text": "Honestly, I'd hold back the rent until he fixes the place."
+  },
+  {
+   "id": "L0115",
+   "start": 571.5,
+   "end": 577.2,
+   "speaker": "S2",
+   "text": "No. I'm not doing that, Moira. That'll just give him a reason. I want to pay what I owe."
+  },
+  {
+   "id": "L0116",
+   "start": 577.7,
+   "end": 581.8,
+   "speaker": "S1",
+   "text": "I agree with Kayleigh. Withholding rent would make the arrears worse."
+  },
+  {
+   "id": "L0117",
+   "start": 582.8,
+   "end": 585.0,
+   "speaker": "S3",
+   "text": "Okay. Okay, I hear you both."
+  },
+  {
+   "id": "L0118",
+   "start": 585.4,
+   "end": 590.8,
+   "speaker": "S1",
+   "text": "I'll ring Kerridge and Lowe and put forward fifty pounds a month. It's up to the landlord."
+  },
+  {
+   "id": "L0119",
+   "start": 591.9,
+   "end": 593.2,
+   "speaker": "S2",
+   "text": "He'll probably say no."
+  },
+  {
+   "id": "L0120",
+   "start": 593.5,
+   "end": 595.6,
+   "speaker": "S1",
+   "text": "Let's see. Did they say anything else?"
+  },
+  {
+   "id": "L0121",
+   "start": 596.1,
+   "end": 601.6,
+   "speaker": "S2",
+   "text": "The girl there said he wants to sell the whole building. That's what she said, anyway."
+  },
+  {
+   "id": "L0122",
+   "start": 602.0,
+   "end": 603.9,
+   "speaker": "S1",
+   "text": "In writing, or on the phone?"
+  },
+  {
+   "id": "L0123",
+   "start": 605.1,
+   "end": 615.1,
+   "speaker": "S2",
+   "text": "Just on the phone. And she said, um, if I get evicted the council would have to rehouse me straight away anyway, so not to worry."
+  },
+  {
+   "id": "L0124",
+   "start": 615.6,
+   "end": 618.8,
+   "speaker": "S1",
+   "text": "That's not how it works, so don't rely on that."
+  },
+  {
+   "id": "L0125",
+   "start": 619.7,
+   "end": 626.0,
+   "speaker": "S1",
+   "text": "Repairs. I'll refer the damp, mould and that socket to our private sector housing team, environmental health."
+  },
+  {
+   "id": "L0126",
+   "start": 626.3,
+   "end": 628.6,
+   "speaker": "S2",
+   "text": "Will he know it was me?"
+  },
+  {
+   "id": "L0127",
+   "start": 629.0,
+   "end": 632.7,
+   "speaker": "S1",
+   "text": "They'll contact him. But he can't just evict you for complaining about repairs."
+  },
+  {
+   "id": "L0128",
+   "start": 633.8,
+   "end": 635.7,
+   "speaker": "S2",
+   "text": "Okay. When would they come out?"
+  },
+  {
+   "id": "L0129",
+   "start": 636.6,
+   "end": 642.8,
+   "speaker": "S1",
+   "text": "I can't give you a date. I'll send the referral by the end of the week and they'll arrange it."
+  },
+  {
+   "id": "L0130",
+   "start": 643.6,
+   "end": 648.6,
+   "speaker": "S2",
+   "text": "Mrs Patel downstairs said the council came out to her flat last year about damp."
+  },
+  {
+   "id": "L0131",
+   "start": 649.6,
+   "end": 653.7,
+   "speaker": "S1",
+   "text": "I'll check the system for the building. I can't see it from here."
+  },
+  {
+   "id": "L0132",
+   "start": 654.4,
+   "end": 659.5,
+   "speaker": "S3",
+   "text": "And we'd want a disrepair claim too. Compensation. A year of this with a poorly child."
+  },
+  {
+   "id": "L0133",
+   "start": 660.2,
+   "end": 664.9,
+   "speaker": "S2",
+   "text": "I don't want to sue him. I just want it fixed. I'll lose the flat."
+  },
+  {
+   "id": "L0134",
+   "start": 665.2,
+   "end": 666.7,
+   "speaker": "S3",
+   "text": "It's not suing exactly, it's."
+  },
+  {
+   "id": "L0135",
+   "start": 667.3,
+   "end": 668.7,
+   "speaker": "S2",
+   "text": "No. Not now. Please."
+  },
+  {
+   "id": "L0136",
+   "start": 669.6,
+   "end": 674.7,
+   "speaker": "S1",
+   "text": "Your choice. I'll note Moira raised it and you don't want to go ahead."
+  },
+  {
+   "id": "L0137",
+   "start": 675.7,
+   "end": 680.0,
+   "speaker": "S1",
+   "text": "Moira, could you get the GP letter about Alfie's asthma and the damp? Millfield Surgery?"
+  },
+  {
+   "id": "L0138",
+   "start": 681.0,
+   "end": 684.8,
+   "speaker": "S3",
+   "text": "Yeah. Give me till the fourth of December, they're slow."
+  },
+  {
+   "id": "L0139",
+   "start": 685.8,
+   "end": 691.2,
+   "speaker": "S1",
+   "text": "Just so I've asked, if things went badly, is there anyone you could stay with?"
+  },
+  {
+   "id": "L0140",
+   "start": 692.1,
+   "end": 697.5,
+   "speaker": "S2",
+   "text": "My mum, maybe. In Hull. But she's got a one-bed, and I haven't asked her."
+  },
+  {
+   "id": "L0141",
+   "start": 698.0,
+   "end": 700.1,
+   "speaker": "S1",
+   "text": "That's fine. It's not a plan."
+  },
+  {
+   "id": "L0142",
+   "start": 700.5,
+   "end": 701.7,
+   "speaker": "S1",
+   "text": "Let me read back."
+  },
+  {
+   "id": "L0143",
+   "start": 702.7,
+   "end": 707.5,
+   "speaker": "S1",
+   "text": "Prevention case opened today. Statements to me by Thursday. D H P in by Friday the twenty-seventh."
+  },
+  {
+   "id": "L0144",
+   "start": 708.2,
+   "end": 714.5,
+   "speaker": "S1",
+   "text": "I ring the agent this week about fifty a month. Referral to private sector housing by end of week."
+  },
+  {
+   "id": "L0145",
+   "start": 715.3,
+   "end": 724.0,
+   "speaker": "S1",
+   "text": "GP letter by the fourth. And we meet again Monday the seventh. Oh, no, sorry, I'm not in Mondays. Tuesday the eighth, ten o'clock."
+  },
+  {
+   "id": "L0146",
+   "start": 724.5,
+   "end": 727.3,
+   "speaker": "S2",
+   "text": "Tuesday the eighth. Can you write it down?"
+  },
+  {
+   "id": "L0147",
+   "start": 728.4,
+   "end": 735.1,
+   "speaker": "S1",
+   "text": "I'll print it. And if a notice or court letter comes, send it to Moira that same day."
+  },
+  {
+   "id": "L0148",
+   "start": 735.9,
+   "end": 737.5,
+   "speaker": "S1",
+   "text": "And straight on to me."
+  },
+  {
+   "id": "L0149",
+   "start": 738.3,
+   "end": 739.3,
+   "speaker": "S2",
+   "text": "Okay. Thank you."
+  },
+  {
+   "id": "L0150",
+   "start": 739.7,
+   "end": 740.5,
+   "speaker": "S3",
+   "text": "Come on, pick-up."
+  },
+  {
+   "id": "L0151",
+   "start": 741.3,
+   "end": 741.9,
+   "speaker": "S2",
+   "text": "Thanks, Marcus."
+  },
+  {
+   "id": "L0152",
+   "start": 742.2,
+   "end": 744.9,
+   "speaker": "S1",
+   "text": "Take care. See you on the eighth."
+  }
+ ],
+ "facts": [
+  {
+   "id": "F01",
+   "fact": "Housing needs assessment at the council office by Marcus Fenn (housing options, council) with Kayleigh Brennan and her support worker Moira Quinn of the Brightwater Advice Project; Kayleigh wanted Moira present and consented to Marcus contacting Universal Credit and the landlord's side.",
+   "lines": [
+    "L0001",
+    "L0004",
+    "L0007",
+    "L0009",
+    "L0010",
+    "L0011"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F02",
+   "fact": "Kayleigh lives with her children Alfie (7) and Mia (3) in a two-bedroom, top-floor private rented flat at Flat 4, 18 Cobden Street, where she has been sole tenant since summer 2021; letting agent Kerridge and Lowe, landlord Mr Haskins.",
+   "lines": [
+    "L0013",
+    "L0014",
+    "L0015",
+    "L0017",
+    "L0019"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F03",
+   "fact": "Ex-partner Liam (the children's father) moved out on 9 August 2026; the joint Universal Credit claim closed and her new single claim took about five weeks, so there was no housing payment for roughly August and September.",
+   "lines": [
+    "L0019",
+    "L0021",
+    "L0048",
+    "L0049"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F04",
+   "fact": "Rent is £895 a month (increased in April); the UC housing element is £725 (local housing allowance rate for a two-bed), leaving a £170 monthly shortfall she can no longer cover.",
+   "lines": [
+    "L0027",
+    "L0028",
+    "L0030",
+    "L0031",
+    "L0032"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F05",
+   "fact": "Income: about £630 a month from 12 hours a week in the kitchen at Cobden Road Primary, plus Universal Credit and child benefit for both children; no child maintenance, no other income, no savings.",
+   "lines": [
+    "L0034",
+    "L0036",
+    "L0039",
+    "L0040"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F06",
+   "fact": "Rent arrears are £1,960 according to the letting agent's letter dated 2 November 2026; she had no arrears before this.",
+   "lines": [
+    "L0045",
+    "L0046",
+    "L0047",
+    "L0052"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F07",
+   "fact": "Landlord texted on 17 November threatening to have his solicitor serve papers if arrears are not sorted by the end of the month; no notice has been served, but Marcus opened a homelessness prevention case today.",
+   "lines": [
+    "L0055",
+    "L0057",
+    "L0058",
+    "L0059",
+    "L0060"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F08",
+   "fact": "Damp and black mould in the children's bedroom (around the window, behind Alfie's bed) and on the bathroom ceiling since last winter; reported to the agent by email in March, June and 6 October and by phone; no one has inspected it.",
+   "lines": [
+    "L0066",
+    "L0068",
+    "L0070",
+    "L0071",
+    "L0073"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F09",
+   "fact": "The plug socket by Alfie's bed sparked last week and is scorched brown; Kayleigh has pushed the bed in front of it and was told not to use it.",
+   "lines": [
+    "L0078",
+    "L0079"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F10",
+   "fact": "Alfie has asthma, is using his blue inhaler much more since it got cold, and attended A&E on 14 October (given steroids); he is on the waiting list for an autism assessment (no diagnosis) and struggles badly with change.",
+   "lines": [
+    "L0081",
+    "L0082",
+    "L0087",
+    "L0089"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F11",
+   "fact": "Kayleigh's wish is to stay in the flat with the repairs done, because Alfie's school is round the corner and moving would be very hard for him; Moira's differing view (rehousing) is recorded separately.",
+   "lines": [
+    "L0090",
+    "L0091",
+    "L0093",
+    "L0094"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F12",
+   "fact": "Kayleigh takes sertraline for depression, since the spring.",
+   "lines": [
+    "L0097"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F13",
+   "fact": "Kayleigh has been skipping her evening meal most nights so the children can eat.",
+   "lines": [
+    "L0099"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F14",
+   "fact": "Kayleigh's phone will be cut off on 1 December; from then contact her via Moira's work number.",
+   "lines": [
+    "L0108",
+    "L0110",
+    "L0111",
+    "L0112"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F15",
+   "fact": "DHP: Kayleigh to provide three months of bank and UC statements by Thursday (26 November); Marcus to submit the discretionary housing payment application by Friday 27 November; a panel decides whether to award and how much.",
+   "lines": [
+    "L0103",
+    "L0105",
+    "L0107",
+    "L0143"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F16",
+   "fact": "Marcus will contact Kerridge and Lowe this week to propose repayment of £50 a month towards the arrears; the landlord's response is unknown.",
+   "lines": [
+    "L0113",
+    "L0118",
+    "L0144"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F17",
+   "fact": "Marcus will refer the damp, mould and the socket to the private sector housing (environmental health) team by the end of the week.",
+   "lines": [
+    "L0125",
+    "L0129",
+    "L0144"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F18",
+   "fact": "Moira will obtain a GP letter from Millfield Surgery about Alfie's asthma and the damp by 4 December.",
+   "lines": [
+    "L0137",
+    "L0138",
+    "L0145"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F19",
+   "fact": "Review meeting on Tuesday 8 December at 10am; any notice or court letter must be sent to Moira the same day and on to Marcus.",
+   "lines": [
+    "L0145",
+    "L0147",
+    "L0148"
+   ],
+   "omission": false
+  }
+ ],
+ "traps": [
+  {
+   "id": "T01",
+   "kind": "negation",
+   "must_not_claim": "Kayleigh experienced violence or abuse from her ex-partner Liam.",
+   "lines": [
+    "L0024",
+    "L0025"
+   ],
+   "note": "She explicitly denies any violence or abuse: 'He never hurt us. He just left.'"
+  },
+  {
+   "id": "T02",
+   "kind": "negation",
+   "must_not_claim": "Kayleigh receives child maintenance from Liam.",
+   "lines": [
+    "L0035",
+    "L0036"
+   ],
+   "note": "She says Liam has not paid a penny since he left; no maintenance, no savings, no other income (child benefit aside)."
+  },
+  {
+   "id": "T03",
+   "kind": "negation",
+   "must_not_claim": "Kayleigh has previously been in rent arrears or been evicted.",
+   "lines": [
+    "L0051",
+    "L0052",
+    "L0053"
+   ],
+   "note": "She says she has never been behind before this and has never been evicted."
+  },
+  {
+   "id": "T04",
+   "kind": "negation",
+   "must_not_claim": "Alfie has been diagnosed with autism.",
+   "lines": [
+    "L0087",
+    "L0088",
+    "L0089"
+   ],
+   "note": "He is only on the waiting list for an assessment; asked about a diagnosis she says 'No, not yet.'"
+  },
+  {
+   "id": "T05",
+   "kind": "hypothetical",
+   "must_not_claim": "The landlord has served a possession notice (notice seeking possession / Section 8).",
+   "lines": [
+    "L0055",
+    "L0057",
+    "L0058",
+    "L0059"
+   ],
+   "note": "The landlord only texted that he would get a solicitor to serve papers if not sorted; nothing has come and Marcus confirms no notice has been served."
+  },
+  {
+   "id": "T06",
+   "kind": "hypothetical",
+   "must_not_claim": "The family is to be placed in temporary accommodation at Fenwick House.",
+   "lines": [
+    "L0062",
+    "L0063",
+    "L0064"
+   ],
+   "note": "Moira asked what would happen if it went to court; Marcus said that is a long way off and would be looked at only if it came to that. Kayleigh does not want to go there."
+  },
+  {
+   "id": "T07",
+   "kind": "hypothetical",
+   "must_not_claim": "Kayleigh's mother has agreed to put the family up / Kayleigh plans to move to her mother's in Hull if evicted.",
+   "lines": [
+    "L0139",
+    "L0140",
+    "L0141"
+   ],
+   "note": "Only a possibility raised in answer to 'if things went badly'; her mum has a one-bed, she has not asked her, and Marcus says 'It's not a plan.'"
+  },
+  {
+   "id": "T08",
+   "kind": "hearsay",
+   "must_not_claim": "The damp and mould are caused by condensation from Kayleigh drying washing indoors.",
+   "lines": [
+    "L0074",
+    "L0076",
+    "L0077"
+   ],
+   "note": "This is the landlord's view relayed by an agent's staff member by phone; Moira disputes it (roof leak) and Marcus notes it only as what the agent said, pending a qualified inspection."
+  },
+  {
+   "id": "T09",
+   "kind": "hearsay",
+   "must_not_claim": "The landlord is selling the building.",
+   "lines": [
+    "L0121",
+    "L0122",
+    "L0123"
+   ],
+   "note": "Only what 'the girl' at the letting agent said on the phone; nothing in writing, unconfirmed."
+  },
+  {
+   "id": "T10",
+   "kind": "hearsay",
+   "must_not_claim": "The council inspected damp in the building last year.",
+   "lines": [
+    "L0130",
+    "L0131"
+   ],
+   "note": "Reported second-hand from neighbour Mrs Patel; Marcus cannot see it on the system and will check."
+  },
+  {
+   "id": "T11",
+   "kind": "corrected",
+   "must_not_claim": "Liam moved out at the end of July.",
+   "lines": [
+    "L0021",
+    "L0022"
+   ],
+   "note": "Kayleigh corrects herself: he left on 9 August, the day after Alfie's birthday."
+  },
+  {
+   "id": "T12",
+   "kind": "corrected",
+   "must_not_claim": "The rent is £850 a month.",
+   "lines": [
+    "L0027",
+    "L0028",
+    "L0029"
+   ],
+   "note": "Corrected immediately: it rose in April and is now £895 a month."
+  },
+  {
+   "id": "T13",
+   "kind": "corrected",
+   "must_not_claim": "The rent arrears are about £2,400.",
+   "lines": [
+    "L0042",
+    "L0045",
+    "L0046",
+    "L0047"
+   ],
+   "note": "The £2,400 was Liam's guess; the agent's letter of 2 November states £1,960, which Kayleigh accepts."
+  },
+  {
+   "id": "T14",
+   "kind": "corrected",
+   "must_not_claim": "The review meeting is on Monday 7 December.",
+   "lines": [
+    "L0145",
+    "L0146",
+    "L0152"
+   ],
+   "note": "Marcus corrects himself (not in on Mondays): the review is Tuesday 8 December at 10am."
+  },
+  {
+   "id": "T15",
+   "kind": "not_said",
+   "must_not_claim": "A discretionary housing payment has been awarded (or a DHP amount was agreed).",
+   "lines": [
+    "L0103",
+    "L0104",
+    "L0105",
+    "L0107"
+   ],
+   "note": "The application has not yet been submitted (due by 27 November); a panel decides whether to award and how much. No amount was given."
+  },
+  {
+   "id": "T16",
+   "kind": "not_said",
+   "must_not_claim": "A date has been set for the environmental health / private sector housing inspection.",
+   "lines": [
+    "L0128",
+    "L0129"
+   ],
+   "note": "Marcus explicitly could not give a date; he will only send the referral by the end of the week."
+  },
+  {
+   "id": "T17",
+   "kind": "not_said",
+   "must_not_claim": "The landlord/agent has agreed to a £50-a-month repayment plan.",
+   "lines": [
+    "L0113",
+    "L0118",
+    "L0119"
+   ],
+   "note": "£50 a month is only Kayleigh's offer, which Marcus will put to the agent; it is up to the landlord and his response is unknown."
+  },
+  {
+   "id": "T18",
+   "kind": "not_said",
+   "must_not_claim": "A doctor has attributed Alfie's asthma attacks to the damp in the flat.",
+   "lines": [
+    "L0082",
+    "L0083",
+    "L0084",
+    "L0086"
+   ],
+   "note": "The hospital doctor only asked whether there was damp at home; Kayleigh says nobody has said it is the cause. A GP letter is still to be requested."
+  },
+  {
+   "id": "T19",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Kayleigh wants to be rehoused into council housing / move out of the flat.",
+   "lines": [
+    "L0091",
+    "L0092",
+    "L0093",
+    "L0094"
+   ],
+   "note": "Rehousing is Moira's view; Kayleigh says she does not want to move and wants the landlord to fix the flat."
+  },
+  {
+   "id": "T20",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Kayleigh intends to withhold rent until the repairs are done.",
+   "lines": [
+    "L0114",
+    "L0115",
+    "L0116"
+   ],
+   "note": "Withholding rent was Moira's suggestion; Kayleigh refuses ('I want to pay what I owe') and Marcus agrees with her."
+  },
+  {
+   "id": "T21",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Kayleigh wants to bring a disrepair compensation claim against the landlord.",
+   "lines": [
+    "L0132",
+    "L0133",
+    "L0135",
+    "L0136"
+   ],
+   "note": "The disrepair claim is Moira's proposal; Kayleigh declines ('I don't want to sue him... Not now') and Marcus records that she does not want to go ahead."
+  }
+ ]
+}

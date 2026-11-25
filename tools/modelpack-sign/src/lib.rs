@@ -7,8 +7,8 @@
 //! and verifies.
 
 use std::collections::BTreeMap;
-use std::io::{Cursor, Read, Write};
-use std::path::Path;
+use std::io::Write;
+use std::path::{Path, PathBuf};
 
 use anyhow::{bail, Context, Result};
 use base64::engine::general_purpose::STANDARD as BASE64_STANDARD;
@@ -18,7 +18,6 @@ use ed25519_dalek::pkcs8::spki::EncodePublicKey;
 use ed25519_dalek::pkcs8::{DecodePrivateKey, EncodePrivateKey};
 use ed25519_dalek::{Signer, SigningKey};
 use modelpack::{Manifest, PublicKey};
-use sha2::{Digest, Sha256};
 
 /// Engine versions this build's self-check pretends to bundle. Used only for the
 /// post-pack self-verification (the producer must prove the pack it just wrote
@@ -27,6 +26,8 @@ pub fn self_check_engine_versions() -> BTreeMap<String, String> {
     let mut m = BTreeMap::new();
     m.insert("whisper.cpp".to_string(), "1.7.0".to_string());
     m.insert("sherpa-onnx".to_string(), "1.13.2".to_string());
+    // llama.cpp v0.6.0 (commit d812350), as vendored by llama-cpp-sys-2 =0.1.161.
+    m.insert("llama.cpp".to_string(), "0.6.0".to_string());
     m
 }
 
@@ -169,65 +170,82 @@ pub fn keygen(out_dir: &Path) -> Result<(std::path::PathBuf, std::path::PathBuf)
     Ok((private_path, public_path))
 }
 
-/// Recursively zip the CONTENTS of `model_dir` into an in-memory byte vector,
-/// preserving relative paths (`model_dir/sub/x.onnx` -> entry `sub/x.onnx`).
-pub fn zip_model_dir(model_dir: &Path) -> Result<Vec<u8>> {
+/// True for files that are already compressed model weights (GGUF): they are
+/// Stored, not Deflated, so packing a multi-GB LLM costs no CPU for no gain
+/// and the entry's bytes sit uncompressed in the zip.
+fn store_uncompressed(path: &Path) -> bool {
+    path.extension()
+        .and_then(|e| e.to_str())
+        .is_some_and(|e| e.eq_ignore_ascii_case("gguf"))
+}
+
+/// Recursively zip the CONTENTS of `model_dir` into the file `out`, preserving
+/// relative paths (`model_dir/sub/x.onnx` -> entry `sub/x.onnx`). Each file is
+/// streamed into the zip, so memory use stays flat however large the weights
+/// are. GGUF files are Stored; everything else is Deflated (as before). Files of
+/// 4 GiB or more get zip64 headers.
+pub fn zip_model_dir_to(model_dir: &Path, out: &Path) -> Result<()> {
     if !model_dir.is_dir() {
         bail!("model dir {} is not a directory", model_dir.display());
     }
-    let mut cursor = Cursor::new(Vec::<u8>::new());
-    {
-        let mut zip = zip::ZipWriter::new(&mut cursor);
-        let options: zip::write::FileOptions<()> =
-            zip::write::FileOptions::default().compression_method(zip::CompressionMethod::Deflated);
+    let file = std::fs::File::create(out)
+        .with_context(|| format!("creating {}", out.display()))?;
+    let mut zip = zip::ZipWriter::new(std::io::BufWriter::new(file));
 
-        // Collect + sort entries so the zip is deterministic regardless of FS order.
-        let mut entries: Vec<_> = walkdir::WalkDir::new(model_dir)
-            .sort_by_file_name()
-            .into_iter()
-            .collect::<std::result::Result<Vec<_>, _>>()
-            .context("walking model dir")?;
-        entries.sort_by(|a, b| a.path().cmp(b.path()));
+    // Collect + sort entries so the zip is deterministic regardless of FS order.
+    let mut entries: Vec<_> = walkdir::WalkDir::new(model_dir)
+        .sort_by_file_name()
+        .into_iter()
+        .collect::<std::result::Result<Vec<_>, _>>()
+        .context("walking model dir")?;
+    entries.sort_by(|a, b| a.path().cmp(b.path()));
 
-        for entry in entries {
-            let path = entry.path();
-            let rel = path
-                .strip_prefix(model_dir)
-                .context("stripping model-dir prefix")?;
-            if rel.as_os_str().is_empty() {
-                continue; // the root itself
-            }
-            let rel_str = rel
-                .to_str()
-                .with_context(|| format!("non-UTF-8 path: {}", rel.display()))?
-                .replace('\\', "/");
-            if entry.file_type().is_dir() {
-                zip.add_directory(format!("{rel_str}/"), options)
-                    .context("adding dir to zip")?;
-            } else if entry.file_type().is_file() {
-                zip.start_file(rel_str, options)
-                    .context("starting zip file entry")?;
-                let mut f = std::fs::File::open(path)
-                    .with_context(|| format!("opening {}", path.display()))?;
-                let mut buf = Vec::new();
-                f.read_to_end(&mut buf)
-                    .with_context(|| format!("reading {}", path.display()))?;
-                zip.write_all(&buf).context("writing zip file bytes")?;
-            }
+    for entry in entries {
+        let path = entry.path();
+        let rel = path
+            .strip_prefix(model_dir)
+            .context("stripping model-dir prefix")?;
+        if rel.as_os_str().is_empty() {
+            continue; // the root itself
         }
-        zip.finish().context("finishing zip")?;
+        let rel_str = rel
+            .to_str()
+            .with_context(|| format!("non-UTF-8 path: {}", rel.display()))?
+            .replace('\\', "/");
+        if entry.file_type().is_dir() {
+            let options: zip::write::FileOptions<()> = zip::write::FileOptions::default()
+                .compression_method(zip::CompressionMethod::Deflated);
+            zip.add_directory(format!("{rel_str}/"), options)
+                .context("adding dir to zip")?;
+        } else if entry.file_type().is_file() {
+            let size = entry
+                .metadata()
+                .with_context(|| format!("reading metadata of {}", path.display()))?
+                .len();
+            let method = if store_uncompressed(path) {
+                zip::CompressionMethod::Stored
+            } else {
+                zip::CompressionMethod::Deflated
+            };
+            let options: zip::write::FileOptions<()> = zip::write::FileOptions::default()
+                .compression_method(method)
+                .large_file(size >= u64::from(u32::MAX));
+            zip.start_file(rel_str, options)
+                .context("starting zip file entry")?;
+            let mut f = std::fs::File::open(path)
+                .with_context(|| format!("opening {}", path.display()))?;
+            std::io::copy(&mut f, &mut zip)
+                .with_context(|| format!("streaming {} into the zip", path.display()))?;
+        }
     }
-    Ok(cursor.into_inner())
-}
-
-/// Lowercase hex sha256 of the given bytes.
-pub fn sha256_hex(bytes: &[u8]) -> String {
-    let digest = Sha256::digest(bytes);
-    let mut out = String::with_capacity(digest.len() * 2);
-    for b in digest {
-        out.push_str(&format!("{b:02x}"));
-    }
-    out
+    let mut writer = zip.finish().context("finishing zip")?;
+    writer.flush().context("flushing zip")?;
+    writer
+        .into_inner()
+        .map_err(|e| anyhow::anyhow!("flushing zip: {}", e.error()))?
+        .sync_all()
+        .context("syncing zip")?;
+    Ok(())
 }
 
 /// Metadata for a pack, mirroring the eight signed manifest fields (minus the
@@ -278,8 +296,33 @@ pub fn build_manifest_json(meta: &PackMeta, sha256: &str, signature: &str) -> se
     })
 }
 
-/// Full `pack` pipeline: zip the model dir, hash, sign, write the pack, then
-/// self-verify with the real `modelpack::verify_model_pack` before returning.
+/// `path` with symlinks and `..` resolved, even when its last components don't
+/// exist yet: the nearest existing ancestor is canonicalized and the rest appended.
+fn resolved(path: &Path) -> Result<PathBuf> {
+    let abs = std::path::absolute(path)
+        .with_context(|| format!("resolving {}", path.display()))?;
+    let mut rest = Vec::new();
+    let mut base = abs.as_path();
+    while !base.exists() {
+        rest.push(base.file_name().unwrap_or_default().to_owned());
+        base = base
+            .parent()
+            .with_context(|| format!("no existing ancestor of {}", abs.display()))?;
+    }
+    let mut out = base
+        .canonicalize()
+        .with_context(|| format!("resolving {}", base.display()))?;
+    out.extend(rest.iter().rev());
+    Ok(out)
+}
+
+/// Full `pack` pipeline: zip the model dir into a staging file in `out_dir`,
+/// hash it in chunks, sign, write a staged manifest, and self-verify (again
+/// streaming) with the real `modelpack` verifier. Only then are the staged
+/// files renamed over `weights.bin` and `manifest.json`, so a failed rebuild
+/// leaves an existing pack as it was. Nothing is held in memory whole, so
+/// multi-GB LLM packs sign in flat memory. `out_dir` must not be inside
+/// `model_dir`, or the pack would zip its own output.
 pub fn pack(
     model_dir: &Path,
     out_dir: &Path,
@@ -289,20 +332,56 @@ pub fn pack(
     let signing =
         SigningKey::from_pkcs8_pem(private_pem).context("loading signing key from PKCS8 PEM")?;
 
-    let zip_bytes = zip_model_dir(model_dir)?;
-    let sha256 = sha256_hex(&zip_bytes);
-    let signature = sign_manifest(&signing, meta, &sha256);
-    let manifest_json = build_manifest_json(meta, &sha256, &signature);
+    if !model_dir.is_dir() {
+        bail!("model dir {} is not a directory", model_dir.display());
+    }
+    if resolved(out_dir)?.starts_with(resolved(model_dir)?) {
+        bail!(
+            "pack out-dir {} is inside the model dir {}; choose an out-dir outside it",
+            out_dir.display(),
+            model_dir.display()
+        );
+    }
 
     std::fs::create_dir_all(out_dir)
         .with_context(|| format!("creating pack out-dir {}", out_dir.display()))?;
+    let staged_weights = out_dir.join(".weights.bin.partial");
+    let staged_manifest = out_dir.join(".manifest.json.partial");
+    let built = build_staged(model_dir, &staged_weights, &staged_manifest, &signing, meta);
+    if built.is_err() {
+        let _ = std::fs::remove_file(&staged_weights);
+        let _ = std::fs::remove_file(&staged_manifest);
+        return built;
+    }
+
+    // The weights go first: if the second rename fails, the old manifest no
+    // longer matches and the pack is rejected, never wrongly accepted.
     let weights_path = out_dir.join("weights.bin");
     let manifest_path = out_dir.join("manifest.json");
-    std::fs::write(&weights_path, &zip_bytes)
-        .with_context(|| format!("writing {}", weights_path.display()))?;
+    std::fs::rename(&staged_weights, &weights_path)
+        .with_context(|| format!("replacing {}", weights_path.display()))?;
+    std::fs::rename(&staged_manifest, &manifest_path)
+        .with_context(|| format!("replacing {}", manifest_path.display()))?;
+    Ok(())
+}
+
+/// Zip, hash, sign and self-verify into the two staging paths.
+fn build_staged(
+    model_dir: &Path,
+    weights_path: &Path,
+    manifest_path: &Path,
+    signing: &SigningKey,
+    meta: &PackMeta,
+) -> Result<()> {
+    zip_model_dir_to(model_dir, weights_path)?;
+    let sha256 = modelpack::sha256_hex_file(weights_path)
+        .with_context(|| format!("hashing {}", weights_path.display()))?;
+    let signature = sign_manifest(signing, meta, &sha256);
+    let manifest_json = build_manifest_json(meta, &sha256, &signature);
+
     let manifest_pretty =
         serde_json::to_string_pretty(&manifest_json).context("serializing manifest json")?;
-    std::fs::write(&manifest_path, manifest_pretty.as_bytes())
+    std::fs::write(manifest_path, manifest_pretty.as_bytes())
         .with_context(|| format!("writing {}", manifest_path.display()))?;
 
     // Self-verify with the real verifier, using the public key derived from the
@@ -312,9 +391,11 @@ pub fn pack(
         .to_public_key_pem(LineEnding::LF)
         .context("deriving public SPKI PEM for self-check")?;
     let engine_versions = self_check_engine_versions();
-    modelpack::verify_model_pack(
+    let weights = std::fs::File::open(weights_path)
+        .with_context(|| format!("opening {}", weights_path.display()))?;
+    modelpack::verify_model_pack_reader(
         &manifest_json,
-        &zip_bytes,
+        weights,
         &PublicKey::SpkiPem(&public_pem),
         &engine_versions,
     )
@@ -323,21 +404,21 @@ pub fn pack(
     Ok(())
 }
 
-/// Verify an existing pack directory against an SPKI public PEM. Returns the
-/// attribution on success.
+/// Verify an existing pack directory against an SPKI public PEM, streaming
+/// `weights.bin`. Returns the attribution on success.
 pub fn verify_pack(pack_dir: &Path, public_pem: &str) -> Result<String> {
     let manifest_path = pack_dir.join("manifest.json");
     let weights_path = pack_dir.join("weights.bin");
     let manifest_bytes = std::fs::read(&manifest_path)
         .with_context(|| format!("reading {}", manifest_path.display()))?;
-    let weights = std::fs::read(&weights_path)
-        .with_context(|| format!("reading {}", weights_path.display()))?;
+    let weights = std::fs::File::open(&weights_path)
+        .with_context(|| format!("opening {}", weights_path.display()))?;
     let value: serde_json::Value =
         serde_json::from_slice(&manifest_bytes).context("parsing manifest.json")?;
     let engine_versions = self_check_engine_versions();
-    let verified = modelpack::verify_model_pack(
+    let verified = modelpack::verify_model_pack_reader(
         &value,
-        &weights,
+        weights,
         &PublicKey::SpkiPem(public_pem),
         &engine_versions,
     )

@@ -1,0 +1,456 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L1-5 don't name Aisha or Northgate (L11); purpose loosely from L8"
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S003": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S004": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S005": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S006": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "June 2021 is in L16 (uncited, 'I think'); cited L17-18 give only inbound goods"
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L19 is S1 echoing 'eleven people'; 'on my shift' is L18, not cited"
+    },
+    "S008": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S009": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L23: \u00a331k is 'with the shift allowance and the overtime I think', a mortgage-form figure; stated as fact"
+    },
+    "S010": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S011": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L27 'they put in five percent' is the employer's contribution, not hers"
+    },
+    "S012": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S013": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S014": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'five minutes' comes from L42/L68, not the cited lines"
+    },
+    "S015": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S016": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S017": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S018": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S019": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L42: a colleague covered for her, not her covering for a colleague; L44 'might be an email somewhere' contradicts 'no email'"
+    },
+    "S020": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S021": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L51 is S1's summary; client confirms at L52 and L40, not cited"
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L52 'nobody ever said anything'; 'never disciplined' relies on L84; 'stop working' garbled"
+    },
+    "S023": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S024": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S025": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Gary started January 2026 (Linda left end of 2025, L51/L56), not 2025"
+    },
+    "S026": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S027": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S028": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L64 gives the date; that it was an email is at L62, not cited"
+    },
+    "S029": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S030": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Referral/report were 2026 (Gary from Jan 2026, dismissal Aug 2026 L147), not 2024"
+    },
+    "S031": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "19 May was 2026 per timeline (L51, L57, L147), not 2024"
+    },
+    "S032": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "No-warning denial correct (L84) but the 19 May meeting is dated 2024; it was 2026"
+    },
+    "S033": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "1 and 3 July were 2026 (pre-14 Aug 2026 dismissal, L147), not 2024"
+    },
+    "S034": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "3 July was 2026, not 2024"
+    },
+    "S035": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "9 July was 2026, not 2024"
+    },
+    "S036": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'twenty minutes' is at L103, not cited"
+    },
+    "S037": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "9 July was 2026, not 2024"
+    },
+    "S038": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "9 July was 2026, not 2024"
+    },
+    "S039": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Investigation meeting was 17 July 2026, not 2024"
+    },
+    "S040": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "17 July meeting was 2026, not 2024"
+    },
+    "S041": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Letter was 28 July 2026, not 2024"
+    },
+    "S042": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Letter was 28 July 2026, not 2024"
+    },
+    "S043": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Disciplinary was 6 August 2026, not 2024"
+    },
+    "S044": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Disciplinary was 6 August 2026, not 2024"
+    },
+    "S045": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Disciplinary was 6 August 2026, not 2024"
+    },
+    "S046": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Disciplinary was 6 August 2026, not 2024; L135 Gary said radio 'every time', not only 9 July"
+    },
+    "S047": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S048": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S049": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L142 'No... Never got them' needs the L141 question (uncited)"
+    },
+    "S050": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S051": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S052": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L148: S1, not the client, read the letter and noted 'not gross misconduct'; 'misuse' garbled"
+    },
+    "S053": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'eight weeks' is the client's L149, not cited; L148 gives no length"
+    },
+    "S054": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Exact \u00a34,523 read by S1 from letter (L150); client said 'four thousand five hundred and something' (L149)"
+    },
+    "S055": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S056": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S057": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L156 'Not once' needs the L155 question (uncited)"
+    },
+    "S058": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S059": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S060": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S061": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S062": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S063": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S064": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S065": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S066": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S067": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L175 'Nothing came' needs the L174 question about documents/settlement (uncited)"
+    },
+    "S068": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S069": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L177 'I won't' needs S1's L176 instruction, not cited"
+    },
+    "S070": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "partial",
+    "F05": "partial",
+    "F06": "absent",
+    "F07": "partial",
+    "F08": "absent",
+    "F09": "absent",
+    "F10": "absent",
+    "F11": "absent",
+    "F12": "absent",
+    "F13": "absent",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "present",
+    "F17": "present",
+    "F18": "present",
+    "F19": "partial",
+    "F20": "partial",
+    "F21": "partial",
+    "F22": "partial",
+    "F23": "present",
+    "F24": "present",
+    "F25": "present",
+    "F26": "present",
+    "F27": "partial",
+    "F28": "present",
+    "F29": "present"
+  },
+  "notes": "Content largely accurate and hearsay kept attributed, but every Jan-Aug event is dated 2024/2025 instead of 2026, a systematic year error; also pension/cover misattributions."
+}
