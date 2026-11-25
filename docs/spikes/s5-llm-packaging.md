@@ -1,7 +1,7 @@
 # Spike S5: packaging, licensing and zero-egress for the local LLM
 
 > Status: **GO-WITH-CONDITIONS** (Mac measured; CI green on Linux with no network, macOS and Windows, where the
-> binary runs a self-check without a model) · Recorded 2026-11-24.
+> binary links and starts both runtimes without a model) · Recorded 2026-11-24, review fixes 2026-11-25.
 > Plan: [`next-phase-spikes.md`](next-phase-spikes.md#s5-packaging-licensing-and-zero-egress).
 > Harness: `spikes/s5-llama/` (one binary linking llama.cpp and the engine's sherpa-onnx).
 
@@ -20,7 +20,7 @@ fails closed after a one-byte change; and both candidate weights are plain Apach
 |---|---|---|
 | Gate green | `scripts/check-no-network.sh` passes, now also scanning `spikes/s5-llama` on all targets | **Pass** |
 | Reproducible static build, no build-time download | Mac: clean build with outbound network denied by the OS sandbox; two clean builds gave bit-identical binaries. Linux (CI): builds inside a network namespace with no network. Windows (CI, real MSVC): links once condition 2's CMake setting is in, and the self-check runs | **Pass** |
-| Signed pack verifies and loads | `task: "llm"` pack signed, verified by the app's resolver, GGUF loaded and generating; one flipped byte rejected | **Pass** |
+| Signed pack verifies and loads | `task: "llm"` pack signed, verified by the app's LLM resolver (given an engine map with llama.cpp, as P2's build will have), GGUF loaded and generating; one flipped byte rejected | **Pass** |
 | Weights licence cleared | Qwen3-4B-Instruct-2507 and Qwen3.5-4B: Apache-2.0, ungated, no use policy, no NOTICE | **Pass** |
 
 **Conditions:**
@@ -44,15 +44,17 @@ fails closed after a one-byte change; and both candidate weights are plain Apach
 3. **Keep the `s5-llama` CI job (or its equivalent for the app) green.** On its first run it caught condition
    2 on real MSVC, which the cross-build had hidden. It now passes on all three: the Linux leg builds inside a
    network namespace with no network (the CI-side proof of "no build-time download"), and on Windows the binary
-   runs its self-check (sherpa-onnx 2.0.1 / onnxruntime 1.28.2 plus the llama.cpp backend in one process). No
-   model has been loaded on Windows yet; that is for the reference laptop.
+   runs its self-check (sherpa-onnx 2.0.1 / onnxruntime 1.28.2 plus the llama.cpp backend in one process). The
+   self-check is a link-and-backend smoke test: it opens no inference session in either runtime. No model has
+   been loaded on Windows yet; that is for the reference laptop.
 4. **Validate llama.cpp inputs before calling it.** llama.cpp **aborts the process** on misuse instead of
    returning an error: the first long-prompt run here died on `GGML_ASSERT(n_tokens_all <= cparams.n_batch)`.
    Inside the app that kills the whole app, so P2's wrapper must check prompt length against `n_batch`/`n_ctx`
    (or run the LLM in a child process).
 5. **Decide the LLM pack layout for P2.** The spike keeps the existing pack format (a zip in `weights.bin`,
    with the GGUF Stored). That costs a second 2.4 GB copy on disk (pack plus extracted GGUF) and the
-   extracted copy is trusted from the cache without being re-hashed (the speech packs work the same way). Since
+   extracted copy is trusted from the cache without being re-hashed, and the resolver re-opens the pack by path
+   after verifying it rather than extracting the bytes it hashed (the speech packs work the same way). Since
    a Stored zip gains nothing for one file, consider letting an `llm` pack's `weights.bin` *be* the GGUF:
    verify it, then load it in place.
 
@@ -70,7 +72,8 @@ fails closed after a one-byte change; and both candidate weights are plain Apach
   `sherpa-onnx =2.0.1` (onnxruntime 1.28.2), the same version the engine pins.
 - **Build settings** (`spikes/s5-llama/.cargo/config.toml`): `GGML_METAL=OFF` (CPU only; llama-cpp-2 turns on
   the sys crate's `metal` feature on Apple Silicon, so only the Metal framework link remains),
-  `CMAKE_DISABLE_FIND_PACKAGE_OpenSSL=TRUE`, `LLAMA_STATIC_CRT=1`. `GGML_OPENMP` is off (no OpenMP runtime to
+  `CMAKE_DISABLE_FIND_PACKAGE_OpenSSL=TRUE`, `LLAMA_STATIC_CRT=1`, `CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded`
+  (condition 2). `GGML_OPENMP` is off (no OpenMP runtime to
   clash with onnxruntime's threads), `GGML_NATIVE` off, `LLAMA_CURL` off.
 - **Weights:** `Qwen3-4B-Instruct-2507-Q4_0.gguf` (2,375,773,280 bytes, SHA-256 `e0ba675d…13be2`, matching the
   Hugging Face LFS hash of `unsloth/Qwen3-4B-Instruct-2507-GGUF`) and `Qwen3.5-4B-Q4_0.gguf` (`298fcb5f…b72b8bb`,
@@ -92,8 +95,8 @@ sandbox-exec -p '(version 1)(allow default)(deny network-outbound (remote ip))' 
   cargo build --offline --release --no-default-features --target-dir target-nollama
 
 ./target-sandbox/release/s5-llama --self-check
-/usr/bin/time -l ./target-sandbox/release/s5-llama --model Qwen3-4B-Instruct-2507-Q4_0.gguf \
-  --threads 4 --n-predict 64 --prompt "$(python3 prompt.py)" --vad silero_vad.onnx
+P="$(python3 prompt.py)" && /usr/bin/time -l ./target-sandbox/release/s5-llama \
+  --model Qwen3-4B-Instruct-2507-Q4_0.gguf --threads 4 --n-predict 64 --prompt "$P" --vad silero_vad.onnx
 
 # Windows cross-check (scripts/build-windows-on-mac.sh has the one-time setup):
 cargo xwin build --release --target x86_64-pc-windows-msvc --target-dir target-xwin
@@ -107,7 +110,7 @@ modelpack-sign pack --model-dir /tmp/s5/model --out /tmp/s5/packs/llm-qwen3-4b-i
 modelpack-sign verify --pack /tmp/s5/packs/llm-qwen3-4b-instruct-2507 --pubkey /tmp/s5/keys/public.spki.pem
 ```
 
-`prompt.py` printed a 24-line synthetic housing-visit transcript with an instruction to list its facts (730
+`prompt.py` (in the harness) prints a 24-line synthetic housing-visit transcript with an instruction to list its facts (730
 tokens with Qwen3's chat template). The app-side resolve was measured with a temporary, uncommitted `#[ignore]`
 test calling `resolve_verified_llm_in` on the real pack, run under `/usr/bin/time -l`. "Before" numbers come
 from `main`'s `tools/modelpack-sign`, built from `git archive main`.
@@ -154,9 +157,10 @@ without llama.cpp, 22,466,048 B with it (**+4.4 MB, +24%**). The `.exe` imports 
 ### Both runtimes in one process
 
 `--self-check` prints sherpa-onnx 2.0.1 / onnxruntime 1.28.2, runs `SherpaEngine::new` (fails closed with no
-models, as it should), starts the llama.cpp backend (devices: `CPU` only) and exits 0, at 10 MB peak RSS.
-`--vad` also runs a real Silero VAD session through sherpa-onnx (52 ms for 1 s of audio) before llama.cpp
-loads. No duplicate symbols, no thread-pool clash.
+models, as it should), starts the llama.cpp backend (devices: `CPU` only) and exits 0, at 10 MB peak RSS. It
+opens no inference session, so it proves linking and backend start-up, not two live runtimes.
+`--vad` opens a real Silero VAD session through sherpa-onnx (11–52 ms for 1 s of audio) and keeps it open while
+llama.cpp loads and generates, then runs it again (2 ms). No duplicate symbols, no thread-pool clash.
 
 ### Generation, Qwen3-4B-Instruct-2507 Q4_0, 4 threads, CPU, 2k context, greedy
 
@@ -168,8 +172,13 @@ loads. No duplicate symbols, no thread-pool clash.
 | 4 | 16 | 1.48 s | 101.8 tok/s | 34.0 tok/s | 2.77 GB | 5.14 GB |
 | 5 | 16 | 0.80 s | 99.2 tok/s | 27.9 tok/s | 2.77 GB | 5.14 GB |
 | 6 | 16 | 0.96 s | 92.0 tok/s | 28.1 tok/s | 2.76 GB | 5.14 GB |
+| 7 | 16 | 1.86 s | 114.4 tok/s | 34.7 tok/s | 2.77 GB | 5.10 GB |
+| 8 | 17 | 0.67 s | 116.4 tok/s | 36.7 tok/s | 2.77 GB | 5.14 GB |
+| 9 | 16 | 0.61 s | 116.3 tok/s | 36.8 tok/s | 2.77 GB | 5.14 GB |
 
-Every run also ran the Silero VAD session through sherpa-onnx first. Qwen3.5-4B Q4_0, same prompt (754 tokens) at load 16: load
+Every run also ran a Silero VAD session through sherpa-onnx. In runs 1–6 that session was closed before
+llama.cpp loaded; runs 7–9 (2026-11-25, after the review) kept it open through generation, with the same
+footprint. Qwen3.5-4B Q4_0, same prompt (754 tokens) at load 16: load
 2.03 s, prompt 81.5 tok/s, generation 26.0 tok/s, footprint 2.83 GB. Load times are with the GGUF in the page
 cache. "Peak footprint" is macOS's physical footprint; RSS also counts the memory-mapped GGUF pages and so
 overstates real use (S2 saw the same). The loaded-machine figures match S2's medians (prefill 53, generation 16
@@ -193,7 +202,8 @@ resolver returned `no verified LLM model pack found` and `modelpack-sign verify`
 hash mismatch (tampered or corrupt)`.
 
 Disk use per installed LLM is about 4.75 GB: the 2.38 GB pack plus the 2.38 GB extracted GGUF (condition 5).
-Re-verifying the pack costs about 6 s of hashing each time it is resolved.
+Re-verifying the pack costs about 6 s of hashing each time it is resolved. Speech resolution, which runs at every
+recording start, skips LLM packs before hashing them.
 
 ## Licences
 
@@ -211,20 +221,28 @@ but shouldn't brand anything as Qwen. The rows are in `docs/assurance/third-part
 
 ## Pack support added on this branch
 
-- `modelpack` (Rust) and `core/src/modelpack.ts` accept `task: "llm"` and `engine: "llama.cpp"`. The
-  conformance fixtures gained a `valid-llm` case; `context.json` gives `llama.cpp` version 0.6.0.
+- `modelpack` (Rust) and `core/src/modelpack.ts` accept `task: "llm"` and `engine: "llama.cpp"`, only together:
+  an `llm` pack on another engine, or another task on `llama.cpp`, is rejected. The conformance fixtures gained
+  `valid-llm` and `malformed-llm-wrong-engine` cases; `context.json` gives `llama.cpp` version 0.6.0.
 - `modelpack` hashes weights from a stream in 1 MiB chunks (`verify_model_pack_reader`, `sha256_hex_file`);
   `verify_model_pack` over a byte slice still works as before.
-- `modelpack-sign` has `--task llm`, zips straight into `weights.bin` (each file streamed in; `.gguf` Stored,
+- `modelpack-sign` has `--task llm`, zips into a staging file (each file streamed in; `.gguf` Stored,
   everything else Deflated as before; zip64 for files of 4 GiB or more), hashes and self-verifies by streaming,
-  and knows `llama.cpp` 0.6.0.
-- The app (`app/src-tauri/src/models.rs`) verifies and extracts packs by streaming, keeps LLM packs out of the
-  speech-model cache, and has `resolve_verified_llm_in` / `resolve_verified_llm`, which return the GGUF path
-  from the newest verified `llm` pack and fail closed otherwise. Nothing calls them yet.
+  and only then replaces `weights.bin` and `manifest.json`, so a failed rebuild leaves the old pack intact. It
+  refuses an out-dir inside the model dir, and knows `llama.cpp` 0.6.0.
+- The app (`app/src-tauri/src/models.rs`) verifies and extracts packs by streaming, skips LLM packs before
+  hashing them when resolving speech models, and has `resolve_verified_llm_in` / `resolve_verified_llm`, which
+  return the GGUF path from the newest verified `llm` pack and fail closed otherwise. Nothing calls them yet.
+  The app's own engine map leaves `llama.cpp` out until P2 links it, so this build lists a signed LLM pack as
+  "engine not supported by this build" and `resolve_verified_llm` fails closed; `resolve_verified_llm_in` takes
+  the engine map as an argument, which is how it was measured.
 - Tests (the agreed list): the `valid-llm` and unknown-task conformance cases (Rust and TS); `--task llm`
   through the real CLI producing a pack the verifier accepts; the app resolving a signed LLM fixture pack to
   its GGUF, rejecting a tampered one, and never returning a speech pack as an LLM; and a streamed hash of a
-  file larger than one chunk against a `shasum`-computed literal.
+  file larger than one chunk against a `shasum`-computed literal. The Codex review on 2026-11-25 added one
+  regression test per bug it found: `malformed-llm-wrong-engine`, speech resolution never opening an LLM
+  pack's weights, this build not verifying LLM packs, a failed repack leaving the old pack intact, and an
+  out-dir inside the model dir being refused.
 
 ## What changes in the PRD
 
@@ -232,7 +250,8 @@ but shouldn't brand anything as Qwen. The rows are in `docs/assurance/third-part
   `GGML_METAL=OFF`, `LLAMA_STATIC_CRT=1`, OpenMP off, and the `common` fix from condition 1. JSON-schema to
   grammar conversion (`json_schema_to_grammar`) needs `common`; for P3 prefer GBNF grammars given directly to
   `LlamaSampler::grammar`, which works without it.
-- **Delivery:** the pack manifest gains `task: "llm"` and `engine: "llama.cpp"` (done here), and resolution
+- **Delivery:** the pack manifest gains `task: "llm"` and `engine: "llama.cpp"`, only as a pair (done here); P2
+  adds `llama.cpp` to the app's engine map when it links it; and resolution
   uses `resolve_verified_llm`, not `resolve_verified_models_dir`, which now ignores LLM packs. Decide the pack
   layout (condition 5).
 - **Sizes:** the app binary grows by about 4 MB; the LLM pack is about 2.4 GB to download and 4.75 GB on disk
@@ -243,8 +262,7 @@ but shouldn't brand anything as Qwen. The rows are in `docs/assurance/third-part
 
 ## Still to do
 
-- Run the `s5-llama` CI job on all three platforms, including the no-network Linux build, and run the
-  Windows binary (only cross-linked here).
+- Load a model and generate on Windows (CI's self-check opens no inference session).
 - Repeat the generation timings on the reference Windows laptop, ideally with the app's live ASR running.
 - Build a release installer with llama.cpp linked to measure its size (only the binary was measured).
 - The signer's self-check still knows sherpa-onnx as 1.13.2 while the app ships 2.0.1, so it would refuse a

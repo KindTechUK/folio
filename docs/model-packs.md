@@ -18,8 +18,9 @@ A pack is a directory of two files:
 `task`, `license`, `attribution`, `sha256`, and `signature`.
 
 `task` is one of `asr`, `diarization` or `llm`; `engine` is one of `sherpa-onnx`,
-`whisper.cpp` or `llama.cpp`. Packs are hashed and extracted as streams, so a
-multi-GB pack never has to fit in memory.
+`whisper.cpp` or `llama.cpp`. `llm` and `llama.cpp` go together: an `llm` pack on
+another engine, or another task on `llama.cpp`, is rejected. Packs are hashed and
+extracted as streams, so a multi-GB pack never has to fit in memory.
 
 ### Language-model packs (`task: "llm"`)
 
@@ -27,16 +28,18 @@ An LLM pack carries one GGUF file for the `llama.cpp` engine. The signer stores
 `.gguf` files in the zip **uncompressed** (they are already quantised; Deflate
 would cost minutes of CPU for almost nothing), and everything else Deflated as
 before. The app resolves an LLM pack separately from speech packs: speech
-resolution never extracts an LLM pack, and `resolve_verified_llm`
+resolution skips LLM packs without hashing them, and `resolve_verified_llm`
 (`app/src-tauri/src/models.rs`) returns the GGUF path only from a verified
 `task: "llm"` pack, failing closed otherwise. Nothing in the app calls it yet; it
 is groundwork for local notes (P2), measured in spike S5
 ([`spikes/s5-llm-packaging.md`](spikes/s5-llm-packaging.md)).
 
 The `llama.cpp` engine version is llama.cpp's own release version (it uses semver
-since v0.6.0). This build records **0.6.0**: the llama.cpp commit `d812350` that
-`llama-cpp-sys-2 =0.1.161` vendors. An LLM pack should set
-`--engine-min-version 0.6.0` until a newer llama.cpp is linked.
+since v0.6.0). The signer and the conformance fixtures record **0.6.0**: the
+llama.cpp commit `d812350` that `llama-cpp-sys-2 =0.1.161` vendors. An LLM pack
+should set `--engine-min-version 0.6.0` until a newer llama.cpp is linked. The app
+links no llama.cpp yet, so its engine map leaves it out and it lists an imported
+LLM pack as "engine not supported by this build" until P2 adds it.
 
 ## How verification works
 
@@ -132,8 +135,10 @@ cargo run --release --manifest-path tools/modelpack-sign/Cargo.toml -- pack \
   --attribution "Qwen3-4B-Instruct-2507 by the Qwen Team, Alibaba Cloud (Apache-2.0)"
 ```
 
-The `pack` command self-verifies after writing, so a pack that's produced is guaranteed
-to pass the in-app verifier (with the matching key). To check an existing pack:
+The `pack` command builds the pack in staging files and self-verifies it before
+replacing `weights.bin` and `manifest.json`, so a pack that's produced is guaranteed
+to pass the in-app verifier (with the matching key), and a failed rebuild leaves the
+previous pack as it was. `--out` must be outside `--model-dir`. To check an existing pack:
 
 ```bash
 cargo run --manifest-path tools/modelpack-sign/Cargo.toml -- verify \

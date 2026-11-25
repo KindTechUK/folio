@@ -137,7 +137,7 @@ hard gate for social-care templates.**
 
 ## S5: Packaging, licensing and zero-egress
 
-> **Result: go, with conditions** (Mac; Windows cross-linked only; the new CI job still to run): see [`s5-llm-packaging.md`](s5-llm-packaging.md). Harness: `spikes/s5-llama/`.
+> **Result: go, with conditions** (measured on a Mac; CI green on Linux with no network, macOS and Windows, where the binary links and starts both runtimes without a model; no model loaded on Windows yet): see [`s5-llm-packaging.md`](s5-llm-packaging.md). Harness: `spikes/s5-llama/`.
 
 **Question.** Can llama.cpp be linked in-process, built from vendored sources, and shipped with its weights
 as a signed model pack, without adding a network crate or a licence we can't redistribute?
