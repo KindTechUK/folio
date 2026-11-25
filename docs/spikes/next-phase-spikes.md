@@ -24,7 +24,7 @@
 | **S1** | Can the existing VAD + Parakeet path keep up **live** on a Windows laptop? | p95 lag ≤ 5 s; CPU ≤ 60% avg; flat memory over 2 h | 2 days | P1 |
 | **S2** | Can a local 3–4B LLM turn a **long transcript (15–90 min)** into a note fast enough on CPU? | 60-min transcript → note ≤ 5 min after stop; peak RAM ≤ 6 GB | 3 days | P2 |
 | **S3** | Can a small model **cite its sources** reliably, and how often does it fabricate? | ≥ 95% of note sentences have valid citations; 0 fabrications in blind review | 3 days | P3 |
-| **S4** | Does the local model **refuse or soften** safeguarding content? | 0 refusals, 0 softened facts on the sensitive set | 1 day | P2 (social care) |
+| **S4** | Does the local model **refuse or soften** safeguarding content? | 0 refusals, 0 softened facts on the sensitive set | 1 day | P2 (social care) — **not passed yet, close**: no refusals; best (Qwen3.5-4B, statutory prompt) softened 3 of 79 ([write-up](s4-safeguarding.md)) |
 | **S5** | Can we **package** llama.cpp + weights without breaking zero-egress or licensing? | Gate green; static build; licence-clean pick; signed pack verifies | 2 days | P2 |
 | **S6** | Is **crash-safe recording** simple and does "Delete transcript and audio" still purge everything? | ≤ 1 chunk lost on `kill`; full purge | 1 day | P1, assurance |
 | S7 | *(only if S1 fails)* Does **Nemotron Streaming** fix live lag on CPU? | Word lag ≤ 1 s at ≤ 60% CPU | 2 days | P1 fallback |
