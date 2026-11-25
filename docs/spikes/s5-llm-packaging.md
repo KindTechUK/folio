@@ -1,7 +1,7 @@
 # Spike S5: packaging, licensing and zero-egress for the local LLM
 
-> Status: **GO-WITH-CONDITIONS** (Mac measured; Windows cross-linked but not run; Linux, macOS and Windows CI
-> still to run) · Recorded 2026-11-24.
+> Status: **GO-WITH-CONDITIONS** (Mac measured; CI green on Linux with no network, macOS and Windows, where the
+> binary runs a self-check without a model) · Recorded 2026-11-24.
 > Plan: [`next-phase-spikes.md`](next-phase-spikes.md#s5-packaging-licensing-and-zero-egress).
 > Harness: `spikes/s5-llama/` (one binary linking llama.cpp and the engine's sherpa-onnx).
 
@@ -19,7 +19,7 @@ fails closed after a one-byte change; and both candidate weights are plain Apach
 | Pass criterion | Result | |
 |---|---|---|
 | Gate green | `scripts/check-no-network.sh` passes, now also scanning `spikes/s5-llama` on all targets | **Pass** |
-| Reproducible static build, no build-time download | Mac: clean build with outbound network denied by the OS sandbox; two clean builds gave bit-identical binaries. Windows: links when cross-compiled (one setting needed, condition 2), not run. Linux: CI job written, not yet run | **Pass on Mac**; CI pending |
+| Reproducible static build, no build-time download | Mac: clean build with outbound network denied by the OS sandbox; two clean builds gave bit-identical binaries. Linux (CI): builds inside a network namespace with no network. Windows (CI, real MSVC): links once condition 2's CMake setting is in, and the self-check runs | **Pass** |
 | Signed pack verifies and loads | `task: "llm"` pack signed, verified by the app's resolver, GGUF loaded and generating; one flipped byte rejected | **Pass** |
 | Weights licence cleared | Qwen3-4B-Instruct-2507 and Qwen3.5-4B: Apache-2.0, ungated, no use policy, no NOTICE | **Pass** |
 
@@ -41,9 +41,11 @@ fails closed after a one-byte change; and both candidate weights are plain Apach
    `CMAKE_MSVC_RUNTIME_LIBRARY` (default `MultiThreaded…DLL`) and the `/MT` flags are overridden. The spike now
    also sets `CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded` in `spikes/s5-llama/.cargo/config.toml`; the app will
    need the same.
-3. **Run the new CI job** (`s5-llama` in `.github/workflows/ci.yml`) on Linux, macOS and Windows after push.
-   It has not run yet. The Linux leg builds inside a network namespace with no network, which is the
-   CI-side proof of "no build-time download".
+3. **Keep the `s5-llama` CI job (or its equivalent for the app) green.** On its first run it caught condition
+   2 on real MSVC, which the cross-build had hidden. It now passes on all three: the Linux leg builds inside a
+   network namespace with no network (the CI-side proof of "no build-time download"), and on Windows the binary
+   runs its self-check (sherpa-onnx 2.0.1 / onnxruntime 1.28.2 plus the llama.cpp backend in one process). No
+   model has been loaded on Windows yet; that is for the reference laptop.
 4. **Validate llama.cpp inputs before calling it.** llama.cpp **aborts the process** on misuse instead of
    returning an error: the first long-prompt run here died on `GGML_ASSERT(n_tokens_all <= cparams.n_batch)`.
    Inside the app that kills the whole app, so P2's wrapper must check prompt length against `n_batch`/`n_ctx`
