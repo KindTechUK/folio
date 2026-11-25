@@ -1,0 +1,582 @@
+{
+  "sentences": {
+    "S097": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S098": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S099": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S100": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S101": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S102": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S103": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S104": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S105": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S106": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S107": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S108": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "5mg is in L284, not cited; L282-283 only name amlodipine and morning dose."
+    },
+    "S109": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "70mg stated at L287, not cited; rest supported by L284-286."
+    },
+    "S110": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S111": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Tuesday and Thursday mornings come from L294, not cited."
+    },
+    "S112": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S113": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S114": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L305 she says 'Mostly'; note drops the hedge and states she manages her money, amid L466-478 card misuse."
+    },
+    "S115": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S116": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S117": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S118": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S119": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S120": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L352 'I'm not there yet. Not by a long chalk' means not yet, not that she will never go to a home."
+    },
+    "S121": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S122": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S123": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S124": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S125": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S126": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S127": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S128": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L606 gives difficulty but not the reasons; wrist and fear of getting stuck are at L187, L192."
+    },
+    "S129": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S130": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S131": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S132": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S133": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S134": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S135": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'cook a proper dinner' is L598, not cited; L599 only gives mince and potatoes."
+    },
+    "S136": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S137": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S138": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S139": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S140": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L602 says 'them'; that they are Frank's roses is L600-601, not cited."
+    },
+    "S141": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L576 'I don't think so'; eligibility criteria from L577, not cited."
+    },
+    "S142": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L578 social worker says she 'might well be entitled'; note states eligibility as fact."
+    },
+    "S143": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Presupposes established eligibility (L578 only 'might well be entitled'); cited L579 is Kevin's line."
+    },
+    "S144": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S145": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S146": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S147": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S148": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S149": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "Quote is Margaret's at L680; cited L679 is Kevin saying 'See you on the fifteenth'."
+    },
+    "S150": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "Cited L118 is only the question; her answer is L120, not cited."
+    },
+    "S151": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L119: she told no one; Kevin knows because he found mud on her coat. She did not tell him."
+    },
+    "S152": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Fall-detecting device (L171) and two hours on floor (L173, L61) not in cited L172."
+    },
+    "S153": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L537 has police/theft; Jordan taking her money comes from L539, L520, not cited."
+    },
+    "S154": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S155": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S156": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S157": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L546 'It doesn't mean that' needs the question at L545 (arrest) to make sense."
+    },
+    "S158": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S159": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S160": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L550 is Margaret seeking confirmation, not confirming; social worker confirms at L551; L552 not cited."
+    },
+    "S161": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S162": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'depending on income and savings' is L586, not cited."
+    },
+    "S163": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S164": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S165": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S166": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S167": {
+      "label": "over_inference",
+      "cites_support": "no",
+      "trap": null,
+      "why": "'Mind the step' (L680) is a farewell; Margaret never voiced concern about a step. Cited L679 is Kevin's goodbye."
+    },
+    "S168": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S169": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S170": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L317 'I'm probably a bit, you know' is unfinished; 'tired' is filled in (L318 suggests smell)."
+    },
+    "S171": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S172": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S173": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S174": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S175": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S176": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S177": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S178": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S179": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S180": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S181": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Timing (after the fall) needs L375, not cited."
+    },
+    "S182": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L377 alone doesn't identify Susan or the timing; context at L375-376."
+    },
+    "S183": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L379 alone doesn't name Brenda; question at L378 not cited."
+    },
+    "S184": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S185": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S186": {
+      "label": "contradiction",
+      "cites_support": "yes",
+      "trap": "T11",
+      "why": "L394-395 she corrects: it's Thursdays now; Wednesday was before it moved. Cited L385 is the superseded value."
+    },
+    "S187": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S188": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S189": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L580 covers only the AA form; financial assessment form is L645, not cited."
+    },
+    "S190": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "Cited L675 is Margaret telling Priya to put the card by the phone; unrelated."
+    },
+    "S191": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S192": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {},
+  "notes": "Mostly faithful close paraphrase; a few hedges dropped, one corrected value (Wednesday) used, one misattribution (told Kevin), several weak or wrong citations."
+}

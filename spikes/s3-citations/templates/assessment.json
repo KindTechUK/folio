@@ -1,0 +1,11 @@
+{
+  "name": "social care needs assessment record",
+  "sections": [
+    {"title": "Background and presenting situation", "instruction": "Who was present, the person's circumstances and why the assessment is happening."},
+    {"title": "Needs and daily living", "instruction": "Mobility, falls, personal care, meals, medication, continence, home environment, social contact: what the person can and cannot do, and the impact on them."},
+    {"title": "Person's views and wishes", "instruction": "What matters to the person, in their own words where possible. Keep family members' views separate and attributed."},
+    {"title": "Risks and safeguarding", "instruction": "Risks, concerns and any disclosures of harm or abuse, recorded accurately and without softening, including what was denied and what is uncertain or second-hand."},
+    {"title": "Support network and finances", "instruction": "Family, friends, carers and services involved; financial situation as described."},
+    {"title": "Agreed actions", "instruction": "Each next step with who will do it and by when, where stated."}
+  ]
+}

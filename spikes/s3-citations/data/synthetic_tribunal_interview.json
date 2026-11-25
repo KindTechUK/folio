@@ -1,0 +1,1607 @@
+{
+ "id": "synthetic-tribunal-interview",
+ "title": "Employment tribunal client interview: care worker deductions and whistleblowing (synthetic)",
+ "template": "attendance_note",
+ "speakers": {
+  "S1": "Solicitor (Priya Nandakumar)",
+  "S2": "Megan Farrell (client)",
+  "S3": "Union representative (Callum Ashworth)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 1.3,
+   "end": 6.9,
+   "speaker": "S1",
+   "text": "Okay, is that recording? Yeah. It's just for my note, it gets deleted after. Everyone alright with that?"
+  },
+  {
+   "id": "L0002",
+   "start": 7.6,
+   "end": 8.7,
+   "speaker": "S2",
+   "text": "Yeah, that's fine."
+  },
+  {
+   "id": "L0003",
+   "start": 9.3,
+   "end": 10.2,
+   "speaker": "S3",
+   "text": "Fine by me."
+  },
+  {
+   "id": "L0004",
+   "start": 11.1,
+   "end": 15.0,
+   "speaker": "S1",
+   "text": "Lovely. Did you find us alright? The sat nav sends everyone round the back."
+  },
+  {
+   "id": "L0005",
+   "start": 15.8,
+   "end": 18.5,
+   "speaker": "S2",
+   "text": "It did, actually. We went round the one-way twice."
+  },
+  {
+   "id": "L0006",
+   "start": 18.8,
+   "end": 20.4,
+   "speaker": "S3",
+   "text": "My fault, I was navigating."
+  },
+  {
+   "id": "L0007",
+   "start": 21.4,
+   "end": 27.0,
+   "speaker": "S1",
+   "text": "Ha, happens every day. So, I'm Priya Nandakumar, I'm a solicitor in the employment team here at Lindqvist Moore."
+  },
+  {
+   "id": "L0008",
+   "start": 27.3,
+   "end": 33.4,
+   "speaker": "S1",
+   "text": "For the note, it's Tuesday the twenty-fourth of November, I'm meeting Megan Farrell, and Megan, you've brought, um, Callum?"
+  },
+  {
+   "id": "L0009",
+   "start": 33.9,
+   "end": 37.7,
+   "speaker": "S3",
+   "text": "Callum Ashworth. Megan's union rep. Area rep really. I'm just here for support."
+  },
+  {
+   "id": "L0010",
+   "start": 38.4,
+   "end": 42.8,
+   "speaker": "S1",
+   "text": "Nice to meet you Callum. Megan, you're happy for Callum to be here?"
+  },
+  {
+   "id": "L0011",
+   "start": 43.6,
+   "end": 45.6,
+   "speaker": "S2",
+   "text": "Yeah, definitely, he's been really good."
+  },
+  {
+   "id": "L0012",
+   "start": 46.3,
+   "end": 50.5,
+   "speaker": "S1",
+   "text": "Okay. Today's about getting the facts and dates straight. Who do you work for?"
+  },
+  {
+   "id": "L0013",
+   "start": 50.8,
+   "end": 56.9,
+   "speaker": "S2",
+   "text": "Bright Mere Care. Brightmere Care Limited. I work at Willowbank House, the care home on, um, Fenwick Lane."
+  },
+  {
+   "id": "L0014",
+   "start": 57.7,
+   "end": 59.5,
+   "speaker": "S1",
+   "text": "And you're still working there?"
+  },
+  {
+   "id": "L0015",
+   "start": 60.5,
+   "end": 63.8,
+   "speaker": "S2",
+   "text": "Yes. I haven't left, I'm on an early tomorrow actually."
+  },
+  {
+   "id": "L0016",
+   "start": 65.0,
+   "end": 66.9,
+   "speaker": "S1",
+   "text": "Okay, good. And your job title?"
+  },
+  {
+   "id": "L0017",
+   "start": 68.0,
+   "end": 73.4,
+   "speaker": "S2",
+   "text": "Senior care assistant. I started as a carer in March twenty-one and got senior in, er, twenty twenty-three."
+  },
+  {
+   "id": "L0018",
+   "start": 74.2,
+   "end": 76.2,
+   "speaker": "S1",
+   "text": "What does that involve, day to day?"
+  },
+  {
+   "id": "L0019",
+   "start": 76.7,
+   "end": 80.9,
+   "speaker": "S2",
+   "text": "I run the floor on my shift, do the medication rounds, the ma charts, handovers."
+  },
+  {
+   "id": "L0020",
+   "start": 81.3,
+   "end": 82.5,
+   "speaker": "S1",
+   "text": "MAR, the medication record?"
+  },
+  {
+   "id": "L0021",
+   "start": 83.7,
+   "end": 87.2,
+   "speaker": "S2",
+   "text": "Yeah. The charts you sign when you give the meds."
+  },
+  {
+   "id": "L0022",
+   "start": 87.8,
+   "end": 89.4,
+   "speaker": "S1",
+   "text": "And your hours and pay?"
+  },
+  {
+   "id": "L0023",
+   "start": 90.5,
+   "end": 94.9,
+   "speaker": "S2",
+   "text": "Contracted thirty-seven and a half a week. And it's twelve sixty an hour."
+  },
+  {
+   "id": "L0024",
+   "start": 95.4,
+   "end": 101.0,
+   "speaker": "S2",
+   "text": "No, sorry, it went up in April, it's twelve eighty-five now. Twelve sixty was last year."
+  },
+  {
+   "id": "L0025",
+   "start": 101.6,
+   "end": 105.2,
+   "speaker": "S1",
+   "text": "Twelve eighty-five, thirty-seven and a half. Fine, we'll check the payslips anyway."
+  },
+  {
+   "id": "L0026",
+   "start": 105.6,
+   "end": 109.7,
+   "speaker": "S1",
+   "text": "So Callum said you'd raised some concerns at work. Tell me about that."
+  },
+  {
+   "id": "L0027",
+   "start": 110.4,
+   "end": 114.7,
+   "speaker": "S2",
+   "text": "Yeah. So, um, end of August, a resident, room fourteen, went into hospital on the twenty-eighth."
+  },
+  {
+   "id": "L0028",
+   "start": 115.1,
+   "end": 122.1,
+   "speaker": "S2",
+   "text": "He was in three days, and when I came back on, his meds were signed as given the whole time he was in hospital."
+  },
+  {
+   "id": "L0029",
+   "start": 123.3,
+   "end": 125.8,
+   "speaker": "S1",
+   "text": "Signed as given while he wasn't in the building."
+  },
+  {
+   "id": "L0030",
+   "start": 126.5,
+   "end": 127.8,
+   "speaker": "S2",
+   "text": "Yeah. Mornings and nights."
+  },
+  {
+   "id": "L0031",
+   "start": 128.8,
+   "end": 132.0,
+   "speaker": "S1",
+   "text": "Did you see that yourself, or did someone tell you?"
+  },
+  {
+   "id": "L0032",
+   "start": 132.4,
+   "end": 135.4,
+   "speaker": "S2",
+   "text": "No, I saw it myself, I was doing the round."
+  },
+  {
+   "id": "L0033",
+   "start": 135.8,
+   "end": 137.8,
+   "speaker": "S1",
+   "text": "Okay. And what did you do?"
+  },
+  {
+   "id": "L0034",
+   "start": 138.7,
+   "end": 142.9,
+   "speaker": "S2",
+   "text": "I emailed Denise. Denise Hartigan, the registered manager. On the Wednesday, the second of September."
+  },
+  {
+   "id": "L0035",
+   "start": 144.0,
+   "end": 150.0,
+   "speaker": "S2",
+   "text": "Wait, no. The Friday, the fourth. I'd done a late on the Thursday, wrote it at home, sent it in the morning."
+  },
+  {
+   "id": "L0036",
+   "start": 150.7,
+   "end": 153.9,
+   "speaker": "S1",
+   "text": "Friday the fourth of September. From your work email?"
+  },
+  {
+   "id": "L0037",
+   "start": 154.5,
+   "end": 159.5,
+   "speaker": "S2",
+   "text": "Yeah, but I forwarded it to my Gmail the same day. Callum said to."
+  },
+  {
+   "id": "L0038",
+   "start": 160.0,
+   "end": 162.9,
+   "speaker": "S3",
+   "text": "I always say that. Get it off their system."
+  },
+  {
+   "id": "L0039",
+   "start": 163.5,
+   "end": 165.5,
+   "speaker": "S1",
+   "text": "Sensible. What did the email say, broadly?"
+  },
+  {
+   "id": "L0040",
+   "start": 166.3,
+   "end": 172.3,
+   "speaker": "S2",
+   "text": "The chart thing, and nights. Nights is two carers for thirty-eight residents, so if both are hoisting there's nobody on the floor."
+  },
+  {
+   "id": "L0041",
+   "start": 172.7,
+   "end": 176.4,
+   "speaker": "S1",
+   "text": "So two concerns, MAR charts and night staffing. Did Denise reply?"
+  },
+  {
+   "id": "L0042",
+   "start": 177.1,
+   "end": 181.7,
+   "speaker": "S2",
+   "text": "No. Never, not in writing. She just said got your email in the corridor the week after."
+  },
+  {
+   "id": "L0043",
+   "start": 182.4,
+   "end": 183.9,
+   "speaker": "S1",
+   "text": "Nothing in writing at all."
+  },
+  {
+   "id": "L0044",
+   "start": 184.7,
+   "end": 185.3,
+   "speaker": "S2",
+   "text": "Nothing."
+  },
+  {
+   "id": "L0045",
+   "start": 186.0,
+   "end": 189.2,
+   "speaker": "S1",
+   "text": "Before all this, any problems with your work? Warnings, disciplinaries?"
+  },
+  {
+   "id": "L0046",
+   "start": 190.3,
+   "end": 195.4,
+   "speaker": "S2",
+   "text": "No, never. I've never had a med error in five years. Never been in a disciplinary."
+  },
+  {
+   "id": "L0047",
+   "start": 195.8,
+   "end": 198.0,
+   "speaker": "S1",
+   "text": "Okay, helpful. So what happened after the fourth?"
+  },
+  {
+   "id": "L0048",
+   "start": 199.1,
+   "end": 205.0,
+   "speaker": "S2",
+   "text": "The October rota came out and I'd been cut to twenty-four hours. From Monday the fifth of October."
+  },
+  {
+   "id": "L0049",
+   "start": 206.1,
+   "end": 208.4,
+   "speaker": "S1",
+   "text": "From thirty-seven and a half down to twenty-four."
+  },
+  {
+   "id": "L0050",
+   "start": 208.9,
+   "end": 213.0,
+   "speaker": "S2",
+   "text": "Yeah. And I was taken off meds. No senior shifts at all, just care assistant."
+  },
+  {
+   "id": "L0051",
+   "start": 213.5,
+   "end": 215.2,
+   "speaker": "S1",
+   "text": "Did anyone give you a reason?"
+  },
+  {
+   "id": "L0052",
+   "start": 215.7,
+   "end": 217.7,
+   "speaker": "S2",
+   "text": "Denise said operational needs. Nothing in writing."
+  },
+  {
+   "id": "L0053",
+   "start": 218.7,
+   "end": 221.8,
+   "speaker": "S3",
+   "text": "Which is rubbish, they've got agency in on the same shifts."
+  },
+  {
+   "id": "L0054",
+   "start": 222.3,
+   "end": 225.4,
+   "speaker": "S1",
+   "text": "We'll come back to that. Megan, any idea why it happened?"
+  },
+  {
+   "id": "L0055",
+   "start": 226.2,
+   "end": 234.5,
+   "speaker": "S2",
+   "text": "Well. Shauna Price, one of the day carers, told me she heard Denise in the office saying I was a troublemaker and to cut her down."
+  },
+  {
+   "id": "L0056",
+   "start": 234.9,
+   "end": 237.6,
+   "speaker": "S1",
+   "text": "Shauna heard that herself? Or someone told Shauna?"
+  },
+  {
+   "id": "L0057",
+   "start": 238.4,
+   "end": 244.6,
+   "speaker": "S2",
+   "text": "She said she heard it, the door was open. I wasn't there, I only know what she told me."
+  },
+  {
+   "id": "L0058",
+   "start": 245.2,
+   "end": 248.4,
+   "speaker": "S1",
+   "text": "Okay. Would Shauna say that formally, do you think?"
+  },
+  {
+   "id": "L0059",
+   "start": 249.1,
+   "end": 252.1,
+   "speaker": "S2",
+   "text": "I don't know. She's on zero hours, she's worried."
+  },
+  {
+   "id": "L0060",
+   "start": 253.3,
+   "end": 256.3,
+   "speaker": "S1",
+   "text": "Let's park that. Now, Callum mentioned money as well."
+  },
+  {
+   "id": "L0061",
+   "start": 257.1,
+   "end": 261.6,
+   "speaker": "S2",
+   "text": "Yeah, two things. First, my holiday. I booked the, um, fourteenth to the eighteenth of September."
+  },
+  {
+   "id": "L0062",
+   "start": 262.0,
+   "end": 265.7,
+   "speaker": "S2",
+   "text": "It was approved on the app, I've got a screenshot, the little green tick."
+  },
+  {
+   "id": "L0063",
+   "start": 266.6,
+   "end": 267.2,
+   "speaker": "S1",
+   "text": "And?"
+  },
+  {
+   "id": "L0064",
+   "start": 267.7,
+   "end": 273.8,
+   "speaker": "S2",
+   "text": "Then the September pay, we get paid on the last day, so the thirtieth, it came through as unpaid leave. The whole week."
+  },
+  {
+   "id": "L0065",
+   "start": 274.7,
+   "end": 276.3,
+   "speaker": "S1",
+   "text": "How much was taken off?"
+  },
+  {
+   "id": "L0066",
+   "start": 277.3,
+   "end": 281.6,
+   "speaker": "S2",
+   "text": "Four hundred and eighty-one pounds eighty-eight. Unpaid leave deduction, on the payslip."
+  },
+  {
+   "id": "L0067",
+   "start": 282.0,
+   "end": 285.5,
+   "speaker": "S1",
+   "text": "Four eight one point eight eight. Did you query it?"
+  },
+  {
+   "id": "L0068",
+   "start": 286.3,
+   "end": 290.3,
+   "speaker": "S2",
+   "text": "I emailed Lorraine in payroll. She said as instructed by the home, that's all."
+  },
+  {
+   "id": "L0069",
+   "start": 291.1,
+   "end": 292.3,
+   "speaker": "S1",
+   "text": "And the second thing?"
+  },
+  {
+   "id": "L0070",
+   "start": 292.8,
+   "end": 296.5,
+   "speaker": "S2",
+   "text": "October. A deduction, it said training cost recovery. Two hundred and forty pounds."
+  },
+  {
+   "id": "L0071",
+   "start": 296.9,
+   "end": 301.9,
+   "speaker": "S2",
+   "text": "Sorry, wrong way round, it's four hundred and twenty. Four two zero. I always do that."
+  },
+  {
+   "id": "L0072",
+   "start": 302.5,
+   "end": 306.1,
+   "speaker": "S1",
+   "text": "Four hundred and twenty, October payslip. Paid on the thirtieth of October?"
+  },
+  {
+   "id": "L0073",
+   "start": 306.6,
+   "end": 307.6,
+   "speaker": "S2",
+   "text": "Yeah, the thirtieth."
+  },
+  {
+   "id": "L0074",
+   "start": 308.4,
+   "end": 310.1,
+   "speaker": "S1",
+   "text": "What training was that for?"
+  },
+  {
+   "id": "L0075",
+   "start": 310.7,
+   "end": 315.1,
+   "speaker": "S2",
+   "text": "The level three meds course I did in, um, February. They put me on it."
+  },
+  {
+   "id": "L0076",
+   "start": 316.0,
+   "end": 321.5,
+   "speaker": "S1",
+   "text": "Did you ever sign anything agreeing to pay back training costs? A training agreement, a contract clause?"
+  },
+  {
+   "id": "L0077",
+   "start": 322.1,
+   "end": 328.1,
+   "speaker": "S2",
+   "text": "No. Never signed anything like that. Nobody said I'd have to pay it back. They wanted me to do it."
+  },
+  {
+   "id": "L0078",
+   "start": 328.9,
+   "end": 332.6,
+   "speaker": "S3",
+   "text": "And she's not even leaving, so a clawback wouldn't kick in anyway."
+  },
+  {
+   "id": "L0079",
+   "start": 333.6,
+   "end": 335.4,
+   "speaker": "S1",
+   "text": "Mm. Do you have your contract?"
+  },
+  {
+   "id": "L0080",
+   "start": 335.9,
+   "end": 341.6,
+   "speaker": "S2",
+   "text": "I think I've got the first one, from when I was a carer. Never got a copy of the senior one."
+  },
+  {
+   "id": "L0081",
+   "start": 342.4,
+   "end": 345.3,
+   "speaker": "S1",
+   "text": "Okay, we'll ask for it. Anything else on the training deduction?"
+  },
+  {
+   "id": "L0082",
+   "start": 346.4,
+   "end": 351.2,
+   "speaker": "S2",
+   "text": "Lorraine said it was on Denise's say-so, and she'd never done one of those for anyone else."
+  },
+  {
+   "id": "L0083",
+   "start": 351.7,
+   "end": 354.6,
+   "speaker": "S1",
+   "text": "So Lorraine told you she'd never processed one for anyone else."
+  },
+  {
+   "id": "L0084",
+   "start": 355.8,
+   "end": 361.1,
+   "speaker": "S2",
+   "text": "That's what she said, on the phone. I don't know if it's true, I don't see anyone else's payslips."
+  },
+  {
+   "id": "L0085",
+   "start": 362.2,
+   "end": 364.9,
+   "speaker": "S1",
+   "text": "Of course. And then you put in a grievance?"
+  },
+  {
+   "id": "L0086",
+   "start": 365.6,
+   "end": 368.0,
+   "speaker": "S2",
+   "text": "Yeah. On the ninth of November. Callum helped me."
+  },
+  {
+   "id": "L0087",
+   "start": 368.9,
+   "end": 372.3,
+   "speaker": "S3",
+   "text": "Sent to Denise, copied to the area manager, Rob Ellery."
+  },
+  {
+   "id": "L0088",
+   "start": 373.4,
+   "end": 375.5,
+   "speaker": "S1",
+   "text": "Any response? A date for a meeting?"
+  },
+  {
+   "id": "L0089",
+   "start": 376.5,
+   "end": 379.8,
+   "speaker": "S2",
+   "text": "Just an email saying received, they'll be in touch. No date."
+  },
+  {
+   "id": "L0090",
+   "start": 380.8,
+   "end": 384.3,
+   "speaker": "S1",
+   "text": "So an acknowledgement, no hearing date yet. And the rota, still twenty-four?"
+  },
+  {
+   "id": "L0091",
+   "start": 384.6,
+   "end": 389.0,
+   "speaker": "S2",
+   "text": "Yeah. Oh, and the new one, from Monday the thirtieth, it's sixteen. Saw it last night."
+  },
+  {
+   "id": "L0092",
+   "start": 389.8,
+   "end": 393.8,
+   "speaker": "S1",
+   "text": "Sixteen hours from the thirtieth of November. That's important, I'm writing that down."
+  },
+  {
+   "id": "L0093",
+   "start": 394.7,
+   "end": 398.8,
+   "speaker": "S1",
+   "text": "What do you actually want out of this? In order, if you can."
+  },
+  {
+   "id": "L0094",
+   "start": 399.7,
+   "end": 403.7,
+   "speaker": "S3",
+   "text": "I mean, she wants the money, that's the main thing, she's lost hundreds."
+  },
+  {
+   "id": "L0095",
+   "start": 404.0,
+   "end": 411.1,
+   "speaker": "S2",
+   "text": "No, Cal, honestly, the main thing is my hours back. And my senior shifts, my meds. I can't live on sixteen hours."
+  },
+  {
+   "id": "L0096",
+   "start": 412.3,
+   "end": 418.4,
+   "speaker": "S2",
+   "text": "Money's second. And third, I want someone to look at the charts properly. That's why I said anything."
+  },
+  {
+   "id": "L0097",
+   "start": 419.3,
+   "end": 422.8,
+   "speaker": "S1",
+   "text": "So hours and role first, money second, concerns investigated third."
+  },
+  {
+   "id": "L0098",
+   "start": 423.3,
+   "end": 427.0,
+   "speaker": "S1",
+   "text": "If they offered your hours back tomorrow, would you still pursue the money?"
+  },
+  {
+   "id": "L0099",
+   "start": 427.8,
+   "end": 436.0,
+   "speaker": "S2",
+   "text": "Maybe I'd just let it go. No. Actually, I'd still want it back, it's my money. I don't know. I'd have to think."
+  },
+  {
+   "id": "L0100",
+   "start": 436.8,
+   "end": 439.2,
+   "speaker": "S1",
+   "text": "That's fine, you don't have to decide today."
+  },
+  {
+   "id": "L0101",
+   "start": 439.6,
+   "end": 446.1,
+   "speaker": "S3",
+   "text": "It's not just Megan. Femi Adei Emi on nights, he told Megan that Rob Ellery knew about the two carers on nights months ago."
+  },
+  {
+   "id": "L0102",
+   "start": 446.6,
+   "end": 448.0,
+   "speaker": "S1",
+   "text": "Megan, is that right?"
+  },
+  {
+   "id": "L0103",
+   "start": 448.8,
+   "end": 456.0,
+   "speaker": "S2",
+   "text": "Yeah, he said Rob was told at a meeting in the summer. I wasn't there, I don't know what was said."
+  },
+  {
+   "id": "L0104",
+   "start": 456.8,
+   "end": 459.8,
+   "speaker": "S1",
+   "text": "Okay. That's Femi's account, it's second-hand, we'd be careful with it."
+  },
+  {
+   "id": "L0105",
+   "start": 460.8,
+   "end": 465.2,
+   "speaker": "S2",
+   "text": "Should I go to CQC? I've thought about ringing them. I haven't, though."
+  },
+  {
+   "id": "L0106",
+   "start": 465.9,
+   "end": 472.8,
+   "speaker": "S1",
+   "text": "That's your decision. If you did contact CQC, that would also be a protected disclosure. But I'm not telling you to."
+  },
+  {
+   "id": "L0107",
+   "start": 473.4,
+   "end": 479.6,
+   "speaker": "S2",
+   "text": "I'll think about it. Not yet. I don't want it to look like I'm getting back at them."
+  },
+  {
+   "id": "L0108",
+   "start": 480.7,
+   "end": 485.4,
+   "speaker": "S3",
+   "text": "Honestly, I'd go to the Gazette. Local paper. They'd love a care home story."
+  },
+  {
+   "id": "L0109",
+   "start": 486.3,
+   "end": 492.1,
+   "speaker": "S2",
+   "text": "No. I don't want that. The families would see it. I don't want my name in the paper."
+  },
+  {
+   "id": "L0110",
+   "start": 493.2,
+   "end": 499.7,
+   "speaker": "S1",
+   "text": "I'd agree with Megan. Going to the press is very different legally, I wouldn't recommend it at this stage."
+  },
+  {
+   "id": "L0111",
+   "start": 500.4,
+   "end": 501.9,
+   "speaker": "S3",
+   "text": "Fair enough. Just a thought."
+  },
+  {
+   "id": "L0112",
+   "start": 502.7,
+   "end": 504.9,
+   "speaker": "S1",
+   "text": "Right. Documents. What have you got?"
+  },
+  {
+   "id": "L0113",
+   "start": 505.6,
+   "end": 510.9,
+   "speaker": "S2",
+   "text": "Payslips, September and October. The holiday screenshot. The email, printed. And photos of the rotas."
+  },
+  {
+   "id": "L0114",
+   "start": 511.2,
+   "end": 515.8,
+   "speaker": "S2",
+   "text": "And, um, I took a photo of the MAR chart. On my phone. Is that bad?"
+  },
+  {
+   "id": "L0115",
+   "start": 516.5,
+   "end": 523.0,
+   "speaker": "S1",
+   "text": "Don't send that photo to anyone. Not Callum, not anyone, it's resident data. Don't delete it either, just keep it."
+  },
+  {
+   "id": "L0116",
+   "start": 524.2,
+   "end": 526.0,
+   "speaker": "S3",
+   "text": "Fair enough, I don't need it."
+  },
+  {
+   "id": "L0117",
+   "start": 527.1,
+   "end": 528.8,
+   "speaker": "S2",
+   "text": "Okay. I won't send it."
+  },
+  {
+   "id": "L0118",
+   "start": 529.9,
+   "end": 531.8,
+   "speaker": "S1",
+   "text": "Any training agreement, any policy on deductions?"
+  },
+  {
+   "id": "L0119",
+   "start": 532.6,
+   "end": 536.6,
+   "speaker": "S2",
+   "text": "No. There's a handbook on the app, I can screenshot the holiday and pay bits."
+  },
+  {
+   "id": "L0120",
+   "start": 537.7,
+   "end": 541.3,
+   "speaker": "S1",
+   "text": "Please do. Can you get me everything electronic by Friday the twenty-seventh?"
+  },
+  {
+   "id": "L0121",
+   "start": 542.1,
+   "end": 543.4,
+   "speaker": "S2",
+   "text": "Yeah, I'm off Friday."
+  },
+  {
+   "id": "L0122",
+   "start": 544.0,
+   "end": 547.2,
+   "speaker": "S1",
+   "text": "Oh, and is the address on your form current?"
+  },
+  {
+   "id": "L0123",
+   "start": 548.0,
+   "end": 554.2,
+   "speaker": "S2",
+   "text": "Oh, no, I moved on the first of November. Can you just email me? Don't post anything to the old place."
+  },
+  {
+   "id": "L0124",
+   "start": 555.4,
+   "end": 558.9,
+   "speaker": "S1",
+   "text": "Email only, noted. Send me the new address anyway, for the file."
+  },
+  {
+   "id": "L0125",
+   "start": 560.1,
+   "end": 560.7,
+   "speaker": "S2",
+   "text": "Will do."
+  },
+  {
+   "id": "L0126",
+   "start": 561.7,
+   "end": 565.2,
+   "speaker": "S1",
+   "text": "Okay. Let me tell you where I think we are."
+  },
+  {
+   "id": "L0127",
+   "start": 565.6,
+   "end": 575.5,
+   "speaker": "S1",
+   "text": "There look to be two possible claims. Unlawful deduction from wages, for the holiday and training deductions. And whistleblowing detriment, for the hours and taking you off meds."
+  },
+  {
+   "id": "L0128",
+   "start": 576.5,
+   "end": 579.3,
+   "speaker": "S3",
+   "text": "So what are her chances? Ballpark. Seventy, eighty percent?"
+  },
+  {
+   "id": "L0129",
+   "start": 579.7,
+   "end": 585.0,
+   "speaker": "S1",
+   "text": "I'm not putting a percentage on it, Callum. I haven't seen a single document from their side."
+  },
+  {
+   "id": "L0130",
+   "start": 586.1,
+   "end": 587.8,
+   "speaker": "S2",
+   "text": "And what's it worth? Roughly?"
+  },
+  {
+   "id": "L0131",
+   "start": 588.3,
+   "end": 593.8,
+   "speaker": "S1",
+   "text": "Honestly, I can't give you a figure yet. It depends on things we don't know. I'd be guessing."
+  },
+  {
+   "id": "L0132",
+   "start": 594.9,
+   "end": 600.5,
+   "speaker": "S1",
+   "text": "What I can tell you is the time limit, and that's the most important thing today."
+  },
+  {
+   "id": "L0133",
+   "start": 601.6,
+   "end": 609.8,
+   "speaker": "S1",
+   "text": "Before a tribunal claim you must start ACAS early conciliation. The deadline is three months less one day from the act you're complaining about."
+  },
+  {
+   "id": "L0134",
+   "start": 610.7,
+   "end": 618.5,
+   "speaker": "S3",
+   "text": "Right, but that doesn't start till the grievance is finished, does it? We usually wait for the outcome, then go to ACAS."
+  },
+  {
+   "id": "L0135",
+   "start": 619.6,
+   "end": 625.4,
+   "speaker": "S1",
+   "text": "No. Sorry, Callum, that's not right. The grievance doesn't stop the clock. Waiting for the outcome is how people lose claims."
+  },
+  {
+   "id": "L0136",
+   "start": 626.0,
+   "end": 627.9,
+   "speaker": "S3",
+   "text": "Oh. I've always been told it pauses."
+  },
+  {
+   "id": "L0137",
+   "start": 628.2,
+   "end": 637.5,
+   "speaker": "S1",
+   "text": "It doesn't. The earliest deduction was in the pay on the thirtieth of September. Three months less a day from that is Tuesday the twenty-ninth of December twenty twenty-six."
+  },
+  {
+   "id": "L0138",
+   "start": 638.4,
+   "end": 644.1,
+   "speaker": "S1",
+   "text": "So ACAS must be contacted by the twenty-ninth of December at the very latest. Megan, write that down."
+  },
+  {
+   "id": "L0139",
+   "start": 644.5,
+   "end": 646.1,
+   "speaker": "S2",
+   "text": "Twenty-ninth of December. That's Christmas, basically."
+  },
+  {
+   "id": "L0140",
+   "start": 647.2,
+   "end": 653.7,
+   "speaker": "S1",
+   "text": "Exactly, so I don't want to go near it. I want to notify ACAS by Friday the fourth of December."
+  },
+  {
+   "id": "L0141",
+   "start": 654.4,
+   "end": 661.4,
+   "speaker": "S3",
+   "text": "But if it's a series of deductions, can't you run it from the October one? Then you've got till end of January."
+  },
+  {
+   "id": "L0142",
+   "start": 662.4,
+   "end": 670.7,
+   "speaker": "S1",
+   "text": "You might argue that, if a tribunal accepted it was a series. But I wouldn't rely on it. We work to the twenty-ninth of December."
+  },
+  {
+   "id": "L0143",
+   "start": 671.6,
+   "end": 672.2,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0144",
+   "start": 673.4,
+   "end": 679.8,
+   "speaker": "S1",
+   "text": "The hours cut from the fifth of October is later anyway, so one ACAS notification by the fourth covers everything."
+  },
+  {
+   "id": "L0145",
+   "start": 680.8,
+   "end": 685.2,
+   "speaker": "S3",
+   "text": "Would it be cleaner if she just resigned? Constructive dismissal. Then it's all one claim."
+  },
+  {
+   "id": "L0146",
+   "start": 686.3,
+   "end": 692.5,
+   "speaker": "S1",
+   "text": "I'd strongly advise against that. Megan, please don't resign. You're still employed, still being paid, and resigning makes everything riskier."
+  },
+  {
+   "id": "L0147",
+   "start": 692.9,
+   "end": 696.4,
+   "speaker": "S2",
+   "text": "I wasn't going to. I like my job. I like my residents."
+  },
+  {
+   "id": "L0148",
+   "start": 697.2,
+   "end": 706.4,
+   "speaker": "S1",
+   "text": "If they did dismiss you, and I'm not saying they will, that could be automatically unfair if it was because of the disclosure. But that's not where we are."
+  },
+  {
+   "id": "L0149",
+   "start": 707.3,
+   "end": 707.9,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0150",
+   "start": 708.9,
+   "end": 714.1,
+   "speaker": "S1",
+   "text": "Meanwhile, keep doing your shifts and keep a diary. Every rota change, every conversation with Denise."
+  },
+  {
+   "id": "L0151",
+   "start": 714.6,
+   "end": 715.9,
+   "speaker": "S3",
+   "text": "I've told her that."
+  },
+  {
+   "id": "L0152",
+   "start": 716.3,
+   "end": 721.2,
+   "speaker": "S1",
+   "text": "Good. And ask Shauna if she'd be willing to talk to me. Just ask, don't go into detail."
+  },
+  {
+   "id": "L0153",
+   "start": 722.2,
+   "end": 724.6,
+   "speaker": "S2",
+   "text": "I'll ask her. Not at work, though."
+  },
+  {
+   "id": "L0154",
+   "start": 725.3,
+   "end": 729.0,
+   "speaker": "S1",
+   "text": "No, text her. Leave Femi for now, let's see what Shauna says first."
+  },
+  {
+   "id": "L0155",
+   "start": 729.4,
+   "end": 732.9,
+   "speaker": "S1",
+   "text": "Callum, on funding. Is Megan covered by the union's legal scheme?"
+  },
+  {
+   "id": "L0156",
+   "start": 733.9,
+   "end": 740.2,
+   "speaker": "S3",
+   "text": "Honestly, she only joined in October. There's sometimes a rule about problems from before joining. I'll check with regional."
+  },
+  {
+   "id": "L0157",
+   "start": 741.0,
+   "end": 742.8,
+   "speaker": "S1",
+   "text": "So that's not confirmed either way."
+  },
+  {
+   "id": "L0158",
+   "start": 743.3,
+   "end": 746.6,
+   "speaker": "S3",
+   "text": "No. I'll ring them and let you know by Monday."
+  },
+  {
+   "id": "L0159",
+   "start": 747.7,
+   "end": 753.5,
+   "speaker": "S1",
+   "text": "Monday the thirtieth, thanks. Megan, if the union can't help, check for legal expenses cover on your home insurance."
+  },
+  {
+   "id": "L0160",
+   "start": 754.3,
+   "end": 757.4,
+   "speaker": "S2",
+   "text": "I'll look. I think it's with the contents one."
+  },
+  {
+   "id": "L0161",
+   "start": 758.1,
+   "end": 764.8,
+   "speaker": "S1",
+   "text": "So, next steps. Megan, documents to me by Friday the twenty-seventh, plus the new address. And start the diary."
+  },
+  {
+   "id": "L0162",
+   "start": 765.7,
+   "end": 768.5,
+   "speaker": "S1",
+   "text": "Callum, the union scheme by Monday the thirtieth."
+  },
+  {
+   "id": "L0163",
+   "start": 769.6,
+   "end": 778.3,
+   "speaker": "S1",
+   "text": "I'll send a letter confirming today's advice with a draft ACAS form by Wednesday the second. You check it, I submit by Friday the fourth of December."
+  },
+  {
+   "id": "L0164",
+   "start": 778.6,
+   "end": 779.8,
+   "speaker": "S2",
+   "text": "Okay. Wednesday, then Friday."
+  },
+  {
+   "id": "L0165",
+   "start": 780.8,
+   "end": 785.8,
+   "speaker": "S1",
+   "text": "If Brightmere sends you anything, a grievance date, anything to sign, send it to me before you reply."
+  },
+  {
+   "id": "L0166",
+   "start": 786.2,
+   "end": 788.1,
+   "speaker": "S2",
+   "text": "I will. I won't sign anything."
+  },
+  {
+   "id": "L0167",
+   "start": 788.5,
+   "end": 790.4,
+   "speaker": "S1",
+   "text": "Anything else you wanted to ask?"
+  },
+  {
+   "id": "L0168",
+   "start": 791.2,
+   "end": 795.1,
+   "speaker": "S2",
+   "text": "No, I think that's it. Thank you. I feel a bit less mad, honestly."
+  },
+  {
+   "id": "L0169",
+   "start": 795.9,
+   "end": 801.5,
+   "speaker": "S1",
+   "text": "You're not mad. There are real questions here. But no promises until we see their side."
+  },
+  {
+   "id": "L0170",
+   "start": 801.8,
+   "end": 804.1,
+   "speaker": "S3",
+   "text": "Thanks, Priya. I'll stop telling people it pauses."
+  },
+  {
+   "id": "L0171",
+   "start": 805.3,
+   "end": 810.8,
+   "speaker": "S1",
+   "text": "Ha, please do. I'll walk you down. Mind the step by the lift. Stopping the recording now."
+  }
+ ],
+ "facts": [
+  {
+   "id": "F01",
+   "fact": "Megan Farrell is a senior care assistant at Willowbank House care home, run by Brightmere Care Ltd; she started as a carer in March 2021, became senior in 2023, and is still employed (she has not resigned or been dismissed).",
+   "lines": [
+    "L0013",
+    "L0015",
+    "L0017"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F02",
+   "fact": "Her contract is 37.5 hours a week at £12.85 an hour (rate since April).",
+   "lines": [
+    "L0023",
+    "L0024"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F03",
+   "fact": "On Friday 4 September 2026 she emailed the registered manager, Denise Hartigan, from her work email (forwarded to her personal email the same day), raising (a) that the room 14 resident's medication was signed as given on the MAR chart for three days while he was in hospital from 28 August, which she saw herself, and (b) night staffing of two carers for 38 residents.",
+   "lines": [
+    "L0027",
+    "L0028",
+    "L0032",
+    "L0035",
+    "L0037",
+    "L0040"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F04",
+   "fact": "From Monday 5 October 2026 her hours were cut from 37.5 to 24 a week and she was taken off medication rounds/senior shifts; the only reason given was verbal ('operational needs'), nothing in writing.",
+   "lines": [
+    "L0048",
+    "L0050",
+    "L0052"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F05",
+   "fact": "The rota from Monday 30 November 2026 cuts her further to 16 hours a week.",
+   "lines": [
+    "L0091",
+    "L0092"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F06",
+   "fact": "Her approved holiday of 14-18 September 2026 was treated as unpaid leave in the pay of 30 September, with £481.88 deducted; payroll (Lorraine) said only that it was 'as instructed by the home'.",
+   "lines": [
+    "L0061",
+    "L0062",
+    "L0064",
+    "L0066",
+    "L0068"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F07",
+   "fact": "Her October pay (30 October 2026) had a £420 'training cost recovery' deduction for the level 3 medication course she was put on in February.",
+   "lines": [
+    "L0070",
+    "L0071",
+    "L0072",
+    "L0075"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F08",
+   "fact": "She raised a grievance on 9 November 2026 (sent to Denise Hartigan, copied to area manager Rob Ellery); it has only been acknowledged.",
+   "lines": [
+    "L0086",
+    "L0087",
+    "L0089"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F09",
+   "fact": "Documents she has: September and October payslips, screenshot of the holiday approval, the printed 4 September email, photos of rotas, and her original carer contract; she does not have the senior contract or any training agreement; she will screenshot the handbook's holiday and pay sections and send everything electronically by Friday 27 November.",
+   "lines": [
+    "L0113",
+    "L0080",
+    "L0118",
+    "L0119",
+    "L0120"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F10",
+   "fact": "She has a photo of the MAR chart on her phone; she was told not to send it to anyone (including Callum) because it is resident data, and not to delete it.",
+   "lines": [
+    "L0114",
+    "L0115"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F11",
+   "fact": "She moved on 1 November 2026; correspondence by email only, not post, and she will send the new address for the file.",
+   "lines": [
+    "L0123",
+    "L0124"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F12",
+   "fact": "Her objectives in order: (1) her hours and senior/medication role back, (2) the deducted money back, (3) the MAR chart concerns properly investigated.",
+   "lines": [
+    "L0095",
+    "L0096",
+    "L0097"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F13",
+   "fact": "Advice: there appear to be two possible claims, unlawful deduction from wages (holiday and training deductions) and whistleblowing detriment (hours cut and removal from medication duties).",
+   "lines": [
+    "L0127"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F14",
+   "fact": "Advice on time limits: ACAS early conciliation must be started within three months less one day; the grievance does not stop the clock; counting from the 30 September deduction the latest date is Tuesday 29 December 2026, and Priya aims to notify ACAS by Friday 4 December 2026.",
+   "lines": [
+    "L0133",
+    "L0135",
+    "L0137",
+    "L0138",
+    "L0140"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F15",
+   "fact": "Advice: do not resign; keep working and keep a diary of rota changes and conversations with Denise; send anything from Brightmere to Priya before replying and sign nothing.",
+   "lines": [
+    "L0146",
+    "L0150",
+    "L0165"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F16",
+   "fact": "Next steps: Megan to send documents and new address by Fri 27 Nov, ask Shauna Price (by text, not at work) whether she would talk to Priya, and check home insurance for legal expenses cover; Callum to check union legal scheme cover by Mon 30 Nov; Priya to send an advice letter and draft ACAS form by Wed 2 Dec and submit to ACAS by Fri 4 Dec.",
+   "lines": [
+    "L0152",
+    "L0154",
+    "L0159",
+    "L0161",
+    "L0162",
+    "L0163"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F17",
+   "fact": "Megan only joined the union in October 2026, so union legal cover may be excluded for a pre-existing problem; Callum is checking.",
+   "lines": [
+    "L0156"
+   ],
+   "omission": true
+  }
+ ],
+ "traps": [
+  {
+   "id": "T01",
+   "kind": "negation",
+   "must_not_claim": "Megan signed a training agreement or contract clause agreeing to repay training costs.",
+   "lines": [
+    "L0076",
+    "L0077"
+   ],
+   "note": "She said she never signed anything about repaying training costs and was never told she would have to."
+  },
+  {
+   "id": "T02",
+   "kind": "negation",
+   "must_not_claim": "Megan had previously received a warning, been through a disciplinary, or made a medication error.",
+   "lines": [
+    "L0045",
+    "L0046"
+   ],
+   "note": "She has had no warnings, no disciplinary and no medication error in five years."
+  },
+  {
+   "id": "T03",
+   "kind": "negation",
+   "must_not_claim": "Denise Hartigan replied in writing to Megan's 4 September email.",
+   "lines": [
+    "L0041",
+    "L0042",
+    "L0043"
+   ],
+   "note": "Denise only said 'got your email' verbally in a corridor; there was no written reply."
+  },
+  {
+   "id": "T04",
+   "kind": "hypothetical",
+   "must_not_claim": "Megan has decided to report (or has reported) her concerns to the CQC.",
+   "lines": [
+    "L0105",
+    "L0106",
+    "L0107"
+   ],
+   "note": "Contacting CQC was floated as a possibility; she has not done so and has not decided to."
+  },
+  {
+   "id": "T05",
+   "kind": "hypothetical",
+   "must_not_claim": "Megan has a claim for automatically unfair dismissal.",
+   "lines": [
+    "L0015",
+    "L0148"
+   ],
+   "note": "She has not been dismissed; Priya only said a dismissal could be automatically unfair if it happened, and said that is not where they are."
+  },
+  {
+   "id": "T06",
+   "kind": "hypothetical",
+   "must_not_claim": "Megan would drop her money claim if her hours were restored.",
+   "lines": [
+    "L0098",
+    "L0099",
+    "L0100"
+   ],
+   "note": "She wavered, then said she would still want the money back but was undecided; nothing was decided."
+  },
+  {
+   "id": "T07",
+   "kind": "hypothetical",
+   "must_not_claim": "The deadline for contacting ACAS is the end of January 2027.",
+   "lines": [
+    "L0141",
+    "L0142"
+   ],
+   "note": "Callum floated a 'series' argument running to January; Priya said not to rely on it and to work to 29 December 2026."
+  },
+  {
+   "id": "T08",
+   "kind": "hearsay",
+   "must_not_claim": "Denise Hartigan called Megan a troublemaker and said to cut her hours.",
+   "lines": [
+    "L0055",
+    "L0057"
+   ],
+   "note": "This is Shauna Price's account relayed by Megan, who was not present; it must be attributed to Shauna, not stated as fact."
+  },
+  {
+   "id": "T09",
+   "kind": "hearsay",
+   "must_not_claim": "Megan is the only employee who has had a training-cost deduction.",
+   "lines": [
+    "L0082",
+    "L0084"
+   ],
+   "note": "Only Lorraine in payroll's phone remark, and Megan herself doubts she can verify it."
+  },
+  {
+   "id": "T10",
+   "kind": "hearsay",
+   "must_not_claim": "The area manager Rob Ellery knew about the night staffing levels months ago.",
+   "lines": [
+    "L0101",
+    "L0103",
+    "L0104"
+   ],
+   "note": "Femi's report relayed via Callum and Megan; Megan was not at the meeting and Priya flagged it as second-hand."
+  },
+  {
+   "id": "T11",
+   "kind": "corrected",
+   "must_not_claim": "Megan's hourly rate is £12.60.",
+   "lines": [
+    "L0023",
+    "L0024"
+   ],
+   "note": "She corrected it: £12.85 since April; £12.60 was last year's rate."
+  },
+  {
+   "id": "T12",
+   "kind": "corrected",
+   "must_not_claim": "Megan sent her concerns email on Wednesday 2 September 2026.",
+   "lines": [
+    "L0034",
+    "L0035"
+   ],
+   "note": "She corrected the date to Friday 4 September 2026."
+  },
+  {
+   "id": "T13",
+   "kind": "corrected",
+   "must_not_claim": "The October training cost deduction was £240.",
+   "lines": [
+    "L0070",
+    "L0071"
+   ],
+   "note": "She corrected it to £420."
+  },
+  {
+   "id": "T14",
+   "kind": "not_said",
+   "must_not_claim": "The solicitor assessed Megan's prospects of success (as good, or as a percentage such as 70-80%).",
+   "lines": [
+    "L0128",
+    "L0129"
+   ],
+   "note": "Callum offered 70-80%; Priya declined to give any assessment of prospects."
+  },
+  {
+   "id": "T15",
+   "kind": "not_said",
+   "must_not_claim": "The solicitor gave an estimate of how much the claim is worth.",
+   "lines": [
+    "L0130",
+    "L0131"
+   ],
+   "note": "Priya expressly declined to give any value or figure."
+  },
+  {
+   "id": "T16",
+   "kind": "not_said",
+   "must_not_claim": "A grievance hearing date has been set.",
+   "lines": [
+    "L0088",
+    "L0089",
+    "L0090"
+   ],
+   "note": "The grievance has only been acknowledged; no date has been set."
+  },
+  {
+   "id": "T17",
+   "kind": "not_said",
+   "must_not_claim": "The union has agreed to fund Megan's legal costs.",
+   "lines": [
+    "L0155",
+    "L0156",
+    "L0157"
+   ],
+   "note": "Union cover is unconfirmed; Callum will check with the regional office by 30 November."
+  },
+  {
+   "id": "T18",
+   "kind": "speaker_attribution",
+   "must_not_claim": "The solicitor advised waiting for the grievance outcome before contacting ACAS.",
+   "lines": [
+    "L0134",
+    "L0135"
+   ],
+   "note": "Waiting was Callum's suggestion; Priya rejected it and said the grievance does not pause the time limit."
+  },
+  {
+   "id": "T19",
+   "kind": "speaker_attribution",
+   "must_not_claim": "The solicitor advised Megan to resign and claim constructive dismissal.",
+   "lines": [
+    "L0145",
+    "L0146",
+    "L0147"
+   ],
+   "note": "Resignation was Callum's suggestion; Priya strongly advised against it and Megan does not want to resign."
+  },
+  {
+   "id": "T20",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Megan wants to take her concerns to the local press.",
+   "lines": [
+    "L0108",
+    "L0109",
+    "L0110"
+   ],
+   "note": "Going to the paper was Callum's idea; Megan refused and Priya agreed with her."
+  },
+  {
+   "id": "T21",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Megan's main objective is getting her money back.",
+   "lines": [
+    "L0094",
+    "L0095",
+    "L0096"
+   ],
+   "note": "Callum said money was the main thing; Megan corrected him: her hours and role come first, money second."
+  }
+ ]
+}

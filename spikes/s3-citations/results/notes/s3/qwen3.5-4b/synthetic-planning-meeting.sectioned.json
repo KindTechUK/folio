@@ -1,0 +1,396 @@
+{
+ "sections": [
+  {
+   "title": "Summary",
+   "sentences": [
+    {
+     "text": "The meeting was a Child in Need review for the Haddon family, held on Tuesday, 24th November.",
+     "cites": [
+      10
+     ]
+    },
+    {
+     "text": "The family consists of Leanne (mother), Tyler (8 years old, Year Four), and Amelia (7 months old).",
+     "cites": [
+      14
+     ]
+    },
+    {
+     "text": "Leanne sent apologies; Amelia had a GP appointment that morning and requested that information not be passed to her mother, Sandra.",
+     "cites": [
+      15,
+      16
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Discussion",
+   "sentences": [
+    {
+     "text": "Tyler's attendance for the current term is 84%, which is below the target of 80%.",
+     "cites": [
+      21,
+      22
+     ]
+    },
+    {
+     "text": "Tyler's lateness is mostly Mondays, often rolling in at quarter past or half past nine.",
+     "cites": [
+      23
+     ]
+    },
+    {
+     "text": "Tyler stated he must prepare Amelia's bottles in the morning before he can go to school.",
+     "cites": [
+      25
+     ]
+    },
+    {
+     "text": "A lunchtime supervisor reported second-hand that Jordan (Amelia's father/ex-partner) has been dropping Tyler off at the gate on a couple of mornings.",
+     "cites": [
+      41,
+      43
+     ]
+    },
+    {
+     "text": "Leanne's mother, Sandra, called the health visitor (Ruth Lindqvist) last Wednesday to tell her that Leanne has stopped taking her sertraline.",
+     "cites": [
+      57,
+      58
+     ]
+    },
+    {
+     "text": "Amelia is tracking on the 25th centile for weight and has no faltering growth.",
+     "cites": [
+      46,
+      47
+     ]
+    },
+    {
+     "text": "Amelia has had a cough for approximately three weeks and sleeps in the back bedroom which has mould on the wall behind the cot.",
+     "cites": [
+      50,
+      52
+     ]
+    },
+    {
+     "text": "Leanne scored fairly high on the PHQ questionnaire and has a low mood.",
+     "cites": [
+      56
+     ]
+    },
+    {
+     "text": "Leanne stopped taking her sertraline (confirmed by Sandra, but not verified by Leanne or the GP).",
+     "cites": [
+      59
+     ]
+    },
+    {
+     "text": "Leanne has not been in contact with Jordan since he left in June, and there have been no police call-outs to the address since June.",
+     "cites": [
+      100,
+      101
+     ]
+    },
+    {
+     "text": "A neighbour made an anonymous complaint about shouting from the flat late at night a couple of weeks ago.",
+     "cites": [
+      94,
+      96
+     ]
+    },
+    {
+     "text": "The family lives in a two-bedroom flat at 22 Ashby Court, second floor.",
+     "cites": [
+      68
+     ]
+    },
+    {
+     "text": "There is damp coming through the external wall of the back bedroom, not just condensation from washing.",
+     "cites": [
+      70,
+      72
+     ]
+    },
+    {
+     "text": "There are no rent arrears; the tenancy is an introductory tenancy reviewed on the 11th of January.",
+     "cites": [
+      91,
+      93
+     ]
+    },
+    {
+     "text": "A housing surveyor is booked for Tuesday, 1st December, to inspect the flat.",
+     "cites": [
+      75
+     ]
+    },
+    {
+     "text": "Leanne is on fortnightly visits with the health visitor; if her weight drops or her chest condition worsens, visits would increase to weekly.",
+     "cites": [
+      54
+     ]
+    },
+    {
+     "text": "Leanne's mother, Sandra, lives in a one-bedroom flat with her partner.",
+     "cites": [
+      86
+     ]
+    },
+    {
+     "text": "Leanne has explicitly stated she does not want Sandra involved.",
+     "cites": [
+      87
+     ]
+    },
+    {
+     "text": "Leanne has been clear she has had no contact with Jordan since he left in June.",
+     "cites": [
+      100
+     ]
+    },
+    {
+     "text": "Gareth Pryce (Deputy Head/DSL) expressed a concern that the situation regarding Jordan should be referred to a child protection conference.",
+     "cites": [
+      102
+     ]
+    },
+    {
+     "text": "Hannah Brightwell (Social Worker) stated that the evidence regarding Jordan is second-hand, Leanne denies it, and the police check is clear, so she does not currently see a child\u4fdd\u62a4",
+     "cites": [
+      103,
+      104
+     ]
+    },
+    {
+     "text": "Ruth Lindqvist (Health Visitor) agreed with Hannah that there is no child protection threshold from the health perspective.",
+     "cites": [
+      105
+     ]
+    },
+    {
+     "text": "Gareth Pryce requested that his concern regarding Jordan be noted in the minutes.",
+     "cites": [
+      107
+     ]
+    },
+    {
+     "text": "Hannah Brightwell indicated she would discuss a Clare's Law disclosure for Leanne with her manager.",
+     "cites": [
+      110
+     ]
+    },
+    {
+     "text": "Hannah Brightwell planned to speak to her manager by Thursday and email the team by Monday, 30th.",
+     "cites": [
+      112
+     ]
+    },
+    {
+     "text": "S3 reported that the child is lovely with Amelia and is really attentive.",
+     "cites": [
+      115
+     ]
+    },
+    {
+     "text": "S2 reported that Tyler adores the child and talks about his mum all the time.",
+     "cites": [
+      116
+     ]
+    },
+    {
+     "text": "S2 proposed offering Tyler a free breakfast club place every day starting at 8:00.",
+     "cites": [
+      117
+     ]
+    },
+    {
+     "text": "S3 noted that the breakfast club would help with lates.",
+     "cites": [
+      118
+     ]
+    },
+    {
+     "text": "S2 stated that Tyler gets fed at the breakfast club.",
+     "cites": [
+      119
+     ]
+    },
+    {
+     "text": "S1 reported that she mentioned the breakfast club to Leanne on Thursday and that Leanne is keen.",
+     "cites": [
+      120
+     ]
+    },
+    {
+     "text": "S2 proposed that Tyler start the breakfast club on Monday the thirtieth.",
+     "cites": [
+      121
+     ]
+    },
+    {
+     "text": "S2 suggested that the mum would benefit from a parenting course run by the Family Hub on Wednesdays.",
+     "cites": [
+      122
+     ]
+    },
+    {
+     "text": "S1 reported that Leanne said no to the parenting course, feeling it would imply she is a bad mum.",
+     "cites": [
+      123
+     ]
+    },
+    {
+     "text": "S1 reported that Leanne expressed a wish to attend the stay and play at the Family Hub for Amelia to meet other mums.",
+     "cites": [
+      124
+     ]
+    },
+    {
+     "text": "S3 offered to make the perinatal referral for Amelia via an online form.",
+     "cites": [
+      125
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decisions",
+   "sentences": [
+    {
+     "text": "Ruth Lindqvist agreed to arrange a perinatal mental health referral for Leanne.",
+     "cites": [
+      64
+     ]
+    },
+    {
+     "text": "The perinatal mental health referral is scheduled for Friday, 27th.",
+     "cites": [
+      66
+     ]
+    },
+    {
+     "text": "S1 proposed that S3 refers Leanne and Amelia to the stay and play.",
+     "cites": [
+      138
+     ]
+    },
+    {
+     "text": "S3 confirmed the perinatal referral deadline as Friday.",
+     "cites": [
+      137
+     ]
+    },
+    {
+     "text": "S3 confirmed the stay and play referral deadline as Friday the fourth.",
+     "cites": [
+      139
+     ]
+    },
+    {
+     "text": "S1 proposed that S3 makes the perinatal referral by Friday.",
+     "cites": [
+      136
+     ]
+    },
+    {
+     "text": "S1 proposed that S4 (Darren) acts as the surveyor on Tuesday the first and sends the report.",
+     "cites": [
+      140
+     ]
+    },
+    {
+     "text": "S4 agreed to aim for the survey report within a week of the visit.",
+     "cites": [
+      141
+     ]
+    },
+    {
+     "text": "S1 proposed that S2 (Gareth) sends an attendance breakdown with lates broken down by day.",
+     "cites": [
+      142
+     ]
+    },
+    {
+     "text": "S2 confirmed the attendance breakdown deadline as Friday.",
+     "cites": [
+      143
+     ]
+    },
+    {
+     "text": "S1 proposed that S1 will speak to her manager about Jordan information and the Clare's Law question, and email everyone by Monday the thirtieth.",
+     "cites": [
+      144
+     ]
+    },
+    {
+     "text": "S1 stated that the CAMHS referral was not agreed upon during this meeting.",
+     "cites": [
+      146
+     ]
+    },
+    {
+     "text": "S1 stated that the move to Sandra's is not happening and is not a decision.",
+     "cites": [
+      147,
+      148
+     ]
+    },
+    {
+     "text": "S1 stated that the management move is conditional on the survey results and nothing was agreed on that.",
+     "cites": [
+      150
+     ]
+    },
+    {
+     "text": "S4 confirmed that the management move is Darren's decision, depending on the survey.",
+     "cites": [
+      151
+     ]
+    },
+    {
+     "text": "S1 proposed the next review be held on Tuesday the fifteenth of December at 10:00 at the school.",
+     "cites": [
+      154
+     ]
+    },
+    {
+     "text": "S2 confirmed that the fifteenth is fine and offered to book the room.",
+     "cites": [
+      155
+     ]
+    },
+    {
+     "text": "S4 confirmed they can attend the fifteenth and offered to dial in again.",
+     "cites": [
+      156
+     ]
+    },
+    {
+     "text": "S3 confirmed attendance for the fifteenth.",
+     "cites": [
+      157
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Actions",
+   "sentences": [
+    {
+     "text": "S1 stated that S1 will share the meeting notes with Leanne.",
+     "cites": [
+      158
+     ]
+    },
+    {
+     "text": "S3 stated she would send photos to S1 and S4 today.",
+     "cites": [
+      160
+     ]
+    }
+   ]
+  }
+ ]
+}

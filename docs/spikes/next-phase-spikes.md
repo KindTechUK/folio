@@ -23,7 +23,7 @@
 |---|---|---|---|---|
 | **S1** | Can the existing VAD + Parakeet path keep up **live** on a Windows laptop? | p95 lag ≤ 5 s; CPU ≤ 60% avg; flat memory over 2 h | 2 days | P1 |
 | **S2** | Can a local 3–4B LLM turn a **long transcript (15–90 min)** into a note fast enough on CPU? | 60-min transcript → note ≤ 5 min after stop; peak RAM ≤ 6 GB | 3 days | P2 |
-| **S3** | Can a small model **cite its sources** reliably, and how often does it fabricate? | ≥ 95% of note sentences have valid citations; 0 fabrications in blind review | 3 days | P3 |
+| **S3** | Can a small model **cite its sources** reliably, and how often does it fabricate? | ≥ 95% of note sentences have valid citations; 0 fabrications in blind review | 3 days | P3 — **no-go as specified**: cited lines exist, but only ~7 in 10 sentences are fully supported by them, ~1 in 7 is unsupported (1 in 10 contradicts the transcript) and no cheap flag catches them ([write-up](s3-citations.md)) |
 | **S4** | Does the local model **refuse or soften** safeguarding content? | 0 refusals, 0 softened facts on the sensitive set | 1 day | P2 (social care) |
 | **S5** | Can we **package** llama.cpp + weights without breaking zero-egress or licensing? | Gate green; static build; licence-clean pick; signed pack verifies | 2 days | P2 — **go, with conditions** ([write-up](s5-llm-packaging.md)) |
 | **S6** | Is **crash-safe recording** simple and does "Delete transcript and audio" still purge everything? | ≤ 1 chunk lost on `kill`; full purge | 1 day | P1, assurance |

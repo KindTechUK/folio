@@ -1,0 +1,1698 @@
+{
+ "id": "synthetic-mh-review",
+ "title": "CMHT care coordinator home review (synthetic)",
+ "template": "assessment",
+ "speakers": {
+  "S1": "Care coordinator (Samuel Adeyemi)",
+  "S2": "Hannah Rees",
+  "S3": "Tom Whitfield (partner)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.7,
+   "end": 4.8,
+   "speaker": "S1",
+   "text": "Hiya, Hannah? It's Samuel, from the, uh, the community mental health team."
+  },
+  {
+   "id": "L0002",
+   "start": 5.5,
+   "end": 9.5,
+   "speaker": "S2",
+   "text": "Hi. Yeah, come in. Sorry, the dog's going to go mad."
+  },
+  {
+   "id": "L0003",
+   "start": 10.3,
+   "end": 12.4,
+   "speaker": "S1",
+   "text": "That's fine. Hello. Who's this then?"
+  },
+  {
+   "id": "L0004",
+   "start": 12.9,
+   "end": 15.4,
+   "speaker": "S2",
+   "text": "That's Pip. Pip, down. She just gets excited."
+  },
+  {
+   "id": "L0005",
+   "start": 15.7,
+   "end": 18.1,
+   "speaker": "S1",
+   "text": "She's lovely. Is she a, um, a spaniel?"
+  },
+  {
+   "id": "L0006",
+   "start": 18.6,
+   "end": 21.6,
+   "speaker": "S2",
+   "text": "Cocker spaniel, yeah. Mostly. We're not totally sure about the dad."
+  },
+  {
+   "id": "L0007",
+   "start": 22.1,
+   "end": 24.3,
+   "speaker": "S1",
+   "text": "Ha. Fair enough. Where do you want me?"
+  },
+  {
+   "id": "L0008",
+   "start": 24.6,
+   "end": 28.8,
+   "speaker": "S2",
+   "text": "Anywhere, um, the sofa's fine. Sorry, it's a bit of a state."
+  },
+  {
+   "id": "L0009",
+   "start": 29.6,
+   "end": 31.3,
+   "speaker": "S1",
+   "text": "Don't worry. Is Tom about?"
+  },
+  {
+   "id": "L0010",
+   "start": 32.3,
+   "end": 37.7,
+   "speaker": "S2",
+   "text": "He's upstairs on a work call. He said he'll come down after, if that's, if that's still okay."
+  },
+  {
+   "id": "L0011",
+   "start": 38.2,
+   "end": 41.4,
+   "speaker": "S1",
+   "text": "Yeah, of course, as long as you're happy for him to join."
+  },
+  {
+   "id": "L0012",
+   "start": 42.5,
+   "end": 45.6,
+   "speaker": "S2",
+   "text": "Yeah. Yeah, I am. For some of it anyway."
+  },
+  {
+   "id": "L0013",
+   "start": 46.7,
+   "end": 53.0,
+   "speaker": "S1",
+   "text": "Okay, we'll play that by ear. So today's your care review. It's been about six weeks since I last saw you?"
+  },
+  {
+   "id": "L0014",
+   "start": 53.6,
+   "end": 56.5,
+   "speaker": "S2",
+   "text": "Something like that. It was before Bonfire Night, I think."
+  },
+  {
+   "id": "L0015",
+   "start": 57.6,
+   "end": 66.0,
+   "speaker": "S1",
+   "text": "Yeah. So I want to go through how things have been, medication, sleep, work, and then, uh, your safety plan and what happens next."
+  },
+  {
+   "id": "L0016",
+   "start": 66.7,
+   "end": 67.3,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0017",
+   "start": 68.4,
+   "end": 74.5,
+   "speaker": "S1",
+   "text": "And as always it's confidential, unless I'm worried about your safety, and then I'd talk to you first."
+  },
+  {
+   "id": "L0018",
+   "start": 75.3,
+   "end": 77.5,
+   "speaker": "S2",
+   "text": "Yeah, I know. You say that every time."
+  },
+  {
+   "id": "L0019",
+   "start": 78.0,
+   "end": 81.1,
+   "speaker": "S1",
+   "text": "I do, I know. Sorry. So, how have things been?"
+  },
+  {
+   "id": "L0020",
+   "start": 82.1,
+   "end": 86.2,
+   "speaker": "S2",
+   "text": "Honestly? Not great. It's been, um. It's been going downhill since about September really."
+  },
+  {
+   "id": "L0021",
+   "start": 87.2,
+   "end": 92.1,
+   "speaker": "S2",
+   "text": "The mood, mostly. Just flat. And the anxiety's come back, the, the panic stuff."
+  },
+  {
+   "id": "L0022",
+   "start": 93.0,
+   "end": 95.2,
+   "speaker": "S1",
+   "text": "The panic attacks you had before?"
+  },
+  {
+   "id": "L0023",
+   "start": 95.6,
+   "end": 102.9,
+   "speaker": "S2",
+   "text": "Yeah. I had one in the supermarket last week. Had to just leave the trolley in the aisle and walk out."
+  },
+  {
+   "id": "L0024",
+   "start": 103.5,
+   "end": 105.9,
+   "speaker": "S1",
+   "text": "That sounds really horrible. How often are they happening?"
+  },
+  {
+   "id": "L0025",
+   "start": 106.8,
+   "end": 110.7,
+   "speaker": "S2",
+   "text": "Two or three a week? Some days it's just, like, a constant hum."
+  },
+  {
+   "id": "L0026",
+   "start": 111.3,
+   "end": 117.9,
+   "speaker": "S1",
+   "text": "Okay. And the low mood, if you had to score it out of ten, where ten's the best you've felt?"
+  },
+  {
+   "id": "L0027",
+   "start": 118.2,
+   "end": 120.5,
+   "speaker": "S2",
+   "text": "Three. Maybe a four on a good day."
+  },
+  {
+   "id": "L0028",
+   "start": 121.5,
+   "end": 124.1,
+   "speaker": "S1",
+   "text": "Okay. And what was it over the summer?"
+  },
+  {
+   "id": "L0029",
+   "start": 124.7,
+   "end": 129.0,
+   "speaker": "S2",
+   "text": "Summer I was a seven, I'd say. I was doing well. That's what's annoying."
+  },
+  {
+   "id": "L0030",
+   "start": 129.5,
+   "end": 134.7,
+   "speaker": "S1",
+   "text": "Yeah. It is. So, medication. Dr Mensah saw you in clinic and changed things, didn't she?"
+  },
+  {
+   "id": "L0031",
+   "start": 135.1,
+   "end": 137.5,
+   "speaker": "S2",
+   "text": "Yeah. She put the sertraline up to two hundred."
+  },
+  {
+   "id": "L0032",
+   "start": 138.5,
+   "end": 141.4,
+   "speaker": "S1",
+   "text": "Two hundred? Let me just check, because I've got, um—"
+  },
+  {
+   "id": "L0033",
+   "start": 141.9,
+   "end": 149.9,
+   "speaker": "S2",
+   "text": "No, sorry, sorry, a hundred and fifty. It was a hundred, and now it's a hundred and fifty. I always get that wrong."
+  },
+  {
+   "id": "L0034",
+   "start": 150.8,
+   "end": 156.4,
+   "speaker": "S1",
+   "text": "A hundred and fifty, yeah, that matches the clinic letter. And when did you start the higher dose?"
+  },
+  {
+   "id": "L0035",
+   "start": 157.6,
+   "end": 162.7,
+   "speaker": "S2",
+   "text": "The third. The third of November. No, wait. It was after the appointment, so the tenth. The tenth."
+  },
+  {
+   "id": "L0036",
+   "start": 163.5,
+   "end": 165.5,
+   "speaker": "S1",
+   "text": "The tenth, okay. So only two weeks."
+  },
+  {
+   "id": "L0037",
+   "start": 166.1,
+   "end": 166.7,
+   "speaker": "S2",
+   "text": "Yeah."
+  },
+  {
+   "id": "L0038",
+   "start": 167.2,
+   "end": 169.8,
+   "speaker": "S1",
+   "text": "And she added something for sleep as well?"
+  },
+  {
+   "id": "L0039",
+   "start": 170.8,
+   "end": 173.7,
+   "speaker": "S2",
+   "text": "The mirta, mirtazapine. The, um, fifteen milligrams, at night."
+  },
+  {
+   "id": "L0040",
+   "start": 174.3,
+   "end": 177.8,
+   "speaker": "S1",
+   "text": "Fifteen at night. How are you getting on with that?"
+  },
+  {
+   "id": "L0041",
+   "start": 179.0,
+   "end": 183.4,
+   "speaker": "S2",
+   "text": "It knocks me out. But I'm still waking at three, half three. Every night."
+  },
+  {
+   "id": "L0042",
+   "start": 183.9,
+   "end": 186.4,
+   "speaker": "S1",
+   "text": "And can you get back off after that?"
+  },
+  {
+   "id": "L0043",
+   "start": 186.9,
+   "end": 192.0,
+   "speaker": "S2",
+   "text": "Not really. I just lie there. Going over work stuff. I'm probably getting four hours, if that."
+  },
+  {
+   "id": "L0044",
+   "start": 193.1,
+   "end": 194.5,
+   "speaker": "S1",
+   "text": "Four hours. Any side effects?"
+  },
+  {
+   "id": "L0045",
+   "start": 195.1,
+   "end": 202.5,
+   "speaker": "S2",
+   "text": "I'm hungrier. Which is, I mean, it's probably not a bad thing, because I'd stopped eating properly and lost about half a stone. Anyway."
+  },
+  {
+   "id": "L0046",
+   "start": 203.1,
+   "end": 205.2,
+   "speaker": "S1",
+   "text": "Okay. Anything else? Feeling sick, headaches?"
+  },
+  {
+   "id": "L0047",
+   "start": 206.0,
+   "end": 208.2,
+   "speaker": "S2",
+   "text": "Bit of a dry mouth. Nothing major."
+  },
+  {
+   "id": "L0048",
+   "start": 208.6,
+   "end": 210.9,
+   "speaker": "S1",
+   "text": "And are you taking them every day?"
+  },
+  {
+   "id": "L0049",
+   "start": 211.3,
+   "end": 215.7,
+   "speaker": "S2",
+   "text": "Yeah. I haven't missed any. Tom does the boxes now anyway, they're in his drawer upstairs."
+  },
+  {
+   "id": "L0050",
+   "start": 216.7,
+   "end": 220.2,
+   "speaker": "S1",
+   "text": "That was from the safety plan, wasn't it, Tom looking after them."
+  },
+  {
+   "id": "L0051",
+   "start": 220.7,
+   "end": 222.1,
+   "speaker": "S2",
+   "text": "Yeah. After last time."
+  },
+  {
+   "id": "L0052",
+   "start": 222.8,
+   "end": 225.5,
+   "speaker": "S1",
+   "text": "Mm. And do you think the medication's helping?"
+  },
+  {
+   "id": "L0053",
+   "start": 226.2,
+   "end": 233.9,
+   "speaker": "S2",
+   "text": "Honestly, it's too early to say. Dr Mensah said give it six weeks and I want to do that. I don't want to chop and change again."
+  },
+  {
+   "id": "L0054",
+   "start": 234.5,
+   "end": 237.0,
+   "speaker": "S1",
+   "text": "That makes sense. So, work. You're still signed off?"
+  },
+  {
+   "id": "L0055",
+   "start": 237.5,
+   "end": 240.6,
+   "speaker": "S2",
+   "text": "Yeah. The GP's signed me off until the fourth of December."
+  },
+  {
+   "id": "L0056",
+   "start": 241.8,
+   "end": 246.3,
+   "speaker": "S2",
+   "text": "No, I tell a lie. It's the eleventh. The eleventh. He did it for four weeks."
+  },
+  {
+   "id": "L0057",
+   "start": 247.5,
+   "end": 253.1,
+   "speaker": "S1",
+   "text": "Eleventh of December, okay. And what's been going on at work? Last time you mentioned the restructure."
+  },
+  {
+   "id": "L0058",
+   "start": 253.7,
+   "end": 259.6,
+   "speaker": "S2",
+   "text": "Yeah. So, um, new manager in August, and they've merged payroll with, with accounts. My workload's basically doubled."
+  },
+  {
+   "id": "L0059",
+   "start": 260.4,
+   "end": 265.9,
+   "speaker": "S2",
+   "text": "And she's just, she's very, she sends emails at eleven at night and expects them done by nine."
+  },
+  {
+   "id": "L0060",
+   "start": 266.5,
+   "end": 268.3,
+   "speaker": "S1",
+   "text": "That's a lot of pressure."
+  },
+  {
+   "id": "L0061",
+   "start": 268.7,
+   "end": 279.3,
+   "speaker": "S2",
+   "text": "It is. And, um, apparently, I mean this is just what Leanne in HR said to me, but apparently my manager's been saying I'm not resilient enough and they'll be looking at my position."
+  },
+  {
+   "id": "L0062",
+   "start": 279.6,
+   "end": 281.1,
+   "speaker": "S1",
+   "text": "That's what Leanne told you?"
+  },
+  {
+   "id": "L0063",
+   "start": 281.6,
+   "end": 286.3,
+   "speaker": "S2",
+   "text": "Yeah. Over a text. I don't know if it's true. Leanne does like a bit of drama."
+  },
+  {
+   "id": "L0064",
+   "start": 287.3,
+   "end": 289.6,
+   "speaker": "S1",
+   "text": "Okay. That must sit heavy, hearing that."
+  },
+  {
+   "id": "L0065",
+   "start": 290.7,
+   "end": 294.1,
+   "speaker": "S2",
+   "text": "It does. It's what I think about at three in the morning."
+  },
+  {
+   "id": "L0066",
+   "start": 295.1,
+   "end": 299.3,
+   "speaker": "S1",
+   "text": "And how do you feel about the job itself, apart from the manager?"
+  },
+  {
+   "id": "L0067",
+   "start": 299.7,
+   "end": 307.9,
+   "speaker": "S2",
+   "text": "I like the job. I've been at Calloway Freight six years. I'm good at it. I want to go back, I just don't want to go back to that."
+  },
+  {
+   "id": "L0068",
+   "start": 308.3,
+   "end": 310.4,
+   "speaker": "S1",
+   "text": "Have they mentioned occupational health at all?"
+  },
+  {
+   "id": "L0069",
+   "start": 311.4,
+   "end": 320.0,
+   "speaker": "S2",
+   "text": "Oh, yeah, there's an occupational health appointment on the second of December, a phone one. Anyway, the thing I was going to say about the manager—"
+  },
+  {
+   "id": "L0070",
+   "start": 320.6,
+   "end": 321.3,
+   "speaker": "S1",
+   "text": "Go on."
+  },
+  {
+   "id": "L0071",
+   "start": 321.8,
+   "end": 329.7,
+   "speaker": "S2",
+   "text": "If they offered me a phased return, like mornings only, I might, I might give it a go. But they haven't offered anything."
+  },
+  {
+   "id": "L0072",
+   "start": 330.8,
+   "end": 333.8,
+   "speaker": "S1",
+   "text": "Okay. That could be something to raise with them, maybe."
+  },
+  {
+   "id": "L0073",
+   "start": 334.7,
+   "end": 335.4,
+   "speaker": "S2",
+   "text": "Yeah, maybe."
+  },
+  {
+   "id": "L0074",
+   "start": 336.0,
+   "end": 341.0,
+   "speaker": "S1",
+   "text": "And day to day, what does a typical day look like at the moment?"
+  },
+  {
+   "id": "L0075",
+   "start": 341.8,
+   "end": 346.5,
+   "speaker": "S2",
+   "text": "Um. I get up when Tom goes, about seven. Walk Pip, because she makes me."
+  },
+  {
+   "id": "L0076",
+   "start": 347.3,
+   "end": 351.9,
+   "speaker": "S2",
+   "text": "Then mostly I'm on the sofa. Some days I don't even get dressed."
+  },
+  {
+   "id": "L0077",
+   "start": 352.6,
+   "end": 354.1,
+   "speaker": "S1",
+   "text": "Are you seeing anybody? Friends?"
+  },
+  {
+   "id": "L0078",
+   "start": 354.6,
+   "end": 360.6,
+   "speaker": "S2",
+   "text": "Not really. I've been avoiding people. My sister rings but I let it go to voicemail half the time."
+  },
+  {
+   "id": "L0079",
+   "start": 361.1,
+   "end": 361.7,
+   "speaker": "S1",
+   "text": "That's Megan?"
+  },
+  {
+   "id": "L0080",
+   "start": 362.6,
+   "end": 363.2,
+   "speaker": "S2",
+   "text": "Megan, yeah."
+  },
+  {
+   "id": "L0081",
+   "start": 364.3,
+   "end": 366.2,
+   "speaker": "S1",
+   "text": "Okay. And alcohol, how's that been?"
+  },
+  {
+   "id": "L0082",
+   "start": 367.0,
+   "end": 371.4,
+   "speaker": "S2",
+   "text": "I have a glass of wine on a Friday. Two maybe. That's it."
+  },
+  {
+   "id": "L0083",
+   "start": 372.4,
+   "end": 374.8,
+   "speaker": "S1",
+   "text": "And anything else, cannabis, anything like that?"
+  },
+  {
+   "id": "L0084",
+   "start": 375.5,
+   "end": 377.7,
+   "speaker": "S2",
+   "text": "No. Never. I've never touched any of that."
+  },
+  {
+   "id": "L0085",
+   "start": 378.2,
+   "end": 380.6,
+   "speaker": "S3",
+   "text": "Hiya, sorry. Sorry, that call went on forever."
+  },
+  {
+   "id": "L0086",
+   "start": 381.2,
+   "end": 385.4,
+   "speaker": "S1",
+   "text": "No worries. Hi Tom. Samuel. We met in the summer, I think."
+  },
+  {
+   "id": "L0087",
+   "start": 386.4,
+   "end": 389.5,
+   "speaker": "S3",
+   "text": "Yeah, we did. Do you want a tea or anything?"
+  },
+  {
+   "id": "L0088",
+   "start": 390.3,
+   "end": 394.4,
+   "speaker": "S1",
+   "text": "I'm fine, thanks. Hannah, are you happy for Tom to sit in for this bit?"
+  },
+  {
+   "id": "L0089",
+   "start": 395.3,
+   "end": 396.3,
+   "speaker": "S2",
+   "text": "Yeah, it's fine."
+  },
+  {
+   "id": "L0090",
+   "start": 397.0,
+   "end": 400.6,
+   "speaker": "S1",
+   "text": "We were just talking about day to day stuff and, um, alcohol actually."
+  },
+  {
+   "id": "L0091",
+   "start": 401.7,
+   "end": 409.3,
+   "speaker": "S3",
+   "text": "Right. Well, I mean, Megan said to me she'd seen loads of empties in our recycling. Like, bottles. She reckons Hannah's drinking every night."
+  },
+  {
+   "id": "L0092",
+   "start": 409.9,
+   "end": 413.9,
+   "speaker": "S2",
+   "text": "That's, oh my god, that's the bottles from your brother's birthday, Tom."
+  },
+  {
+   "id": "L0093",
+   "start": 414.7,
+   "end": 416.5,
+   "speaker": "S3",
+   "text": "I'm just saying what she said."
+  },
+  {
+   "id": "L0094",
+   "start": 417.4,
+   "end": 421.9,
+   "speaker": "S2",
+   "text": "I'm not drinking every night. I've told Samuel, it's a glass on a Friday."
+  },
+  {
+   "id": "L0095",
+   "start": 423.0,
+   "end": 428.2,
+   "speaker": "S1",
+   "text": "Okay. I'll note what Megan said and what you've told me. Tom, have you seen her drinking more yourself?"
+  },
+  {
+   "id": "L0096",
+   "start": 428.8,
+   "end": 432.1,
+   "speaker": "S3",
+   "text": "No, honestly, not really. I just thought I should mention it."
+  },
+  {
+   "id": "L0097",
+   "start": 432.4,
+   "end": 436.3,
+   "speaker": "S1",
+   "text": "That's fine. So Tom, how have you found the last couple of months?"
+  },
+  {
+   "id": "L0098",
+   "start": 437.3,
+   "end": 440.8,
+   "speaker": "S3",
+   "text": "Hard. She's not, she's not herself. I can hear her up at three."
+  },
+  {
+   "id": "L0099",
+   "start": 441.8,
+   "end": 450.0,
+   "speaker": "S3",
+   "text": "And I think the job's doing it. I think she should just pack it in. Hand her notice in and be done with it."
+  },
+  {
+   "id": "L0100",
+   "start": 450.3,
+   "end": 452.2,
+   "speaker": "S2",
+   "text": "I'm not quitting my job, Tom."
+  },
+  {
+   "id": "L0101",
+   "start": 453.0,
+   "end": 454.8,
+   "speaker": "S3",
+   "text": "I know, I know, I'm just—"
+  },
+  {
+   "id": "L0102",
+   "start": 455.5,
+   "end": 458.4,
+   "speaker": "S2",
+   "text": "We've had this. I like my job. It's the manager."
+  },
+  {
+   "id": "L0103",
+   "start": 459.3,
+   "end": 461.3,
+   "speaker": "S3",
+   "text": "Okay. Okay. That's my view, that's all."
+  },
+  {
+   "id": "L0104",
+   "start": 462.2,
+   "end": 466.0,
+   "speaker": "S1",
+   "text": "That's fair, you're allowed different views. Tom, anything else you're worried about?"
+  },
+  {
+   "id": "L0105",
+   "start": 466.3,
+   "end": 474.3,
+   "speaker": "S3",
+   "text": "The tablets. I don't think they're doing anything. Two weeks on the new dose and she's no better. I think she needs something different."
+  },
+  {
+   "id": "L0106",
+   "start": 474.7,
+   "end": 476.8,
+   "speaker": "S2",
+   "text": "It's two weeks. Dr Mensah said six."
+  },
+  {
+   "id": "L0107",
+   "start": 477.3,
+   "end": 478.9,
+   "speaker": "S3",
+   "text": "I know what she said."
+  },
+  {
+   "id": "L0108",
+   "start": 479.5,
+   "end": 493.7,
+   "speaker": "S1",
+   "text": "It can take four to six weeks to really see a difference after an increase. If things aren't better by the next clinic, Dr Mensah might look at a switch, maybe venlafaxine, but that's her call and nothing's been decided."
+  },
+  {
+   "id": "L0109",
+   "start": 494.7,
+   "end": 500.7,
+   "speaker": "S3",
+   "text": "Could it be bipolar or something? My mate's wife had that and it was the same, up and down."
+  },
+  {
+   "id": "L0110",
+   "start": 501.8,
+   "end": 507.8,
+   "speaker": "S1",
+   "text": "That's a fair question to ask. It's not something I can answer, honestly. It'd be one for Dr Mensah to look at."
+  },
+  {
+   "id": "L0111",
+   "start": 508.9,
+   "end": 511.7,
+   "speaker": "S2",
+   "text": "I'm not up and down, though. I'm just down."
+  },
+  {
+   "id": "L0112",
+   "start": 512.5,
+   "end": 517.1,
+   "speaker": "S1",
+   "text": "Okay. I'll put that you raised it, Tom, and we can ask her."
+  },
+  {
+   "id": "L0113",
+   "start": 517.4,
+   "end": 524.3,
+   "speaker": "S1",
+   "text": "So, um, I need to ask about some of the harder stuff now. Is that okay, Hannah? And are you okay with Tom here for it?"
+  },
+  {
+   "id": "L0114",
+   "start": 524.7,
+   "end": 526.3,
+   "speaker": "S2",
+   "text": "Yeah. He knows everything anyway."
+  },
+  {
+   "id": "L0115",
+   "start": 527.5,
+   "end": 531.5,
+   "speaker": "S1",
+   "text": "Okay. So, have you had any thoughts of ending your life, recently?"
+  },
+  {
+   "id": "L0116",
+   "start": 532.1,
+   "end": 535.2,
+   "speaker": "S2",
+   "text": "Um. Not, not like that. Not like last time."
+  },
+  {
+   "id": "L0117",
+   "start": 536.0,
+   "end": 544.9,
+   "speaker": "S2",
+   "text": "Sometimes I think, I wouldn't mind not waking up. Like, if I just didn't wake up, that'd be okay. A few times in the last fortnight maybe."
+  },
+  {
+   "id": "L0118",
+   "start": 546.0,
+   "end": 551.5,
+   "speaker": "S1",
+   "text": "Thank you for telling me that. When you have those thoughts, have you thought about acting on them?"
+  },
+  {
+   "id": "L0119",
+   "start": 551.9,
+   "end": 555.8,
+   "speaker": "S2",
+   "text": "No. No. I haven't got any plans. I'm not going to do anything."
+  },
+  {
+   "id": "L0120",
+   "start": 556.6,
+   "end": 561.8,
+   "speaker": "S1",
+   "text": "Okay. Have you done anything to prepare, looked anything up, saved tablets, anything like that?"
+  },
+  {
+   "id": "L0121",
+   "start": 562.3,
+   "end": 565.8,
+   "speaker": "S2",
+   "text": "No. Nothing like that. And Tom's got the tablets anyway."
+  },
+  {
+   "id": "L0122",
+   "start": 566.6,
+   "end": 569.2,
+   "speaker": "S1",
+   "text": "And any self-harm? Cutting, hurting yourself in any way?"
+  },
+  {
+   "id": "L0123",
+   "start": 569.8,
+   "end": 571.6,
+   "speaker": "S2",
+   "text": "No. Not since the overdose. Nothing."
+  },
+  {
+   "id": "L0124",
+   "start": 572.5,
+   "end": 576.3,
+   "speaker": "S1",
+   "text": "And just for my notes, the overdose was, was it October twenty twenty-three?"
+  },
+  {
+   "id": "L0125",
+   "start": 577.3,
+   "end": 581.4,
+   "speaker": "S2",
+   "text": "Twenty-three, yeah. No, sorry, twenty-four. October twenty-four. It was the October after we moved here."
+  },
+  {
+   "id": "L0126",
+   "start": 582.5,
+   "end": 583.1,
+   "speaker": "S3",
+   "text": "Twenty-four. Yeah."
+  },
+  {
+   "id": "L0127",
+   "start": 584.2,
+   "end": 592.9,
+   "speaker": "S1",
+   "text": "Twenty twenty-four, yeah. And that was paracetamol, you went to A and E, and then the home treatment team came out for about three weeks."
+  },
+  {
+   "id": "L0128",
+   "start": 593.6,
+   "end": 594.2,
+   "speaker": "S2",
+   "text": "Yeah."
+  },
+  {
+   "id": "L0129",
+   "start": 594.8,
+   "end": 597.5,
+   "speaker": "S1",
+   "text": "What's different now from back then, do you think?"
+  },
+  {
+   "id": "L0130",
+   "start": 598.6,
+   "end": 609.1,
+   "speaker": "S2",
+   "text": "Back then I'd stopped talking to anyone. Now I'm talking to you. And there's Pip. And my niece, Megan's little girl, I'm her godmother. I wouldn't do that to her."
+  },
+  {
+   "id": "L0131",
+   "start": 609.8,
+   "end": 613.8,
+   "speaker": "S1",
+   "text": "Those are really important things. And any voices, or seeing things other people don't?"
+  },
+  {
+   "id": "L0132",
+   "start": 614.4,
+   "end": 616.3,
+   "speaker": "S2",
+   "text": "No. Never had anything like that."
+  },
+  {
+   "id": "L0133",
+   "start": 616.6,
+   "end": 618.0,
+   "speaker": "S3",
+   "text": "Can I say something?"
+  },
+  {
+   "id": "L0134",
+   "start": 618.3,
+   "end": 619.0,
+   "speaker": "S1",
+   "text": "Of course."
+  },
+  {
+   "id": "L0135",
+   "start": 619.5,
+   "end": 628.6,
+   "speaker": "S3",
+   "text": "I think she should be in hospital. Or have the, the crisis people come every day, like last time. I'm at work all day, I can't watch her."
+  },
+  {
+   "id": "L0136",
+   "start": 629.7,
+   "end": 635.4,
+   "speaker": "S2",
+   "text": "I don't need hospital, Tom. I don't want that. I'm not where I was last time."
+  },
+  {
+   "id": "L0137",
+   "start": 635.8,
+   "end": 636.7,
+   "speaker": "S3",
+   "text": "I'm just scared."
+  },
+  {
+   "id": "L0138",
+   "start": 637.7,
+   "end": 639.0,
+   "speaker": "S2",
+   "text": "I know you are."
+  },
+  {
+   "id": "L0139",
+   "start": 639.9,
+   "end": 648.2,
+   "speaker": "S1",
+   "text": "That's understandable, Tom. From what Hannah's told me I'm not referring to home treatment right now, but we'll firm up the safety plan."
+  },
+  {
+   "id": "L0140",
+   "start": 648.7,
+   "end": 655.4,
+   "speaker": "S3",
+   "text": "Okay. And, um, I'm away next week as well, that's the other thing. Monday to Thursday, for work, up in Leeds."
+  },
+  {
+   "id": "L0141",
+   "start": 656.2,
+   "end": 659.3,
+   "speaker": "S1",
+   "text": "Right. Is anyone able to be around while you're away?"
+  },
+  {
+   "id": "L0142",
+   "start": 660.2,
+   "end": 664.2,
+   "speaker": "S2",
+   "text": "Megan said I could stay at hers. Maybe. I haven't decided."
+  },
+  {
+   "id": "L0143",
+   "start": 664.6,
+   "end": 669.5,
+   "speaker": "S1",
+   "text": "Okay. Let's put that week in the safety plan then, so there's something in place."
+  },
+  {
+   "id": "L0144",
+   "start": 670.0,
+   "end": 679.1,
+   "speaker": "S1",
+   "text": "So, the safety plan. Warning signs, last time we had, um, not getting out of bed, stopping walking Pip, and going quiet on Tom. Still right?"
+  },
+  {
+   "id": "L0145",
+   "start": 679.5,
+   "end": 682.5,
+   "speaker": "S2",
+   "text": "Yeah. And not answering Megan, I suppose. Which I'm already doing."
+  },
+  {
+   "id": "L0146",
+   "start": 683.0,
+   "end": 687.3,
+   "speaker": "S1",
+   "text": "Okay, we'll add that. And the crisis line number's still on the fridge?"
+  },
+  {
+   "id": "L0147",
+   "start": 688.2,
+   "end": 689.7,
+   "speaker": "S2",
+   "text": "Yeah, it's on the fridge."
+  },
+  {
+   "id": "L0148",
+   "start": 690.2,
+   "end": 691.5,
+   "speaker": "S3",
+   "text": "It's on my phone too."
+  },
+  {
+   "id": "L0149",
+   "start": 692.1,
+   "end": 698.0,
+   "speaker": "S1",
+   "text": "Good. Now, Tom, I wanted to mention, you're entitled to a carer's assessment, in your own right. Is that something you'd want?"
+  },
+  {
+   "id": "L0150",
+   "start": 698.9,
+   "end": 701.8,
+   "speaker": "S3",
+   "text": "Um. I don't know. Maybe. Can I think about it?"
+  },
+  {
+   "id": "L0151",
+   "start": 702.7,
+   "end": 704.7,
+   "speaker": "S1",
+   "text": "Course. I'll leave you the leaflet."
+  },
+  {
+   "id": "L0152",
+   "start": 705.8,
+   "end": 709.8,
+   "speaker": "S3",
+   "text": "Thanks. I'd better, uh, I've got another call at half eleven. Sorry, Hannah."
+  },
+  {
+   "id": "L0153",
+   "start": 710.4,
+   "end": 711.3,
+   "speaker": "S2",
+   "text": "It's fine. Go."
+  },
+  {
+   "id": "L0154",
+   "start": 711.9,
+   "end": 713.4,
+   "speaker": "S3",
+   "text": "Nice to see you, Samuel."
+  },
+  {
+   "id": "L0155",
+   "start": 713.8,
+   "end": 714.7,
+   "speaker": "S1",
+   "text": "You too, Tom."
+  },
+  {
+   "id": "L0156",
+   "start": 715.0,
+   "end": 717.4,
+   "speaker": "S1",
+   "text": "Okay. How are you doing, after all that?"
+  },
+  {
+   "id": "L0157",
+   "start": 718.0,
+   "end": 720.3,
+   "speaker": "S2",
+   "text": "Tired. He means well. He just panics."
+  },
+  {
+   "id": "L0158",
+   "start": 720.7,
+   "end": 728.3,
+   "speaker": "S2",
+   "text": "Can I ask about the therapy? Because my friend Jo, she's under your team as well, she said the wait for psychology is like two years now."
+  },
+  {
+   "id": "L0159",
+   "start": 728.8,
+   "end": 734.0,
+   "speaker": "S1",
+   "text": "I don't know where she got that. It varies a lot and I can't give you a number today."
+  },
+  {
+   "id": "L0160",
+   "start": 734.8,
+   "end": 737.0,
+   "speaker": "S2",
+   "text": "Two years though. I can't wait two years."
+  },
+  {
+   "id": "L0161",
+   "start": 737.5,
+   "end": 740.7,
+   "speaker": "S1",
+   "text": "Let's not assume that. Let's see what they say first."
+  },
+  {
+   "id": "L0162",
+   "start": 741.7,
+   "end": 742.3,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0163",
+   "start": 743.4,
+   "end": 749.2,
+   "speaker": "S1",
+   "text": "Last thing, I was going to do the, the PH Q nine with you today, the mood questionnaire."
+  },
+  {
+   "id": "L0164",
+   "start": 749.7,
+   "end": 751.0,
+   "speaker": "S2",
+   "text": "Oh god, the forms."
+  },
+  {
+   "id": "L0165",
+   "start": 751.7,
+   "end": 756.0,
+   "speaker": "S1",
+   "text": "Ha, I know. Actually, let's leave it, you look shattered. We'll do it next time."
+  },
+  {
+   "id": "L0166",
+   "start": 757.0,
+   "end": 757.7,
+   "speaker": "S2",
+   "text": "Thank you."
+  },
+  {
+   "id": "L0167",
+   "start": 758.5,
+   "end": 764.7,
+   "speaker": "S1",
+   "text": "So, let me just recap what we've agreed. I'm going to do the referral to psychology, and I'll get that done by Friday."
+  },
+  {
+   "id": "L0168",
+   "start": 765.8,
+   "end": 766.4,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0169",
+   "start": 767.3,
+   "end": 773.6,
+   "speaker": "S1",
+   "text": "I'll ring Dr Mensah's secretary to chase your next clinic appointment, because I don't think you've had a date through, have you?"
+  },
+  {
+   "id": "L0170",
+   "start": 774.5,
+   "end": 775.4,
+   "speaker": "S2",
+   "text": "No, nothing yet."
+  },
+  {
+   "id": "L0171",
+   "start": 776.1,
+   "end": 781.9,
+   "speaker": "S1",
+   "text": "I'll update the safety plan with the new warning sign and next week while Tom's away, and drop a copy round."
+  },
+  {
+   "id": "L0172",
+   "start": 782.8,
+   "end": 789.4,
+   "speaker": "S1",
+   "text": "And can you do a sleep diary for me? Bedtime, waking, and how long you're awake in the night."
+  },
+  {
+   "id": "L0173",
+   "start": 790.4,
+   "end": 791.8,
+   "speaker": "S2",
+   "text": "Yeah, I can do that."
+  },
+  {
+   "id": "L0174",
+   "start": 793.0,
+   "end": 797.6,
+   "speaker": "S1",
+   "text": "And I'll come back Tuesday the eighth of December. Same time, ten o'clock?"
+  },
+  {
+   "id": "L0175",
+   "start": 798.7,
+   "end": 800.4,
+   "speaker": "S2",
+   "text": "The eighth. Yeah, that's fine."
+  },
+  {
+   "id": "L0176",
+   "start": 800.9,
+   "end": 806.1,
+   "speaker": "S1",
+   "text": "Great. And if those thoughts get stronger before then, you ring the crisis line or the duty worker, okay?"
+  },
+  {
+   "id": "L0177",
+   "start": 806.7,
+   "end": 808.1,
+   "speaker": "S2",
+   "text": "I will. I promise."
+  },
+  {
+   "id": "L0178",
+   "start": 808.5,
+   "end": 810.4,
+   "speaker": "S1",
+   "text": "Okay. Bye, Pip. Take care, Hannah."
+  },
+  {
+   "id": "L0179",
+   "start": 811.6,
+   "end": 812.5,
+   "speaker": "S2",
+   "text": "Bye. Thanks, Samuel."
+  }
+ ],
+ "facts": [
+  {
+   "id": "F01",
+   "fact": "Samuel Adeyemi (care coordinator, community mental health team) carried out Hannah's care review at her home, about six weeks after his last visit; her partner Tom joined part-way through with Hannah's agreement and left before the end.",
+   "lines": [
+    "L0001",
+    "L0010",
+    "L0013",
+    "L0088",
+    "L0089",
+    "L0152"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F02",
+   "fact": "Hannah reports a relapse since about September: flat low mood (3, at best 4, out of 10, compared with about 7 in the summer) and return of anxiety with panic attacks two or three times a week, including one in a supermarket last week where she had to leave.",
+   "lines": [
+    "L0020",
+    "L0021",
+    "L0023",
+    "L0025",
+    "L0027",
+    "L0029"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F03",
+   "fact": "Dr Mensah increased sertraline from 100 mg to 150 mg; Hannah started the higher dose on 10 November (about two weeks ago).",
+   "lines": [
+    "L0030",
+    "L0033",
+    "L0034",
+    "L0036"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F04",
+   "fact": "Mirtazapine 15 mg at night was added for sleep; Hannah still wakes at 3 to 3.30 am every night and gets about four hours' sleep, ruminating about work.",
+   "lines": [
+    "L0038",
+    "L0039",
+    "L0041",
+    "L0043"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F05",
+   "fact": "Hannah had stopped eating properly and lost about half a stone; she is now hungrier on the new medication and has a dry mouth.",
+   "lines": [
+    "L0045",
+    "L0047"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F06",
+   "fact": "Tom keeps Hannah's medication in his drawer (a safety-plan measure after the previous overdose); Hannah reports no missed doses.",
+   "lines": [
+    "L0049",
+    "L0050",
+    "L0051",
+    "L0121"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F07",
+   "fact": "Hannah is signed off sick by her GP until 11 December; she has worked in payroll at Calloway Freight for six years and the stress stems from a new manager since August, a merger with accounts that doubled her workload, and late-night emails.",
+   "lines": [
+    "L0056",
+    "L0057",
+    "L0058",
+    "L0059",
+    "L0067"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F08",
+   "fact": "Hannah has an occupational health telephone appointment on 2 December.",
+   "lines": [
+    "L0069"
+   ],
+   "omission": true
+  },
+  {
+   "id": "F09",
+   "fact": "Hannah's own wishes: she likes her job and wants to go back (just not to the current conditions), she wants to give the medication the six weeks Dr Mensah advised rather than change again, and she does not want hospital.",
+   "lines": [
+    "L0053",
+    "L0067",
+    "L0100",
+    "L0102",
+    "L0106",
+    "L0136"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F10",
+   "fact": "Current risk: Hannah reports passive thoughts of not wanting to wake up a few times in the last fortnight; she denies any plans, intent or preparation, and denies self-harm since the overdose.",
+   "lines": [
+    "L0117",
+    "L0119",
+    "L0121",
+    "L0123"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F11",
+   "fact": "Past crisis: paracetamol overdose in October 2024, attended A&E, followed by about three weeks of home treatment team input.",
+   "lines": [
+    "L0125",
+    "L0126",
+    "L0127",
+    "L0128"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F12",
+   "fact": "Protective factors Hannah named: she is talking to services now, her dog Pip, and her niece (Megan's daughter, her goddaughter).",
+   "lines": [
+    "L0130"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F13",
+   "fact": "Hannah reports drinking a glass or two of wine on a Friday and no drug use; Tom passed on Megan's claim of nightly drinking but has not himself seen her drinking more.",
+   "lines": [
+    "L0082",
+    "L0084",
+    "L0091",
+    "L0094",
+    "L0096"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F14",
+   "fact": "Tom will be away for work Monday to Thursday next week; Megan has offered for Hannah to stay but this is undecided, and that week is to be covered in the safety plan.",
+   "lines": [
+    "L0140",
+    "L0141",
+    "L0142",
+    "L0143",
+    "L0171"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F15",
+   "fact": "Tom's views: he is finding it hard, thinks the job is the cause and she should resign, thinks the medication is not working and wants a change, wants hospital or daily crisis team visits, and asked whether it could be bipolar.",
+   "lines": [
+    "L0098",
+    "L0099",
+    "L0105",
+    "L0135",
+    "L0109"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F16",
+   "fact": "Safety plan reviewed: existing warning signs (not getting out of bed, stopping walking Pip, going quiet on Tom) plus a new one, not answering Megan; crisis line number is on the fridge and on Tom's phone; Hannah to ring the crisis line or duty worker if thoughts get stronger.",
+   "lines": [
+    "L0144",
+    "L0145",
+    "L0146",
+    "L0147",
+    "L0148",
+    "L0176",
+    "L0177"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F17",
+   "fact": "Tom was offered a carer's assessment and wants to think about it; Samuel will leave him a leaflet.",
+   "lines": [
+    "L0149",
+    "L0150",
+    "L0151"
+   ],
+   "omission": false
+  },
+  {
+   "id": "F18",
+   "fact": "Agreed actions: Samuel to refer to psychology by Friday, chase Dr Mensah's secretary for the next clinic date, update the safety plan and drop a copy round; Hannah to keep a sleep diary; next visit Tuesday 8 December at 10 am, when the PHQ-9 will be done.",
+   "lines": [
+    "L0167",
+    "L0169",
+    "L0171",
+    "L0172",
+    "L0173",
+    "L0174",
+    "L0175",
+    "L0165"
+   ],
+   "omission": false
+  }
+ ],
+ "traps": [
+  {
+   "id": "T01",
+   "kind": "negation",
+   "must_not_claim": "Hannah has current suicidal intent or plans.",
+   "lines": [
+    "L0118",
+    "L0119",
+    "L0120",
+    "L0121"
+   ],
+   "note": "She reports passive thoughts of not waking up but explicitly denies any plans, intent or preparation."
+  },
+  {
+   "id": "T02",
+   "kind": "negation",
+   "must_not_claim": "Hannah has self-harmed recently (since the 2024 overdose).",
+   "lines": [
+    "L0122",
+    "L0123"
+   ],
+   "note": "She explicitly denies any self-harm since the overdose."
+  },
+  {
+   "id": "T03",
+   "kind": "negation",
+   "must_not_claim": "Hannah uses cannabis or other drugs.",
+   "lines": [
+    "L0084"
+   ],
+   "note": "She says she has never used cannabis or anything like that."
+  },
+  {
+   "id": "T04",
+   "kind": "negation",
+   "must_not_claim": "Hannah hears voices or has psychotic symptoms.",
+   "lines": [
+    "L0131",
+    "L0132"
+   ],
+   "note": "She denies voices or seeing things others don't, ever."
+  },
+  {
+   "id": "T05",
+   "kind": "hypothetical",
+   "must_not_claim": "Hannah has agreed (or been offered) a phased return to work on mornings only.",
+   "lines": [
+    "L0071",
+    "L0072"
+   ],
+   "note": "She only said she might try it if offered; nothing has been offered or agreed."
+  },
+  {
+   "id": "T06",
+   "kind": "hypothetical",
+   "must_not_claim": "Hannah's medication has been switched to venlafaxine.",
+   "lines": [
+    "L0108"
+   ],
+   "note": "Samuel said Dr Mensah might consider a switch if no improvement by next clinic; nothing has been decided."
+  },
+  {
+   "id": "T07",
+   "kind": "hypothetical",
+   "must_not_claim": "Hannah will stay with her sister Megan while Tom is away next week.",
+   "lines": [
+    "L0142"
+   ],
+   "note": "Megan offered, but Hannah said she hasn't decided."
+  },
+  {
+   "id": "T08",
+   "kind": "hearsay",
+   "must_not_claim": "Hannah's manager intends to remove her from her position because she is not resilient enough.",
+   "lines": [
+    "L0061",
+    "L0062",
+    "L0063"
+   ],
+   "note": "This is what Leanne in HR reportedly texted Hannah; Hannah doesn't know if it is true."
+  },
+  {
+   "id": "T09",
+   "kind": "hearsay",
+   "must_not_claim": "Hannah is drinking every night.",
+   "lines": [
+    "L0091",
+    "L0092",
+    "L0094",
+    "L0096"
+   ],
+   "note": "Megan's claim, relayed by Tom; Hannah disputes it (glass or two on Fridays) and Tom hasn't seen it himself."
+  },
+  {
+   "id": "T10",
+   "kind": "hearsay",
+   "must_not_claim": "The waiting list for psychology is two years.",
+   "lines": [
+    "L0158",
+    "L0159"
+   ],
+   "note": "Hannah's friend Jo said this; Samuel says waits vary and he can't give a figure."
+  },
+  {
+   "id": "T11",
+   "kind": "corrected",
+   "must_not_claim": "Hannah's sertraline dose is 200 mg.",
+   "lines": [
+    "L0031",
+    "L0033",
+    "L0034"
+   ],
+   "note": "She corrected herself to 150 mg, which matches the clinic letter."
+  },
+  {
+   "id": "T12",
+   "kind": "corrected",
+   "must_not_claim": "Hannah started the higher sertraline dose on 3 November.",
+   "lines": [
+    "L0035",
+    "L0036"
+   ],
+   "note": "She corrected the start date to 10 November."
+  },
+  {
+   "id": "T13",
+   "kind": "corrected",
+   "must_not_claim": "Hannah is signed off work until 4 December.",
+   "lines": [
+    "L0055",
+    "L0056",
+    "L0057"
+   ],
+   "note": "She corrected it to 11 December."
+  },
+  {
+   "id": "T14",
+   "kind": "corrected",
+   "must_not_claim": "Hannah's overdose was in October 2023.",
+   "lines": [
+    "L0124",
+    "L0125",
+    "L0126",
+    "L0127"
+   ],
+   "note": "Hannah corrected it to October 2024, confirmed by Tom and Samuel."
+  },
+  {
+   "id": "T15",
+   "kind": "not_said",
+   "must_not_claim": "Hannah has been diagnosed with (or is suspected of having) bipolar disorder.",
+   "lines": [
+    "L0109",
+    "L0110",
+    "L0111",
+    "L0112"
+   ],
+   "note": "Tom asked about bipolar; Samuel said he could not answer and it is a question for Dr Mensah; no diagnosis was given."
+  },
+  {
+   "id": "T16",
+   "kind": "not_said",
+   "must_not_claim": "A date has been booked for Hannah's next psychiatry clinic appointment.",
+   "lines": [
+    "L0169",
+    "L0170"
+   ],
+   "note": "No date has come through; Samuel will chase it."
+  },
+  {
+   "id": "T17",
+   "kind": "not_said",
+   "must_not_claim": "A PHQ-9 score was recorded at this review.",
+   "lines": [
+    "L0163",
+    "L0165"
+   ],
+   "note": "Samuel decided to leave the PHQ-9 until next time; no score was taken."
+  },
+  {
+   "id": "T18",
+   "kind": "not_said",
+   "must_not_claim": "Tom accepted a carer's assessment / one has been arranged.",
+   "lines": [
+    "L0149",
+    "L0150",
+    "L0151"
+   ],
+   "note": "Tom said he wants to think about it; only a leaflet will be left."
+  },
+  {
+   "id": "T19",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Hannah wants to leave or resign from her job.",
+   "lines": [
+    "L0099",
+    "L0100",
+    "L0102",
+    "L0103",
+    "L0067"
+   ],
+   "note": "Resigning is Tom's view; Hannah says she is not quitting and wants to go back."
+  },
+  {
+   "id": "T20",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Hannah wants her medication changed because it isn't working.",
+   "lines": [
+    "L0105",
+    "L0106",
+    "L0053"
+   ],
+   "note": "That is Tom's view; Hannah wants to give it the six weeks."
+  },
+  {
+   "id": "T21",
+   "kind": "speaker_attribution",
+   "must_not_claim": "Hannah wants a hospital admission or daily crisis/home treatment visits.",
+   "lines": [
+    "L0135",
+    "L0136"
+   ],
+   "note": "That is Tom's wish; Hannah says she doesn't need or want hospital."
+  }
+ ]
+}

@@ -1,0 +1,386 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S003": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S004": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S005": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S006": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L19 supports tenancy/joint claim; 'former partner' needs L18/L20 (children's dad, moved out)."
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S008": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L123: the agent's staff member told her this; note presents it as Kayleigh's own understanding, dropping the hearsay source."
+    },
+    "S009": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L124 alone lacks what 'it' refers to; needs L123."
+    },
+    "S010": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L126 'he' is the landlord (L127), not the agent; 'raised repair concerns' needs L125. Minor slip."
+    },
+    "S011": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L128 alone does not identify who would come out; needs L125."
+    },
+    "S012": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S013": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L131 says check system for the building; damp topic comes from uncited L130."
+    },
+    "S014": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S015": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L103/L107/L143: DHP is a discretionary housing payment application Marcus submits by Fri 27th, not a DHSC statement."
+    },
+    "S016": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L113/L118: \u00a350 a month is a proposed arrears repayment, not rent; rent is \u00a3895 (L27)."
+    },
+    "S017": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L125/L144: the damp, mould and socket are referred, not the tenant; wording loose but timing right."
+    },
+    "S018": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S019": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S020": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S021": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S023": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S024": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S025": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L73 denial; 'visited to inspect the damp' needs the uncited question L72."
+    },
+    "S026": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S027": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S028": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S029": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S030": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S031": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S032": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S033": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S034": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S035": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L125/L129: he said he will refer by end of week; note states the referral as already made."
+    },
+    "S036": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L128-129: no date for the team coming out (inspection); note recasts it as repairs being arranged. Sentence truncated."
+    },
+    "S037": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S038": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S039": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L138 gives the date and slowness; GP letter subject needs L137."
+    },
+    "S040": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L138 alone gives the date; GP letter about asthma/damp is in uncited L137."
+    },
+    "S041": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L133 'him' is the landlord, not the agent; minor slip."
+    },
+    "S042": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L134 is cut off; 'claim for compensation' completion comes from L132."
+    },
+    "S043": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L135 'No. Not now.' needs L132-134 to identify the disrepair claim."
+    },
+    "S044": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L136 'it' = disrepair claim, identified only from L132."
+    },
+    "S045": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S046": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S047": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S048": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S049": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L81 'ended up in A and E with him': an attendance with Alfie; note says both were 'admitted'."
+    },
+    "S050": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S051": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S052": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L127 'he' is the landlord, not the agent; protection against eviction for complaints correctly stated."
+    },
+    "S053": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L139 asks about 'anyone', not specifically a family member."
+    },
+    "S054": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S055": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L141 'It's not a plan' needs L139-140 for what; 'just a possibility' is a gloss."
+    },
+    "S056": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S057": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S058": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L147 'I'll print it'; 'send them to the tenant' is not said."
+    },
+    "S059": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "Content is in uncited L147 (Kayleigh to send to Moira same day); cited L148 only says 'straight on to me'."
+    },
+    "S060": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L148 supports 'on to me'; 'the letter' referent needs L147."
+    }
+  },
+  "facts": {
+    "F01": "partial",
+    "F02": "present",
+    "F03": "present",
+    "F04": "partial",
+    "F05": "present",
+    "F06": "partial",
+    "F07": "present",
+    "F08": "partial",
+    "F09": "partial",
+    "F10": "present",
+    "F11": "partial",
+    "F12": "present",
+    "F13": "present",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "absent",
+    "F17": "present",
+    "F18": "present",
+    "F19": "present"
+  },
+  "notes": "Mostly accurate, no traps hit. Errors: DHP expanded as DHSC, \u00a350 repayment called rent, referral stated as done. Missing phone cut-off, damp location, Moira's rehousing view."
+}

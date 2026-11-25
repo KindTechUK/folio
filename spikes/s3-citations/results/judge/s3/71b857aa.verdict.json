@@ -1,0 +1,384 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S003": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S004": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S005": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L24 'went up in April' with 12.60 'last year'; meeting year is 2026 (L137), so 'April 2023' is wrong."
+    },
+    "S006": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L28: hospital three days from 28 Aug, not to 1 Oct; concerns raised 4 Sept (L35) 2026, not August 2023."
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S008": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Events are 2026 (L137: 30 Sept deduction -> 29 Dec 2026); email was 4 Sept 2026 not 2023; topics at uncited L40."
+    },
+    "S009": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S010": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Events are 2026 (L137: 30 Sept deduction -> 29 Dec 2026); hours cut from Monday 5 Oct 2026, not 2023."
+    },
+    "S011": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S012": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S013": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Events are 2026 (L137: 30 Sept deduction -> 29 Dec 2026); holiday 14-18 Sept 2026, not 2023."
+    },
+    "S014": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Events are 2026 (L137: 30 Sept deduction -> 29 Dec 2026); September 2026 pay, not 2023."
+    },
+    "S015": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S016": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Events are 2026 (L137: 30 Sept deduction -> 29 Dec 2026); October 2026 payslip, not 2023; amount and correction right."
+    },
+    "S017": {
+      "label": "unsupported_fabrication",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "No year given for the course (L75, uncited); '2023' invented. Non-signing supported by L77."
+    },
+    "S018": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S019": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Events are 2026 (L137: 30 Sept deduction -> 29 Dec 2026); grievance 9 Nov 2026, not 2023."
+    },
+    "S020": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S021": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Events are 2026 (L137: 30 Sept deduction -> 29 Dec 2026); new rota from Monday 30 Nov 2026, not 2023."
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S023": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S024": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S025": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S026": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S027": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S028": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L138-140: legal deadline is 29 Dec; 4 Dec is Priya's own target, not a 'must'."
+    },
+    "S029": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L141: Callum (S3) raised the series argument, not the solicitor; 'October one' is the 30 Oct deduction, not 1 Oct."
+    },
+    "S030": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S031": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L144: it is the hours cut from 5 Oct, not a deduction."
+    },
+    "S032": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "Content matches uncited L145; cited L155 is about union funding."
+    },
+    "S033": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S034": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S035": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S036": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S037": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S038": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L158-159: by Monday the thirtieth of November, not 30 December 2026."
+    },
+    "S039": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S040": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S041": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S042": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L80 'I think I've got the first one' - uncertainty dropped; 2021 inferred from L17."
+    },
+    "S043": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L120,L161: documents due Friday 27 November, not 27 December."
+    },
+    "S044": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L159,L162: union scheme answer due Monday 30 November, not 30 December."
+    },
+    "S045": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S046": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'Text her' is Priya's instruction in uncited L154; L153 only says not at work."
+    },
+    "S047": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S048": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L96 says 'Money's second'; linking money to holiday/training deductions needs uncited context."
+    },
+    "S049": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L96: 'look at the charts properly' only; night staffing investigation not part of her stated objective."
+    },
+    "S050": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S051": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S052": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L95-97: client's primary objective is hours/role back; ACAS timing is the solicitor's plan (L140, 4 Dec)."
+    },
+    "S053": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Diary is Priya's advice (L150); client's second objective is money (L96)."
+    },
+    "S054": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Funding check is next-step action (L156,L159), not a stated client objective."
+    },
+    "S055": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S056": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S057": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L163: Wednesday is Priya's deadline to send; Megan checks afterwards; 'confirm receipt' not said."
+    },
+    "S058": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Supported by uncited L163; L164 only says 'Wednesday, then Friday'."
+    },
+    "S059": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S060": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {
+    "F01": "present",
+    "F02": "partial",
+    "F03": "absent",
+    "F04": "absent",
+    "F05": "absent",
+    "F06": "absent",
+    "F07": "absent",
+    "F08": "absent",
+    "F09": "partial",
+    "F10": "partial",
+    "F11": "absent",
+    "F12": "present",
+    "F13": "absent",
+    "F14": "present",
+    "F15": "present",
+    "F16": "partial",
+    "F17": "present"
+  },
+  "notes": "Systematic wrong year (2023 for 2026 events) and Nov->Dec deadline slips; objectives section mislabels advice as client objectives. Hearsay and traps handled well."
+}

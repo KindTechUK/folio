@@ -1,0 +1,504 @@
+{
+  "sentences": {
+    "S085": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S086": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S087": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S088": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L50 'put his tuppence in' means give his opinion; no support fund or money from Kevin anywhere in transcript"
+    },
+    "S089": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L29 'put anywhere' doesn't name a care home; L671 'take me away' supports the reading (uncited)"
+    },
+    "S090": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S091": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L43 only answers the L42 question about sharing with GP and others; L42 not cited"
+    },
+    "S092": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L42: she was asked about sharing info with GP, not whether she had anything to hide; minor framing slip"
+    },
+    "S093": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S094": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S095": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L49 is S1's offer; Margaret's agreement to Kevin joining is at L322 (uncited)"
+    },
+    "S096": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S097": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S098": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L199 is enthusiasm, not an explicit request; wish rests on L196 and acceptance of OT referral L626-627"
+    },
+    "S099": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S100": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S101": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S102": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S103": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S104": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Biscuit is a cat (L7 'the cat's' chair, L9, L20 'Not the cat'), not a dog"
+    },
+    "S105": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S106": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S107": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S108": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S109": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S110": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L602 says 'them'; roses named at L600-601, not cited"
+    },
+    "S111": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S112": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S113": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S114": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S115": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L124 'I don't think so', L131 'Not that I know of. Unless it's in that pile of letters'; hedge dropped to 'never referred'"
+    },
+    "S116": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S117": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S118": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S119": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S120": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S121": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S122": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S123": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'with a card' and Brenda's uncertainty are at L527, not cited"
+    },
+    "S124": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S125": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S126": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S127": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S128": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S129": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L546 'No. It doesn't mean that' needs L545 question about arrest (uncited)"
+    },
+    "S130": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S131": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L551 only meaningful with L550 'So it's not the police' (uncited)"
+    },
+    "S132": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "getting cash out is at L306, not cited"
+    },
+    "S133": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S134": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S135": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S136": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S137": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S138": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S139": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S140": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S141": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S142": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S143": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S144": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S145": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S146": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S147": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S148": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S149": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S150": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S151": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S152": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S153": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L567 'Yes, you can' needs the L565-566 question about safeguarding team (uncited)"
+    },
+    "S154": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'Midshire building society' named at L556/L562, not in cited lines"
+    },
+    "S155": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S156": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S157": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S158": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L568 says 'that referral'; safeguarding context at L565, not cited"
+    },
+    "S159": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S160": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S161": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S162": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S163": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S164": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S165": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S166": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S167": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {},
+  "notes": "Mostly faithful; hearsay and conditionals (Beechwood, Brenda, gambling) correctly hedged. Errors: idiom misread as money (S088), Biscuit called a dog (S104), falls-referral hedge dropped (S115)."
+}

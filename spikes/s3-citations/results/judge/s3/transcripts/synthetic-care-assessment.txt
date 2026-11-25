@@ -1,0 +1,684 @@
+# Care Act needs assessment — home visit (synthetic)
+# id: synthetic-care-assessment
+# Speakers: S1 = Social worker (Priya Nair); S2 = Margaret Doyle; S3 = Kevin Doyle (son)
+
+L1 [00:00] S1: Hello, Margaret? It's Priya. Priya Nair, from adult social care. We spoke on the phone on, um, on Monday.
+L2 [00:08] S2: Oh yes, yes, come in love, come in. Mind the step, it's a bit, um, it's a bit high that one.
+L3 [00:16] S1: Thank you. Oh, it's lovely and warm in here.
+L4 [00:19] S2: Well I've got the heating on. I know I shouldn't, not this time of year, but I feel the cold now, I really do.
+L5 [00:28] S1: No, that's completely fine. It's bitter out there today, isn't it? That wind.
+L6 [00:33] S2: It's that wind off the, you know, off the fields at the back. Go through, go through to the front room.
+L7 [00:42] S2: Sit anywhere. Well, not that one, that's the cat's. You can if you like but you'll get hairs all over you.
+L8 [00:50] S1: Ha, I'll take the other one then. Oh, hello. Who's this?
+L9 [00:55] S2: That's Biscuit. He's eleven. He's the boss in this house, aren't you? Yes you are.
+L10 [01:01] S1: He's gorgeous. Look at him, he's not bothered by me at all.
+L11 [01:06] S2: No, he likes visitors. More than I do some days. Can I get you a cup of tea?
+L12 [01:13] S1: Oh, I'd love one, but only if it's not too much trouble. With your wrist, I mean.
+L13 [01:20] S2: No, no, the kettle I can manage. It's the big pans I can't do. Milk and sugar?
+L14 [01:27] S1: Just milk, please. Thank you.
+L15 [01:29] S2: Won't be a minute. Biscuit, get down. Get down off there.
+L16 [01:35] S1: Do you want me to come and carry them through for you?
+L17 [01:39] S2: Would you? That'd be, um, yes. I don't trust myself with two cups and the frame.
+L18 [01:46] S1: Of course. There we go. Where do you want yours, on the little table?
+L19 [01:51] S2: On the little table, yes, by the remote. Thank you, love.
+L20 [01:56] S2: There's biscuits in the tin if you want one. Not the cat, the actual biscuits.
+L21 [02:02] S1: Ha. I'm alright for now, thanks. So, um, before we start properly, can I just explain what today is about?
+L22 [02:10] S2: Yes please, because I wasn't sure. Kevin said somebody was coming but I didn't really know what for.
+L23 [02:18] S1: That's alright, that's really common. So the hospital sent us a referral when you were discharged.
+L24 [02:24] S1: And the reason I'm here is to do what's called a needs assessment. It's under the Care Act.
+L25 [02:31] S2: The care act. Right.
+L26 [02:33] S1: It basically means we have a chat, and I try and understand how you're managing day to day. What's difficult, what's working, and, most importantly, what matters to you.
+L27 [02:45] S2: I see.
+L28 [02:47] S1: And then towards the end we look at whether there's any support that would help, and whether you'd be eligible for support from the council.
+L29 [02:57] S2: I don't want to be, um. I don't want to be put anywhere. If that's what this is.
+L30 [03:04] S1: No. And that's a really important thing to say, so thank you for saying it. This isn't about putting you anywhere.
+L31 [03:13] S1: It's about you, here, in your home, and what might make things easier for you.
+L32 [03:19] S2: Right. Well. That's alright then.
+L33 [03:21] S1: It'll probably take about an hour, if that's okay with you? And we can stop for a break whenever you want.
+L34 [03:29] S2: I've got nowhere to be, love. Only my quiz programme at four o'clock.
+L35 [03:34] S1: Ha, we'll be done well before four, I promise.
+L36 [03:38] S2: I never get any of the answers. I shout at the telly though.
+L37 [03:43] S1: That's half the fun. So, I'll be jotting a few notes as we go, is that alright?
+L38 [03:51] S2: Yes, go on. My handwriting's gone to pot since this, so you're better off doing it.
+L39 [03:57] S1: And I should say, everything we talk about is confidential. But if I was worried that you or somebody else was at risk of harm, I might need to share that with other people.
+L40 [04:10] S1: But I'd always try and talk to you about it first. Is that okay?
+L41 [04:16] S2: Yes. Yes, that's fine.
+L42 [04:18] S1: And are you happy for me to share what we talk about with your GP, and with anyone who might be involved in your support?
+L43 [04:28] S2: Yes, I've got nothing to hide. Well. Mostly.
+L44 [04:31] S1: Mostly?
+L45 [04:32] S2: Oh, nothing. Take no notice of me. Go on.
+L46 [04:36] S1: Okay. We can come back to anything, anytime. And you mentioned Kevin. That's your son?
+L47 [04:42] S2: Kevin, yes. He said he'd try and come over, he's on an early shift, so he might pop in after he finishes.
+L48 [04:51] S2: Half eleven maybe.
+L49 [04:53] S1: Lovely. Well if he does come, we can include him, if you're happy with that.
+L50 [04:59] S2: Oh he'll want to put his tuppence in, he always does.
+L51 [05:04] S1: Ha. Okay. So shall we start with the fall? Can you tell me in your own words what happened?
+L52 [05:11] S2: Well. It was the third of March. A Monday. I remember because the bin men had been.
+L53 [05:19] S1: Okay.
+L54 [05:20] S2: And I was in the kitchen, I was going to make my tea, and I think I, um.
+L55 [05:27] S2: I don't know if I tripped or if I just went dizzy. I honestly don't know.
+L56 [05:34] S2: One minute I was at the sink and the next I was on the floor by the back door.
+L57 [05:42] S1: That must have been really frightening.
+L58 [05:44] S2: It was. It was. I couldn't get up, you see.
+L59 [05:48] S2: I tried, I tried to turn over, but my wrist, I'd landed on it, and I couldn't put any weight on it at all.
+L60 [05:58] S1: And do you know how long you were on the floor for?
+L61 [06:03] S2: About two hours. Well, near enough two hours. It was getting dark by the time.
+L62 [06:10] S1: Gosh. Two hours.
+L63 [06:12] S2: And it was Brenda next door who found me. She'd noticed my curtains weren't drawn, and the kitchen light wasn't on, and she's got a key, so she let herself in.
+L64 [06:24] S1: Thank goodness for Brenda.
+L65 [06:26] S2: Oh, she's a treasure.
+L66 [06:27] S2: She rang the ambulance and she sat on that cold floor holding my hand till they came. At her age.
+L67 [06:36] S1: That's a good neighbour. And were you able to call anyone yourself, while you were on the floor?
+L68 [06:43] S2: No. My phone was on the side, in the front room.
+L69 [06:47] S2: I could hear it, actually, I could hear it ringing at one point, and I couldn't get to it.
+L70 [06:54] S1: Oh, Margaret.
+L71 [06:56] S2: I just kept talking to Biscuit. He came and sat with me. He knew something was up.
+L72 [07:03] S1: Animals do, don't they. Did you bang your head at all, when you went down?
+L73 [07:09] S2: No. No, I didn't bang my head.
+L74 [07:12] S2: They asked me that at the hospital, over and over, and they checked, and no. It was all the wrist.
+L75 [07:20] S1: Okay, that's good to know. And do you remember feeling unwell before? Dizzy, or light headed, anything like that?
+L76 [07:28] S2: I might have been a bit, um, woozy. I'd not had much to eat that day, if I'm honest.
+L77 [07:35] S1: Okay. We'll come back to food a bit later if that's alright.
+L78 [07:40] S2: You sound like my daughter.
+L79 [07:42] S1: Ha. I'll take that as a compliment. So the ambulance came, and they took you to hospital?
+L80 [07:49] S2: To St Aldhelm's, yes. I was in four days.
+L81 [07:53] S2: They put me on the ward with the, you know, the orthopaedic ward.
+L82 [07:58] S1: And what did they find?
+L83 [08:00] S2: I'd broken my wrist. My left wrist. Fractured, they said.
+L84 [08:05] S2: And it's my good hand an all, well, it was my good hand, I'm left handed.
+L85 [08:12] S1: Oh no, that makes everything harder.
+L86 [08:15] S2: Everything. Opening jars, doing my buttons, the lot.
+L87 [08:19] S1: And they checked your hips, I'm guessing?
+L88 [08:22] S2: They did the x-ray, yes, and there was nothing broken there, thank God.
+L89 [08:27] S2: Just bruising. I was black and blue down this side.
+L90 [08:31] S1: And how is the wrist now? Is it still in a cast?
+L91 [08:36] S2: The cast came off, um, last Tuesday, and now it's this splint thing.
+L92 [08:41] S2: I've got to wear it most of the time. And do the exercises. Which I don't do enough.
+L93 [08:48] S1: Ha. Nobody does. Did they refer you for physio for the wrist?
+L94 [08:53] S2: They said they would. I've had a letter, it's on the, um, it's on the side in the kitchen somewhere, with all the other letters.
+L95 [09:03] S1: That's alright, we can have a look at it together later if you like.
+L96 [09:09] S1: So, thinking about getting about, generally. How are you getting around the house at the moment?
+L97 [09:15] S2: With that. The frame. The hospital gave me it before I came home. I hate it, but I use it.
+L98 [09:24] S1: Indoors all the time?
+L99 [09:26] S2: Indoors, yes, mostly. I'm supposed to use it all the time.
+L100 [09:30] S2: Sometimes I, um, I hold on to the furniture instead. Don't write that down.
+L101 [09:36] S1: Ha, I'm afraid I might have to. It's useful for me to know though, honestly. A lot of people do that.
+L102 [09:44] S2: It's just quicker. The frame gets caught on the rug and on the doorframe and, you know.
+L103 [09:50] S1: And outdoors? Have you been out much since you came home?
+L104 [09:55] S2: Hardly at all. I've got my stick, Frank's old stick actually, for outside.
+L105 [10:00] S2: But I've only been out to the end of the path, really. And to the doctor's once, Kevin took me in the car.
+L106 [10:09] S1: Okay. Before the fall, how far could you walk?
+L107 [10:13] S2: Oh, I'd walk to the shops. It's about ten minutes.
+L108 [10:17] S2: I'd get my paper, and my bits, and walk back. Slowly, mind. But I'd do it.
+L109 [10:23] S1: And now that feels like too much?
+L110 [10:27] S2: Now I'd be frightened. That's the truth of it. I'm frightened of going over again.
+L111 [10:32] S1: That's completely understandable after what happened. Is this the first fall you've had?
+L112 [10:38] S2: Um. Well. Not exactly the first.
+L113 [10:41] S1: Okay.
+L114 [10:42] S2: I had one before Christmas, in the garden. That was nothing, I just sat down on the grass really.
+L115 [10:50] S2: And then another one in, was it January? In the bathroom. I caught myself on the sink.
+L116 [10:57] S1: So that's, including the one in March, three falls in the last, what, six months or so?
+L117 [11:03] S2: I suppose it is, when you put it like that. Three. I didn't count the other two, they were nothing.
+L118 [11:12] S1: Did you tell anyone about the earlier two? Your GP, or Kevin?
+L119 [11:17] S2: No. Well, Kevin knows about the garden one because he found the mud on my coat.
+L120 [11:23] S2: I didn't tell the doctor. I didn't want to bother him.
+L121 [11:28] S1: Okay. Who's your GP, Margaret?
+L122 [11:30] S2: Dr Patel. At the Millbrook Surgery, on Church Lane.
+L123 [11:34] S1: Dr Patel, lovely. And have they ever done a, um, a falls assessment with you, or referred you to the falls clinic?
+L124 [11:42] S2: No, I don't think so. Hang on. Did I say Dr Patel?
+L125 [11:47] S1: You did, yes.
+L126 [11:49] S2: No, it's Dr Shah now. Dr Patel retired, oh, last summer. It's Dr Shah I see.
+L127 [11:55] S2: A young woman, very nice, very thorough. I always get them muddled.
+L128 [12:00] S1: No problem. Dr Shah at Millbrook Surgery. I'll correct that.
+L129 [12:04] S2: Dr Patel was there thirty years. You get used to a name.
+L130 [12:09] S1: Of course you do. So no one's referred you to the falls service yet, as far as you know?
+L131 [12:16] S2: Not that I know of. Unless it's in that pile of letters.
+L132 [12:21] S1: Ha. We'll definitely look at that pile. Um, what about the stairs? You've got stairs here, I noticed.
+L133 [12:29] S2: Yes, that's the other thing. The bedroom's upstairs, and the bathroom, the only toilet is upstairs as well.
+L134 [12:36] S1: Okay. So you have to go up and down to use the toilet during the day?
+L135 [12:43] S2: I do. Or I, um.
+L136 [12:45] S2: I try not to drink too much in the afternoons, so I don't have to go up so often.
+L137 [12:52] S1: Right. That's something I'll want to come back to, because that can make you dehydrated, and that can make you dizzy.
+L138 [13:01] S2: That's what the nurse said at the hospital.
+L139 [13:04] S1: How do you manage on the stairs themselves?
+L140 [13:07] S2: There's a rail on one side. On the right going up.
+L141 [13:12] S2: And I go up one at a time, like a toddler. Holding on with my good hand. Well my right hand.
+L142 [13:21] S1: And coming down?
+L143 [13:22] S2: Coming down's worse because the rail's on the wrong side then, for my right hand, so I sort of go down sideways. Or on my bottom sometimes, if I'm tired.
+L144 [13:34] S1: On your bottom?
+L145 [13:35] S2: It's safer. Nobody's watching. Well, Biscuit.
+L146 [13:38] S1: Ha. Biscuit won't tell. Okay, and the frame, is there one upstairs as well, or do you carry it?
+L147 [13:46] S2: There's only the one. I leave it at the bottom and I hold on to the wall up top.
+L148 [13:54] S1: Okay. That's really helpful. It sounds like there's a few things an occupational therapist could look at.
+L149 [14:00] S1: Like a second rail, and maybe a second frame for upstairs.
+L150 [14:05] S2: Could they do that?
+L151 [14:07] S1: Quite possibly, yes. I can't promise exactly what until they've been, but it's the kind of thing they do all the time.
+L152 [14:15] S2: Well that would be, I'd like that. A second rail would make a lot of difference.
+L153 [14:22] S1: And I noticed on the way in you've got quite a few rugs, in the hall and in here.
+L154 [14:30] S2: Oh, those. They were Frank's mother's, some of them.
+L155 [14:34] S2: That one in the hall I brought back from, um, from a holiday in Wales, years ago.
+L156 [14:41] S1: They're lovely. The only thing is, they can be a real trip hazard, especially with a frame.
+L157 [14:47] S2: Kevin's always on at me about them.
+L158 [14:50] S1: I bet he is. We don't have to decide anything now. Just something to think about.
+L159 [14:57] S2: I'll think about it. I'm not promising.
+L160 [15:00] S1: That's fair. Do you ever get up in the night? To use the toilet, say?
+L161 [15:06] S2: Once, sometimes twice. I leave the landing light on now. I didn't used to.
+L162 [15:12] S1: Good, that's a good idea. And the bathroom is right next to your bedroom?
+L163 [15:18] S2: Right next door, yes, it's only a few steps. That bit's not so bad.
+L164 [15:23] S1: And do you have anything you can wear or press, if you fell again? Like a pendant alarm, one of those buttons?
+L165 [15:32] S2: A pennant? No. No, I haven't got anything like that. Kevin mentioned it.
+L166 [15:37] S2: I said I'm not wearing a thing round my neck like an old woman.
+L167 [15:44] S1: Ha. I hear that a lot.
+L168 [15:46] S2: I know I am an old woman. I just don't want to look like one.
+L169 [15:52] S1: That's fair enough. There are some that look a bit like a watch now, on your wrist, which a lot of people prefer.
+L170 [16:01] S2: Oh. Well, a watch. That's different.
+L171 [16:04] S1: And they can also detect a fall, some of them, and call someone for you, even if you can't press the button.
+L172 [16:12] S2: Well, that might've been handy on the third of March, mightn't it.
+L173 [16:17] S1: It might. You wouldn't have been lying there for two hours.
+L174 [16:22] S2: No. No, I wouldn't.
+L175 [16:24] S1: Can I put you down as interested? No obligation.
+L176 [16:27] S2: Go on then. Interested. Put it down.
+L177 [16:30] S1: Okay, so if it's alright, I'd like to talk a bit about personal care.
+L178 [16:36] S1: So washing, dressing, that kind of thing. Is that okay?
+L179 [16:40] S2: Yes, that's fine. I'm past being embarrassed, love. They saw everything at St Aldhelm's.
+L180 [16:46] S1: Ha. Well, you just tell me as much as you want to. How are you managing with washing at the moment?
+L181 [16:54] S2: I do a strip wash. At the sink upstairs. I have a flannel and I do what I can.
+L182 [17:01] S1: And do you use the bath or the shower?
+L183 [17:05] S2: There's no shower. Just the bath.
+L184 [17:07] S2: And I haven't been in it since, oh, since before the fall. Since the one in January, really.
+L185 [17:14] S1: So since January you've not had a bath?
+L186 [17:18] S2: Not a proper one, no. I daren't. Getting in's alright, well, it's not, but getting out.
+L187 [17:24] S2: I can't push myself up with this wrist. And I think, if I get stuck in there, who's going to find me?
+L188 [17:33] S1: That's a really real worry. And how do you feel about that? Not being able to have a bath.
+L189 [17:40] S2: Oh, I miss it. I do.
+L190 [17:43] S2: I used to have a bath every night before bed, with my radio on. It was my little treat.
+L191 [17:51] S2: Now I feel, um. I don't feel properly clean. You know?
+L192 [17:55] S2: My hair especially. I can't do my hair with one hand.
+L193 [18:00] S1: How are you washing your hair at the moment?
+L194 [18:04] S2: Brenda did it for me last week, over the kitchen sink. Bless her. But I can't keep asking her.
+L195 [18:12] S1: Okay. So being able to have a bath again, or at least a proper wash, is that something that matters to you?
+L196 [18:20] S2: It matters a great deal. I'd love to have a bath again. I'd love it.
+L197 [18:26] S1: I'm writing that down. That's exactly the kind of thing I want to know.
+L198 [18:32] S1: And there's equipment, there's a bath lift, or a bath board, that an OT could look at with you.
+L199 [18:39] S2: A bath lift. Frank's sister had one of them. It went up and down. She loved it.
+L200 [18:46] S1: That's the one. Okay. And getting dressed? How's that going?
+L201 [18:51] S2: Slowly. Very slowly. The buttons are the worst. And my bra, I can't do the hooks.
+L202 [18:57] S2: I've been wearing, um, I've been wearing the same cardigan most days because it's easier.
+L203 [19:03] S1: Okay.
+L204 [19:04] S2: And tights. I've given up on tights. I just wear these trousers now, the elasticated ones.
+L205 [19:10] S1: And socks and shoes?
+L206 [19:13] S2: Slippers mostly. I can get my slippers on. Shoes with laces, no.
+L207 [19:18] S2: Kevin bought me some with the, um, the velcro, but they're a bit tight.
+L208 [19:24] S1: How long does it take you to get dressed in the morning, would you say?
+L209 [19:30] S2: Oh, forty minutes? An hour, some days. I have to sit down in between. I get puffed out.
+L210 [19:37] S1: That's a long time. It sounds really tiring.
+L211 [19:41] S2: By the time I'm dressed I want to go back to bed. That's not a joke.
+L212 [19:47] S1: No, I believe you. And do you ever not get dressed? Just stay in your nightie?
+L213 [19:54] S2: Some days. Some days I think, what's the point, nobody's coming. I did that, um, twice last week I think.
+L214 [20:02] S1: Okay. Thank you for being honest with me.
+L215 [20:06] S2: Well there's no point lying to you, is there, you'd see through me.
+L216 [20:11] S1: Ha. And is there anything with, um, with going to the toilet?
+L217 [20:16] S1: You mentioned the stairs. Anything else, any accidents, anything like that?
+L218 [20:21] S2: Oh. Well. Um.
+L219 [20:23] S1: Take your time. It's very common, and it's just so I can understand what help might be useful.
+L220 [20:29] S2: Sometimes I don't make it. If I leave it too long, and then the stairs, you know.
+L221 [20:36] S2: It's more of a rush. A bit of leaking.
+L222 [20:40] S1: Okay.
+L223 [20:41] S2: I wear pads at night now. I buy them from the supermarket.
+L224 [20:46] S2: Kevin gets them for me in the big shop, I don't know what he thinks.
+L225 [20:52] S1: Ha, I'm sure he doesn't mind. Would you be interested in seeing the continence service?
+L226 [20:58] S1: They can assess you and, if you're eligible, the pads can come free, and they can give you advice and exercises.
+L227 [21:07] S2: Free? Well, I didn't know that. Yes. If it's free, yes.
+L228 [21:11] S1: That's usually through the GP or the community nurses, so I can pass that on, as long as you're happy.
+L229 [21:19] S2: Yes, I'm happy. Don't make a big thing of it.
+L230 [21:24] S1: I won't. Just a quick referral. Okay, let's have a break from all that.
+L231 [21:29] S1: Is your tea alright? Is it still warm?
+L232 [21:32] S2: It's gone a bit cold, but I don't mind cold tea. Frank used to say I'd drink it out the puddles.
+L233 [21:41] S1: Ha. My nan was the same.
+L234 [21:44] S2: Is it still blowing out there? Look at them trees.
+L235 [21:48] S1: It is. My umbrella went inside out on the way from the car.
+L236 [21:53] S2: You want to get one of them sturdy ones. The golf ones.
+L237 [21:57] S2: Frank had one, it's in the cupboard under the stairs, you can have it.
+L238 [22:03] S1: Oh, that's really kind, but I'm not allowed to accept gifts, I'm afraid.
+L239 [22:09] S2: Even an umbrella?
+L240 [22:10] S1: Even an umbrella. I know, it's silly.
+L241 [22:13] S2: Well, it's there if you change your mind. Biscuit, leave the lady's bag alone.
+L242 [22:19] S1: He's alright. He's just nosy. He wants to see what's in there.
+L243 [22:23] S2: He thinks everyone's brought him ham.
+L244 [22:26] S1: Ha. Sorry Biscuit, no ham today. Okay, so, um. Moving on a little. I wanted to ask you about food. Meals.
+L245 [22:35] S2: Here we go.
+L246 [22:36] S1: Ha. I promise I'm not your daughter. What does a normal day of eating look like for you at the moment?
+L247 [22:45] S2: Well. Breakfast I have toast. One slice, with marmalade. And a cup of tea.
+L248 [22:50] S1: Okay.
+L249 [22:51] S2: Dinner time, um, lunch, I have soup. A tin of soup. Tomato or chicken. Sometimes with a bit of bread.
+L250 [23:00] S1: And in the evening?
+L251 [23:02] S2: Not a lot. A yoghurt. Maybe some crackers and cheese if I can be bothered cutting the cheese.
+L252 [23:09] S2: It's hard with the one hand.
+L253 [23:12] S1: Are you cooking at all? Using the oven, or the hob?
+L254 [23:17] S2: No. Not since the fall. I haven't turned the cooker on since I came home.
+L255 [23:23] S1: Can you tell me a bit about why?
+L256 [23:26] S2: Because I can't lift the pans. And because, if I'm honest, I don't like being in the kitchen.
+L257 [23:33] S2: That's where it happened. I stand at that sink and I think about it.
+L258 [23:38] S1: That makes a lot of sense, Margaret. That's a lot to carry.
+L259 [23:44] S2: Silly, isn't it. A grown woman frightened of her own kitchen.
+L260 [23:49] S1: It's not silly at all. It's a really normal reaction after a fall like that.
+L261 [23:55] S2: I used to cook every day. Proper dinners. Frank liked his meat and two veg. Sunday roast, the lot.
+L262 [24:03] S1: Have you noticed any change in your weight?
+L263 [24:06] S2: My clothes are hanging off me. They weighed me at the hospital and I'd lost, um, nearly a stone since Christmas.
+L264 [24:14] S2: The nurse was quite cross about it.
+L265 [24:17] S1: Nearly a stone since Christmas. Okay. Do you know roughly what you weigh now?
+L266 [24:23] S2: Eight stone something. I was always nine and a half. Nine and a half stone all my married life.
+L267 [24:31] S1: And your appetite, how is it?
+L268 [24:34] S2: It comes and goes. I don't feel hungry like I used to. When you're on your own you just, you pick.
+L269 [24:42] S1: Yeah. Who does your food shopping?
+L270 [24:45] S2: Kevin does a big shop on a Sunday when he comes. And Brenda gets me milk and bread in the week if I run out.
+L271 [24:55] S1: And do you have a microwave?
+L272 [24:58] S2: I've got one, yes. I do a jacket potato in it sometimes.
+L273 [25:03] S2: Kevin put some of those ready meals in the freezer but I can't get the film off the top.
+L274 [25:10] S1: Ah, the film. Those are a nightmare even with two hands.
+L275 [25:15] S2: I stab it with a fork and then it goes everywhere.
+L276 [25:19] S1: Okay. So meals are something I'd definitely want to think about some support with.
+L277 [25:25] S1: Now, medication. Can you tell me what tablets you take?
+L278 [25:29] S2: Oh, I've got them here, hang on. They're in the, um, the box thing. The chemist does it.
+L279 [25:36] S1: A dosette box? A blister pack?
+L280 [25:39] S2: The dose set box, yes.
+L281 [25:41] S2: The chemist on Station Road does it and they deliver it every Friday. It's got the days on.
+L282 [25:49] S1: That's great. Can I have a look? Okay. So you've got your amlodipine here.
+L283 [25:55] S2: The amlo-dipping, yes, that's my blood pressure. I have that in the morning.
+L284 [26:00] S1: Five milligrams, once a day in the morning. And this one, this is alendronic acid. That's once a week.
+L285 [26:07] S2: That's the bone one. That's a Monday.
+L286 [26:10] S2: I have to have it first thing with a big glass of water and sit up straight for half an hour. It's a performance.
+L287 [26:19] S1: It is, yeah. Seventy milligrams, every Monday. And anything else?
+L288 [26:23] S2: Paracetamol, for my wrist. Two tablets, up to four times a day, but I don't take them that often.
+L289 [26:31] S2: Maybe once or twice a day if it's aching.
+L290 [26:35] S1: Okay. And do you ever forget any of them?
+L291 [26:39] S2: Um. Well.
+L292 [26:41] S1: It's alright. It happens to everyone.
+L293 [26:43] S2: Last week I found two still in the box.
+L294 [26:47] S2: The Tuesday morning and the Thursday morning. I don't know how. I must've got distracted.
+L295 [26:53] S1: So you missed your blood pressure tablet twice last week.
+L296 [26:57] S2: Twice. Yes. I'm not normally like that. It's since the fall, I've been all over the place.
+L297 [27:04] S1: Okay, thank you. Do you have any trouble opening the box, with your wrist?
+L298 [27:10] S2: Sometimes. The little flaps. I use a butter knife.
+L299 [27:13] S1: Okay. Maybe we can ask the chemist about a different kind of pack.
+L300 [27:18] S1: And some people find a reminder helps, like an alarm, or somebody popping in at the right time.
+L301 [27:26] S2: That might help. I've got an alarm clock, I could set that.
+L302 [27:31] S1: That's a good idea too. And are your tablets the only thing that's changed recently? The GP hasn't started anything new?
+L303 [27:39] S2: No, just the paracetamol, from the hospital.
+L304 [27:43] S1: Okay. Now, you mentioned the shopping. Do you manage your own money? Paying bills, getting cash out, that sort of thing?
+L305 [27:51] S2: Mostly. The bills go out of the bank on their own.
+L306 [27:55] S2: The direct debits. And I get cash out for the paper and things.
+L307 [28:01] S1: And is all that going okay?
+L308 [28:03] S2: Well. I've been a bit short lately. Money's been going, and I'm not sure where.
+L309 [28:10] S2: I'm probably just not keeping track like I used to.
+L310 [28:14] S1: Okay. Can we come back to that in a bit, when we talk about money properly?
+L311 [28:20] S1: I'd like to hear more about it.
+L312 [28:23] S2: If you like. It's probably nothing.
+L313 [28:26] S1: That's okay. Was that the door?
+L314 [28:28] S2: That'll be Kevin. He's got a key. Kevin? We're in here!
+L315 [28:33] S3: Alright Mum. Oh, hello. Sorry, am I interrupting?
+L316 [28:37] S1: Not at all. Hi, I'm Priya, I'm the social worker. You must be Kevin.
+L317 [28:43] S3: That's me. Nice to meet you. Sorry, I came straight from work, I'm probably a bit, you know.
+L318 [28:50] S2: He smells of the warehouse.
+L319 [28:52] S3: Thanks Mum.
+L320 [28:54] S1: Ha. Before you sit down, Margaret, I just want to check.
+L321 [28:58] S1: Are you happy for Kevin to join us for the rest of the assessment?
+L322 [29:03] S2: Yes, of course. He might as well hear it.
+L323 [29:07] S1: Okay. And if at any point you want to talk to me on your own about anything, just say, and that's absolutely fine.
+L324 [29:16] S2: Alright, love.
+L325 [29:17] S3: Is there tea going?
+L326 [29:20] S2: You know where the kettle is.
+L327 [29:23] S3: Right. Do you want another one, Priya?
+L328 [29:26] S1: I'm fine, thank you. So Kevin, just to bring you up to speed, we've talked about the fall, how your mum's getting around, washing and dressing, meals and her tablets.
+L329 [29:38] S3: Did she tell you about the tablets? Because she's been forgetting them.
+L330 [29:43] S2: Twice, Kevin. I told her. Twice.
+L331 [29:46] S3: Alright, alright.
+L332 [29:47] S1: So Kevin, we were just starting to talk about the house, really. The stairs and the rugs.
+L333 [29:54] S3: Oh, the rugs. Has she told you about the rugs? I've been telling her for years.
+L334 [30:01] S2: I've told her. She's writing it down. I'm thinking about it.
+L335 [30:06] S3: She's been thinking about it since about 2010.
+L336 [30:09] S1: Ha. It's her decision, but it's definitely something the OT would probably mention too.
+L337 [30:15] S3: Honestly though, Priya, and I've said this to Mum, I think this house is too much for her now. The stairs, the garden, all of it.
+L338 [30:26] S3: I think she'd be better off in one of them sheltered flats.
+L339 [30:31] S3: Or a bungalow. Everything on one level, a warden on site.
+L340 [30:35] S2: No. I'm not moving, Kevin. We've been over this.
+L341 [30:39] S3: I'm just saying.
+L342 [30:41] S2: And I'm just saying no. I came here as a bride.
+L343 [30:46] S2: Frank carried me over that step. I'm not going to some flat with strangers.
+L344 [30:52] S1: Can I ask, Margaret, what is it about this house that matters to you?
+L345 [30:58] S2: It's everything. It's my home. It's where I brought the kids up.
+L346 [31:03] S2: My garden's out there, Frank's roses. Brenda's next door. I know every creak in this house.
+L347 [31:09] S2: I want to stay in my own home. For as long as I possibly can. That's what I want.
+L348 [31:17] S1: Thank you. I've written that down, in your words.
+L349 [31:20] S3: I know, Mum. I'm not trying to shove you out. I just worry.
+L350 [31:25] S2: I know you do, love.
+L351 [31:28] S2: And if I ever had to go into a home, one day, if it came to that, well, I'd want it to be Beechwood, because Brenda's sister was in there and they were lovely.
+L352 [31:40] S2: But I'm not there yet. Not by a long chalk.
+L353 [31:45] S1: That's really helpful to know for the future. But for now, the plan is about supporting you here.
+L354 [31:52] S2: Good.
+L355 [31:53] S3: What about selling up though, Mum, and getting somewhere smaller round here?
+L356 [31:58] S2: If I sold the house, and I'm not going to, where would Biscuit go?
+L357 [32:04] S2: Where would Frank's roses go? No. It's not happening.
+L358 [32:08] S3: Fine. Fine. Subject closed.
+L359 [32:10] S1: Okay, so, the house. Kevin, how do you find it? Anything else you've noticed that worries you?
+L360 [32:17] S3: The back step into the garden, that's a big drop. And the light at the top of the stairs is on one of those pull cords, she has to reach round for it.
+L361 [32:30] S1: That's useful, thank you. I'll pass that on to the OT as well. And heating, is the house warm enough generally?
+L362 [32:38] S2: It's warm enough now. The boiler's new, Kevin sorted that last year.
+L363 [32:43] S3: Took me three months to persuade her.
+L364 [32:46] S1: Ha. Okay. So, can we talk a bit about who's around to help?
+L365 [32:51] S1: Kevin, how often are you able to come over?
+L366 [32:56] S3: Sundays, mainly. I do the big shop and I sit with her for a bit. Sometimes midweek if I'm on earlies.
+L367 [33:04] S3: I'm in Northampton, so it's forty minutes in the car. And I work shifts at the warehouse, so it's hard.
+L368 [33:11] S1: Of course. And you've got family of your own?
+L369 [33:16] S3: Two teenagers. And the wife works as well. So it's, yeah. I do what I can.
+L370 [33:22] S2: He does a lot. He does more than he should.
+L371 [33:26] S1: And Margaret, you mentioned a daughter?
+L372 [33:29] S2: Susan. She lives in Spain. In Alicante. She moved out there with her husband eight years ago.
+L373 [33:36] S1: How often do you hear from Susan?
+L374 [33:39] S2: She rings every week. Sunday nights, regular as clockwork. And she comes over in the summer.
+L375 [33:45] S2: She wanted to come when I had the fall but she couldn't get the time off.
+L376 [33:52] S3: She was on the phone to me every day though.
+L377 [33:56] S2: She was, she was worried sick.
+L378 [33:59] S1: And Brenda next door, how often does she pop in?
+L379 [34:03] S2: Most days. Just for a minute.
+L380 [34:06] S2: She knocks on the wall in the morning and I knock back, so she knows I'm alright.
+L381 [34:13] S1: Oh, that's lovely. Like a little signal.
+L382 [34:16] S2: We've done that for years. Since her husband passed.
+L383 [34:20] S2: But she's seventy-six herself, Brenda, with her knees. I can't lean on her too much.
+L384 [34:26] S1: No, that's fair. And is there anyone else? Friends, church, anything like that?
+L385 [34:32] S2: Well I used to go to the lunch club. At St Michael's, the church hall. Every Wednesday.
+L386 [34:39] S1: The lunch club, lovely. What's that like?
+L387 [34:42] S2: Oh, it's nice. It's a proper dinner, a cooked dinner, and a pudding, and then there's bingo or a quiz or somebody comes and talks about something.
+L388 [34:52] S2: There was a man last time with owls.
+L389 [34:56] S1: Owls?
+L390 [34:57] S2: Real owls. In a box. One of them sat on my arm.
+L391 [35:02] S3: She talked about that owl for a month.
+L392 [35:05] S2: Well, it was lovely. Anyway. I haven't been since the fall. Did I say Wednesday?
+L393 [35:11] S1: You did, yes.
+L394 [35:13] S2: No, it's Thursdays now.
+L395 [35:15] S2: It used to be a Wednesday but they moved it when the new vicar came. Thursdays. Twelve o'clock.
+L396 [35:22] S1: Thursdays at twelve. Okay. And how did you get there before?
+L397 [35:27] S2: I walked. It's only round the corner, past the shops. But I can't walk it now.
+L398 [35:33] S2: And I wouldn't want to walk in with the frame, everyone looking.
+L399 [35:38] S1: Would you like to go back to it?
+L400 [35:41] S2: I would, yes. I miss the people. I miss Joan and Pat, we always sat together.
+L401 [35:48] S1: Okay. There might be transport, some lunch clubs have a volunteer driver or a minibus.
+L402 [35:55] S1: I can find out about that for you.
+L403 [35:58] S2: Could you? That would be, yes. I'd like that very much.
+L404 [36:02] S1: So, how are you finding things generally? Being on your own in the house.
+L405 [36:08] S2: It's quiet. It's very quiet.
+L406 [36:11] S1: Do you get lonely?
+L407 [36:13] S2: Yes. I do. I'm not going to pretend I don't.
+L408 [36:17] S2: Some days I don't speak to anybody except Biscuit and the man on the telly.
+L409 [36:23] S3: Mum, you never said.
+L410 [36:25] S2: You never asked, love. And you've got enough on.
+L411 [36:29] S1: The days when nobody comes, what are they like?
+L412 [36:32] S2: Long. They're very long. I watch my programmes.
+L413 [36:36] S2: I do my word search, well, I did, I can't hold the pen now. I look out the window.
+L414 [36:43] S1: Thank you for telling me that. I know it's not easy.
+L415 [36:48] S2: It's since Frank, really. It's two years in August. It was his heart. Very sudden.
+L416 [36:54] S1: I'm so sorry.
+L417 [36:56] S3: I'm going to go and get that washing out the machine, Mum, before it goes musty. And I'll put the bins round.
+L418 [37:05] S2: Thank you, love. The blue one's full.
+L419 [37:08] S3: Back in a bit.
+L420 [37:10] S1: Margaret, while Kevin's out, can I ask you a few questions about how you've been feeling? In yourself, I mean.
+L421 [37:18] S2: Go on.
+L422 [37:19] S1: You said things have been hard since Frank died. How was your mood, back then, after he passed?
+L423 [37:27] S2: Oh, I was in a bad way. I won't lie. I didn't want to get up.
+L424 [37:34] S2: I didn't want to eat. I just sat in that chair, his chair, for weeks.
+L425 [37:40] S1: Did you get any support at that time?
+L426 [37:44] S2: Dr Shah, well it was Dr Patel then, he put me on some tablets. For depression.
+L427 [37:50] S2: And I saw a lady for the bereavement, through the surgery. Six sessions, I think it was.
+L428 [37:57] S1: Did that help?
+L429 [37:59] S2: The lady helped. She was very kind. She let me talk about Frank and she didn't mind if I cried.
+L430 [38:06] S1: And the tablets, are you still taking those?
+L431 [38:10] S2: No. No, I came off them. Last spring, it would be.
+L432 [38:14] S2: Dr Patel said I could come off them slowly, and I did. Sertraline, they were.
+L433 [38:20] S1: So you're not taking sertraline anymore?
+L434 [38:23] S2: No, not for over a year now. I didn't like how they made me feel. Sort of, flat.
+L435 [38:30] S1: Okay. And how would you describe your mood now? Recently?
+L436 [38:34] S2: Up and down. Since the fall it's been more down than up, if I'm honest.
+L437 [38:40] S2: I get fed up. I get frustrated with myself, with this hand.
+L438 [38:45] S2: But it's not like it was after Frank. It's not that black.
+L439 [38:50] S2: I still get up. I still feed Biscuit and I still watch my programmes.
+L440 [38:57] S1: That's really helpful to understand. I'm going to ask you something now that I ask everybody, so please don't be alarmed by it.
+L441 [39:06] S2: Alright.
+L442 [39:07] S1: Have you had any thoughts of harming yourself, or of ending your life?
+L443 [39:13] S2: No. No, love. Not now. Never. I wouldn't. I've got too much to live for, my grandchildren, and Biscuit.
+L444 [39:20] S1: Okay.
+L445 [39:21] S2: Even back then, after Frank, I was very low, but I never thought of doing anything like that.
+L446 [39:28] S2: And I don't now. Hand on heart.
+L447 [39:31] S1: Thank you for answering that. I know it's a big question.
+L448 [39:36] S2: No, it's alright. You have to ask. The lady at the surgery asked me the same.
+L449 [39:43] S1: And if things did get very low again, would you feel able to tell someone? Kevin, or Dr Shah?
+L450 [39:50] S2: I'd tell Dr Shah. I think I would. I'd tell Susan, she gets it out of me anyway.
+L451 [39:57] S1: That's good. And I'll leave you some numbers as well, just in case.
+L452 [40:03] S2: Alright.
+L453 [40:04] S1: Can I ask, do you drink alcohol at all?
+L454 [40:08] S2: No. Never have. Frank liked his pint of bitter down the club, but I never touched it. Can't stand the smell.
+L455 [40:16] S1: And do you smoke?
+L456 [40:18] S2: Not for thirty years. I gave up when Kevin was little. Frank carried on, silly man.
+L457 [40:24] S1: Okay. And your memory, how is that, generally? Any worries there?
+L458 [40:29] S2: It's alright. Mostly. I forget where I've put my glasses, but I always did that.
+L459 [40:35] S2: I can still tell you all the kings and queens.
+L460 [40:39] S1: Ha. Please don't.
+L461 [40:40] S2: Ha! I won't. I'm not showing off.
+L462 [40:43] S1: Okay. Margaret, before Kevin comes back. Earlier, you said money's been going, and you weren't sure where.
+L463 [40:49] S1: Is that something you want to talk about now, just the two of us?
+L464 [40:55] S2: Oh. Um.
+L465 [40:56] S1: There's no pressure. Whatever you tell me, I'll talk to you about what happens with it.
+L466 [41:03] S2: It's Jordan. My grandson. Susan's boy.
+L467 [41:06] S1: Okay.
+L468 [41:07] S2: He stayed here in the UK when they went to Spain. He's twenty-two.
+L469 [41:12] S2: He lives in town, in a flat with his girlfriend. He comes round sometimes, and he's lovely with me. He's a lovely lad.
+L470 [41:22] S1: Mm.
+L471 [41:23] S2: And he sometimes borrows my bank card. To get me cash, or to get himself a few bits.
+L472 [41:30] S2: And I told him the number, so he could get my shopping, when I first came out of hospital.
+L473 [41:38] S1: Okay.
+L474 [41:39] S2: And then I got my statement and there were, um, there were a lot of withdrawals.
+L475 [41:45] S2: More than I'd asked him for. A lot more.
+L476 [41:49] S1: Do you know roughly how much?
+L477 [41:51] S2: About four hundred pounds. No, wait. It's more than that.
+L478 [41:56] S2: I added it up with my magnifying glass. It's about six hundred pounds. Over the last two months.
+L479 [42:03] S1: About six hundred pounds over two months. Okay.
+L480 [42:06] S2: I don't want him to get into trouble. He's only young.
+L481 [42:11] S2: He's had a hard time, with his mum going off to Spain. Maybe he needed it for something.
+L482 [42:18] S1: I can hear that you care about him a lot.
+L483 [42:23] S2: I do. I love the bones of him. But it's my pension, you know. I've been going without.
+L484 [42:30] S2: I don't know. Maybe I did say he could.
+L485 [42:34] S2: I can't remember everything I said. I don't want to make a fuss.
+L486 [42:39] S1: That's alright. You don't have to be sure. Does he still have your card now?
+L487 [42:45] S2: He's got it now, yes. He said he'd bring it back on Saturday.
+L488 [42:50] S1: Okay. Would you be happy to talk about this with Kevin here? Or would you rather he didn't know?
+L489 [42:58] S2: He'll have to know, won't he. He'll be the one sorting it out.
+L490 [43:03] S2: Yes. You can say it in front of Kevin. But let me tell him.
+L491 [43:09] S1: Of course. That's absolutely fine.
+L492 [43:11] S2: He's going to go off like a rocket.
+L493 [43:15] S1: It's alright. We'll take it steady. Is he still out there with the bins?
+L494 [43:20] S2: He'll be talking to Brenda over the fence, I expect. She collars him every time.
+L495 [43:27] S1: Ha. While we wait, what's your quiz, the one at four?
+L496 [43:31] S2: Oh, it's the one with the big machine and the counters, you know.
+L497 [43:36] S2: They drop them in and they push the others off. I can never remember what it's called. I'm hopeless with names.
+L498 [43:44] S1: I think I know the one you mean. My dad watches it.
+L499 [43:50] S2: And then after that there's the antiques one. With the man with the bow tie.
+L500 [43:55] S2: I like that one better. People bring in their old rubbish and it's worth a fortune.
+L501 [44:02] S1: Have you got anything worth a fortune in here?
+L502 [44:06] S2: Only Biscuit. And he's not for sale. Ha.
+L503 [44:09] S2: There was a lady last week with a teapot, an ugly old thing, and it went for two thousand pounds.
+L504 [44:17] S1: Two thousand, for a teapot!
+L505 [44:19] S2: I said to Biscuit, I said, we've got that teapot's ugly sister in the cupboard. Two thousand. I ask you.
+L506 [44:28] S1: Maybe you should get it looked at.
+L507 [44:31] S2: I'd never part with it. It was my mother's. You don't sell your mother's teapot.
+L508 [44:37] S1: No, you don't. That's what makes it worth something, really.
+L509 [44:41] S2: That's what I think. Is that the back door? That'll be him.
+L510 [44:46] S1: I think so. Are you alright? Do you want a minute before he comes in?
+L511 [44:52] S2: No, I'm alright. Let's get it over with. Like pulling a tooth.
+L512 [44:57] S3: Right, that's the washing on the airer and the bins out. It's blowing a gale out there, the lid nearly took my head off.
+L513 [45:06] S2: Did you put the brick on it?
+L514 [45:09] S3: I put the brick on it, Mum.
+L515 [45:12] S2: Last time the lid went all the way down to number twelve.
+L516 [45:17] S3: I know, I had to go and knock for it. Anyway. Where were we?
+L517 [45:23] S1: We were just going to talk about money, and finances. Margaret, did you want to say something to Kevin first?
+L518 [45:31] S2: Sit down, Kevin. Don't go off. It's about Jordan.
+L519 [45:34] S3: What about Jordan?
+L520 [45:36] S2: He's been borrowing my card. And there's money gone out that I didn't ask him to take.
+L521 [45:43] S2: About six hundred pounds. Over the last couple of months.
+L522 [45:47] S3: You're joking. Six hundred quid? Mum, why didn't you tell me?
+L523 [45:52] S2: Because of this. Because of that face.
+L524 [45:55] S3: I'm not, I'm not angry with you. I'm angry with him. Has he got your PIN?
+L525 [46:01] S2: I gave it him. When I came out of hospital. So he could do my shopping.
+L526 [46:08] S3: Right. Well, I'll tell you something else, then. Brenda said to me, a few weeks back, she said she thought she'd seen Jordan at the cash machine on the high street, by the chemist.
+L527 [46:21] S3: With a card. She wasn't sure it was him, she hasn't got her glasses on half the time.
+L528 [46:28] S2: Brenda sees all sorts. She thought she saw the Pope in the Co-op once.
+L529 [46:34] S1: Okay. So that's something Brenda mentioned to you, Kevin, but she wasn't sure it was him.
+L530 [46:41] S3: That's what she said, yeah. She said she thought.
+L531 [46:44] S3: And, um, somebody told me, one of his old mates' mums, that he's got himself into debt with the betting. On his phone. The gambling apps.
+L532 [46:55] S2: Oh, Kevin, that's just gossip. You don't know that.
+L533 [46:59] S3: I don't know it, no. It's just what I heard. But it'd make sense, wouldn't it.
+L534 [47:05] S1: Okay. I'm going to note that down as something that's been said to you, not as something we know.
+L535 [47:13] S1: It's really important I keep those separate.
+L536 [47:16] S3: Fair enough.
+L537 [47:17] S3: Honestly, I think we should just ring the police. That's theft, that is. Family or not.
+L538 [47:24] S2: No. I'm not having the police round here for Jordan. I'm not. He's my grandson.
+L539 [47:29] S3: Mum, he's taking your pension.
+L540 [47:32] S2: I said no, Kevin. I don't want the police.
+L541 [47:36] S2: I want him to stop, and I want my card back. That's all I want.
+L542 [47:42] S1: Can I say something about how this works, because I think it might help you both?
+L543 [47:49] S3: Go on.
+L544 [47:50] S1: So, what you've told me today, Margaret, I have a duty to take seriously. Because it sounds like somebody may be taking your money without your permission, that's something I need to raise as a safeguarding concern.
+L545 [48:05] S2: What does that mean? Is Jordan going to be arrested?
+L546 [48:09] S1: No. It doesn't mean that.
+L547 [48:11] S1: It means I'll pass what you've told me to our safeguarding adults team here at the council, and they'll look at what's happened and what would help keep you safe.
+L548 [48:23] S1: And a really big part of that is what you want.
+L549 [48:27] S1: You've said very clearly you don't want the police involved, and you want Jordan to stop and you want your card back. That will be at the centre of it.
+L550 [48:38] S2: So it's not the police.
+L551 [48:41] S1: Not unless you decide you want that, or unless there was a risk to someone else that meant we had to. And if that ever happened, I'd talk to you first.
+L552 [48:53] S2: Alright. Alright then. As long as it's not the police.
+L553 [48:58] S3: I still think he wants a clip round the ear.
+L554 [49:02] S2: Kevin.
+L555 [49:03] S1: The other thing that will really help straight away is stopping the card. Do you know which bank it is?
+L556 [49:12] S2: It's the Midshire. The building society. My pension goes in there.
+L557 [49:17] S1: So the building society can cancel the card, and issue you a new one with a new PIN. And they can sometimes look into withdrawals as well.
+L558 [49:28] S3: I can take her. I'm off on Friday.
+L559 [49:31] S3: I'll take her into the branch on Friday morning and we'll get it cancelled and get a new one.
+L560 [49:39] S2: Would you, love?
+L561 [49:41] S3: Course I will.
+L562 [49:42] S1: That's great. So that's Kevin taking you to the Midshire branch on Friday to cancel the card and order a new one.
+L563 [49:51] S1: And Margaret, the new PIN, it's best not to share it with anyone.
+L564 [49:56] S2: I won't. I've learned my lesson.
+L565 [49:59] S1: Okay. And can I check, are you happy for me to share this with the safeguarding team?
+L566 [50:06] S1: And for them to contact you?
+L567 [50:09] S2: Yes. Yes, you can. I just want it sorted.
+L568 [50:13] S1: Thank you. I'll make that referral today, before I finish this afternoon.
+L569 [50:18] S1: Right. So, more generally on money. Can I ask what income you have coming in?
+L570 [50:24] S2: My state pension. And Frank's pension, from the railway. I get half of it now, a widow's pension.
+L571 [50:31] S1: Okay. And do you own the house, or rent?
+L572 [50:34] S2: We own it. Paid it off years ago. Frank was very proud of that.
+L573 [50:40] S1: And do you have any savings, roughly?
+L574 [50:43] S2: There's about nine thousand in the building society. That's my funeral money, and a bit for the grandchildren.
+L575 [50:51] S1: About nine thousand pounds. Okay. And are you getting any benefits on top of your pension? Attendance Allowance, for example?
+L576 [50:59] S2: I don't think so. What's that?
+L577 [51:02] S1: It's a benefit for people over state pension age who need help with personal care.
+L578 [51:07] S1: It's not means tested, so your savings don't count. From what you've told me today, you might well be entitled to it.
+L579 [51:16] S3: Nobody ever told us about that.
+L580 [51:18] S1: A lot of people don't know. I can send you the form, and there's a service that can help you fill it in.
+L581 [51:27] S2: I'd need help, with my hand.
+L582 [51:30] S3: I'll do it with you, Mum.
+L583 [51:33] S1: Lovely. And the other thing I need to explain, just so there are no surprises.
+L584 [51:38] S1: If the council does arrange ongoing care, there's a financial assessment, to work out whether you'd need to pay something towards it.
+L585 [51:48] S2: So I'd have to pay?
+L586 [51:50] S1: You might have to contribute something. It depends on your income and savings.
+L587 [51:56] S1: The house isn't counted for care at home. Somebody from the financial assessment team will talk it through with you properly.
+L588 [52:06] S2: Well. I'd rather pay a bit and stay here than anything else.
+L589 [52:10] S1: Okay. We're nearly there, I promise. Can I just ask you, Margaret, if you had to sum it up.
+L590 [52:18] S1: What matters most to you? What would a good life look like, over the next few months?
+L591 [52:25] S2: Oh. That's a big question.
+L592 [52:27] S1: Take your time.
+L593 [52:29] S2: Staying here. That's the first thing. In my own home, with Biscuit.
+L594 [52:33] S2: And being able to have a bath. A proper bath. And wash my hair.
+L595 [52:40] S2: And getting back to the lunch club, seeing Joan and Pat.
+L596 [52:44] S2: And not being frightened all the time. Of falling. Of the kitchen.
+L597 [52:49] S1: That's really clear. Anything else?
+L598 [52:51] S2: I'd like to be able to cook myself a proper dinner again.
+L599 [52:56] S2: Not every day. But now and then. A bit of mince, some potatoes.
+L600 [53:02] S3: And your roses, Mum.
+L601 [53:04] S2: And my roses. Frank's roses.
+L602 [53:06] S2: I'd like to see them come out this summer and be well enough to go out and look at them.
+L603 [53:14] S1: That's lovely. Thank you.
+L604 [53:16] S1: So, let me try and pull this together, and you can both tell me if I've got it wrong.
+L605 [53:24] S2: Go on.
+L606 [53:25] S1: So, since the fall on the third of March, and the two falls before that, you're finding it very hard to wash properly, especially bathing and your hair. Getting dressed takes up to an hour and wears you out.
+L607 [53:41] S1: You're not able to prepare proper meals, you're eating very little and you've lost nearly a stone.
+L608 [53:47] S1: You've missed some of your tablets. And you're on your own a lot, and you're feeling lonely and more low than usual.
+L609 [53:56] S2: That's about the size of it.
+L610 [53:58] S1: And all of that is having quite a significant impact on your wellbeing. Your physical health, your safety, your mood, and being able to see people.
+L611 [54:09] S1: So from what I've heard today, I think it's likely that you'll meet the eligibility criteria for support. I can't confirm that on my own, it has to be agreed, but that's what I'll be recommending.
+L612 [54:23] S3: What would the support actually be, though?
+L613 [54:26] S1: So what I'd like to request is something called reablement. It's short-term, it's usually free for up to six weeks, and carers come in to help, but the idea is to help your mum get her confidence back and do things for herself again.
+L614 [54:44] S2: Carers coming in here?
+L615 [54:46] S1: Yes. What I'm thinking is a visit in the morning, to help with washing and dressing and your tablets, and a visit at teatime to help with a meal.
+L616 [54:57] S2: Every day?
+L617 [54:58] S1: Every day to start with, and then it tapers off as you get more confident. But I need to be clear, that isn't agreed yet.
+L618 [55:08] S1: I have to put the request in, and my manager has to approve it. I'll let you know by the end of next week.
+L619 [55:19] S3: Okay. So it's not definite.
+L620 [55:21] S1: Not definite, no. I don't want to promise something and then it not happen.
+L621 [55:26] S2: Well, as long as they're not bossy. I don't want someone bossing me about in my own kitchen.
+L622 [55:34] S1: Ha. I'll put that in. No bossy carers.
+L623 [55:37] S3: Good luck with that.
+L624 [55:39] S1: So, let me go through the next steps, and who's doing what. I'll write it all down and leave a copy with you as well.
+L625 [55:49] S2: Thank you, love, because I won't remember it all.
+L626 [55:53] S1: First, me. Today I'll make the referral to occupational therapy.
+L627 [55:57] S1: That's for the bath, so a bath lift or a board, a second rail on the stairs, a second frame for upstairs, and they can look at the back step and that pull cord light.
+L628 [56:11] S3: How long does that take?
+L629 [56:13] S1: The OT waiting list is about three weeks at the moment. I'll mark it as a priority because of the falls, but I can't promise it'll be quicker.
+L630 [56:24] S1: Second, I'll make the safeguarding referral about the card, this afternoon, like we said. Somebody from the safeguarding team will be in touch with you, Margaret, and I'll be in touch as well.
+L631 [56:38] S2: Alright.
+L632 [56:39] S1: Third, I'll refer you for the alarm, the telecare. The Careline one, the watch kind that can detect a fall.
+L633 [56:47] S1: They usually come out and fit it within about ten days.
+L634 [56:52] S2: The Carolyn, yes. The watch.
+L635 [56:54] S1: Fourth, I'll write to Dr Shah. I'll ask about a referral to the falls clinic, and I'll mention the weight loss, the continence service, and the missed tablets.
+L636 [57:05] S1: And I'll ring the chemist on Station Road about a pack that's easier to open.
+L637 [57:12] S2: Dr Shah, not Dr Patel.
+L638 [57:14] S1: Ha. Dr Shah. Definitely.
+L639 [57:16] S1: Fifth, I'll put in the request for reablement, the morning and teatime visits, and I'll let you know the outcome by the end of next week.
+L640 [57:25] S1: And sixth, I'll find out about transport to the lunch club at St Michael's, on Thursdays, and let you know what's available.
+L641 [57:34] S2: That's a lot of things for you.
+L642 [57:37] S1: That's my job. Now, Kevin.
+L643 [57:39] S1: You're taking your mum to the Midshire branch on Friday morning, to cancel the card and get a new one.
+L644 [57:47] S3: Friday morning. Yes.
+L645 [57:49] S1: And you said you'd help with the Attendance Allowance form, which I'll post out, along with the financial assessment form.
+L646 [57:56] S3: Yep. I'll do them on Sunday with her.
+L647 [58:00] S2: And he's going to take the rug up in the hall. This weekend.
+L648 [58:05] S2: Just the hall one, mind. Not the one in here, that stays.
+L649 [58:10] S3: Really? You're letting me take the rug up?
+L650 [58:13] S2: The hall one. Don't push your luck.
+L651 [58:17] S1: That's a great start. And Margaret, you said you might set your alarm clock for your morning tablets?
+L652 [58:24] S2: I'll set it for nine o'clock. Kevin can show me how, the buttons are ever so small.
+L653 [58:31] S1: Perfect. And I'll give you a ring on Monday to see how Friday went at the building society, and to check in.
+L654 [58:39] S2: Monday. Alright.
+L655 [58:40] S1: And then I'd like to come back and see you again.
+L656 [58:45] S1: How would Tuesday the fifteenth of April be? About two o'clock?
+L657 [58:50] S2: Tuesday the fifteenth. Two o'clock. Is that before my quiz?
+L658 [58:54] S1: Well before your quiz.
+L659 [58:56] S3: I'll try and be here for that. I'll swap a shift.
+L660 [59:01] S1: That would be great, if you can. Is there anything you want to ask me, either of you? Anything I've missed?
+L661 [59:09] S3: Just, if she falls again before all this is in place. What do we do?
+L662 [59:15] S1: If she falls and she's hurt, or can't get up, it's an ambulance, nine nine nine. And Brenda knocking on the wall is really valuable for now, so keep that going.
+L663 [59:28] S2: Oh, we'll keep that going. Brenda would never let me stop.
+L664 [59:33] S1: And Margaret, keep your phone on you, in your cardigan pocket, even when you're pottering. Until the alarm's in.
+L665 [59:40] S2: In my pocket. Yes. I'll try.
+L666 [59:43] S3: I'll ring her every night as well. Around eight.
+L667 [59:47] S2: You don't have to do that.
+L668 [59:50] S3: I want to, Mum.
+L669 [59:52] S1: Anything else, Margaret?
+L670 [59:54] S2: No. No, I think you've covered it. You've been very kind.
+L671 [59:59] S2: I was dreading this, I'll be honest. I thought you'd come to take me away.
+L672 [60:04] S1: No. I came to help you stay. That's the whole point.
+L673 [60:10] S2: Well. That's alright then.
+L674 [60:12] S1: I'll leave you my card, with my number, and the duty number for when I'm not in. And the numbers we talked about, for if you're feeling low.
+L675 [60:23] S2: Put it by the phone, love. Biscuit, get off her notes.
+L676 [60:28] S1: Ha, he wants to sign them. Thank you for the tea, Margaret, and for being so honest with me today.
+L677 [60:36] S2: Mind how you go in that wind. And have a think about the umbrella.
+L678 [60:42] S1: I'll be fine. Bye Kevin, nice to meet you. Bye Biscuit.
+L679 [60:46] S3: Cheers, Priya. See you on the fifteenth.
+L680 [60:50] S2: Bye love. Mind the step.

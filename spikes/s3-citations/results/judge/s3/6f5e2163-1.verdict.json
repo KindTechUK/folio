@@ -1,0 +1,486 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S003": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S004": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S005": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "Attendance true (L5, L185); cited L69 is about timing hypos, unrelated."
+    },
+    "S006": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "Fair summary of the meeting; cited L69 does not support it."
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "True from L5-L8; cited L138 does not establish attendance."
+    },
+    "S008": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "Fair summary; cited L138 does not address meeting purpose."
+    },
+    "S009": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S010": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S011": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S012": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S013": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L16 gives June 2021 team leader; 'inbound goods' is L18, not cited."
+    },
+    "S014": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S015": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S016": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S017": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S018": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S019": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S020": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S021": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L29 'I think I signed something on the tablet'; note states she signed a new contract as fact."
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S023": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S024": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S025": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S026": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S027": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Linda left end of 2025 (L40, L51; meeting is Sept 2026); parenthetical 'end of 2023 or 2024' is wrong."
+    },
+    "S028": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S029": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S030": {
+      "label": "over_inference",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L44 'There might be an email somewhere from years ago'; note says no email. Cited L43 is only the question."
+    },
+    "S031": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L44 she doesn't think there is one but 'might be an email'; she never said she searched."
+    },
+    "S032": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L52: she won 'team leader of the quarter' award in 2023, not team leader for a quarter."
+    },
+    "S033": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S034": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Gary started January 2026 (Linda left end 2025, L51); note says 2024. 'I think' also dropped."
+    },
+    "S035": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S036": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L71: she emailed HR on her own initiative to ask for OH referral; HR did not ask her."
+    },
+    "S037": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S038": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S039": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S040": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S041": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L76: asked if she has a copy she says 'I think so', it's in her personal email; note says she does not."
+    },
+    "S042": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S043": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S044": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Date from L82; 'informal' comes from L84, not cited."
+    },
+    "S045": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S046": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S047": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S048": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S049": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L86 'opens up half the time'; note drops 'half the time' and adds 'early'."
+    },
+    "S050": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L88 nobody has said it; she fears they might in future. 'might have said so' implies it may have been alleged."
+    },
+    "S051": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S052": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S053": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S054": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L96 says open doors don't help, not that they cause the heat; minor misstatement."
+    },
+    "S055": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S056": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S057": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S058": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S059": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S060": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S061": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S062": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S063": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S064": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Placed after investigation meeting (S063), but the ~40 min at L139-140 was the 6 Aug disciplinary meeting."
+    },
+    "S065": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Missing notes are investigation (L120) and disciplinary (L142-143); appeal-meeting notes never mentioned."
+    },
+    "S066": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Cited lines give letter dated 14 Aug; receipt by email on 14th is L146, not cited."
+    },
+    "S067": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S068": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S069": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L151 confirms arrival; the £4,523 amount is L150, not cited."
+    },
+    "S070": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S071": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S072": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S073": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S074": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S075": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "present",
+    "F05": "present",
+    "F06": "absent",
+    "F07": "absent",
+    "F08": "present",
+    "F09": "present",
+    "F10": "partial",
+    "F11": "present",
+    "F12": "present",
+    "F13": "present",
+    "F14": "absent",
+    "F15": "absent",
+    "F16": "present",
+    "F17": "present",
+    "F18": "present",
+    "F19": "present",
+    "F20": "partial",
+    "F21": "partial",
+    "F22": "present",
+    "F23": "present",
+    "F24": "partial",
+    "F25": "absent",
+    "F26": "absent",
+    "F27": "partial",
+    "F28": "present",
+    "F29": "present"
+  },
+  "notes": "Detailed but with several factual errors (Gary 2024, HR asked for OH referral, award misread, wrong meeting's duration/notes); attendance sentences cite irrelevant lines; no disciplinary meeting, ACAS plan or initial legal advice in the note."
+}

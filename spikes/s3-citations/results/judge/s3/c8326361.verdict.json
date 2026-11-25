@@ -1,0 +1,307 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L27/L29 give scores; 'out of ten' scale is in uncited L26."
+    },
+    "S003": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L132 'never had anything like that' needs the uncited question L131 about voices."
+    },
+    "S004": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L137 'I'm just scared'; 'regarding Hannah's condition' comes from context L135."
+    },
+    "S005": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S006": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S008": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S009": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S010": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Dose correct; start date 10 Nov is in uncited L35, and cited L31 gives the corrected 200 mg."
+    },
+    "S011": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L43: she gets about four hours' sleep in total; note says she lies awake four hours. Waking '3, half 3' (L41)."
+    },
+    "S012": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S013": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S014": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Date 11 Dec is correct per uncited L56; cited L55 says 4 Dec (the corrected value)."
+    },
+    "S015": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S016": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L78: Hannah is avoiding people and lets Megan's calls go to voicemail; note says Megan is avoiding contact."
+    },
+    "S017": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L82 'a glass on a Friday. Two maybe'; note states 'one glass', dropping the 'two maybe'. Megan is Hannah's sister, not strictly sister-in-law."
+    },
+    "S018": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L144-146: S1 listed three signs from last time; 'not answering Megan' was a new sign added by Hannah, not a previous one."
+    },
+    "S019": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L145-146: not answering Megan is a new warning sign being added, not a previous one confirmed 'still right'."
+    },
+    "S020": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L147 'on the fridge'; crisis line number identified only in uncited L146."
+    },
+    "S021": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L148 'on my phone too' needs L146 to identify the crisis line number."
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S023": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S024": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L152-153: Tom apologises to Hannah and leaves; Hannah tells him to go. Tom did not ask Hannah to go."
+    },
+    "S025": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S026": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S027": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L116-117: passive wish not to wake; she said 'not like that' to thoughts of ending life. Unqualified 'suicidal ideation' label overstates."
+    },
+    "S028": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L123 needs the uncited self-harm question L122 for context."
+    },
+    "S029": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S030": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L105/L109: Tom said this himself in the session; note says Hannah reported it (first-hand made second-hand, wrong speaker)."
+    },
+    "S031": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L99: Tom said it directly; note says Hannah reported it. View itself correctly Tom's."
+    },
+    "S032": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L109: Tom asked directly, citing his mate's wife, not 'her friend's wife'; Hannah did not report it."
+    },
+    "S033": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "Content is in uncited L130; cited L129 is only Samuel's question."
+    },
+    "S034": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S035": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L177 'I will. I promise.' needs L176 for what she promised."
+    },
+    "S036": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L95-96: Tom answered this himself ('not really'); note says Hannah reported it. Topic needs uncited L95."
+    },
+    "S037": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L105: Tom voiced this concern directly; note attributes the report to Hannah."
+    },
+    "S038": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L99: Tom said this directly; note attributes the report to Hannah."
+    },
+    "S039": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L71: Hannah herself said she might try a phased return if offered; Tom never suggested it."
+    },
+    "S040": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Duplicate of S036: L96 is Tom's own answer, not Hannah reporting it."
+    },
+    "S041": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S042": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L170 'nothing yet' needs L169 to identify the clinic appointment."
+    },
+    "S043": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L143/L171: the safety plan will cover the week Tom is away; note instead says the copy is dropped round that week."
+    },
+    "S044": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S045": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L173 'I can do that' needs L172 for the sleep diary."
+    },
+    "S046": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S047": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {
+    "F01": "partial",
+    "F02": "partial",
+    "F03": "partial",
+    "F04": "absent",
+    "F05": "partial",
+    "F06": "partial",
+    "F07": "partial",
+    "F08": "absent",
+    "F09": "partial",
+    "F10": "present",
+    "F11": "present",
+    "F12": "partial",
+    "F13": "partial",
+    "F14": "partial",
+    "F15": "present",
+    "F16": "partial",
+    "F17": "partial",
+    "F18": "partial"
+  },
+  "notes": "No traps hit, but many attribution errors: Tom's in-session views framed as 'Hannah reported', Megan/Hannah avoidance reversed, phased return given to Tom, sleep hours inverted."
+}
