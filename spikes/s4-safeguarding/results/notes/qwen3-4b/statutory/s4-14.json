@@ -1,0 +1,448 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "Solicitor Daniel Okafor attended the meeting with client Rachel Penrose.",
+      "cites": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "The purpose of the meeting was for Rachel Penrose to disclose concerns about her mother Margaret's financial and care situation, particularly regarding her brother Martin's actions",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Rachel Penrose described her mother Margaret as 81 years old, diagnosed with dementia two years ago, and still living in her own house on Larch Road with carers.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Rachel Penrose's brother Martin holds the power of attorney for financial matters (money, property and financial affairs) for her mother, which was signed in 2023 and registered.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "Only Martin holds the power of attorney; Rachel Penrose does not have a co-attorney.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Rachel Penrose discovered a bank transfer of £12,000 from her mother's account to Martin's account on 14 August.",
+      "cites": [
+       17,
+       19
+      ]
+     },
+     {
+      "text": "The transfer was to Martin's account, as confirmed by the account number ending in the last digits of Martin's account.",
+      "cites": [
+       19
+      ]
+     },
+     {
+      "text": "Rachel Penrose saw her mother on 22 September, when her mother said, 'Martin made me sign something' and that Martin put it in front of her and made her sign it, and she was afraid",
+      "cites": [
+       29,
+       31,
+       32
+      ]
+     },
+     {
+      "text": "Rachel Penrose did not see or have access to the document her mother referred to, and has searched her mother's drawers without finding it.",
+      "cites": [
+       35,
+       36
+      ]
+     },
+     {
+      "text": "The care agency Brightwell sent a letter dated 3 November stating that invoices are three months overdue and amount to approximately £2,400, and that they may stop calls if unpaid.",
+      "cites": [
+       39,
+       41
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated Martin has not said anything about selling the house, and she is only worried he might do so.",
+      "cites": [
+       48,
+       49
+      ]
+     },
+     {
+      "text": "Rachel Penrose inquired about the cost of the legal services.",
+      "cites": [
+       63
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that she feels better after having spoken with the solicitor.",
+      "cites": [
+       65
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": [
+     {
+      "text": "Rachel Penrose has the letter from Brightwell dated 3 November, which she will provide to the solicitor.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "Rachel Penrose has photos of the bank statement showing the £12,000 transfer on 14 August, which she printed and brought to the meeting.",
+      "cites": [
+       21,
+       22
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": [
+     {
+      "text": "Rachel Penrose stated her objective is to protect her mother's money and prevent Martin from accessing it, and to ensure the house is not sold, as that would leave nothing for her母",
+      "cites": [
+       45,
+       47
+      ]
+     },
+     {
+      "text": "Rachel Penrose expressed concern that if Martin sells the house, there will be nothing left for her mother's care, which keeps her awake.",
+      "cites": [
+       47
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "The solicitor advised that an attorney must act in the client's best interests and keep her money separate, and that a transfer of £12,000 without authority is something the Office",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "The Office of the Public Guardian supervises attorneys and can investigate the transfer, require Martin to account for every penny, and apply to the Court of Protection to cancel a",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "The solicitor advised that taking money as an attorney without proper authority may be a criminal offence.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "The solicitor recommended a safeguarding referral to Wexley Council because the client's mother is an adult at risk.",
+      "cites": [
+       55,
+       56
+      ]
+     },
+     {
+      "text": "Rachel Penrose agreed to the safeguarding referral being made by the solicitor.",
+      "cites": [
+       57
+      ]
+     },
+     {
+      "text": "The solicitor advised Rachel Penrose not to confront Martin about the transfer or the document at this time, as it could cause him to move money or become defensive.",
+      "cites": [
+       58,
+       59
+      ]
+     },
+     {
+      "text": "The first stage of the legal work is a fixed fee, which will be provided in the client care letter.",
+      "cites": [
+       64
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": [
+     {
+      "text": "Rachel Penrose agreed to call Brightwell to explain the situation and confirm payment of the invoices, and will do so tomorrow.",
+      "cites": [
+       61
+      ]
+     },
+     {
+      "text": "Rachel Penrose will email the solicitor the photos of the bank statement and the Brightwell letter by Friday, 27th of November.",
+      "cites": [
+       62
+      ]
+     },
+     {
+      "text": "The solicitor will write to the Office of the Public Guardian by Tuesday, 1st December.",
+      "cites": [
+       62
+      ]
+     },
+     {
+      "text": "The solicitor will make the adult safeguarding referral to Wexley Council today.",
+      "cites": [
+       62
+      ]
+     },
+     {
+      "text": "The solicitor will send a client care letter with a fixed fee for the first stage of the work by the end of the day.",
+      "cites": [
+       64
+      ]
+     },
+     {
+      "text": "The next meeting is scheduled for the 8th of December.",
+      "cites": [
+       65
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Solicitor Daniel Okafor attended the meeting with client Rachel Penrose.",
+   "cites": [
+    1
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The purpose of the meeting was for Rachel Penrose to disclose concerns about her mother Margaret's financial and care situation, particularly regarding her brother Martin's actions",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose described her mother Margaret as 81 years old, diagnosed with dementia two years ago, and still living in her own house on Larch Road with carers.",
+   "cites": [
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose's brother Martin holds the power of attorney for financial matters (money, property and financial affairs) for her mother, which was signed in 2023 and registered.",
+   "cites": [
+    13
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Only Martin holds the power of attorney; Rachel Penrose does not have a co-attorney.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose discovered a bank transfer of £12,000 from her mother's account to Martin's account on 14 August.",
+   "cites": [
+    17,
+    19
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The transfer was to Martin's account, as confirmed by the account number ending in the last digits of Martin's account.",
+   "cites": [
+    19
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose saw her mother on 22 September, when her mother said, 'Martin made me sign something' and that Martin put it in front of her and made her sign it, and she was afraid",
+   "cites": [
+    29,
+    31,
+    32
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose did not see or have access to the document her mother referred to, and has searched her mother's drawers without finding it.",
+   "cites": [
+    35,
+    36
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The care agency Brightwell sent a letter dated 3 November stating that invoices are three months overdue and amount to approximately £2,400, and that they may stop calls if unpaid.",
+   "cites": [
+    39,
+    41
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose has the letter from Brightwell dated 3 November, which she will provide to the solicitor.",
+   "cites": [
+    41
+   ],
+   "section": "Documents and evidence"
+  },
+  {
+   "text": "Rachel Penrose has photos of the bank statement showing the £12,000 transfer on 14 August, which she printed and brought to the meeting.",
+   "cites": [
+    21,
+    22
+   ],
+   "section": "Documents and evidence"
+  },
+  {
+   "text": "Rachel Penrose stated her objective is to protect her mother's money and prevent Martin from accessing it, and to ensure the house is not sold, as that would leave nothing for her母",
+   "cites": [
+    45,
+    47
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Rachel Penrose expressed concern that if Martin sells the house, there will be nothing left for her mother's care, which keeps her awake.",
+   "cites": [
+    47
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Rachel Penrose stated Martin has not said anything about selling the house, and she is only worried he might do so.",
+   "cites": [
+    48,
+    49
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The solicitor advised that an attorney must act in the client's best interests and keep her money separate, and that a transfer of £12,000 without authority is something the Office",
+   "cites": [
+    50
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The Office of the Public Guardian supervises attorneys and can investigate the transfer, require Martin to account for every penny, and apply to the Court of Protection to cancel a",
+   "cites": [
+    52
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that taking money as an attorney without proper authority may be a criminal offence.",
+   "cites": [
+    54
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor recommended a safeguarding referral to Wexley Council because the client's mother is an adult at risk.",
+   "cites": [
+    55,
+    56
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Rachel Penrose agreed to the safeguarding referral being made by the solicitor.",
+   "cites": [
+    57
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised Rachel Penrose not to confront Martin about the transfer or the document at this time, as it could cause him to move money or become defensive.",
+   "cites": [
+    58,
+    59
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Rachel Penrose agreed to call Brightwell to explain the situation and confirm payment of the invoices, and will do so tomorrow.",
+   "cites": [
+    61
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "Rachel Penrose will email the solicitor the photos of the bank statement and the Brightwell letter by Friday, 27th of November.",
+   "cites": [
+    62
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "The solicitor will write to the Office of the Public Guardian by Tuesday, 1st December.",
+   "cites": [
+    62
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "The solicitor will make the adult safeguarding referral to Wexley Council today.",
+   "cites": [
+    62
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "The solicitor will send a client care letter with a fixed fee for the first stage of the work by the end of the day.",
+   "cites": [
+    64
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "The next meeting is scheduled for the 8th of December.",
+   "cites": [
+    65
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "Rachel Penrose inquired about the cost of the legal services.",
+   "cites": [
+    63
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The first stage of the legal work is a fixed fee, which will be provided in the client care letter.",
+   "cites": [
+    64
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Rachel Penrose stated that she feels better after having spoken with the solicitor.",
+   "cites": [
+    65
+   ],
+   "section": "Client's account"
+  }
+ ]
+}

@@ -1,0 +1,435 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Social worker Tom Okafor from Harbridge adult services visited Harold Pryce at his home, having been referred by Dr Bell.",
+      "cites": [
+       1,
+       2,
+       3
+      ]
+     },
+     {
+      "text": "Harold Pryce lives alone with his wife Sandra; his wife Sandra is currently at her sister's house for the day.",
+      "cites": [
+       6,
+       18,
+       56
+      ]
+     },
+     {
+      "text": "Harold and Sandra have been married for nine years; Sandra is his second wife, and his first wife Joan died in 2013.",
+      "cites": [
+       18
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Harold has a stick and a frame upstairs and reported a fall in the garden in the spring.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Harold has no falls since the spring incident.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Harold can wash himself but sits on a stool in the shower; he finds putting on socks difficult.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Harold can make a sandwich; his wife Sandra cooks his meals.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Harold disclosed that Sandra keeps his medication in her handbag and sometimes keeps his tablets back if he has annoyed her.",
+      "cites": [
+       40,
+       42
+      ]
+     },
+     {
+      "text": "Harold reported he did not have his heart tablets for three days last week because Sandra kept them back.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Harold stated he has had his water tablets withheld by Sandra a few times.",
+      "cites": [
+       44
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Harold stated he does not want Sandra in trouble, but wants the abuse to stop and wants his tablets.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "Harold stated he would be upset if Carol knew about the abuse, but agreed that Carol could be told.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Harold disclosed that his wife Sandra hits him with her walking stick when she gets cross.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Harold initially denied the bruises on his arms were caused by Sandra, stating he bruises easily with tablets, but later confirmed they were true.",
+      "cites": [
+       22,
+       24,
+       30
+      ]
+     },
+     {
+      "text": "Harold stated Sandra hits him on his arms when she gets cross.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Harold estimated the hitting happens once a week, or more if Sandra has had a bad day.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "Harold disclosed that Sandra locks him in the bedroom when she goes out, claiming it is so he does not fall.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Harold stated Sandra locks him in the bedroom two or three times a week for the afternoon.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Harold noted there is no toilet upstairs while he is locked in the bedroom.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Harold stated that if he leaves the house, Sandra would take it, even though the house is in his name only.",
+      "cites": [
+       46,
+       48
+      ]
+     },
+     {
+      "text": "Harold stated he feels safe at the time of the visit because Sandra is away at her sister's house.",
+      "cites": [
+       56
+      ]
+     },
+     {
+      "text": "Social worker Tom Okafor provided the number for the older people's advocacy service and instructed Harold to ring 999 if he is hurt or locked in.",
+      "cites": [
+       63
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Harold's daughter Carol lives in Kestwick, about two hours away, and calls him on Sundays.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Harold stated his pension goes into a joint account and Sandra does the bills; he has his own savings book at the post office.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "Harold stated he has a mobile phone that Carol made him get.",
+      "cites": [
+       64
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "Social worker Tom Okafor proposed raising a safeguarding concern with the team, arranging for Harold's tablets to be delivered in a blister pack from the chemist, and contacting a ",
+      "cites": [
+       57,
+       59,
+       61
+      ]
+     },
+     {
+      "text": "Social worker Tom Okafor proposed contacting Harold's daughter Carol by Friday with Harold's permission.",
+      "cites": [
+       61
+      ]
+     },
+     {
+      "text": "Social worker Tom Okafor proposed referring Harold to an occupational therapist for assistance with socks and stairs.",
+      "cites": [
+       61
+      ]
+     },
+     {
+      "text": "Social worker Tom Okafor planned to return on Tuesday, the first of December, in the morning when Sandra is at her sister's.",
+      "cites": [
+       65
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Social worker Tom Okafor from Harbridge adult services visited Harold Pryce at his home, having been referred by Dr Bell.",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold Pryce lives alone with his wife Sandra; his wife Sandra is currently at her sister's house for the day.",
+   "cites": [
+    6,
+    18,
+    56
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold has a stick and a frame upstairs and reported a fall in the garden in the spring.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold has no falls since the spring incident.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold can wash himself but sits on a stool in the shower; he finds putting on socks difficult.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold can make a sandwich; his wife Sandra cooks his meals.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold and Sandra have been married for nine years; Sandra is his second wife, and his first wife Joan died in 2013.",
+   "cites": [
+    18
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold's daughter Carol lives in Kestwick, about two hours away, and calls him on Sundays.",
+   "cites": [
+    20
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Harold disclosed that his wife Sandra hits him with her walking stick when she gets cross.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold initially denied the bruises on his arms were caused by Sandra, stating he bruises easily with tablets, but later confirmed they were true.",
+   "cites": [
+    22,
+    24,
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold stated Sandra hits him on his arms when she gets cross.",
+   "cites": [
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold estimated the hitting happens once a week, or more if Sandra has had a bad day.",
+   "cites": [
+    32
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold disclosed that Sandra locks him in the bedroom when she goes out, claiming it is so he does not fall.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold stated Sandra locks him in the bedroom two or three times a week for the afternoon.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold noted there is no toilet upstairs while he is locked in the bedroom.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold disclosed that Sandra keeps his medication in her handbag and sometimes keeps his tablets back if he has annoyed her.",
+   "cites": [
+    40,
+    42
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold reported he did not have his heart tablets for three days last week because Sandra kept them back.",
+   "cites": [
+    42
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold stated he has had his water tablets withheld by Sandra a few times.",
+   "cites": [
+    44
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold stated that if he leaves the house, Sandra would take it, even though the house is in his name only.",
+   "cites": [
+    46,
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold stated he does not want Sandra in trouble, but wants the abuse to stop and wants his tablets.",
+   "cites": [
+    50
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Harold stated he would be upset if Carol knew about the abuse, but agreed that Carol could be told.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Harold stated his pension goes into a joint account and Sandra does the bills; he has his own savings book at the post office.",
+   "cites": [
+    54
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Harold stated he feels safe at the time of the visit because Sandra is away at her sister's house.",
+   "cites": [
+    56
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Social worker Tom Okafor proposed raising a safeguarding concern with the team, arranging for Harold's tablets to be delivered in a blister pack from the chemist, and contacting a ",
+   "cites": [
+    57,
+    59,
+    61
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Social worker Tom Okafor proposed contacting Harold's daughter Carol by Friday with Harold's permission.",
+   "cites": [
+    61
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Social worker Tom Okafor proposed referring Harold to an occupational therapist for assistance with socks and stairs.",
+   "cites": [
+    61
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Social worker Tom Okafor provided the number for the older people's advocacy service and instructed Harold to ring 999 if he is hurt or locked in.",
+   "cites": [
+    63
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold stated he has a mobile phone that Carol made him get.",
+   "cites": [
+    64
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Social worker Tom Okafor planned to return on Tuesday, the first of December, in the morning when Sandra is at her sister's.",
+   "cites": [
+    65
+   ],
+   "section": "Agreed actions"
+  }
+ ]
+}

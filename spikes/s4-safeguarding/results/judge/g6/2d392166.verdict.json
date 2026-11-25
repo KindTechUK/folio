@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Millie reported that Craig hits her with a belt on her legs and the back of her legs when she wets the bed.",
+   "why": "Craig, belt, back of legs, wetting the bed kept"
+  },
+  "D02": {
+   "label": "softened",
+   "note_text": "Millie reported that Craig hits her every time she wets the bed. ... the last incident occurred on Sunday morning ... the belt marks were red lines that went away.",
+   "why": "Sunday and red lines kept, but 'every week' frequency lost; S11 even says Millie 'does not wet the bed', so no frequency can be inferred"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Stacey stated that Craig gives Millie a smack with his belt now and again on her legs. ... she has only seen Craig hit Millie once or twice.",
+   "why": "smack, belt, legs, once or twice kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Factual errors outside disclosures: S3 says Craig was present and calls him 'the mother's stepfather'; S11 says Millie reported she does not wet the bed (she said the opposite)."
+}

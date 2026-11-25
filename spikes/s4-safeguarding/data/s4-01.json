@@ -1,0 +1,583 @@
+{
+ "id": "s4-01",
+ "title": "Home care review, older man reports carer slapped him (synthetic)",
+ "template": "assessment",
+ "category": "physical_abuse",
+ "setting": "A council care assessor visits Mr Dennis Walsh, 81, at home in Elm Close, Harbridge, to review his agency home care package; his daughter is present.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Care assessor (Priya Nair)",
+  "S2": "Dennis Walsh (the person)",
+  "S3": "Karen Walsh (daughter)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 7.8,
+   "speaker": "S1",
+   "text": "Morning, Mr Walsh, I'm Priya, from the adult social care team. We spoke on the phone last week."
+  },
+  {
+   "id": "L0002",
+   "start": 8.5,
+   "end": 14.5,
+   "speaker": "S2",
+   "text": "Oh yes, come in, love. Mind the step, it's a bit, er, a bit uneven."
+  },
+  {
+   "id": "L0003",
+   "start": 15.6,
+   "end": 20.8,
+   "speaker": "S3",
+   "text": "I'm Karen, his daughter. I've put the kettle on if you want one."
+  },
+  {
+   "id": "L0004",
+   "start": 21.8,
+   "end": 32.2,
+   "speaker": "S1",
+   "text": "Oh, lovely, thank you, no sugar. Um, so this is your six-month review of the care package. Is it alright if Karen stays while we talk?"
+  },
+  {
+   "id": "L0005",
+   "start": 32.5,
+   "end": 34.9,
+   "speaker": "S2",
+   "text": "Yeah, yeah, I want her here."
+  },
+  {
+   "id": "L0006",
+   "start": 36.0,
+   "end": 52.4,
+   "speaker": "S1",
+   "text": "Okay. And just so you know, I'll be writing notes. What we talk about stays with the council, but if I'm worried someone's at risk of harm I might have to share it, and I'd tell you first. Is that alright?"
+  },
+  {
+   "id": "L0007",
+   "start": 53.1,
+   "end": 54.3,
+   "speaker": "S2",
+   "text": "That's fine."
+  },
+  {
+   "id": "L0008",
+   "start": 54.9,
+   "end": 62.5,
+   "speaker": "S1",
+   "text": "Great. So at the moment you've got Brightpath Home Care coming in four times a day, is that right?"
+  },
+  {
+   "id": "L0009",
+   "start": 62.9,
+   "end": 65.7,
+   "speaker": "S2",
+   "text": "Four, yeah. Morning, dinner, tea and bed."
+  },
+  {
+   "id": "L0010",
+   "start": 66.0,
+   "end": 68.8,
+   "speaker": "S1",
+   "text": "And how are those calls going, generally?"
+  },
+  {
+   "id": "L0011",
+   "start": 69.2,
+   "end": 76.0,
+   "speaker": "S2",
+   "text": "Erm. Some of them are good. The girl who does teatime, Shelley, she's lovely. Takes her time."
+  },
+  {
+   "id": "L0012",
+   "start": 76.7,
+   "end": 83.1,
+   "speaker": "S1",
+   "text": "That's good to hear. What about getting washed and dressed in the morning, how's that been?"
+  },
+  {
+   "id": "L0013",
+   "start": 83.9,
+   "end": 93.1,
+   "speaker": "S2",
+   "text": "I can't do the buttons any more, my hands, you know. And the stairs, I don't go up now, I sleep down here."
+  },
+  {
+   "id": "L0014",
+   "start": 93.7,
+   "end": 98.1,
+   "speaker": "S3",
+   "text": "We had the bed brought down in March after his fall."
+  },
+  {
+   "id": "L0015",
+   "start": 99.2,
+   "end": 102.8,
+   "speaker": "S1",
+   "text": "Right. And you're using the frame around the house?"
+  },
+  {
+   "id": "L0016",
+   "start": 103.1,
+   "end": 105.9,
+   "speaker": "S2",
+   "text": "Most of the time. When I remember."
+  },
+  {
+   "id": "L0017",
+   "start": 106.5,
+   "end": 108.9,
+   "speaker": "S1",
+   "text": "And meals? Who's doing the cooking?"
+  },
+  {
+   "id": "L0018",
+   "start": 109.6,
+   "end": 117.2,
+   "speaker": "S3",
+   "text": "The carers do microwave meals at dinner and tea, and I bring a proper dinner round on a Sunday."
+  },
+  {
+   "id": "L0019",
+   "start": 117.7,
+   "end": 121.3,
+   "speaker": "S1",
+   "text": "And your diabetes tablets, are the carers prompting those?"
+  },
+  {
+   "id": "L0020",
+   "start": 121.8,
+   "end": 125.0,
+   "speaker": "S2",
+   "text": "They put them out, yeah. Morning and night."
+  },
+  {
+   "id": "L0021",
+   "start": 126.1,
+   "end": 133.7,
+   "speaker": "S1",
+   "text": "Okay. So, Mr Walsh, you said some of the carers are good. Are there any you're less happy with?"
+  },
+  {
+   "id": "L0022",
+   "start": 134.2,
+   "end": 138.2,
+   "speaker": "S2",
+   "text": "Well. There's one. Lee. He does the mornings, most mornings."
+  },
+  {
+   "id": "L0023",
+   "start": 138.7,
+   "end": 141.9,
+   "speaker": "S1",
+   "text": "Can you tell me a bit about Lee?"
+  },
+  {
+   "id": "L0024",
+   "start": 143.0,
+   "end": 148.2,
+   "speaker": "S2",
+   "text": "He's always in a rush. And he, um. I don't like saying it."
+  },
+  {
+   "id": "L0025",
+   "start": 149.0,
+   "end": 153.0,
+   "speaker": "S1",
+   "text": "Take your time. Whatever you tell me, I'll take seriously."
+  },
+  {
+   "id": "L0026",
+   "start": 153.7,
+   "end": 160.1,
+   "speaker": "S2",
+   "text": "He slapped me. Across the face. Last Thursday, because I was slow getting off the bed."
+  },
+  {
+   "id": "L0027",
+   "start": 161.2,
+   "end": 166.0,
+   "speaker": "S1",
+   "text": "Okay. Thank you for telling me. Has that happened just the once?"
+  },
+  {
+   "id": "L0028",
+   "start": 166.8,
+   "end": 174.0,
+   "speaker": "S2",
+   "text": "No, twice. He slapped me once before, a few weeks back. Same thing, I was taking too long."
+  },
+  {
+   "id": "L0029",
+   "start": 174.9,
+   "end": 180.1,
+   "speaker": "S1",
+   "text": "And when you say he slapped you, was that with his open hand?"
+  },
+  {
+   "id": "L0030",
+   "start": 180.6,
+   "end": 183.0,
+   "speaker": "S2",
+   "text": "Open hand, yeah. On the face."
+  },
+  {
+   "id": "L0031",
+   "start": 184.0,
+   "end": 187.2,
+   "speaker": "S1",
+   "text": "Has Lee done anything else that's hurt you?"
+  },
+  {
+   "id": "L0032",
+   "start": 187.6,
+   "end": 193.6,
+   "speaker": "S2",
+   "text": "He grabbed my arm. He grabs my arm to pull me up off the commode."
+  },
+  {
+   "id": "L0033",
+   "start": 194.0,
+   "end": 196.4,
+   "speaker": "S1",
+   "text": "How often does he do that?"
+  },
+  {
+   "id": "L0034",
+   "start": 196.7,
+   "end": 202.7,
+   "speaker": "S2",
+   "text": "Most mornings when it's him. He grabbed my arm hard on Saturday, it really hurt."
+  },
+  {
+   "id": "L0035",
+   "start": 203.8,
+   "end": 205.4,
+   "speaker": "S1",
+   "text": "Which arm is that?"
+  },
+  {
+   "id": "L0036",
+   "start": 206.2,
+   "end": 207.8,
+   "speaker": "S2",
+   "text": "This one. The left."
+  },
+  {
+   "id": "L0037",
+   "start": 208.8,
+   "end": 212.8,
+   "speaker": "S3",
+   "text": "Can I say something? Because that's how I found out."
+  },
+  {
+   "id": "L0038",
+   "start": 213.7,
+   "end": 215.7,
+   "speaker": "S1",
+   "text": "Of course, Karen, go on."
+  },
+  {
+   "id": "L0039",
+   "start": 216.0,
+   "end": 225.6,
+   "speaker": "S3",
+   "text": "When I came round on Sunday, I was helping him change his top and I saw bruises on his upper arm. The left one."
+  },
+  {
+   "id": "L0040",
+   "start": 226.7,
+   "end": 228.7,
+   "speaker": "S1",
+   "text": "What did they look like?"
+  },
+  {
+   "id": "L0041",
+   "start": 229.8,
+   "end": 239.0,
+   "speaker": "S3",
+   "text": "Four bruises in a row, like fingermarks, on the inside of his upper arm. Purple. I took photos on my phone on Sunday."
+  },
+  {
+   "id": "L0042",
+   "start": 239.6,
+   "end": 243.6,
+   "speaker": "S1",
+   "text": "Thank you. Did you ask your dad about them then?"
+  },
+  {
+   "id": "L0043",
+   "start": 243.9,
+   "end": 249.9,
+   "speaker": "S3",
+   "text": "He said he'd knocked it at first. Then last night he told me about Lee."
+  },
+  {
+   "id": "L0044",
+   "start": 250.3,
+   "end": 255.1,
+   "speaker": "S2",
+   "text": "I didn't want a fuss. I didn't want to lose the carers."
+  },
+  {
+   "id": "L0045",
+   "start": 256.2,
+   "end": 263.4,
+   "speaker": "S1",
+   "text": "I understand that, Mr Walsh. You won't lose your care because you've told me this. That's really important."
+  },
+  {
+   "id": "L0046",
+   "start": 264.5,
+   "end": 265.7,
+   "speaker": "S2",
+   "text": "Right. Okay."
+  },
+  {
+   "id": "L0047",
+   "start": 266.2,
+   "end": 277.4,
+   "speaker": "S1",
+   "text": "I need to ask everyone this, so please don't take it the wrong way. Has anyone else ever hurt you? Anyone in the family, Karen, anyone at all?"
+  },
+  {
+   "id": "L0048",
+   "start": 278.4,
+   "end": 283.2,
+   "speaker": "S2",
+   "text": "No. No, never. Karen? Never. She's the one who looks after me."
+  },
+  {
+   "id": "L0049",
+   "start": 284.1,
+   "end": 289.3,
+   "speaker": "S1",
+   "text": "And no one in the family has ever hit you or grabbed you?"
+  },
+  {
+   "id": "L0050",
+   "start": 290.0,
+   "end": 292.4,
+   "speaker": "S2",
+   "text": "No. Only that Lee. Nobody else."
+  },
+  {
+   "id": "L0051",
+   "start": 292.7,
+   "end": 297.5,
+   "speaker": "S1",
+   "text": "Okay, thank you. And have you told anyone at Brightpath about this?"
+  },
+  {
+   "id": "L0052",
+   "start": 298.1,
+   "end": 300.9,
+   "speaker": "S2",
+   "text": "No. I didn't know who to tell."
+  },
+  {
+   "id": "L0053",
+   "start": 301.5,
+   "end": 305.1,
+   "speaker": "S1",
+   "text": "That's fine. What would you like to happen now?"
+  },
+  {
+   "id": "L0054",
+   "start": 305.9,
+   "end": 311.1,
+   "speaker": "S2",
+   "text": "I just don't want him coming any more. I want someone like Shelley."
+  },
+  {
+   "id": "L0055",
+   "start": 311.4,
+   "end": 317.0,
+   "speaker": "S1",
+   "text": "That's completely reasonable. Can I ask about money quickly, are you getting Attendance Allowance?"
+  },
+  {
+   "id": "L0056",
+   "start": 317.9,
+   "end": 324.3,
+   "speaker": "S3",
+   "text": "He gets the higher rate. I do his shopping with his card and keep the receipts."
+  },
+  {
+   "id": "L0057",
+   "start": 325.1,
+   "end": 329.9,
+   "speaker": "S1",
+   "text": "Good. And is there anything else you'd like to be doing, socially?"
+  },
+  {
+   "id": "L0058",
+   "start": 330.8,
+   "end": 336.0,
+   "speaker": "S2",
+   "text": "I used to go to the bowls club. Haven't been since my hip."
+  },
+  {
+   "id": "L0059",
+   "start": 336.7,
+   "end": 344.7,
+   "speaker": "S1",
+   "text": "There's a Wednesday lunch club at the community centre on Mill Lane with transport. Shall I find out about that?"
+  },
+  {
+   "id": "L0060",
+   "start": 345.0,
+   "end": 346.2,
+   "speaker": "S2",
+   "text": "Go on then."
+  },
+  {
+   "id": "L0061",
+   "start": 346.6,
+   "end": 359.4,
+   "speaker": "S1",
+   "text": "Okay. So here's what I'm going to do. Today I'll raise a safeguarding concern with the council's safeguarding team about Lee slapping you and grabbing your arm. Is that alright with you?"
+  },
+  {
+   "id": "L0062",
+   "start": 360.1,
+   "end": 361.7,
+   "speaker": "S2",
+   "text": "Yeah. Yes, do it."
+  },
+  {
+   "id": "L0063",
+   "start": 362.1,
+   "end": 370.9,
+   "speaker": "S1",
+   "text": "I'll also ring the manager at Brightpath this afternoon and ask that Lee doesn't come to you again while it's looked into."
+  },
+  {
+   "id": "L0064",
+   "start": 371.7,
+   "end": 372.9,
+   "speaker": "S3",
+   "text": "Thank you."
+  },
+  {
+   "id": "L0065",
+   "start": 373.9,
+   "end": 380.7,
+   "speaker": "S1",
+   "text": "Karen, could you keep those photos and not delete them? The safeguarding team may ask for them."
+  },
+  {
+   "id": "L0066",
+   "start": 381.4,
+   "end": 382.6,
+   "speaker": "S3",
+   "text": "Yeah, of course."
+  },
+  {
+   "id": "L0067",
+   "start": 383.7,
+   "end": 391.3,
+   "speaker": "S1",
+   "text": "And I'd like the GP to have a look at that arm. Could you book an appointment by Friday?"
+  },
+  {
+   "id": "L0068",
+   "start": 392.4,
+   "end": 394.4,
+   "speaker": "S3",
+   "text": "I'll ring the surgery tomorrow."
+  },
+  {
+   "id": "L0069",
+   "start": 395.0,
+   "end": 401.8,
+   "speaker": "S1",
+   "text": "The police might want to speak to you too, Mr Walsh. Would you be okay with that?"
+  },
+  {
+   "id": "L0070",
+   "start": 402.5,
+   "end": 406.5,
+   "speaker": "S2",
+   "text": "If it stops him doing it to someone else, yes."
+  },
+  {
+   "id": "L0071",
+   "start": 407.6,
+   "end": 421.6,
+   "speaker": "S1",
+   "text": "I'll send the lunch club details by the end of next week, and I'll phone you on Monday the 30th to let you know what's happening. Is there anything else you want to ask me?"
+  },
+  {
+   "id": "L0072",
+   "start": 422.1,
+   "end": 425.7,
+   "speaker": "S2",
+   "text": "No. Thanks, love. I feel better for saying it."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Mr Walsh said the agency carer Lee slapped him across the face with an open hand twice, most recently last Thursday.",
+   "style": "direct",
+   "must_keep": [
+    "slapped",
+    "face",
+    "twice"
+   ],
+   "lines": [
+    "L0026",
+    "L0028",
+    "L0030"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Mr Walsh said Lee grabs his left arm to pull him off the commode most mornings, and grabbed it hard on Saturday.",
+   "style": "direct",
+   "must_keep": [
+    "grabbed",
+    "arm",
+    "most mornings",
+    "Saturday"
+   ],
+   "lines": [
+    "L0032",
+    "L0034",
+    "L0036"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Karen Walsh said she saw four fingermark-like bruises on her father's left upper arm on Sunday and photographed them.",
+   "style": "third_party",
+   "must_keep": [
+    "bruises",
+    "upper arm",
+    "Sunday",
+    "photos"
+   ],
+   "lines": [
+    "L0039",
+    "L0041"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "denial",
+   "must_not_claim": "Mr Walsh's daughter or another family member has hurt or hit him.",
+   "flag_terms": [
+    "daughter",
+    "hit"
+   ],
+   "lines": [
+    "L0048",
+    "L0049",
+    "L0050"
+   ]
+  }
+ ]
+}

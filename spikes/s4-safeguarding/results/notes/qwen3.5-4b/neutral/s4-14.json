@@ -1,0 +1,429 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "Rachel Penrose attended the meeting.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "The purpose of the meeting was to discuss concerns regarding her mother's finances and care.",
+      "cites": [
+       7
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "Rachel Penrose described her mother, Margaret, as being eighty-one years old and having dementia, diagnosed two years ago.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that Margaret still lives on Larch Road with carers coming in.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that Martin holds the power of attorney for financial and property affairs, which Margaret signed in 2023 before her dementia worsened.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that Martin is the sole attorney.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that she found bank statements on the fourteenth of August showing a transfer of twelve thousand pounds from Margaret's account to Martin's account.",
+      "cites": [
+       17,
+       19
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that Martin arrived at Margaret's house in a new white estate car in early September.",
+      "cites": [
+       23
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that Martin claimed Margaret 'helped him out' and that he was entitled to the money because he does everything for her.",
+      "cites": [
+       25
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that she is not aware of any gifts Margaret made to Martin before her dementia.",
+      "cites": [
+       27
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that Margaret does not know what day it is half the time.",
+      "cites": [
+       27
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that on the twenty-second of September, Margaret told her that Martin made her sign something.",
+      "cites": [
+       29
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that Margaret claimed she did not know what the document was and was frightened to say no.",
+      "cites": [
+       31
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that she did not see the document Margaret mentioned.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that she looked in Margaret's drawers and found nothing.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that the care agency, Brightwell, has written to Margaret's address.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that Margaret's care invoices are three months behind, amounting to about £2,400 owing.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that Margaret has a social worker she has never met and a GP at the Wexley health centre.",
+      "cites": [
+       43
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that Martin has not said anything about selling the house.",
+      "cites": [
+       49
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": [
+     {
+      "text": "Rachel Penrose stated that she took photos of the bank statements and printed them.",
+      "cites": [
+       21
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that she has a letter from Brightwell dated the third of November warning that calls might stop if not paid.",
+      "cites": [
+       41
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": [
+     {
+      "text": "Rachel Penrose stated that she wants Margaret's money protected and for Martin not to be able to touch it.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "Rachel Penrose stated that she is worried about the house being sold, which would leave nothing for her mother's care.",
+      "cites": [
+       47
+      ]
+     },
+     {
+      "text": "Rachel Penrose agreed to the solicitor's advice to refer to adult safeguarding.",
+      "cites": [
+       57
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "The solicitor advised that an attorney must act in the mother's best interests and keep her money separate.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "The solicitor advised that a transfer of twelve thousand pounds to the attorney without authority is something the Office of the Public Guardian will investigate.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "The solicitor advised that the Office of the Public Guardian can ask the attorney to account for every penny and apply to the Court of Protection to cancel the power of attorney.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "The solicitor advised that taking money as an attorney can be a criminal offence.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "The solicitor advised that the mother is an adult at risk and recommended an adult safeguarding referral to Wexley council.",
+      "cites": [
+       56
+      ]
+     },
+     {
+      "text": "The solicitor advised Rachel Penrose not to confront Martin about the issues for now.",
+      "cites": [
+       58
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Rachel Penrose attended the meeting.",
+   "cites": [
+    2
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The purpose of the meeting was to discuss concerns regarding her mother's finances and care.",
+   "cites": [
+    7
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "Rachel Penrose described her mother, Margaret, as being eighty-one years old and having dementia, diagnosed two years ago.",
+   "cites": [
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that Margaret still lives on Larch Road with carers coming in.",
+   "cites": [
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that Martin holds the power of attorney for financial and property affairs, which Margaret signed in 2023 before her dementia worsened.",
+   "cites": [
+    13
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that Martin is the sole attorney.",
+   "cites": [
+    15
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that she found bank statements on the fourteenth of August showing a transfer of twelve thousand pounds from Margaret's account to Martin's account.",
+   "cites": [
+    17,
+    19
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that she took photos of the bank statements and printed them.",
+   "cites": [
+    21
+   ],
+   "section": "Documents and evidence"
+  },
+  {
+   "text": "Rachel Penrose stated that Martin arrived at Margaret's house in a new white estate car in early September.",
+   "cites": [
+    23
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that Martin claimed Margaret 'helped him out' and that he was entitled to the money because he does everything for her.",
+   "cites": [
+    25
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that she is not aware of any gifts Margaret made to Martin before her dementia.",
+   "cites": [
+    27
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that Margaret does not know what day it is half the time.",
+   "cites": [
+    27
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that on the twenty-second of September, Margaret told her that Martin made her sign something.",
+   "cites": [
+    29
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that Margaret claimed she did not know what the document was and was frightened to say no.",
+   "cites": [
+    31
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that she did not see the document Margaret mentioned.",
+   "cites": [
+    33
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that she looked in Margaret's drawers and found nothing.",
+   "cites": [
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that the care agency, Brightwell, has written to Margaret's address.",
+   "cites": [
+    39
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that Margaret's care invoices are three months behind, amounting to about £2,400 owing.",
+   "cites": [
+    39
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that she has a letter from Brightwell dated the third of November warning that calls might stop if not paid.",
+   "cites": [
+    41
+   ],
+   "section": "Documents and evidence"
+  },
+  {
+   "text": "Rachel Penrose stated that Margaret has a social worker she has never met and a GP at the Wexley health centre.",
+   "cites": [
+    43
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose stated that she wants Margaret's money protected and for Martin not to be able to touch it.",
+   "cites": [
+    45
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Rachel Penrose stated that she is worried about the house being sold, which would leave nothing for her mother's care.",
+   "cites": [
+    47
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Rachel Penrose stated that Martin has not said anything about selling the house.",
+   "cites": [
+    49
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The solicitor advised that an attorney must act in the mother's best interests and keep her money separate.",
+   "cites": [
+    50
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that a transfer of twelve thousand pounds to the attorney without authority is something the Office of the Public Guardian will investigate.",
+   "cites": [
+    50
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that the Office of the Public Guardian can ask the attorney to account for every penny and apply to the Court of Protection to cancel the power of attorney.",
+   "cites": [
+    52
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that taking money as an attorney can be a criminal offence.",
+   "cites": [
+    54
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that the mother is an adult at risk and recommended an adult safeguarding referral to Wexley council.",
+   "cites": [
+    56
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Rachel Penrose agreed to the solicitor's advice to refer to adult safeguarding.",
+   "cites": [
+    57
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "The solicitor advised Rachel Penrose not to confront Martin about the issues for now.",
+   "cites": [
+    58
+   ],
+   "section": "Advice given"
+  }
+ ]
+}

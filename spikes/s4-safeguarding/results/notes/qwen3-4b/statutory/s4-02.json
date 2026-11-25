@@ -1,0 +1,433 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Jamie Rowe is the person in the assessment.",
+      "cites": [
+       65
+      ]
+     },
+     {
+      "text": "Tom Ashworth is the social worker conducting the review.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "The review is scheduled today and is a follow-up to prior discussions.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "The social worker will write notes for the support team and may report harm to external parties if the person discloses abuse.",
+      "cites": [
+       7
+      ]
+     },
+     {
+      "text": "Jamie Rowe confirms that the social worker may report harm to others if he is told someone is hurting him.",
+      "cites": [
+       8
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Jamie Rowe is attending college and does catering work on Tuesdays and Wednesdays.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Jamie Rowe volunteers at the garden centre on Fridays, doing watering and trolley duties.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Jamie Rowe sometimes cooks for himself, but staff help with the oven.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Jamie Rowe can cook pasta independently.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Jamie Rowe manages shopping with Sandra's help.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Jamie Rowe receives money on Mondays.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Jamie Rowe sees his mother on Sundays, who picks him up and they go to Nan's for dinner.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Sandra is the most preferred staff member at the flat.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Priya is another staff member that Jamie Rowe finds nice.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Craig is the primary night staff member at the flat.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Jamie Rowe has a strained relationship with Craig, describing him as 'alright' but 'sometimes' not getting on.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Craig becomes cross when Jamie Rowe gets up at night.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Jamie Rowe gets up at night for a drink.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Craig tells Jamie Rowe to go back to bed when he gets up at night.",
+      "cites": [
+       30
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Craig pushed Jamie Rowe into a wall in the hall outside the kitchen.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "Jamie Rowe's shoulder hit the wall and hurt a bit.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "The incident with Craig occurred on a Thursday night, the night before the garden centre.",
+      "cites": [
+       38,
+       40
+      ]
+     },
+     {
+      "text": "Craig kicked Jamie Rowe's leg with his foot on the back of his leg.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Craig kicked Jamie Rowe's leg three times, and Jamie Rowe believes it was 'messing about' and not serious.",
+      "cites": [
+       48,
+       44
+      ]
+     },
+     {
+      "text": "Jamie Rowe experienced a bruise after being kicked by Craig.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "Craig told Jamie Rowe not to tell anyone about the kicking, saying that if Jamie did, he would lose his flat.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Jamie Rowe stated he does not want to lose his flat.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "The social worker confirms that Jamie will not lose his flat if he reports the incident.",
+      "cites": [
+       55
+      ]
+     },
+     {
+      "text": "Jamie Rowe was not present when Craig hit Sophie, but Marcus told him about it.",
+      "cites": [
+       58,
+       60
+      ]
+     },
+     {
+      "text": "Marcus told Jamie that Craig hit Sophie, but Jamie did not see it happen.",
+      "cites": [
+       58,
+       60
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Jamie Rowe is the person in the assessment.",
+   "cites": [
+    65
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Tom Ashworth is the social worker conducting the review.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The review is scheduled today and is a follow-up to prior discussions.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The social worker will write notes for the support team and may report harm to external parties if the person discloses abuse.",
+   "cites": [
+    7
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Jamie Rowe confirms that the social worker may report harm to others if he is told someone is hurting him.",
+   "cites": [
+    8
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Jamie Rowe is attending college and does catering work on Tuesdays and Wednesdays.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Rowe volunteers at the garden centre on Fridays, doing watering and trolley duties.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Rowe sometimes cooks for himself, but staff help with the oven.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Rowe can cook pasta independently.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Rowe manages shopping with Sandra's help.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Rowe receives money on Mondays.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Rowe sees his mother on Sundays, who picks him up and they go to Nan's for dinner.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Sandra is the most preferred staff member at the flat.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Priya is another staff member that Jamie Rowe finds nice.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Craig is the primary night staff member at the flat.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Rowe has a strained relationship with Craig, describing him as 'alright' but 'sometimes' not getting on.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Craig becomes cross when Jamie Rowe gets up at night.",
+   "cites": [
+    26
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Rowe gets up at night for a drink.",
+   "cites": [
+    28
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Craig tells Jamie Rowe to go back to bed when he gets up at night.",
+   "cites": [
+    30
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Craig pushed Jamie Rowe into a wall in the hall outside the kitchen.",
+   "cites": [
+    34
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Rowe's shoulder hit the wall and hurt a bit.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The incident with Craig occurred on a Thursday night, the night before the garden centre.",
+   "cites": [
+    38,
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Craig kicked Jamie Rowe's leg with his foot on the back of his leg.",
+   "cites": [
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Craig kicked Jamie Rowe's leg three times, and Jamie Rowe believes it was 'messing about' and not serious.",
+   "cites": [
+    48,
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Rowe experienced a bruise after being kicked by Craig.",
+   "cites": [
+    50
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Craig told Jamie Rowe not to tell anyone about the kicking, saying that if Jamie did, he would lose his flat.",
+   "cites": [
+    52
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Rowe stated he does not want to lose his flat.",
+   "cites": [
+    54
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The social worker confirms that Jamie will not lose his flat if he reports the incident.",
+   "cites": [
+    55
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Rowe was not present when Craig hit Sophie, but Marcus told him about it.",
+   "cites": [
+    58,
+    60
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Marcus told Jamie that Craig hit Sophie, but Jamie did not see it happen.",
+   "cites": [
+    58,
+    60
+   ],
+   "section": "Risks and safeguarding"
+  }
+ ]
+}

@@ -1,0 +1,428 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Kayleigh Morris is the mother of a 12-day-old infant named Ruby.",
+      "cites": [
+       3
+      ]
+     },
+     {
+      "text": "The health visitor is Bethan Lloyd.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "The visit is a new birth visit for Ruby, who is 12 days old.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "The health visitor will ask about feeding, sleep, and weigh the infant if she wakes up.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "The midwife weighed Ruby on day five and she weighed 3.2 kg.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "The mother's partner, Dean, is at work during the visit and returns around 3 PM.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "The mother and Dean have a tense relationship due to lack of sleep.",
+      "cites": [
+       22
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "The mother is breastfeeding Ruby mostly, but gives her one bottle of formula at night.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Ruby is feeding every two to two and a half hours during the day, with occasional longer feeding sessions in the evening.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Ruby has six to seven wet nappies per day.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Ruby weighs 3.41 kg at the time of weighing during the visit, which is above her birth weight.",
+      "cites": [
+       61
+      ]
+     },
+     {
+      "text": "The mother reports feeling physically sore from childbirth but is improving.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "The mother reports her mood is 'up and down' and she cries a lot.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "The mother's sister says crying is normal in the first few weeks postpartum.",
+      "cites": [
+       18
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "The mother reports that Dean pushed her into a wardrobe door during an argument.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "The mother reports that Dean pushed her three to four times since the summer, during arguments.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "The mother reports that Dean punched her in the stomach when she was pregnant in August.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "The mother reports that the pregnancy was around 30 weeks when she was punched.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "The mother reports that she went to the hospital the day after the incident because she thought the baby wasn't moving, but the baby was fine and she told them she fell.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "The mother reports that the punching incident happened only once during pregnancy.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "The mother reports that Dean checks her phone every night and goes through all her messages.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "The mother reports that Dean becomes angry if she messages someone he doesn't like.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "The mother reports that she does not see her mother, as Dean does not allow her to see her.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "The mother last saw her mother in September, before Ruby was born.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "The mother reports that Dean has never hurt Ruby or been rough with her.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "The mother reports that she feels safe at home during the visit because Dean is at work until 3 PM.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "The health visitor will inform the safeguarding lead and the GP (Dr Anand) about the concerns regarding the mother and Dean.",
+      "cites": [
+       53,
+       53
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "The health visitor will refer the mother to Harbridge Women's Aid, an outreach service, to ring the mother when Dean is at work.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "The mother will allow the referral to Harbridge Women's Aid if the service calls her sister Kirsty's number.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "The health visitor will not post any information about the referral to the house.",
+      "cites": [
+       57
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Kayleigh Morris is the mother of a 12-day-old infant named Ruby.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The health visitor is Bethan Lloyd.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The visit is a new birth visit for Ruby, who is 12 days old.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The health visitor will ask about feeding, sleep, and weigh the infant if she wakes up.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The mother is breastfeeding Ruby mostly, but gives her one bottle of formula at night.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ruby is feeding every two to two and a half hours during the day, with occasional longer feeding sessions in the evening.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ruby has six to seven wet nappies per day.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The midwife weighed Ruby on day five and she weighed 3.2 kg.",
+   "cites": [
+    15
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Ruby weighs 3.41 kg at the time of weighing during the visit, which is above her birth weight.",
+   "cites": [
+    61
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother reports feeling physically sore from childbirth but is improving.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother reports her mood is 'up and down' and she cries a lot.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother's sister says crying is normal in the first few weeks postpartum.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother's partner, Dean, is at work during the visit and returns around 3 PM.",
+   "cites": [
+    20
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The mother and Dean have a tense relationship due to lack of sleep.",
+   "cites": [
+    22
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The mother reports that Dean pushed her into a wardrobe door during an argument.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother reports that Dean pushed her three to four times since the summer, during arguments.",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother reports that Dean punched her in the stomach when she was pregnant in August.",
+   "cites": [
+    34
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother reports that the pregnancy was around 30 weeks when she was punched.",
+   "cites": [
+    35
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother reports that she went to the hospital the day after the incident because she thought the baby wasn't moving, but the baby was fine and she told them she fell.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother reports that the punching incident happened only once during pregnancy.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother reports that Dean checks her phone every night and goes through all her messages.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother reports that Dean becomes angry if she messages someone he doesn't like.",
+   "cites": [
+    42
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother reports that she does not see her mother, as Dean does not allow her to see her.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother last saw her mother in September, before Ruby was born.",
+   "cites": [
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother reports that Dean has never hurt Ruby or been rough with her.",
+   "cites": [
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother reports that she feels safe at home during the visit because Dean is at work until 3 PM.",
+   "cites": [
+    50
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The health visitor will refer the mother to Harbridge Women's Aid, an outreach service, to ring the mother when Dean is at work.",
+   "cites": [
+    51
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "The mother will allow the referral to Harbridge Women's Aid if the service calls her sister Kirsty's number.",
+   "cites": [
+    54
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "The health visitor will not post any information about the referral to the house.",
+   "cites": [
+    57
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "The health visitor will inform the safeguarding lead and the GP (Dr Anand) about the concerns regarding the mother and Dean.",
+   "cites": [
+    53,
+    53
+   ],
+   "section": "Risks and safeguarding"
+  }
+ ]
+}

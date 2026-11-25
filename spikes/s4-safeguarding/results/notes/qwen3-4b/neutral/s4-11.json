@@ -1,0 +1,430 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Amina Hussain is the health visitor.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Jade Turner is the mother.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Today is Leo's two-year review.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "Amina will check on Poppy during the visit.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "Amina will make notes on Leo and Poppy.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "Amina will share concerns about children's safety if she is worried.",
+      "cites": [
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Leo is saying about twenty words: mama, car, more, bye-bye, dog.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Leo is putting two words together, such as 'more juice'.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Leo is running and climbing, including climbing the bookcase last week.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Leo is fussy about food; eats toast, pasta, yoghurt.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Poppy is fed by bottles, about six a day.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Poppy has started on baby rice.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Poppy has a nappy rash that is broken in places.",
+      "cites": [
+       17
+      ]
+     },
+     {
+      "text": "Poppy's nappy rash has lasted about a week.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Jade has been applying Sudocrem to Poppy's rash.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Jade ran out of nappies on Sunday and has been leaving them on longer.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Food in the house includes bread, some cereal, and one tin of Poppy's milk.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "The milk supply for Poppy is one tin, until Friday.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "The milk supply ends on Friday, when Jade's Universal Credit comes in.",
+      "cites": [
+       23,
+       24
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Jade is worried about losing her job and being evicted.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "Jade has not received any letters from the landlord or notices of eviction.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "Jade has paid rent up to date and is concerned about future rent payments.",
+      "cites": [
+       46
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Jade started a cleaning job at the retail park in September.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Jade's cleaning job is at night, from ten to twelve, sometimes half past twelve.",
+      "cites": [
+       27,
+       28
+      ]
+     },
+     {
+      "text": "Jade's friend Shannon looks after Leo and Poppy while she is at work.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Shannon cannot always look after the children.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "When Shannon cannot look after the children, Jade leaves them alone for a couple of hours, while they are asleep.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "The children are left alone for about a couple of hours, and the flat is locked.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "Jade leaves the children alone for three nights a week, since Shannon got her new job.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Jade's mother is in Northby and would help if contacted.",
+      "cites": [
+       50
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Amina Hussain is the health visitor.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Jade Turner is the mother.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Today is Leo's two-year review.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Amina will check on Poppy during the visit.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Amina will make notes on Leo and Poppy.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Amina will share concerns about children's safety if she is worried.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Leo is saying about twenty words: mama, car, more, bye-bye, dog.",
+   "cites": [
+    8
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leo is putting two words together, such as 'more juice'.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leo is running and climbing, including climbing the bookcase last week.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leo is fussy about food; eats toast, pasta, yoghurt.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Poppy is fed by bottles, about six a day.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Poppy has started on baby rice.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Poppy has a nappy rash that is broken in places.",
+   "cites": [
+    17
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Poppy's nappy rash has lasted about a week.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade has been applying Sudocrem to Poppy's rash.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade ran out of nappies on Sunday and has been leaving them on longer.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Food in the house includes bread, some cereal, and one tin of Poppy's milk.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The milk supply for Poppy is one tin, until Friday.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The milk supply ends on Friday, when Jade's Universal Credit comes in.",
+   "cites": [
+    23,
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade started a cleaning job at the retail park in September.",
+   "cites": [
+    26
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Jade's cleaning job is at night, from ten to twelve, sometimes half past twelve.",
+   "cites": [
+    27,
+    28
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Jade's friend Shannon looks after Leo and Poppy while she is at work.",
+   "cites": [
+    30
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Shannon cannot always look after the children.",
+   "cites": [
+    30
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "When Shannon cannot look after the children, Jade leaves them alone for a couple of hours, while they are asleep.",
+   "cites": [
+    32
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "The children are left alone for about a couple of hours, and the flat is locked.",
+   "cites": [
+    34
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Jade leaves the children alone for three nights a week, since Shannon got her new job.",
+   "cites": [
+    38
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Jade is worried about losing her job and being evicted.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jade has not received any letters from the landlord or notices of eviction.",
+   "cites": [
+    45
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jade has paid rent up to date and is concerned about future rent payments.",
+   "cites": [
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jade's mother is in Northby and would help if contacted.",
+   "cites": [
+    50
+   ],
+   "section": "Support network and finances"
+  }
+ ]
+}

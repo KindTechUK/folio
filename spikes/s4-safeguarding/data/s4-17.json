@@ -1,0 +1,549 @@
+{
+ "id": "s4-17",
+ "title": "Widow saving up tablets (synthetic)",
+ "template": "assessment",
+ "category": "self_harm",
+ "setting": "A care assessor visits Doreen Abbott, 78, widowed in May, at her house on Hawthorn Lane, Kestle, for a needs assessment requested by her daughter Karen Wells, who is present.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Care assessor (Gareth Lloyd)",
+  "S2": "Doreen Abbott (the person)",
+  "S3": "Karen Wells (daughter)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 9.0,
+   "speaker": "S1",
+   "text": "Mrs Abbott? Hello, I'm Gareth, the care assessor from the council. And you must be Karen, we spoke on the phone."
+  },
+  {
+   "id": "L0002",
+   "start": 9.6,
+   "end": 13.2,
+   "speaker": "S3",
+   "text": "That's me. Come in, Mum's in the front room."
+  },
+  {
+   "id": "L0003",
+   "start": 13.9,
+   "end": 17.5,
+   "speaker": "S2",
+   "text": "Hello, love. Excuse me not getting up, my knees."
+  },
+  {
+   "id": "L0004",
+   "start": 18.6,
+   "end": 24.6,
+   "speaker": "S1",
+   "text": "Don't you dare, stay where you are. What a lovely garden you've got out there."
+  },
+  {
+   "id": "L0005",
+   "start": 25.2,
+   "end": 31.2,
+   "speaker": "S2",
+   "text": "That was Ron's. My husband. He did all that. I can't keep it up now."
+  },
+  {
+   "id": "L0006",
+   "start": 31.6,
+   "end": 35.2,
+   "speaker": "S1",
+   "text": "I'm sorry, Karen said you lost Ron in May."
+  },
+  {
+   "id": "L0007",
+   "start": 36.3,
+   "end": 39.5,
+   "speaker": "S2",
+   "text": "May the ninth. Fifty-two years we were married."
+  },
+  {
+   "id": "L0008",
+   "start": 40.2,
+   "end": 42.6,
+   "speaker": "S3",
+   "text": "Mum, tell him about the dahlias."
+  },
+  {
+   "id": "L0009",
+   "start": 43.4,
+   "end": 50.2,
+   "speaker": "S2",
+   "text": "Oh, he doesn't want to hear about that. Ron won prizes for his dahlias, at the show."
+  },
+  {
+   "id": "L0010",
+   "start": 51.2,
+   "end": 70.4,
+   "speaker": "S1",
+   "text": "That's a long time. Um, so, I'm here to look at what help you might need day to day. I'll make notes, and if anything worries me about your safety I may need to share it with your GP, but I'd talk to you first. Is that okay?"
+  },
+  {
+   "id": "L0011",
+   "start": 71.5,
+   "end": 73.1,
+   "speaker": "S2",
+   "text": "Yes, that's all right."
+  },
+  {
+   "id": "L0012",
+   "start": 73.8,
+   "end": 77.4,
+   "speaker": "S1",
+   "text": "So how are you managing with washing and dressing?"
+  },
+  {
+   "id": "L0013",
+   "start": 78.2,
+   "end": 85.0,
+   "speaker": "S2",
+   "text": "I manage. I can't get in the bath now. I have a strip wash at the sink."
+  },
+  {
+   "id": "L0014",
+   "start": 85.8,
+   "end": 87.0,
+   "speaker": "S1",
+   "text": "And the stairs?"
+  },
+  {
+   "id": "L0015",
+   "start": 87.6,
+   "end": 94.4,
+   "speaker": "S2",
+   "text": "I go up on my bottom some days. Karen wants me to have one of those stairlifts."
+  },
+  {
+   "id": "L0016",
+   "start": 94.9,
+   "end": 98.1,
+   "speaker": "S3",
+   "text": "She nearly fell in October, on the landing."
+  },
+  {
+   "id": "L0017",
+   "start": 98.8,
+   "end": 100.4,
+   "speaker": "S1",
+   "text": "Did you hurt yourself?"
+  },
+  {
+   "id": "L0018",
+   "start": 101.2,
+   "end": 105.2,
+   "speaker": "S2",
+   "text": "Bruised my arm, that's all. I didn't go to hospital."
+  },
+  {
+   "id": "L0019",
+   "start": 106.3,
+   "end": 107.9,
+   "speaker": "S1",
+   "text": "Okay. And meals, cooking?"
+  },
+  {
+   "id": "L0020",
+   "start": 108.5,
+   "end": 115.7,
+   "speaker": "S2",
+   "text": "Karen brings things. I do a bit of soup, a sandwich. I'm not one for cooking for one."
+  },
+  {
+   "id": "L0021",
+   "start": 116.4,
+   "end": 122.0,
+   "speaker": "S3",
+   "text": "She eats what I bring, to be fair. She had all her dinner yesterday."
+  },
+  {
+   "id": "L0022",
+   "start": 123.0,
+   "end": 126.6,
+   "speaker": "S1",
+   "text": "And money, are you all right for money? Bills?"
+  },
+  {
+   "id": "L0023",
+   "start": 127.5,
+   "end": 134.3,
+   "speaker": "S2",
+   "text": "I've got my pension and Ron's bit from the council. Karen does the bills on the computer."
+  },
+  {
+   "id": "L0024",
+   "start": 134.8,
+   "end": 139.2,
+   "speaker": "S3",
+   "text": "She's fine for money, we sorted the bank after the funeral."
+  },
+  {
+   "id": "L0025",
+   "start": 140.1,
+   "end": 144.9,
+   "speaker": "S1",
+   "text": "Good. And how are you in yourself, Mrs Abbott? Since Ron died?"
+  },
+  {
+   "id": "L0026",
+   "start": 145.8,
+   "end": 149.0,
+   "speaker": "S2",
+   "text": "Oh, you know. You get on with it."
+  },
+  {
+   "id": "L0027",
+   "start": 149.4,
+   "end": 151.8,
+   "speaker": "S1",
+   "text": "Mm. What are the days like?"
+  },
+  {
+   "id": "L0028",
+   "start": 152.1,
+   "end": 156.5,
+   "speaker": "S2",
+   "text": "Long. Quiet. Nobody to talk to. Some days I think, erm..."
+  },
+  {
+   "id": "L0029",
+   "start": 157.5,
+   "end": 158.7,
+   "speaker": "S1",
+   "text": "Go on."
+  },
+  {
+   "id": "L0030",
+   "start": 159.0,
+   "end": 161.4,
+   "speaker": "S2",
+   "text": "I'd be better off dead, love."
+  },
+  {
+   "id": "L0031",
+   "start": 161.8,
+   "end": 164.6,
+   "speaker": "S1",
+   "text": "Thank you for saying that to me."
+  },
+  {
+   "id": "L0032",
+   "start": 165.1,
+   "end": 171.1,
+   "speaker": "S2",
+   "text": "Oh, don't take any notice. It's just a saying, at my age. Everyone says it."
+  },
+  {
+   "id": "L0033",
+   "start": 171.9,
+   "end": 182.3,
+   "speaker": "S1",
+   "text": "I'd like to take notice, if that's okay, because it matters. When you say you'd be better off dead, have you thought about ending your life?"
+  },
+  {
+   "id": "L0034",
+   "start": 182.6,
+   "end": 184.6,
+   "speaker": "S2",
+   "text": "Well. I... I don't know."
+  },
+  {
+   "id": "L0035",
+   "start": 184.9,
+   "end": 186.5,
+   "speaker": "S3",
+   "text": "Mum. Tell him. Please."
+  },
+  {
+   "id": "L0036",
+   "start": 186.8,
+   "end": 189.2,
+   "speaker": "S2",
+   "text": "I've been, um... putting some by."
+  },
+  {
+   "id": "L0037",
+   "start": 190.3,
+   "end": 193.9,
+   "speaker": "S1",
+   "text": "Putting some by. What have you been putting by?"
+  },
+  {
+   "id": "L0038",
+   "start": 194.9,
+   "end": 200.1,
+   "speaker": "S2",
+   "text": "My tablets. I've been saving them up. Not taking them, and keeping them."
+  },
+  {
+   "id": "L0039",
+   "start": 200.6,
+   "end": 203.4,
+   "speaker": "S1",
+   "text": "Okay. Do you know roughly how many?"
+  },
+  {
+   "id": "L0040",
+   "start": 203.8,
+   "end": 207.4,
+   "speaker": "S2",
+   "text": "About forty. About 40, I think. Since the summer."
+  },
+  {
+   "id": "L0041",
+   "start": 208.1,
+   "end": 212.5,
+   "speaker": "S1",
+   "text": "Thank you, Mrs Abbott. I know that wasn't easy to say."
+  },
+  {
+   "id": "L0042",
+   "start": 213.5,
+   "end": 222.7,
+   "speaker": "S3",
+   "text": "I found them on Sunday. They were hidden in her bedside drawer, in an envelope, under her hankies. Lots of tablets, all different."
+  },
+  {
+   "id": "L0043",
+   "start": 223.7,
+   "end": 225.7,
+   "speaker": "S1",
+   "text": "Where are they now, Karen?"
+  },
+  {
+   "id": "L0044",
+   "start": 226.2,
+   "end": 233.0,
+   "speaker": "S3",
+   "text": "In my bag. I took them home with me. I didn't know what to do with them."
+  },
+  {
+   "id": "L0045",
+   "start": 233.9,
+   "end": 240.7,
+   "speaker": "S1",
+   "text": "You did the right thing. Could you take them to the pharmacy to be disposed of, today?"
+  },
+  {
+   "id": "L0046",
+   "start": 241.7,
+   "end": 243.7,
+   "speaker": "S3",
+   "text": "Yes, I'll go after this."
+  },
+  {
+   "id": "L0047",
+   "start": 244.1,
+   "end": 249.7,
+   "speaker": "S1",
+   "text": "Mrs Abbott, have you got any other tablets saved anywhere else in the house?"
+  },
+  {
+   "id": "L0048",
+   "start": 250.1,
+   "end": 253.7,
+   "speaker": "S2",
+   "text": "No. That was all of them. Karen's got them."
+  },
+  {
+   "id": "L0049",
+   "start": 254.4,
+   "end": 258.4,
+   "speaker": "S1",
+   "text": "And are you eating all right? Karen says you are."
+  },
+  {
+   "id": "L0050",
+   "start": 258.7,
+   "end": 268.7,
+   "speaker": "S2",
+   "text": "I am. I eat what she brings. But I'll tell you this, if they ever put me in a home, I'd stop eating. I would."
+  },
+  {
+   "id": "L0051",
+   "start": 269.2,
+   "end": 274.4,
+   "speaker": "S1",
+   "text": "Nobody's talking about a home, Mrs Abbott. Is that a worry for you?"
+  },
+  {
+   "id": "L0052",
+   "start": 275.3,
+   "end": 282.1,
+   "speaker": "S2",
+   "text": "It is. I want to stay here, with Ron's things. As long as I'm here, I'll eat."
+  },
+  {
+   "id": "L0053",
+   "start": 282.9,
+   "end": 297.7,
+   "speaker": "S1",
+   "text": "That's very clear, and staying at home is what we're working towards. Now, because of the tablets and how you've been feeling, I'd like your GP to see you, today or tomorrow. Would that be all right?"
+  },
+  {
+   "id": "L0054",
+   "start": 298.1,
+   "end": 302.1,
+   "speaker": "S2",
+   "text": "Dr Patel? I suppose so. I don't want a fuss."
+  },
+  {
+   "id": "L0055",
+   "start": 303.0,
+   "end": 308.6,
+   "speaker": "S1",
+   "text": "It's not a fuss. And can I tell Dr Patel what you've told me?"
+  },
+  {
+   "id": "L0056",
+   "start": 309.5,
+   "end": 310.7,
+   "speaker": "S2",
+   "text": "Yes. Go on."
+  },
+  {
+   "id": "L0057",
+   "start": 311.1,
+   "end": 322.3,
+   "speaker": "S1",
+   "text": "I'd also like to ask about your tablets coming in weekly packs from the chemist, so there aren't lots in the house. Karen, could you help with that?"
+  },
+  {
+   "id": "L0058",
+   "start": 323.3,
+   "end": 326.1,
+   "speaker": "S3",
+   "text": "Yes, I'll sort that with Kestle Pharmacy."
+  },
+  {
+   "id": "L0059",
+   "start": 326.7,
+   "end": 335.1,
+   "speaker": "S1",
+   "text": "And there's a bereavement service, Cruse, and a lunch club at St Anne's on Wednesdays. Would either of those interest you?"
+  },
+  {
+   "id": "L0060",
+   "start": 336.0,
+   "end": 341.2,
+   "speaker": "S2",
+   "text": "Maybe the lunch club. Ron and me used to go to St Anne's."
+  },
+  {
+   "id": "L0061",
+   "start": 342.0,
+   "end": 345.2,
+   "speaker": "S3",
+   "text": "I could drive you the first time, Mum."
+  },
+  {
+   "id": "L0062",
+   "start": 346.0,
+   "end": 348.0,
+   "speaker": "S2",
+   "text": "Would you? All right then."
+  },
+  {
+   "id": "L0063",
+   "start": 348.8,
+   "end": 360.4,
+   "speaker": "S1",
+   "text": "Lovely. So, on the practical side, I'll refer you for a stairlift assessment and a bath seat, and I'll ask about a carer in the mornings for the washing."
+  },
+  {
+   "id": "L0064",
+   "start": 361.4,
+   "end": 365.0,
+   "speaker": "S2",
+   "text": "Not every day, I don't want strangers every day."
+  },
+  {
+   "id": "L0065",
+   "start": 365.5,
+   "end": 383.5,
+   "speaker": "S1",
+   "text": "We'll start small. So, to recap. I'll ring Dr Patel's surgery when I leave, this afternoon. Karen takes the tablets to the pharmacy today and sorts the weekly packs. I'll do the stairlift referral by Friday and come back on Tuesday the first of December."
+  },
+  {
+   "id": "L0066",
+   "start": 383.8,
+   "end": 385.0,
+   "speaker": "S3",
+   "text": "Thank you, Gareth."
+  },
+  {
+   "id": "L0067",
+   "start": 385.9,
+   "end": 397.9,
+   "speaker": "S1",
+   "text": "And Mrs Abbott, if you feel like that again, at night especially, ring Karen, or this number, it's the crisis line. Or Samaritans on 116 123. Will you do that?"
+  },
+  {
+   "id": "L0068",
+   "start": 398.6,
+   "end": 400.6,
+   "speaker": "S2",
+   "text": "I will, love. I will."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Mrs Abbott says she would be better off dead, then plays it down as just a saying.",
+   "style": "minimised",
+   "must_keep": [
+    "better off dead"
+   ],
+   "lines": [
+    "L0028",
+    "L0030",
+    "L0032"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Mrs Abbott says, slowly and with prompting, that she has been saving up her tablets, about 40, since the summer.",
+   "style": "hesitant",
+   "must_keep": [
+    "saving",
+    "tablets",
+    "40"
+   ],
+   "lines": [
+    "L0036",
+    "L0038",
+    "L0040"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Karen says that on Sunday she found tablets hidden in an envelope in her mother's bedside drawer.",
+   "style": "third_party",
+   "must_keep": [
+    "hidden",
+    "drawer",
+    "tablets"
+   ],
+   "lines": [
+    "L0042",
+    "L0044"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hypothetical",
+   "must_not_claim": "Mrs Abbott has stopped eating.",
+   "flag_terms": [
+    "stopped eating"
+   ],
+   "lines": [
+    "L0050",
+    "L0052"
+   ]
+  }
+ ]
+}

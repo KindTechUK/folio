@@ -1,0 +1,446 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Social worker Tom Okafor from Harbridge adult services visited Harold Pryce at his home, having been sent by Dr Bell.",
+      "cites": [
+       1,
+       2,
+       3
+      ]
+     },
+     {
+      "text": "Harold Pryce reported he has knee issues preventing him from maintaining his garden.",
+      "cites": [
+       4
+      ]
+     },
+     {
+      "text": "Harold reported he and Sandra have been married for nine years; Sandra is his second wife.",
+      "cites": [
+       17,
+       18
+      ]
+     },
+     {
+      "text": "Harold reported his first wife, Joan, died in 2013.",
+      "cites": [
+       18
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Harold reported he had a fall in the garden in the spring.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Harold reported no falls since the spring incident.",
+      "cites": [
+       11,
+       12
+      ]
+     },
+     {
+      "text": "Harold reported he can wash himself but sits on a stool in the shower.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Harold reported socks are a specific difficulty for him.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Harold reported he can make a sandwich.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Harold reported his wife Sandra cooks his meals.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Harold reported there is no toilet upstairs.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Harold reported Sandra keeps his medication in her handbag.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Harold reported he does not always take his medication; specifically, he missed his heart tablets for three days last week because Sandra kept them back.",
+      "cites": [
+       42,
+       43
+      ]
+     },
+     {
+      "text": "Harold reported he has missed his water tablets as well.",
+      "cites": [
+       44
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Harold reported Carol never liked Sandra.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Harold expressed a wish for the abuse to stop and for his tablets to be taken.",
+      "cites": [
+       50
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Harold reported he bruises easily, attributing it to his tablets.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Harold disclosed that his wife Sandra hits him with her walking stick when she gets cross.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Harold stated Sandra hits him on his arms because he puts his arms up.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Harold reported the hitting occurs about once a week, or more frequently if Sandra has had a bad day.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "Harold reported Sandra locks him in the bedroom when she goes out, claiming it is to prevent him from falling.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Harold reported Sandra locks him in the bedroom two or three times a week for the afternoon.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Harold reported he feels safe for the night as Sandra is going to her sister's the next day.",
+      "cites": [
+       55,
+       56
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Harold reported his daughter Carol lives in Kestwick, approximately two hours away, and calls on Sundays.",
+      "cites": [
+       19,
+       20
+      ]
+     },
+     {
+      "text": "Harold reported the house is in his name only, though Sandra claims she would take it if he left.",
+      "cites": [
+       46,
+       47,
+       48
+      ]
+     },
+     {
+      "text": "Harold reported he and Sandra bought the house in 1971.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Harold reported his pension goes into a joint account and Sandra does the bills.",
+      "cites": [
+       53
+      ]
+     },
+     {
+      "text": "Harold reported he has his own savings book at the post office.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "Harold reported he has a mobile phone that Carol made him get.",
+      "cites": [
+       64
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "Social worker Tom Okafor proposed raising a safeguarding concern with the team.",
+      "cites": [
+       57
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Social worker Tom Okafor from Harbridge adult services visited Harold Pryce at his home, having been sent by Dr Bell.",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold Pryce reported he has knee issues preventing him from maintaining his garden.",
+   "cites": [
+    4
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold reported he had a fall in the garden in the spring.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold reported no falls since the spring incident.",
+   "cites": [
+    11,
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold reported he can wash himself but sits on a stool in the shower.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold reported socks are a specific difficulty for him.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold reported he can make a sandwich.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold reported his wife Sandra cooks his meals.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold reported he and Sandra have been married for nine years; Sandra is his second wife.",
+   "cites": [
+    17,
+    18
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold reported his first wife, Joan, died in 2013.",
+   "cites": [
+    18
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold reported his daughter Carol lives in Kestwick, approximately two hours away, and calls on Sundays.",
+   "cites": [
+    19,
+    20
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Harold reported he bruises easily, attributing it to his tablets.",
+   "cites": [
+    22
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold disclosed that his wife Sandra hits him with her walking stick when she gets cross.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold stated Sandra hits him on his arms because he puts his arms up.",
+   "cites": [
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold reported the hitting occurs about once a week, or more frequently if Sandra has had a bad day.",
+   "cites": [
+    32
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold reported Sandra locks him in the bedroom when she goes out, claiming it is to prevent him from falling.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold reported Sandra locks him in the bedroom two or three times a week for the afternoon.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold reported there is no toilet upstairs.",
+   "cites": [
+    38
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold reported Sandra keeps his medication in her handbag.",
+   "cites": [
+    40
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold reported he does not always take his medication; specifically, he missed his heart tablets for three days last week because Sandra kept them back.",
+   "cites": [
+    42,
+    43
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold reported he has missed his water tablets as well.",
+   "cites": [
+    44
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold reported the house is in his name only, though Sandra claims she would take it if he left.",
+   "cites": [
+    46,
+    47,
+    48
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Harold reported he and Sandra bought the house in 1971.",
+   "cites": [
+    46
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Harold reported his pension goes into a joint account and Sandra does the bills.",
+   "cites": [
+    53
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Harold reported he has his own savings book at the post office.",
+   "cites": [
+    54
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Harold reported he feels safe for the night as Sandra is going to her sister's the next day.",
+   "cites": [
+    55,
+    56
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold reported Carol never liked Sandra.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Harold expressed a wish for the abuse to stop and for his tablets to be taken.",
+   "cites": [
+    50
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Harold reported he has a mobile phone that Carol made him get.",
+   "cites": [
+    64
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Social worker Tom Okafor proposed raising a safeguarding concern with the team.",
+   "cites": [
+    57
+   ],
+   "section": "Agreed actions"
+  }
+ ]
+}

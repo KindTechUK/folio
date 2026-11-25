@@ -1,0 +1,452 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Ronald Keegan (Ron) is the person being assessed.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Lisa Keegan is Ronald's daughter and is present during the assessment.",
+      "cites": [
+       3,
+       4,
+       5,
+       38,
+       40
+      ]
+     },
+     {
+      "text": "The social worker, Tom Ashby, from the adult team at Coldmere, conducted the assessment.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "The hospital requested a visit to assess Ronald's condition following a fall.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "Ronald's wife, Pat, died in March of the previous year.",
+      "cites": [
+       17
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Ronald has difficulty managing stairs due to hip pain and stiffness.",
+      "cites": [
+       9,
+       11
+      ]
+     },
+     {
+      "text": "Ronald uses his backside to go up stairs at night, as there is only one rail.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Ronald has a strip wash and cannot get into the bath due to the fall.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "Lisa shops on Sundays for Ronald's meals.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Ronald prepares microwave dinners after Lisa shops.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Ronald used to attend the British Legion on Fridays but has not attended recently.",
+      "cites": [
+       21
+      ]
+     },
+     {
+      "text": "Ronald consumes alcohol, describing it as 'a couple of cans of an evening' with tea.",
+      "cites": [
+       23
+      ]
+     },
+     {
+      "text": "Lisa states Ronald drinks eight large cans of strong lager per day and has a bottle of vodka that is consumed in two days.",
+      "cites": [
+       24,
+       26,
+       28
+      ]
+     },
+     {
+      "text": "Lisa observes the empties of eight cans and a bottle of vodka in the bin every Sunday and counts them.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Ronald denies drinking excessively and states he is not drunk or hurting anyone.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Ronald agrees to consider a pendant alarm to call for help if he falls.",
+      "cites": [
+       54,
+       55,
+       57
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Ronald wishes to remain in his current home and does not want to move to a care home.",
+      "cites": [
+       43
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Mrs Okafor, next door, reported seeing Ronald drive to the Co-op after drinking.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Ronald denies driving after drinking and states he only drives on Sundays to the cemetery.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Ronald disputes that Mrs Okafor saw him driving and says she is 'trying to mind her own business'.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Ronald expressed concern about safety and stated that if unsure, he should not drive.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Ronald agrees to a home visit from the alcohol service for a single chat, not a meeting.",
+      "cites": [
+       51,
+       52,
+       53
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Ronald earns approximately £1,400 per month from state pension and works pension from the foundry.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "Ronald does not currently receive Attendance Allowance.",
+      "cites": [
+       47
+      ]
+     },
+     {
+      "text": "Lisa agrees to help complete the Attendance Allowance form with Ronald.",
+      "cites": [
+       49,
+       62
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "The occupational therapist will assess stair rails and bathing needs.",
+      "cites": [
+       58
+      ]
+     },
+     {
+      "text": "The occupational therapist will conduct a bathing assessment by the second of December.",
+      "cites": [
+       58
+      ]
+     },
+     {
+      "text": "The social worker will write to Dr Haines at Bridge Street surgery about the falls and alcohol use with Ronald's consent.",
+      "cites": [
+       59
+      ]
+     },
+     {
+      "text": "The social worker will refer Ronald to the alcohol service this week and arrange a pendant alarm through Careline.",
+      "cites": [
+       61
+      ]
+     },
+     {
+      "text": "Lisa will complete the Attendance Allowance form with Ronald on Sunday.",
+      "cites": [
+       62
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Ronald Keegan (Ron) is the person being assessed.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Lisa Keegan is Ronald's daughter and is present during the assessment.",
+   "cites": [
+    3,
+    4,
+    5,
+    38,
+    40
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The social worker, Tom Ashby, from the adult team at Coldmere, conducted the assessment.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The hospital requested a visit to assess Ronald's condition following a fall.",
+   "cites": [
+    6
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Ronald has difficulty managing stairs due to hip pain and stiffness.",
+   "cites": [
+    9,
+    11
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald uses his backside to go up stairs at night, as there is only one rail.",
+   "cites": [
+    11
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald has a strip wash and cannot get into the bath due to the fall.",
+   "cites": [
+    13
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lisa shops on Sundays for Ronald's meals.",
+   "cites": [
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald prepares microwave dinners after Lisa shops.",
+   "cites": [
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald's wife, Pat, died in March of the previous year.",
+   "cites": [
+    17
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Ronald used to attend the British Legion on Fridays but has not attended recently.",
+   "cites": [
+    21
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald consumes alcohol, describing it as 'a couple of cans of an evening' with tea.",
+   "cites": [
+    23
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lisa states Ronald drinks eight large cans of strong lager per day and has a bottle of vodka that is consumed in two days.",
+   "cites": [
+    24,
+    26,
+    28
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lisa observes the empties of eight cans and a bottle of vodka in the bin every Sunday and counts them.",
+   "cites": [
+    28
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Ronald denies drinking excessively and states he is not drunk or hurting anyone.",
+   "cites": [
+    30
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mrs Okafor, next door, reported seeing Ronald drive to the Co-op after drinking.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ronald denies driving after drinking and states he only drives on Sundays to the cemetery.",
+   "cites": [
+    39
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ronald disputes that Mrs Okafor saw him driving and says she is 'trying to mind her own business'.",
+   "cites": [
+    39
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ronald expressed concern about safety and stated that if unsure, he should not drive.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ronald wishes to remain in his current home and does not want to move to a care home.",
+   "cites": [
+    43
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Ronald earns approximately £1,400 per month from state pension and works pension from the foundry.",
+   "cites": [
+    45
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Ronald does not currently receive Attendance Allowance.",
+   "cites": [
+    47
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Lisa agrees to help complete the Attendance Allowance form with Ronald.",
+   "cites": [
+    49,
+    62
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Ronald agrees to a home visit from the alcohol service for a single chat, not a meeting.",
+   "cites": [
+    51,
+    52,
+    53
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ronald agrees to consider a pendant alarm to call for help if he falls.",
+   "cites": [
+    54,
+    55,
+    57
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The occupational therapist will assess stair rails and bathing needs.",
+   "cites": [
+    58
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The occupational therapist will conduct a bathing assessment by the second of December.",
+   "cites": [
+    58
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The social worker will write to Dr Haines at Bridge Street surgery about the falls and alcohol use with Ronald's consent.",
+   "cites": [
+    59
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The social worker will refer Ronald to the alcohol service this week and arrange a pendant alarm through Careline.",
+   "cites": [
+    61
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Lisa will complete the Attendance Allowance form with Ronald on Sunday.",
+   "cites": [
+    62
+   ],
+   "section": "Agreed actions"
+  }
+ ]
+}

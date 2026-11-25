@@ -1,0 +1,11 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "On the 12th of October, Ryan Hale put his hands around Leanne's neck in the hallway while she was opening the door to give Mia's bag. Leanne was unable to breathe for a period after the incident. ... Ryan Hale was arrested by the police on the 12th of October.", "why": "act, body part, date, place, breathing and arrest kept"},
+    "D02": {"label": "accurate", "note_text": "On the 3rd of November, Ryan Hale sent a text message to Leanne threatening to kill her. ... Leanne has additional voice notes from Ryan Hale threatening her, saying 'I'll regret it'.", "why": "threat to kill, text, date and voice notes kept"},
+    "D03": {"label": "accurate", "note_text": "On the 20th of October, Ryan Hale came to the flat and smashed Leanne's phone, which she had to replace at a cost of about two hundred pounds.", "why": "smashed phone and date kept"},
+    "D04": {"label": "softened", "note_text": "Ryan Hale comes to the flat every weekend since August, typically on Friday or Saturday night, by shouting through the letterbox.", "why": "frequency and letterbox kept, but 'banging on the door' is left out entirely"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "Knife recorded as Gemma's account plus 'not personally seen'. Sentence 12 adds an unsaid claim that he has not been violent since August except 12 Oct. Later sections empty (budget)."
+}

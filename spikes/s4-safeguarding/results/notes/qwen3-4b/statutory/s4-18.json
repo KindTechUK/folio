@@ -1,0 +1,436 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "Solicitor Sophie Grant attended the meeting with client Lee Whitfield.",
+      "cites": [
+       1,
+       2
+      ]
+     },
+     {
+      "text": "The purpose of the meeting was to discuss the client's housing situation, including rent arrears and court proceedings.",
+      "cites": [
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "Client Lee Whitfield lost his job at a depot in January.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "The client's Universal Credit housing element took a long time to process, and the housing element went wrong, leading to rent arrears.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "The rent arrears amount is £3,850, for three to four months.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "The client received court papers for a possession claim on rent arrears grounds (grounds 8, 10, and 11) by Ashcroft Lettings.",
+      "cites": [
+       10,
+       11
+      ]
+     },
+     {
+      "text": "The hearing is scheduled for the 9th of December at Harbridge County Court.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "The property is a private rental property.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "The client lives alone with a cat.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "The client offered £50 per month in September to settle the arrears, which the landlord rejected.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "The client has a text message recording the offer of £50 per month, which is stored on their phone.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "The client reported damp in the bedroom, with black mould on the wall.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "The client has photographs of the damp in the bedroom.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "The client has outstanding debts including council tax (bailiffs letter sent), a credit card debt of approximately £2,000, and electric bill on a meter.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "The client has no support from family or friends, with only a brother in Doncaster who does not communicate regularly.",
+      "cites": [
+       27,
+       28
+      ]
+     },
+     {
+      "text": "The client visited his GP in March after receiving the first rent arrears letter.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "The client took an overdose of 16 paracetamol in March after receiving the first rent arrears letter.",
+      "cites": [
+       32,
+       34
+      ]
+     },
+     {
+      "text": "The client's neighbour found him and called an ambulance, and he was admitted overnight to hospital.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "After hospital admission, a nurse contacted the client a couple of times, then stopped contacting.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "The client has not hurt himself since March.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "The client thought about ending his life on Sunday night, this week, before the court date.",
+      "cites": [
+       40,
+       44
+      ]
+     },
+     {
+      "text": "The client is currently safe and stable today.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "The client stated that talking about the suicidal thoughts helped him feel a bit better.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "The client reported that he had previously submitted issues with the housing costs to the Universal Credit journal twice, but received no response.",
+      "cites": [
+       58
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": [
+     {
+      "text": "The solicitor requires the following documents: tenancy agreement, rent statement, Universal Credit statements since January, and damp photos.",
+      "cites": [
+       60
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": []
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "The solicitor advised the client that the arrears are due to the housing element going wrong, and that the damp may be a valid counterclaim to reduce the arrears.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "The solicitor will file a defence and a counterclaim for damp issues.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "The solicitor will request the court to adjourn if more time is needed to resolve the Universal Credit issue.",
+      "cites": [
+       53
+      ]
+     },
+     {
+      "text": "The solicitor will refer the client to the Citizens Advice debt team for a breathing space (60-day period during which creditors do not chase the client).",
+      "cites": [
+       55
+      ]
+     },
+     {
+      "text": "The solicitor will write to Universal Credit to support the defence of the housing claim.",
+      "cites": [
+       59
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Solicitor Sophie Grant attended the meeting with client Lee Whitfield.",
+   "cites": [
+    1,
+    2
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The purpose of the meeting was to discuss the client's housing situation, including rent arrears and court proceedings.",
+   "cites": [
+    5
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "Client Lee Whitfield lost his job at a depot in January.",
+   "cites": [
+    6
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client's Universal Credit housing element took a long time to process, and the housing element went wrong, leading to rent arrears.",
+   "cites": [
+    6
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The rent arrears amount is £3,850, for three to four months.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client received court papers for a possession claim on rent arrears grounds (grounds 8, 10, and 11) by Ashcroft Lettings.",
+   "cites": [
+    10,
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The hearing is scheduled for the 9th of December at Harbridge County Court.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The property is a private rental property.",
+   "cites": [
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client lives alone with a cat.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client offered £50 per month in September to settle the arrears, which the landlord rejected.",
+   "cites": [
+    16
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client has a text message recording the offer of £50 per month, which is stored on their phone.",
+   "cites": [
+    18
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client reported damp in the bedroom, with black mould on the wall.",
+   "cites": [
+    20
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client has photographs of the damp in the bedroom.",
+   "cites": [
+    20
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client has outstanding debts including council tax (bailiffs letter sent), a credit card debt of approximately £2,000, and electric bill on a meter.",
+   "cites": [
+    22
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client has no support from family or friends, with only a brother in Doncaster who does not communicate regularly.",
+   "cites": [
+    27,
+    28
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client visited his GP in March after receiving the first rent arrears letter.",
+   "cites": [
+    28
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client took an overdose of 16 paracetamol in March after receiving the first rent arrears letter.",
+   "cites": [
+    32,
+    34
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client's neighbour found him and called an ambulance, and he was admitted overnight to hospital.",
+   "cites": [
+    34
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "After hospital admission, a nurse contacted the client a couple of times, then stopped contacting.",
+   "cites": [
+    36
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client has not hurt himself since March.",
+   "cites": [
+    38
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client thought about ending his life on Sunday night, this week, before the court date.",
+   "cites": [
+    40,
+    44
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client is currently safe and stable today.",
+   "cites": [
+    46
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client stated that talking about the suicidal thoughts helped him feel a bit better.",
+   "cites": [
+    46
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The solicitor advised the client that the arrears are due to the housing element going wrong, and that the damp may be a valid counterclaim to reduce the arrears.",
+   "cites": [
+    51
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor will file a defence and a counterclaim for damp issues.",
+   "cites": [
+    51
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor will request the court to adjourn if more time is needed to resolve the Universal Credit issue.",
+   "cites": [
+    53
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor will refer the client to the Citizens Advice debt team for a breathing space (60-day period during which creditors do not chase the client).",
+   "cites": [
+    55
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The client reported that he had previously submitted issues with the housing costs to the Universal Credit journal twice, but received no response.",
+   "cites": [
+    58
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The solicitor will write to Universal Credit to support the defence of the housing claim.",
+   "cites": [
+    59
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor requires the following documents: tenancy agreement, rent statement, Universal Credit statements since January, and damp photos.",
+   "cites": [
+    60
+   ],
+   "section": "Documents and evidence"
+  }
+ ]
+}

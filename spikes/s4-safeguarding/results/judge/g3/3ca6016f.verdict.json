@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "The mother consumes a bottle of wine every night, most nights, when the children are in bed.",
+   "why": "bottle of wine, most nights kept; 75cl and 8pm start in s24-25"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "The mother reports smoking a joint of cannabis a few nights a week, only when the children are in bed, and never in front of them. The mother smokes cannabis in the garden, outside the back door",
+   "why": "cannabis = weed, 'a few' ~ 'a couple of' nights a week, in bed and garden kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "The mother admits she has fallen asleep on the sofa and not heard Lily crying when she was awake, and that Mason has woken her multiple times.",
+   "why": "fell asleep on sofa, not heard Lily crying, Mason woke her kept; wording garbled ('when she was awake') but plain fact clear"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "S28 says she denies cocaine 'or any other drugs', which contradicts her weed disclosure; not a C01 violation but inaccurate."
+}

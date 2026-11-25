@@ -1,0 +1,358 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Jamie Coulter (S2) stated he tidied up the room before the assessor arrived.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) stated he has a picture of Leeds United on the wall, which his dad gave him.",
+      "cites": [
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Jamie Coulter (S2) stated he goes to a garden centre on Tuesdays and Thursdays to do plants and watering, and receives paid wages there.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) stated he can cook pasta and beans on toast.",
+      "cites": [
+       14
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Jamie Coulter (S2) stated his girlfriend is named Kayleigh.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) stated he sees Dean and Lewis from the park.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) stated he hangs out with Dean and Lewis and goes to the shop with them.",
+      "cites": [
+       20
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Jamie Coulter (S2) stated Dean said the money is for 'being mates'.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) disclosed that Dean said he would hurt him if he did not give him the money, stating this happened last Friday.",
+      "cites": [
+       30,
+       36
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) stated he is scared when Dean asks for the money.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) denied that Dean or Lewis ever actually hurt him, stating they only said they would.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) stated he does not have enough money left after giving Dean and Lewis the £100.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) disclosed that last month he did not have money for the electric key, causing the electric to go off for two days, and he had crisps for tea.",
+      "cites": [
+       40,
+       42
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) denied telling his support worker Tom about the electric issue, stating he said he forgot to top up.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) stated he does not want the police to come to his flat if the safeguarding team contacts Dean.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Jamie Coulter (S2) stated he gets paid in the bank every two weeks on a Friday.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Tom (support worker) helps Jamie Coulter (S2) with shopping on Mondays.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) stated Dean and Lewis walk him to the cash machine on payday.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) stated he withdraws £100 from the bank on every payday and gives it to Dean and Lewis.",
+      "cites": [
+       26,
+       28
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) stated Kayleigh does not take his money and sometimes buys him chips.",
+      "cites": [
+       46,
+       48
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "Jamie Coulter (S2) stated that if Tom comes with him to the bank on Friday, Dean will not come.",
+      "cites": [
+       56
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) stated he would like help with a budget, specifically a list, possibly with pictures.",
+      "cites": [
+       58
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) confirmed he will still go to the garden centre even if support hours change.",
+      "cites": [
+       62
+      ]
+     },
+     {
+      "text": "Jamie Coulter (S2) confirmed he knows the on-call number for Dean or Lewis is on his fridge.",
+      "cites": [
+       66
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Jamie Coulter (S2) stated he tidied up the room before the assessor arrived.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated he has a picture of Leeds United on the wall, which his dad gave him.",
+   "cites": [
+    4
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated he goes to a garden centre on Tuesdays and Thursdays to do plants and watering, and receives paid wages there.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated he gets paid in the bank every two weeks on a Friday.",
+   "cites": [
+    12
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated he can cook pasta and beans on toast.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Tom (support worker) helps Jamie Coulter (S2) with shopping on Mondays.",
+   "cites": [
+    14
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated his girlfriend is named Kayleigh.",
+   "cites": [
+    18
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated he sees Dean and Lewis from the park.",
+   "cites": [
+    18
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated he hangs out with Dean and Lewis and goes to the shop with them.",
+   "cites": [
+    20
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated Dean and Lewis walk him to the cash machine on payday.",
+   "cites": [
+    24
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated he withdraws £100 from the bank on every payday and gives it to Dean and Lewis.",
+   "cites": [
+    26,
+    28
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated Dean said the money is for 'being mates'.",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Coulter (S2) disclosed that Dean said he would hurt him if he did not give him the money, stating this happened last Friday.",
+   "cites": [
+    30,
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated he is scared when Dean asks for the money.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Coulter (S2) denied that Dean or Lewis ever actually hurt him, stating they only said they would.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated he does not have enough money left after giving Dean and Lewis the £100.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Coulter (S2) disclosed that last month he did not have money for the electric key, causing the electric to go off for two days, and he had crisps for tea.",
+   "cites": [
+    40,
+    42
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Coulter (S2) denied telling his support worker Tom about the electric issue, stating he said he forgot to top up.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated Kayleigh does not take his money and sometimes buys him chips.",
+   "cites": [
+    46,
+    48
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated he does not want the police to come to his flat if the safeguarding team contacts Dean.",
+   "cites": [
+    52
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated that if Tom comes with him to the bank on Friday, Dean will not come.",
+   "cites": [
+    56
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Jamie Coulter (S2) stated he would like help with a budget, specifically a list, possibly with pictures.",
+   "cites": [
+    58
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Jamie Coulter (S2) confirmed he will still go to the garden centre even if support hours change.",
+   "cites": [
+    62
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Jamie Coulter (S2) confirmed he knows the on-call number for Dean or Lewis is on his fridge.",
+   "cites": [
+    66
+   ],
+   "section": "Agreed actions"
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "solicitor's attendance note",
+  "sections": [
+    {"title": "Attendance", "instruction": "Who attended, in what capacity, and the purpose of the meeting."},
+    {"title": "Client's account", "instruction": "The facts as the client described them, with dates, amounts and names. Mark second-hand information and anything the client is unsure of."},
+    {"title": "Documents and evidence", "instruction": "Documents and witnesses the client has, lacks, or will provide."},
+    {"title": "Client's objectives", "instruction": "What the client wants to achieve, in their order of priority."},
+    {"title": "Advice given", "instruction": "Only advice the solicitor actually gave, including caveats and time limits with exact dates. Do not record suggestions the solicitor rejected as advice."},
+    {"title": "Next steps", "instruction": "Each action with its owner and deadline where stated."}
+  ]
+}

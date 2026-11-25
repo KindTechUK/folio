@@ -1,0 +1,578 @@
+{
+ "01b015de": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-22",
+  "group": "g6"
+ },
+ "022b67ed": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-17",
+  "group": "g1"
+ },
+ "025e5fe9": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-06",
+  "group": "g6"
+ },
+ "02eab171": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-11",
+  "group": "g3"
+ },
+ "05155cfb": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-20",
+  "group": "g4"
+ },
+ "0a006402": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-18",
+  "group": "g2"
+ },
+ "0b0ff8da": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-01",
+  "group": "g1"
+ },
+ "0b21d9fc": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-02",
+  "group": "g2"
+ },
+ "0e7343d5": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-22",
+  "group": "g6"
+ },
+ "0f42c504": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-03",
+  "group": "g3"
+ },
+ "0fc8b315": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-24",
+  "group": "g8"
+ },
+ "134da9f0": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-10",
+  "group": "g2"
+ },
+ "169fd178": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-17",
+  "group": "g1"
+ },
+ "187dc16c": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-09",
+  "group": "g1"
+ },
+ "1a87a3f2": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-02",
+  "group": "g2"
+ },
+ "1b16296c": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-14",
+  "group": "g6"
+ },
+ "20889840": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-23",
+  "group": "g7"
+ },
+ "210853ba": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-21",
+  "group": "g5"
+ },
+ "2125b741": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-11",
+  "group": "g3"
+ },
+ "26cb5e3f": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-18",
+  "group": "g2"
+ },
+ "2731c2fc": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-04",
+  "group": "g4"
+ },
+ "283cb5b8": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-04",
+  "group": "g4"
+ },
+ "2d392166": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-22",
+  "group": "g6"
+ },
+ "2df35250": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-02",
+  "group": "g2"
+ },
+ "3a11ad2f": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-16",
+  "group": "g8"
+ },
+ "3ba63581": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-15",
+  "group": "g7"
+ },
+ "3ca6016f": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-19",
+  "group": "g3"
+ },
+ "3d4510e9": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-03",
+  "group": "g3"
+ },
+ "3e94cb9a": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-07",
+  "group": "g7"
+ },
+ "415206fc": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-21",
+  "group": "g5"
+ },
+ "419c614b": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-03",
+  "group": "g3"
+ },
+ "42f79f32": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-12",
+  "group": "g4"
+ },
+ "44240319": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-05",
+  "group": "g5"
+ },
+ "46016def": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-23",
+  "group": "g7"
+ },
+ "471f635f": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-10",
+  "group": "g2"
+ },
+ "475baf00": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-03",
+  "group": "g3"
+ },
+ "47a2cb25": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-01",
+  "group": "g1"
+ },
+ "47dec594": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-20",
+  "group": "g4"
+ },
+ "47f1596d": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-16",
+  "group": "g8"
+ },
+ "4a55df2a": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-09",
+  "group": "g1"
+ },
+ "4f0603f2": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-24",
+  "group": "g8"
+ },
+ "5069ba8a": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-16",
+  "group": "g8"
+ },
+ "518e4895": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-07",
+  "group": "g7"
+ },
+ "5553e8c7": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-08",
+  "group": "g8"
+ },
+ "5c06fc76": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-10",
+  "group": "g2"
+ },
+ "5fc436cc": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-15",
+  "group": "g7"
+ },
+ "61984f96": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-23",
+  "group": "g7"
+ },
+ "621a7cce": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-04",
+  "group": "g4"
+ },
+ "648dd204": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-21",
+  "group": "g5"
+ },
+ "64ebd5e9": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-24",
+  "group": "g8"
+ },
+ "6ebb1ab4": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-24",
+  "group": "g8"
+ },
+ "73b8ef86": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-14",
+  "group": "g6"
+ },
+ "74395eab": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-21",
+  "group": "g5"
+ },
+ "745ab521": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-08",
+  "group": "g8"
+ },
+ "7b67697b": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-02",
+  "group": "g2"
+ },
+ "7dbdc8ab": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-11",
+  "group": "g3"
+ },
+ "7ed4672f": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-06",
+  "group": "g6"
+ },
+ "7fff8c03": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-08",
+  "group": "g8"
+ },
+ "8ac4950c": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-11",
+  "group": "g3"
+ },
+ "8b1840da": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-13",
+  "group": "g5"
+ },
+ "9145a377": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-05",
+  "group": "g5"
+ },
+ "93e1c849": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-19",
+  "group": "g3"
+ },
+ "9496d394": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-06",
+  "group": "g6"
+ },
+ "9d735635": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-08",
+  "group": "g8"
+ },
+ "a0ab427c": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-07",
+  "group": "g7"
+ },
+ "a14802be": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-15",
+  "group": "g7"
+ },
+ "a43264a0": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-05",
+  "group": "g5"
+ },
+ "a438b197": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-12",
+  "group": "g4"
+ },
+ "a5442915": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-10",
+  "group": "g2"
+ },
+ "a607f891": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-19",
+  "group": "g3"
+ },
+ "a7334a05": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-12",
+  "group": "g4"
+ },
+ "a8fa6ee1": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-14",
+  "group": "g6"
+ },
+ "ad637a0e": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-14",
+  "group": "g6"
+ },
+ "ae0ffa42": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-20",
+  "group": "g4"
+ },
+ "b0ba7f15": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-09",
+  "group": "g1"
+ },
+ "b55f1ef5": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-13",
+  "group": "g5"
+ },
+ "bb278ca0": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-20",
+  "group": "g4"
+ },
+ "be5d7942": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-04",
+  "group": "g4"
+ },
+ "c0f89f5e": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-13",
+  "group": "g5"
+ },
+ "c27d2f29": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-05",
+  "group": "g5"
+ },
+ "c9c81baa": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-16",
+  "group": "g8"
+ },
+ "ca65d019": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-15",
+  "group": "g7"
+ },
+ "ca740020": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-13",
+  "group": "g5"
+ },
+ "d115f439": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-09",
+  "group": "g1"
+ },
+ "d1fff569": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-06",
+  "group": "g6"
+ },
+ "e39b8a82": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-18",
+  "group": "g2"
+ },
+ "e74d85f2": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-12",
+  "group": "g4"
+ },
+ "e7f6adc4": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-19",
+  "group": "g3"
+ },
+ "eaf9fc49": {
+  "model": "qwen3.5-4b",
+  "prompt": "statutory",
+  "vignette": "s4-01",
+  "group": "g1"
+ },
+ "efb2cee3": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-18",
+  "group": "g2"
+ },
+ "f00ee731": {
+  "model": "qwen3-4b",
+  "prompt": "statutory",
+  "vignette": "s4-01",
+  "group": "g1"
+ },
+ "f69fe2d5": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-07",
+  "group": "g7"
+ },
+ "f7bea4ec": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-17",
+  "group": "g1"
+ },
+ "fa5a6e2b": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-23",
+  "group": "g7"
+ },
+ "fe5acf99": {
+  "model": "qwen3-4b",
+  "prompt": "neutral",
+  "vignette": "s4-22",
+  "group": "g6"
+ },
+ "ffc7bd87": {
+  "model": "qwen3.5-4b",
+  "prompt": "neutral",
+  "vignette": "s4-17",
+  "group": "g1"
+ }
+}

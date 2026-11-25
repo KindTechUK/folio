@@ -1,0 +1,426 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Leanne Marsh is the person being assessed.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "The social worker, Angela Okafor, is conducting a review with Leanne Marsh.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "The assessment is about Leanne's daily life at home and in the community, and includes discussion of changes she would like to make.",
+      "cites": [
+       3
+      ]
+     },
+     {
+      "text": "At home, Leanne lives with her mother.",
+      "cites": [
+       11
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Leanne enjoys art and is currently working on a large painting of her cat, Biscuit.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Leanne enjoys cooking on Mondays.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Leanne enjoys attending the disco on Fridays.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Leanne's mother has poor knee health.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Leanne helps her mother with hoovering (cleaning).",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Leanne has previously participated in travel training to learn how to use public transport.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "Leanne wants to travel independently by bus to town.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Leanne currently travels to the centre by minibus.",
+      "cites": [
+       16
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Leanne reported being upset about the minibus bus driver last week.",
+      "cites": [
+       19
+      ]
+     },
+     {
+      "text": "Leanne does not like the minibus driver, Dave.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Dave drives the minibus that Leanne uses to travel to the centre.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Dave touched Leanne on her chest on the minibus.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "The touching occurred outside Leanne's house when she was getting off the minibus.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Dave touched Leanne between her legs over her trousers.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "Dave kissed Leanne on her mouth.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Dave told Leanne that the touching and kissing were a 'secret' between them and that she should not tell her mother.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "The incidents with Dave occurred every week when Leanne was the last person to get off the minibus.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "The incidents began after Leanne's birthday in August.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Leanne stated that the touching and kissing by Dave are true and not stories.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Leanne denied that any staff at Brookside have touched her in a similar way.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "Leanne confirmed that only Dave has touched her in this way, and no other staff at Brookside have done so.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Leanne stated that she is not in trouble for what happened with Dave.",
+      "cites": [
+       55
+      ]
+     },
+     {
+      "text": "The social worker will inform the local safeguarding team and the police about the incidents involving Dave.",
+      "cites": [
+       57
+      ]
+     },
+     {
+      "text": "Leanne agreed to the police being involved in the safeguarding process.",
+      "cites": [
+       58
+      ]
+     },
+     {
+      "text": "The social worker will ensure that if police speak to Leanne, there is a support person present to help her understand.",
+      "cites": [
+       59
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Leanne agreed to the social worker telling her mother about the incidents.",
+      "cites": [
+       61
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Leanne Marsh is the person being assessed.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The social worker, Angela Okafor, is conducting a review with Leanne Marsh.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The assessment is about Leanne's daily life at home and in the community, and includes discussion of changes she would like to make.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Leanne enjoys art and is currently working on a large painting of her cat, Biscuit.",
+   "cites": [
+    8
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leanne enjoys cooking on Mondays.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leanne enjoys attending the disco on Fridays.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "At home, Leanne lives with her mother.",
+   "cites": [
+    11
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Leanne's mother has poor knee health.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leanne helps her mother with hoovering (cleaning).",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leanne has previously participated in travel training to learn how to use public transport.",
+   "cites": [
+    13
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leanne wants to travel independently by bus to town.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leanne currently travels to the centre by minibus.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Leanne reported being upset about the minibus bus driver last week.",
+   "cites": [
+    19
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne does not like the minibus driver, Dave.",
+   "cites": [
+    20
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Dave drives the minibus that Leanne uses to travel to the centre.",
+   "cites": [
+    22
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Dave touched Leanne on her chest on the minibus.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The touching occurred outside Leanne's house when she was getting off the minibus.",
+   "cites": [
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Dave touched Leanne between her legs over her trousers.",
+   "cites": [
+    32
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Dave kissed Leanne on her mouth.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Dave told Leanne that the touching and kissing were a 'secret' between them and that she should not tell her mother.",
+   "cites": [
+    42
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The incidents with Dave occurred every week when Leanne was the last person to get off the minibus.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The incidents began after Leanne's birthday in August.",
+   "cites": [
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne stated that the touching and kissing by Dave are true and not stories.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne denied that any staff at Brookside have touched her in a similar way.",
+   "cites": [
+    50
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne confirmed that only Dave has touched her in this way, and no other staff at Brookside have done so.",
+   "cites": [
+    52
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne stated that she is not in trouble for what happened with Dave.",
+   "cites": [
+    55
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The social worker will inform the local safeguarding team and the police about the incidents involving Dave.",
+   "cites": [
+    57
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne agreed to the police being involved in the safeguarding process.",
+   "cites": [
+    58
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The social worker will ensure that if police speak to Leanne, there is a support person present to help her understand.",
+   "cites": [
+    59
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Leanne agreed to the social worker telling her mother about the incidents.",
+   "cites": [
+    61
+   ],
+   "section": "Support network and finances"
+  }
+ ]
+}

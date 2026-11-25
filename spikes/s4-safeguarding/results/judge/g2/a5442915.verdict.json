@@ -1,0 +1,11 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "softened", "note_text": "Pauline Reid (S3) stated she visits most afternoons and reported that Edith Marsh (S2) is often left in wet clothes, with the pad and skirt wet, on four or five days a week.", "why": "wet clothes and 4-5 days a week kept; 'all day' lost"},
+    "D02": {"label": "accurate", "note_text": "Pauline Reid (S3) stated there is no food in the fridge, noting on Saturday it was empty except for a bit of gone-off milk ... the fridge has been empty three or four times in the last few weeks.", "why": "no food, fridge, Saturday, frequency kept"},
+    "D03": {"label": "accurate", "note_text": "Pauline Reid (S3) stated Edith Marsh (S2) has not had her tablets for a week and the box is full since last Tuesday.", "why": "tablets, a week, Tuesday kept; assessor's check also recorded"},
+    "D04": {"label": "accurate", "note_text": "Edith Marsh (S2) stated she is alone all day while Gary is at work, relying on the television for company.", "why": "alone all day kept; Gary's 8-6, sometimes later, hours recorded (the 7:30 to 9pm span not given)"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "C01 recorded as a denial (s17). Background section empty (not a key section)."
+}

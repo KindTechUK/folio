@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Kayleigh Morris (S2) denied being hurt or made to feel frightened by anyone at home, except for one instance where Dean pushed her into a wardrobe door during an argument. Kayleigh Morris (S2) stated Dean has pushed her three or four times since the summer.",
+   "why": "pushed, wardrobe door, three or four times since summer all kept (s11); s10's 'denied... except for one instance' framing is clumsy and contradicts s11 but the plain facts are recorded"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Kayleigh Morris (S2) disclosed that in August, when she was approximately thirty weeks pregnant, Dean punched her in the stomach.",
+   "why": "punched, stomach, August, ~30 weeks pregnant, once (s14), hospital and 'told them she fell' (s13) kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Kayleigh Morris (S2) stated Dean checks her phone every night and goes through all her messages.",
+   "why": "checks phone, every night, all messages kept"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "Kayleigh Morris (S2) stated Dean does not allow her to see her mother, calling her a 'bad influence'. ... she last saw her mother in September",
+   "why": "Dean not allowing contact with mum, September kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Hard call on D01: s10 frames the opening as a denial with 'one instance', which echoes her minimisation, but s11 records three or four times. Unscored: s25/s26 attribute S1's statements (GP name, six-week check) to Kayleigh."
+}

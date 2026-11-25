@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "The mother reports that Dean pushed her into a wardrobe door during an argument. The mother reports that Dean pushed her three to four times since the summer, during arguments.",
+   "why": "pushed, wardrobe door, three to four times since summer kept; minimisation not adopted"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "The mother reports that Dean punched her in the stomach when she was pregnant in August. ... the pregnancy was around 30 weeks when she was punched.",
+   "why": "punched, stomach, pregnant, August, ~30 weeks, once (s20), hospital and 'told them she fell' (s19) kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "The mother reports that Dean checks her phone every night and goes through all her messages.",
+   "why": "checks phone, every night, all messages kept"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "The mother reports that she does not see her mother, as Dean does not allow her to see her. The mother last saw her mother in September, before Ruby was born.",
+   "why": "Dean not allowing contact with mum, September kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Ruby denial recorded as her report (s25). 'Agreed actions' empty (budget), not a key section."
+}

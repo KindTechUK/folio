@@ -1,0 +1,426 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Jade Pritchard is the mother of Lily and Mason.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Lily is eight months old.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "The health visitor is Claire Dunmore.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "The visit is part of Lily's eight-month review.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "The health visitor will assess Lily's weight, feeding, sleep, movement, and the mother's wellbeing.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "The health visitor confirms that information shared during the visit will remain between her and the mother's GP unless there is a concern for someone's safety.",
+      "cites": [
+       7
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Lily is currently on four bottles per day.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Each bottle contains seven ounces of milk.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Lily does not finish the night bottle every night.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Lily is trying finger foods such as bits of toast and banana.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Lily gags when eating finger foods, which concerns the mother.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "The health visitor explains that gagging is normal in infants and different from choking, which is silent.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Lily goes to bed around seven in the evening and wakes once around three in the morning for a bottle.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Mason wakes up earlier than Lily and is more difficult to soothe.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Dean, the father, works on lorries, Monday to Friday, and returns on weekends.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "The mother is alone during the week with the children.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "The mother's mother (grandmother) helps out on Tuesdays with Mason.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Mason spends 15 hours a week at Little Acorns nursery.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "The mother reports financial strain, describing the household as 'tight'.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "The household is currently on Universal Credit and receives money from Dean.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "The household is on a key meter, which has led to a significant increase in electricity costs.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "The mother reports feeling tired and bored, especially in the evenings.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "The mother consumes a bottle of wine every night, most nights, when the children are in bed.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "The mother confirms she drinks a bottle of wine every night, most nights, from the Co-op, starting around eight o'clock.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "The mother describes the wine as a standard bottle, 75 centilitres.",
+      "cites": [
+       31
+      ]
+     },
+     {
+      "text": "The mother reports smoking a joint of cannabis a few nights a week, only when the children are in bed, and never in front of them.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "The mother smokes cannabis in the garden, outside the back door, so it is not in the house.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "The mother denies ever using cocaine or any other drugs.",
+      "cites": [
+       38
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "The mother admits she has fallen asleep on the sofa and not heard Lily crying when she was awake, and that Mason has woken her multiple times.",
+      "cites": [
+       42
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "The health visitor provides the number for the Harbridge Energy Fund, which offers top-ups for households on key meters.",
+      "cites": [
+       25
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Jade Pritchard is the mother of Lily and Mason.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Lily is eight months old.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The health visitor is Claire Dunmore.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The visit is part of Lily's eight-month review.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The health visitor will assess Lily's weight, feeding, sleep, movement, and the mother's wellbeing.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The health visitor confirms that information shared during the visit will remain between her and the mother's GP unless there is a concern for someone's safety.",
+   "cites": [
+    7
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Lily is currently on four bottles per day.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Each bottle contains seven ounces of milk.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily does not finish the night bottle every night.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily is trying finger foods such as bits of toast and banana.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily gags when eating finger foods, which concerns the mother.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The health visitor explains that gagging is normal in infants and different from choking, which is silent.",
+   "cites": [
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Lily goes to bed around seven in the evening and wakes once around three in the morning for a bottle.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mason wakes up earlier than Lily and is more difficult to soothe.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Dean, the father, works on lorries, Monday to Friday, and returns on weekends.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother is alone during the week with the children.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother's mother (grandmother) helps out on Tuesdays with Mason.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mason spends 15 hours a week at Little Acorns nursery.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother reports financial strain, describing the household as 'tight'.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The household is currently on Universal Credit and receives money from Dean.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The household is on a key meter, which has led to a significant increase in electricity costs.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The health visitor provides the number for the Harbridge Energy Fund, which offers top-ups for households on key meters.",
+   "cites": [
+    25
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "The mother reports feeling tired and bored, especially in the evenings.",
+   "cites": [
+    26
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother consumes a bottle of wine every night, most nights, when the children are in bed.",
+   "cites": [
+    28
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother confirms she drinks a bottle of wine every night, most nights, from the Co-op, starting around eight o'clock.",
+   "cites": [
+    32
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother describes the wine as a standard bottle, 75 centilitres.",
+   "cites": [
+    31
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother reports smoking a joint of cannabis a few nights a week, only when the children are in bed, and never in front of them.",
+   "cites": [
+    34
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother smokes cannabis in the garden, outside the back door, so it is not in the house.",
+   "cites": [
+    36
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother denies ever using cocaine or any other drugs.",
+   "cites": [
+    38
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother admits she has fallen asleep on the sofa and not heard Lily crying when she was awake, and that Mason has woken her multiple times.",
+   "cites": [
+    42
+   ],
+   "section": "Risks and safeguarding"
+  }
+ ]
+}

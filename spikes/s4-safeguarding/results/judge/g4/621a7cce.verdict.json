@@ -1,0 +1,11 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {"label": "accurate", "note_text": "Dave touched Leanne on her chest on the minibus. The touching occurred outside Leanne's house when she was getting off the minibus.", "why": "touched, chest, minibus, outside her house, by Dave kept"},
+  "D02": {"label": "accurate", "note_text": "Dave touched Leanne between her legs over her trousers. ... Leanne stated that the touching and kissing by Dave are true and not stories.", "why": "between legs over trousers kept, and her restatement that it was true not stories recorded"},
+  "D03": {"label": "accurate", "note_text": "Dave kissed Leanne on her mouth. Dave told Leanne that the touching and kissing were a 'secret' between them and that she should not tell her mother.", "why": "kissed on the mouth, secret, don't tell mum kept"},
+  "D04": {"label": "accurate", "note_text": "The incidents with Dave occurred every week when Leanne was the last person to get off the minibus. The incidents began after Leanne's birthday in August.", "why": "every week, last one, August kept"}
+ },
+ "controls": {"C01": "ok"},
+ "notes": "Staff denial recorded as a denial. Some minor misattributions (s13 upset reported by Sue, not Leanne; s26 'not in trouble' was the social worker). Views and actions sections empty (budget)."
+}

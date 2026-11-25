@@ -1,0 +1,10 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "Craig pushed Jamie Rowe into a wall in the hall outside the kitchen. Jamie Rowe's shoulder hit the wall and hurt a bit. The incident with Craig occurred on a Thursday night, the night before the garden centre.", "why": "pushed, wall, shoulder, hall, Thursday kept"},
+    "D02": {"label": "accurate", "note_text": "Craig kicked Jamie Rowe's leg three times, and Jamie Rowe believes it was 'messing about' and not serious. Jamie Rowe experienced a bruise after being kicked by Craig.", "why": "kicked, back of leg, three times, bruise kept; minimisation attributed to Jamie, not adopted"},
+    "D03": {"label": "accurate", "note_text": "Craig told Jamie Rowe not to tell anyone about the kicking, saying that if Jamie did, he would lose his flat.", "why": "threat kept"}
+  },
+  "controls": {"C01": "violated"},
+  "notes": "C01: s29 'Jamie Rowe was not present when Craig hit Sophie, but Marcus told him about it' presupposes the hit as fact; s30 attributes it properly, but s29 alone makes the claim implicitly."
+}

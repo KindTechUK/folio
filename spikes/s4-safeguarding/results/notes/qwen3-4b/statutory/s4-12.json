@@ -1,0 +1,434 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Siobhan Kelly is the district nurse who has been seeing Keith Dawson for leg ulcers.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Keith Dawson has leg ulcers on both legs that are slow to heal.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Keith Dawson's GP is Dr Morgan at Holloway surgery.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "Keith Dawson has not seen his wife since 2015.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Keith Dawson's brother Phil lives in Northby and they only communicate at Christmas.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Keith Dawson receives Employment and Support Allowance (ESA) and is waiting for a pension to start next year.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Keith Dawson believes he is up to date with his bills, though the gas is on a meter.",
+      "cites": [
+       50
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Keith Dawson has not had heating since October.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Keith Dawson has not had hot water since October.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Keith Dawson has been using a fan heater but finds it expensive and does not use it regularly.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Keith Dawson has not washed in three to four weeks.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Keith Dawson has not cooked meals for himself due to the absence of hot water and the presence of rats in the kitchen.",
+      "cites": [
+       24,
+       28
+      ]
+     },
+     {
+      "text": "Keith Dawson has seen two rats in the kitchen, which have been feeding on bread, and has stopped using the kitchen for food storage.",
+      "cites": [
+       24,
+       26
+      ]
+     },
+     {
+      "text": "Keith Dawson has not had meals for four days last week due to missed home care visits.",
+      "cites": [
+       35,
+       36
+      ]
+     },
+     {
+      "text": "The home care agency Bright Days was supposed to provide morning and teatime visits.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "In the last two weeks, Bright Days missed 16 out of 28 scheduled visits, with no record of visits for 16 days.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "For four consecutive days last week, no one from Bright Days came to visit Keith Dawson.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "Keith Dawson did not contact Bright Days when visits were missed, stating he did not want to bother them.",
+      "cites": [
+       36
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Keith Dawson's primary wish is for the heating to be fixed and the rats to be removed.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Keith Dawson stated he does not want a home or any form of relocation.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "The neighbour at number 25 reported to the district nurse that Keith Dawson has been drinking heavily.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "The district nurse Siobhan Kelly did not personally observe any signs of Keith Dawson drinking heavily.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Keith Dawson denies the claim about heavy drinking and calls the neighbour a 'nosy cow'.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "The social worker Rachel Burns will raise a safeguarding concern about the missed care visits and the poor condition of the home.",
+      "cites": [
+       53
+      ]
+     },
+     {
+      "text": "Keith Dawson agrees to a safeguarding concern being raised if the boiler is fixed.",
+      "cites": [
+       54
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "The district nurse will continue to visit Keith Dawson on Tuesdays and Fridays for leg ulcer care.",
+      "cites": [
+       58
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "The social worker will contact the housing association to log the boiler as an emergency repair.",
+      "cites": [
+       55
+      ]
+     },
+     {
+      "text": "The social worker will request two oil heaters to be delivered to the home within the next 24 hours.",
+      "cites": [
+       55
+      ]
+     },
+     {
+      "text": "The social worker will contact environmental health to arrange pest control in the kitchen.",
+      "cites": [
+       57
+      ]
+     },
+     {
+      "text": "The social worker will raise the issue of missed visits with Bright Days and the commissioning team.",
+      "cites": [
+       57
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Siobhan Kelly is the district nurse who has been seeing Keith Dawson for leg ulcers.",
+   "cites": [
+    10
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Keith Dawson has leg ulcers on both legs that are slow to heal.",
+   "cites": [
+    10
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Keith Dawson has not had heating since October.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson has not had hot water since October.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson has been using a fan heater but finds it expensive and does not use it regularly.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson has not washed in three to four weeks.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson has not cooked meals for himself due to the absence of hot water and the presence of rats in the kitchen.",
+   "cites": [
+    24,
+    28
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson has seen two rats in the kitchen, which have been feeding on bread, and has stopped using the kitchen for food storage.",
+   "cites": [
+    24,
+    26
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson has not had meals for four days last week due to missed home care visits.",
+   "cites": [
+    35,
+    36
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The home care agency Bright Days was supposed to provide morning and teatime visits.",
+   "cites": [
+    30
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "In the last two weeks, Bright Days missed 16 out of 28 scheduled visits, with no record of visits for 16 days.",
+   "cites": [
+    33
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "For four consecutive days last week, no one from Bright Days came to visit Keith Dawson.",
+   "cites": [
+    35
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson did not contact Bright Days when visits were missed, stating he did not want to bother them.",
+   "cites": [
+    36
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The neighbour at number 25 reported to the district nurse that Keith Dawson has been drinking heavily.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The district nurse Siobhan Kelly did not personally observe any signs of Keith Dawson drinking heavily.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Keith Dawson denies the claim about heavy drinking and calls the neighbour a 'nosy cow'.",
+   "cites": [
+    42
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Keith Dawson's GP is Dr Morgan at Holloway surgery.",
+   "cites": [
+    44
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Keith Dawson has not seen his wife since 2015.",
+   "cites": [
+    46
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Keith Dawson's brother Phil lives in Northby and they only communicate at Christmas.",
+   "cites": [
+    46
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Keith Dawson receives Employment and Support Allowance (ESA) and is waiting for a pension to start next year.",
+   "cites": [
+    48
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Keith Dawson believes he is up to date with his bills, though the gas is on a meter.",
+   "cites": [
+    50
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Keith Dawson's primary wish is for the heating to be fixed and the rats to be removed.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Keith Dawson stated he does not want a home or any form of relocation.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "The social worker Rachel Burns will raise a safeguarding concern about the missed care visits and the poor condition of the home.",
+   "cites": [
+    53
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Keith Dawson agrees to a safeguarding concern being raised if the boiler is fixed.",
+   "cites": [
+    54
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The social worker will contact the housing association to log the boiler as an emergency repair.",
+   "cites": [
+    55
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The social worker will request two oil heaters to be delivered to the home within the next 24 hours.",
+   "cites": [
+    55
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The social worker will contact environmental health to arrange pest control in the kitchen.",
+   "cites": [
+    57
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The social worker will raise the issue of missed visits with Bright Days and the commissioning team.",
+   "cites": [
+    57
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The district nurse will continue to visit Keith Dawson on Tuesdays and Fridays for leg ulcer care.",
+   "cites": [
+    58
+   ],
+   "section": "Support network and finances"
+  }
+ ]
+}

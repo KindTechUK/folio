@@ -1,0 +1,432 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Social worker Rachel Burns attended the home of Keith Dawson with District Nurse Siobhan Kelly.",
+      "cites": [
+       1,
+       2,
+       3
+      ]
+     },
+     {
+      "text": "District Nurse Siobhan Kelly reported she was worried about how things were at home.",
+      "cites": [
+       7
+      ]
+     },
+     {
+      "text": "Keith Dawson lives in a house rented from a housing association.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Keith Dawson reported he rang the housing association once and nobody came.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Keith Dawson reported his GP is Dr Morgan at Holloway surgery and he has not been for ages.",
+      "cites": [
+       44
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "District Nurse Siobhan Kelly confirmed she has been seeing Keith Dawson for leg ulcers on both legs, twice a week.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "District Nurse Siobhan Kelly reported that the leg ulcers are slow to heal.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Keith Dawson reported there has been no heating since October.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Keith Dawson reported there is no hot water.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Keith Dawson stated he does not use his fan heater because it costs a fortune.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Keith Dawson reported he has not washed in three to four weeks.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Keith Dawson reported there are rats in the kitchen and he has seen two.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Keith Dawson reported the rats have been at the bread for a few weeks.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Keith Dawson reported he keeps food in tins now because of the rats.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Keith Dawson reported he eats soup and beans, mostly out of the tin.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Keith Dawson stated carers were supposed to do him a meal.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Keith Dawson has a home care package called Bright Days, providing morning and teatime visits.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "District Nurse Siobhan Kelly reported that in the last two weeks, there should have been 28 visits and 16 were missed, with nothing written for 16 visits.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "District Nurse Siobhan Kelly reported that four days last week no one came, and Keith Dawson told her he had no meal on those days.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "Keith Dawson stated he did not ring the carers because he did not want the bother.",
+      "cites": [
+       36
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Keith Dawson stated he just wants the heating fixed and the rats gone.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Keith Dawson stated he does not want a home or anything.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Neighbour at number twenty-five told District Nurse Siobhan Kelly that Keith Dawson has been drinking heavily.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "District Nurse Siobhan Kelly stated she has not seen any sign of Keith Dawson drinking heavily herself; it is second-hand information from the neighbour.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Keith Dawson described the neighbour at number twenty-five as a 'nosy cow' and stated he is not getting into it.",
+      "cites": [
+       42
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Keith Dawson reported his brother Phil is in Northby and they talk at Christmas.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Keith Dawson reported his wife left in 2015.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Keith Dawson reported he lives on ESA and is waiting for his pension next year.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Keith Dawson reported the gas is on a meter.",
+      "cites": [
+       50
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "Keith Dawson agreed to the social worker raising a safeguarding concern about the care visits and the state of the house.",
+      "cites": [
+       54
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Social worker Rachel Burns attended the home of Keith Dawson with District Nurse Siobhan Kelly.",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "District Nurse Siobhan Kelly reported she was worried about how things were at home.",
+   "cites": [
+    7
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "District Nurse Siobhan Kelly confirmed she has been seeing Keith Dawson for leg ulcers on both legs, twice a week.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "District Nurse Siobhan Kelly reported that the leg ulcers are slow to heal.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson reported there has been no heating since October.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson reported there is no hot water.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson stated he does not use his fan heater because it costs a fortune.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson lives in a house rented from a housing association.",
+   "cites": [
+    16
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Keith Dawson reported he rang the housing association once and nobody came.",
+   "cites": [
+    16
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Keith Dawson reported he has not washed in three to four weeks.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson reported there are rats in the kitchen and he has seen two.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson reported the rats have been at the bread for a few weeks.",
+   "cites": [
+    26
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson reported he keeps food in tins now because of the rats.",
+   "cites": [
+    26
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson reported he eats soup and beans, mostly out of the tin.",
+   "cites": [
+    28
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson stated carers were supposed to do him a meal.",
+   "cites": [
+    28
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson has a home care package called Bright Days, providing morning and teatime visits.",
+   "cites": [
+    30
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "District Nurse Siobhan Kelly reported that in the last two weeks, there should have been 28 visits and 16 were missed, with nothing written for 16 visits.",
+   "cites": [
+    33
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "District Nurse Siobhan Kelly reported that four days last week no one came, and Keith Dawson told her he had no meal on those days.",
+   "cites": [
+    35
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Keith Dawson stated he did not ring the carers because he did not want the bother.",
+   "cites": [
+    36
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Neighbour at number twenty-five told District Nurse Siobhan Kelly that Keith Dawson has been drinking heavily.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "District Nurse Siobhan Kelly stated she has not seen any sign of Keith Dawson drinking heavily herself; it is second-hand information from the neighbour.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Keith Dawson described the neighbour at number twenty-five as a 'nosy cow' and stated he is not getting into it.",
+   "cites": [
+    42
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Keith Dawson reported his GP is Dr Morgan at Holloway surgery and he has not been for ages.",
+   "cites": [
+    44
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Keith Dawson reported his brother Phil is in Northby and they talk at Christmas.",
+   "cites": [
+    46
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Keith Dawson reported his wife left in 2015.",
+   "cites": [
+    46
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Keith Dawson reported he lives on ESA and is waiting for his pension next year.",
+   "cites": [
+    48
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Keith Dawson reported the gas is on a meter.",
+   "cites": [
+    50
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Keith Dawson stated he just wants the heating fixed and the rats gone.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Keith Dawson stated he does not want a home or anything.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Keith Dawson agreed to the social worker raising a safeguarding concern about the care visits and the state of the house.",
+   "cites": [
+    54
+   ],
+   "section": "Agreed actions"
+  }
+ ]
+}

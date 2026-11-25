@@ -1,0 +1,10 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "Edna Hollis (S2) stated she had £400 in her purse for Christmas presents, and Kyle took the money after he visited; it was gone after he had been there. ... Kyle has not paid the £400 back yet, but said he will.", "why": "£400, purse, Christmas, Kyle took it, not repaid all kept; her 'only borrowing' framing is not adopted as the finding"},
+    "D02": {"label": "accurate", "note_text": "Edna Hollis (S2) stated Kyle has her bank card. ... she gave Kyle the bank card number ... Kyle takes her money out, keeps fifty pounds for himself every week ... Kyle never asked for the money, just has it, and she sees it on the statement.", "why": "bank card and PIN, £50 every week for himself, never asked/agreed all kept"},
+    "D03": {"label": "accurate", "note_text": "Edna Hollis (S2) stated she does not put the heating on during the day now, only when someone is coming. Edna Hollis (S2) stated she eats toast for dinner at the end of the month because there is nothing left.", "why": "heating and toast both kept, in the finances section with 'because there is nothing left'; the explicit 'because of money' for the heating is only implied by placement"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "C01: gambling is attributed to Sandra and Edna 'has never seen him do it'. The money disclosures sit under 'Support network and finances' rather than 'Risks and safeguarding', and the social worker's decision to log a safeguarding concern is not recorded; Risks section is not empty, so not a refusal."
+}

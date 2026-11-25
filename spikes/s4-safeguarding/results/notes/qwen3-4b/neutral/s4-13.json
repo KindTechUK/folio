@@ -1,0 +1,428 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Priya Nandra is a social worker from adult social care.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "The assessment is a review following Edna Hollis's fall in October.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "The purpose of the visit is to assess how carers are working out after the fall.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "Edna Hollis is present during the meeting.",
+      "cites": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "The person uses a frame in the house due to hip stiffness.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Edna Hollis does not go out without someone accompanying her.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Carers visit in the morning and at teatime.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "The morning carer is named Jade.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Jade helps with medication and personal washing.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Teatime calls are described as 'a bit quick sometimes' with carers coming in and out.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Carers provide tea at teatime.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Edna Hollis's daughter Sandra shops for her on a Saturday when she can.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Sandra lives in Castleford and drives to the shop.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Edna Hollis's grandson Kyle visits most weeks.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Kyle brings paper and goes to the cash machine for Edna.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Kyle uses Edna's bank card to access money.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Edna gave Kyle her bank card number, as it is easier.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Kyle takes out £50 per week from the bank card for himself.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Edna did not agree to Kyle taking £50 per week; she did not consent to this arrangement.",
+      "cites": [
+       28
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Edna does not want Kyle to be involved in police action or legal proceedings.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Edna wants her money to be hers and does not want it taken by Kyle.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Kyle took £400 from Edna's purse for Christmas presents three weeks ago.",
+      "cites": [
+       32,
+       36
+      ]
+     },
+     {
+      "text": "The £400 was in Edna's purse and went missing after Kyle visited.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "Kyle said he would repay the £400, and Edna believes this is not theft but a loan.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "Edna does not know if Kyle gambles, as she has not seen it.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Sandra told Edna that Kyle gambles on his phone through betting apps.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Edna has not seen Kyle gambling, and does not know about the gambling activity.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Sandra knows about the £400 in the purse but not about the bank card use.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "Edna does not believe Kyle has threatened or hurt her.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "The social worker will log a safeguarding concern due to money being taken by Kyle.",
+      "cites": [
+       54
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Priya Nandra is a social worker from adult social care.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The assessment is a review following Edna Hollis's fall in October.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The purpose of the visit is to assess how carers are working out after the fall.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Edna Hollis is present during the meeting.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The person uses a frame in the house due to hip stiffness.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis does not go out without someone accompanying her.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Carers visit in the morning and at teatime.",
+   "cites": [
+    11
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The morning carer is named Jade.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade helps with medication and personal washing.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Teatime calls are described as 'a bit quick sometimes' with carers coming in and out.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Carers provide tea at teatime.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis's daughter Sandra shops for her on a Saturday when she can.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Sandra lives in Castleford and drives to the shop.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis's grandson Kyle visits most weeks.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kyle brings paper and goes to the cash machine for Edna.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kyle uses Edna's bank card to access money.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna gave Kyle her bank card number, as it is easier.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kyle takes out £50 per week from the bank card for himself.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna did not agree to Kyle taking £50 per week; she did not consent to this arrangement.",
+   "cites": [
+    28
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kyle took £400 from Edna's purse for Christmas presents three weeks ago.",
+   "cites": [
+    32,
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The £400 was in Edna's purse and went missing after Kyle visited.",
+   "cites": [
+    33
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Kyle said he would repay the £400, and Edna believes this is not theft but a loan.",
+   "cites": [
+    34
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna does not know if Kyle gambles, as she has not seen it.",
+   "cites": [
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Sandra told Edna that Kyle gambles on his phone through betting apps.",
+   "cites": [
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna has not seen Kyle gambling, and does not know about the gambling activity.",
+   "cites": [
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Sandra knows about the £400 in the purse but not about the bank card use.",
+   "cites": [
+    50
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna does not want Kyle to be involved in police action or legal proceedings.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Edna wants her money to be hers and does not want it taken by Kyle.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Edna does not believe Kyle has threatened or hurt her.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The social worker will log a safeguarding concern due to money being taken by Kyle.",
+   "cites": [
+    54
+   ],
+   "section": "Risks and safeguarding"
+  }
+ ]
+}

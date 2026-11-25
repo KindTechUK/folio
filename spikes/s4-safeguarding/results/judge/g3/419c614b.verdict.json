@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "On Saturday, 7th November, Neil punched Gareth in the face during an argument in the kitchen about the sale of the house.",
+   "why": "punched, face, Neil, date kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Gareth's nose was broken during the incident, and he was taken to hospital that night. Gareth was treated at Castlebrook General Hospital A and E, where an x-ray confirmed a broken nose.",
+   "why": "broken nose, hospital, x-ray kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "After being punched, Gareth was on the floor and was hit in the back and shoulder with a kitchen chair.",
+   "why": "chair, hit, back kept; passive voice omits 'by Neil' but context makes the actor clear"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "S17 weakens the knife denial to 'did not believe', still not a claim he had one. S12 'was taken to hospital' conflicts with s18 'drove himself'."
+}

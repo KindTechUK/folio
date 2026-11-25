@@ -1,0 +1,449 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Gareth Lloyd is the care assessor from the council.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Karen Wells is the daughter of Doreen Abbott.",
+      "cites": [
+       1,
+       2
+      ]
+     },
+     {
+      "text": "Doreen Abbott is the person being assessed.",
+      "cites": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "The care assessor is here to assess daily living needs.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Doreen Abbott can manage washing and dressing but cannot get into the bath and uses a strip wash at the sink.",
+      "cites": [
+       12,
+       13
+      ]
+     },
+     {
+      "text": "Doreen Abbott goes up the stairs on her bottom some days and has expressed interest in a stairlift.",
+      "cites": [
+       14,
+       15
+      ]
+     },
+     {
+      "text": "Karen Wells reported that Doreen nearly fell in October on the landing.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Doreen Abbott bruised her arm during the fall but did not go to hospital.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Doreen Abbott cooks occasionally, making soup and sandwiches, and says she is not one for cooking for one.",
+      "cites": [
+       19,
+       20
+      ]
+     },
+     {
+      "text": "Karen brings meals to Doreen and she eats what is brought by Karen.",
+      "cites": [
+       21
+      ]
+     },
+     {
+      "text": "Doreen Abbott has her pension and a portion of Ron's council benefits.",
+      "cites": [
+       23
+      ]
+     },
+     {
+      "text": "Karen manages the bills on the computer.",
+      "cites": [
+       23,
+       24
+      ]
+     },
+     {
+      "text": "Doreen Abbott said she feels lonely and that days are long and quiet, with no one to talk to.",
+      "cites": [
+       28,
+       29
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Doreen Abbott said, 'I'd be better off dead, love' when asked about her feelings since Ron's death.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Doreen Abbott said it is just a saying at her age, common among older people, and not a serious statement.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "Doreen Abbott said she has been saving 40 tablets since summer, not taking them and keeping them hidden.",
+      "cites": [
+       36,
+       40
+      ]
+     },
+     {
+      "text": "Doreen Abbott said she would stop eating if she were put in a home, and that she wants to stay in her current home with Ron's belongings.",
+      "cites": [
+       50,
+       52
+      ]
+     },
+     {
+      "text": "Karen Wells will drive Doreen to the lunch club at St Anne's on the first visit.",
+      "cites": [
+       61,
+       62
+      ]
+     },
+     {
+      "text": "Doreen Abbott expressed interest in the lunch club at St Anne's, as Ron and she used to go there.",
+      "cites": [
+       60
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Karen Wells found the tablets hidden in Doreen's bedside drawer, in an envelope under hankies, with lots of different tablets.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Karen Wells took the tablets home with her after finding them.",
+      "cites": [
+       44
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "The care assessor will refer Doreen for a stairlift assessment and a bath seat.",
+      "cites": [
+       63
+      ]
+     },
+     {
+      "text": "The care assessor will refer Doreen for a carer in the mornings for washing, starting small.",
+      "cites": [
+       63
+      ]
+     },
+     {
+      "text": "The care assessor will contact Dr Patel's surgery to arrange a GP appointment today or tomorrow.",
+      "cites": [
+       53
+      ]
+     },
+     {
+      "text": "Doreen Abbott said she would be okay with Dr Patel seeing her, as she does not want a fuss.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "The care assessor will inform Dr Patel about what Doreen said during the assessment.",
+      "cites": [
+       55
+      ]
+     },
+     {
+      "text": "Karen Wells will take the tablets to the pharmacy today to be disposed of.",
+      "cites": [
+       45,
+       46
+      ]
+     },
+     {
+      "text": "Karen Wells will sort weekly tablet packs with Kestle Pharmacy.",
+      "cites": [
+       57,
+       58
+      ]
+     },
+     {
+      "text": "The care assessor will refer for a stairlift assessment by Friday.",
+      "cites": [
+       64
+      ]
+     },
+     {
+      "text": "The care assessor will return on Tuesday, the first of December.",
+      "cites": [
+       65
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Gareth Lloyd is the care assessor from the council.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Karen Wells is the daughter of Doreen Abbott.",
+   "cites": [
+    1,
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Doreen Abbott is the person being assessed.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The care assessor is here to assess daily living needs.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Doreen Abbott can manage washing and dressing but cannot get into the bath and uses a strip wash at the sink.",
+   "cites": [
+    12,
+    13
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Doreen Abbott goes up the stairs on her bottom some days and has expressed interest in a stairlift.",
+   "cites": [
+    14,
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Karen Wells reported that Doreen nearly fell in October on the landing.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Doreen Abbott bruised her arm during the fall but did not go to hospital.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Doreen Abbott cooks occasionally, making soup and sandwiches, and says she is not one for cooking for one.",
+   "cites": [
+    19,
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Karen brings meals to Doreen and she eats what is brought by Karen.",
+   "cites": [
+    21
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Doreen Abbott has her pension and a portion of Ron's council benefits.",
+   "cites": [
+    23
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Karen manages the bills on the computer.",
+   "cites": [
+    23,
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Doreen Abbott said she feels lonely and that days are long and quiet, with no one to talk to.",
+   "cites": [
+    28,
+    29
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Doreen Abbott said, 'I'd be better off dead, love' when asked about her feelings since Ron's death.",
+   "cites": [
+    30
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Doreen Abbott said it is just a saying at her age, common among older people, and not a serious statement.",
+   "cites": [
+    32
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Doreen Abbott said she has been saving 40 tablets since summer, not taking them and keeping them hidden.",
+   "cites": [
+    36,
+    40
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Karen Wells found the tablets hidden in Doreen's bedside drawer, in an envelope under hankies, with lots of different tablets.",
+   "cites": [
+    42
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Karen Wells took the tablets home with her after finding them.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Doreen Abbott said she would stop eating if she were put in a home, and that she wants to stay in her current home with Ron's belongings.",
+   "cites": [
+    50,
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "The care assessor will refer Doreen for a stairlift assessment and a bath seat.",
+   "cites": [
+    63
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The care assessor will refer Doreen for a carer in the mornings for washing, starting small.",
+   "cites": [
+    63
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The care assessor will contact Dr Patel's surgery to arrange a GP appointment today or tomorrow.",
+   "cites": [
+    53
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Doreen Abbott said she would be okay with Dr Patel seeing her, as she does not want a fuss.",
+   "cites": [
+    54
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The care assessor will inform Dr Patel about what Doreen said during the assessment.",
+   "cites": [
+    55
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Karen Wells will take the tablets to the pharmacy today to be disposed of.",
+   "cites": [
+    45,
+    46
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Karen Wells will sort weekly tablet packs with Kestle Pharmacy.",
+   "cites": [
+    57,
+    58
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The care assessor will refer for a stairlift assessment by Friday.",
+   "cites": [
+    64
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The care assessor will return on Tuesday, the first of December.",
+   "cites": [
+    65
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Karen Wells will drive Doreen to the lunch club at St Anne's on the first visit.",
+   "cites": [
+    61,
+    62
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Doreen Abbott expressed interest in the lunch club at St Anne's, as Ron and she used to go there.",
+   "cites": [
+    60
+   ],
+   "section": "Person's views and wishes"
+  }
+ ]
+}

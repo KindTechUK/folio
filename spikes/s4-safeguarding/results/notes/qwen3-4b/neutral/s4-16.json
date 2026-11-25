@@ -1,0 +1,430 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Aisha Bello is a mental health social worker from the community mental health team.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Callum Reid is the person being assessed.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Dr Shah, Callum's GP, requested the community mental health team to visit Callum.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Callum's mother informed the social worker that she was at work when the visit occurred.",
+      "cites": [
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Callum has been feeling low since about the summer.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Callum dropped out of college in September.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Callum was studying engineering at Level three.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Callum has been sleeping badly, staying awake until 4 or 5 a.m. and sleeping during the day.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Callum has been eating little, mainly consuming toast, and has not eaten much otherwise.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Callum has asthma and uses an inhaler.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Callum was previously employed at a warehouse during Christmas as a temporary worker last year.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Callum currently has no employment or income.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Callum's mother is a nurse who works night shifts and is currently at work during the visit.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Callum's mother is aware that he is feeling down, but not aware of the full extent of his emotional state.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Callum has limited social contact; he only speaks to his friend Josh online and his sister, who is at university in Leeds.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Callum's dog, Bailey, is a staffy (a mix of staffordshire terrier), three years old, and sleeps on Callum's bed.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Callum does not currently have any tablets stored in his flat, only having paracetamol left by his mother in the kitchen.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Callum is currently feeling okay today and does not intend to do anything harmful today.",
+      "cites": [
+       50
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Callum has self-harmed by cutting his arms, which has occurred most nights for about two months.",
+      "cites": [
+       26,
+       28
+      ]
+     },
+     {
+      "text": "The self-harm is not deep and has not required stitches or medical treatment for infection.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Callum has not taken an overdose of tablets or any medication.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Callum has thought about ending his life, specifically stating he wanted to die 'properly' in the last few weeks.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "Callum went for a walk to Calder Bridge last week and considered jumping off the bridge.",
+      "cites": [
+       40,
+       42
+      ]
+     },
+     {
+      "text": "Callum was stopped from jumping off the bridge by his mother and his dog, Bailey.",
+      "cites": [
+       44
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "The crisis team will visit Callum at home tomorrow to assess his situation.",
+      "cites": [
+       53
+      ]
+     },
+     {
+      "text": "The crisis team visit will be arranged by the social worker, who will contact Callum directly to confirm the visit.",
+      "cites": [
+       53
+      ]
+     },
+     {
+      "text": "The social worker will contact Callum's mother at 6 p.m. that evening to inform her of Callum's situation.",
+      "cites": [
+       59
+      ]
+     },
+     {
+      "text": "Callum's mother will be asked to keep the paracetamol locked away for now.",
+      "cites": [
+       59
+      ]
+     },
+     {
+      "text": "The practice nurse from Dr Shah's practice will examine Callum's arms on Thursday, the 26th.",
+      "cites": [
+       62
+      ]
+     },
+     {
+      "text": "The social worker will return to visit Callum on Monday, the 30th.",
+      "cites": [
+       62
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Aisha Bello is a mental health social worker from the community mental health team.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Callum Reid is the person being assessed.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Dr Shah, Callum's GP, requested the community mental health team to visit Callum.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Callum's mother informed the social worker that she was at work when the visit occurred.",
+   "cites": [
+    4
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Callum has been feeling low since about the summer.",
+   "cites": [
+    8
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum dropped out of college in September.",
+   "cites": [
+    8
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum was studying engineering at Level three.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum has been sleeping badly, staying awake until 4 or 5 a.m. and sleeping during the day.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum has been eating little, mainly consuming toast, and has not eaten much otherwise.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum has asthma and uses an inhaler.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum was previously employed at a warehouse during Christmas as a temporary worker last year.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum currently has no employment or income.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum's mother is a nurse who works night shifts and is currently at work during the visit.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum's mother is aware that he is feeling down, but not aware of the full extent of his emotional state.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum has limited social contact; he only speaks to his friend Josh online and his sister, who is at university in Leeds.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum has self-harmed by cutting his arms, which has occurred most nights for about two months.",
+   "cites": [
+    26,
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The self-harm is not deep and has not required stitches or medical treatment for infection.",
+   "cites": [
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Callum has not taken an overdose of tablets or any medication.",
+   "cites": [
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Callum has thought about ending his life, specifically stating he wanted to die 'properly' in the last few weeks.",
+   "cites": [
+    34
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Callum went for a walk to Calder Bridge last week and considered jumping off the bridge.",
+   "cites": [
+    40,
+    42
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Callum was stopped from jumping off the bridge by his mother and his dog, Bailey.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Callum's dog, Bailey, is a staffy (a mix of staffordshire terrier), three years old, and sleeps on Callum's bed.",
+   "cites": [
+    46
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Callum does not currently have any tablets stored in his flat, only having paracetamol left by his mother in the kitchen.",
+   "cites": [
+    52
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The crisis team will visit Callum at home tomorrow to assess his situation.",
+   "cites": [
+    53
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The crisis team visit will be arranged by the social worker, who will contact Callum directly to confirm the visit.",
+   "cites": [
+    53
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The social worker will contact Callum's mother at 6 p.m. that evening to inform her of Callum's situation.",
+   "cites": [
+    59
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Callum's mother will be asked to keep the paracetamol locked away for now.",
+   "cites": [
+    59
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The practice nurse from Dr Shah's practice will examine Callum's arms on Thursday, the 26th.",
+   "cites": [
+    62
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "The social worker will return to visit Callum on Monday, the 30th.",
+   "cites": [
+    62
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Callum is currently feeling okay today and does not intend to do anything harmful today.",
+   "cites": [
+    50
+   ],
+   "section": "Needs and daily living"
+  }
+ ]
+}

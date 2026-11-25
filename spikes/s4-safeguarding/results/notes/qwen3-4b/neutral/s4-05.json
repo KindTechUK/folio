@@ -1,0 +1,424 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "Matthew Kerr attended the meeting as the client.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "The purpose of the meeting was to discuss a potential claim related to alleged sexual abuse by Brian Hollis, a former swimming coach at Harbridge Swimming Club.",
+      "cites": [
+       9
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "Brian Hollis was the individual involved in the alleged incident.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Brian Hollis ran the junior squad at Harbridge Swimming Club.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Matthew Kerr joined the swimming club when he was nine years old.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Brian Hollis became Matthew Kerr's coach when he moved up to the squad at age eleven.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Matthew Kerr alleges that Brian Hollis touched him in the changing room after training, when others had gone.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Matthew Kerr alleges that Brian Hollis made him touch him.",
+      "cites": [
+       19
+      ]
+     },
+     {
+      "text": "Brian Hollis told Matthew Kerr that the touching was part of being in the squad and that everyone did it.",
+      "cites": [
+       21
+      ]
+     },
+     {
+      "text": "The alleged incidents occurred every Saturday morning after squad training.",
+      "cites": [
+       23
+      ]
+     },
+     {
+      "text": "The incidents occurred over a period of about two years, from when Matthew was eleven until he was nearly thirteen.",
+      "cites": [
+       25
+      ]
+     },
+     {
+      "text": "The incidents occurred roughly from 1996 to 1998.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "The incidents stopped when Matthew Kerr quit swimming.",
+      "cites": [
+       27
+      ]
+     },
+     {
+      "text": "Matthew Kerr told his mother when he was 13 about the incidents.",
+      "cites": [
+       29
+      ]
+     },
+     {
+      "text": "Matthew Kerr's mother took him out of the club after learning about the incidents.",
+      "cites": [
+       29
+      ]
+     },
+     {
+      "text": "Matthew Kerr does not know if his mother reported the incidents to anyone.",
+      "cites": [
+       31
+      ]
+     },
+     {
+      "text": "Matthew Kerr told his wife Claire about the incidents in 2020.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "Matthew Kerr told his GP about the incidents.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "Matthew Kerr reported the incidents to the police in March of the previous year (implied to be 2023).",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "Matthew Kerr gave a statement to the police in March.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "The police have interviewed Brian Hollis.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "The police investigation is still ongoing.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "Matthew Kerr has the details of the police officer involved: DC Farrow.",
+      "cites": [
+       37
+      ]
+     },
+     {
+      "text": "Matthew Kerr has heard that Brian Hollis also touched other boys in the squad.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Matthew Kerr has not seen anything happen to anyone else himself.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "Matthew Kerr has not seen any evidence of the incidents beyond what people have said.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "Matthew Kerr has had anxiety for years and has experienced panic attacks.",
+      "cites": [
+       43
+      ]
+     },
+     {
+      "text": "Matthew Kerr had counselling through work in 2021.",
+      "cites": [
+       43
+      ]
+     },
+     {
+      "text": "Matthew Kerr had three months off sick in 2021.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "Matthew Kerr has the sick notes from 2021.",
+      "cites": [
+       47
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": []
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": []
+   },
+   {
+    "title": "Advice given",
+    "sentences": []
+   },
+   {
+    "title": "Next steps",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Matthew Kerr attended the meeting as the client.",
+   "cites": [
+    2
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The purpose of the meeting was to discuss a potential claim related to alleged sexual abuse by Brian Hollis, a former swimming coach at Harbridge Swimming Club.",
+   "cites": [
+    9
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "Brian Hollis was the individual involved in the alleged incident.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Brian Hollis ran the junior squad at Harbridge Swimming Club.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr joined the swimming club when he was nine years old.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Brian Hollis became Matthew Kerr's coach when he moved up to the squad at age eleven.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr alleges that Brian Hollis touched him in the changing room after training, when others had gone.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr alleges that Brian Hollis made him touch him.",
+   "cites": [
+    19
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Brian Hollis told Matthew Kerr that the touching was part of being in the squad and that everyone did it.",
+   "cites": [
+    21
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The alleged incidents occurred every Saturday morning after squad training.",
+   "cites": [
+    23
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The incidents occurred over a period of about two years, from when Matthew was eleven until he was nearly thirteen.",
+   "cites": [
+    25
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The incidents occurred roughly from 1996 to 1998.",
+   "cites": [
+    26
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The incidents stopped when Matthew Kerr quit swimming.",
+   "cites": [
+    27
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr told his mother when he was 13 about the incidents.",
+   "cites": [
+    29
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr's mother took him out of the club after learning about the incidents.",
+   "cites": [
+    29
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr does not know if his mother reported the incidents to anyone.",
+   "cites": [
+    31
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr told his wife Claire about the incidents in 2020.",
+   "cites": [
+    33
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr told his GP about the incidents.",
+   "cites": [
+    33
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr reported the incidents to the police in March of the previous year (implied to be 2023).",
+   "cites": [
+    33
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr gave a statement to the police in March.",
+   "cites": [
+    33
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The police have interviewed Brian Hollis.",
+   "cites": [
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The police investigation is still ongoing.",
+   "cites": [
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr has the details of the police officer involved: DC Farrow.",
+   "cites": [
+    37
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr has heard that Brian Hollis also touched other boys in the squad.",
+   "cites": [
+    39
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr has not seen anything happen to anyone else himself.",
+   "cites": [
+    41
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr has not seen any evidence of the incidents beyond what people have said.",
+   "cites": [
+    41
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr has had anxiety for years and has experienced panic attacks.",
+   "cites": [
+    43
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr had counselling through work in 2021.",
+   "cites": [
+    43
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr had three months off sick in 2021.",
+   "cites": [
+    45
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Matthew Kerr has the sick notes from 2021.",
+   "cites": [
+    47
+   ],
+   "section": "Client's account"
+  }
+ ]
+}

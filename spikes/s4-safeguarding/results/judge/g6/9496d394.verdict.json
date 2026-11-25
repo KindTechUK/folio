@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "on the night of Saturday the 14th of November, she woke up and there was a man (identified as Mr Pike/Arthur Pike) in her bed, under the covers ... Mr Pike was in Edna's bed, under the covers, next to her, and that Edna was awake, upset, and told him to 'get off'.",
+   "why": "Saturday night 14 Nov, in her bed under covers, upset, 'get off' kept; the 2.30 check time is not given but 'the night of' keeps the plain meaning"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "the man touched her on her bottom and her front 'under her nightie'. ... told the man to stop, saying 'stop it, get out' 'a lot of times'. ... the man did not stop immediately",
+   "why": "touched, bottom, front, under nightie, stop kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Mrs Dobson stated Mr Pike was confused, went into the wrong room, and that it 'didn't need reporting' and she should not 'make a f",
+   "why": "wrong room, didn't need reporting, not make a fuss kept (sentence truncated)"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "C01 recorded as Edna's denial. Several sentences truncated."
+}

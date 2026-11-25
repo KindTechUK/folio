@@ -1,0 +1,431 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "Sophie Grant attended the meeting as a housing solicitor.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Lee Whitfield (client) attended the meeting.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "The purpose of the meeting was to discuss the flat tenancy and rent arrears.",
+      "cites": [
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "Lee Whitfield lost his job in January at a depot.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "The Universal Credit housing element took a long time to process, and the rent arrears accumulated due to this delay.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "The arrears amount to £3,850, for three to four months.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Court papers were received by Lee Whitfield.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "The hearing date is 9 December at Harbridge County Court.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "The possession claim is on rent arrears grounds, specifically grounds 8, 10, and 11, by Ashcroft Lettings.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "The landlord is a private landlord.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Lee Whitfield has lived in the flat for six years.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Lee Whitfield lives alone with a cat.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "The landlord did not offer a payment plan; Lee offered £50 per month in September, which was rejected.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "The offer of £50 per month was made in September and was made via text message.",
+      "cites": [
+       16,
+       18
+      ]
+     },
+     {
+      "text": "The damp issue is in the bedroom, with black mould on the wall.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Lee has photos of the damp issue.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Council tax arrears have triggered a bailiff letter.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Lee has a credit card debt of approximately £2,000.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Electricity is now on a meter.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Lee has no support from family or friends for debt issues.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Lee stopped opening accounts or managing finances after losing his job.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Lee took an overdose of 16 paracetamol in March after receiving the first rent arrears letter.",
+      "cites": [
+       32,
+       34
+      ]
+     },
+     {
+      "text": "A neighbour found Lee and called an ambulance; he was admitted overnight.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "After hospital admission, a nurse contacted Lee a couple of times, then no further follow-up.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Lee has not hurt himself since March.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Lee thought about ending his life on Sunday night, this week, before the court date.",
+      "cites": [
+       40,
+       44
+      ]
+     },
+     {
+      "text": "Lee is currently safe and stable today.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Lee said that talking about the situation helps him feel a bit better.",
+      "cites": [
+       46
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": []
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": []
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "The solicitor advised that the client has a defence based on the housing element failure and the damp issue as a potential counterclaim.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "The solicitor will file a defence and a counterclaim for the damp issue.",
+      "cites": [
+       51
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Sophie Grant attended the meeting as a housing solicitor.",
+   "cites": [
+    1
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "Lee Whitfield (client) attended the meeting.",
+   "cites": [
+    2
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The purpose of the meeting was to discuss the flat tenancy and rent arrears.",
+   "cites": [
+    5
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "Lee Whitfield lost his job in January at a depot.",
+   "cites": [
+    6
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The Universal Credit housing element took a long time to process, and the rent arrears accumulated due to this delay.",
+   "cites": [
+    6
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The arrears amount to £3,850, for three to four months.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Court papers were received by Lee Whitfield.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The hearing date is 9 December at Harbridge County Court.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The possession claim is on rent arrears grounds, specifically grounds 8, 10, and 11, by Ashcroft Lettings.",
+   "cites": [
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The landlord is a private landlord.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield has lived in the flat for six years.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield lives alone with a cat.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The landlord did not offer a payment plan; Lee offered £50 per month in September, which was rejected.",
+   "cites": [
+    16
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The offer of £50 per month was made in September and was made via text message.",
+   "cites": [
+    16,
+    18
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The damp issue is in the bedroom, with black mould on the wall.",
+   "cites": [
+    20
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee has photos of the damp issue.",
+   "cites": [
+    20
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Council tax arrears have triggered a bailiff letter.",
+   "cites": [
+    22
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee has a credit card debt of approximately £2,000.",
+   "cites": [
+    22
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Electricity is now on a meter.",
+   "cites": [
+    22
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee has no support from family or friends for debt issues.",
+   "cites": [
+    24
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee stopped opening accounts or managing finances after losing his job.",
+   "cites": [
+    24
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee took an overdose of 16 paracetamol in March after receiving the first rent arrears letter.",
+   "cites": [
+    32,
+    34
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "A neighbour found Lee and called an ambulance; he was admitted overnight.",
+   "cites": [
+    34
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "After hospital admission, a nurse contacted Lee a couple of times, then no further follow-up.",
+   "cites": [
+    36
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee has not hurt himself since March.",
+   "cites": [
+    38
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee thought about ending his life on Sunday night, this week, before the court date.",
+   "cites": [
+    40,
+    44
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee is currently safe and stable today.",
+   "cites": [
+    46
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee said that talking about the situation helps him feel a bit better.",
+   "cites": [
+    46
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The solicitor advised that the client has a defence based on the housing element failure and the damp issue as a potential counterclaim.",
+   "cites": [
+    51
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor will file a defence and a counterclaim for the damp issue.",
+   "cites": [
+    51
+   ],
+   "section": "Advice given"
+  }
+ ]
+}

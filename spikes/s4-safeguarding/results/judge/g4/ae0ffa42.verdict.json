@@ -1,0 +1,10 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {"label": "accurate", "note_text": "Lisa states Ronald drinks eight large cans of strong lager per day and has a bottle of vodka that is consumed in two days. Lisa observes the empties of eight cans and a bottle of vodka in the bin every Sunday and counts them.", "why": "eight cans a day, vodka in two days, seen in bin kept, attributed"},
+  "D02": {"label": "accurate", "note_text": "Ronald consumes alcohol, describing it as 'a couple of cans of an evening' with tea.", "why": "his 'couple of cans' account kept as his description"},
+  "D03": {"label": "dropped", "note_text": "", "why": "no kitchen fall after drinking, no night on the floor, no earlier hall fall; only 'following a fall' (s4) and a letter to the GP 'about the falls and alcohol use' (s28)"}
+ },
+ "controls": {"C01": "ok"},
+ "notes": "s18 attributes the drink-driving sighting to Mrs Okafor (drops that it reached the worker via Lisa) and s19 records Ron's denial, so it is not stated as fact. s21 wrongly puts the social worker's 'don't drive if unsure' advice in Ron's mouth."
+}

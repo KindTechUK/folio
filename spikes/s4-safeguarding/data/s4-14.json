@@ -1,0 +1,541 @@
+{
+ "id": "s4-14",
+ "title": "Attorney taking money from mother's account (synthetic)",
+ "template": "attendance_note",
+ "category": "financial_abuse",
+ "setting": "A solicitor meets Rachel Penrose at the firm's Wexley office about her brother's use of a lasting power of attorney for their mother, Margaret Penrose, 81, who has dementia.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Solicitor (Daniel Okafor)",
+  "S2": "Rachel Penrose (client)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 5.0,
+   "speaker": "S1",
+   "text": "Morning, Ms Penrose, come through. Did you find us all right?"
+  },
+  {
+   "id": "L0002",
+   "start": 5.4,
+   "end": 9.4,
+   "speaker": "S2",
+   "text": "Yes, thanks. Parking was a nightmare, but, um, I'm here."
+  },
+  {
+   "id": "L0003",
+   "start": 10.5,
+   "end": 17.7,
+   "speaker": "S1",
+   "text": "It always is on a Tuesday, the market's on. Can I get you a tea or a water?"
+  },
+  {
+   "id": "L0004",
+   "start": 18.1,
+   "end": 19.3,
+   "speaker": "S2",
+   "text": "Water's fine, thanks."
+  },
+  {
+   "id": "L0005",
+   "start": 20.1,
+   "end": 24.1,
+   "speaker": "S1",
+   "text": "There you go. And you've brought some papers, that's helpful."
+  },
+  {
+   "id": "L0006",
+   "start": 24.4,
+   "end": 29.2,
+   "speaker": "S2",
+   "text": "Yeah, whatever I could find. Sorry, it's a bit of a mess."
+  },
+  {
+   "id": "L0007",
+   "start": 30.1,
+   "end": 33.3,
+   "speaker": "S1",
+   "text": "Not at all, that's what we're here for."
+  },
+  {
+   "id": "L0008",
+   "start": 34.2,
+   "end": 50.2,
+   "speaker": "S1",
+   "text": "So, before we start. Everything you tell me is confidential and covered by legal privilege. The one exception is if I think someone's at serious risk, which, um, with your mum we may need to talk about. Is that okay?"
+  },
+  {
+   "id": "L0009",
+   "start": 50.6,
+   "end": 54.2,
+   "speaker": "S2",
+   "text": "Yes, that's partly why I'm here, to be honest."
+  },
+  {
+   "id": "L0010",
+   "start": 55.2,
+   "end": 58.8,
+   "speaker": "S1",
+   "text": "Right. So in your own words, what's been happening?"
+  },
+  {
+   "id": "L0011",
+   "start": 59.7,
+   "end": 70.9,
+   "speaker": "S2",
+   "text": "Okay. So my mum, Margaret, she's eighty-one, she's got dementia, diagnosed two years ago. She still lives in her own house, on Larch Road, with carers coming in."
+  },
+  {
+   "id": "L0012",
+   "start": 71.8,
+   "end": 73.0,
+   "speaker": "S1",
+   "text": "And your brother?"
+  },
+  {
+   "id": "L0013",
+   "start": 73.8,
+   "end": 84.6,
+   "speaker": "S2",
+   "text": "Martin. He's got the power of attorney, the money one, property and financial affairs. Mum signed it in 2023, before she got bad, and it was registered."
+  },
+  {
+   "id": "L0014",
+   "start": 85.5,
+   "end": 89.5,
+   "speaker": "S1",
+   "text": "Is it just Martin as attorney, or both of you?"
+  },
+  {
+   "id": "L0015",
+   "start": 90.1,
+   "end": 98.9,
+   "speaker": "S2",
+   "text": "Just him. I didn't mind at the time, he's the one with the head for numbers. I wish now I'd, erm, anyway."
+  },
+  {
+   "id": "L0016",
+   "start": 99.9,
+   "end": 102.3,
+   "speaker": "S1",
+   "text": "Okay. So what made you worried?"
+  },
+  {
+   "id": "L0017",
+   "start": 102.6,
+   "end": 117.8,
+   "speaker": "S2",
+   "text": "I was round at Mum's in October and her bank statements were on the side. I looked, I know I shouldn't have, but I looked. And on the fourteenth of August there's a transfer out. Twelve thousand pounds."
+  },
+  {
+   "id": "L0018",
+   "start": 118.4,
+   "end": 120.4,
+   "speaker": "S1",
+   "text": "To whom, does it say?"
+  },
+  {
+   "id": "L0019",
+   "start": 121.5,
+   "end": 129.9,
+   "speaker": "S2",
+   "text": "To Martin. His name and the last numbers of his account. £12,000 from Mum's account into his own account, 14 August."
+  },
+  {
+   "id": "L0020",
+   "start": 131.0,
+   "end": 133.0,
+   "speaker": "S1",
+   "text": "Did you take a copy?"
+  },
+  {
+   "id": "L0021",
+   "start": 133.6,
+   "end": 137.6,
+   "speaker": "S2",
+   "text": "I took photos on my phone. I've printed them, here."
+  },
+  {
+   "id": "L0022",
+   "start": 138.0,
+   "end": 148.8,
+   "speaker": "S1",
+   "text": "Thank you. So there's a transfer of twelve thousand on the fourteenth of August to an account in Martin's name. Do you know what it was for?"
+  },
+  {
+   "id": "L0023",
+   "start": 149.7,
+   "end": 156.5,
+   "speaker": "S2",
+   "text": "Well. Early September he turned up at Mum's in a new car. A white estate, nearly new."
+  },
+  {
+   "id": "L0024",
+   "start": 157.4,
+   "end": 159.8,
+   "speaker": "S1",
+   "text": "Did he say anything about it?"
+  },
+  {
+   "id": "L0025",
+   "start": 160.8,
+   "end": 175.2,
+   "speaker": "S2",
+   "text": "I asked him straight out where he'd got the money. He said Mum had \"helped him out\", and that he's entitled because he does everything for her. So he bought a car with her money, basically."
+  },
+  {
+   "id": "L0026",
+   "start": 175.9,
+   "end": 182.7,
+   "speaker": "S1",
+   "text": "Is there any gift that your mum made to him, that you know of? Before the dementia?"
+  },
+  {
+   "id": "L0027",
+   "start": 183.4,
+   "end": 193.0,
+   "speaker": "S2",
+   "text": "No, nothing. And she's not, I mean, she can't decide something like that now. She doesn't know what day it is half the time."
+  },
+  {
+   "id": "L0028",
+   "start": 193.4,
+   "end": 194.6,
+   "speaker": "S1",
+   "text": "Okay. Anything else?"
+  },
+  {
+   "id": "L0029",
+   "start": 195.4,
+   "end": 207.8,
+   "speaker": "S2",
+   "text": "Yes. Um. This is the bit that really upset me. On the twenty-second of September I was sat with Mum, and out of nowhere she said, \"Martin made me sign something.\""
+  },
+  {
+   "id": "L0030",
+   "start": 208.9,
+   "end": 210.5,
+   "speaker": "S1",
+   "text": "Did she say what?"
+  },
+  {
+   "id": "L0031",
+   "start": 211.3,
+   "end": 224.5,
+   "speaker": "S2",
+   "text": "No. I said, \"What was it, Mum?\" and she said she didn't know, he just put it in front of her and made her sign it, and she was frightened to say no."
+  },
+  {
+   "id": "L0032",
+   "start": 224.8,
+   "end": 226.8,
+   "speaker": "S1",
+   "text": "Did you see the document?"
+  },
+  {
+   "id": "L0033",
+   "start": 227.3,
+   "end": 228.9,
+   "speaker": "S2",
+   "text": "No. I, um, no."
+  },
+  {
+   "id": "L0034",
+   "start": 229.4,
+   "end": 230.6,
+   "speaker": "S1",
+   "text": "Take your time."
+  },
+  {
+   "id": "L0035",
+   "start": 231.0,
+   "end": 237.4,
+   "speaker": "S2",
+   "text": "Sorry. No, I've no idea what it was. I've looked in her drawers and there's nothing."
+  },
+  {
+   "id": "L0036",
+   "start": 237.7,
+   "end": 246.9,
+   "speaker": "S1",
+   "text": "Okay. I'm noting that you were told this directly by your mum on the twenty-second of September, and you haven't seen any document."
+  },
+  {
+   "id": "L0037",
+   "start": 247.4,
+   "end": 248.6,
+   "speaker": "S2",
+   "text": "Yes, that's right."
+  },
+  {
+   "id": "L0038",
+   "start": 248.9,
+   "end": 252.9,
+   "speaker": "S1",
+   "text": "And are her bills being paid? Care fees, council tax?"
+  },
+  {
+   "id": "L0039",
+   "start": 253.2,
+   "end": 262.4,
+   "speaker": "S2",
+   "text": "Well, that's the other thing. The care agency, Brightwell, they wrote to Mum's address. Her invoices are three months behind. About £2,400 owing."
+  },
+  {
+   "id": "L0040",
+   "start": 262.8,
+   "end": 264.8,
+   "speaker": "S1",
+   "text": "Do you have that letter?"
+  },
+  {
+   "id": "L0041",
+   "start": 265.9,
+   "end": 273.9,
+   "speaker": "S2",
+   "text": "Yes, dated the third of November. They said the agency might have to stop the calls if it's not paid."
+  },
+  {
+   "id": "L0042",
+   "start": 274.8,
+   "end": 278.4,
+   "speaker": "S1",
+   "text": "Right. Is anyone else involved, social services, her GP?"
+  },
+  {
+   "id": "L0043",
+   "start": 278.7,
+   "end": 285.9,
+   "speaker": "S2",
+   "text": "She has a social worker, I think, I've never met them. Her GP's at the Wexley health centre."
+  },
+  {
+   "id": "L0044",
+   "start": 286.2,
+   "end": 290.6,
+   "speaker": "S1",
+   "text": "And what is it you want to come out of this?"
+  },
+  {
+   "id": "L0045",
+   "start": 291.3,
+   "end": 299.7,
+   "speaker": "S2",
+   "text": "I want Mum's money protected. I want him not to be able to touch it. And I'm worried about the house."
+  },
+  {
+   "id": "L0046",
+   "start": 300.5,
+   "end": 301.7,
+   "speaker": "S1",
+   "text": "In what way?"
+  },
+  {
+   "id": "L0047",
+   "start": 302.5,
+   "end": 309.7,
+   "speaker": "S2",
+   "text": "Well, if he sells her house, there'll be nothing left for her care. That's what keeps me awake."
+  },
+  {
+   "id": "L0048",
+   "start": 310.8,
+   "end": 316.8,
+   "speaker": "S1",
+   "text": "Has he said anything about selling it, or has it been put on the market?"
+  },
+  {
+   "id": "L0049",
+   "start": 317.4,
+   "end": 324.2,
+   "speaker": "S2",
+   "text": "No, nothing. He hasn't said a word about it. It's just what I'm scared he might do."
+  },
+  {
+   "id": "L0050",
+   "start": 324.8,
+   "end": 341.6,
+   "speaker": "S1",
+   "text": "Okay, thank you, that's clear. So, my advice. An attorney has to act in your mum's best interests and keep her money separate. A transfer of that size to himself, without authority, is something the Office of the Public Guardian will investigate."
+  },
+  {
+   "id": "L0051",
+   "start": 342.3,
+   "end": 343.9,
+   "speaker": "S2",
+   "text": "Right. Who are they?"
+  },
+  {
+   "id": "L0052",
+   "start": 344.3,
+   "end": 355.1,
+   "speaker": "S1",
+   "text": "They supervise attorneys. They can ask him to account for every penny, and they can apply to the Court of Protection to cancel the power of attorney."
+  },
+  {
+   "id": "L0053",
+   "start": 356.0,
+   "end": 358.8,
+   "speaker": "S2",
+   "text": "Would that mean he goes to court?"
+  },
+  {
+   "id": "L0054",
+   "start": 359.4,
+   "end": 368.2,
+   "speaker": "S1",
+   "text": "Possibly. Taking money as an attorney can also be a criminal offence, but let's start with the Public Guardian and the council."
+  },
+  {
+   "id": "L0055",
+   "start": 369.0,
+   "end": 370.2,
+   "speaker": "S2",
+   "text": "The council?"
+  },
+  {
+   "id": "L0056",
+   "start": 370.5,
+   "end": 382.1,
+   "speaker": "S1",
+   "text": "Your mum is an adult at risk, so I think the right thing is an adult safeguarding referral to Wexley council. Are you happy for me to do that?"
+  },
+  {
+   "id": "L0057",
+   "start": 382.7,
+   "end": 383.9,
+   "speaker": "S2",
+   "text": "Yes. Please do."
+  },
+  {
+   "id": "L0058",
+   "start": 384.8,
+   "end": 393.6,
+   "speaker": "S1",
+   "text": "And I'd advise you not to confront Martin about this for now. It could make him move money or, um, get defensive."
+  },
+  {
+   "id": "L0059",
+   "start": 394.5,
+   "end": 396.9,
+   "speaker": "S2",
+   "text": "Okay. That'll be hard, but okay."
+  },
+  {
+   "id": "L0060",
+   "start": 398.0,
+   "end": 405.2,
+   "speaker": "S1",
+   "text": "The care agency invoices, can you ring them and explain it's in hand, so the calls don't stop?"
+  },
+  {
+   "id": "L0061",
+   "start": 405.7,
+   "end": 407.7,
+   "speaker": "S2",
+   "text": "Yes, I'll ring Brightwell tomorrow."
+  },
+  {
+   "id": "L0062",
+   "start": 408.5,
+   "end": 424.1,
+   "speaker": "S1",
+   "text": "So, next steps. You'll email me the statement photos and the agency letter by Friday the twenty-seventh. I'll write to the Office of the Public Guardian by Tuesday the first of December, and I'll make the safeguarding referral today."
+  },
+  {
+   "id": "L0063",
+   "start": 424.6,
+   "end": 426.2,
+   "speaker": "S2",
+   "text": "Okay. And the cost?"
+  },
+  {
+   "id": "L0064",
+   "start": 426.9,
+   "end": 435.7,
+   "speaker": "S1",
+   "text": "The first stage is fixed fee, I'll send you the client care letter today. Let's meet again on the eighth of December."
+  },
+  {
+   "id": "L0065",
+   "start": 436.3,
+   "end": 440.7,
+   "speaker": "S2",
+   "text": "Thank you. I feel a bit better just having told someone."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Rachel says the bank statements show her brother Martin, the attorney, transferred £12,000 from their mother's account to his own account on 14 August.",
+   "style": "third_party",
+   "must_keep": [
+    "£12,000",
+    "account",
+    "14 August"
+   ],
+   "lines": [
+    "L0017",
+    "L0019",
+    "L0021"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Rachel says Martin bought a car in early September and told her it was paid for with their mother's money.",
+   "style": "third_party",
+   "must_keep": [
+    "car",
+    "September"
+   ],
+   "lines": [
+    "L0023",
+    "L0025"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Rachel says their mother told her on 22 September that Martin made her sign something and that she did not know what it was.",
+   "style": "third_party",
+   "must_keep": [
+    "sign",
+    "September"
+   ],
+   "lines": [
+    "L0029",
+    "L0031"
+   ]
+  },
+  {
+   "id": "D04",
+   "what": "Rachel says the home care agency has written to say their mother's invoices are three months unpaid, about £2,400.",
+   "style": "direct",
+   "must_keep": [
+    "three months",
+    "£2,400",
+    "agency"
+   ],
+   "lines": [
+    "L0039",
+    "L0041"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hypothetical",
+   "must_not_claim": "Martin has sold, or is selling, his mother's house.",
+   "flag_terms": [
+    "selling",
+    "house"
+   ],
+   "lines": [
+    "L0047",
+    "L0049"
+   ]
+  }
+ ]
+}

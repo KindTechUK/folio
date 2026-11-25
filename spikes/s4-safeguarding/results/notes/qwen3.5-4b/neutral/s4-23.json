@@ -1,0 +1,428 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Health visitor Rachel Moore confirmed the visit is Noah's four-month check.",
+      "cites": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Mother Gemma Shaw reported that her son Noah is on formula, five ounces every three to four hours.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported she stopped breastfeeding at six weeks.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported Noah produces six to seven wet nappies a day.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported Noah sleeps for a five-hour stretch from about 11:00 until 4:00.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported Noah sleeps in a Moses basket in her room, which is getting too small.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Health visitor Rachel Moore reported Noah weighs 6.8 kilos.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported her daughter Isla loves reception class.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported Isla's teacher is Miss Patel.",
+      "cites": [
+       16
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Mother Gemma Shaw reported she is not feeling well.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported she has not been sleeping since Sunday.",
+      "cites": [
+       55
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Mother Gemma Shaw reported her daughter Isla said Uncle Ryan touched her private parts (front bottom) when he babysits.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported Isla said Ryan told her it is a secret and not to tell mummy.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported Isla told her about Ryan on Sunday night while in the bath.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported Ryan is Liam's brother and babysits on Fridays when the mother is at work and Liam is on nights.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported Ryan has been babysitting since September.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported she told Liam about the disclosure.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported Liam is unsure whether to believe the disclosure.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported her sister Kelly said Ryan was in trouble years ago with the police.",
+      "cites": [
+       37
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported Kelly does not know what the trouble was and heard it from someone at her work.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Health visitor Rachel Moore reported Kelly does not know if the information about Ryan is true.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Health visitor Rachel Moore stated she must share the disclosure with children's social care (Harbridge MASH) today.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Health visitor Rachel Moore advised that Ryan must not babysit or have any time alone with Isla or Noah until the situation is looked into.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "Health visitor Rachel Moore advised the mother not to confront Ryan herself.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Health visitor Rachel Moore advised the mother to ask Liam to wait before going to Ryan's house.",
+      "cites": [
+       48
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Mother Gemma Shaw reported she is managing financially okay.",
+      "cites": [
+       53
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported Liam works nights at a warehouse.",
+      "cites": [
+       53
+      ]
+     },
+     {
+      "text": "Mother Gemma Shaw reported she has money from the Co-op and child benefit.",
+      "cites": [
+       53
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "Health visitor Rachel Moore stated she will ring the mother by 4:00 PM to tell her what Harbridge MASH said.",
+      "cites": [
+       58
+      ]
+     },
+     {
+      "text": "Health visitor Rachel Moore stated she will ring the mother to confirm actions regarding keeping the children away from Ryan and asking the mother's mum about Friday childcare.",
+      "cites": [
+       59
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Health visitor Rachel Moore confirmed the visit is Noah's four-month check.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Mother Gemma Shaw reported that her son Noah is on formula, five ounces every three to four hours.",
+   "cites": [
+    8
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mother Gemma Shaw reported she stopped breastfeeding at six weeks.",
+   "cites": [
+    8
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mother Gemma Shaw reported Noah produces six to seven wet nappies a day.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mother Gemma Shaw reported Noah sleeps for a five-hour stretch from about 11:00 until 4:00.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mother Gemma Shaw reported Noah sleeps in a Moses basket in her room, which is getting too small.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Health visitor Rachel Moore reported Noah weighs 6.8 kilos.",
+   "cites": [
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mother Gemma Shaw reported her daughter Isla loves reception class.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mother Gemma Shaw reported Isla's teacher is Miss Patel.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Mother Gemma Shaw reported she is not feeling well.",
+   "cites": [
+    18
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Mother Gemma Shaw reported her daughter Isla said Uncle Ryan touched her private parts (front bottom) when he babysits.",
+   "cites": [
+    24
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mother Gemma Shaw reported Isla said Ryan told her it is a secret and not to tell mummy.",
+   "cites": [
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mother Gemma Shaw reported Isla told her about Ryan on Sunday night while in the bath.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mother Gemma Shaw reported Ryan is Liam's brother and babysits on Fridays when the mother is at work and Liam is on nights.",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mother Gemma Shaw reported Ryan has been babysitting since September.",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mother Gemma Shaw reported she told Liam about the disclosure.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mother Gemma Shaw reported Liam is unsure whether to believe the disclosure.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mother Gemma Shaw reported her sister Kelly said Ryan was in trouble years ago with the police.",
+   "cites": [
+    37
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mother Gemma Shaw reported Kelly does not know what the trouble was and heard it from someone at her work.",
+   "cites": [
+    39
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Health visitor Rachel Moore reported Kelly does not know if the information about Ryan is true.",
+   "cites": [
+    39
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Health visitor Rachel Moore stated she must share the disclosure with children's social care (Harbridge MASH) today.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Health visitor Rachel Moore advised that Ryan must not babysit or have any time alone with Isla or Noah until the situation is looked into.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Health visitor Rachel Moore advised the mother not to confront Ryan herself.",
+   "cites": [
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Health visitor Rachel Moore advised the mother to ask Liam to wait before going to Ryan's house.",
+   "cites": [
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mother Gemma Shaw reported she is managing financially okay.",
+   "cites": [
+    53
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Mother Gemma Shaw reported Liam works nights at a warehouse.",
+   "cites": [
+    53
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Mother Gemma Shaw reported she has money from the Co-op and child benefit.",
+   "cites": [
+    53
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Mother Gemma Shaw reported she has not been sleeping since Sunday.",
+   "cites": [
+    55
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Health visitor Rachel Moore stated she will ring the mother by 4:00 PM to tell her what Harbridge MASH said.",
+   "cites": [
+    58
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Health visitor Rachel Moore stated she will ring the mother to confirm actions regarding keeping the children away from Ryan and asking the mother's mum about Friday childcare.",
+   "cites": [
+    59
+   ],
+   "section": "Agreed actions"
+  }
+ ]
+}

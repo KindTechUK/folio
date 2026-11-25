@@ -1,0 +1,11 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {"label": "accurate", "note_text": "Keith Dawson has not washed in three to four weeks.", "why": "not washed, three to four weeks kept"},
+  "D02": {"label": "accurate", "note_text": "Keith Dawson has not had heating since October. Keith Dawson has not had hot water since October.", "why": "no heating, no hot water, since October kept"},
+  "D03": {"label": "accurate", "note_text": "Keith Dawson has seen two rats in the kitchen in the last few weeks, which have been feeding on bread.", "why": "rats, kitchen, two, few weeks kept"},
+  "D04": {"label": "accurate", "note_text": "In the last two weeks, Bright Days should have made 28 visits but missed 16. For four days last week, no Bright Days carers came to Keith Dawson's home.", "why": "16 of 28 missed and four days with no visit kept (nurse attribution dropped, but facts intact)"}
+ },
+ "controls": {"C01": "ok"},
+ "notes": "Drinking recorded as the neighbour's report to the nurse, nurse saw no signs. s23 says Keith 'denies any issues with drinking' when he actually declined to discuss it; inaccurate but not a control violation."
+}

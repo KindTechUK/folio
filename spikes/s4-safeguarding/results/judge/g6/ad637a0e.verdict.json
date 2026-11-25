@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "On 14 August, a transfer of £12,000 was made from Margaret Penrose's account to Martin Penrose's account.",
+   "why": "amount, accounts, date kept"
+  },
+  "D02": {
+   "label": "dropped",
+   "note_text": "",
+   "why": "no mention of the car, early September, or Martin's 'helped him out' explanation"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "On 22 September, Margaret Penrose told Rachel Penrose that Martin had made her sign a document without her understanding. Margaret Penrose did not know what the document was",
+   "why": "date, made her sign, did not know kept; fear lost (not a key term)"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "Brightwell care agency sent a letter dated 3 November stating that invoices are three months overdue ... The outstanding care bills amount to approximately £2,400.",
+   "why": "agency, three months, £2,400 kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Invented details outside disclosures: '81 Larch Road'; photos 'on 14 August'."
+}

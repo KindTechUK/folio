@@ -1,0 +1,545 @@
+{
+ "id": "s4-16",
+ "title": "Mental health assessment: young man cutting his arms (synthetic)",
+ "template": "assessment",
+ "category": "self_harm",
+ "setting": "A mental health social worker from the community mental health team visits Callum Reid, 19, at his mother's flat in Fernley after a GP referral for low mood.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Mental health social worker (Aisha Bello)",
+  "S2": "Callum Reid (the person)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 9.0,
+   "speaker": "S1",
+   "text": "Hi, Callum? I'm Aisha, from the community mental health team. Your GP, Dr Shah, asked us to come and see you."
+  },
+  {
+   "id": "L0002",
+   "start": 9.4,
+   "end": 12.2,
+   "speaker": "S2",
+   "text": "Yeah. Hi. Mum said you were coming."
+  },
+  {
+   "id": "L0003",
+   "start": 13.3,
+   "end": 18.1,
+   "speaker": "S1",
+   "text": "Is now still a good time? We can sit wherever you like."
+  },
+  {
+   "id": "L0004",
+   "start": 19.1,
+   "end": 21.1,
+   "speaker": "S2",
+   "text": "Here's fine. Mum's at work."
+  },
+  {
+   "id": "L0005",
+   "start": 22.0,
+   "end": 46.0,
+   "speaker": "S1",
+   "text": "Okay. So before we start, um, I'll make notes from what we talk about, and it goes on your record with our team. Mostly it stays with us and your GP. But if I'm worried about your safety, I'll need to share that with people who can help, like the crisis team. I'd tell you first. Does that make sense?"
+  },
+  {
+   "id": "L0006",
+   "start": 47.1,
+   "end": 48.3,
+   "speaker": "S2",
+   "text": "Yeah. Fine."
+  },
+  {
+   "id": "L0007",
+   "start": 48.9,
+   "end": 56.9,
+   "speaker": "S1",
+   "text": "Thanks. So, Dr Shah said you've been feeling low. Can you tell me a bit about how things have been?"
+  },
+  {
+   "id": "L0008",
+   "start": 57.7,
+   "end": 62.9,
+   "speaker": "S2",
+   "text": "Just... rubbish. Since about the summer. I dropped out of college in September."
+  },
+  {
+   "id": "L0009",
+   "start": 63.9,
+   "end": 65.5,
+   "speaker": "S1",
+   "text": "What were you studying?"
+  },
+  {
+   "id": "L0010",
+   "start": 66.4,
+   "end": 70.4,
+   "speaker": "S2",
+   "text": "Engineering. Level three. I just stopped going. Couldn't face it."
+  },
+  {
+   "id": "L0011",
+   "start": 71.4,
+   "end": 73.8,
+   "speaker": "S1",
+   "text": "Mm. And how are you sleeping?"
+  },
+  {
+   "id": "L0012",
+   "start": 74.6,
+   "end": 79.8,
+   "speaker": "S2",
+   "text": "Badly. I'm up till four, five, gaming, then I sleep in the day."
+  },
+  {
+   "id": "L0013",
+   "start": 80.8,
+   "end": 82.0,
+   "speaker": "S1",
+   "text": "And eating?"
+  },
+  {
+   "id": "L0014",
+   "start": 82.8,
+   "end": 86.4,
+   "speaker": "S2",
+   "text": "Not much. Mum leaves stuff. I have toast mostly."
+  },
+  {
+   "id": "L0015",
+   "start": 86.8,
+   "end": 90.0,
+   "speaker": "S1",
+   "text": "Any physical health problems? Asthma, anything like that?"
+  },
+  {
+   "id": "L0016",
+   "start": 90.3,
+   "end": 93.1,
+   "speaker": "S2",
+   "text": "Asthma. I've got an inhaler. That's it."
+  },
+  {
+   "id": "L0017",
+   "start": 94.2,
+   "end": 98.2,
+   "speaker": "S1",
+   "text": "Are you working at all, or getting any money in?"
+  },
+  {
+   "id": "L0018",
+   "start": 98.6,
+   "end": 106.2,
+   "speaker": "S2",
+   "text": "I was at the warehouse, Christmas temp last year. Nothing now. Mum's been on at me to sign on."
+  },
+  {
+   "id": "L0019",
+   "start": 107.0,
+   "end": 109.4,
+   "speaker": "S1",
+   "text": "How are things with your mum?"
+  },
+  {
+   "id": "L0020",
+   "start": 109.7,
+   "end": 116.1,
+   "speaker": "S2",
+   "text": "Okay. She works a lot, she's a nurse, nights mostly. We don't really talk about stuff."
+  },
+  {
+   "id": "L0021",
+   "start": 116.6,
+   "end": 119.4,
+   "speaker": "S1",
+   "text": "Does she know how you've been feeling?"
+  },
+  {
+   "id": "L0022",
+   "start": 120.3,
+   "end": 124.3,
+   "speaker": "S2",
+   "text": "She knows I'm down. Not, like, the rest of it."
+  },
+  {
+   "id": "L0023",
+   "start": 125.2,
+   "end": 130.8,
+   "speaker": "S1",
+   "text": "Okay. We can maybe help with that later. Who do you talk to, friends?"
+  },
+  {
+   "id": "L0024",
+   "start": 131.2,
+   "end": 136.0,
+   "speaker": "S2",
+   "text": "Not really. My mate Josh, online. My sister's at uni in Leeds."
+  },
+  {
+   "id": "L0025",
+   "start": 137.1,
+   "end": 144.3,
+   "speaker": "S1",
+   "text": "Okay. Callum, sometimes when people feel this low they hurt themselves. Is that something that's happened for you?"
+  },
+  {
+   "id": "L0026",
+   "start": 144.6,
+   "end": 146.6,
+   "speaker": "S2",
+   "text": "Yeah. I cut my arms."
+  },
+  {
+   "id": "L0027",
+   "start": 147.4,
+   "end": 151.4,
+   "speaker": "S1",
+   "text": "Thank you for telling me. How often is that happening?"
+  },
+  {
+   "id": "L0028",
+   "start": 151.9,
+   "end": 154.7,
+   "speaker": "S2",
+   "text": "Most nights. For about two months now."
+  },
+  {
+   "id": "L0029",
+   "start": 155.3,
+   "end": 161.3,
+   "speaker": "S1",
+   "text": "Okay. And are the cuts healing all right? Have any needed stitches or looked infected?"
+  },
+  {
+   "id": "L0030",
+   "start": 162.1,
+   "end": 167.3,
+   "speaker": "S2",
+   "text": "No, they're not deep. They're all right. I just keep my sleeves down."
+  },
+  {
+   "id": "L0031",
+   "start": 168.3,
+   "end": 173.9,
+   "speaker": "S1",
+   "text": "Okay. I'd still like a nurse to look at them, is that all right?"
+  },
+  {
+   "id": "L0032",
+   "start": 175.0,
+   "end": 176.2,
+   "speaker": "S2",
+   "text": "I guess."
+  },
+  {
+   "id": "L0033",
+   "start": 176.6,
+   "end": 184.6,
+   "speaker": "S1",
+   "text": "Can I ask, when you're feeling at your worst, do you ever think about dying, or about ending your life?"
+  },
+  {
+   "id": "L0034",
+   "start": 185.5,
+   "end": 189.9,
+   "speaker": "S2",
+   "text": "Yeah. I've wanted to die. Like, properly, the last few weeks."
+  },
+  {
+   "id": "L0035",
+   "start": 190.5,
+   "end": 197.7,
+   "speaker": "S1",
+   "text": "Thank you for being honest, Callum. That's really important. Have you thought about how you might do it?"
+  },
+  {
+   "id": "L0036",
+   "start": 198.7,
+   "end": 199.9,
+   "speaker": "S2",
+   "text": "Um."
+  },
+  {
+   "id": "L0037",
+   "start": 200.4,
+   "end": 201.6,
+   "speaker": "S1",
+   "text": "Take your time."
+  },
+  {
+   "id": "L0038",
+   "start": 202.2,
+   "end": 205.8,
+   "speaker": "S2",
+   "text": "Last week. I, um... I went for a walk."
+  },
+  {
+   "id": "L0039",
+   "start": 206.4,
+   "end": 208.0,
+   "speaker": "S1",
+   "text": "Where did you go?"
+  },
+  {
+   "id": "L0040",
+   "start": 209.0,
+   "end": 211.8,
+   "speaker": "S2",
+   "text": "Down to Calder Bridge. Over the river."
+  },
+  {
+   "id": "L0041",
+   "start": 212.7,
+   "end": 215.5,
+   "speaker": "S1",
+   "text": "And what happened when you were there?"
+  },
+  {
+   "id": "L0042",
+   "start": 216.5,
+   "end": 225.3,
+   "speaker": "S2",
+   "text": "I stood there for a bit. I thought about jumping. Off the bridge. Then I just, I don't know, I walked home."
+  },
+  {
+   "id": "L0043",
+   "start": 226.4,
+   "end": 231.6,
+   "speaker": "S1",
+   "text": "Okay. I'm really glad you walked home. What do you think stopped you?"
+  },
+  {
+   "id": "L0044",
+   "start": 232.0,
+   "end": 235.6,
+   "speaker": "S2",
+   "text": "My mum. And my dog, Bailey. Who'd walk him."
+  },
+  {
+   "id": "L0045",
+   "start": 236.0,
+   "end": 237.6,
+   "speaker": "S1",
+   "text": "Tell me about Bailey."
+  },
+  {
+   "id": "L0046",
+   "start": 238.3,
+   "end": 244.7,
+   "speaker": "S2",
+   "text": "He's a staffy. He's three. He sleeps on my bed, he's, yeah. He's a good lad."
+  },
+  {
+   "id": "L0047",
+   "start": 245.5,
+   "end": 252.3,
+   "speaker": "S1",
+   "text": "Those sound like really important reasons. Have you ever taken an overdose, Callum, of tablets or anything?"
+  },
+  {
+   "id": "L0048",
+   "start": 252.7,
+   "end": 255.1,
+   "speaker": "S2",
+   "text": "No. Never. I've never done that."
+  },
+  {
+   "id": "L0049",
+   "start": 255.8,
+   "end": 260.2,
+   "speaker": "S1",
+   "text": "Okay, thank you. And how are you feeling right now, today?"
+  },
+  {
+   "id": "L0050",
+   "start": 261.0,
+   "end": 264.6,
+   "speaker": "S2",
+   "text": "Today's okay. I'm not going to do anything today."
+  },
+  {
+   "id": "L0051",
+   "start": 264.9,
+   "end": 268.9,
+   "speaker": "S1",
+   "text": "Have you got any tablets stored up in the flat?"
+  },
+  {
+   "id": "L0052",
+   "start": 269.9,
+   "end": 272.7,
+   "speaker": "S2",
+   "text": "No. Just Mum's paracetamol in the kitchen."
+  },
+  {
+   "id": "L0053",
+   "start": 273.8,
+   "end": 287.0,
+   "speaker": "S1",
+   "text": "Okay. Callum, because you've wanted to die and you went to the bridge last week, I'd like to ask the crisis team to see you, probably tomorrow. Would you be okay with that?"
+  },
+  {
+   "id": "L0054",
+   "start": 287.3,
+   "end": 290.1,
+   "speaker": "S2",
+   "text": "Do I have to go to hospital?"
+  },
+  {
+   "id": "L0055",
+   "start": 291.1,
+   "end": 299.5,
+   "speaker": "S1",
+   "text": "No, it's not about hospital. They're a team who visit at home and can see you more often than I can."
+  },
+  {
+   "id": "L0056",
+   "start": 300.1,
+   "end": 301.3,
+   "speaker": "S2",
+   "text": "Okay. Yeah."
+  },
+  {
+   "id": "L0057",
+   "start": 302.4,
+   "end": 307.2,
+   "speaker": "S1",
+   "text": "And can we tell your mum? I think she'd want to help."
+  },
+  {
+   "id": "L0058",
+   "start": 308.3,
+   "end": 312.7,
+   "speaker": "S2",
+   "text": "Can you tell her? I don't know how to say it."
+  },
+  {
+   "id": "L0059",
+   "start": 313.1,
+   "end": 321.9,
+   "speaker": "S1",
+   "text": "I can ring her with you this evening, if that's okay. And maybe she could keep the paracetamol locked away for now."
+  },
+  {
+   "id": "L0060",
+   "start": 322.2,
+   "end": 323.4,
+   "speaker": "S2",
+   "text": "Yeah. Okay."
+  },
+  {
+   "id": "L0061",
+   "start": 324.2,
+   "end": 335.4,
+   "speaker": "S1",
+   "text": "Let's do a safety plan together now. Things that help, who to call. The crisis line is on this card, it's twenty-four hours. And Samaritans is 116 123."
+  },
+  {
+   "id": "L0062",
+   "start": 336.4,
+   "end": 337.6,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0063",
+   "start": 338.5,
+   "end": 360.1,
+   "speaker": "S1",
+   "text": "So, the plan. I'll ring the crisis team as soon as I leave and they'll call you today to arrange tomorrow. I'll ring your mum with you at six tonight. Dr Shah's practice nurse can look at your arms on Thursday the twenty-sixth, I'll book that. And I'll come back on Monday the thirtieth."
+  },
+  {
+   "id": "L0064",
+   "start": 360.6,
+   "end": 361.8,
+   "speaker": "S2",
+   "text": "Monday. Okay."
+  },
+  {
+   "id": "L0065",
+   "start": 362.7,
+   "end": 369.1,
+   "speaker": "S1",
+   "text": "And when you're ready, we can look at Universal Credit, and maybe getting back to college."
+  },
+  {
+   "id": "L0066",
+   "start": 369.6,
+   "end": 370.8,
+   "speaker": "S2",
+   "text": "Yeah, maybe."
+  },
+  {
+   "id": "L0067",
+   "start": 371.5,
+   "end": 378.3,
+   "speaker": "S1",
+   "text": "If it gets bad before then, ring the crisis line, or 999, or go to A&E. Okay?"
+  },
+  {
+   "id": "L0068",
+   "start": 378.9,
+   "end": 380.1,
+   "speaker": "S2",
+   "text": "Okay. Thanks."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Callum says he cuts his arms most nights and has done for about two months.",
+   "style": "direct",
+   "must_keep": [
+    "cut",
+    "arms",
+    "most nights"
+   ],
+   "lines": [
+    "L0026",
+    "L0028"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Callum says that recently he has wanted to die.",
+   "style": "direct",
+   "must_keep": [
+    "wanted to die"
+   ],
+   "lines": [
+    "L0034"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Callum says that last week he went to Calder Bridge and thought about jumping off it, then walked home.",
+   "style": "hesitant",
+   "must_keep": [
+    "Calder Bridge",
+    "jumping",
+    "last week"
+   ],
+   "lines": [
+    "L0038",
+    "L0040",
+    "L0042"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "denial",
+   "must_not_claim": "Callum has taken an overdose.",
+   "flag_terms": [
+    "overdose"
+   ],
+   "lines": [
+    "L0048"
+   ]
+  }
+ ]
+}

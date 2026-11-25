@@ -1,0 +1,10 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "The client disclosed that they used crack last weekend. The client initially denied using crack, stating 'forget I said that', but later confirmed they did.", "why": "crack, last weekend, retraction and reconfirmation kept; 'Saturday night at cousin's flat' detail lost but timing conveyed by 'last weekend'"},
+    "D02": {"label": "accurate", "note_text": "The client disclosed that they used heroin since 3 November. The client stated they use heroin every day. The client stated they smoke heroin (not inject)...", "why": "heroin, since 3 November, every day, smoking kept"},
+    "D03": {"label": "accurate", "note_text": "...the cost is about £40 a day. The client stated they pay for heroin using their Universal Credit and by borrowing from their nan. The client's nan believes the money borrowed is for gas.", "why": "£40 a day, Universal Credit, borrowing from nan kept"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "C01: sentence 28 ('a positive hair test would likely show up...') is clumsy but states no result; sentence 27 keeps the test as a question. Next steps empty: budget."
+}

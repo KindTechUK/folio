@@ -1,0 +1,426 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Harold Pryce is the person being assessed.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Tom Okafor is a social worker from Harbridge adult services.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Dr Bell requested Tom Okafor to visit Harold Pryce.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "The purpose of the visit is to discuss Harold's daily living situation at home.",
+      "cites": [
+       5
+      ]
+     },
+     {
+      "text": "Sandra is Harold's wife and currently at the shops.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "Sandra will be back in about an hour.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "Harold has a daughter named Carol who lives in Kestwick, about two hours away.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Carol calls Harold on Sundays.",
+      "cites": [
+       20
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Harold has a walking stick and a frame upstairs.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Harold had a fall in the garden in the spring.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Harold has not had any falls since the spring.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Harold can wash himself but uses a stool in the shower.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Harold finds socks difficult to manage.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Sandra cooks meals for Harold.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Harold can make a sandwich.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Harold and Sandra have been married for nine years.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Harold's first wife, Joan, died in 2013.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Harold says Sandra manages his medication and keeps it in her handbag.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Harold does not always receive his medication.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "Harold did not receive his heart tablets for three days last week.",
+      "cites": [
+       42
+      ]
+     },
+     {
+      "text": "Harold says he has previously missed heart tablets and water tablets.",
+      "cites": [
+       44
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": []
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Dr Bell observed bruises on Harold's arms.",
+      "cites": [
+       21
+      ]
+     },
+     {
+      "text": "Harold says he bruises easily due to medication.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Harold says the bruises on his arms were caused by Sandra hitting him with her walking stick when she gets cross.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Harold says Sandra hits him with her walking stick on his arms when she is cross.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Harold says Sandra hits him once a week, or more if she has a bad day.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "Harold says Sandra locks him in the bedroom when she goes out.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Harold says Sandra locks him in the bedroom two or three times a week for the afternoon.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "Harold says there is no toilet in the bedroom.",
+      "cites": [
+       38
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "Harold says he wants his medication to be delivered to him in blister packs so he can hold them.",
+      "cites": [
+       59
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Harold Pryce is the person being assessed.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Tom Okafor is a social worker from Harbridge adult services.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Dr Bell requested Tom Okafor to visit Harold Pryce.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The purpose of the visit is to discuss Harold's daily living situation at home.",
+   "cites": [
+    5
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Sandra is Harold's wife and currently at the shops.",
+   "cites": [
+    6
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Sandra will be back in about an hour.",
+   "cites": [
+    6
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Harold has a walking stick and a frame upstairs.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold had a fall in the garden in the spring.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold has not had any falls since the spring.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold can wash himself but uses a stool in the shower.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold finds socks difficult to manage.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Sandra cooks meals for Harold.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold can make a sandwich.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold and Sandra have been married for nine years.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold's first wife, Joan, died in 2013.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold has a daughter named Carol who lives in Kestwick, about two hours away.",
+   "cites": [
+    20
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Carol calls Harold on Sundays.",
+   "cites": [
+    20
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Dr Bell observed bruises on Harold's arms.",
+   "cites": [
+    21
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold says he bruises easily due to medication.",
+   "cites": [
+    22
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold says the bruises on his arms were caused by Sandra hitting him with her walking stick when she gets cross.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold says Sandra hits him with her walking stick on his arms when she is cross.",
+   "cites": [
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold says Sandra hits him once a week, or more if she has a bad day.",
+   "cites": [
+    32
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold says Sandra locks him in the bedroom when she goes out.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold says Sandra locks him in the bedroom two or three times a week for the afternoon.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold says there is no toilet in the bedroom.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Harold says Sandra manages his medication and keeps it in her handbag.",
+   "cites": [
+    40
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold does not always receive his medication.",
+   "cites": [
+    41
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold did not receive his heart tablets for three days last week.",
+   "cites": [
+    42
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold says he has previously missed heart tablets and water tablets.",
+   "cites": [
+    44
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Harold says he wants his medication to be delivered to him in blister packs so he can hold them.",
+   "cites": [
+    59
+   ],
+   "section": "Agreed actions"
+  }
+ ]
+}

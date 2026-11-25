@@ -1,0 +1,437 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "Lee Whitfield (client) attended the meeting with Sophie Grant (solicitor) to discuss housing arrears and other debts.",
+      "cites": [
+       1,
+       2,
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "Lee Whitfield lost his job at the depot in January.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "Lee Whitfield described the Universal Credit housing element as 'going wrong', causing rent to build up.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "Lee Whitfield stated the rent arrears are £3,850, potentially covering three or four months.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Lee Whitfield has court papers for a hearing on the 9th of December at Harbridge County Court.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "The court papers are a possession claim on rent arrears grounds (ground eight, ten and eleven) by Ashcroft Lettings.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Lee Whitfield has lived at the private property for six years.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Lee Whitfield lives alone with a cat.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Lee Whitfield offered £50 a month in September; the landlord rejected this and demanded full payment.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Lee Whitfield has the landlord's rejection offer in writing as a text message on his phone.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Lee Whitfield reported damp in the bedroom ('black up the wall') and stated he has told the landlord about it and has photos.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Lee Whitfield has outstanding debts for council tax (bailiffs letter received), a credit card debt of about £2,000, and electricity on a meter.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Lee Whitfield has no support for the debts and has stopped opening mail.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Lee Whitfield reported taking an overdose of 16 paracetamol in March after receiving the first rent arrears letter; he was found by a neighbour, kept in hospital overnight, and had",
+      "cites": [
+       32,
+       34
+      ]
+     },
+     {
+      "text": "Lee Whitfield reported that in March he thought about ending his life on Sunday night but did not act on it.",
+      "cites": [
+       40,
+       44
+      ]
+     },
+     {
+      "text": "Lee Whitfield stated he is safe today and has not hurt himself since March.",
+      "cites": [
+       38,
+       46
+      ]
+     },
+     {
+      "text": "Lee Whitfield reported he put the housing problem on his Universal Credit journal twice with no answer.",
+      "cites": [
+       58
+      ]
+     },
+     {
+      "text": "Lee Whitfield stated he felt a bit better after the meeting.",
+      "cites": [
+       65
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": [
+     {
+      "text": "Lee Whitfield stated he has the tenancy agreement, rent statement, Universal Credit statements since January, and damp photos.",
+      "cites": [
+       61
+      ]
+     },
+     {
+      "text": "Lee Whitfield offered to email the documents by Friday the 27th.",
+      "cites": [
+       63
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": [
+     {
+      "text": "Lee Whitfield expressed a wish to have his GP see him today.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Lee Whitfield requested to ring his GP together with the solicitor.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Lee Whitfield requested the crisis team number and Samaritans (116 123).",
+      "cites": [
+       49
+      ]
+     },
+     {
+      "text": "Lee Whitfield stated he might not lose the flat due to the defence and potential counterclaim for damp.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Lee Whitfield expressed a desire for a 'breathing space' from creditors for 60 days.",
+      "cites": [
+       55
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "Solicitor Sophie Grant advised that Lee Whitfield has a defence regarding the arrears and the damp could be a counterclaim to reduce the debt.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "Solicitor Sophie Grant advised she would file a defence and counterclaim.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "Solicitor Sophie Grant advised she would ask the court to adjourn if more time is needed to sort the Universal Credit.",
+      "cites": [
+       53
+      ]
+     },
+     {
+      "text": "Solicitor Sophie Grant advised she would refer Lee Whitfield to the Citizens Advice debt team for a 60-day breathing space.",
+      "cites": [
+       55
+      ]
+     },
+     {
+      "text": "Solicitor Sophie Grant advised she would write to Universal Credit regarding the housing problem as part of the defence.",
+      "cites": [
+       59
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Lee Whitfield (client) attended the meeting with Sophie Grant (solicitor) to discuss housing arrears and other debts.",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "Lee Whitfield lost his job at the depot in January.",
+   "cites": [
+    6
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield described the Universal Credit housing element as 'going wrong', causing rent to build up.",
+   "cites": [
+    6
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield stated the rent arrears are £3,850, potentially covering three or four months.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield has court papers for a hearing on the 9th of December at Harbridge County Court.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The court papers are a possession claim on rent arrears grounds (ground eight, ten and eleven) by Ashcroft Lettings.",
+   "cites": [
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield has lived at the private property for six years.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield lives alone with a cat.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield offered £50 a month in September; the landlord rejected this and demanded full payment.",
+   "cites": [
+    16
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield has the landlord's rejection offer in writing as a text message on his phone.",
+   "cites": [
+    18
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield reported damp in the bedroom ('black up the wall') and stated he has told the landlord about it and has photos.",
+   "cites": [
+    20
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield has outstanding debts for council tax (bailiffs letter received), a credit card debt of about £2,000, and electricity on a meter.",
+   "cites": [
+    22
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield has no support for the debts and has stopped opening mail.",
+   "cites": [
+    24
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield reported taking an overdose of 16 paracetamol in March after receiving the first rent arrears letter; he was found by a neighbour, kept in hospital overnight, and had",
+   "cites": [
+    32,
+    34
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield reported that in March he thought about ending his life on Sunday night but did not act on it.",
+   "cites": [
+    40,
+    44
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield stated he is safe today and has not hurt himself since March.",
+   "cites": [
+    38,
+    46
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield expressed a wish to have his GP see him today.",
+   "cites": [
+    48
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Lee Whitfield requested to ring his GP together with the solicitor.",
+   "cites": [
+    48
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Lee Whitfield requested the crisis team number and Samaritans (116 123).",
+   "cites": [
+    49
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Lee Whitfield stated he has the tenancy agreement, rent statement, Universal Credit statements since January, and damp photos.",
+   "cites": [
+    61
+   ],
+   "section": "Documents and evidence"
+  },
+  {
+   "text": "Lee Whitfield offered to email the documents by Friday the 27th.",
+   "cites": [
+    63
+   ],
+   "section": "Documents and evidence"
+  },
+  {
+   "text": "Lee Whitfield stated he might not lose the flat due to the defence and potential counterclaim for damp.",
+   "cites": [
+    52
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Lee Whitfield expressed a desire for a 'breathing space' from creditors for 60 days.",
+   "cites": [
+    55
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Lee Whitfield reported he put the housing problem on his Universal Credit journal twice with no answer.",
+   "cites": [
+    58
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Lee Whitfield stated he felt a bit better after the meeting.",
+   "cites": [
+    65
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Solicitor Sophie Grant advised that Lee Whitfield has a defence regarding the arrears and the damp could be a counterclaim to reduce the debt.",
+   "cites": [
+    51
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Solicitor Sophie Grant advised she would file a defence and counterclaim.",
+   "cites": [
+    51
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Solicitor Sophie Grant advised she would ask the court to adjourn if more time is needed to sort the Universal Credit.",
+   "cites": [
+    53
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Solicitor Sophie Grant advised she would refer Lee Whitfield to the Citizens Advice debt team for a 60-day breathing space.",
+   "cites": [
+    55
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Solicitor Sophie Grant advised she would write to Universal Credit regarding the housing problem as part of the defence.",
+   "cites": [
+    59
+   ],
+   "section": "Advice given"
+  }
+ ]
+}

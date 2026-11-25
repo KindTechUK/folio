@@ -1,0 +1,427 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Fiona Grant is the social worker.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Fiona Grant previously visited Edna Holloway in the summer.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "Joy Mensah is the senior care worker.",
+      "cites": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Joy Mensah walks with Edna Holloway to the dining room.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Edna Holloway can walk with assistance from Joy or one of the girls.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Edna Holloway reports that the food is 'alright' but 'bit bland'.",
+      "cites": [
+       9
+      ]
+     },
+     {
+      "text": "Edna Holloway likes the lounge because she can see the garden.",
+      "cites": [
+       9
+      ]
+     },
+     {
+      "text": "Edna Holloway's hearing aids are not working properly; the left one whistles.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "An audiology appointment is scheduled for the 8th of December.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "Edna Holloway's daughter, Pauline, calls her every Sunday.",
+      "cites": [
+       17
+      ]
+     },
+     {
+      "text": "Pauline lives in Inverness and cannot travel down to visit Edna.",
+      "cites": [
+       17
+      ]
+     },
+     {
+      "text": "Room 4 is coming free next week.",
+      "cites": [
+       50
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Edna Holloway does not want to cause trouble for anyone.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "Edna Holloway wants to feel safe in her room and wants Arthur Pike kept away from her end of the corridor.",
+      "cites": [
+       47
+      ]
+     },
+     {
+      "text": "Edna Holloway would like a room nearer the lounge.",
+      "cites": [
+       49
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "On the night of Saturday the 14th of November, Joy Mensah was on night shift and conducted a 2.30 check.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Arthur Pike is a resident in room 12, down the same corridor.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "On the night of the 14th of November, Arthur Pike was found in Edna Holloway's bed under the covers, next to her.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Edna Holloway was awake and upset, saying 'get off' when Joy Mensah entered the room.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "Joy Mensah got Arthur Pike up and walked him back to his room.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Joy Mensah sat with Edna Holloway and wrote the incident in the incident book.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Edna Holloway woke up and saw a man in her bed.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Edna Holloway said the man touched her on her bottom and front, under her nightie.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "Edna Holloway told the man to stop and repeated 'stop it, get out' multiple times.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "Arthur Pike did not enter Edna Holloway's room before the 14th of November.",
+      "cites": [
+       38
+      ]
+     },
+     {
+      "text": "There is no record of Arthur Pike entering Edna Holloway's room prior to the 14th of November.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Joy Mensah reported the incident to Mrs Dobson, the manager, on the Monday morning after the incident.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "Mrs Dobson said Arthur Pike is confused and went into the wrong room.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "The incident was not reported to anyone outside the home.",
+      "cites": [
+       43
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Edna Holloway sold her bungalow.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Fiona Grant is the social worker.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Fiona Grant previously visited Edna Holloway in the summer.",
+   "cites": [
+    1
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Joy Mensah is the senior care worker.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Joy Mensah walks with Edna Holloway to the dining room.",
+   "cites": [
+    11
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Holloway can walk with assistance from Joy or one of the girls.",
+   "cites": [
+    11
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Holloway reports that the food is 'alright' but 'bit bland'.",
+   "cites": [
+    9
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Holloway likes the lounge because she can see the garden.",
+   "cites": [
+    9
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Holloway's hearing aids are not working properly; the left one whistles.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "An audiology appointment is scheduled for the 8th of December.",
+   "cites": [
+    15
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Holloway's daughter, Pauline, calls her every Sunday.",
+   "cites": [
+    17
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Pauline lives in Inverness and cannot travel down to visit Edna.",
+   "cites": [
+    17
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "On the night of Saturday the 14th of November, Joy Mensah was on night shift and conducted a 2.30 check.",
+   "cites": [
+    20
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Arthur Pike is a resident in room 12, down the same corridor.",
+   "cites": [
+    22
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "On the night of the 14th of November, Arthur Pike was found in Edna Holloway's bed under the covers, next to her.",
+   "cites": [
+    24
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna Holloway was awake and upset, saying 'get off' when Joy Mensah entered the room.",
+   "cites": [
+    24
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Joy Mensah got Arthur Pike up and walked him back to his room.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Joy Mensah sat with Edna Holloway and wrote the incident in the incident book.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna Holloway woke up and saw a man in her bed.",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna Holloway said the man touched her on her bottom and front, under her nightie.",
+   "cites": [
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna Holloway told the man to stop and repeated 'stop it, get out' multiple times.",
+   "cites": [
+    32
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Arthur Pike did not enter Edna Holloway's room before the 14th of November.",
+   "cites": [
+    38
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "There is no record of Arthur Pike entering Edna Holloway's room prior to the 14th of November.",
+   "cites": [
+    39
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Joy Mensah reported the incident to Mrs Dobson, the manager, on the Monday morning after the incident.",
+   "cites": [
+    41
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Mrs Dobson said Arthur Pike is confused and went into the wrong room.",
+   "cites": [
+    41
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The incident was not reported to anyone outside the home.",
+   "cites": [
+    43
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna Holloway does not want to cause trouble for anyone.",
+   "cites": [
+    45
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Edna Holloway wants to feel safe in her room and wants Arthur Pike kept away from her end of the corridor.",
+   "cites": [
+    47
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Edna Holloway would like a room nearer the lounge.",
+   "cites": [
+    49
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Room 4 is coming free next week.",
+   "cites": [
+    50
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Holloway sold her bungalow.",
+   "cites": [
+    52
+   ],
+   "section": "Support network and finances"
+  }
+ ]
+}

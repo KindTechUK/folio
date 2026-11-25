@@ -1,0 +1,436 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Social worker Priya Nandra is conducting a review following Edna Hollis's fall in October.",
+      "cites": [
+       5,
+       15
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Edna Hollis has a hip injury that causes stiffness in the mornings and limits mobility.",
+      "cites": [
+       9,
+       10
+      ]
+     },
+     {
+      "text": "Edna Hollis uses a frame in the house for mobility support.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Edna Hollis does not go out without someone accompanying her.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Carers visit Edna Hollis in the morning and at teatime.",
+      "cites": [
+       11,
+       14
+      ]
+     },
+     {
+      "text": "The morning carer is named Jade.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Jade helps Edna Hollis with medication and personal washing.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "Teatime carers arrive quickly but are often in and out, which Edna describes as 'a bit quick sometimes'.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Edna's daughter Sandra shops for her once a week on a Saturday.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Sandra lives in Castleford and drives to visit Edna.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Edna's grandson Kyle visits most weeks.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "Kyle brings Edna's newspapers and goes to the cash machine for her because she can't access the post office.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Kyle uses Edna's bank card to access money.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Edna gave Kyle her bank card number to make it easier.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Kyle takes out £50 per week from Edna's bank card for himself.",
+      "cites": [
+       24
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Edna does not want Kyle to be involved with police or legal action.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Edna wants her money to be her own and does not want it to be taken by Kyle.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "Edna does not want the police involved in the matter involving Kyle and her money.",
+      "cites": [
+       55
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Edna did not agree to Kyle taking £50 per week; she did not consent to this arrangement.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Edna did not authorize Kyle to take £50 per week; the money was taken without her explicit consent.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Edna reported that Kyle took £400 from her purse three weeks ago, after a visit.",
+      "cites": [
+       32,
+       33,
+       36
+      ]
+     },
+     {
+      "text": "The £400 was in Edna's purse and was gone after Kyle visited.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "Kyle said he was only borrowing the £400 and would repay it, stating it was not stealing from his grandmother.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "Kyle has not repaid the £400 as of the date of the conversation.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Sandra told Edna that Kyle gambles on his phone using betting apps.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Edna has not personally seen Kyle gambling or accessed his phone to verify the gambling activity.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "Sandra knows about the £400 incident in the purse but does not know about the weekly £50 withdrawals.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "Edna does not believe Kyle has threatened or harmed her physically or emotionally.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "The social worker will log a safeguarding concern due to money being taken by Kyle without consent.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "The safeguarding concern will be logged with the team, not with the police.",
+      "cites": [
+       54
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": []
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Social worker Priya Nandra is conducting a review following Edna Hollis's fall in October.",
+   "cites": [
+    5,
+    15
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Edna Hollis has a hip injury that causes stiffness in the mornings and limits mobility.",
+   "cites": [
+    9,
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis uses a frame in the house for mobility support.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis does not go out without someone accompanying her.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Carers visit Edna Hollis in the morning and at teatime.",
+   "cites": [
+    11,
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The morning carer is named Jade.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Jade helps Edna Hollis with medication and personal washing.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Teatime carers arrive quickly but are often in and out, which Edna describes as 'a bit quick sometimes'.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna's daughter Sandra shops for her once a week on a Saturday.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Sandra lives in Castleford and drives to visit Edna.",
+   "cites": [
+    16
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna's grandson Kyle visits most weeks.",
+   "cites": [
+    18
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kyle brings Edna's newspapers and goes to the cash machine for her because she can't access the post office.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kyle uses Edna's bank card to access money.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna gave Kyle her bank card number to make it easier.",
+   "cites": [
+    22
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Kyle takes out £50 per week from Edna's bank card for himself.",
+   "cites": [
+    24
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna did not agree to Kyle taking £50 per week; she did not consent to this arrangement.",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna did not authorize Kyle to take £50 per week; the money was taken without her explicit consent.",
+   "cites": [
+    28
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna reported that Kyle took £400 from her purse three weeks ago, after a visit.",
+   "cites": [
+    32,
+    33,
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The £400 was in Edna's purse and was gone after Kyle visited.",
+   "cites": [
+    33
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Kyle said he was only borrowing the £400 and would repay it, stating it was not stealing from his grandmother.",
+   "cites": [
+    34
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Kyle has not repaid the £400 as of the date of the conversation.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Sandra told Edna that Kyle gambles on his phone using betting apps.",
+   "cites": [
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna has not personally seen Kyle gambling or accessed his phone to verify the gambling activity.",
+   "cites": [
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Sandra knows about the £400 incident in the purse but does not know about the weekly £50 withdrawals.",
+   "cites": [
+    50
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna does not believe Kyle has threatened or harmed her physically or emotionally.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna does not want Kyle to be involved with police or legal action.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Edna wants her money to be her own and does not want it to be taken by Kyle.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Edna does not want the police involved in the matter involving Kyle and her money.",
+   "cites": [
+    55
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "The social worker will log a safeguarding concern due to money being taken by Kyle without consent.",
+   "cites": [
+    54
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The safeguarding concern will be logged with the team, not with the police.",
+   "cites": [
+    54
+   ],
+   "section": "Risks and safeguarding"
+  }
+ ]
+}

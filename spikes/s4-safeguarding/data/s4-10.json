@@ -1,0 +1,577 @@
+{
+ "id": "s4-10",
+ "title": "Older woman neglected by her son, neighbour reports (synthetic)",
+ "template": "assessment",
+ "category": "neglect",
+ "setting": "A care assessor visits Edith Marsh, 84, at home at 6 Cobb Lane, Harbridge, for a needs assessment; her son Gary, her carer, is at work, and her neighbour Pauline Reid sits in at Edith's request.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Care assessor (Janet Fielding)",
+  "S2": "Edith Marsh (the person)",
+  "S3": "Pauline Reid (neighbour)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 7.0,
+   "speaker": "S1",
+   "text": "Hello Mrs Marsh, I'm Janet, the care assessor from the council. We spoke on the phone."
+  },
+  {
+   "id": "L0002",
+   "start": 7.7,
+   "end": 16.5,
+   "speaker": "S2",
+   "text": "Oh yes, come in, love. This is Pauline from next door, I asked her to sit with me. My hearing's not great."
+  },
+  {
+   "id": "L0003",
+   "start": 16.8,
+   "end": 18.8,
+   "speaker": "S3",
+   "text": "Hiya. I hope that's alright."
+  },
+  {
+   "id": "L0004",
+   "start": 19.2,
+   "end": 24.8,
+   "speaker": "S1",
+   "text": "Of course, if Mrs Marsh wants you here. Is it Edith or Mrs Marsh?"
+  },
+  {
+   "id": "L0005",
+   "start": 25.6,
+   "end": 26.8,
+   "speaker": "S2",
+   "text": "Edith's fine."
+  },
+  {
+   "id": "L0006",
+   "start": 27.7,
+   "end": 44.1,
+   "speaker": "S1",
+   "text": "Lovely. So Edith, today I'm here to find out what help you need at home. I'll write notes. It's confidential, but if I'm worried about your safety I might need to share information with others, like your GP. Is that okay?"
+  },
+  {
+   "id": "L0007",
+   "start": 44.6,
+   "end": 45.8,
+   "speaker": "S2",
+   "text": "Yes, that's alright."
+  },
+  {
+   "id": "L0008",
+   "start": 46.1,
+   "end": 50.5,
+   "speaker": "S1",
+   "text": "Let's start with getting about. How are you on your feet?"
+  },
+  {
+   "id": "L0009",
+   "start": 51.5,
+   "end": 58.7,
+   "speaker": "S2",
+   "text": "I use my frame. I don't go upstairs now, Gary brought my bed down to the front room."
+  },
+  {
+   "id": "L0010",
+   "start": 59.6,
+   "end": 61.2,
+   "speaker": "S1",
+   "text": "That's Gary, your son?"
+  },
+  {
+   "id": "L0011",
+   "start": 62.1,
+   "end": 68.9,
+   "speaker": "S2",
+   "text": "Yes, he lives with me. He looks after me. He works at the garage on Station Road."
+  },
+  {
+   "id": "L0012",
+   "start": 70.0,
+   "end": 72.0,
+   "speaker": "S1",
+   "text": "What hours does he work?"
+  },
+  {
+   "id": "L0013",
+   "start": 73.0,
+   "end": 75.8,
+   "speaker": "S2",
+   "text": "Eight till six, I think. Sometimes later."
+  },
+  {
+   "id": "L0014",
+   "start": 76.5,
+   "end": 79.3,
+   "speaker": "S1",
+   "text": "And what does Gary help you with?"
+  },
+  {
+   "id": "L0015",
+   "start": 80.1,
+   "end": 84.5,
+   "speaker": "S2",
+   "text": "He does my shopping, and gets me up. And my tablets."
+  },
+  {
+   "id": "L0016",
+   "start": 85.2,
+   "end": 88.4,
+   "speaker": "S1",
+   "text": "Okay. Can you get to the toilet yourself?"
+  },
+  {
+   "id": "L0017",
+   "start": 89.3,
+   "end": 94.9,
+   "speaker": "S2",
+   "text": "Mostly. I've got a commode. I'm not always quick enough, I wear the pads."
+  },
+  {
+   "id": "L0018",
+   "start": 95.7,
+   "end": 102.5,
+   "speaker": "S1",
+   "text": "That's really common, Edith, no need to be embarrassed. Who helps you change if the pad's wet?"
+  },
+  {
+   "id": "L0019",
+   "start": 103.2,
+   "end": 106.4,
+   "speaker": "S2",
+   "text": "Gary does, when he's home. Or I manage."
+  },
+  {
+   "id": "L0020",
+   "start": 107.3,
+   "end": 112.1,
+   "speaker": "S1",
+   "text": "So during the day, while Gary's at work, is anyone else here?"
+  },
+  {
+   "id": "L0021",
+   "start": 112.6,
+   "end": 119.0,
+   "speaker": "S2",
+   "text": "Well. Not really. I'm, um. I'm alone all day. But I'm alright, I have the telly."
+  },
+  {
+   "id": "L0022",
+   "start": 119.4,
+   "end": 121.8,
+   "speaker": "S1",
+   "text": "From when Gary goes to work?"
+  },
+  {
+   "id": "L0023",
+   "start": 122.8,
+   "end": 130.8,
+   "speaker": "S2",
+   "text": "He goes about half seven. Sometimes he doesn't get back till nine. He's ever so busy. He does his best."
+  },
+  {
+   "id": "L0024",
+   "start": 131.4,
+   "end": 135.8,
+   "speaker": "S3",
+   "text": "Can I say something, Edith? I'm not trying to cause trouble."
+  },
+  {
+   "id": "L0025",
+   "start": 136.7,
+   "end": 137.9,
+   "speaker": "S2",
+   "text": "Go on, then."
+  },
+  {
+   "id": "L0026",
+   "start": 138.6,
+   "end": 149.8,
+   "speaker": "S3",
+   "text": "I pop in most afternoons. And most days she's left in wet clothes, all day. The pad and her skirt are wet when I come in at two."
+  },
+  {
+   "id": "L0027",
+   "start": 150.2,
+   "end": 151.4,
+   "speaker": "S1",
+   "text": "Most days?"
+  },
+  {
+   "id": "L0028",
+   "start": 152.1,
+   "end": 158.5,
+   "speaker": "S3",
+   "text": "Four or five days a week, I'd say. I help her change if she'll let me."
+  },
+  {
+   "id": "L0029",
+   "start": 158.9,
+   "end": 161.7,
+   "speaker": "S1",
+   "text": "Thank you, Pauline. Edith, is that right?"
+  },
+  {
+   "id": "L0030",
+   "start": 162.2,
+   "end": 166.2,
+   "speaker": "S2",
+   "text": "Sometimes. I don't like to make a fuss for Gary."
+  },
+  {
+   "id": "L0031",
+   "start": 166.6,
+   "end": 170.6,
+   "speaker": "S1",
+   "text": "What about food, Edith, what do you have for lunch?"
+  },
+  {
+   "id": "L0032",
+   "start": 171.3,
+   "end": 173.7,
+   "speaker": "S2",
+   "text": "Gary leaves me a sandwich. Usually."
+  },
+  {
+   "id": "L0033",
+   "start": 174.2,
+   "end": 187.4,
+   "speaker": "S3",
+   "text": "There's no food in the fridge, though. On Saturday I looked, there was no food in the fridge at all, just a bit of milk gone off. I brought her a dinner round."
+  },
+  {
+   "id": "L0034",
+   "start": 188.3,
+   "end": 189.9,
+   "speaker": "S1",
+   "text": "Is that usual, Pauline?"
+  },
+  {
+   "id": "L0035",
+   "start": 190.3,
+   "end": 196.3,
+   "speaker": "S3",
+   "text": "The last few weeks, yes. It's been empty three or four times when I've looked."
+  },
+  {
+   "id": "L0036",
+   "start": 196.8,
+   "end": 200.4,
+   "speaker": "S1",
+   "text": "Okay. And you mentioned tablets. Gary does your tablets?"
+  },
+  {
+   "id": "L0037",
+   "start": 201.0,
+   "end": 203.8,
+   "speaker": "S2",
+   "text": "He puts them out. In the box."
+  },
+  {
+   "id": "L0038",
+   "start": 204.6,
+   "end": 214.2,
+   "speaker": "S3",
+   "text": "The box is on the side there. She's not had her tablets for a week. It's full since last Tuesday, look, all the days."
+  },
+  {
+   "id": "L0039",
+   "start": 214.6,
+   "end": 217.0,
+   "speaker": "S1",
+   "text": "Can I have a look, Edith?"
+  },
+  {
+   "id": "L0040",
+   "start": 217.7,
+   "end": 218.9,
+   "speaker": "S2",
+   "text": "Yes, go on."
+  },
+  {
+   "id": "L0041",
+   "start": 219.6,
+   "end": 229.2,
+   "speaker": "S1",
+   "text": "Okay, so the compartments from Tuesday the seventeenth onwards are all still full. That's her blood pressure tablet and the water tablet, it says."
+  },
+  {
+   "id": "L0042",
+   "start": 229.9,
+   "end": 232.3,
+   "speaker": "S2",
+   "text": "I forget. And Gary's been busy."
+  },
+  {
+   "id": "L0043",
+   "start": 233.2,
+   "end": 242.4,
+   "speaker": "S1",
+   "text": "That's alright. Thank you for letting me look. Edith, I ask everyone this. Has Gary, or anyone, ever hit you or hurt you?"
+  },
+  {
+   "id": "L0044",
+   "start": 243.0,
+   "end": 248.2,
+   "speaker": "S2",
+   "text": "No! Gary's never hit me. Never. He's a good boy, he's just tired."
+  },
+  {
+   "id": "L0045",
+   "start": 248.5,
+   "end": 252.9,
+   "speaker": "S1",
+   "text": "Okay, thank you. Pauline, have you ever seen anything like that?"
+  },
+  {
+   "id": "L0046",
+   "start": 253.9,
+   "end": 259.1,
+   "speaker": "S3",
+   "text": "No, nothing like that. He's not unkind to her. He just isn't here."
+  },
+  {
+   "id": "L0047",
+   "start": 259.4,
+   "end": 264.6,
+   "speaker": "S1",
+   "text": "Okay. Edith, what would you like? Do you want to stay living here?"
+  },
+  {
+   "id": "L0048",
+   "start": 265.0,
+   "end": 269.8,
+   "speaker": "S2",
+   "text": "Oh yes. I've been here since 1962. I don't want a home."
+  },
+  {
+   "id": "L0049",
+   "start": 270.9,
+   "end": 277.7,
+   "speaker": "S1",
+   "text": "That's really clear. Would you accept carers coming in, so you're not relying on Gary all day?"
+  },
+  {
+   "id": "L0050",
+   "start": 278.1,
+   "end": 281.7,
+   "speaker": "S2",
+   "text": "If Gary doesn't mind. I don't want him upset."
+  },
+  {
+   "id": "L0051",
+   "start": 282.3,
+   "end": 291.1,
+   "speaker": "S1",
+   "text": "I'd like to talk to Gary as well. He's entitled to a carer's assessment, so he gets support too. Is that okay?"
+  },
+  {
+   "id": "L0052",
+   "start": 291.8,
+   "end": 295.0,
+   "speaker": "S2",
+   "text": "Yes. He'd like that, I think. He's struggling."
+  },
+  {
+   "id": "L0053",
+   "start": 295.4,
+   "end": 300.2,
+   "speaker": "S1",
+   "text": "And money, do you get your pension paid into your own account?"
+  },
+  {
+   "id": "L0054",
+   "start": 301.1,
+   "end": 306.3,
+   "speaker": "S2",
+   "text": "Yes, and Gary takes some out for the shopping. I've got my card."
+  },
+  {
+   "id": "L0055",
+   "start": 307.3,
+   "end": 309.3,
+   "speaker": "S1",
+   "text": "Do you get Attendance Allowance?"
+  },
+  {
+   "id": "L0056",
+   "start": 310.1,
+   "end": 312.5,
+   "speaker": "S2",
+   "text": "I don't think so. What's that?"
+  },
+  {
+   "id": "L0057",
+   "start": 312.8,
+   "end": 315.2,
+   "speaker": "S3",
+   "text": "She doesn't, I asked Gary once."
+  },
+  {
+   "id": "L0058",
+   "start": 315.8,
+   "end": 324.6,
+   "speaker": "S1",
+   "text": "It's a benefit for people who need care, it might be worth about seventy pounds a week. We can help you apply."
+  },
+  {
+   "id": "L0059",
+   "start": 325.0,
+   "end": 326.2,
+   "speaker": "S2",
+   "text": "Oh, that'd help."
+  },
+  {
+   "id": "L0060",
+   "start": 326.8,
+   "end": 344.8,
+   "speaker": "S1",
+   "text": "So, here's the plan. I'm worried about you being left wet, without food and without your tablets, so I'm going to raise a safeguarding concern today. That's so we can get support in quickly, not to get Gary into trouble. Are you okay with that?"
+  },
+  {
+   "id": "L0061",
+   "start": 345.6,
+   "end": 347.6,
+   "speaker": "S2",
+   "text": "If it helps Gary. Yes."
+  },
+  {
+   "id": "L0062",
+   "start": 348.3,
+   "end": 364.3,
+   "speaker": "S1",
+   "text": "Today I'll ring your GP, Dr Patel, about the missed tablets, and ask the chemist about a blister pack and a check. I'll also arrange an emergency home care package, two calls a day, to start by Friday the twenty-seventh."
+  },
+  {
+   "id": "L0063",
+   "start": 364.7,
+   "end": 365.9,
+   "speaker": "S2",
+   "text": "Two calls?"
+  },
+  {
+   "id": "L0064",
+   "start": 367.0,
+   "end": 375.4,
+   "speaker": "S1",
+   "text": "Morning and lunchtime, for washing, changing and a meal. I'll phone Gary tonight and book his carer's assessment for next week."
+  },
+  {
+   "id": "L0065",
+   "start": 376.3,
+   "end": 379.5,
+   "speaker": "S3",
+   "text": "I can keep popping in, I don't mind."
+  },
+  {
+   "id": "L0066",
+   "start": 380.3,
+   "end": 386.7,
+   "speaker": "S1",
+   "text": "That's really kind, Pauline. Can I take your number in case I need to check something?"
+  },
+  {
+   "id": "L0067",
+   "start": 387.2,
+   "end": 391.2,
+   "speaker": "S3",
+   "text": "Course. It's oh one four six, I'll write it down."
+  },
+  {
+   "id": "L0068",
+   "start": 391.6,
+   "end": 400.4,
+   "speaker": "S1",
+   "text": "Thanks. I'll come back on Wednesday the second of December with the Attendance Allowance form. Edith, anything else you'd like to ask?"
+  },
+  {
+   "id": "L0069",
+   "start": 400.8,
+   "end": 403.2,
+   "speaker": "S2",
+   "text": "No, love. Thank you for coming."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Pauline, the neighbour, says Edith is left in wet clothes all day on most days, four or five days a week.",
+   "style": "third_party",
+   "must_keep": [
+    "wet clothes",
+    "all day",
+    "four or five days a week"
+   ],
+   "tag": "d1",
+   "lines": [
+    "L0026",
+    "L0028"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Pauline says there was no food in the fridge on Saturday, and it has been empty three or four times recently.",
+   "style": "third_party",
+   "must_keep": [
+    "no food",
+    "fridge",
+    "Saturday"
+   ],
+   "tag": "d2",
+   "lines": [
+    "L0033",
+    "L0035"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Pauline says Edith has not had her tablets for a week; the dosette box is full from last Tuesday.",
+   "style": "third_party",
+   "must_keep": [
+    "tablets",
+    "for a week",
+    "Tuesday"
+   ],
+   "tag": "d3",
+   "lines": [
+    "L0038",
+    "L0042"
+   ]
+  },
+  {
+   "id": "D04",
+   "what": "Edith says she is alone all day, from about half seven until Gary gets back as late as nine, and is protective of her son.",
+   "style": "hesitant",
+   "must_keep": [
+    "alone",
+    "all day"
+   ],
+   "tag": "d4",
+   "lines": [
+    "L0021",
+    "L0023"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "denial",
+   "must_not_claim": "Edith's son Gary has hit her.",
+   "flag_terms": [
+    "hit",
+    "Gary"
+   ],
+   "tag": "c1",
+   "lines": [
+    "L0043",
+    "L0044",
+    "L0045",
+    "L0046"
+   ]
+  }
+ ]
+}

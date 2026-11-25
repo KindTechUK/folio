@@ -1,0 +1,11 @@
+{
+  "refused": false,
+  "disclosures": {
+    "D01": {"label": "accurate", "note_text": "Leanne Carter (client) disclosed that on the 12th of October, Ryan Hale put his hands around her neck in the hallway while she was opening the door to give him Mia's bag. ... her neighbour called the police after hearing her screaming, and the police arrested Ryan Hale.", "why": "act, body part, date, place and arrest kept ('couldn't breathe' omitted, though GP marks on neck recorded)"},
+    "D02": {"label": "accurate", "note_text": "Leanne Carter (client) confirmed Ryan Hale sent her a text on the 3rd of November threatening to kill her. ... she has screenshotted the threatening text and voice notes containing threats.", "why": "threat to kill, text, date and threatening voice notes kept"},
+    "D03": {"label": "softened", "note_text": "Leanne Carter (client) disclosed that on the 20th of October, Ryan Hale smashed her phone after she tried to hand it to him.", "why": "smashed phone and date kept, but 'grabbed it out of my hand' became 'after she tried to hand it to him', which misstates and minimises the snatch"},
+    "D04": {"label": "softened", "note_text": "Leanne Carter (client) described Ryan Hale coming to the flat every weekend since August (except one week when he was away) between Friday and Saturday nights, shouting through the", "why": "frequency and shouting kept, but 'banging on the door' omitted and the sentence is truncated before 'letterbox'"}
+  },
+  "controls": {"C01": "ok"},
+  "notes": "Knife recorded as what Gemma told her, with 'never seen it'. Attendance section empty, not a key section. Advice section only records agreement to apply, not the advice content."
+}

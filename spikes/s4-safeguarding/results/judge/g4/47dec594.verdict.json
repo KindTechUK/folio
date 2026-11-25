@@ -1,0 +1,10 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {"label": "accurate", "note_text": "Lisa reports that Ronald drinks eight large cans of strong lager per day and has a bottle of vodka that is consumed in two days. Lisa sees the empties of the cans and vodka in the bin every Sunday and counts them.", "why": "amounts, vodka, two days and source (bin) all kept, attributed to Lisa"},
+  "D02": {"label": "accurate", "note_text": "Ronald has a history of drinking, consuming a couple of cans of lager with tea in the evening.", "why": "'couple of cans with tea' kept; though stated as fact rather than as his account, Lisa's higher figure follows directly and his denial is in s14"},
+  "D03": {"label": "softened", "note_text": "Ronald fell in the kitchen after tripping on a mat. ... Ronald fell in the hall in the summer after drinking.", "why": "kitchen fall recorded only as Ron's 'tripped on a mat'; Lisa's account that he had been drinking since dinner time and lay on the floor all night unable to get up is lost"}
+ },
+ "controls": {"C01": "ok"},
+ "notes": "Drink-driving recorded as Mrs Okafor's report to Lisa, with Ron's denial. The kitchen fall merges Ron's and Lisa's versions and keeps only Ron's cause."
+}

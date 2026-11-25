@@ -1,0 +1,505 @@
+{
+ "id": "s4-23",
+ "title": "Mother reports what her daughter, 5, said about an uncle (synthetic)",
+ "template": "assessment",
+ "category": "child_protection",
+ "setting": "Health visitor Rachel Moore visits Gemma Shaw at 9 Linnet Close, Harbridge, for baby Noah's four-month check; Gemma raises something her daughter Isla (5) said.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Health visitor (Rachel Moore)",
+  "S2": "Gemma Shaw (mother)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 3.8,
+   "speaker": "S1",
+   "text": "Hi Gemma, it's Rachel. How are you both?"
+  },
+  {
+   "id": "L0002",
+   "start": 4.6,
+   "end": 10.6,
+   "speaker": "S2",
+   "text": "Hiya, come in. He's just had a feed, so he might be sick on you."
+  },
+  {
+   "id": "L0003",
+   "start": 11.2,
+   "end": 22.0,
+   "speaker": "S1",
+   "text": "Ha, occupational hazard. Oh, he's grown! So this is Noah's four month check. I'll weigh him, and we'll talk about feeding and sleep and how you're doing."
+  },
+  {
+   "id": "L0004",
+   "start": 22.7,
+   "end": 23.9,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0005",
+   "start": 24.3,
+   "end": 36.3,
+   "speaker": "S1",
+   "text": "And as always, what we talk about stays between us and your GP, unless I'm worried about a child's safety, then I'd need to share it, and I'd tell you."
+  },
+  {
+   "id": "L0006",
+   "start": 37.4,
+   "end": 38.6,
+   "speaker": "S2",
+   "text": "Yeah."
+  },
+  {
+   "id": "L0007",
+   "start": 39.4,
+   "end": 41.0,
+   "speaker": "S1",
+   "text": "So how's feeding going?"
+  },
+  {
+   "id": "L0008",
+   "start": 41.4,
+   "end": 48.2,
+   "speaker": "S2",
+   "text": "He's on formula now, five ounces every three to four hours. I stopped breastfeeding at six weeks."
+  },
+  {
+   "id": "L0009",
+   "start": 49.0,
+   "end": 51.4,
+   "speaker": "S1",
+   "text": "That's fine. How many wet nappies?"
+  },
+  {
+   "id": "L0010",
+   "start": 51.9,
+   "end": 53.9,
+   "speaker": "S2",
+   "text": "Loads. Six, seven a day."
+  },
+  {
+   "id": "L0011",
+   "start": 55.0,
+   "end": 56.2,
+   "speaker": "S1",
+   "text": "Good. And sleep?"
+  },
+  {
+   "id": "L0012",
+   "start": 56.5,
+   "end": 62.1,
+   "speaker": "S2",
+   "text": "He does a five hour stretch from about eleven. Then he's up at four."
+  },
+  {
+   "id": "L0013",
+   "start": 63.2,
+   "end": 69.2,
+   "speaker": "S1",
+   "text": "That's really good for four months. Is he in his own cot in your room?"
+  },
+  {
+   "id": "L0014",
+   "start": 69.8,
+   "end": 73.0,
+   "speaker": "S2",
+   "text": "The Moses basket. It's getting too small though."
+  },
+  {
+   "id": "L0015",
+   "start": 74.1,
+   "end": 82.1,
+   "speaker": "S1",
+   "text": "Okay. Right, he's six point eight kilos, that's right on his line. Lovely. And how's Isla getting on at school?"
+  },
+  {
+   "id": "L0016",
+   "start": 82.8,
+   "end": 87.6,
+   "speaker": "S2",
+   "text": "She loves reception. Miss Patel's her teacher. She's reading little words now."
+  },
+  {
+   "id": "L0017",
+   "start": 88.0,
+   "end": 91.2,
+   "speaker": "S1",
+   "text": "Brilliant. And how are you feeling in yourself?"
+  },
+  {
+   "id": "L0018",
+   "start": 91.6,
+   "end": 94.0,
+   "speaker": "S2",
+   "text": "Um. Not great, to be honest."
+  },
+  {
+   "id": "L0019",
+   "start": 94.6,
+   "end": 97.8,
+   "speaker": "S1",
+   "text": "Do you want to tell me about it?"
+  },
+  {
+   "id": "L0020",
+   "start": 98.1,
+   "end": 102.1,
+   "speaker": "S2",
+   "text": "It's... something Isla said. I don't know if I'm overreacting."
+  },
+  {
+   "id": "L0021",
+   "start": 103.2,
+   "end": 106.0,
+   "speaker": "S1",
+   "text": "Take your time. What did she say?"
+  },
+  {
+   "id": "L0022",
+   "start": 106.5,
+   "end": 110.1,
+   "speaker": "S2",
+   "text": "She said... um. She said Uncle Ryan touched her."
+  },
+  {
+   "id": "L0023",
+   "start": 110.5,
+   "end": 114.1,
+   "speaker": "S1",
+   "text": "Okay. Can you tell me the words she used?"
+  },
+  {
+   "id": "L0024",
+   "start": 115.0,
+   "end": 122.2,
+   "speaker": "S2",
+   "text": "She said he touched her private parts. Her front bottom, that's what she calls it. When he babysits."
+  },
+  {
+   "id": "L0025",
+   "start": 123.1,
+   "end": 125.9,
+   "speaker": "S1",
+   "text": "Thank you. When did she say this?"
+  },
+  {
+   "id": "L0026",
+   "start": 126.7,
+   "end": 132.3,
+   "speaker": "S2",
+   "text": "Sunday night. She was in the bath and she just came out with it."
+  },
+  {
+   "id": "L0027",
+   "start": 133.0,
+   "end": 134.2,
+   "speaker": "S1",
+   "text": "Who's Ryan?"
+  },
+  {
+   "id": "L0028",
+   "start": 134.5,
+   "end": 141.3,
+   "speaker": "S2",
+   "text": "Liam's brother. He babysits on a Friday when I'm at work and Liam's on nights. Since September."
+  },
+  {
+   "id": "L0029",
+   "start": 141.8,
+   "end": 143.8,
+   "speaker": "S1",
+   "text": "Did Isla say anything else?"
+  },
+  {
+   "id": "L0030",
+   "start": 144.6,
+   "end": 151.0,
+   "speaker": "S2",
+   "text": "She said... she said he told her it's a secret. Don't tell mummy, it's a secret."
+  },
+  {
+   "id": "L0031",
+   "start": 151.5,
+   "end": 155.1,
+   "speaker": "S1",
+   "text": "Okay. What did you do when she told you?"
+  },
+  {
+   "id": "L0032",
+   "start": 155.8,
+   "end": 166.2,
+   "speaker": "S2",
+   "text": "I just said okay, thank you for telling me, and put her pyjamas on. I didn't know what to say. I haven't asked her anything else."
+  },
+  {
+   "id": "L0033",
+   "start": 166.7,
+   "end": 180.3,
+   "speaker": "S1",
+   "text": "You did exactly the right thing. Please don't ask her more questions about it, just let her talk if she wants to, and write down anything she says, in her words, with the date."
+  },
+  {
+   "id": "L0034",
+   "start": 181.3,
+   "end": 182.5,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0035",
+   "start": 183.1,
+   "end": 184.7,
+   "speaker": "S1",
+   "text": "Have you told Liam?"
+  },
+  {
+   "id": "L0036",
+   "start": 185.3,
+   "end": 190.1,
+   "speaker": "S2",
+   "text": "Yeah. He's in bits. He doesn't believe it, but then he does."
+  },
+  {
+   "id": "L0037",
+   "start": 190.9,
+   "end": 199.7,
+   "speaker": "S2",
+   "text": "And my sister Kelly said... she said Ryan was in trouble before. Years ago. Something with the police. I don't know what."
+  },
+  {
+   "id": "L0038",
+   "start": 200.2,
+   "end": 202.6,
+   "speaker": "S1",
+   "text": "Does Kelly know what it was?"
+  },
+  {
+   "id": "L0039",
+   "start": 203.3,
+   "end": 210.5,
+   "speaker": "S2",
+   "text": "No, she heard it from someone at her work. She said she doesn't know if it's even true."
+  },
+  {
+   "id": "L0040",
+   "start": 211.0,
+   "end": 227.4,
+   "speaker": "S1",
+   "text": "Okay. I'll note that's what Kelly heard and that nobody knows what it was. Gemma, I need to be honest with you. Because of what Isla said, I have to share this with children's social care today. That's the Harbridge MASH."
+  },
+  {
+   "id": "L0041",
+   "start": 228.2,
+   "end": 230.6,
+   "speaker": "S2",
+   "text": "Will they take her off me?"
+  },
+  {
+   "id": "L0042",
+   "start": 231.7,
+   "end": 246.1,
+   "speaker": "S1",
+   "text": "No. You've done what a protective parent does. They'll want to speak with you, and the police may want to talk with Isla properly, with someone trained. That's why it's better nobody questions her before then."
+  },
+  {
+   "id": "L0043",
+   "start": 247.1,
+   "end": 248.3,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0044",
+   "start": 249.4,
+   "end": 261.4,
+   "speaker": "S1",
+   "text": "The most important thing is that Ryan doesn't babysit, or have any time alone with Isla or Noah, until this has been looked into. Can you make sure of that?"
+  },
+  {
+   "id": "L0045",
+   "start": 262.1,
+   "end": 264.5,
+   "speaker": "S2",
+   "text": "Yeah. He's not coming near them."
+  },
+  {
+   "id": "L0046",
+   "start": 264.9,
+   "end": 269.3,
+   "speaker": "S1",
+   "text": "And please don't confront Ryan yourself. Leave that to the police."
+  },
+  {
+   "id": "L0047",
+   "start": 270.4,
+   "end": 272.8,
+   "speaker": "S2",
+   "text": "Liam wants to go round there."
+  },
+  {
+   "id": "L0048",
+   "start": 273.7,
+   "end": 280.1,
+   "speaker": "S1",
+   "text": "I understand. But it could make things harder for Isla. Can you ask Liam to wait?"
+  },
+  {
+   "id": "L0049",
+   "start": 281.1,
+   "end": 282.3,
+   "speaker": "S2",
+   "text": "I'll tell him."
+  },
+  {
+   "id": "L0050",
+   "start": 283.1,
+   "end": 286.7,
+   "speaker": "S1",
+   "text": "Who could look after the kids on Fridays instead?"
+  },
+  {
+   "id": "L0051",
+   "start": 287.5,
+   "end": 292.3,
+   "speaker": "S2",
+   "text": "My mum, maybe. Or I could swap my shift at the Co-op."
+  },
+  {
+   "id": "L0052",
+   "start": 292.9,
+   "end": 295.3,
+   "speaker": "S1",
+   "text": "How are you managing for money?"
+  },
+  {
+   "id": "L0053",
+   "start": 295.9,
+   "end": 302.7,
+   "speaker": "S2",
+   "text": "Okay. Liam's on nights at the warehouse, and I've got my Co-op money and the child benefit."
+  },
+  {
+   "id": "L0054",
+   "start": 303.5,
+   "end": 306.3,
+   "speaker": "S1",
+   "text": "Okay. And you, Gemma, are you sleeping?"
+  },
+  {
+   "id": "L0055",
+   "start": 307.1,
+   "end": 308.3,
+   "speaker": "S2",
+   "text": "Not since Sunday."
+  },
+  {
+   "id": "L0056",
+   "start": 309.4,
+   "end": 315.0,
+   "speaker": "S1",
+   "text": "That's understandable. I'll let Dr Kaur know so she can see you as well."
+  },
+  {
+   "id": "L0057",
+   "start": 316.0,
+   "end": 317.2,
+   "speaker": "S2",
+   "text": "Thanks."
+  },
+  {
+   "id": "L0058",
+   "start": 317.6,
+   "end": 327.2,
+   "speaker": "S1",
+   "text": "So, actions. I'll ring the MASH as soon as I leave, and I'll ring you by four o'clock to tell you what they said."
+  },
+  {
+   "id": "L0059",
+   "start": 328.0,
+   "end": 333.6,
+   "speaker": "S1",
+   "text": "You'll keep Isla and Noah away from Ryan, and ask your mum about Fridays."
+  },
+  {
+   "id": "L0060",
+   "start": 333.9,
+   "end": 335.1,
+   "speaker": "S2",
+   "text": "Yeah."
+  },
+  {
+   "id": "L0061",
+   "start": 335.6,
+   "end": 344.0,
+   "speaker": "S1",
+   "text": "I'll write to Dr Kaur today. And I'll come back next Wednesday, the second of December, to see you and Noah."
+  },
+  {
+   "id": "L0062",
+   "start": 344.3,
+   "end": 345.9,
+   "speaker": "S2",
+   "text": "Okay. Thank you, Rachel."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Gemma says, slowly and with prompting, that Isla told her Uncle Ryan touched her private parts when he babysits.",
+   "style": "hesitant",
+   "must_keep": [
+    "Ryan",
+    "touched",
+    "private parts",
+    "babysits"
+   ],
+   "lines": [
+    "L0022",
+    "L0024"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Gemma says Isla told her Ryan said it is a secret.",
+   "style": "third_party",
+   "must_keep": [
+    "secret"
+   ],
+   "lines": [
+    "L0030"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Gemma says Isla told her on Sunday night in the bath; Ryan babysits on Fridays and has done since September.",
+   "style": "third_party",
+   "must_keep": [
+    "Sunday night",
+    "bath",
+    "Friday"
+   ],
+   "lines": [
+    "L0026",
+    "L0028"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "hearsay",
+   "must_not_claim": "Ryan has a previous conviction.",
+   "flag_terms": [
+    "Ryan",
+    "police"
+   ],
+   "lines": [
+    "L0037",
+    "L0039"
+   ]
+  }
+ ]
+}

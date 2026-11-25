@@ -1,0 +1,542 @@
+{
+ "id": "s4-15",
+ "title": "Supported living review: 'friends' making him withdraw money (synthetic)",
+ "template": "assessment",
+ "category": "financial_abuse",
+ "setting": "A care assessor visits Jamie Coulter, 24, who has a learning disability, at his supported living flat in Bramley Court, Oakhurst, for a review of his support hours.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Care assessor (Helen Marsh)",
+  "S2": "Jamie Coulter (the person)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 5.0,
+   "speaker": "S1",
+   "text": "Hiya Jamie, it's Helen. Is it okay if I come in?"
+  },
+  {
+   "id": "L0002",
+   "start": 6.0,
+   "end": 8.0,
+   "speaker": "S2",
+   "text": "Yeah. Hiya. I've tidied up."
+  },
+  {
+   "id": "L0003",
+   "start": 8.8,
+   "end": 14.4,
+   "speaker": "S1",
+   "text": "You have, it looks really nice. Is that a new picture on the wall?"
+  },
+  {
+   "id": "L0004",
+   "start": 14.8,
+   "end": 18.4,
+   "speaker": "S2",
+   "text": "It's Leeds. Leeds United. My dad got it me."
+  },
+  {
+   "id": "L0005",
+   "start": 18.8,
+   "end": 22.8,
+   "speaker": "S1",
+   "text": "Brilliant. So, um, do you remember why I'm coming today?"
+  },
+  {
+   "id": "L0006",
+   "start": 23.6,
+   "end": 26.4,
+   "speaker": "S2",
+   "text": "To talk about my support. My hours."
+  },
+  {
+   "id": "L0007",
+   "start": 27.5,
+   "end": 44.3,
+   "speaker": "S1",
+   "text": "That's right. We're seeing if your support is still right for you. I'll write some notes. If you tell me something that means you might not be safe, I might have to tell other people, so they can help. Is that okay?"
+  },
+  {
+   "id": "L0008",
+   "start": 45.0,
+   "end": 46.2,
+   "speaker": "S2",
+   "text": "Yeah. Okay."
+  },
+  {
+   "id": "L0009",
+   "start": 46.7,
+   "end": 51.1,
+   "speaker": "S1",
+   "text": "Good. So, tell me about your week. What do you do?"
+  },
+  {
+   "id": "L0010",
+   "start": 51.8,
+   "end": 59.4,
+   "speaker": "S2",
+   "text": "Tuesdays and Thursdays I go to the garden centre. I do the plants, the watering. And I get paid."
+  },
+  {
+   "id": "L0011",
+   "start": 60.5,
+   "end": 64.5,
+   "speaker": "S1",
+   "text": "You get paid? That's great. How do you get paid?"
+  },
+  {
+   "id": "L0012",
+   "start": 65.2,
+   "end": 69.6,
+   "speaker": "S2",
+   "text": "In the bank. Every two weeks. On a Friday. That's payday."
+  },
+  {
+   "id": "L0013",
+   "start": 70.7,
+   "end": 74.7,
+   "speaker": "S1",
+   "text": "And how's cooking going? Last time you were learning pasta."
+  },
+  {
+   "id": "L0014",
+   "start": 75.5,
+   "end": 81.9,
+   "speaker": "S2",
+   "text": "I can do pasta. And beans on toast. Tom helps me on Mondays with the shopping."
+  },
+  {
+   "id": "L0015",
+   "start": 83.0,
+   "end": 84.6,
+   "speaker": "S1",
+   "text": "Tom's your support worker?"
+  },
+  {
+   "id": "L0016",
+   "start": 84.9,
+   "end": 86.1,
+   "speaker": "S2",
+   "text": "Yeah. He's sound."
+  },
+  {
+   "id": "L0017",
+   "start": 87.0,
+   "end": 90.2,
+   "speaker": "S1",
+   "text": "And what about friends? Who do you see?"
+  },
+  {
+   "id": "L0018",
+   "start": 90.7,
+   "end": 95.1,
+   "speaker": "S2",
+   "text": "My girlfriend, Kayleigh. And, erm, Dean and Lewis. From the park."
+  },
+  {
+   "id": "L0019",
+   "start": 96.0,
+   "end": 99.2,
+   "speaker": "S1",
+   "text": "What do you do with Dean and Lewis?"
+  },
+  {
+   "id": "L0020",
+   "start": 99.9,
+   "end": 102.3,
+   "speaker": "S2",
+   "text": "Hang out. Go to the shop."
+  },
+  {
+   "id": "L0021",
+   "start": 103.3,
+   "end": 108.9,
+   "speaker": "S1",
+   "text": "Okay. Can I ask about money, Jamie? How does money go in your week?"
+  },
+  {
+   "id": "L0022",
+   "start": 109.5,
+   "end": 111.5,
+   "speaker": "S2",
+   "text": "Um. It's... I don't know."
+  },
+  {
+   "id": "L0023",
+   "start": 112.2,
+   "end": 116.2,
+   "speaker": "S1",
+   "text": "That's all right. Take your time. What happens on payday?"
+  },
+  {
+   "id": "L0024",
+   "start": 116.5,
+   "end": 120.9,
+   "speaker": "S2",
+   "text": "Dean and Lewis come. They walk me to the cash machine."
+  },
+  {
+   "id": "L0025",
+   "start": 121.5,
+   "end": 123.1,
+   "speaker": "S1",
+   "text": "And then what happens?"
+  },
+  {
+   "id": "L0026",
+   "start": 123.4,
+   "end": 128.2,
+   "speaker": "S2",
+   "text": "I have to take out a hundred. £100. And give it them."
+  },
+  {
+   "id": "L0027",
+   "start": 128.8,
+   "end": 130.4,
+   "speaker": "S1",
+   "text": "Is that every payday?"
+  },
+  {
+   "id": "L0028",
+   "start": 131.5,
+   "end": 135.5,
+   "speaker": "S2",
+   "text": "Yeah. Every payday. Dean says it's for, um, being mates."
+  },
+  {
+   "id": "L0029",
+   "start": 136.2,
+   "end": 142.6,
+   "speaker": "S1",
+   "text": "Thank you for telling me, Jamie. What would happen if you didn't give them the money?"
+  },
+  {
+   "id": "L0030",
+   "start": 143.5,
+   "end": 148.7,
+   "speaker": "S2",
+   "text": "They said they'd hurt me. Dean said he'd hurt me if I didn't."
+  },
+  {
+   "id": "L0031",
+   "start": 149.2,
+   "end": 151.2,
+   "speaker": "S1",
+   "text": "Okay. That sounds really scary."
+  },
+  {
+   "id": "L0032",
+   "start": 151.9,
+   "end": 157.5,
+   "speaker": "S2",
+   "text": "No, no, forget it. They're my mates. I gave it them. I wanted to."
+  },
+  {
+   "id": "L0033",
+   "start": 158.2,
+   "end": 164.2,
+   "speaker": "S1",
+   "text": "You don't have to say anything you don't want to, Jamie. You're not in trouble."
+  },
+  {
+   "id": "L0034",
+   "start": 164.9,
+   "end": 168.1,
+   "speaker": "S2",
+   "text": "I don't want them to get told off."
+  },
+  {
+   "id": "L0035",
+   "start": 169.0,
+   "end": 177.8,
+   "speaker": "S1",
+   "text": "I understand. Can I ask you again, though, in your own words? When Dean asks for the money, how do you feel?"
+  },
+  {
+   "id": "L0036",
+   "start": 178.9,
+   "end": 187.3,
+   "speaker": "S2",
+   "text": "Scared. He did say it. He said he'd hurt me if I don't give him it. Last Friday he said it."
+  },
+  {
+   "id": "L0037",
+   "start": 187.8,
+   "end": 193.8,
+   "speaker": "S1",
+   "text": "Thank you. You did the right thing telling me. Did they ever actually hurt you?"
+  },
+  {
+   "id": "L0038",
+   "start": 194.6,
+   "end": 196.2,
+   "speaker": "S2",
+   "text": "No. Just said it."
+  },
+  {
+   "id": "L0039",
+   "start": 197.0,
+   "end": 202.6,
+   "speaker": "S1",
+   "text": "Okay. And after they've had the hundred pounds, have you got enough money left?"
+  },
+  {
+   "id": "L0040",
+   "start": 203.4,
+   "end": 209.8,
+   "speaker": "S2",
+   "text": "Not really. Last month I didn't have money for the electric key. The electric went off."
+  },
+  {
+   "id": "L0041",
+   "start": 210.3,
+   "end": 211.5,
+   "speaker": "S1",
+   "text": "For how long?"
+  },
+  {
+   "id": "L0042",
+   "start": 211.8,
+   "end": 215.8,
+   "speaker": "S2",
+   "text": "Two days. It was cold. I had crisps for tea."
+  },
+  {
+   "id": "L0043",
+   "start": 216.9,
+   "end": 220.1,
+   "speaker": "S1",
+   "text": "I'm sorry that happened. Did you tell Tom?"
+  },
+  {
+   "id": "L0044",
+   "start": 220.4,
+   "end": 223.6,
+   "speaker": "S2",
+   "text": "No. I said I forgot to top up."
+  },
+  {
+   "id": "L0045",
+   "start": 224.4,
+   "end": 230.8,
+   "speaker": "S1",
+   "text": "Okay. Can I ask about Kayleigh? Does Kayleigh ever take your money, or ask for it?"
+  },
+  {
+   "id": "L0046",
+   "start": 231.7,
+   "end": 236.1,
+   "speaker": "S2",
+   "text": "No. Kayleigh doesn't take my money. She buys me chips sometimes."
+  },
+  {
+   "id": "L0047",
+   "start": 237.0,
+   "end": 239.4,
+   "speaker": "S1",
+   "text": "So Kayleigh doesn't take your money?"
+  },
+  {
+   "id": "L0048",
+   "start": 239.9,
+   "end": 241.5,
+   "speaker": "S2",
+   "text": "No. Never. She's nice."
+  },
+  {
+   "id": "L0049",
+   "start": 242.0,
+   "end": 252.8,
+   "speaker": "S1",
+   "text": "That's good. Now, Jamie, because Dean said he'd hurt you, I need to tell our safeguarding team. Their job is to keep you safe. Is that okay?"
+  },
+  {
+   "id": "L0050",
+   "start": 253.7,
+   "end": 256.1,
+   "speaker": "S2",
+   "text": "Will Dean know it was me?"
+  },
+  {
+   "id": "L0051",
+   "start": 256.4,
+   "end": 266.0,
+   "speaker": "S1",
+   "text": "We'll be really careful. We'll talk to you before anyone talks to Dean. The police might need to know, but I'll tell you first."
+  },
+  {
+   "id": "L0052",
+   "start": 266.8,
+   "end": 270.4,
+   "speaker": "S2",
+   "text": "Okay. I don't want police at my flat though."
+  },
+  {
+   "id": "L0053",
+   "start": 271.3,
+   "end": 282.9,
+   "speaker": "S1",
+   "text": "I'll write that down, that you don't want police coming to the flat. Now, the next payday is this Friday, the twenty-seventh. What could we do so you're safe?"
+  },
+  {
+   "id": "L0054",
+   "start": 283.5,
+   "end": 284.7,
+   "speaker": "S2",
+   "text": "Dunno."
+  },
+  {
+   "id": "L0055",
+   "start": 285.3,
+   "end": 296.5,
+   "speaker": "S1",
+   "text": "What if Tom came with you to the bank on Friday morning? Or your wages stay in the bank and you just use your card in the shop?"
+  },
+  {
+   "id": "L0056",
+   "start": 297.3,
+   "end": 300.9,
+   "speaker": "S2",
+   "text": "Tom could come. Dean won't come if Tom's there."
+  },
+  {
+   "id": "L0057",
+   "start": 301.3,
+   "end": 310.1,
+   "speaker": "S1",
+   "text": "Good. I'll ring Tom today. And would you like help with a budget, so you know what's for the electric and food?"
+  },
+  {
+   "id": "L0058",
+   "start": 311.0,
+   "end": 312.6,
+   "speaker": "S2",
+   "text": "Yeah. Like a list."
+  },
+  {
+   "id": "L0059",
+   "start": 313.2,
+   "end": 319.6,
+   "speaker": "S1",
+   "text": "Like a list, with pictures if you want. Tom can do that with you on Monday."
+  },
+  {
+   "id": "L0060",
+   "start": 320.7,
+   "end": 321.9,
+   "speaker": "S2",
+   "text": "Okay."
+  },
+  {
+   "id": "L0061",
+   "start": 322.7,
+   "end": 333.1,
+   "speaker": "S1",
+   "text": "And your support hours, I think we should ask for more, maybe an extra two hours a week for money. I'll put that in my report."
+  },
+  {
+   "id": "L0062",
+   "start": 334.1,
+   "end": 337.3,
+   "speaker": "S2",
+   "text": "Will I still go to the garden centre?"
+  },
+  {
+   "id": "L0063",
+   "start": 338.2,
+   "end": 354.2,
+   "speaker": "S1",
+   "text": "Yes, that doesn't change. So, to recap. Today I tell the safeguarding team and ring Tom. Friday, Tom goes with you to the bank. Monday, Tom helps with a budget. And I'll come back on Wednesday the second of December."
+  },
+  {
+   "id": "L0064",
+   "start": 354.5,
+   "end": 355.7,
+   "speaker": "S2",
+   "text": "Wednesday. Okay."
+  },
+  {
+   "id": "L0065",
+   "start": 356.6,
+   "end": 367.0,
+   "speaker": "S1",
+   "text": "If Dean or Lewis come round and you feel scared, ring Tom or the on-call number on your fridge. And if you're in danger, ring 999."
+  },
+  {
+   "id": "L0066",
+   "start": 367.3,
+   "end": 369.7,
+   "speaker": "S2",
+   "text": "I know. It's on the fridge."
+  },
+  {
+   "id": "L0067",
+   "start": 370.5,
+   "end": 372.9,
+   "speaker": "S1",
+   "text": "You've done really well today, Jamie."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Jamie says two men he calls friends, Dean and Lewis, make him take out £100 from the cash machine every payday and give it to them.",
+   "style": "hesitant",
+   "must_keep": [
+    "£100",
+    "payday",
+    "Dean"
+   ],
+   "lines": [
+    "L0024",
+    "L0026",
+    "L0028"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Jamie says Dean told him they would hurt him if he did not give them the money; he then says they are his mates and he gave it to them, and then says again that Dean said he would hurt him.",
+   "style": "retracted_restated",
+   "must_keep": [
+    "hurt",
+    "Dean"
+   ],
+   "lines": [
+    "L0030",
+    "L0032",
+    "L0036"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Jamie says that after paying them he had no money for his electric key and the electric was off for two days last month.",
+   "style": "direct",
+   "must_keep": [
+    "electric",
+    "two days"
+   ],
+   "lines": [
+    "L0040",
+    "L0042"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "denial",
+   "must_not_claim": "Jamie's girlfriend Kayleigh takes his money.",
+   "flag_terms": [
+    "Kayleigh",
+    "money"
+   ],
+   "lines": [
+    "L0046",
+    "L0048"
+   ]
+  }
+ ]
+}

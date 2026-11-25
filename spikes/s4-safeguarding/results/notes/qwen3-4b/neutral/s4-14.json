@@ -1,0 +1,462 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "Solicitor Daniel Okafor attended the meeting with client Rachel Penrose.",
+      "cites": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "The purpose of the meeting was for Rachel Penrose to disclose information about her mother Margaret's financial and care situation, including concerns about her brother Martin's un",
+      "cites": [
+       10,
+       11,
+       12,
+       13,
+       14
+      ]
+     },
+     {
+      "text": "Margaret Penrose is 81 years old and has been diagnosed with dementia since two years ago.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Margaret Penrose lives at 81 Larch Road with carers.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "Martin Penrose holds the power of attorney for financial and property matters for Margaret Penrose.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "The power of attorney was signed by Margaret Penrose in 2023 and was registered.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "Martin Penrose is the sole attorney; Rachel Penrose is not an attorney.",
+      "cites": [
+       14,
+       15
+      ]
+     },
+     {
+      "text": "On 14 August, a transfer of £12,000 was made from Margaret Penrose's account to Martin Penrose's account.",
+      "cites": [
+       17,
+       19
+      ]
+     },
+     {
+      "text": "The transfer was to an account in Martin Penrose's name, as indicated by the account numbers.",
+      "cites": [
+       19
+      ]
+     },
+     {
+      "text": "Rachel Penrose took photos of the bank statement on 14 August and printed them for reference.",
+      "cites": [
+       21
+      ]
+     },
+     {
+      "text": "On 22 September, Margaret Penrose told Rachel Penrose that Martin had made her sign a document without her understanding.",
+      "cites": [
+       29,
+       31,
+       32
+      ]
+     },
+     {
+      "text": "Margaret Penrose did not know what the document was or what it was for.",
+      "cites": [
+       31,
+       35
+      ]
+     },
+     {
+      "text": "Rachel Penrose has not seen the document that Margaret signed on 22 September.",
+      "cites": [
+       33,
+       35
+      ]
+     },
+     {
+      "text": "Brightwell care agency sent a letter dated 3 November stating that invoices are three months overdue and that they may stop calls if unpaid.",
+      "cites": [
+       39,
+       41
+      ]
+     },
+     {
+      "text": "The outstanding care bills amount to approximately £2,400.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "Martin Penrose has not said anything about selling the house, nor has it been put on the market.",
+      "cites": [
+       48,
+       49
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": [
+     {
+      "text": "Rachel Penrose has the letter from Brightwell dated 3 November.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "Rachel Penrose has photos of the bank statement showing the £12,000 transfer on 14 August.",
+      "cites": [
+       21
+      ]
+     },
+     {
+      "text": "Rachel Penrose has not provided any document related to the document signed by her mother on 22 September.",
+      "cites": [
+       33,
+       35
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": [
+     {
+      "text": "Rachel Penrose wants to protect her mother's money and prevent Martin from accessing it.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "Rachel Penrose is concerned that if Martin sells the house, there will be nothing left for her mother's care.",
+      "cites": [
+       47,
+       48
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "The solicitor advised that a transfer of £12,000 by an attorney without authority may be investigated by the Office of the Public Guardian.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "The Office of the Public Guardian supervises attorneys and can request Martin to account for every penny of the transfer.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "The Office of the Public Guardian can apply to the Court of Protection to cancel the power of attorney if necessary.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "The solicitor advised that taking money as an attorney without proper authority may be a criminal offence.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "The solicitor advised that an adult safeguarding referral to Wexley Council is appropriate due to Margaret Penrose being an adult at risk.",
+      "cites": [
+       55,
+       56
+      ]
+     },
+     {
+      "text": "The solicitor advised that Rachel Penrose should not confront Martin about the financial matters at this time to avoid him moving money or becoming defensive.",
+      "cites": [
+       58,
+       59
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": [
+     {
+      "text": "Rachel Penrose will call Brightwell care agency tomorrow to explain that the bills are in hand and to prevent service interruption.",
+      "cites": [
+       61
+      ]
+     },
+     {
+      "text": "Rachel Penrose will email the solicitor the photos of the bank statement and the Brightwell letter by Friday, 27 November.",
+      "cites": [
+       62
+      ]
+     },
+     {
+      "text": "The solicitor will write to the Office of the Public Guardian by Tuesday, 1 December.",
+      "cites": [
+       62
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Solicitor Daniel Okafor attended the meeting with client Rachel Penrose.",
+   "cites": [
+    1,
+    2
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The purpose of the meeting was for Rachel Penrose to disclose information about her mother Margaret's financial and care situation, including concerns about her brother Martin's un",
+   "cites": [
+    10,
+    11,
+    12,
+    13,
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Margaret Penrose is 81 years old and has been diagnosed with dementia since two years ago.",
+   "cites": [
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Margaret Penrose lives at 81 Larch Road with carers.",
+   "cites": [
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Martin Penrose holds the power of attorney for financial and property matters for Margaret Penrose.",
+   "cites": [
+    13
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The power of attorney was signed by Margaret Penrose in 2023 and was registered.",
+   "cites": [
+    13
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Martin Penrose is the sole attorney; Rachel Penrose is not an attorney.",
+   "cites": [
+    14,
+    15
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "On 14 August, a transfer of £12,000 was made from Margaret Penrose's account to Martin Penrose's account.",
+   "cites": [
+    17,
+    19
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The transfer was to an account in Martin Penrose's name, as indicated by the account numbers.",
+   "cites": [
+    19
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose took photos of the bank statement on 14 August and printed them for reference.",
+   "cites": [
+    21
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "On 22 September, Margaret Penrose told Rachel Penrose that Martin had made her sign a document without her understanding.",
+   "cites": [
+    29,
+    31,
+    32
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Margaret Penrose did not know what the document was or what it was for.",
+   "cites": [
+    31,
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose has not seen the document that Margaret signed on 22 September.",
+   "cites": [
+    33,
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Brightwell care agency sent a letter dated 3 November stating that invoices are three months overdue and that they may stop calls if unpaid.",
+   "cites": [
+    39,
+    41
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The outstanding care bills amount to approximately £2,400.",
+   "cites": [
+    39
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Rachel Penrose has the letter from Brightwell dated 3 November.",
+   "cites": [
+    41
+   ],
+   "section": "Documents and evidence"
+  },
+  {
+   "text": "Rachel Penrose has photos of the bank statement showing the £12,000 transfer on 14 August.",
+   "cites": [
+    21
+   ],
+   "section": "Documents and evidence"
+  },
+  {
+   "text": "Rachel Penrose has not provided any document related to the document signed by her mother on 22 September.",
+   "cites": [
+    33,
+    35
+   ],
+   "section": "Documents and evidence"
+  },
+  {
+   "text": "Rachel Penrose wants to protect her mother's money and prevent Martin from accessing it.",
+   "cites": [
+    45
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Rachel Penrose is concerned that if Martin sells the house, there will be nothing left for her mother's care.",
+   "cites": [
+    47,
+    48
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "Martin Penrose has not said anything about selling the house, nor has it been put on the market.",
+   "cites": [
+    48,
+    49
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The solicitor advised that a transfer of £12,000 by an attorney without authority may be investigated by the Office of the Public Guardian.",
+   "cites": [
+    50
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The Office of the Public Guardian supervises attorneys and can request Martin to account for every penny of the transfer.",
+   "cites": [
+    52
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The Office of the Public Guardian can apply to the Court of Protection to cancel the power of attorney if necessary.",
+   "cites": [
+    52
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that taking money as an attorney without proper authority may be a criminal offence.",
+   "cites": [
+    54
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that an adult safeguarding referral to Wexley Council is appropriate due to Margaret Penrose being an adult at risk.",
+   "cites": [
+    55,
+    56
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that Rachel Penrose should not confront Martin about the financial matters at this time to avoid him moving money or becoming defensive.",
+   "cites": [
+    58,
+    59
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "Rachel Penrose will call Brightwell care agency tomorrow to explain that the bills are in hand and to prevent service interruption.",
+   "cites": [
+    61
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "Rachel Penrose will email the solicitor the photos of the bank statement and the Brightwell letter by Friday, 27 November.",
+   "cites": [
+    62
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "The solicitor will write to the Office of the Public Guardian by Tuesday, 1 December.",
+   "cites": [
+    62
+   ],
+   "section": "Next steps"
+  }
+ ]
+}

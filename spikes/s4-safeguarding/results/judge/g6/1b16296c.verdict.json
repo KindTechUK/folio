@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Rachel Penrose discovered a bank transfer of £12,000 from her mother's account to Martin's account on 14 August.",
+   "why": "amount, accounts, date kept"
+  },
+  "D02": {
+   "label": "dropped",
+   "note_text": "",
+   "why": "no mention of the new car, early September, or Martin saying Margaret 'helped him out'"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Rachel Penrose saw her mother on 22 September, when her mother said, 'Martin made me sign something' and that Martin put it in front of her and made her sign it, and she was afraid",
+   "why": "date, made her sign, fear kept; 'did not know what it was' implied by S9 (no one has seen the document) but not stated"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "The care agency Brightwell sent a letter dated 3 November stating that invoices are three months overdue and amount to approximately £2,400",
+   "why": "agency, three months, £2,400 kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Several sentences truncated; S16 has a stray non-English character. House sale recorded as a fear only."
+}

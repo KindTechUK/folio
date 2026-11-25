@@ -1,0 +1,530 @@
+{
+ "id": "s4-06",
+ "title": "Care home review, resident found male resident in her bed (synthetic)",
+ "template": "assessment",
+ "category": "sexual_abuse",
+ "setting": "A social worker reviews the placement of Mrs Edna Holloway, 84, at Willowmere Care Home, Fenmoor, with a senior care worker present.",
+ "review": "pending practitioner review",
+ "speakers": {
+  "S1": "Social worker (Fiona Grant)",
+  "S2": "Edna Holloway (the person)",
+  "S3": "Senior care worker (Joy Mensah)"
+ },
+ "lines": [
+  {
+   "id": "L0001",
+   "start": 0.6,
+   "end": 7.0,
+   "speaker": "S1",
+   "text": "Hello Mrs Holloway, I'm Fiona, the social worker. Do you remember, I came in the summer?"
+  },
+  {
+   "id": "L0002",
+   "start": 7.6,
+   "end": 11.6,
+   "speaker": "S2",
+   "text": "Oh, I think so, dear. You had the green coat."
+  },
+  {
+   "id": "L0003",
+   "start": 12.7,
+   "end": 21.1,
+   "speaker": "S1",
+   "text": "That's me. Is it alright if I sit down? And Joy's going to stay with us, if that's okay with you."
+  },
+  {
+   "id": "L0004",
+   "start": 22.2,
+   "end": 25.0,
+   "speaker": "S2",
+   "text": "Yes, Joy's lovely. She does my hair."
+  },
+  {
+   "id": "L0005",
+   "start": 25.6,
+   "end": 27.2,
+   "speaker": "S3",
+   "text": "Only on Thursdays, mind."
+  },
+  {
+   "id": "L0006",
+   "start": 27.8,
+   "end": 45.4,
+   "speaker": "S1",
+   "text": "So this is your review, to see how things are going here. I'll write notes. What you tell me is kept private, but if I'm worried about your safety I may need to share it with others, and I'd tell you. Is that alright?"
+  },
+  {
+   "id": "L0007",
+   "start": 46.0,
+   "end": 47.2,
+   "speaker": "S2",
+   "text": "That's fine, dear."
+  },
+  {
+   "id": "L0008",
+   "start": 48.2,
+   "end": 50.6,
+   "speaker": "S1",
+   "text": "How are you finding it here?"
+  },
+  {
+   "id": "L0009",
+   "start": 51.1,
+   "end": 56.7,
+   "speaker": "S2",
+   "text": "The food's alright. Bit bland. I like the lounge, you can see the garden."
+  },
+  {
+   "id": "L0010",
+   "start": 57.1,
+   "end": 59.5,
+   "speaker": "S1",
+   "text": "And how are you getting about?"
+  },
+  {
+   "id": "L0011",
+   "start": 60.2,
+   "end": 66.6,
+   "speaker": "S2",
+   "text": "With my frame. Joy or one of the girls walks with me to the dining room."
+  },
+  {
+   "id": "L0012",
+   "start": 66.9,
+   "end": 70.5,
+   "speaker": "S3",
+   "text": "She's been really steady since the physio in September."
+  },
+  {
+   "id": "L0013",
+   "start": 71.0,
+   "end": 74.2,
+   "speaker": "S1",
+   "text": "That's good. Are your hearing aids working okay?"
+  },
+  {
+   "id": "L0014",
+   "start": 75.1,
+   "end": 76.7,
+   "speaker": "S2",
+   "text": "The left one whistles."
+  },
+  {
+   "id": "L0015",
+   "start": 77.7,
+   "end": 82.1,
+   "speaker": "S3",
+   "text": "We've got the audiology appointment booked for the 8th of December."
+  },
+  {
+   "id": "L0016",
+   "start": 82.6,
+   "end": 86.2,
+   "speaker": "S1",
+   "text": "Great. And your daughter, Pauline, is she still phoning?"
+  },
+  {
+   "id": "L0017",
+   "start": 87.0,
+   "end": 91.4,
+   "speaker": "S2",
+   "text": "Every Sunday. She's up in Inverness. She can't get down much."
+  },
+  {
+   "id": "L0018",
+   "start": 92.4,
+   "end": 102.0,
+   "speaker": "S1",
+   "text": "Okay. Joy, you mentioned on the phone there'd been an incident at night. Mrs Holloway, is it alright if Joy tells me about it?"
+  },
+  {
+   "id": "L0019",
+   "start": 102.5,
+   "end": 103.7,
+   "speaker": "S2",
+   "text": "Yes. Go on."
+  },
+  {
+   "id": "L0020",
+   "start": 104.7,
+   "end": 115.5,
+   "speaker": "S3",
+   "text": "So, on the night of Saturday the 14th of November, I was on nights. I did the 2.30 check and Mr Pike was in Mrs Holloway's bed."
+  },
+  {
+   "id": "L0021",
+   "start": 116.2,
+   "end": 118.2,
+   "speaker": "S1",
+   "text": "Mr Pike is another resident?"
+  },
+  {
+   "id": "L0022",
+   "start": 118.8,
+   "end": 123.2,
+   "speaker": "S3",
+   "text": "Yes, Arthur Pike. He's in room 12, down the same corridor."
+  },
+  {
+   "id": "L0023",
+   "start": 124.2,
+   "end": 127.4,
+   "speaker": "S1",
+   "text": "What did you see when you went in?"
+  },
+  {
+   "id": "L0024",
+   "start": 128.0,
+   "end": 137.2,
+   "speaker": "S3",
+   "text": "He was in her bed, under the covers, next to her. Edna was awake and she was upset, she was saying get off."
+  },
+  {
+   "id": "L0025",
+   "start": 138.3,
+   "end": 139.9,
+   "speaker": "S1",
+   "text": "What did you do?"
+  },
+  {
+   "id": "L0026",
+   "start": 140.7,
+   "end": 149.9,
+   "speaker": "S3",
+   "text": "I got him up and walked him back to his room. Then I sat with Edna and wrote it in the incident book."
+  },
+  {
+   "id": "L0027",
+   "start": 150.9,
+   "end": 154.9,
+   "speaker": "S1",
+   "text": "Mrs Holloway, can you tell me what happened that night?"
+  },
+  {
+   "id": "L0028",
+   "start": 155.2,
+   "end": 159.6,
+   "speaker": "S2",
+   "text": "I woke up and there was a man in my bed."
+  },
+  {
+   "id": "L0029",
+   "start": 160.0,
+   "end": 161.2,
+   "speaker": "S1",
+   "text": "What happened then?"
+  },
+  {
+   "id": "L0030",
+   "start": 162.0,
+   "end": 168.0,
+   "speaker": "S2",
+   "text": "He touched me. He touched me on my bottom and my front. Under my nightie."
+  },
+  {
+   "id": "L0031",
+   "start": 168.9,
+   "end": 172.5,
+   "speaker": "S1",
+   "text": "Thank you for telling me. What did you do?"
+  },
+  {
+   "id": "L0032",
+   "start": 173.0,
+   "end": 180.2,
+   "speaker": "S2",
+   "text": "I told him to stop. I said stop it, get out. I said it a lot of times."
+  },
+  {
+   "id": "L0033",
+   "start": 181.0,
+   "end": 182.2,
+   "speaker": "S1",
+   "text": "Did he stop?"
+  },
+  {
+   "id": "L0034",
+   "start": 182.7,
+   "end": 185.1,
+   "speaker": "S2",
+   "text": "Not straight away. Then Joy came."
+  },
+  {
+   "id": "L0035",
+   "start": 185.7,
+   "end": 187.7,
+   "speaker": "S1",
+   "text": "How have you been since?"
+  },
+  {
+   "id": "L0036",
+   "start": 188.6,
+   "end": 192.6,
+   "speaker": "S2",
+   "text": "I don't sleep well. I keep the light on now."
+  },
+  {
+   "id": "L0037",
+   "start": 193.2,
+   "end": 198.8,
+   "speaker": "S1",
+   "text": "That's understandable. Mrs Holloway, had Mr Pike come into your room before that night?"
+  },
+  {
+   "id": "L0038",
+   "start": 199.6,
+   "end": 202.8,
+   "speaker": "S2",
+   "text": "No. Never before. That was the first time."
+  },
+  {
+   "id": "L0039",
+   "start": 203.4,
+   "end": 208.6,
+   "speaker": "S3",
+   "text": "There's nothing in the records about him going in her room before, either."
+  },
+  {
+   "id": "L0040",
+   "start": 209.3,
+   "end": 214.1,
+   "speaker": "S1",
+   "text": "Okay. Joy, what happened after you wrote it in the incident book?"
+  },
+  {
+   "id": "L0041",
+   "start": 215.1,
+   "end": 223.9,
+   "speaker": "S3",
+   "text": "I told Mrs Dobson, the manager, on the Monday morning. She said he's confused and he just went into the wrong room."
+  },
+  {
+   "id": "L0042",
+   "start": 224.8,
+   "end": 228.0,
+   "speaker": "S1",
+   "text": "Was it reported to anyone outside the home?"
+  },
+  {
+   "id": "L0043",
+   "start": 228.6,
+   "end": 235.8,
+   "speaker": "S3",
+   "text": "No. She said it didn't need reporting and not to make a fuss. That's why I rang you."
+  },
+  {
+   "id": "L0044",
+   "start": 236.3,
+   "end": 240.3,
+   "speaker": "S1",
+   "text": "Thank you, Joy, that was the right thing to do."
+  },
+  {
+   "id": "L0045",
+   "start": 241.0,
+   "end": 244.2,
+   "speaker": "S2",
+   "text": "I don't want to cause trouble for anybody."
+  },
+  {
+   "id": "L0046",
+   "start": 244.8,
+   "end": 250.8,
+   "speaker": "S1",
+   "text": "You're not causing any trouble. It's important we know. What would you like to happen?"
+  },
+  {
+   "id": "L0047",
+   "start": 251.3,
+   "end": 258.1,
+   "speaker": "S2",
+   "text": "I just want to feel safe in my room. I want him kept away from my end."
+  },
+  {
+   "id": "L0048",
+   "start": 258.5,
+   "end": 262.9,
+   "speaker": "S1",
+   "text": "Would a lock on your door, or a room move, help?"
+  },
+  {
+   "id": "L0049",
+   "start": 264.0,
+   "end": 268.0,
+   "speaker": "S2",
+   "text": "I'd like a room nearer the lounge. I've asked before."
+  },
+  {
+   "id": "L0050",
+   "start": 268.5,
+   "end": 271.3,
+   "speaker": "S3",
+   "text": "Room 4 is coming free next week."
+  },
+  {
+   "id": "L0051",
+   "start": 272.4,
+   "end": 279.6,
+   "speaker": "S1",
+   "text": "Let's look at that. Can I just check about money? Is your placement still funded the same way?"
+  },
+  {
+   "id": "L0052",
+   "start": 280.4,
+   "end": 283.6,
+   "speaker": "S2",
+   "text": "Pauline sorts that out. I sold the bungalow."
+  },
+  {
+   "id": "L0053",
+   "start": 284.1,
+   "end": 290.1,
+   "speaker": "S1",
+   "text": "Okay, so you're paying for yourself. Is it alright if I tell Pauline about this?"
+  },
+  {
+   "id": "L0054",
+   "start": 291.1,
+   "end": 292.7,
+   "speaker": "S2",
+   "text": "Yes. She should know."
+  },
+  {
+   "id": "L0055",
+   "start": 293.3,
+   "end": 310.5,
+   "speaker": "S1",
+   "text": "Okay. Here's what will happen. Today I'll raise a safeguarding concern with the council and ask the police to be informed. I'll speak to Mrs Dobson this afternoon about why this wasn't reported, and to make sure the Care Quality Commission are notified."
+  },
+  {
+   "id": "L0056",
+   "start": 311.3,
+   "end": 312.9,
+   "speaker": "S3",
+   "text": "She won't be happy."
+  },
+  {
+   "id": "L0057",
+   "start": 313.3,
+   "end": 325.3,
+   "speaker": "S1",
+   "text": "That's for me to deal with, Joy. You've done nothing wrong. I'll also ask that Mr Pike has extra checks at night from tonight, and a sensor on his door."
+  },
+  {
+   "id": "L0058",
+   "start": 326.3,
+   "end": 327.5,
+   "speaker": "S2",
+   "text": "Thank you, dear."
+  },
+  {
+   "id": "L0059",
+   "start": 327.8,
+   "end": 333.4,
+   "speaker": "S1",
+   "text": "Joy, could you send me a copy of the incident book entry by tomorrow?"
+  },
+  {
+   "id": "L0060",
+   "start": 333.9,
+   "end": 336.7,
+   "speaker": "S3",
+   "text": "Yes, I'll scan it in the morning."
+  },
+  {
+   "id": "L0061",
+   "start": 337.8,
+   "end": 344.2,
+   "speaker": "S1",
+   "text": "And can we look at the move to room 4 by Friday? I'll ring Pauline tonight."
+  },
+  {
+   "id": "L0062",
+   "start": 344.5,
+   "end": 347.7,
+   "speaker": "S3",
+   "text": "I'll talk to the deputy about the room."
+  },
+  {
+   "id": "L0063",
+   "start": 348.6,
+   "end": 357.0,
+   "speaker": "S1",
+   "text": "I'll come back and see you on Thursday the 3rd of December, Mrs Holloway. Is there anything you want to ask?"
+  },
+  {
+   "id": "L0064",
+   "start": 358.1,
+   "end": 364.5,
+   "speaker": "S2",
+   "text": "Will you have a look at my painting before you go? Joy helped me with it."
+  },
+  {
+   "id": "L0065",
+   "start": 365.4,
+   "end": 366.6,
+   "speaker": "S1",
+   "text": "I'd love to."
+  }
+ ],
+ "disclosures": [
+  {
+   "id": "D01",
+   "what": "Joy Mensah said that at the 2.30 check on the night of Saturday 14 November she found another resident, Mr Pike, under the covers in Mrs Holloway's bed while Mrs Holloway was awake, upset and saying \"get off\".",
+   "style": "third_party",
+   "must_keep": [
+    "bed",
+    "2.30",
+    "Saturday"
+   ],
+   "lines": [
+    "L0020",
+    "L0024"
+   ]
+  },
+  {
+   "id": "D02",
+   "what": "Mrs Holloway said Mr Pike touched her on her bottom and her front under her nightie, and that she told him to stop.",
+   "style": "direct",
+   "must_keep": [
+    "touched",
+    "bottom",
+    "front",
+    "stop"
+   ],
+   "lines": [
+    "L0030",
+    "L0032",
+    "L0034"
+   ]
+  },
+  {
+   "id": "D03",
+   "what": "Joy Mensah said the manager, Mrs Dobson, said Mr Pike was confused and had gone into the wrong room, that it did not need reporting and not to make a fuss.",
+   "style": "third_party",
+   "must_keep": [
+    "wrong room",
+    "reporting"
+   ],
+   "lines": [
+    "L0041",
+    "L0043"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "C01",
+   "kind": "denial",
+   "must_not_claim": "Mr Pike had come into Mrs Holloway's room before 14 November.",
+   "flag_terms": [
+    "room",
+    "before"
+   ],
+   "lines": [
+    "L0038",
+    "L0039"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,429 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": [
+     {
+      "text": "Gemma Shaw is the mother of Noah and Isla.",
+      "cites": [
+       2
+      ]
+     },
+     {
+      "text": "Noah is four months old and has a scheduled four-month check-up.",
+      "cites": [
+       3
+      ]
+     },
+     {
+      "text": "Noah weighs 6.8 kilos, which is on his growth line.",
+      "cites": [
+       3
+      ]
+     },
+     {
+      "text": "Isla is in reception at school and her teacher is Miss Patel.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Isla is reading little words at school.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Ryan is Liam's brother and babysits on Fridays when the mother is at work and Liam is on night shifts.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "Ryan has been babysitting since September.",
+      "cites": [
+       28
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Noah is currently on formula, consuming five ounces every three to four hours.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "Noah has six to seven wet nappies per day.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Noah sleeps in a Moses basket in the mother's room.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Noah's sleep pattern is a five-hour stretch from about 11 p.m. to 4 a.m.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "The mother has not asked Isla any further questions about the incident.",
+      "cites": [
+       32
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "The mother has written down what Isla said, in her own words, with the date.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "The mother has not asked Isla to repeat or elaborate on the incident.",
+      "cites": [
+       32
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Isla told her mother that Uncle Ryan touched her private parts, which she calls 'her front bottom', when he babysits.",
+      "cites": [
+       22,
+       24
+      ]
+     },
+     {
+      "text": "Isla said the incident happened on Sunday night while she was in the bath.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "Isla said Ryan told her it was a secret and not to tell mummy.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "The health visitor, Rachel Moore, will share the information about Isla's disclosure with children's social care (Harbridge MASH) due to concerns for child safety.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "The health visitor will share the disclosure with Harbridge MASH, the children's social care service.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "The mother, Gemma, has not told the father Liam about Isla's disclosure, but has told him about it.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "Liam does not believe Isla's statement but is emotionally distressed.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "The mother's sister, Kelly, said that Ryan was in trouble with the police years ago, but does not know what it was.",
+      "cites": [
+       37
+      ]
+     },
+     {
+      "text": "Kelly heard about Ryan's past incident from someone at her work and does not know if it is true.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "The health visitor advised the mother not to confront Ryan directly or question Isla before a police investigation.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "The health visitor advised the mother to ensure Ryan does not have any time alone with Isla or Noah until the matter is investigated.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "The mother has agreed to prevent Ryan from having any contact with Isla or Noah until further notice.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "The mother has agreed to ask Liam to wait before visiting Ryan's home.",
+      "cites": [
+       48
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "The mother has suggested that her mother could look after the children on Fridays instead of Ryan.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "The mother has suggested swapping her shift at the Co-op to free up time for childcare on Fridays.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "The mother earns income from working at the Co-op and receives child benefit.",
+      "cites": [
+       53
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": []
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Gemma Shaw is the mother of Noah and Isla.",
+   "cites": [
+    2
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Noah is four months old and has a scheduled four-month check-up.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Noah weighs 6.8 kilos, which is on his growth line.",
+   "cites": [
+    3
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Noah is currently on formula, consuming five ounces every three to four hours.",
+   "cites": [
+    8
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Noah has six to seven wet nappies per day.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Noah sleeps in a Moses basket in the mother's room.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Noah's sleep pattern is a five-hour stretch from about 11 p.m. to 4 a.m.",
+   "cites": [
+    12
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Isla is in reception at school and her teacher is Miss Patel.",
+   "cites": [
+    16
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Isla is reading little words at school.",
+   "cites": [
+    16
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Isla told her mother that Uncle Ryan touched her private parts, which she calls 'her front bottom', when he babysits.",
+   "cites": [
+    22,
+    24
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Isla said the incident happened on Sunday night while she was in the bath.",
+   "cites": [
+    26
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Isla said Ryan told her it was a secret and not to tell mummy.",
+   "cites": [
+    30
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Ryan is Liam's brother and babysits on Fridays when the mother is at work and Liam is on night shifts.",
+   "cites": [
+    28
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "Ryan has been babysitting since September.",
+   "cites": [
+    28
+   ],
+   "section": "Background and presenting situation"
+  },
+  {
+   "text": "The health visitor, Rachel Moore, will share the information about Isla's disclosure with children's social care (Harbridge MASH) due to concerns for child safety.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The health visitor will share the disclosure with Harbridge MASH, the children's social care service.",
+   "cites": [
+    40
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother, Gemma, has not told the father Liam about Isla's disclosure, but has told him about it.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Liam does not believe Isla's statement but is emotionally distressed.",
+   "cites": [
+    36
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother's sister, Kelly, said that Ryan was in trouble with the police years ago, but does not know what it was.",
+   "cites": [
+    37
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Kelly heard about Ryan's past incident from someone at her work and does not know if it is true.",
+   "cites": [
+    39
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother has not asked Isla any further questions about the incident.",
+   "cites": [
+    32
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "The mother has written down what Isla said, in her own words, with the date.",
+   "cites": [
+    33
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "The mother has not asked Isla to repeat or elaborate on the incident.",
+   "cites": [
+    32
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "The health visitor advised the mother not to confront Ryan directly or question Isla before a police investigation.",
+   "cites": [
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The health visitor advised the mother to ensure Ryan does not have any time alone with Isla or Noah until the matter is investigated.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother has agreed to prevent Ryan from having any contact with Isla or Noah until further notice.",
+   "cites": [
+    45
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother has agreed to ask Liam to wait before visiting Ryan's home.",
+   "cites": [
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "The mother has suggested that her mother could look after the children on Fridays instead of Ryan.",
+   "cites": [
+    51
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "The mother has suggested swapping her shift at the Co-op to free up time for childcare on Fridays.",
+   "cites": [
+    51
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "The mother earns income from working at the Co-op and receives child benefit.",
+   "cites": [
+    53
+   ],
+   "section": "Support network and finances"
+  }
+ ]
+}

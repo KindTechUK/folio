@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Mr Pike (Arthur Pike) was in Edna Holloway's bed at 2.30 on the night of the 14th of November ... 'under the covers, next to her' ... Edna was awake and 'upset', saying 'get off'.",
+   "why": "Saturday 14 Nov, 2.30, in her bed under covers, upset, 'get off' all kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Edna Holloway (S2) states the man 'touched me' on her bottom and front 'under my nightie'. ... told the man to stop, saying 'stop it, get out' 'a lot of times'. ... Mr Pike did not stop 'straight away'.",
+   "why": "touched, bottom, front, under nightie, told him to stop, did not stop straight away kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Mrs Dobson stated Mr Pike was confused and 'just went into the wrong room'. ... Mrs Dobson stated it 'didn't need reporting' and told her 'not to make a fuss'.",
+   "why": "wrong room, didn't need reporting, not make a fuss kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Sentence 30 wrongly says Joy called Edna (she rang the social worker); not a disclosure. Actions sections empty (budget)."
+}

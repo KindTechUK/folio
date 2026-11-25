@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "S2 stated Neil punched him in the face. ... S2 stated Neil punched him with no warning.",
+   "why": "punched, face kept; earlier 'fell into a door' also listed without marking it as retracted, but the assault is plainly recorded"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "S2 stated Neil broke his nose. ... S2 stated he went to Castlebrook General A and E hospital that night. S2 stated the hospital x-rayed his nose and said it was broken.",
+   "why": "broken nose, A&E, x-ray kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "S2 stated after being punched, Neil picked up a kitchen chair and hit him across the back and shoulder.",
+   "why": "chair, hit, back kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "S10 records the retracted 'fell into a door' story as a plain statement next to the assault; the record would read as contradictory. Later sections empty from budget."
+}

@@ -1,0 +1,427 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "The purpose of the meeting was to discuss a letter before proceedings from the council regarding concerns about the client's children, specifically a bruise on Alfie's arm and a 20",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "The client, Chloe Mason, attended the meeting with the solicitor, Daniel Hughes.",
+      "cites": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "The client has a child named Poppy, who is fourteen months old and walks everywhere.",
+      "cites": [
+       4
+      ]
+     },
+     {
+      "text": "The client has a child named Alfie, who attends Little Stars nursery on Bank Street, Monday to Friday, mornings.",
+      "cites": [
+       6
+      ]
+     },
+     {
+      "text": "Alfie is described as a fussy eater who only eats pasta and fish fingers, and sleeps from seven till seven.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "The council's letter cites a bruise on Alfie's arm observed by the nursery on the ninth of November.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "The council's letter cites a police call to the house in October.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "The client stated she told the social worker, Ms Okoye, that Alfie fell off the sofa.",
+      "cites": [
+       15
+      ]
+     },
+     {
+      "text": "The client denied that Alfie fell off the sofa, stating instead that Jordan slapped him.",
+      "cites": [
+       18
+      ]
+     },
+     {
+      "text": "The client reported that Jordan slapped Alfie across the face because he would not eat his tea.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "The client stated the incident where Jordan slapped Alfie occurred on Sunday the 8th of November at about five o'clock.",
+      "cites": [
+       24
+      ]
+     },
+     {
+      "text": "The client reported that Jordan grabbed Alfie by the arm, pulled him off the chair, and caused the bruise.",
+      "cites": [
+       26
+      ]
+     },
+     {
+      "text": "The client stated she was at the sink when she saw the bruise on Alfie's arm.",
+      "cites": [
+       28
+      ]
+     },
+     {
+      "text": "The client reported that Jordan told her to say Alfie fell off the sofa when Ms Okoye came to speak to her.",
+      "cites": [
+       30
+      ]
+     },
+     {
+      "text": "The client stated that in October, she and Jordan were arguing and shouting, and a neighbour rang the police.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "The client stated the police only talked to them during the October incident.",
+      "cites": [
+       32
+      ]
+     },
+     {
+      "text": "The client stated Jordan is currently at his mother's house and will return on Saturday.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "The client stated Jordan has never taken the children anywhere without her agreement.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "The client stated Jordan threatened to take the children and Poppy if she left him.",
+      "cites": [
+       37
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": []
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": [
+     {
+      "text": "The client's primary objective is to have her children stay with her.",
+      "cites": [
+       36
+      ]
+     },
+     {
+      "text": "The client expressed a concern that Jordan might take Alfie even if she leaves him.",
+      "cites": [
+       45
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "The solicitor advised the client to tell Ms Okoye what really happened before the meeting on the first of December.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "The solicitor advised that telling the truth and keeping Jordan away protects Alfie and the client in the process.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "The solicitor advised that a mum who tells the truth and acts to keep her child safe is in a stronger position than one who backs her partner's story.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "The solicitor advised the client that she can ask for her Universal Credit to be paid into her own account.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "The client agreed to the solicitor's advice to tell Ms Okoye what really happened.",
+      "cites": [
+       49
+      ]
+     },
+     {
+      "text": "The solicitor gave permission to write to Ms Okoye with the information provided by the client.",
+      "cites": [
+       48
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": [
+     {
+      "text": "The solicitor stated he would write to Ms Okoye with the client's account.",
+      "cites": [
+       56
+      ]
+     },
+     {
+      "text": "The solicitor advised the client to ring Harbridge Women's Aid today to discuss a safety plan for when Jordan returns on Saturday.",
+      "cites": [
+       57
+      ]
+     },
+     {
+      "text": "The solicitor stated he would prepare a non-molestation application.",
+      "cites": [
+       59
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "The purpose of the meeting was to discuss a letter before proceedings from the council regarding concerns about the client's children, specifically a bruise on Alfie's arm and a 20",
+   "cites": [
+    13
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The client, Chloe Mason, attended the meeting with the solicitor, Daniel Hughes.",
+   "cites": [
+    1
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "The client has a child named Poppy, who is fourteen months old and walks everywhere.",
+   "cites": [
+    4
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client has a child named Alfie, who attends Little Stars nursery on Bank Street, Monday to Friday, mornings.",
+   "cites": [
+    6
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "Alfie is described as a fussy eater who only eats pasta and fish fingers, and sleeps from seven till seven.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The council's letter cites a bruise on Alfie's arm observed by the nursery on the ninth of November.",
+   "cites": [
+    13
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The council's letter cites a police call to the house in October.",
+   "cites": [
+    13
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client stated she told the social worker, Ms Okoye, that Alfie fell off the sofa.",
+   "cites": [
+    15
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client denied that Alfie fell off the sofa, stating instead that Jordan slapped him.",
+   "cites": [
+    18
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client reported that Jordan slapped Alfie across the face because he would not eat his tea.",
+   "cites": [
+    22
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client stated the incident where Jordan slapped Alfie occurred on Sunday the 8th of November at about five o'clock.",
+   "cites": [
+    24
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client reported that Jordan grabbed Alfie by the arm, pulled him off the chair, and caused the bruise.",
+   "cites": [
+    26
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client stated she was at the sink when she saw the bruise on Alfie's arm.",
+   "cites": [
+    28
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client reported that Jordan told her to say Alfie fell off the sofa when Ms Okoye came to speak to her.",
+   "cites": [
+    30
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client stated that in October, she and Jordan were arguing and shouting, and a neighbour rang the police.",
+   "cites": [
+    32
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client stated the police only talked to them during the October incident.",
+   "cites": [
+    32
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client stated Jordan is currently at his mother's house and will return on Saturday.",
+   "cites": [
+    34
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client stated Jordan has never taken the children anywhere without her agreement.",
+   "cites": [
+    39
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client stated Jordan threatened to take the children and Poppy if she left him.",
+   "cites": [
+    37
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "The client's primary objective is to have her children stay with her.",
+   "cites": [
+    36
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "The client expressed a concern that Jordan might take Alfie even if she leaves him.",
+   "cites": [
+    45
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "The solicitor advised the client to tell Ms Okoye what really happened before the meeting on the first of December.",
+   "cites": [
+    44
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that telling the truth and keeping Jordan away protects Alfie and the client in the process.",
+   "cites": [
+    44
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor advised that a mum who tells the truth and acts to keep her child safe is in a stronger position than one who backs her partner's story.",
+   "cites": [
+    46
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor stated he would write to Ms Okoye with the client's account.",
+   "cites": [
+    56
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "The solicitor advised the client to ring Harbridge Women's Aid today to discuss a safety plan for when Jordan returns on Saturday.",
+   "cites": [
+    57
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "The solicitor advised the client that she can ask for her Universal Credit to be paid into her own account.",
+   "cites": [
+    52
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor stated he would prepare a non-molestation application.",
+   "cites": [
+    59
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "The client agreed to the solicitor's advice to tell Ms Okoye what really happened.",
+   "cites": [
+    49
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "The solicitor gave permission to write to Ms Okoye with the information provided by the client.",
+   "cites": [
+    48
+   ],
+   "section": "Advice given"
+  }
+ ]
+}

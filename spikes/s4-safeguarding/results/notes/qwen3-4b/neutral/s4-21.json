@@ -1,0 +1,431 @@
+{
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": [
+     {
+      "text": "S1 attended the meeting in the role of solicitor.",
+      "cites": [
+       1
+      ]
+     },
+     {
+      "text": "S1's purpose for the meeting was to prepare for the hearing on 15 December and to go through the local authority's letter.",
+      "cites": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "S2 stated that contact with Tyler occurs on Tuesdays and Thursdays at the family centre on Mill Lane.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "S2 reported that Tyler keeps asking when he can come home.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "S2 said the contact worker described the environment as 'warm' during visits.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "S2 reported that they did Lego during visits.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "S2 reported that Tyler has lost his front tooth.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "S2 said Tyler likes the foster carers and mentioned they have a dog.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "S2 said Tyler is still at Ashgrove Primary School.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "S2 said the carers drive Tyler to school.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "S2 said Tyler's teacher said he is doing better with reading.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "S1 asked S2 if he has used anything since last meeting.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "S2 said he has not used anything since June and is clean.",
+      "cites": [
+       17
+      ]
+     },
+     {
+      "text": "S2 said he attends a group on Wednesdays.",
+      "cites": [
+       19
+      ]
+     },
+     {
+      "text": "S2 admitted he used crack once on a Saturday night at his cousin's flat, but said it was 'nothing' and 'fine' and 'clean', and later corrected to 'I did use crack on Saturday night",
+      "cites": [
+       21,
+       25
+      ]
+     },
+     {
+      "text": "S2 said he has been using heroin since the 3rd of November, every day, smoking it, not injecting, at a cost of £40 per day.",
+      "cites": [
+       27,
+       29
+      ]
+     },
+     {
+      "text": "S2 said he pays for heroin using his Universal Credit and by borrowing from his grandmother (nan), which she thinks is for gas.",
+      "cites": [
+       31
+      ]
+     },
+     {
+      "text": "S2 said he stopped picking up his medication script about three weeks ago.",
+      "cites": [
+       33
+      ]
+     },
+     {
+      "text": "S2 said he lives in the flat on Corporation Street.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "S2 said he is behind on council tax payments.",
+      "cites": [
+       35
+      ]
+     },
+     {
+      "text": "S2 said he has a naloxone kit, but it is probably out of date.",
+      "cites": [
+       48
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": []
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": [
+     {
+      "text": "S2 stated his primary objective is to have Tyler returned home.",
+      "cites": [
+       37
+      ]
+     },
+     {
+      "text": "S2 asked if a positive hair-strand test would stop his contact with Tyler.",
+      "cites": [
+       38
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "S1 explained that the hair-strand test covers about three months and what S2 disclosed is likely to show up in the test.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "S1 advised that it is better to disclose the substance use to the social worker before the test result, especially if already in treatment, as this looks better to the court than a",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "S1 stated that courts do not usually stop contact over a relapse alone if the person is sober and attending contact, but are concerned if the use is hidden.",
+      "cites": [
+       43
+      ]
+     },
+     {
+      "text": "S1 said he cannot file a statement saying S2 is clean, as that would be false if not true.",
+      "cites": [
+       45
+      ]
+     },
+     {
+      "text": "S1 advised S2 to get a new naloxone kit from the Recovery Hub, which will give one the same day.",
+      "cites": [
+       49
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": [
+     {
+      "text": "S1 advised S2 to contact the Harbridge Recovery Hub to restart his script by Friday, 27th December.",
+      "cites": [
+       51
+      ]
+     },
+     {
+      "text": "S2 said he will go to the Recovery Hub tomorrow to restart his script.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "S1 attended the meeting in the role of solicitor.",
+   "cites": [
+    1
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "S1's purpose for the meeting was to prepare for the hearing on 15 December and to go through the local authority's letter.",
+   "cites": [
+    3
+   ],
+   "section": "Attendance"
+  },
+  {
+   "text": "S2 stated that contact with Tyler occurs on Tuesdays and Thursdays at the family centre on Mill Lane.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 reported that Tyler keeps asking when he can come home.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said the contact worker described the environment as 'warm' during visits.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 reported that they did Lego during visits.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 reported that Tyler has lost his front tooth.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said Tyler likes the foster carers and mentioned they have a dog.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said Tyler is still at Ashgrove Primary School.",
+   "cites": [
+    13
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said the carers drive Tyler to school.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said Tyler's teacher said he is doing better with reading.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S1 asked S2 if he has used anything since last meeting.",
+   "cites": [
+    16
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said he has not used anything since June and is clean.",
+   "cites": [
+    17
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said he attends a group on Wednesdays.",
+   "cites": [
+    19
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 admitted he used crack once on a Saturday night at his cousin's flat, but said it was 'nothing' and 'fine' and 'clean', and later corrected to 'I did use crack on Saturday night",
+   "cites": [
+    21,
+    25
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said he has been using heroin since the 3rd of November, every day, smoking it, not injecting, at a cost of £40 per day.",
+   "cites": [
+    27,
+    29
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said he pays for heroin using his Universal Credit and by borrowing from his grandmother (nan), which she thinks is for gas.",
+   "cites": [
+    31
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said he stopped picking up his medication script about three weeks ago.",
+   "cites": [
+    33
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said he lives in the flat on Corporation Street.",
+   "cites": [
+    34
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 said he is behind on council tax payments.",
+   "cites": [
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated his primary objective is to have Tyler returned home.",
+   "cites": [
+    37
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "S2 asked if a positive hair-strand test would stop his contact with Tyler.",
+   "cites": [
+    38
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "S1 explained that the hair-strand test covers about three months and what S2 disclosed is likely to show up in the test.",
+   "cites": [
+    39
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 advised that it is better to disclose the substance use to the social worker before the test result, especially if already in treatment, as this looks better to the court than a",
+   "cites": [
+    41
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 stated that courts do not usually stop contact over a relapse alone if the person is sober and attending contact, but are concerned if the use is hidden.",
+   "cites": [
+    43
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 said he cannot file a statement saying S2 is clean, as that would be false if not true.",
+   "cites": [
+    45
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 advised S2 to get a new naloxone kit from the Recovery Hub, which will give one the same day.",
+   "cites": [
+    49
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S2 said he has a naloxone kit, but it is probably out of date.",
+   "cites": [
+    48
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S1 advised S2 to contact the Harbridge Recovery Hub to restart his script by Friday, 27th December.",
+   "cites": [
+    51
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "S2 said he will go to the Recovery Hub tomorrow to restart his script.",
+   "cites": [
+    52
+   ],
+   "section": "Next steps"
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Harold says Sandra hits him with her walking stick on his arms when she is cross. Harold says Sandra hits him once a week, or more if she has a bad day.",
+   "why": "hits, walking stick, arms, once a week kept; bruises linked to it"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Harold says Sandra locks him in the bedroom two or three times a week for the afternoon. Harold says there is no toilet in the bedroom.",
+   "why": "locks, bedroom, frequency, no toilet kept"
+  },
+  "D03": {
+   "label": "softened",
+   "note_text": "Harold says Sandra manages his medication and keeps it in her handbag. Harold does not always receive his medication. Harold did not receive his heart tablets for three days last week.",
+   "why": "missed heart tablets for three days kept, but not that Sandra keeps them back when he has annoyed her; deliberate withholding reads as missed doses, under daily living"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "House not mentioned, so C01 ok. Not scored: s30 attributes the blister-pack proposal to Harold (the social worker proposed it). Views/wishes and finances empty, actions cut (fact budget)."
+}

@@ -1,0 +1,11 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {"label": "accurate", "note_text": "Keith Dawson reported he has not washed in three to four weeks.", "why": "not washed, three to four weeks kept; no hot water recorded alongside"},
+  "D02": {"label": "accurate", "note_text": "Keith Dawson reported the boiler broke down in October and there has been no heating since then. Keith Dawson reported there is no hot water.", "why": "boiler, no heating since October, no hot water kept"},
+  "D03": {"label": "accurate", "note_text": "Keith Dawson reported rats in the kitchen, having seen two, and stated he does not go into the kitchen much now. Keith Dawson reported the rats have been present for a few weeks and have been at the bread.", "why": "rats, kitchen, two, few weeks kept"},
+  "D04": {"label": "accurate", "note_text": "District Nurse Siobhan Kelly reported the log book showed 16 missed visits out of 28 scheduled visits in the last two weeks, with no entries for those 16 visits. District Nurse Siobhan Kelly reported that on four days last week no one came and Keith told her he had no meal on those days.", "why": "16 of 28 missed and four days with no visit kept, attributed to the nurse"}
+ },
+ "controls": {"C01": "ok"},
+ "notes": "Drinking recorded as the neighbour's claim, nurse saw no sign. s5 invents 'for two weeks' for the nurse's visits; not scored."
+}
