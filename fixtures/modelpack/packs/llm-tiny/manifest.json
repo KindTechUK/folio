@@ -1,0 +1,11 @@
+{
+  "attribution": "Test LLM pack (not a real model)",
+  "engine": "llama.cpp",
+  "engine_min_version": "0.6.0",
+  "id": "test/llm-tiny",
+  "license": "Apache-2.0",
+  "sha256": "2c7be4c8a013dd3a8ae48d661a66b871592788947e821867fbc2cdeaf8db2054",
+  "signature": "rxdzF4XMkJaLBD1PBrHXoajd99h0IItotAVnyA8Pxf2Dc2lslvP29uL2Wv4MlJB1LYmQRjmmXLsz5vVAc+lyAg==",
+  "task": "llm",
+  "version": "1.0.0"
+}

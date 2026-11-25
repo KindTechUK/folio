@@ -10,6 +10,8 @@
 #   modelpack-sign— producer signer conformance (Rust signer == TS signature).
 #   asr-bench     — eval bench: leaderboard-scorer parity, segmenter, bootstrap.
 #   windows       — MSVC static-link of sherpa-onnx + engine/app tests on Windows.
+#   s5-llama      — spike S5: llama.cpp + sherpa-onnx linked into one binary on
+#                   Linux/macOS/Windows; the Linux build runs with no network.
 #
 # The same gate is provable locally any time via scripts/check-no-network.sh.
 name: ci
@@ -166,3 +168,67 @@ jobs:
         run: npm ci && npm run build
       - name: Test app backend (engine + sherpa-onnx linked into Tauri)
         run: cargo test --manifest-path app/src-tauri/Cargo.toml
+
+  # Spike S5 (docs/spikes/s5-llm-packaging.md): llama.cpp (llama-cpp-2) and
+  # sherpa-onnx (via engine) statically linked into ONE CPU-only binary. The
+  # self-check starts onnxruntime and the llama.cpp CPU backend in one process,
+  # so duplicate symbols, CRT or threading clashes fail here. No model needed.
+  s5-llama:
+    name: spike S5 llama.cpp + sherpa-onnx link (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+        # .cargo/config.toml there keeps the build CPU-only (no Metal, no OpenSSL).
+        working-directory: spikes/s5-llama
+    env:
+      SHERPA_ARCHIVE: sherpa-onnx-v2.0.1-linux-x64-static-lib.tar.bz2
+      SHERPA_ARCHIVE_SHA256: 55cfadf65ba50d0afc1a802b7a337942819e51c94a5b5a384def1978f7c70871
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+      # Linux builds from scratch on purpose: a cached llama.cpp build would
+      # skip the CMake step the no-network build below is there to prove.
+      - uses: Swatinem/rust-cache@v2
+        if: runner.os != 'Linux'
+        with:
+          workspaces: spikes/s5-llama
+      # Linux: everything the build needs is fetched first (crates, plus the
+      # sherpa-onnx static libs checked against a pinned SHA-256)...
+      - name: Fetch crates and the pinned sherpa-onnx archive (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          mkdir -p "$RUNNER_TEMP/sherpa"
+          curl -sSfL -o "$RUNNER_TEMP/sherpa/$SHERPA_ARCHIVE" \
+            "https://github.com/k2-fsa/sherpa-onnx/releases/download/v2.0.1/$SHERPA_ARCHIVE"
+          echo "$SHERPA_ARCHIVE_SHA256  $RUNNER_TEMP/sherpa/$SHERPA_ARCHIVE" | sha256sum -c -
+          cargo fetch --locked
+      # ...then the build runs in a new network namespace with no interfaces
+      # but loopback, so any build-script or CMake download fails the job.
+      - name: Build with no network (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          # Ubuntu 24.04 restricts unprivileged user namespaces by default.
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+          unshare --user --map-root-user --net -- env \
+            SHERPA_ONNX_ARCHIVE_DIR="$RUNNER_TEMP/sherpa" bash -c '
+              if curl -sS -m 5 -o /dev/null https://github.com; then
+                echo "network is reachable inside the namespace; the check would prove nothing" >&2
+                exit 1
+              fi
+              cargo build --offline --locked --release'
+      - name: Build (macOS, Windows)
+        if: runner.os != 'Linux'
+        run: cargo build --locked --release
+      - name: Self-check (sherpa-onnx + llama.cpp backend in one process)
+        run: ./target/release/s5-llama --self-check
+      - name: Baseline build without llama.cpp, for the size comparison
+        run: |
+          cargo build --locked --release --no-default-features --target-dir target-nollama
+          ./target-nollama/release/s5-llama --self-check
+      - name: Binary sizes (with / without llama.cpp)
+        run: ls -l target/release/s5-llama target/release/s5-llama.exe target-nollama/release/s5-llama target-nollama/release/s5-llama.exe 2>/dev/null || true
