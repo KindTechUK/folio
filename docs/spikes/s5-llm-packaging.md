@@ -33,11 +33,13 @@ fails closed after a one-byte change; and both candidate weights are plain Apach
    is never built. For the product, patch `llama-cpp-2` (a `[patch.crates-io]` copy whose `llama-cpp-sys-2`
    dependency has `default-features = false`), or send that one-line fix upstream, and add a binary-level
    check to the gate (below).
-2. **Windows needs `LLAMA_STATIC_CRT=1`.** sherpa-onnx's Windows archive is built with the static CRT (`/MT`);
-   `llama-cpp-sys-2` builds llama.cpp with the DLL CRT (`/MD`) unless that variable is set, and the link fails:
-   `lld-link: error: /failifmismatch: mismatch detected for 'RuntimeLibrary': … llama.cpp.obj has value
-   MD_DynamicRelease … c-api.obj has value MT_StaticRelease`. With it set, the cross-compiled `.exe` links and
-   imports only Windows system DLLs. The spike sets it in `spikes/s5-llama/.cargo/config.toml`; the app will
+2. **Windows needs llama.cpp built with the static CRT, through CMake.** sherpa-onnx's Windows archive is built
+   with the static CRT (`/MT`); llama.cpp builds with the DLL CRT (`/MD`) by default, and the link fails:
+   `mismatch detected for 'RuntimeLibrary': … MD_DynamicRelease … MT_StaticRelease`. `LLAMA_STATIC_CRT=1`
+   alone was enough for the `cargo xwin` cross-build, but not on `windows-latest` with real MSVC: llama.cpp's
+   `cmake_minimum_required(... 3.28)` turns on CMake policy CMP0091, so the runtime comes from
+   `CMAKE_MSVC_RUNTIME_LIBRARY` (default `MultiThreaded…DLL`) and the `/MT` flags are overridden. The spike now
+   also sets `CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded` in `spikes/s5-llama/.cargo/config.toml`; the app will
    need the same.
 3. **Run the new CI job** (`s5-llama` in `.github/workflows/ci.yml`) on Linux, macOS and Windows after push.
    It has not run yet. The Linux leg builds inside a network namespace with no network, which is the
