@@ -35,7 +35,7 @@ def score_table(run):
     out = [head, sep]
     for r in sorted(rows, key=lambda r: (r["split"], r["transcript"], r["model"])):
         line = (f"| {r['split']} | {r['model']} | {r['transcript']} | {r['n_sentences']} | {r['sent_with_cite']} | "
-                f"{r['n_cites']} | {r['invalid_cites']} | {r['out_of_part_cites']} | "
+                f"{r['n_cites']} | {r['invalid_cites']} | {'n/a' if r['out_of_part_cites'] is None else r['out_of_part_cites']} | "
                 f"{r['support_mean']} / {r['support_median']} | {r['weak_rate']} |")
         if judged:
             line += (f" {r.get('supported', '–')} | {r.get('unsupported_fabrication', '–')} | "

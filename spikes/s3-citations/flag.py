@@ -15,7 +15,9 @@ A sentence with no valid citation scores 0 on both, so every flag flags it.
 Positive class = judge label in {unsupported_fabrication, contradiction, over_inference}.
 Tuning set = the two S2 transcripts; test set = the four S3 transcripts (run.TUNING / run.TEST).
 Thresholds are chosen on the tuning set two ways: best F1, and "catch-all" (the highest precision that leaves no
-fabrication or contradiction unflagged). Both are then applied unchanged to the test set.
+fabrication or contradiction unflagged), comparing exact (unrounded) metrics. Both are then applied unchanged to
+the test set. Citation validity and the lexical flag use every judged sentence; the NLI and combined flags are
+reported only when every judged sentence has an NLI score for its current text and cites.
 """
 import argparse
 import json
@@ -48,7 +50,8 @@ def nli(run):
         valid = [c for c in s["cites"] if c in by_num]
         premise = " ".join(f"{spk.get(by_num[c]['speaker'], by_num[c]['speaker'])}: {by_num[c]['text']}"
                            for c in valid)
-        rec = {"model": s["model"], "transcript": s["transcript"], "sid": s["sid"], "premise_chars": len(premise)}
+        rec = {"model": s["model"], "transcript": s["transcript"], "sid": s["sid"], "premise_chars": len(premise),
+               "fp": S.sentence_fp(s)}
         out.append(rec)
         if premise:
             pairs.append((rec, premise, s["text"]))
@@ -70,13 +73,14 @@ def nli(run):
 
 
 def metrics(rows, flagged):
+    """Exact precision, recall and F1; round only when printing."""
     tp = sum(1 for r, f in zip(rows, flagged) if f and r["pos"])
     fp = sum(1 for r, f in zip(rows, flagged) if f and not r["pos"])
     fn = sum(1 for r, f in zip(rows, flagged) if not f and r["pos"])
     p = tp / (tp + fp) if tp + fp else 0.0
     rcl = tp / (tp + fn) if tp + fn else 0.0
-    return {"flagged": tp + fp, "tp": tp, "fp": fp, "fn": fn, "precision": round(p, 3), "recall": round(rcl, 3),
-            "f1": round(2 * p * rcl / (p + rcl), 3) if p + rcl else 0.0,
+    return {"flagged": tp + fp, "tp": tp, "fp": fp, "fn": fn, "precision": p, "recall": rcl,
+            "f1": 2 * p * rcl / (p + rcl) if p + rcl else 0.0,
             "unflagged_severe": sum(1 for r, f in zip(rows, flagged) if not f and r["label"] in SEVERE)}
 
 
@@ -110,14 +114,25 @@ def evaluate(run):
         print(f"warning: {len(missing)} packets have no verdict yet")
     sents = {(s["model"], s["transcript"], s["sid"]): s for s in S.load_jsonl(C.RESULTS / f"{run}.sentences.jsonl")}
     nli_s = {(s["model"], s["transcript"], s["sid"]): s for s in S.load_jsonl(C.RESULTS / f"{run}.nli.jsonl")}
-    rows = []
+    rows, no_auto, no_nli = [], [], []
     for v in verdicts:
         k = (v["model"], v["transcript"], v["sid"])
-        if k not in sents or k not in nli_s:
-            print(f"  skip {k}: no automatic or NLI score")
+        if k not in sents:
+            no_auto.append(k)
             continue
-        rows.append({**v, "support": sents[k]["support"], "p_entailment": nli_s[k]["p_entailment"],
+        n = nli_s.get(k)
+        # NLI rows written before fingerprints existed carry none; they were scored from the same
+        # sentences.jsonl, and score.load_verdicts has already checked the notes are unchanged since judging.
+        if n is None or ("fp" in n and n["fp"] != S.sentence_fp(sents[k])):
+            no_nli.append(k)
+        rows.append({**v, "support": sents[k]["support"], "p_entailment": n["p_entailment"] if n else None,
                      "pos": v["label"] in S.POSITIVE})
+    if no_auto:
+        raise SystemExit(f"{len(no_auto)} judged sentences have no automatic score; run `score.py auto` first "
+                         f"(e.g. {no_auto[0]})")
+    if no_nli:
+        print(f"NLI scores missing or stale for {len(no_nli)} judged sentences (e.g. {no_nli[0]}): "
+              f"NLI and combined flags are not reported. Run `flag.py nli` to refresh them.\n")
     tune = [r for r in rows if r["split"] == "tuning"]
     test = [r for r in rows if r["split"] == "test"]
     print(f"judged sentences: tuning {len(tune)} ({sum(r['pos'] for r in tune)} positive), "
@@ -144,7 +159,7 @@ def evaluate(run):
         print("\nNeed judged sentences in both the tuning and the test set to evaluate the flag.")
         return
     print("\n## Flag: thresholds chosen on the tuning set, applied to the test set\n")
-    for name in FLAGS:
+    for name in (["lexical"] if no_nli else FLAGS):
         best_f1, catch = choose(tune, name)
         for rule, pick in (("best F1", best_f1), ("catch-all", catch)):
             if pick is None:
@@ -158,6 +173,9 @@ def evaluate(run):
     print("|---:|---:|---:|---:|---:|---:|---:|")
     for t in GRID:
         a = metrics(test, [FLAGS["lexical"](r, t) for r in test])
+        if no_nli:
+            print(f"| {t} | {a['precision']:.2f} | {a['recall']:.2f} | {a['unflagged_severe']} | – | – | – |")
+            continue
         b = metrics(test, [FLAGS["nli"](r, t) for r in test])
         print(f"| {t} | {a['precision']:.2f} | {a['recall']:.2f} | {a['unflagged_severe']} | "
               f"{b['precision']:.2f} | {b['recall']:.2f} | {b['unflagged_severe']} |")

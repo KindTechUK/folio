@@ -61,8 +61,9 @@ the label is.
   say something different from the sentence. A sentence that misstates the lines it cites gets `no` or
   `partly`, never `yes`.
 
-**`trap`**: the trap id (`T07`) if the sentence makes that trap's forbidden claim, even implicitly. Otherwise
-`null`. A sentence that makes a trap's claim is never `supported`.
+**`trap`**: the id of the trap whose forbidden claim the sentence makes, even implicitly (`"T07"`), or a list
+when it makes several (`["T07", "T12"]`). Otherwise `null`. A sentence that makes a trap's claim is never
+`supported`. (The S3 run's judges were given the single-id form only.)
 
 **`why`**: up to 25 words, with line references. It is required whenever the label is not `supported` or
 `cites_support` is not `yes`. Otherwise leave it empty.

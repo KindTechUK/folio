@@ -7,7 +7,7 @@ id so the output is reproducible. The base rate is nudged (2.0-3.2 words/s) to k
 10-15 minutes.
 
   python stamp_data.py SRC.json [SRC.json ...]     # stamp, validate, write data/<stem>.json
-  python stamp_data.py --check                     # validate every data/*.json
+  python stamp_data.py --check                     # validate the tuning and test transcripts (run.TUNING/TEST)
 """
 import json
 import pathlib
@@ -15,6 +15,7 @@ import random
 import sys
 
 import common as C
+from run import TEST, TUNING
 
 KINDS = ["negation", "hypothetical", "hearsay", "corrected", "not_said", "speaker_attribution"]
 
@@ -40,8 +41,12 @@ def validate(t, new=True):
     known = set(ids)
     for item in t["facts"] + t["traps"]:
         errs += [f"{item['id']} cites missing {x}" for x in item["lines"] if x not in known]
+    for l in t["lines"]:
+        if not l["start"] < l["end"]:
+            errs.append(f"{l['id']} ends before it starts")
+            break
     for a, b in zip(t["lines"], t["lines"][1:]):
-        if not (a["start"] < a["end"] <= b["start"]):
+        if not a["end"] <= b["start"]:
             errs.append(f"times not increasing at {a['id']}")
             break
     counts = {k: sum(1 for x in t["traps"] if x["kind"] == k) for k in KINDS}
@@ -66,13 +71,22 @@ def validate(t, new=True):
 def main():
     if sys.argv[1:] == ["--check"]:
         bad = 0
-        for p in sorted(C.DATA.glob("*.json")):
+        # The test set gets the full rules whatever the file says; the tuning set is S2's and predates them.
+        for stem, new in [(n, False) for n in TUNING] + [(n, True) for n in TEST]:
+            p = C.DATA / f"{stem}.json"
+            if not p.exists():
+                print(f"{stem}: ERROR missing {p}")
+                bad += 1
+                continue
             t = json.loads(C.read_text(p))
-            errs, summary = validate(t, new="omission" in json.dumps(t["facts"]))
+            errs, summary = validate(t, new=new)
             print(summary)
             for e in errs:
                 print("  ERROR", e)
             bad += len(errs)
+        extra = sorted({p.stem for p in C.DATA.glob("*.json")} - set(TUNING + TEST))
+        if extra:
+            print(f"not in run.TUNING or run.TEST, not checked: {', '.join(extra)}")
         sys.exit(1 if bad else 0)
     for src in sys.argv[1:]:
         t = json.loads(C.read_text(src))

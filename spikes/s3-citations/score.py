@@ -9,14 +9,20 @@
 
 Automatic metrics per sentence:
   cites, invalid_cites (line doesn't exist), out_of_part_cites (line exists but was not in the transcript part
-  the model was given for that map call, so it cannot be a real citation), support (lexical: share of the
-  sentence's content words found in its valid cited lines; S2's measure, 0 when nothing valid is cited).
+  the model was given for that map call, so it cannot be a real citation; null when the saved note can't be
+  matched to its map calls), support (lexical: share of the sentence's content words found in its valid cited
+  lines; S2's measure, 0 when nothing valid is cited).
+
+Judge verdicts are validated before they are used: every sentence id, label, cites_support value, trap id and
+fact id must be present and valid, and every packet must still show the note as it is now (a packet rewritten
+after its note changed moves the old verdict aside to <id>.verdict.stale.json).
 """
 import argparse
 import hashlib
 import json
 import math
 import re
+import statistics
 
 import common as C
 from run import find_transcript, split_of
@@ -30,6 +36,9 @@ um uh er erm like yeah okay ok oh well really right mean know think going get go
 STRATEGY = "sectioned"
 PART_MAX = 120  # sentences per judge packet before a note is split into parts
 POSITIVE = {"unsupported_fabrication", "contradiction", "over_inference"}
+LABELS = {"supported"} | POSITIVE
+CITES_SUPPORT = {"yes", "partly", "no"}
+FACT_VALUES = {"present": 1, "partial": 0.5, "absent": 0}
 
 
 def content_words(text):
@@ -46,6 +55,8 @@ def content_words(text):
 
 
 def lexical_support(text, cited_texts):
+    if not cited_texts:
+        return 0.0
     sw = content_words(text)
     cw = set().union(*(content_words(x) for x in cited_texts)) if cited_texts else set()
     return round(len(sw & cw) / len(sw), 3) if sw else 1.0
@@ -61,11 +72,16 @@ def notes_in_run(run):
 
 
 def map_records(run):
-    """(model, transcript) -> that note's map-call records from the run JSONL, in call order."""
+    """(model, transcript) -> the map-call records of that note's latest attempt, in call order.
+
+    A re-run appends to the JSONL; map0 starts a new attempt, so earlier attempts are dropped."""
     out = {}
     for r in load_jsonl(C.RESULTS / f"{run}.jsonl"):
         if r.get("strategy") == STRATEGY and r.get("stage", "").startswith("map"):
-            out.setdefault((r["model"], r["transcript"]), []).append(r)
+            k = (r["model"], r["transcript"])
+            if r["stage"] == "map0":
+                out[k] = []
+            out.setdefault(k, []).append(r)
     return out
 
 
@@ -103,25 +119,26 @@ def auto(run):
                 "run": run, "model": model, "transcript": t["id"], "split": split_of(t["id"]),
                 "sid": s["sid"], "section": s["section"], "text": s["text"], "cites": s["cites"],
                 "invalid_cites": [c for c in s["cites"] if c not in by_num],
-                "out_of_part_cites": [c for c in valid if lo is not None and not lo <= c <= hi],
+                "out_of_part_cites": [c for c in valid if not lo <= c <= hi] if lo is not None else None,
                 "part_lines": [lo, hi] if lo is not None else None,
                 "support": lexical_support(s["text"], [by_num[c]["text"] for c in valid]),
             })
         rows = [r for r in sent_rows if r["model"] == model and r["transcript"] == t["id"]]
         n = len(rows)
         n_cites = sum(len(r["cites"]) for r in rows)
-        sup = sorted(r["support"] for r in rows)
+        sup = [r["support"] for r in rows]
         note_rows.append({
             "run": run, "model": model, "transcript": t["id"], "split": split_of(t["id"]),
             "n_sentences": n, "n_cites": n_cites,
             "invalid_cites": sum(len(r["invalid_cites"]) for r in rows),
             "invalid_cite_rate": round(sum(len(r["invalid_cites"]) for r in rows) / n_cites, 4) if n_cites else None,
-            "out_of_part_cites": sum(len(r["out_of_part_cites"]) for r in rows),
+            # None when the note couldn't be matched to its map calls: unknown, not zero.
+            "out_of_part_cites": sum(len(r["out_of_part_cites"]) for r in rows) if part_of else None,
             "parts_mapped": bool(part_of),
             "sent_with_cite": sum(1 for r in rows if r["cites"]),
             "sent_with_valid_cite": sum(1 for r in rows if len(r["invalid_cites"]) < len(r["cites"])),
             "support_mean": round(sum(sup) / n, 3) if n else None,
-            "support_median": sup[n // 2] if n else None,
+            "support_median": round(statistics.median(sup), 3) if n else None,
             "weak_rate": round(sum(1 for x in sup if x < 0.25) / n, 3) if n else None,
         })
         print({k: v for k, v in note_rows[-1].items() if k != "run"})
@@ -133,6 +150,11 @@ def auto(run):
 
 def note_hash(model, tid):
     return hashlib.sha1(f"s3|{model}|{tid}|{STRATEGY}".encode()).hexdigest()[:8]
+
+
+def sentence_fp(s):
+    """Fingerprint of what a judge saw for one sentence: its text and its cites."""
+    return hashlib.sha1(json.dumps([s["text"], s["cites"]]).encode()).hexdigest()[:12]
 
 
 def transcript_txt(t):
@@ -159,7 +181,8 @@ def packets(run):
             pid = h if n_parts == 1 else f"{h}-{i + 1}"
             chunk = sents[i * size:(i + 1) * size]
             key[pid] = {"model": model, "transcript": t["id"], "strategy": STRATEGY, "part": i + 1,
-                        "of": n_parts, "sids": [s["sid"] for s in chunk], "judges_facts": i == 0}
+                        "of": n_parts, "sids": [s["sid"] for s in chunk], "judges_facts": i == 0,
+                        "fp": {s["sid"]: sentence_fp(s) for s in chunk}}
             sizes.append((pid, t["id"], len(chunk), i == 0))
             blocks = []
             for s in chunk:
@@ -187,7 +210,14 @@ def packets(run):
                    "\n".join(f"- {x['id']} ({x['kind']}): must NOT claim: {x['must_not_claim']}" for x in t["traps"]),
                    f"\n\nWrite your verdict to `{jdir / (pid + '.verdict.json')}` following "
                    f"`{C.HERE / 'judge_instructions_s3.md'}`.\n"]
-            C.write_text(jdir / f"{pid}.md", "\n".join(md))
+            packet = jdir / f"{pid}.md"
+            text = "\n".join(md)
+            verdict = jdir / f"{pid}.verdict.json"
+            if verdict.exists() and (not packet.exists() or C.read_text(packet) != text):
+                # The judge labelled a different note: never let that verdict count for this one.
+                verdict.rename(jdir / f"{pid}.verdict.stale.json")
+                print(f"  {pid}: packet changed; old verdict moved to {pid}.verdict.stale.json")
+            C.write_text(packet, text)
     C.write_text(jdir / "_key.json", json.dumps(key, indent=1))
     print(f"{len(key)} packets in {jdir}")
     for pid, tid, n, facts in sorted(sizes, key=lambda x: (x[1], x[0])):
@@ -196,27 +226,78 @@ def packets(run):
 
 # ---- verdicts ----
 
+def current_sentences(run):
+    """(model, transcript) -> {sid: sentence} for the notes as they are now."""
+    return {(model, C.load_transcript(find_transcript(tid))["id"]):
+            {s["sid"]: s for s in C.note_sentence_list(json.loads(C.read_text(path)))}
+            for model, tid, path in notes_in_run(run)}
+
+
+def trap_ids(trap):
+    """A verdict's trap field: null, one id, or a list of ids (a sentence can hit more than one trap)."""
+    if trap is None:
+        return []
+    return [trap] if isinstance(trap, str) else list(trap)
+
+
 def load_verdicts(run):
-    """One row per judged sentence: {model, transcript, split, sid, label, cites_support, trap, why}."""
+    """One row per judged sentence: {model, transcript, split, sid, label, cites_support, traps, why}.
+
+    Raises SystemExit if a verdict is invalid or incomplete, or a packet no longer matches its note.
+    Packets with no verdict file yet are returned in `missing`."""
     jdir = C.RESULTS / "judge" / run
     key = json.loads(C.read_text(jdir / "_key.json"))
-    rows, facts, missing = [], {}, []
+    notes = current_sentences(run)
+    tcache = {}
+    rows, facts, missing, errs = [], {}, [], []
     for pid, k in key.items():
+        if k["transcript"] not in tcache:
+            tcache[k["transcript"]] = C.load_transcript(find_transcript(k["transcript"]))
+        t = tcache[k["transcript"]]
+        note = notes.get((k["model"], k["transcript"]), {})
+        for sid in k["sids"]:
+            if sid not in note:
+                errs.append(f"{pid}: {sid} is no longer in the note")
+            elif "fp" in k and k["fp"].get(sid) != sentence_fp(note[sid]):
+                errs.append(f"{pid}: {sid} changed since the packet was written; re-run packets and re-judge")
         vp = jdir / f"{pid}.verdict.json"
         if not vp.exists():
             missing.append(pid)
             continue
         v = json.loads(C.read_text(vp))
+        sv_all = v.get("sentences", {})
+        extra = sorted(set(sv_all) - set(k["sids"]))
+        if extra:
+            errs.append(f"{pid}: verdicts for sentences not in the packet: {', '.join(extra)}")
+        known_traps = {x["id"] for x in t["traps"]}
         for sid in k["sids"]:
-            sv = v.get("sentences", {}).get(sid)
+            sv = sv_all.get(sid)
             if sv is None:
-                print(f"  {pid}: no verdict for {sid}")
+                errs.append(f"{pid}: no verdict for {sid}")
                 continue
+            if sv.get("label") not in LABELS:
+                errs.append(f"{pid} {sid}: label {sv.get('label')!r}")
+            if sv.get("cites_support") not in CITES_SUPPORT:
+                errs.append(f"{pid} {sid}: cites_support {sv.get('cites_support')!r}")
+            bad = [x for x in trap_ids(sv.get("trap")) if x not in known_traps]
+            if bad:
+                errs.append(f"{pid} {sid}: unknown trap {bad}")
             rows.append({"model": k["model"], "transcript": k["transcript"], "split": split_of(k["transcript"]),
                          "sid": sid, "label": sv.get("label"), "cites_support": sv.get("cites_support"),
-                         "trap": sv.get("trap"), "why": sv.get("why", ""), "packet": pid})
+                         "traps": trap_ids(sv.get("trap")), "why": sv.get("why", ""), "packet": pid})
+        fv = v.get("facts", {})
         if k["judges_facts"]:
-            facts[(k["model"], k["transcript"])] = v.get("facts", {})
+            want = {f["id"] for f in t["facts"]}
+            if set(fv) != want:
+                errs.append(f"{pid}: facts judged {sorted(fv)} but the checklist is {sorted(want)}")
+            bad = {f: x for f, x in fv.items() if x not in FACT_VALUES}
+            if bad:
+                errs.append(f"{pid}: fact values {bad}")
+            facts[(k["model"], k["transcript"])] = fv
+        elif fv:
+            errs.append(f"{pid}: judges no facts but has a facts verdict")
+    if errs:
+        raise SystemExit("invalid verdicts:\n  " + "\n  ".join(errs))
     return rows, facts, missing
 
 
@@ -237,15 +318,16 @@ def collect(run):
             s[lab] = sum(1 for r in vr if r["label"] == lab)
         s["cites_yes"] = round(sum(1 for r in vr if r["cites_support"] == "yes") / n, 3)
         s["cites_yes_or_partly"] = round(sum(1 for r in vr if r["cites_support"] in ("yes", "partly")) / n, 3)
-        s["traps_hit"] = sorted({r["trap"] for r in vr if r["trap"]})
+        s["traps_hit"] = sorted({x for r in vr for x in r["traps"]})
         fv = facts.get(k)
         if fv:
             t = C.load_transcript(find_transcript(s["transcript"]))
-            omit = {f["id"] for f in t["facts"] if f.get("omission")}
-            val = {"present": 1, "partial": 0.5}
-            s["fact_recall"] = round(sum(val.get(x, 0) for x in fv.values()) / len(fv), 3)
+            # Over the transcript's checklist (load_verdicts checked fv covers exactly that).
+            ids = [f["id"] for f in t["facts"]]
+            omit = [f["id"] for f in t["facts"] if f.get("omission")]
+            s["fact_recall"] = round(sum(FACT_VALUES[fv[f]] for f in ids) / len(ids), 3)
             if omit:
-                s["omission_recall"] = round(sum(val.get(fv.get(f), 0) for f in omit) / len(omit), 3)
+                s["omission_recall"] = round(sum(FACT_VALUES[fv[f]] for f in omit) / len(omit), 3)
     C.write_text(C.RESULTS / f"{run}.scores.jsonl", "".join(json.dumps(s) + "\n" for s in scores))
     print(f"{len(rows)} sentence verdicts -> {run}.verdicts.jsonl; judge metrics merged into {run}.scores.jsonl")
 

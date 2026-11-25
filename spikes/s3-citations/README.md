@@ -59,7 +59,11 @@ python report.py --run s3
 ```
 
 `run.py --transcripts` also accepts `tuning`, `test`, or a comma-separated list of file stems. `run.py` appends to
-`results/<run>.jsonl`, so delete it before a clean re-run.
+`results/<run>.jsonl`, so delete it before a clean re-run (if you don't, `score.py` uses each note's latest
+attempt). After a re-run, run `score.py packets` again: a packet whose note changed gets its old verdict moved
+to `<id>.verdict.stale.json`, so it must be judged again. `collect` and `flag.py eval` stop with a list of
+problems if a verdict is missing a sentence or fact, uses an unknown label or trap, or belongs to a note that
+has changed since its packet was written.
 
 ## Outputs (`results/`)
 
@@ -70,12 +74,14 @@ python report.py --run s3
 - `s3.sentences.jsonl`: one row per note sentence. Fields:
   - `sid`: the sentence id (`S001`...), used by packets and verdicts;
   - `cites` and `invalid_cites`: the cited lines, and those that don't exist;
-  - `out_of_part_cites`: cited lines that exist but are outside the transcript part the map call saw;
+  - `out_of_part_cites`: cited lines that exist but are outside the transcript part the map call saw (`null`
+    when the note can't be matched to its map calls);
   - `support`: the lexical support.
 - `s3.scores.jsonl`: one row per note. Judge metrics are added by `collect`.
 - `s3.nli.jsonl`: P(entailment / neutral / contradiction) per sentence.
 - `judge/s3/`: the packets `<id>.md` (a long note is split into `<id>-1`, `<id>-2`, ... of 120 or fewer sentences),
-  plus `_key.json` (packet → model, transcript and sentence ids; **don't show it to judges**),
+  plus `_key.json` (packet → model, transcript, sentence ids and a fingerprint of each sentence's text and cites;
+  **don't show it to judges**),
   `transcripts/<id>.txt` (each full transcript as the model saw it) and, later, `<id>.verdict.json`.
 
 ## Judging
@@ -85,7 +91,7 @@ Give each judge one or more packets plus `judge_instructions_s3.md`, but not `_k
 
 - `label`: `supported`, `unsupported_fabrication`, `contradiction` or `over_inference`;
 - `cites_support`: `yes`, `partly` or `no`;
-- `trap`: the id of the trap the sentence hits, if any;
+- `trap`: the id of the trap the sentence hits, a list of ids if it hits several, or `null`;
 - `why`.
 
 On part 1 of each note, the judge also marks each checklist fact as `present`, `partial` or `absent`. Judges check
@@ -101,6 +107,8 @@ each sentence against the full transcript, not only against the lines it cites.
   - combined: either of the two.
 - **Thresholds** are picked on the tuning set (the two S2 transcripts) in two ways, best F1 and "catch-all",
   then applied unchanged to the test set (the four S3 transcripts). Catch-all is the highest precision with no
-  fabrication or contradiction left unflagged.
+  fabrication or contradiction left unflagged. Selection compares exact metrics; only the printout is rounded.
+- **Coverage:** citation validity and the lexical flag use every judged sentence. The NLI and combined flags are
+  reported only if every judged sentence has an NLI score for its current text and cites.
 - **Reported:** precision, recall and F1, the number of unflagged fabrications or contradictions, and citation
   validity (the share of sentences with `cites_support` = `yes`, and = `yes` or `partly`).
