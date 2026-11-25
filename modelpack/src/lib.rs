@@ -44,6 +44,10 @@ pub const ENGINES: [&str; 3] = ["whisper.cpp", "sherpa-onnx", "llama.cpp"];
 /// Tasks a model pack can perform (mirrors `TASKS` in the TS).
 pub const TASKS: [&str; 3] = ["asr", "diarization", "llm"];
 
+/// The task of a language-model pack, and the only engine that runs it.
+const LLM_TASK: &str = "llm";
+const LLM_ENGINE: &str = "llama.cpp";
+
 /// A validated model-pack manifest. Field NAMES match the TS interface; the
 /// declared field ORDER here is the canonical sorted order so that
 /// [`canonicalize`] is byte-identical to the TS `canonicalize`.
@@ -193,6 +197,13 @@ pub fn validate_manifest(value: &Value) -> Result<Manifest, String> {
         return Err(format!(
             "manifest task \"{task}\" is not one of: {}",
             TASKS.join(", ")
+        ));
+    }
+    // A language model runs only on llama.cpp, and llama.cpp runs nothing else,
+    // so a pack can't pass the engine check for one runtime and be loaded by another.
+    if (task == LLM_TASK) != (engine == LLM_ENGINE) {
+        return Err(format!(
+            "manifest task \"{task}\" cannot run on engine \"{engine}\""
         ));
     }
 

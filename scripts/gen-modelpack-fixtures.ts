@@ -275,4 +275,14 @@ function baseManifest(overrides: Record<string, unknown> = {}): Record<string, u
   );
 }
 
+// === reject: malformed-llm-wrong-engine (an "llm" pack must name llama.cpp) =
+{
+  const m = baseManifest({ task: "llm", engine: "sherpa-onnx", sha256: "a".repeat(64) });
+  writeCase(
+    "malformed-llm-wrong-engine",
+    { ...m, signature: "AA==" },
+    { outcome: "reject", reasonContains: "cannot run on engine" },
+  );
+}
+
 console.error("model-pack fixtures written to fixtures/modelpack/");

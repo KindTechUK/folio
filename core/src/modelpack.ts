@@ -171,6 +171,11 @@ export function validateManifest(obj: unknown): ValidateResult {
       reason: `manifest task "${m.task}" is not one of: ${TASKS.join(", ")}`,
     };
   }
+  // A language model runs only on llama.cpp, and llama.cpp runs nothing else,
+  // so a pack can't pass the engine check for one runtime and be loaded by another.
+  if ((m.task === "llm") !== (m.engine === "llama.cpp")) {
+    return { ok: false, reason: `manifest task "${m.task}" cannot run on engine "${m.engine}"` };
+  }
 
   if (!SEMVER_RE.test(m.version as string)) {
     return { ok: false, reason: `manifest version "${m.version as string}" is not valid semver (expected x.y.z)` };

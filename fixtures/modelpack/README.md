@@ -64,3 +64,4 @@ are fixed in the script). It rewrites `cases/` and `context.json` only.
 | `malformed-uppercase-sha256` | reject | uppercase hex sha256 rejected (lowercase only) |
 | `malformed-unknown-engine` | reject | engine not in the allowed set |
 | `malformed-unknown-task` | reject | task not in the allowed set |
+| `malformed-llm-wrong-engine` | reject | `task: "llm"` only runs on `llama.cpp` (and `llama.cpp` only runs `llm`) |
