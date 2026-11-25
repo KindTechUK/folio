@@ -39,11 +39,28 @@ All weights are MIT, Apache-2.0, or CC-BY-4.0 (attribution required), ungated, n
 the airplane-mode story. Models are bundled/imported as **signed model packs**
 verified before load (see `data-flow.md` and the modelpack section below).
 
+## Language models (candidates from spike S5; not shipped yet)
+
+No language model ships in the app today. Spike S5 cleared these GGUF weights for
+redistribution as signed `task: "llm"` model packs (see
+`docs/spikes/s5-llm-packaging.md`). Both are ungated, need no token, and carry
+plain Apache-2.0 with no use policy and no NOTICE file upstream.
+
+| Role | Model | Version / tag | Licence | Attribution (required) |
+| --- | --- | --- | --- | --- |
+| Notes (first choice) | Qwen3-4B-Instruct-2507, Q4_0 GGUF (quantised by Unsloth from `Qwen/Qwen3-4B-Instruct-2507`) | `unsloth/Qwen3-4B-Instruct-2507-GGUF` revision `a06e946`, file SHA-256 `e0ba675d…13be2` | **Apache-2.0** | Qwen Team, Alibaba Cloud ("Copyright 2024 Alibaba Cloud"); GGUF conversion and quantisation by Unsloth |
+| Notes (alternative) | Qwen3.5-4B, Q4_0 GGUF, text weights only (quantised by Unsloth from `Qwen/Qwen3.5-4B`) | `unsloth/Qwen3.5-4B-GGUF` revision `e87f176`, file SHA-256 `298fcb5f…b72b8bb` | **Apache-2.0** | Qwen Team, Alibaba Cloud ("Copyright 2026 Alibaba Cloud"); GGUF conversion and quantisation by Unsloth |
+
+Redistributing either pack means: ship the Apache-2.0 licence text with it, keep the
+Alibaba Cloud copyright line, say the weights were converted and quantised (a
+modified form, section 4(b)), and don't use the Qwen name beyond describing where
+the weights come from (section 6 grants no trademark rights).
+
 ## Rust crates (the engine + app backend)
 
 | Crate | Version | Licence | Role |
 | --- | --- | --- | --- |
-| `sherpa-onnx` (k2-fsa, official) | 1.13.2 | **Apache-2.0** | In-process ASR + `OfflineSpeakerDiarization`. (NOT the deprecated `sherpa-rs`.) |
+| `sherpa-onnx` (k2-fsa, official) | 2.0.1 | **Apache-2.0** | In-process ASR + `OfflineSpeakerDiarization`. (NOT the deprecated `sherpa-rs`.) |
 | `symphonia` | 0.5.x | **MPL-2.0** | Pure-Rust audio demux/decode (mp3/AAC/FLAC/WAV/OGG). See note below. |
 | `rubato` | 0.16.x | **MIT** | Sample-rate conversion to 16 kHz. |
 | `hound` | 3.5.x | **Apache-2.0** | WAV read, and writing recordings made in the app. |
@@ -59,6 +76,8 @@ verified before load (see `data-flow.md` and the modelpack section below).
 | `sha2` | 0.10.x | **Apache-2.0 / MIT** | Model-pack weights hashing. |
 | `base64` | 0.22.x | **Apache-2.0 / MIT** | Signature decoding. |
 | `zip` | 2.x | **MIT** | Extract verified model packs (a pack's `weights.bin` is a zip) into the per-user verified-models cache. |
+| `llama-cpp-2` / `llama-cpp-sys-2` *(spike S5 only; not in the app)* | =0.1.161 | **MIT OR Apache-2.0** | Rust bindings to llama.cpp, for local notes (P2). Built from vendored sources, CPU only, default features off. |
+| llama.cpp + ggml (C/C++, vendored in `llama-cpp-sys-2`) *(spike S5 only)* | v0.6.0 (commit `d812350`; ggml 0.26.0) | **MIT** | The LLM runtime, linked statically. Copyright the ggml authors. |
 
 > **`symphonia` licence note (MPL-2.0):** MPL-2.0 is a permissive, file-level
 > copyleft that is redistributable in a commercial product and does **not**

@@ -586,7 +586,6 @@ dependencies = [
  "modelpack",
  "rand_core",
  "serde_json",
- "sha2",
  "walkdir",
  "zip",
 ]

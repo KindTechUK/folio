@@ -65,6 +65,8 @@ enum Command {
 enum Task {
     Asr,
     Diarization,
+    /// A local language model (a GGUF for the `llama.cpp` engine).
+    Llm,
 }
 
 impl Task {
@@ -72,6 +74,7 @@ impl Task {
         match self {
             Task::Asr => "asr",
             Task::Diarization => "diarization",
+            Task::Llm => "llm",
         }
     }
 }
@@ -117,7 +120,7 @@ fn main() -> Result<()> {
             };
             pack(&model_dir, &out, &private_pem, &meta)?;
             println!("OK: wrote signed pack to {}", out.display());
-            println!("    (self-verified with modelpack::verify_model_pack)");
+            println!("    (self-verified with the modelpack verifier)");
         }
         Command::Verify { pack, pubkey } => {
             let public_pem = std::fs::read_to_string(&pubkey)?;
