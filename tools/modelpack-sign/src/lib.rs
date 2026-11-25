@@ -8,7 +8,7 @@
 
 use std::collections::BTreeMap;
 use std::io::Write;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 use anyhow::{bail, Context, Result};
 use base64::engine::general_purpose::STANDARD as BASE64_STANDARD;
@@ -296,10 +296,33 @@ pub fn build_manifest_json(meta: &PackMeta, sha256: &str, signature: &str) -> se
     })
 }
 
-/// Full `pack` pipeline: zip the model dir straight into `weights.bin`, hash it
-/// in chunks, sign, write the manifest, then self-verify (again streaming) with
-/// the real `modelpack` verifier before returning. Nothing is held in memory
-/// whole, so multi-GB LLM packs sign in flat memory.
+/// `path` with symlinks and `..` resolved, even when its last components don't
+/// exist yet: the nearest existing ancestor is canonicalized and the rest appended.
+fn resolved(path: &Path) -> Result<PathBuf> {
+    let abs = std::path::absolute(path)
+        .with_context(|| format!("resolving {}", path.display()))?;
+    let mut rest = Vec::new();
+    let mut base = abs.as_path();
+    while !base.exists() {
+        rest.push(base.file_name().unwrap_or_default().to_owned());
+        base = base
+            .parent()
+            .with_context(|| format!("no existing ancestor of {}", abs.display()))?;
+    }
+    let mut out = base
+        .canonicalize()
+        .with_context(|| format!("resolving {}", base.display()))?;
+    out.extend(rest.iter().rev());
+    Ok(out)
+}
+
+/// Full `pack` pipeline: zip the model dir into a staging file in `out_dir`,
+/// hash it in chunks, sign, write a staged manifest, and self-verify (again
+/// streaming) with the real `modelpack` verifier. Only then are the staged
+/// files renamed over `weights.bin` and `manifest.json`, so a failed rebuild
+/// leaves an existing pack as it was. Nothing is held in memory whole, so
+/// multi-GB LLM packs sign in flat memory. `out_dir` must not be inside
+/// `model_dir`, or the pack would zip its own output.
 pub fn pack(
     model_dir: &Path,
     out_dir: &Path,
@@ -309,19 +332,56 @@ pub fn pack(
     let signing =
         SigningKey::from_pkcs8_pem(private_pem).context("loading signing key from PKCS8 PEM")?;
 
+    if !model_dir.is_dir() {
+        bail!("model dir {} is not a directory", model_dir.display());
+    }
+    if resolved(out_dir)?.starts_with(resolved(model_dir)?) {
+        bail!(
+            "pack out-dir {} is inside the model dir {}; choose an out-dir outside it",
+            out_dir.display(),
+            model_dir.display()
+        );
+    }
+
     std::fs::create_dir_all(out_dir)
         .with_context(|| format!("creating pack out-dir {}", out_dir.display()))?;
+    let staged_weights = out_dir.join(".weights.bin.partial");
+    let staged_manifest = out_dir.join(".manifest.json.partial");
+    let built = build_staged(model_dir, &staged_weights, &staged_manifest, &signing, meta);
+    if built.is_err() {
+        let _ = std::fs::remove_file(&staged_weights);
+        let _ = std::fs::remove_file(&staged_manifest);
+        return built;
+    }
+
+    // The weights go first: if the second rename fails, the old manifest no
+    // longer matches and the pack is rejected, never wrongly accepted.
     let weights_path = out_dir.join("weights.bin");
     let manifest_path = out_dir.join("manifest.json");
-    zip_model_dir_to(model_dir, &weights_path)?;
-    let sha256 = modelpack::sha256_hex_file(&weights_path)
+    std::fs::rename(&staged_weights, &weights_path)
+        .with_context(|| format!("replacing {}", weights_path.display()))?;
+    std::fs::rename(&staged_manifest, &manifest_path)
+        .with_context(|| format!("replacing {}", manifest_path.display()))?;
+    Ok(())
+}
+
+/// Zip, hash, sign and self-verify into the two staging paths.
+fn build_staged(
+    model_dir: &Path,
+    weights_path: &Path,
+    manifest_path: &Path,
+    signing: &SigningKey,
+    meta: &PackMeta,
+) -> Result<()> {
+    zip_model_dir_to(model_dir, weights_path)?;
+    let sha256 = modelpack::sha256_hex_file(weights_path)
         .with_context(|| format!("hashing {}", weights_path.display()))?;
-    let signature = sign_manifest(&signing, meta, &sha256);
+    let signature = sign_manifest(signing, meta, &sha256);
     let manifest_json = build_manifest_json(meta, &sha256, &signature);
 
     let manifest_pretty =
         serde_json::to_string_pretty(&manifest_json).context("serializing manifest json")?;
-    std::fs::write(&manifest_path, manifest_pretty.as_bytes())
+    std::fs::write(manifest_path, manifest_pretty.as_bytes())
         .with_context(|| format!("writing {}", manifest_path.display()))?;
 
     // Self-verify with the real verifier, using the public key derived from the
@@ -331,7 +391,7 @@ pub fn pack(
         .to_public_key_pem(LineEnding::LF)
         .context("deriving public SPKI PEM for self-check")?;
     let engine_versions = self_check_engine_versions();
-    let weights = std::fs::File::open(&weights_path)
+    let weights = std::fs::File::open(weights_path)
         .with_context(|| format!("opening {}", weights_path.display()))?;
     modelpack::verify_model_pack_reader(
         &manifest_json,
