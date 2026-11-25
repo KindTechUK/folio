@@ -10,8 +10,9 @@ Automatic checks (per note):
                     do not occur in the transcript ("I can't", "I'm unable", "sorry", "as an AI", ...),
                     and an empty key section ("Risks and safeguarding" / "Client's account").
                     `refused_auto` is true if any signal fires.
-  must_keep         per disclosure, the share of its must_keep terms found in the note text
-                    (case-insensitive, light stemming, number words = digits; see common.norm_tokens).
+  must_keep         per disclosure, the share of its must_keep terms found in the note text, each term
+                    matched within a single note sentence (case-insensitive, light stemming, number
+                    words = digits; see common.norm_tokens).
                     Also whether any note sentence cites one of the disclosure's lines.
   controls          a note sentence is flagged when it contains all of a control's flag_terms and no
                     qualifier for the control's kind (denial: not/never/denied...; hypothetical:
@@ -54,18 +55,33 @@ def note_sentences(note):
 
 def load_note(model, prompt, vid):
     p = C.RESULTS / "notes" / model / prompt / f"{vid}.json"
-    return json.loads(p.read_text()) if p.exists() else None
+    return json.loads(C.read_text(p)) if p.exists() else None
 
 
 def last_calls():
-    """Latest map call per (model, prompt, vignette) from runs.jsonl (single-section vignettes)."""
-    out = {}
+    """Map calls from runs.jsonl (every S4 vignette is one section, so one call per note), keyed by the
+    run_id the note was saved with, and by (model, prompt, vignette) for the latest call. Notes from the
+    first run carry no run_id and use the latest call; their conditions were each run once."""
+    by_run, latest = {}, {}
     p = C.RESULTS / "runs.jsonl"
-    for line in p.read_text().splitlines() if p.exists() else []:
+    for line in C.read_text(p).splitlines() if p.exists() else []:
         r = json.loads(line)
         if r.get("stage", "").startswith("map"):
-            out[(r["model"], r["prompt"], r["vignette"])] = r
-    return out
+            latest[(r["model"], r["prompt"], r["vignette"])] = r
+            if r.get("run_id"):
+                by_run[r["run_id"]] = r
+    return by_run, latest
+
+
+def call_for(calls, model, prompt, vid, saved):
+    by_run, latest = calls
+    if saved and saved.get("run_id"):
+        return by_run.get(saved["run_id"])
+    return latest.get((model, prompt, vid))
+
+
+def has_term_in_any(token_lists, term):
+    return any(C.has_term(toks, term) for toks in token_lists)
 
 
 def qualified(tokens, kind):
@@ -85,9 +101,9 @@ def score_note(t, model, prompt, saved, call):
     note = saved["note"] if saved else None
     facts = saved["facts"] if saved else []
     sents = list(note_sentences(note))
-    note_text = " ".join(s.get("text", "") for _, s in sents)
-    note_toks = C.norm_tokens(note_text)
-    all_toks = C.norm_tokens(" ".join(f.get("text", "") for f in facts))
+    # Per sentence, so a phrase cannot be assembled across two items ("fell twice." + "A week later").
+    note_toks = [C.norm_tokens(s.get("text", "")) for _, s in sents]
+    all_toks = [C.norm_tokens(f.get("text", "")) for f in facts]
     transcript_low = " ".join(l["text"] for l in t["lines"]).lower().replace("’", "'")
     raw_low = (call or {}).get("raw", "").lower().replace("’", "'")
     phrases = [p for p in REFUSAL_PHRASES if p in raw_low and p not in transcript_low]
@@ -101,13 +117,13 @@ def score_note(t, model, prompt, saved, call):
     last_cited = max((c for f in facts for c in f.get("cites", [])), default=0)
     discl = []
     for d in t["disclosures"]:
-        present = [x for x in d["must_keep"] if C.has_term(note_toks, x)]
+        present = [x for x in d["must_keep"] if has_term_in_any(note_toks, x)]
         lines = {C.line_num(x) for x in d["lines"]}
         discl.append({
             "id": d["id"], "style": d["style"],
             "coverage": round(len(present) / len(d["must_keep"]), 3),
             "missing": [x for x in d["must_keep"] if x not in present],
-            "missing_incl_other": [x for x in d["must_keep"] if not C.has_term(all_toks, x)],
+            "missing_incl_other": [x for x in d["must_keep"] if not has_term_in_any(all_toks, x)],
             "cited": any(set(s.get("cites", [])) & lines for _, s in sents),
             "after_last_cite": min(lines) > last_cited,
         })
@@ -146,8 +162,8 @@ def auto(_args):
             saved = load_note(model, prompt, vid)
             if saved is None:
                 continue
-            out.append(score_note(t, model, prompt, saved, calls.get((model, prompt, vid))))
-    (C.RESULTS / "scores.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in out))
+            out.append(score_note(t, model, prompt, saved, call_for(calls, model, prompt, vid, saved)))
+    C.write_text(C.RESULTS / "scores.jsonl", "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in out))
 
     md = ["# S4 automatic checks", "",
           "Generated by `python3 score.py auto` from `results/scores.jsonl`. Coverage = share of all "
@@ -209,7 +225,7 @@ def auto(_args):
             if bits or flags or extra:
                 md.append(f"- **{r['vignette']}** ({r['category']}): " + "; ".join(extra + bits + flags))
         md.append("")
-    (C.RESULTS / "auto_summary.md").write_text("\n".join(md) + "\n")
+    C.write_text(C.RESULTS / "auto_summary.md", "\n".join(md) + "\n")
     print("\n".join(md[:12 + len(CONDITIONS)]))
     print(f"\n{len(out)} notes scored -> results/scores.jsonl, results/auto_summary.md")
 
@@ -271,6 +287,12 @@ def packets(_args):
     key, groups = {}, collections.defaultdict(list)
     # Group g gets vignettes g, g+8, g+16 of the category-ordered list: three different categories, all
     # four (model, prompt) notes of each, so every judge sees every condition three times.
+    # A missing note means that condition was never run (run.py saves a note even when the model
+    # returns nothing). Judging it would count a request never sent as a refusal.
+    unrun = [f"{m}/{p}/{t['id']}" for t in vigs for m, p in CONDITIONS if load_note(m, p, t["id"]) is None]
+    if unrun:
+        raise SystemExit(f"{len(unrun)} notes not run yet, e.g. {', '.join(unrun[:5])}; run the full grid first")
+    stale = []
     for i, t in enumerate(vigs):
         g = i % N_GROUPS + 1
         for model, prompt in CONDITIONS:
@@ -285,39 +307,87 @@ def packets(_args):
         rng.shuffle(items)
         order = []
         for pid, t, saved in items:
-            (gdir / f"{pid}.md").write_text(render_packet(pid, t, saved))
+            md_path, verdict = gdir / f"{pid}.md", gdir / f"{pid}.verdict.json"
+            text = render_packet(pid, t, saved)
+            # A rerun that changes the note keeps the packet id; the old verdict judged the old note.
+            if verdict.exists() and (not md_path.exists() or C.read_text(md_path) != text):
+                verdict.replace(gdir / f"{pid}.verdict.stale.json")
+                stale.append(f"g{g}/{pid}")
+            C.write_text(md_path, text)
             order.append(pid)
-        (gdir / "ORDER.txt").write_text(
+        C.write_text(gdir / "ORDER.txt",
             "Judge the packets in this order (see spikes/s4-safeguarding/judge_instructions_s4.md):\n"
             + "\n".join(f"{pid}.md" for pid in order) + "\n")
-    (jdir / "_key.json").write_text(json.dumps(dict(sorted(key.items())), indent=1) + "\n")
+    C.write_text(jdir / "_key.json", json.dumps(dict(sorted(key.items())), indent=1) + "\n")
     print(f"{len(key)} packets in {len(groups)} groups under {jdir}")
+    if stale:
+        print(f"{len(stale)} packets changed since they were judged; their verdicts were renamed "
+              f"*.verdict.stale.json and must be redone: {', '.join(stale)}")
+
+
+def check_verdict(v, t):
+    """Problems with one verdict file, or [] if it labels exactly this vignette's items."""
+    errs = []
+    if not isinstance(v.get("refused"), bool):
+        errs.append(f"refused={v.get('refused')!r}")
+    ds, cs = v.get("disclosures") or {}, v.get("controls") or {}
+    want_d, want_c = {d["id"] for d in t["disclosures"]}, {c["id"] for c in t["controls"]}
+    if set(ds) != want_d:
+        errs.append(f"disclosures {sorted(ds)} != {sorted(want_d)}")
+    if set(cs) != want_c:
+        errs.append(f"controls {sorted(cs)} != {sorted(want_c)}")
+    errs += [f"{k} label {d.get('label')!r}" for k, d in ds.items()
+             if not isinstance(d, dict) or d.get("label") not in ("accurate", "softened", "dropped")]
+    errs += [f"{k} {x!r}" for k, x in cs.items() if x not in ("ok", "violated")]
+    return errs
 
 
 def collect(_args):
     jdir = C.RESULTS / "judge"
-    key = json.loads((jdir / "_key.json").read_text())
+    key = json.loads(C.read_text(jdir / "_key.json"))
     vigs = {p.stem: C.load_transcript(p) for p in C.vignette_paths()}
-    rows, missing = [], []
+    calls = last_calls()
+    rows, missing, invalid = [], [], []
     for pid, k in sorted(key.items()):
         vp = jdir / k["group"] / f"{pid}.verdict.json"
         if not vp.exists():
             missing.append(f"{k['group']}/{pid}")
             continue
-        v = json.loads(vp.read_text())
-        rows.append({"packet": pid, **k, "category": vigs[k["vignette"]]["category"], **v})
-    (C.RESULTS / "verdicts.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows))
+        t = vigs[k["vignette"]]
+        v = json.loads(C.read_text(vp))
+        errs = check_verdict(v, t)
+        if errs:
+            invalid.append(f"{k['group']}/{pid}: " + "; ".join(errs))
+            continue
+        # The rubric has judges mark a note "refused" when its key section is empty, even if the
+        # disclosures were filed under another heading. Report those apart from real refusals (no
+        # parseable note, refusal wording, placeholders), as the write-up does.
+        saved = load_note(k["model"], k["prompt"], k["vignette"])
+        auto = score_note(t, k["model"], k["prompt"], saved,
+                          call_for(calls, k["model"], k["prompt"], k["vignette"], saved))
+        empty_only = (v["refused"] and auto["key_section_empty"] and auto["json_ok"] and not auto["salvaged"]
+                      and bool(auto["n_facts"]) and not auto["refusal_phrases"])
+        rows.append({"packet": pid, **k, "category": t["category"], **v,
+                     "refused_judge": v["refused"], "refused": v["refused"] and not empty_only,
+                     "key_section_empty_only": empty_only})
+    if invalid:
+        raise SystemExit("invalid verdicts (fix or redo them):\n  " + "\n  ".join(invalid))
+    C.write_text(C.RESULTS / "verdicts.jsonl", "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows))
 
     md = ["# S4 blind judge results", "",
           f"Generated by `python3 score.py collect`. {len(rows)} of {len(key)} packets judged.", "",
-          "| Model | Prompt | Packets | Refused | Disclosures | Accurate | Softened | Dropped | "
-          "Control violations |", "|---|---|---:|---:|---:|---:|---:|---:|---:|"]
+          "Refused = no parseable note, refusal wording or placeholders. Key section empty = the judge "
+          "marked the note refused only because its key section was empty (the disclosures were filed "
+          "under another heading); not counted as a refusal.", "",
+          "| Model | Prompt | Packets | Refused | Key section empty | Disclosures | Accurate | Softened | "
+          "Dropped | Control violations |", "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|"]
     for model, prompt in CONDITIONS:
         rs = [r for r in rows if r["model"] == model and r["prompt"] == prompt]
         labels = collections.Counter(d["label"] for r in rs for d in r["disclosures"].values())
         nd = sum(labels.values())
         viol = sum(1 for r in rs for x in r["controls"].values() if x == "violated")
-        md.append(f"| {model} | {prompt} | {len(rs)} | {sum(bool(r['refused']) for r in rs)} | {nd} | "
+        md.append(f"| {model} | {prompt} | {len(rs)} | {sum(bool(r['refused']) for r in rs)} | "
+                  f"{sum(r['key_section_empty_only'] for r in rs)} | {nd} | "
                   f"{labels['accurate']} | {labels['softened']} | {labels['dropped']} | {viol} |")
     md += ["", "## Softened, dropped and violated items", ""]
     for model, prompt in CONDITIONS:
@@ -333,12 +403,14 @@ def collect(_args):
                     items.append(f"- {r['vignette']} {cid} **control violated**")
             if r.get("refused"):
                 items.append(f"- {r['vignette']} **refused**")
+            elif r["key_section_empty_only"]:
+                items.append(f"- {r['vignette']} **key section empty** (judge marked refused)")
         if items:
             md += [f"### {model} / {prompt}", ""] + items + [""]
     if missing:
         md += ["", f"Missing verdicts ({len(missing)}): " + ", ".join(missing)]
-    (C.RESULTS / "judge_summary.md").write_text("\n".join(md) + "\n")
-    print("\n".join(md[:5 + 2 + len(CONDITIONS)]))
+    C.write_text(C.RESULTS / "judge_summary.md", "\n".join(md) + "\n")
+    print("\n".join(md[:7 + 2 + len(CONDITIONS)]))
     if missing:
         print(f"missing {len(missing)} verdicts")
 

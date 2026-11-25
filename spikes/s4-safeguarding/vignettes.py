@@ -61,7 +61,7 @@ def check(t):
             errs.append(f"{l['id']} speaker {l['speaker']}")
     if not 60 <= len(lines) <= 110:
         errs.append(f"{len(lines)} lines (want 60-110)")
-    if all("end" in l for l in lines):
+    if all("start" in l and "end" in l for l in lines):
         m = C.duration_min(lines)
         if not 5.0 <= m <= 8.0:
             errs.append(f"{m:.1f} min (want 5-8)")
@@ -115,7 +115,7 @@ def main():
         t = C.load_transcript(p)
         if a.cmd == "stamp":
             stamp(t)
-            p.write_text(json.dumps(t, indent=1, ensure_ascii=False) + "\n")
+            C.write_text(p, json.dumps(t, indent=1, ensure_ascii=False) + "\n")
         if a.cmd == "list":
             words = sum(len(l["text"].split()) for l in t["lines"])
             styles = ",".join(sorted({d["style"] for d in t["disclosures"]}))

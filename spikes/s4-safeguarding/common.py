@@ -28,12 +28,21 @@ RESULTS = HERE / "results"
 KEY_SECTION = {"assessment": "Risks and safeguarding", "attendance_note": "Client's account"}
 
 
+def read_text(path):
+    """Harness files are UTF-8 on every platform (Windows Python otherwise uses the locale's code page)."""
+    return pathlib.Path(path).read_text(encoding="utf-8")
+
+
+def write_text(path, text):
+    pathlib.Path(path).write_text(text, encoding="utf-8")
+
+
 def load_transcript(path):
-    return json.loads(pathlib.Path(path).read_text())
+    return json.loads(read_text(path))
 
 
 def load_template(name):
-    return json.loads((TEMPLATES / f"{name}.json").read_text())
+    return json.loads(read_text(TEMPLATES / f"{name}.json"))
 
 
 def vignette_paths():

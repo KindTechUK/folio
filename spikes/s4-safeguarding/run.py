@@ -21,9 +21,11 @@ import argparse
 import json
 import os
 import pathlib
+import socket
 import subprocess
 import time
 import urllib.request
+import uuid
 
 import common as C
 
@@ -42,6 +44,11 @@ class Server:
         gguf = MODEL_DIR / MODELS[model_key]
         if not gguf.exists():
             raise SystemExit(f"missing {gguf}")
+        # A server already on this port would answer /health and every request below, and its output
+        # would be recorded under this model's name.
+        with socket.socket() as s:
+            if s.connect_ex(("127.0.0.1", port)) == 0:
+                raise SystemExit(f"port {port} is already in use; stop that server or pass --port")
         log_dir.mkdir(parents=True, exist_ok=True)
         self.log = log_dir / f"server-{model_key}-t{threads}.log"
         cmd = ["llama-server", "-m", str(gguf), "-c", str(ctx), "-t", str(threads),
@@ -54,7 +61,7 @@ class Server:
                 raise SystemExit(f"llama-server exited; see {self.log}")
             try:
                 with urllib.request.urlopen(self.url + "/health", timeout=2) as r:
-                    if r.status == 200:
+                    if r.status == 200 and self.proc.poll() is None:
                         break
             except Exception:
                 time.sleep(1)
@@ -104,6 +111,9 @@ def note_path(model, prompt, vid):
 
 
 def run_one(srv, model, prompt, vpath, out):
+    """One note. Its map calls in runs.jsonl and the saved note share a run_id, so score.py pairs a note
+    with the calls that made it even when a rerun was interrupted between the two writes."""
+    run_id = uuid.uuid4().hex[:12]
     t = C.load_transcript(vpath)
     tpl = C.load_template(t["template"])
     secs = C.sections(t["lines"])
@@ -111,7 +121,7 @@ def run_one(srv, model, prompt, vpath, out):
     for i, sec in enumerate(secs):
         msgs = C.map_messages(t, tpl, sec, i, len(secs), C.PROMPTS[prompt])
         m, parsed, raw = srv.chat(msgs, C.facts_schema(tpl), MAP_MAX_TOKENS, "facts")
-        rec = {"model": model, "prompt": prompt, "vignette": t["id"], "stage": f"map{i}",
+        rec = {"run_id": run_id, "model": model, "prompt": prompt, "vignette": t["id"], "stage": f"map{i}",
                "n_sections": len(secs), **m, "n_facts": len((parsed or {}).get("facts", [])), "raw": raw}
         out.write(json.dumps(rec) + "\n")
         out.flush()
@@ -122,7 +132,7 @@ def run_one(srv, model, prompt, vpath, out):
             facts.extend(parsed.get("facts", []))
     p = note_path(model, prompt, t["id"])
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps({"note": C.sectioned_note(tpl, facts), "facts": facts}, indent=1,
+    C.write_text(p, json.dumps({"run_id": run_id, "note": C.sectioned_note(tpl, facts), "facts": facts}, indent=1,
                             ensure_ascii=False))
 
 
@@ -140,7 +150,7 @@ def main():
     vpaths = C.vignette_paths() if a.vignettes == "all" else [C.find_vignette(v) for v in a.vignettes.split(",")]
     prompts = a.prompts.split(",")
     C.RESULTS.mkdir(exist_ok=True)
-    with open(C.RESULTS / "runs.jsonl", "a") as out:
+    with open(C.RESULTS / "runs.jsonl", "a", encoding="utf-8") as out:
         for model in a.models.split(","):
             todo = [(p, v) for p in prompts for v in vpaths
                     if a.force or not note_path(model, p, v.stem).exists()]
@@ -149,9 +159,11 @@ def main():
                 continue
             print(f"== {model} (t={a.threads}, ctx={a.ctx}, port={a.port}): {len(todo)} notes", flush=True)
             srv = Server(model, a.threads, a.ctx, a.port, C.RESULTS / "logs")
-            out.write(json.dumps({"model": model, "stage": "load", "load_s": srv.load_s, "threads": a.threads,
-                                  "ctx": a.ctx, "loadavg": [round(x, 1) for x in os.getloadavg()]}) + "\n")
             try:
+                # os.getloadavg does not exist on Windows.
+                load = [round(x, 1) for x in os.getloadavg()] if hasattr(os, "getloadavg") else None
+                out.write(json.dumps({"model": model, "stage": "load", "load_s": srv.load_s, "threads": a.threads,
+                                      "ctx": a.ctx, "loadavg": load}) + "\n")
                 for prompt, vp in todo:
                     run_one(srv, model, prompt, vp, out)
             finally:
