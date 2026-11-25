@@ -7,22 +7,24 @@
 
 ## Verdict
 
-The two S2 finalists cite their sources almost perfectly, but about 1 sentence in 7 says something the
-transcript contradicts. No cheap automatic flag catches those sentences without flagging nearly every
-sentence.
+The two S2 finalists cite real transcript lines almost perfectly, but the cited lines alone fully support only
+about 7 sentences in 10. About 1 sentence in 7 is not supported by the transcript, and 1 in 10 contradicts it.
+No cheap automatic flag catches those sentences without flagging nearly every sentence.
 
 | Pass criterion | Result | |
 |---|---|---|
-| ≥ 95% of sentences carry a valid citation | 100% of sentences cite real lines (1 bad cite in 1,415). The judges found the cited lines alone fully support the sentence for 67–72%, and fully or partly for 94–97% | **Borderline** |
+| ≥ 95% of sentences carry a valid citation (the plan: the span exists **and** supports the sentence) | **Exists:** 100% of sentences cite real lines (1 bad cite in 1,415). **Supports:** the judges found the cited lines alone fully support the sentence for 67% (test set) and 72% (tuning set); fully or partly for 94% and 97% | **Fail** (the lines exist; they don't support enough sentences) |
 | Zero fabrications or contradictions go unflagged on the trap set | Only by flagging every sentence. At any useful threshold, 5–12 contradictions on the test set go unflagged | **Fail** |
 | Flag precision ≥ 70% | 0.22 at best (lexical overlap or NLI) | **Fail** |
 
 **What the errors are.** The models rarely invent things: 2 of 1,099 sentences were outright fabrications.
 The 156 problem sentences are mostly contradictions (114) and over-inference (40). Counting keywords in the
 judges' reasons:
-- **Dates and years**, about a third (53). The transcripts never state the year. Both models fill one in from
-  training (2023 or 2024 for events in 2026). One such error accounted for 17 of 19 contradictions in a single
-  note. They also move deadlines into the wrong month.
+- **Dates and years**, about a third (53). The recording date is never given, and the current year comes up
+  only in passing ("fourteenth of August twenty twenty-six" on a dismissal letter; a deadline in "December
+  twenty twenty-six"). Both models fill the year in from training instead (2023 or 2024 for events in 2026).
+  One such error, dating the 2026 events to 2024, accounts for 17 of the 28 contradictions in Qwen3.5-4B's
+  legal-interview note. They also move deadlines into the wrong month.
 - **Wrong figures (31):** "like twenty-seven [thousand]" became "£27 per hour" in both models.
 - **Wrong speaker:** the solicitor's advice became the client's objective; "Hannah reported that Tom…" when
   Tom said it himself.
@@ -30,6 +32,8 @@ judges' reasons:
 
 **Traps.** Only 4 of 232 trap opportunities were hit (12 notes, each against its transcript's 16 or 21 traps). Negation,
 hearsay and hypotheticals were mostly kept. The errors fall outside the traps we wrote, in ordinary details.
+(Judges could record one trap per sentence, so a sentence hitting two would count once; the format now takes a
+list.)
 
 **Recommendation for P2/P3:**
 1. **Give the model the recording's date** (and the participants' names and roles) in the prompt. That
@@ -148,6 +152,9 @@ readily as wrong ones.
   parts are probably cut short, which costs recall, and short parts get padded with trivia. This limit is S2's,
   and it also capped S4.
 - **The test-set timestamps are synthetic** (seeded from word counts). They don't affect the labels.
+- **A note item is scored as one sentence.** The schema doesn't force one sentence per item. 2 of the 1,099
+  items hold two sentences (both short and both judged as a unit); quoted speech accounts for the other items
+  with inner full stops. Too few to change any rate.
 
 ## Changes to the PRD
 
