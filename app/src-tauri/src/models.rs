@@ -32,13 +32,15 @@ fn vendor_pubkey_pem() -> &'static str {
 /// Engine versions this build ships, gating `engine_min_version`. Mirrors
 /// `fixtures/modelpack/context.json` (`whisper.cpp`, `sherpa-onnx`). NOTE:
 /// derive these from the bundled engine crates later rather than hard-coding.
+///
+/// No `llama.cpp` yet: this build doesn't link it, so a signed LLM pack is
+/// listed as "engine not supported by this build" rather than as verified.
+/// Add `"llama.cpp" => "0.6.0"` (the version `llama-cpp-sys-2 =0.1.161`
+/// vendors, spike S5) when P2 links it.
 fn engine_versions() -> BTreeMap<String, String> {
     let mut m = BTreeMap::new();
     m.insert("whisper.cpp".to_string(), "1.7.0".to_string());
     m.insert("sherpa-onnx".to_string(), "2.0.1".to_string());
-    // llama.cpp v0.6.0 (commit d812350), as vendored by llama-cpp-sys-2 =0.1.161
-    // (spike S5). No llama.cpp is linked into the app yet.
-    m.insert("llama.cpp".to_string(), "0.6.0".to_string());
     m
 }
 
@@ -298,17 +300,31 @@ fn manifest_sha256(dir: &Path) -> Result<String, String> {
         .ok_or_else(|| format!("manifest in {} has no sha256", dir.display()))
 }
 
-/// Verify every pack directory in `packs_dir`, returning the verified ones.
+/// The `task` a pack's manifest declares, read WITHOUT verifying it. Used only to
+/// skip packs a resolver could never use before hashing their weights (a
+/// multi-GB LLM pack takes seconds); every pack a resolver keeps is still fully
+/// verified, so a forged `task` can only make a pack be skipped.
+fn declared_task(dir: &Path) -> Option<String> {
+    let bytes = std::fs::read(dir.join("manifest.json")).ok()?;
+    let value: Value = serde_json::from_slice(&bytes).ok()?;
+    value.get("task").and_then(Value::as_str).map(str::to_string)
+}
+
+/// Verify every pack directory in `packs_dir` whose declared task passes
+/// `wanted`, returning the verified ones. Packs with an unreadable manifest are
+/// still verified (and so rejected).
 fn verified_packs(
     packs_dir: &Path,
     pubkey: &PublicKey<'_>,
     engine_versions: &BTreeMap<String, String>,
+    wanted: impl Fn(&str) -> bool,
 ) -> Vec<(PathBuf, PackStatus)> {
     let mut out: Vec<(PathBuf, PackStatus)> = match std::fs::read_dir(packs_dir) {
         Ok(entries) => entries
             .filter_map(|e| e.ok())
             .map(|e| e.path())
             .filter(|p| p.is_dir())
+            .filter(|p| declared_task(p).is_none_or(|t| wanted(&t)))
             .map(|p| {
                 let status = verify_pack_dir(&p, pubkey, engine_versions);
                 (p, status)
@@ -339,11 +355,12 @@ pub fn resolve_verified_models_dir_in(
     asr_model: engine::AsrModel,
     diarize: bool,
 ) -> Result<PathBuf, String> {
-    let verified_dirs: Vec<PathBuf> = verified_packs(packs_dir, pubkey, engine_versions)
-        .into_iter()
-        .filter(|(_, status)| status.task != LLM_TASK)
-        .map(|(dir, _)| dir)
-        .collect();
+    let verified_dirs: Vec<PathBuf> =
+        verified_packs(packs_dir, pubkey, engine_versions, |task| task != LLM_TASK)
+            .into_iter()
+            .filter(|(_, status)| status.task != LLM_TASK)
+            .map(|(dir, _)| dir)
+            .collect();
     if verified_dirs.is_empty() {
         return Err(format!(
             "no verified model pack found in {}",
@@ -426,7 +443,7 @@ pub fn resolve_verified_llm_in(
     engine_versions: &BTreeMap<String, String>,
 ) -> Result<PathBuf, String> {
     let mut llm_packs: Vec<(PathBuf, PackStatus)> =
-        verified_packs(packs_dir, pubkey, engine_versions)
+        verified_packs(packs_dir, pubkey, engine_versions, |task| task == LLM_TASK)
             .into_iter()
             .filter(|(_, status)| status.task == LLM_TASK)
             .collect();
@@ -784,5 +801,69 @@ mod tests {
         assert!(err.contains("no verified LLM model pack found"), "got: {err}");
         let _ = fs::remove_dir_all(&packs);
         let _ = fs::remove_dir_all(&cache_base);
+    }
+
+    /// Resolving speech models never reads an LLM pack's weights (a multi-GB
+    /// hash would hold up every recording start). The LLM pack's `weights.bin`
+    /// here is a FIFO with no writer, so opening it blocks: the resolve only
+    /// returns if it never touches that file.
+    #[cfg(unix)]
+    #[test]
+    fn resolving_speech_models_never_reads_an_llm_packs_weights() {
+        let (pem, versions) = fixtures_context();
+        let packs = unique_tmp("speech-skips-llm-packs");
+        copy_fixture_pack("asr-small-en", &packs);
+        let llm = packs.join("llm-tiny");
+        fs::create_dir_all(&llm).unwrap();
+        fs::copy(
+            repo_root().join("fixtures/modelpack/packs/llm-tiny/manifest.json"),
+            llm.join("manifest.json"),
+        )
+        .unwrap();
+        let mkfifo = std::process::Command::new("mkfifo")
+            .arg(llm.join("weights.bin"))
+            .status()
+            .unwrap();
+        assert!(mkfifo.success());
+        let cache_base = unique_tmp("speech-skips-llm-cache");
+
+        let (tx, rx) = std::sync::mpsc::channel();
+        let (p, c) = (packs.clone(), cache_base.clone());
+        std::thread::spawn(move || {
+            let pubkey = PublicKey::SpkiPem(&pem);
+            let r = resolve_verified_models_dir_in(
+                &p,
+                &c,
+                &pubkey,
+                &versions,
+                engine::AsrModel::SmallEn,
+                false,
+            );
+            let _ = tx.send(r);
+        });
+        let resolved = rx
+            .recv_timeout(std::time::Duration::from_secs(10))
+            .expect("speech resolve blocked opening the LLM pack's weights");
+
+        assert!(resolved.is_ok(), "got: {resolved:?}");
+        let _ = fs::remove_dir_all(&packs);
+        let _ = fs::remove_dir_all(&cache_base);
+    }
+
+    /// This build links no llama.cpp, so a correctly signed LLM pack is
+    /// reported as not usable rather than as verified.
+    #[test]
+    fn this_build_does_not_verify_llm_packs() {
+        let (pem, _) = fixtures_context();
+        let pubkey = PublicKey::SpkiPem(&pem);
+        let pack = repo_root().join("fixtures/modelpack/packs/llm-tiny");
+
+        let status = verify_pack_dir(&pack, &pubkey, &engine_versions());
+
+        assert!(!status.verified);
+        assert_eq!(
+            status.reason.as_deref(),
+            Some("engine not supported by this build (no \"llama.cpp\" engine available)")
+        );
     }
 }
