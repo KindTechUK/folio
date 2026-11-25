@@ -5,13 +5,15 @@
 //! Usage:
 //!   s5-llama --self-check
 //!       Starts sherpa-onnx/onnxruntime and the llama.cpp CPU backend, then exits
-//!       0. No model needed (this is what CI runs on Windows, macOS and Linux).
+//!       0. No model needed (this is what CI runs on Windows, macOS and Linux). A
+//!       link-and-backend smoke test: it opens no inference session.
 //!   s5-llama --model <file.gguf> [--threads 4] [--n-predict 64] [--ctx 2048]
 //!            [--prompt "..."] [--vad <silero_vad.onnx>]
 //!       Loads the GGUF on the CPU and generates up to `--n-predict` tokens,
 //!       printing load time, prompt and generation tokens/s, and peak RSS.
-//!       `--vad` also runs a Silero VAD session through sherpa-onnx in the same
-//!       process first, so both runtimes have live threads and allocations.
+//!       `--vad` also opens a Silero VAD session through sherpa-onnx first and
+//!       keeps it open through generation, running it again afterwards, so both
+//!       runtimes hold live sessions and allocations at the same time.
 //!
 //! Throwaway spike code: not linked into the app.
 
@@ -48,7 +50,13 @@ fn parse_args() -> Result<Args, String> {
             "--self-check" => a.self_check = true,
             "--model" => a.model = Some(PathBuf::from(value()?)),
             "--vad" => a.vad = Some(PathBuf::from(value()?)),
-            "--threads" => a.threads = value()?.parse().map_err(|e| format!("--threads: {e}"))?,
+            "--threads" => {
+                a.threads = value()?.parse().map_err(|e| format!("--threads: {e}"))?;
+                // ggml silently swaps a value below 1 for its default (4).
+                if a.threads < 1 {
+                    return Err("--threads must be at least 1".into());
+                }
+            }
             "--n-predict" => {
                 a.n_predict = value()?.parse().map_err(|e| format!("--n-predict: {e}"))?
             }
@@ -116,8 +124,9 @@ fn sherpa_check() -> Result<(), String> {
     Ok(())
 }
 
-/// Run a real Silero VAD session through sherpa-onnx on one second of silence.
-fn sherpa_vad(path: &std::path::Path) -> Result<(), String> {
+/// Open a real Silero VAD session through sherpa-onnx and run it on one second
+/// of silence. The session is returned so the caller can keep it open.
+fn sherpa_vad(path: &std::path::Path) -> Result<sherpa_onnx::VoiceActivityDetector, String> {
     let t = Instant::now();
     let mut silero = sherpa_onnx::SileroVadModelConfig::default();
     silero.model = Some(path.to_string_lossy().into_owned());
@@ -144,7 +153,19 @@ fn sherpa_vad(path: &std::path::Path) -> Result<(), String> {
         t.elapsed().as_secs_f64() * 1e3,
         !vad.is_empty()
     );
-    Ok(())
+    Ok(vad)
+}
+
+/// Run the still-open VAD session again, after llama.cpp has generated.
+fn sherpa_vad_again(vad: &sherpa_onnx::VoiceActivityDetector) {
+    let t = Instant::now();
+    vad.reset();
+    vad.accept_waveform(&vec![0.0f32; 16_000]);
+    vad.flush();
+    println!(
+        "sherpa VAD: same session ran 1 s of silence again after generation in {:.0} ms",
+        t.elapsed().as_secs_f64() * 1e3
+    );
 }
 
 #[cfg(feature = "llama")]
@@ -278,9 +299,11 @@ mod llama {
 fn run() -> Result<(), String> {
     let a = parse_args()?;
     sherpa_check()?;
-    if let Some(vad) = &a.vad {
-        sherpa_vad(vad)?;
-    }
+    // Kept open until the end of `run`, so it is live while llama.cpp loads and generates.
+    let vad = match &a.vad {
+        Some(path) => Some(sherpa_vad(path)?),
+        None => None,
+    };
 
     #[cfg(feature = "llama")]
     {
@@ -293,6 +316,9 @@ fn run() -> Result<(), String> {
     #[cfg(not(feature = "llama"))]
     if a.model.is_some() {
         return Err("built without the `llama` feature; rebuild with default features".into());
+    }
+    if let Some(vad) = &vad {
+        sherpa_vad_again(vad);
     }
 
     println!(
