@@ -67,7 +67,7 @@ def main():
     if sys.argv[1:] == ["--check"]:
         bad = 0
         for p in sorted(C.DATA.glob("*.json")):
-            t = json.loads(p.read_text())
+            t = json.loads(C.read_text(p))
             errs, summary = validate(t, new="omission" in json.dumps(t["facts"]))
             print(summary)
             for e in errs:
@@ -75,7 +75,7 @@ def main():
             bad += len(errs)
         sys.exit(1 if bad else 0)
     for src in sys.argv[1:]:
-        t = json.loads(pathlib.Path(src).read_text())
+        t = json.loads(C.read_text(src))
         words = sum(len(l["text"].split()) for l in t["lines"])
         rate = min(3.2, max(2.0, words / (10.5 * 60)))  # ~10.5 min of speech + ~2 min of gaps
         out = {k: t[k] for k in ("id", "title", "template", "speakers")}
@@ -89,7 +89,7 @@ def main():
             print("  ERROR", e)
         if not errs:
             dest = C.DATA / f"{pathlib.Path(src).stem}.json"
-            dest.write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n")
+            C.write_text(dest, json.dumps(out, indent=1, ensure_ascii=False) + "\n")
             print("  wrote", dest)
 
 

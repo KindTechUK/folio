@@ -52,7 +52,7 @@ def lexical_support(text, cited_texts):
 
 
 def load_jsonl(p):
-    return [json.loads(l) for l in p.read_text().splitlines() if l.strip()] if p.exists() else []
+    return [json.loads(l) for l in C.read_text(p).splitlines() if l.strip()] if p.exists() else []
 
 
 def notes_in_run(run):
@@ -92,7 +92,7 @@ def auto(run):
         t = C.load_transcript(find_transcript(tid))
         tpl = C.load_template(t["template"])
         by_num = {C.line_num(l["id"]): l for l in t["lines"]}
-        note = json.loads(path.read_text())
+        note = json.loads(C.read_text(path))
         sents = C.note_sentence_list(note)
 
         part_of = sentence_parts(tpl, maps.get((model, t["id"]), []), sents)
@@ -125,8 +125,8 @@ def auto(run):
             "weak_rate": round(sum(1 for x in sup if x < 0.25) / n, 3) if n else None,
         })
         print({k: v for k, v in note_rows[-1].items() if k != "run"})
-    (C.RESULTS / f"{run}.sentences.jsonl").write_text("".join(json.dumps(r) + "\n" for r in sent_rows))
-    (C.RESULTS / f"{run}.scores.jsonl").write_text("".join(json.dumps(r) + "\n" for r in note_rows))
+    C.write_text(C.RESULTS / f"{run}.sentences.jsonl", "".join(json.dumps(r) + "\n" for r in sent_rows))
+    C.write_text(C.RESULTS / f"{run}.scores.jsonl", "".join(json.dumps(r) + "\n" for r in note_rows))
 
 
 # ---- blind packets ----
@@ -149,9 +149,9 @@ def packets(run):
         t = C.load_transcript(tpath)
         tpl = C.load_template(t["template"])
         txt = jdir / "transcripts" / f"{t['id']}.txt"
-        txt.write_text(transcript_txt(t))
+        C.write_text(txt, transcript_txt(t))
         by_num = {C.line_num(l["id"]): l for l in t["lines"]}
-        sents = C.note_sentence_list(json.loads(path.read_text()))
+        sents = C.note_sentence_list(json.loads(C.read_text(path)))
         n_parts = max(1, math.ceil(len(sents) / PART_MAX))
         size = math.ceil(len(sents) / n_parts) if sents else 0
         h = note_hash(model, tid)
@@ -187,8 +187,8 @@ def packets(run):
                    "\n".join(f"- {x['id']} ({x['kind']}): must NOT claim: {x['must_not_claim']}" for x in t["traps"]),
                    f"\n\nWrite your verdict to `{jdir / (pid + '.verdict.json')}` following "
                    f"`{C.HERE / 'judge_instructions_s3.md'}`.\n"]
-            (jdir / f"{pid}.md").write_text("\n".join(md))
-    (jdir / "_key.json").write_text(json.dumps(key, indent=1))
+            C.write_text(jdir / f"{pid}.md", "\n".join(md))
+    C.write_text(jdir / "_key.json", json.dumps(key, indent=1))
     print(f"{len(key)} packets in {jdir}")
     for pid, tid, n, facts in sorted(sizes, key=lambda x: (x[1], x[0])):
         print(f"  {pid}  {tid:32s} {n:4d} sentences{'  + facts' if facts else ''}")
@@ -199,14 +199,14 @@ def packets(run):
 def load_verdicts(run):
     """One row per judged sentence: {model, transcript, split, sid, label, cites_support, trap, why}."""
     jdir = C.RESULTS / "judge" / run
-    key = json.loads((jdir / "_key.json").read_text())
+    key = json.loads(C.read_text(jdir / "_key.json"))
     rows, facts, missing = [], {}, []
     for pid, k in key.items():
         vp = jdir / f"{pid}.verdict.json"
         if not vp.exists():
             missing.append(pid)
             continue
-        v = json.loads(vp.read_text())
+        v = json.loads(C.read_text(vp))
         for sid in k["sids"]:
             sv = v.get("sentences", {}).get(sid)
             if sv is None:
@@ -224,7 +224,7 @@ def collect(run):
     rows, facts, missing = load_verdicts(run)
     if missing:
         print(f"{len(missing)} packets have no verdict yet: {', '.join(missing)}")
-    (C.RESULTS / f"{run}.verdicts.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+    C.write_text(C.RESULTS / f"{run}.verdicts.jsonl", "".join(json.dumps(r) + "\n" for r in rows))
     scores = load_jsonl(C.RESULTS / f"{run}.scores.jsonl")
     for s in scores:
         k = (s["model"], s["transcript"])
@@ -246,7 +246,7 @@ def collect(run):
             s["fact_recall"] = round(sum(val.get(x, 0) for x in fv.values()) / len(fv), 3)
             if omit:
                 s["omission_recall"] = round(sum(val.get(fv.get(f), 0) for f in omit) / len(omit), 3)
-    (C.RESULTS / f"{run}.scores.jsonl").write_text("".join(json.dumps(s) + "\n" for s in scores))
+    C.write_text(C.RESULTS / f"{run}.scores.jsonl", "".join(json.dumps(s) + "\n" for s in scores))
     print(f"{len(rows)} sentence verdicts -> {run}.verdicts.jsonl; judge metrics merged into {run}.scores.jsonl")
 
 

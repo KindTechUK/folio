@@ -65,7 +65,7 @@ def nli(run):
                     rec[f"p_{labels[j]}"] = round(p, 4)
             print(f"  {min(i + 16, len(pairs))}/{len(pairs)}", end="\r", flush=True)
     meta = {"nli_model": NLI_MODEL, "transformers": transformers.__version__, "torch": torch.__version__}
-    (C.RESULTS / f"{run}.nli.jsonl").write_text("".join(json.dumps({**r, **meta}) + "\n" for r in out))
+    C.write_text(C.RESULTS / f"{run}.nli.jsonl", "".join(json.dumps({**r, **meta}) + "\n" for r in out))
     print(f"\n{len(out)} sentences ({len(pairs)} with a premise) -> {run}.nli.jsonl")
 
 

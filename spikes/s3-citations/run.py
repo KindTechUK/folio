@@ -22,6 +22,7 @@ import argparse
 import json
 import os
 import pathlib
+import socket
 import subprocess
 import time
 import urllib.request
@@ -64,6 +65,11 @@ class Server:
             raise SystemExit(f"missing {gguf}")
         log_dir.mkdir(parents=True, exist_ok=True)
         self.log = log_dir / f"server-{model_key}-t{threads}.log"
+        # Another llama-server on this port would answer /health before ours fails to bind, and its output
+        # would be recorded under this model's name.
+        with socket.socket() as probe:
+            if probe.connect_ex(("127.0.0.1", port)) == 0:
+                raise SystemExit(f"port {port} is already in use; stop that server or pass --port")
         cmd = ["llama-server", "-m", str(gguf), "-c", str(ctx), "-t", str(threads),
                "-tb", str(threads), "-ngl", "0", "-dev", "none", "-fa", "off", "-np", "1", "-cram", "0",
                "--reasoning", "off", "--no-webui", "--port", str(port), "--log-file", str(self.log)]
@@ -74,8 +80,12 @@ class Server:
                 raise SystemExit(f"llama-server exited early (port {port} busy?); see {self.log}")
             try:
                 with urllib.request.urlopen(self.url + "/health", timeout=2) as r:
-                    if r.status == 200:
-                        break
+                    healthy = r.status == 200
+                if healthy:
+                    time.sleep(1)  # a child that lost the port race exits right after start-up
+                    if self.proc.poll() is not None:
+                        raise SystemExit(f"llama-server exited (port {port} busy?); see {self.log}")
+                    break
             except Exception:
                 time.sleep(1)
         else:
@@ -150,15 +160,15 @@ def run_transcript(srv, model, tpath, strategies, out, notes_dir, meta):
         if parsed:
             facts.extend(parsed.get("facts", []))
     note = C.sectioned_note(tpl, facts)
-    (ndir / f"{t['id']}.sectioned.json").write_text(json.dumps(note, indent=1))
-    (ndir / f"{t['id']}.sectioned.spans.json").write_text(json.dumps(C.span_note(note, lines), indent=1))
+    C.write_text(ndir / f"{t['id']}.sectioned.json", json.dumps(note, indent=1))
+    C.write_text(ndir / f"{t['id']}.sectioned.spans.json", json.dumps(C.span_note(note, lines), indent=1))
     emit({**base, "strategy": "sectioned", "stage": "summary", "n_sections": len(secs), "n_facts": len(facts),
           "json_ok": ok})
 
     if "mapreduce" in strategies:  # S2's reduce on the same facts; saved, not scored in S3
         m, rnote = srv.chat(C.reduce_messages(t, tpl, facts), C.note_schema(tpl), REDUCE_MAX_TOKENS)
         emit({**base, "strategy": "mapreduce", "stage": "reduce", "n_facts": len(facts), **m})
-        (ndir / f"{t['id']}.mapreduce.json").write_text(
+        C.write_text(ndir / f"{t['id']}.mapreduce.json",
             json.dumps({"note": rnote if rnote else {"raw": m["raw"]}, "facts": facts}, indent=1))
 
 
@@ -181,13 +191,15 @@ def main():
     notes_dir = C.RESULTS / "notes" / a.run
     meta = {"run": a.run, "threads": a.threads, "ctx": a.ctx, "map_max_tokens": MAP_MAX_TOKENS}
 
-    with open(C.RESULTS / f"{a.run}.jsonl", "a") as out:
+    with open(C.RESULTS / f"{a.run}.jsonl", "a", encoding="utf-8") as out:
         for model in models:
             print(f"== {model} (t={a.threads}, ctx={a.ctx}, port={a.port})", flush=True)
             srv = Server(model, a.threads, a.ctx, a.port, C.RESULTS / "logs")
-            out.write(json.dumps({**meta, "model": model, "stage": "load", "load_s": srv.load_s,
-                                  "loadavg": [round(x, 1) for x in os.getloadavg()]}) + "\n")
             try:
+                # os.getloadavg() does not exist on Windows.
+                load = [round(x, 1) for x in os.getloadavg()] if hasattr(os, "getloadavg") else None
+                out.write(json.dumps({**meta, "model": model, "stage": "load", "load_s": srv.load_s,
+                                      "loadavg": load}) + "\n")
                 for tp in tpaths:
                     run_transcript(srv, model, tp, strategies, out, notes_dir, meta)
             finally:
