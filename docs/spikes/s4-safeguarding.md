@@ -1,7 +1,8 @@
 # Spike S4: sensitive and safeguarding content
 
-> Status: **NOT PASSED YET (close), provisional until a practitioner reviews the vignettes** · Run
-> 2026-11-24 on a Mac (a proxy for the reference laptop).
+> Status: **NOT PASSED YET, provisional until a practitioner reviews the vignettes** · Run 2026-11-24, re-run
+> with prompt v2 on 2026-11-26 ([below](#re-run-with-prompt-v2-2026-11-26): the prompt change did not help), on a
+> Mac (a proxy for the reference laptop).
 > Plan: [`next-phase-spikes.md`](next-phase-spikes.md#s4-sensitive-and-safeguarding-content).
 > Harness: `spikes/s4-safeguarding/` (setup and commands are in its README). Builds on S2's harness.
 
@@ -53,8 +54,8 @@ a little** (softened 10 → 6, drops unchanged at 4).
 **Recommendation:**
 1. **Pick Qwen3.5-4B with the statutory framing.** It is clearly ahead here, level on S3, and uses less memory
    (S2).
-2. **Add one rule to the prompt:** keep how often, how hard, who saw it, and when, exactly as said. These are the
-   details every softening lost.
+2. ~~**Add one rule to the prompt:** keep how often, how hard, who saw it, and when, exactly as said.~~ Tried in
+   the v2 re-run: it did not help (see below).
 3. **Raise the 30-fact limit** (as S3 also recommends).
 4. **Re-run S4 to zero** before social-care templates ship. This stays a hard gate.
 5. **Have a practitioner review the 24 vignettes** (each is marked "pending practitioner review"). Then re-judge
@@ -64,6 +65,78 @@ a little** (softened 10 → 6, drops unchanged at 4).
 spot-checked a few cards (1 S4 disclosure, agreed) and judged the labels broadly sound. That is a light check,
 not a measured agreement rate. The vignettes were written for this spike and have not been reviewed by a
 practitioner, so the verdict is provisional.
+
+## Re-run with prompt v2 (2026-11-26)
+
+The recommendation above was tried: Qwen3.5-4B with prompt **v2** = the statutory prompt plus rule (7), "Keep how
+often, how hard, who saw it and when exactly as said ('four times a week', 'shoved hard', 'my neighbour saw it',
+'on Saturday evening'); do not generalise, soften or drop them." The examples appear in no vignette. v2 also puts
+the recording date in the map prompt ("Recorded on Tuesday 24 November 2026.", a date per vignette chosen to
+contradict nothing it says) and allows 60 facts and 4,096 tokens per call. The prompt was fixed before any
+result and not changed after.
+
+Four new blind judges labelled the 24 v2 notes **and the first run's 24 statutory notes again**, mixed in the same
+batches (4 groups of 12, each judge seeing both notes of six vignettes), so before and after are compared by the
+same judges.
+
+| Qwen3.5-4B | Refusals | Accurate | Softened | Dropped | Control violations |
+|---|---:|---:|---:|---:|---:|
+| statutory (first run's notes, judged again) | 0 | 75/79 | 4 | 0 | 0 |
+| **v2** | 0 | 71/79 | **8** | 0 | 0 |
+
+**v2 is no better, and on these notes it is worse.**
+- **Rule (7) did not rescue its targets.** "Most mornings" (s4-01), "I saw it" (s4-24) and "all day" (s4-10) are
+  softened in both.
+- **v2 softened four more** that the statutory notes kept:
+  - "a bottle every two days" became "there is vodka" (s4-20);
+  - "he never asked" was garbled (s4-13);
+  - "belt" was lost (s4-22);
+  - who told the child to keep the secret was lost (s4-23).
+- **No disclosure** is softened by statutory and kept by v2.
+- **The fact limit was not the cause.** v2 notes average 30.6 facts against 28.8, and no v2 note reached 60. The
+  first run's statutory notes hit 30 in 17 of 24 vignettes, but in none did a disclosure come after the last
+  line the facts cite.
+- **Key-term coverage is unchanged** (0.960 for both).
+
+Each condition is one sample (temperature 0.2), so 4 against 8 of 79 is partly chance. The finding is that a
+prompt rule does not get a 4B model to zero: it loses a qualifying detail (frequency, force, witness, timing,
+consent) in roughly 5–10% of disclosures, and which ones varies between runs.
+
+**The judges agree with themselves.** Judging the statutory notes again found the first run's three softened
+disclosures again, plus one borderline case (s4-06, the "2.30" check time). They are the same kind of judge,
+so this measures consistency, not accuracy.
+
+Softened / dropped by category, round v2:
+
+| Category | statutory | v2 |
+|---|---|---|
+| Child protection (9) | 1 / 0 | 3 / 0 |
+| Domestic abuse (11) | 0 / 0 | 0 / 0 |
+| Financial abuse (10) | 0 / 0 | 1 / 0 |
+| Neglect (12) | 1 / 0 | 1 / 0 |
+| Physical abuse (9) | 1 / 0 | 1 / 0 |
+| Self-harm (8) | 0 / 0 | 0 / 0 |
+| Sexual abuse (11) | 1 / 0 | 1 / 0 |
+| Substance use (9) | 0 / 0 | 1 / 0 |
+
+**What this changes.** Keep the statutory prompt; drop rule (7). The gate needs something outside the prompt.
+The candidates, for a follow-up spike:
+1. **A dedicated safeguarding pass:** one extra call that lists each disclosure with the speaker's own words
+   quoted verbatim, and the note shows those quotes under "Risks and safeguarding". The quote is copied from
+   the transcript by line, so it cannot be softened.
+2. **Showing the cited lines** under every "Risks and safeguarding" sentence by default, not one click away.
+3. **A bigger model** for social-care templates only, if a laptop can run it (S2's memory budget).
+
+Commands (from `spikes/s4-safeguarding/`):
+
+```bash
+nice -n 10 python3 run.py --models qwen3.5-4b --prompts v2 --fact-cap 60 --map-max-tokens 4096 --threads 6
+python3 score.py auto
+python3 score.py packets --round v2      # 4 blind judges, results/judge-v2/g1..g4
+python3 score.py collect --round v2      # -> results/verdicts-v2.jsonl, results/judge_summary-v2.md
+```
+
+Run with 6 threads at low priority, one server at a time; 2–2.5 minutes per vignette on the loaded Mac.
 
 ## Environment
 
@@ -152,17 +225,17 @@ These don't affect the S4 labels but do matter in a record.
 ## Changes to the PRD
 
 - **The local model for notes is Qwen3.5-4B** (Apache-2.0, Q4_0), with Qwen3-4B-Instruct-2507 as the fallback.
-- **The system prompt frames every note as a statutory record.** It adds an explicit rule to keep frequency,
-  force, witnesses and timing as said.
-- **Social-care templates stay behind the S4 gate** until a re-run with those changes softens and drops nothing,
-  on vignettes a practitioner has reviewed.
+- **The system prompt frames every note as a statutory record.** (An extra rule to keep frequency, force,
+  witnesses and timing was tested in the v2 re-run and did not help.)
+- **Social-care templates stay behind the S4 gate** until a design softens and drops nothing on vignettes a
+  practitioner has reviewed. Prompt changes alone did not get there; the v2 section lists what to try next.
 - **A disclosure must land under "Risks and safeguarding"** even when the model files it elsewhere. P2 needs
   either a check or a dedicated safeguarding pass.
 
 ## Still to do
 
 1. Practitioner review of the 24 vignettes (and their disclosure and key-term lists).
-2. Re-run with the frequency/force/witness/timing rule, the recording date, and a higher fact limit, on Qwen3.5-4B
-   with the statutory prompt.
+2. ~~Re-run with the frequency/force/witness/timing rule, the recording date, and a higher fact limit.~~ Done
+   (v2): no better. Next: a spike on a dedicated safeguarding pass with verbatim quotes.
 3. A human reviewer for every softened or dropped label in the re-run.
 4. Repeat on the reference Windows laptop (quality should match; this records that it does).

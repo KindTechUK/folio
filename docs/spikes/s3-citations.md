@@ -1,6 +1,8 @@
 # Spike S3: citations and faithfulness
 
-> Status: **NO-GO as specified, with a clear way forward** · Run 2026-11-24 on a Mac (a proxy for the reference
+> Status: **NO-GO as specified, with a clear way forward** · Run 2026-11-24; follow-ups on 2026-11-26
+> ([prompt v2](#follow-up-1-prompt-v2-2026-11-26): the date and a higher fact limit cut errors by a third and lift
+> recall; [second-pass check](#follow-up-2-a-second-pass-check-2026-11-26)), on a Mac (a proxy for the reference
 > laptop).
 > Plan: [`next-phase-spikes.md`](next-phase-spikes.md#s3-citations-and-faithfulness).
 > Harness: `spikes/s3-citations/` (setup and commands are in its README). Builds on S2's harness.
@@ -37,7 +39,8 @@ list.)
 
 **Recommendation for P2/P3:**
 1. **Give the model the recording's date** (and the participants' names and roles) in the prompt. That
-   removes the largest single class of contradictions at no cost.
+   removes the largest single class of contradictions at no cost. *Confirmed by the v2 follow-up, together with
+   a 60-fact limit: errors down by a third, recall 0.61 → 0.84.*
 2. **Don't rely on an automatic "unsupported sentence" flag.** Make every note sentence one click from its
    cited lines, shown with the line before them (usually the question being answered), so the reviewer can
    check it. "Partly" support was mostly a cited answer without its question.
@@ -51,6 +54,69 @@ list.)
 **How much to trust the labels.** Blind Claude judges labelled every sentence, as in S2. You spot-checked a few
 cards (3 S3 sentences, all agreed) and judged the labels broadly sound. That is a light check, not a measured
 agreement rate.
+
+## Follow-up 1: prompt v2 (2026-11-26)
+
+Recommendation 1 was tried with Qwen3.5-4B (the model S4 picked), prompt **v2**:
+- **The recording date** in each map prompt: "Recorded on Wednesday 23 September 2026." Each transcript got a
+  date chosen to contradict nothing it says. The care assessment's weekdays ("the third of March. A Monday",
+  "Tuesday the fifteenth of April") only fit 2025, so it is dated 2 April 2025. The participants and their roles
+  were already in the prompt.
+- **The fact limit** raised from 30 to 60 per call, and the output cap from 3,072 to 4,096 tokens.
+- **S4's statutory framing and rule (7)**, so that one prompt serves both spikes.
+
+The prompt was fixed before any result. Six new blind judges labelled the v2 notes **and the first run's
+Qwen3.5-4B notes again**, mixed in the same batches; each judge had both notes of the same transcripts. Packets
+showed the recording date.
+
+| Qwen3.5-4B | Set | Sentences | Contradiction | Over-inference | Fabrication | Not supported | Cites: yes / yes or partly |
+|---|---|---:|---:|---:|---:|---:|---|
+| first run, judged again | tuning | 306 | 36 | 9 | 1 | 15.0% | 69% / 97% |
+| first run, judged again | test | 218 | 30 | 5 | 0 | 16.1% | 67% / 95% |
+| **v2** | tuning | 378 | 26 | 7 | 0 | **8.7%** | 75% / 95% |
+| **v2** | test | 252 | 29 | 4 | 0 | **13.1%** | 72% / 95% |
+
+| Transcript | First run (judged again): sentences / contradictions / fact recall | v2: sentences / contradictions / fact recall |
+|---|---|---|
+| care assessment | 167 / 8 / 0.83 | 223 / 12 / 0.90 |
+| legal interview | 139 / 28 / 0.52 | 155 / 14 / 0.81 |
+| housing | 58 / 4 / 0.55 | 59 / 8 / 0.74 |
+| mental-health review | 47 / 13 / 0.58 | 64 / 10 / 0.72 |
+| planning meeting | 60 / 7 / 0.68 | 62 / 7 / 0.91 |
+| tribunal interview | 53 / 6 / 0.47 | 67 / 4 / 0.97 |
+
+**What changed:**
+- **Not supported:** down by about a third, from 15.5% to 10.5% over both sets.
+- **Date errors:** judge reasons that mention a date, year, month or weekday fell from 25 to 7. The legal
+  interview's contradictions halved (28 to 14), as its notes no longer date the 2026 events 2024.
+- **Fact recall:** up on every transcript; the mean rose from 0.61 to 0.84. No map call reached 60 facts, and
+  every call stopped on its own.
+- **Notes are longer:** 630 sentences against 524.
+
+**What didn't change:**
+- **Citation support** is about the same.
+- **About 1 sentence in 10** is still not supported. The rest are ordinary errors:
+  - the wrong speaker ("Hannah reported" for what her partner said himself);
+  - a pronoun resolved to the wrong person;
+  - a garbled detail, such as "skips her medication" where she said she skips her tea so the children can eat.
+- **The housing note got worse** (4 to 8 contradictions).
+
+So recommendation 2 stands: the reviewer checks each sentence against its cited lines.
+
+**The judges agree with themselves.** On the 524 first-run sentences, the re-judging gave the same label as the
+first round for 98.3% of them, and the same supported-or-not call for 98.7%. They are the same kind of judge,
+so this measures consistency, not accuracy.
+
+Commands (from `spikes/s3-citations/`):
+
+```bash
+nice -n 10 python run.py --run v2 --models qwen3.5-4b --prompt v2 --fact-cap 60 --map-max-tokens 4096 \
+    --threads 6 --transcripts all
+python score.py packets --run v2 --calibrate s3:qwen3.5-4b
+python score.py auto --run v2
+# 6 blind judges write results/judge/v2/<packet>.verdict.json, then:
+python score.py collect --run v2
+```
 
 ## Environment
 
@@ -158,16 +224,15 @@ readily as wrong ones.
 
 ## Changes to the PRD
 
-- **The note prompt includes the recording date, the participants and their roles.**
+- **The note prompt includes the recording date, the participants and their roles** (v2 follow-up: confirmed).
 - **Every note sentence links to its cited transcript lines, shown with the line before them.** Faithfulness is
   checked by the reviewer, with the evidence one click away. There is no automatic "unsupported" warning in P3
   unless a second-pass LLM check passes its own spike.
-- **Raise the map call's 30-fact limit, or use shorter parts,** before measuring recall again.
+- **The map call allows 60 facts and 4,096 output tokens** (v2 follow-up: recall 0.61 → 0.84, no call reached 60).
 
 ## Still to do
 
-1. Re-run with the recording date in the prompt and the fact limit raised, and measure the change in
-   contradictions.
+1. ~~Re-run with the recording date in the prompt and the fact limit raised.~~ Done: follow-up 1.
 2. Prototype a second-pass LLM check (sentence plus cited lines plus neighbours → supported / not), and measure
    its precision and recall against these labels.
 3. A human spot-check at a larger scale, if the verdict is to be relied on beyond P2 planning.
