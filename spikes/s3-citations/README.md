@@ -86,6 +86,14 @@ nice -n 10 python check.py run --run s3 --variant prev --threads 6   # port 8095
 python check.py eval --run s3 --variant prev                     # -> results/s3.check-prev.md
 ```
 
+`fastcheck.py` scores a speaker rule, a number rule (neither needs a model) and MiniCheck-Flan-T5-Large
+against the same labels:
+
+```bash
+python fastcheck.py minicheck --run s3 --threads 4   # needs transformers torch sentencepiece; ~3 GB download
+python fastcheck.py eval --run s3                    # -> results/s3.fastcheck.md
+```
+
 Packets for runs other than `s3` show the recording date. Packet paths are relative to the repo root.
 
 ## Outputs (`results/`)

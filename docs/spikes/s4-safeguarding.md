@@ -1,8 +1,9 @@
 # Spike S4: sensitive and safeguarding content
 
 > Status: **NOT PASSED YET, provisional until a practitioner reviews the vignettes** · Run 2026-11-24, re-run
-> with prompt v2 on 2026-11-26 ([below](#re-run-with-prompt-v2-2026-11-26): the prompt change did not help), on a
-> Mac (a proxy for the reference laptop).
+> with prompt v2 on 2026-11-26 ([below](#re-run-with-prompt-v2-2026-11-26): the prompt change did not help), and a
+> [verbatim safeguarding pass](#follow-up-a-verbatim-safeguarding-pass-2026-11-26) (alone no better; with the note,
+> nothing lost, found after the fact), on a Mac (a proxy for the reference laptop).
 > Plan: [`next-phase-spikes.md`](next-phase-spikes.md#s4-sensitive-and-safeguarding-content).
 > Harness: `spikes/s4-safeguarding/` (setup and commands are in its README). Builds on S2's harness.
 
@@ -141,6 +142,74 @@ python3 score.py collect --round v2      # -> results/verdicts-v2.jsonl, results
 
 Run with 6 threads at low priority, one server at a time; 2–2.5 minutes per vignette on the loaded Mac.
 
+## Follow-up: a verbatim safeguarding pass (2026-11-26)
+
+The v2 section's first candidate was tried: the model never rewrites a disclosure.
+- **One extra call per recording** asks Qwen3.5-4B for each disclosure's category and the numbers of all the
+  lines where it is said. A grammar allows only the recording's own line numbers.
+- **The app would quote** each selected line, plus the line before it (usually the question), word for word
+  under "Risks and safeguarding".
+
+This cannot soften. It can miss a disclosure, or miss the line that holds a detail. The vignettes record
+which lines hold each disclosure, so scoring is automatic and needs no judges. Each vignette ran 3 times
+(seeds 42–44, temperature 0.2), 72 calls in all. The measures were fixed before the run:
+
+| Per disclosure (79 × 3 samples) | Result |
+|---|---|
+| Found (at least one of its lines selected) | 224/237 (95%) |
+| All its annotated lines selected | 151/237 (64%) |
+| **Every key term (`must_keep`) in the quoted lines** | **206/237 (87%)**; the ceiling, quoting exactly the annotated lines, is 100% |
+| The same samples, by disclosure | 65 complete in every sample, 7 in none, 7 vary |
+| Lines selected outside every disclosure | 312 of 764; 164 of them within 2 lines of one, 56 on a control's lines |
+
+Every call returned valid JSON, in 22 s on average (6 threads, while the Mac was busy).
+
+**As designed, it is no better than the note.**
+- **Not better on the same measure.** Every key term occurs in the statutory note for 70 of 79 disclosures
+  (89%), and in the quotes for 87%. That measure under-counts the note, because a faithful paraphrase can
+  miss a key term; the judges rated 96% of the note's disclosures accurate.
+- **Softening becomes omission.** The model picks the line that names the act and skips the next answer,
+  which holds the detail. In s4-24 it quotes "Jordan slapped Alfie" and "grabbed him by the arm", but not the
+  line between them, "Sunday the 8th of November". The detail lost is the same kind as in softening: when,
+  how often, who saw it.
+- **The misses are mostly systematic.** Two disclosures were never found in any sample: s4-10's "alone all
+  day" (said hesitantly) and the when and how often of s4-23's account from a third party. Both are details
+  the paraphrased notes also softened.
+
+**What would work, found after the fact** (not a pre-registered result):
+- **Quoting each disclosure as one run.** Quote from the first line the model selects to the last, plus the
+  question before it, rather than only the selected lines. Every key term is then in the quotes for 95%, at
+  25 quoted lines per vignette (of 68) against 18.
+- **Showing the note and the quotes together.** Count a disclosure as kept if the statutory note has it
+  accurately (round r1 judges) or the run quotes contain every key term. Then **no disclosure is lost in any
+  sample: 0 of 237**. With only the selected lines and their questions, one was lost in all three samples:
+  s4-24's date.
+
+Both are tuned on these 24 vignettes. They need confirming on new vignettes, written after this design was
+fixed, before the gate can count them.
+
+**The design this points to for P2:**
+- The note keeps its paraphrased "Risks and safeguarding" sentences.
+- **Beneath them, the app shows "In their words":** each disclosure's run of lines, quoted exactly, with
+  the speaker and a link to the audio. A softened sentence then always sits above an unsoftened quote.
+- **The quote section is marked as selected by AI** and must be reviewed before export. An empty selection
+  is never shown as "no concerns".
+- **Cost:** one call of about 20 s per 5–8-minute recording on this Mac. For a 60-minute recording it would
+  be one call per 10-minute section, as for the note.
+
+This matches what the research found: UK safeguarding practice is to record the person's own words. The
+DfE/DHSC guidance (Nov 2026) treats safeguarding as high-consequence by default and says AI must not decide
+thresholds. The research also found that LLM summaries drop the qualifiers that limit a claim, and that
+asking for accuracy made this worse (Peters & Chin-Yee, Royal Society Open Science, 2025), as rule (7) did
+here.
+
+Commands (from `spikes/s4-safeguarding/`):
+
+```bash
+nice -n 10 python3 extract.py run --samples 3 --threads 6   # port 8096; resumable
+python3 extract.py eval                                     # -> results/extract_summary.md
+```
+
 ## Environment
 
 - **Machine:** Apple M5 Pro (18 cores, 48 GB), macOS 27.2. Not the reference laptop. Quality only: timings were
@@ -234,11 +303,17 @@ These don't affect the S4 labels but do matter in a record.
   practitioner has reviewed. Prompt changes alone did not get there; the v2 section lists what to try next.
 - **A disclosure must land under "Risks and safeguarding"** even when the model files it elsewhere. P2 needs
   either a check or a dedicated safeguarding pass.
+- **Under "Risks and safeguarding", the record also shows the disclosures "in their words"**: runs of lines quoted exactly,
+  selected by one extra model call, marked as AI-selected and reviewed before export (follow-up: pending
+  confirmation on new vignettes).
 
 ## Still to do
 
 1. Practitioner review of the 24 vignettes (and their disclosure and key-term lists).
 2. ~~Re-run with the frequency/force/witness/timing rule, the recording date, and a higher fact limit.~~ Done
-   (v2): no better. Next: a spike on a dedicated safeguarding pass with verbatim quotes.
-3. A human reviewer for every softened or dropped label in the re-run.
-4. Repeat on the reference Windows laptop (quality should match; this records that it does).
+   (v2): no better. ~~A dedicated safeguarding pass with verbatim quotes.~~ Done: alone no better; with the
+   note and quoted runs, nothing lost on these vignettes, found after the fact.
+3. Confirm the note-plus-quotes design on new vignettes, written after the design was fixed, including ones with
+   disclosures spread over interleaved answers and hesitant or third-party disclosures.
+4. A human reviewer for every softened or dropped label in the re-run.
+5. Repeat on the reference Windows laptop (quality should match; this records that it does).

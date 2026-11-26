@@ -2,7 +2,8 @@
 
 > Status: **NO-GO as specified, with a clear way forward** · Run 2026-11-24; follow-ups on 2026-11-26
 > ([prompt v2](#follow-up-1-prompt-v2-2026-11-26): the date and a higher fact limit cut errors by a third and lift
-> recall; [second-pass check](#follow-up-2-a-second-pass-check-2026-11-26): fails, precision at most 0.68), on a Mac (a proxy for the reference
+> recall; [second-pass check](#follow-up-2-a-second-pass-check-2026-11-26): fails, precision at most 0.68;
+> [fast checks](#follow-up-3-fast-checks-2026-11-26): a speaker rule is precise but rare, MiniCheck doesn't help), on a Mac (a proxy for the reference
 > laptop).
 > Plan: [`next-phase-spikes.md`](next-phase-spikes.md#s3-citations-and-faithfulness).
 > Harness: `spikes/s3-citations/` (setup and commands are in its README). Builds on S2's harness.
@@ -182,6 +183,62 @@ python check.py eval --run s3 --variant prev     # -> results/s3.check-prev.md
 python check.py eval --run s3 --variant window   # -> results/s3.check-window.md
 ```
 
+## Follow-up 3: fast checks (2026-11-26)
+
+Research on current practice suggested two cheaper checks: a fixed rule for the error types that remain, and a
+small trained fact-checker. Both were scored against the labels the judges had already given, for the first
+run's notes (`s3`, both models) and the v2 notes (`v2`, Qwen3.5-4B only). The evidence for each check is the
+cited lines plus the line before each, as in follow-up 2's `prev`.
+
+- **Speaker rule.** The sentence attributes something to a participant: a name, first name, surname or role
+  ("the solicitor", "her partner") comes before a reporting verb ("said", "reported", "explained", "wants",
+  ...), or follows "According to". It is flagged if that participant spoke none of the evidence lines.
+- **Number rule.** A number in the sentence does not occur in the evidence lines. Digits, ordinals and spoken
+  numbers count; "twenty twenty-six" also counts as 2026, and the recording's day and year are allowed.
+- **MiniCheck-Flan-T5-Large.** A 0.8B checker (MIT licence) that matches GPT-4-class models on the public
+  LLM-AggreFact benchmark, including its interview and meeting summaries. Its threshold was chosen on the
+  tuning set.
+
+The rules were written before any result. After the first scoring, 5 parser bugs were fixed from the tuning
+set's false alarms: "4:00" read as 4 and 0, speaker codes read as numbers, "twenty eighteen" read as 38,
+"nine and a half", and "second-hand". The test sets were not inspected.
+
+| Flag | `s3` test (451, 78 positive) | `v2` test (252, 33 positive) |
+|---|---|---|
+| Speaker rule | P 0.78, R 0.09 (9 flagged) | P 1.00, R 0.15 (5 flagged) |
+| Number rule | P 0.53, R 0.24 | P 0.15, R 0.06 |
+| Speaker OR number | P 0.58, R 0.33 | P 0.39, R 0.21 |
+| MiniCheck, best F1 on tuning | P 0.29, R 0.73 | P 0.17, R 0.73 |
+| check.py `prev` score (follow-up 2) | P 0.49, R 0.54 | not run |
+| mean of MiniCheck and `prev` | P 0.50, R 0.60 | not run |
+
+**What this shows:**
+- **The speaker rule is precise but rare.** Across both runs and splits it flagged 20 sentences, 13 of them
+  contradictions. It needs no model, so it costs nothing. It misses most wrong-speaker errors, because it
+  fires only when a sentence names a participant before a reporting verb; a pronoun resolved to the wrong
+  person passes.
+- **The number rule worked only while dates were wrong.** On the first run's notes it caught invented years
+  and changed figures at about 0.55 precision. On the v2 notes, which have the recording date, few number
+  errors remain. Most of what it flags is a correct number that was said outside the cited lines ("three
+  falls in the last six months"), or one worked out from the date ("by Monday, 28 September").
+- **MiniCheck doesn't help here.** It is fast (0.15–0.25 s per sentence on CPU in batches of 8), but its
+  precision is no better than the small NLI model's in the original run. Combined with the `prev` score, it
+  adds almost nothing.
+
+So no check reaches 70% precision with useful recall, and recommendation 2 stands. The speaker rule is the one
+part worth keeping: as a hint, it could highlight the few sentences it flags for the reviewer at no cost. Its
+recall would rise if the note named people instead of using pronouns, which is a prompt change for P3.
+
+Commands (from `spikes/s3-citations/`; MiniCheck needs `transformers torch sentencepiece` and downloads about
+3 GB once):
+
+```bash
+python fastcheck.py minicheck --run s3 --threads 4   # -> results/s3.minicheck.jsonl
+python fastcheck.py minicheck --run v2 --threads 4
+python fastcheck.py eval --run s3                    # -> results/s3.fastcheck.md (rules need no model)
+python fastcheck.py eval --run v2
+```
+
 ## Environment
 
 - **Machine:** Apple M5 Pro (18 cores, 48 GB), macOS 27.2. Not the reference laptop. Quality only: timings were
@@ -298,6 +355,7 @@ readily as wrong ones.
 
 1. ~~Re-run with the recording date in the prompt and the fact limit raised.~~ Done: follow-up 1.
 2. ~~Prototype a second-pass LLM check and measure its precision and recall against these labels.~~ Done:
-   follow-up 2 (fails with the note model). Still open, if wanted: a larger checker model, or reasoning
+   follow-up 2 (fails with the note model) and follow-up 3 (rules and MiniCheck: no better). Still open, if
+   wanted: a larger checker model, or reasoning
    before the verdict, as an optional action.
 3. A human spot-check at a larger scale, if the verdict is to be relied on beyond P2 planning.

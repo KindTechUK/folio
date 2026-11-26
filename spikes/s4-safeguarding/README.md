@@ -76,6 +76,17 @@ Round `v2` judges the first run's statutory notes again, in the same batches as 
 after are compared by the same judges; their r1 labels give a test–retest check. Its packets show the
 recording date; round `r1`'s packets stay exactly as judged.
 
+## The verbatim safeguarding pass
+
+`extract.py` asks the model only for each disclosure's category and line numbers (a grammar limits them to the
+vignette's own lines), as the app would quote those lines verbatim. Scoring is automatic against the
+vignettes' `disclosures[].lines` and `must_keep`, so there is no judging step.
+
+```bash
+nice -n 10 python3 extract.py run --samples 3 --threads 6   # port 8096; skips (vignette, seed) already done
+python3 extract.py eval                                     # -> results/extract_summary.md
+```
+
 ## Outputs (`results/`)
 
 - `runs.jsonl`: one record per map call, including the raw model output. (The qwen3-4b/neutral/s4-07
