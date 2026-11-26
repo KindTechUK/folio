@@ -1,0 +1,176 @@
+# Employment tribunal client interview: care worker deductions and whistleblowing (synthetic)
+# id: synthetic-tribunal-interview
+# Speakers: S1 = Solicitor (Priya Nandakumar); S2 = Megan Farrell (client); S3 = Union representative (Callum Ashworth)
+# Recorded on Tuesday 24 November 2026
+
+L1 [00:01] S1: Okay, is that recording? Yeah. It's just for my note, it gets deleted after. Everyone alright with that?
+L2 [00:07] S2: Yeah, that's fine.
+L3 [00:09] S3: Fine by me.
+L4 [00:11] S1: Lovely. Did you find us alright? The sat nav sends everyone round the back.
+L5 [00:15] S2: It did, actually. We went round the one-way twice.
+L6 [00:18] S3: My fault, I was navigating.
+L7 [00:21] S1: Ha, happens every day. So, I'm Priya Nandakumar, I'm a solicitor in the employment team here at Lindqvist Moore.
+L8 [00:27] S1: For the note, it's Tuesday the twenty-fourth of November, I'm meeting Megan Farrell, and Megan, you've brought, um, Callum?
+L9 [00:33] S3: Callum Ashworth. Megan's union rep. Area rep really. I'm just here for support.
+L10 [00:38] S1: Nice to meet you Callum. Megan, you're happy for Callum to be here?
+L11 [00:43] S2: Yeah, definitely, he's been really good.
+L12 [00:46] S1: Okay. Today's about getting the facts and dates straight. Who do you work for?
+L13 [00:50] S2: Bright Mere Care. Brightmere Care Limited. I work at Willowbank House, the care home on, um, Fenwick Lane.
+L14 [00:57] S1: And you're still working there?
+L15 [01:00] S2: Yes. I haven't left, I'm on an early tomorrow actually.
+L16 [01:05] S1: Okay, good. And your job title?
+L17 [01:08] S2: Senior care assistant. I started as a carer in March twenty-one and got senior in, er, twenty twenty-three.
+L18 [01:14] S1: What does that involve, day to day?
+L19 [01:16] S2: I run the floor on my shift, do the medication rounds, the ma charts, handovers.
+L20 [01:21] S1: MAR, the medication record?
+L21 [01:23] S2: Yeah. The charts you sign when you give the meds.
+L22 [01:27] S1: And your hours and pay?
+L23 [01:30] S2: Contracted thirty-seven and a half a week. And it's twelve sixty an hour.
+L24 [01:35] S2: No, sorry, it went up in April, it's twelve eighty-five now. Twelve sixty was last year.
+L25 [01:41] S1: Twelve eighty-five, thirty-seven and a half. Fine, we'll check the payslips anyway.
+L26 [01:45] S1: So Callum said you'd raised some concerns at work. Tell me about that.
+L27 [01:50] S2: Yeah. So, um, end of August, a resident, room fourteen, went into hospital on the twenty-eighth.
+L28 [01:55] S2: He was in three days, and when I came back on, his meds were signed as given the whole time he was in hospital.
+L29 [02:03] S1: Signed as given while he wasn't in the building.
+L30 [02:06] S2: Yeah. Mornings and nights.
+L31 [02:08] S1: Did you see that yourself, or did someone tell you?
+L32 [02:12] S2: No, I saw it myself, I was doing the round.
+L33 [02:15] S1: Okay. And what did you do?
+L34 [02:18] S2: I emailed Denise. Denise Hartigan, the registered manager. On the Wednesday, the second of September.
+L35 [02:24] S2: Wait, no. The Friday, the fourth. I'd done a late on the Thursday, wrote it at home, sent it in the morning.
+L36 [02:30] S1: Friday the fourth of September. From your work email?
+L37 [02:34] S2: Yeah, but I forwarded it to my Gmail the same day. Callum said to.
+L38 [02:40] S3: I always say that. Get it off their system.
+L39 [02:43] S1: Sensible. What did the email say, broadly?
+L40 [02:46] S2: The chart thing, and nights. Nights is two carers for thirty-eight residents, so if both are hoisting there's nobody on the floor.
+L41 [02:52] S1: So two concerns, MAR charts and night staffing. Did Denise reply?
+L42 [02:57] S2: No. Never, not in writing. She just said got your email in the corridor the week after.
+L43 [03:02] S1: Nothing in writing at all.
+L44 [03:04] S2: Nothing.
+L45 [03:06] S1: Before all this, any problems with your work? Warnings, disciplinaries?
+L46 [03:10] S2: No, never. I've never had a med error in five years. Never been in a disciplinary.
+L47 [03:15] S1: Okay, helpful. So what happened after the fourth?
+L48 [03:19] S2: The October rota came out and I'd been cut to twenty-four hours. From Monday the fifth of October.
+L49 [03:26] S1: From thirty-seven and a half down to twenty-four.
+L50 [03:28] S2: Yeah. And I was taken off meds. No senior shifts at all, just care assistant.
+L51 [03:33] S1: Did anyone give you a reason?
+L52 [03:35] S2: Denise said operational needs. Nothing in writing.
+L53 [03:38] S3: Which is rubbish, they've got agency in on the same shifts.
+L54 [03:42] S1: We'll come back to that. Megan, any idea why it happened?
+L55 [03:46] S2: Well. Shauna Price, one of the day carers, told me she heard Denise in the office saying I was a troublemaker and to cut her down.
+L56 [03:54] S1: Shauna heard that herself? Or someone told Shauna?
+L57 [03:58] S2: She said she heard it, the door was open. I wasn't there, I only know what she told me.
+L58 [04:05] S1: Okay. Would Shauna say that formally, do you think?
+L59 [04:09] S2: I don't know. She's on zero hours, she's worried.
+L60 [04:13] S1: Let's park that. Now, Callum mentioned money as well.
+L61 [04:17] S2: Yeah, two things. First, my holiday. I booked the, um, fourteenth to the eighteenth of September.
+L62 [04:22] S2: It was approved on the app, I've got a screenshot, the little green tick.
+L63 [04:26] S1: And?
+L64 [04:27] S2: Then the September pay, we get paid on the last day, so the thirtieth, it came through as unpaid leave. The whole week.
+L65 [04:34] S1: How much was taken off?
+L66 [04:37] S2: Four hundred and eighty-one pounds eighty-eight. Unpaid leave deduction, on the payslip.
+L67 [04:42] S1: Four eight one point eight eight. Did you query it?
+L68 [04:46] S2: I emailed Lorraine in payroll. She said as instructed by the home, that's all.
+L69 [04:51] S1: And the second thing?
+L70 [04:52] S2: October. A deduction, it said training cost recovery. Two hundred and forty pounds.
+L71 [04:56] S2: Sorry, wrong way round, it's four hundred and twenty. Four two zero. I always do that.
+L72 [05:02] S1: Four hundred and twenty, October payslip. Paid on the thirtieth of October?
+L73 [05:06] S2: Yeah, the thirtieth.
+L74 [05:08] S1: What training was that for?
+L75 [05:10] S2: The level three meds course I did in, um, February. They put me on it.
+L76 [05:16] S1: Did you ever sign anything agreeing to pay back training costs? A training agreement, a contract clause?
+L77 [05:22] S2: No. Never signed anything like that. Nobody said I'd have to pay it back. They wanted me to do it.
+L78 [05:28] S3: And she's not even leaving, so a clawback wouldn't kick in anyway.
+L79 [05:33] S1: Mm. Do you have your contract?
+L80 [05:35] S2: I think I've got the first one, from when I was a carer. Never got a copy of the senior one.
+L81 [05:42] S1: Okay, we'll ask for it. Anything else on the training deduction?
+L82 [05:46] S2: Lorraine said it was on Denise's say-so, and she'd never done one of those for anyone else.
+L83 [05:51] S1: So Lorraine told you she'd never processed one for anyone else.
+L84 [05:55] S2: That's what she said, on the phone. I don't know if it's true, I don't see anyone else's payslips.
+L85 [06:02] S1: Of course. And then you put in a grievance?
+L86 [06:05] S2: Yeah. On the ninth of November. Callum helped me.
+L87 [06:08] S3: Sent to Denise, copied to the area manager, Rob Ellery.
+L88 [06:13] S1: Any response? A date for a meeting?
+L89 [06:16] S2: Just an email saying received, they'll be in touch. No date.
+L90 [06:20] S1: So an acknowledgement, no hearing date yet. And the rota, still twenty-four?
+L91 [06:24] S2: Yeah. Oh, and the new one, from Monday the thirtieth, it's sixteen. Saw it last night.
+L92 [06:29] S1: Sixteen hours from the thirtieth of November. That's important, I'm writing that down.
+L93 [06:34] S1: What do you actually want out of this? In order, if you can.
+L94 [06:39] S3: I mean, she wants the money, that's the main thing, she's lost hundreds.
+L95 [06:44] S2: No, Cal, honestly, the main thing is my hours back. And my senior shifts, my meds. I can't live on sixteen hours.
+L96 [06:52] S2: Money's second. And third, I want someone to look at the charts properly. That's why I said anything.
+L97 [06:59] S1: So hours and role first, money second, concerns investigated third.
+L98 [07:03] S1: If they offered your hours back tomorrow, would you still pursue the money?
+L99 [07:07] S2: Maybe I'd just let it go. No. Actually, I'd still want it back, it's my money. I don't know. I'd have to think.
+L100 [07:16] S1: That's fine, you don't have to decide today.
+L101 [07:19] S3: It's not just Megan. Femi Adei Emi on nights, he told Megan that Rob Ellery knew about the two carers on nights months ago.
+L102 [07:26] S1: Megan, is that right?
+L103 [07:28] S2: Yeah, he said Rob was told at a meeting in the summer. I wasn't there, I don't know what was said.
+L104 [07:36] S1: Okay. That's Femi's account, it's second-hand, we'd be careful with it.
+L105 [07:40] S2: Should I go to CQC? I've thought about ringing them. I haven't, though.
+L106 [07:45] S1: That's your decision. If you did contact CQC, that would also be a protected disclosure. But I'm not telling you to.
+L107 [07:53] S2: I'll think about it. Not yet. I don't want it to look like I'm getting back at them.
+L108 [08:00] S3: Honestly, I'd go to the Gazette. Local paper. They'd love a care home story.
+L109 [08:06] S2: No. I don't want that. The families would see it. I don't want my name in the paper.
+L110 [08:13] S1: I'd agree with Megan. Going to the press is very different legally, I wouldn't recommend it at this stage.
+L111 [08:20] S3: Fair enough. Just a thought.
+L112 [08:22] S1: Right. Documents. What have you got?
+L113 [08:25] S2: Payslips, September and October. The holiday screenshot. The email, printed. And photos of the rotas.
+L114 [08:31] S2: And, um, I took a photo of the MAR chart. On my phone. Is that bad?
+L115 [08:36] S1: Don't send that photo to anyone. Not Callum, not anyone, it's resident data. Don't delete it either, just keep it.
+L116 [08:44] S3: Fair enough, I don't need it.
+L117 [08:47] S2: Okay. I won't send it.
+L118 [08:49] S1: Any training agreement, any policy on deductions?
+L119 [08:52] S2: No. There's a handbook on the app, I can screenshot the holiday and pay bits.
+L120 [08:57] S1: Please do. Can you get me everything electronic by Friday the twenty-seventh?
+L121 [09:02] S2: Yeah, I'm off Friday.
+L122 [09:04] S1: Oh, and is the address on your form current?
+L123 [09:08] S2: Oh, no, I moved on the first of November. Can you just email me? Don't post anything to the old place.
+L124 [09:15] S1: Email only, noted. Send me the new address anyway, for the file.
+L125 [09:20] S2: Will do.
+L126 [09:21] S1: Okay. Let me tell you where I think we are.
+L127 [09:25] S1: There look to be two possible claims. Unlawful deduction from wages, for the holiday and training deductions. And whistleblowing detriment, for the hours and taking you off meds.
+L128 [09:36] S3: So what are her chances? Ballpark. Seventy, eighty percent?
+L129 [09:39] S1: I'm not putting a percentage on it, Callum. I haven't seen a single document from their side.
+L130 [09:46] S2: And what's it worth? Roughly?
+L131 [09:48] S1: Honestly, I can't give you a figure yet. It depends on things we don't know. I'd be guessing.
+L132 [09:54] S1: What I can tell you is the time limit, and that's the most important thing today.
+L133 [10:01] S1: Before a tribunal claim you must start ACAS early conciliation. The deadline is three months less one day from the act you're complaining about.
+L134 [10:10] S3: Right, but that doesn't start till the grievance is finished, does it? We usually wait for the outcome, then go to ACAS.
+L135 [10:19] S1: No. Sorry, Callum, that's not right. The grievance doesn't stop the clock. Waiting for the outcome is how people lose claims.
+L136 [10:26] S3: Oh. I've always been told it pauses.
+L137 [10:28] S1: It doesn't. The earliest deduction was in the pay on the thirtieth of September. Three months less a day from that is Tuesday the twenty-ninth of December twenty twenty-six.
+L138 [10:38] S1: So ACAS must be contacted by the twenty-ninth of December at the very latest. Megan, write that down.
+L139 [10:44] S2: Twenty-ninth of December. That's Christmas, basically.
+L140 [10:47] S1: Exactly, so I don't want to go near it. I want to notify ACAS by Friday the fourth of December.
+L141 [10:54] S3: But if it's a series of deductions, can't you run it from the October one? Then you've got till end of January.
+L142 [11:02] S1: You might argue that, if a tribunal accepted it was a series. But I wouldn't rely on it. We work to the twenty-ninth of December.
+L143 [11:11] S2: Okay.
+L144 [11:13] S1: The hours cut from the fifth of October is later anyway, so one ACAS notification by the fourth covers everything.
+L145 [11:20] S3: Would it be cleaner if she just resigned? Constructive dismissal. Then it's all one claim.
+L146 [11:26] S1: I'd strongly advise against that. Megan, please don't resign. You're still employed, still being paid, and resigning makes everything riskier.
+L147 [11:32] S2: I wasn't going to. I like my job. I like my residents.
+L148 [11:37] S1: If they did dismiss you, and I'm not saying they will, that could be automatically unfair if it was because of the disclosure. But that's not where we are.
+L149 [11:47] S2: Okay.
+L150 [11:48] S1: Meanwhile, keep doing your shifts and keep a diary. Every rota change, every conversation with Denise.
+L151 [11:54] S3: I've told her that.
+L152 [11:56] S1: Good. And ask Shauna if she'd be willing to talk to me. Just ask, don't go into detail.
+L153 [12:02] S2: I'll ask her. Not at work, though.
+L154 [12:05] S1: No, text her. Leave Femi for now, let's see what Shauna says first.
+L155 [12:09] S1: Callum, on funding. Is Megan covered by the union's legal scheme?
+L156 [12:13] S3: Honestly, she only joined in October. There's sometimes a rule about problems from before joining. I'll check with regional.
+L157 [12:21] S1: So that's not confirmed either way.
+L158 [12:23] S3: No. I'll ring them and let you know by Monday.
+L159 [12:27] S1: Monday the thirtieth, thanks. Megan, if the union can't help, check for legal expenses cover on your home insurance.
+L160 [12:34] S2: I'll look. I think it's with the contents one.
+L161 [12:38] S1: So, next steps. Megan, documents to me by Friday the twenty-seventh, plus the new address. And start the diary.
+L162 [12:45] S1: Callum, the union scheme by Monday the thirtieth.
+L163 [12:49] S1: I'll send a letter confirming today's advice with a draft ACAS form by Wednesday the second. You check it, I submit by Friday the fourth of December.
+L164 [12:58] S2: Okay. Wednesday, then Friday.
+L165 [13:00] S1: If Brightmere sends you anything, a grievance date, anything to sign, send it to me before you reply.
+L166 [13:06] S2: I will. I won't sign anything.
+L167 [13:08] S1: Anything else you wanted to ask?
+L168 [13:11] S2: No, I think that's it. Thank you. I feel a bit less mad, honestly.
+L169 [13:15] S1: You're not mad. There are real questions here. But no promises until we see their side.
+L170 [13:21] S3: Thanks, Priya. I'll stop telling people it pauses.
+L171 [13:25] S1: Ha, please do. I'll walk you down. Mind the step by the lift. Stopping the recording now.

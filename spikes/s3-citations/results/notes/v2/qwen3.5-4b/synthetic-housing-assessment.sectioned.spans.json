@@ -1,0 +1,993 @@
+[
+ {
+  "id": "S001",
+  "section": "Background and presenting situation",
+  "sentence": "Kayleigh Brennan is the tenant; she lives with her children Alfie (seven) and Mia (three) at Flat 4, 18 Cobden Street, a two-bedroom flat on the top floor.",
+  "cites": [
+   {
+    "start": 59.6,
+    "end": 63.7
+   },
+   {
+    "start": 64.2,
+    "end": 67.4
+   },
+   {
+    "start": 68.6,
+    "end": 70.5
+   }
+  ],
+  "lines": [
+   13,
+   14,
+   15
+  ]
+ },
+ {
+  "id": "S002",
+  "section": "Background and presenting situation",
+  "sentence": "Kayleigh has lived at the address since the summer of 2021 through Kerridge and Lowe agents; the landlord is Mr Haskins.",
+  "cites": [
+   {
+    "start": 71.7,
+    "end": 73.9
+   },
+   {
+    "start": 74.6,
+    "end": 80.1
+   }
+  ],
+  "lines": [
+   16,
+   17
+  ]
+ },
+ {
+  "id": "S003",
+  "section": "Background and presenting situation",
+  "sentence": "Kayleigh was on the tenancy alone; her ex-partner Liam was on the tenancy with her until the day after Alfie's birthday (9 August), when he moved out. Liam is now in Bristol.",
+  "cites": [
+   {
+    "start": 81.3,
+    "end": 85.3
+   },
+   {
+    "start": 86.2,
+    "end": 93.4
+   },
+   {
+    "start": 94.4,
+    "end": 96.6
+   },
+   {
+    "start": 96.9,
+    "end": 105.6
+   },
+   {
+    "start": 117.5,
+    "end": 123.1
+   }
+  ],
+  "lines": [
+   18,
+   19,
+   20,
+   21,
+   25
+  ]
+ },
+ {
+  "id": "S004",
+  "section": "Background and presenting situation",
+  "sentence": "The current rent is \u00a3895 a month (increased in April). Universal Credit covers \u00a3725 for housing, leaving Kayleigh short \u00a3170 a month.",
+  "cites": [
+   {
+    "start": 127.2,
+    "end": 132.3
+   },
+   {
+    "start": 133.2,
+    "end": 135.3
+   },
+   {
+    "start": 139.8,
+    "end": 144.7
+   }
+  ],
+  "lines": [
+   27,
+   28,
+   30
+  ]
+ },
+ {
+  "id": "S005",
+  "section": "Background and presenting situation",
+  "sentence": "Kayleigh works 12 hours a week in the kitchen at Cobden Road Primary and earns approximately \u00a3630 a month.",
+  "cites": [
+   {
+    "start": 155.0,
+    "end": 155.9
+   },
+   {
+    "start": 156.7,
+    "end": 163.4
+   }
+  ],
+  "lines": [
+   33,
+   34
+  ]
+ },
+ {
+  "id": "S006",
+  "section": "Background and presenting situation",
+  "sentence": "Kayleigh has no child maintenance from Liam and no savings.",
+  "cites": [
+   {
+    "start": 163.9,
+    "end": 166.3
+   },
+   {
+    "start": 167.4,
+    "end": 173.2
+   }
+  ],
+  "lines": [
+   35,
+   36
+  ]
+ },
+ {
+  "id": "S007",
+  "section": "Background and presenting situation",
+  "sentence": "Kayleigh has arrears of \u00a31,960 as of 2 November (Liam had previously estimated \u00a32,400). She was behind on housing money for August and September due to a five-week delay in re-appe",
+  "cites": [
+   {
+    "start": 197.9,
+    "end": 199.7
+   },
+   {
+    "start": 207.8,
+    "end": 212.6
+   },
+   {
+    "start": 213.5,
+    "end": 218.5
+   },
+   {
+    "start": 225.6,
+    "end": 231.5
+   },
+   {
+    "start": 231.9,
+    "end": 238.0
+   }
+  ],
+  "lines": [
+   42,
+   45,
+   46,
+   48,
+   49
+  ]
+ },
+ {
+  "id": "S008",
+  "section": "Background and presenting situation",
+  "sentence": "Kayleigh has never been in arrears before and has never been evicted.",
+  "cites": [
+   {
+    "start": 248.7,
+    "end": 252.5
+   }
+  ],
+  "lines": [
+   52
+  ]
+ },
+ {
+  "id": "S009",
+  "section": "Background and presenting situation",
+  "sentence": "Kayleigh received a text from Mr Haskins on 17 November threatening that if arrears are not sorted by the end of the month, his solicitor will serve papers. No physical notice has,",
+  "cites": [
+   {
+    "start": 262.3,
+    "end": 273.4
+   },
+   {
+    "start": 274.3,
+    "end": 275.0
+   },
+   {
+    "start": 275.3,
+    "end": 280.8
+   },
+   {
+    "start": 281.8,
+    "end": 284.1
+   }
+  ],
+  "lines": [
+   55,
+   56,
+   57,
+   58
+  ]
+ },
+ {
+  "id": "S010",
+  "section": "Background and presenting situation",
+  "sentence": "S2 stated that a third party ('she') indicated the council would rehouse S2 immediately if S2 was evicted.",
+  "cites": [
+   {
+    "start": 605.1,
+    "end": 615.1
+   }
+  ],
+  "lines": [
+   123
+  ]
+ },
+ {
+  "id": "S011",
+  "section": "Background and presenting situation",
+  "sentence": "S1 advised S2 not to rely on the statement made by the third party.",
+  "cites": [
+   {
+    "start": 615.6,
+    "end": 618.8
+   }
+  ],
+  "lines": [
+   124
+  ]
+ },
+ {
+  "id": "S012",
+  "section": "Background and presenting situation",
+  "sentence": "S1 offered to refer the tenant's damp, mould, and a faulty socket to the private sector housing team and environmental health.",
+  "cites": [
+   {
+    "start": 619.7,
+    "end": 626.0
+   }
+  ],
+  "lines": [
+   125
+  ]
+ },
+ {
+  "id": "S013",
+  "section": "Background and presenting situation",
+  "sentence": "S2 asked if the housing team would know S2 was the one complaining about the repairs.",
+  "cites": [
+   {
+    "start": 626.3,
+    "end": 628.6
+   }
+  ],
+  "lines": [
+   126
+  ]
+ },
+ {
+  "id": "S014",
+  "section": "Background and presenting situation",
+  "sentence": "S1 stated that the housing team would contact S2 but that they cannot evict S2 for complaining about repairs.",
+  "cites": [
+   {
+    "start": 629.0,
+    "end": 632.7
+   }
+  ],
+  "lines": [
+   127
+  ]
+ },
+ {
+  "id": "S015",
+  "section": "Background and presenting situation",
+  "sentence": "S2 asked when the housing team would come out to inspect the property.",
+  "cites": [
+   {
+    "start": 633.8,
+    "end": 635.7
+   }
+  ],
+  "lines": [
+   128
+  ]
+ },
+ {
+  "id": "S016",
+  "section": "Background and presenting situation",
+  "sentence": "S1 stated S1 could not give a specific date for the visit but would send a referral by the end of the week.",
+  "cites": [
+   {
+    "start": 636.6,
+    "end": 642.8
+   }
+  ],
+  "lines": [
+   129
+  ]
+ },
+ {
+  "id": "S017",
+  "section": "Background and presenting situation",
+  "sentence": "S2 reported that Mrs Patel downstairs said the council came out to her flat last year regarding damp.",
+  "cites": [
+   {
+    "start": 643.6,
+    "end": 648.6
+   }
+  ],
+  "lines": [
+   130
+  ]
+ },
+ {
+  "id": "S018",
+  "section": "Background and presenting situation",
+  "sentence": "S1 stated S1 could not see the building records from their current location and would check the system.",
+  "cites": [
+   {
+    "start": 649.6,
+    "end": 653.7
+   }
+  ],
+  "lines": [
+   131
+  ]
+ },
+ {
+  "id": "S019",
+  "section": "Needs and daily living",
+  "sentence": "Kayleigh reports damp in the children's bedroom around the window and behind Alfie's bed, and a black ceiling in the bathroom. The damp has been present since last winter and has,",
+  "cites": [
+   {
+    "start": 321.4,
+    "end": 328.4
+   },
+   {
+    "start": 329.4,
+    "end": 332.0
+   },
+   {
+    "start": 332.6,
+    "end": 336.7
+   }
+  ],
+  "lines": [
+   66,
+   67,
+   68
+  ]
+ },
+ {
+  "id": "S020",
+  "section": "Needs and daily living",
+  "sentence": "Kayleigh has emailed the agents three times regarding the damp (copies dated March, June, and 6 October) and has rung them; the landlord or agent has never visited to inspect the,",
+  "cites": [
+   {
+    "start": 339.4,
+    "end": 343.8
+   },
+   {
+    "start": 344.6,
+    "end": 349.5
+   },
+   {
+    "start": 350.0,
+    "end": 353.3
+   },
+   {
+    "start": 354.0,
+    "end": 357.5
+   }
+  ],
+  "lines": [
+   70,
+   71,
+   72,
+   73
+  ]
+ },
+ {
+  "id": "S021",
+  "section": "Needs and daily living",
+  "sentence": "Kayleigh reports the agent told her on the phone that Mr Haskins says the damp is her fault due to condensation from drying washing in the flat; there is no dryer in the flat.",
+  "cites": [
+   {
+    "start": 358.2,
+    "end": 368.3
+   },
+   {
+    "start": 369.5,
+    "end": 373.3
+   }
+  ],
+  "lines": [
+   74,
+   75
+  ]
+ },
+ {
+  "id": "S022",
+  "section": "Needs and daily living",
+  "sentence": "Kayleigh reports a plug socket by Alfie's bed sparked last week and is now brown; she has moved Alfie's bed in front of it.",
+  "cites": [
+   {
+    "start": 386.0,
+    "end": 394.7
+   }
+  ],
+  "lines": [
+   78
+  ]
+ },
+ {
+  "id": "S023",
+  "section": "Needs and daily living",
+  "sentence": "Kayleigh reports Alfie has asthma and uses a blue inhaler regularly; they were admitted to A and E on 14 October due to his asthma. The hospital doctor asked if they had damp at,",
+  "cites": [
+   {
+    "start": 402.5,
+    "end": 410.6
+   },
+   {
+    "start": 411.4,
+    "end": 419.5
+   }
+  ],
+  "lines": [
+   81,
+   82
+  ]
+ },
+ {
+  "id": "S024",
+  "section": "Needs and daily living",
+  "sentence": "Kayleigh reports Alfie may be autistic; the school thinks so and he is on the waiting list for an assessment. The school estimates the wait could be 18 months. Alfie struggles with",
+  "cites": [
+   {
+    "start": 435.7,
+    "end": 442.2
+   },
+   {
+    "start": 443.2,
+    "end": 445.1
+   },
+   {
+    "start": 445.4,
+    "end": 452.8
+   }
+  ],
+  "lines": [
+   87,
+   88,
+   89
+  ]
+ },
+ {
+  "id": "S025",
+  "section": "Needs and daily living",
+  "sentence": "Kayleigh reports she is on sertraline since the spring for her depression. She has been skipping her medication most nights so the children can be fed.",
+  "cites": [
+   {
+    "start": 489.5,
+    "end": 492.7
+   },
+   {
+    "start": 496.4,
+    "end": 503.9
+   }
+  ],
+  "lines": [
+   97,
+   99
+  ]
+ },
+ {
+  "id": "S026",
+  "section": "Needs and daily living",
+  "sentence": "Kayleigh reports Mia is fine at nursery and loves it.",
+  "cites": [
+   {
+    "start": 505.0,
+    "end": 507.3
+   },
+   {
+    "start": 508.2,
+    "end": 509.6
+   }
+  ],
+  "lines": [
+   100,
+   101
+  ]
+ },
+ {
+  "id": "S027",
+  "section": "Person's views and wishes",
+  "sentence": "Kayleigh wants to stay in the current flat and have the repairs done; she does not want to move.",
+  "cites": [
+   {
+    "start": 471.6,
+    "end": 478.8
+   },
+   {
+    "start": 479.5,
+    "end": 484.7
+   }
+  ],
+  "lines": [
+   93,
+   94
+  ]
+ },
+ {
+  "id": "S028",
+  "section": "Risks and safeguarding",
+  "sentence": "Kayleigh reports she will have her phone cut off on 1 December due to being behind on her contract.",
+  "cites": [
+   {
+    "start": 539.3,
+    "end": 545.8
+   }
+  ],
+  "lines": [
+   108
+  ]
+ },
+ {
+  "id": "S029",
+  "section": "Risks and safeguarding",
+  "sentence": "Kayleigh reports the agent told her the landlord wants to sell the whole building.",
+  "cites": [
+   {
+    "start": 596.1,
+    "end": 601.6
+   }
+  ],
+  "lines": [
+   121
+  ]
+ },
+ {
+  "id": "S030",
+  "section": "Risks and safeguarding",
+  "sentence": "Kayleigh denied any violence or abuse in her relationship with Liam.",
+  "cites": [
+   {
+    "start": 112.1,
+    "end": 116.3
+   },
+   {
+    "start": 117.5,
+    "end": 123.1
+   }
+  ],
+  "lines": [
+   24,
+   25
+  ]
+ },
+ {
+  "id": "S031",
+  "section": "Risks and safeguarding",
+  "sentence": "Kayleigh stated she does not want anything from Liam and is not chasing him; she only wants him to leave.",
+  "cites": [
+   {
+    "start": 179.6,
+    "end": 185.5
+   }
+  ],
+  "lines": [
+   38
+  ]
+ },
+ {
+  "id": "S032",
+  "section": "Risks and safeguarding",
+  "sentence": "Kayleigh reported that the agent told her Mr Haskins says the damp is her fault due to condensation from drying washing in the flat.",
+  "cites": [
+   {
+    "start": 358.2,
+    "end": 368.3
+   }
+  ],
+  "lines": [
+   74
+  ]
+ },
+ {
+  "id": "S033",
+  "section": "Risks and safeguarding",
+  "sentence": "Kayleigh reported she has been behind on her phone contract and her phone is getting cut off on 1 December.",
+  "cites": [
+   {
+    "start": 539.3,
+    "end": 545.8
+   }
+  ],
+  "lines": [
+   108
+  ]
+ },
+ {
+  "id": "S034",
+  "section": "Risks and safeguarding",
+  "sentence": "Kayleigh reported the agent told her the landlord wants to sell the whole building.",
+  "cites": [
+   {
+    "start": 596.1,
+    "end": 601.6
+   }
+  ],
+  "lines": [
+   121
+  ]
+ },
+ {
+  "id": "S035",
+  "section": "Risks and safeguarding",
+  "sentence": "S3 stated that S3 would want a disrepair claim for compensation, noting the impact of a year of poor housing on a child.",
+  "cites": [
+   {
+    "start": 654.4,
+    "end": 659.5
+   }
+  ],
+  "lines": [
+   132
+  ]
+ },
+ {
+  "id": "S036",
+  "section": "Risks and safeguarding",
+  "sentence": "S2 stated S2 did not want to sue the council, only wanted the repairs fixed, and expressed fear of losing the flat.",
+  "cites": [
+   {
+    "start": 660.2,
+    "end": 664.9
+   }
+  ],
+  "lines": [
+   133
+  ]
+ },
+ {
+  "id": "S037",
+  "section": "Risks and safeguarding",
+  "sentence": "S3 stated that the legal action was not exactly 'suing'.",
+  "cites": [
+   {
+    "start": 665.2,
+    "end": 666.7
+   }
+  ],
+  "lines": [
+   134
+  ]
+ },
+ {
+  "id": "S038",
+  "section": "Risks and safeguarding",
+  "sentence": "S2 stated S2 did not want to proceed with the legal action at that time.",
+  "cites": [
+   {
+    "start": 667.3,
+    "end": 668.7
+   }
+  ],
+  "lines": [
+   135
+  ]
+ },
+ {
+  "id": "S039",
+  "section": "Risks and safeguarding",
+  "sentence": "S1 noted that S3 (Moira) raised the disrepair claim option and that S2 did not want to go ahead with it.",
+  "cites": [
+   {
+    "start": 669.6,
+    "end": 674.7
+   }
+  ],
+  "lines": [
+   136
+  ]
+ },
+ {
+  "id": "S040",
+  "section": "Support network and finances",
+  "sentence": "Kayleigh offered to pay \u00a350 a month towards the arrears.",
+  "cites": [
+   {
+    "start": 563.4,
+    "end": 566.9
+   }
+  ],
+  "lines": [
+   113
+  ]
+ },
+ {
+  "id": "S041",
+  "section": "Support network and finances",
+  "sentence": "Kayleigh agreed to use Moira Quinn's work number for contact after her phone contract is cut off on 1 December.",
+  "cites": [
+   {
+    "start": 550.4,
+    "end": 552.2
+   },
+   {
+    "start": 553.4,
+    "end": 556.9
+   }
+  ],
+  "lines": [
+   110,
+   111
+  ]
+ },
+ {
+  "id": "S042",
+  "section": "Support network and finances",
+  "sentence": "S1 requested S3 to obtain a GP letter regarding Alfie's asthma and the damp from Millfield Surgery.",
+  "cites": [
+   {
+    "start": 675.7,
+    "end": 680.0
+   }
+  ],
+  "lines": [
+   137
+  ]
+ },
+ {
+  "id": "S043",
+  "section": "Support network and finances",
+  "sentence": "S3 stated S3 would need until the fourth of December to obtain the GP letter as Millfield Surgery is slow.",
+  "cites": [
+   {
+    "start": 681.0,
+    "end": 684.8
+   }
+  ],
+  "lines": [
+   138
+  ]
+ },
+ {
+  "id": "S044",
+  "section": "Support network and finances",
+  "sentence": "S2 stated S2's mum lives in Hull in a one-bed flat and S2 had not asked her yet if S2 could stay there.",
+  "cites": [
+   {
+    "start": 692.1,
+    "end": 697.5
+   }
+  ],
+  "lines": [
+   140
+  ]
+ },
+ {
+  "id": "S045",
+  "section": "Support network and finances",
+  "sentence": "S1 stated that S2's mum staying with S2 was not a formal plan.",
+  "cites": [
+   {
+    "start": 698.0,
+    "end": 700.1
+   }
+  ],
+  "lines": [
+   141
+  ]
+ },
+ {
+  "id": "S046",
+  "section": "Agreed actions",
+  "sentence": "Marcus Fenn (Housing options officer) proposed applying for a Discretionary Housing Payment (DHP) to cover the shortfall and arrears.",
+  "cites": [
+   {
+    "start": 513.0,
+    "end": 520.2
+   },
+   {
+    "start": 521.3,
+    "end": 522.8
+   }
+  ],
+  "lines": [
+   103,
+   104
+  ]
+ },
+ {
+  "id": "S047",
+  "section": "Agreed actions",
+  "sentence": "Marcus Fenn requested three months of bank statements and Universal Credit statements by Thursday to apply for the DHP, which he said he would submit by Friday 27.",
+  "cites": [
+   {
+    "start": 531.0,
+    "end": 538.3
+   }
+  ],
+  "lines": [
+   107
+  ]
+ },
+ {
+  "id": "S048",
+  "section": "Agreed actions",
+  "sentence": "Marcus Fenn agreed to contact the landlord (Kerridge and Lowe) to propose a \u00a350 monthly payment towards the arrears.",
+  "cites": [
+   {
+    "start": 585.4,
+    "end": 590.8
+   }
+  ],
+  "lines": [
+   118
+  ]
+ },
+ {
+  "id": "S049",
+  "section": "Agreed actions",
+  "sentence": "S1 stated a prevention case was opened on the day of the call.",
+  "cites": [
+   {
+    "start": 702.7,
+    "end": 707.5
+   }
+  ],
+  "lines": [
+   143
+  ]
+ },
+ {
+  "id": "S050",
+  "section": "Agreed actions",
+  "sentence": "S1 stated S2 should send statements to S1 by Thursday.",
+  "cites": [
+   {
+    "start": 702.7,
+    "end": 707.5
+   }
+  ],
+  "lines": [
+   143
+  ]
+ },
+ {
+  "id": "S051",
+  "section": "Agreed actions",
+  "sentence": "S1 stated S1 would receive the building report (D H P) by Friday the twenty-seventh.",
+  "cites": [
+   {
+    "start": 702.7,
+    "end": 707.5
+   }
+  ],
+  "lines": [
+   143
+  ]
+ },
+ {
+  "id": "S052",
+  "section": "Agreed actions",
+  "sentence": "S1 stated S1 would ring the agent about fifty pounds a month this week.",
+  "cites": [
+   {
+    "start": 708.2,
+    "end": 714.5
+   }
+  ],
+  "lines": [
+   144
+  ]
+ },
+ {
+  "id": "S053",
+  "section": "Agreed actions",
+  "sentence": "S1 stated S1 would refer the tenant to private sector housing by the end of the week.",
+  "cites": [
+   {
+    "start": 708.2,
+    "end": 714.5
+   }
+  ],
+  "lines": [
+   144
+  ]
+ },
+ {
+  "id": "S054",
+  "section": "Agreed actions",
+  "sentence": "S1 stated S3 would receive the GP letter by the fourth of December.",
+  "cites": [
+   {
+    "start": 708.2,
+    "end": 714.5
+   }
+  ],
+  "lines": [
+   144
+  ]
+ },
+ {
+  "id": "S055",
+  "section": "Agreed actions",
+  "sentence": "S1 stated S1 and S2 would meet again on Tuesday the eighth at ten o'clock.",
+  "cites": [
+   {
+    "start": 715.3,
+    "end": 724.0
+   }
+  ],
+  "lines": [
+   145
+  ]
+ },
+ {
+  "id": "S056",
+  "section": "Agreed actions",
+  "sentence": "S2 requested S1 to write down the meeting time.",
+  "cites": [
+   {
+    "start": 724.5,
+    "end": 727.3
+   }
+  ],
+  "lines": [
+   146
+  ]
+ },
+ {
+  "id": "S057",
+  "section": "Agreed actions",
+  "sentence": "S1 stated S1 would print the meeting details.",
+  "cites": [
+   {
+    "start": 728.4,
+    "end": 735.1
+   }
+  ],
+  "lines": [
+   147
+  ]
+ },
+ {
+  "id": "S058",
+  "section": "Agreed actions",
+  "sentence": "S1 instructed S2 to send any court or notice letters to S3 (Moira) the same day they are received.",
+  "cites": [
+   {
+    "start": 728.4,
+    "end": 735.1
+   }
+  ],
+  "lines": [
+   147
+  ]
+ },
+ {
+  "id": "S059",
+  "section": "Agreed actions",
+  "sentence": "S1 instructed S2 to send the court/notice letters directly to S1 after sending them to S3.",
+  "cites": [
+   {
+    "start": 735.9,
+    "end": 737.5
+   }
+  ],
+  "lines": [
+   148
+  ]
+ }
+]

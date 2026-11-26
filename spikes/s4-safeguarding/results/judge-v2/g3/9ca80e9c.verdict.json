@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Jamie Coulter (S2) stated Dean and Lewis walk him to the cash machine on payday. Jamie Coulter (S2) stated he withdraws £100 from the bank on every payday and gives it to Dean and Lewis.",
+   "why": "Dean and Lewis, cash machine, £100, every payday kept; with the threat recorded in Risks, the coercion is clear"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Jamie Coulter (S2) disclosed that Dean said he would hurt him if he did not give him the money, stating this happened last Friday. Jamie Coulter (S2) stated he is scared when Dean asks for the money.",
+   "why": "Dean's threat to hurt him, last Friday, his fear kept; the brief retraction is not adopted as the finding"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Jamie Coulter (S2) disclosed that last month he did not have money for the electric key, causing the electric to go off for two days, and he had crisps for tea.",
+   "why": "electric key, off for two days, last month kept, linked to having too little left after the £100"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Kayleigh recorded as not taking his money. Sentence 24 garbles the on-call number as being 'for Dean or Lewis' (unrelated to scoring)."
+}

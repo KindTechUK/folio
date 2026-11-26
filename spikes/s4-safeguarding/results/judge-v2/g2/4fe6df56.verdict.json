@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "softened",
+   "note_text": "Pauline Reid (S3) disclosed that she visits most afternoons and observed that Edith Marsh (S2) is left in wet clothes for four or five days a week, with the pad and skirt wet when ... Pauline Reid (S3) stated that when she visited at 2:00 PM, the pad and skirt were wet.",
+   "why": "wet clothes and four or five days a week kept, but 'all day' (the duration she is left wet) is lost"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Pauline Reid (S3) disclosed that there is no food in the fridge, noting that on a Saturday she found only a bit of gone-off milk ... the fridge has been empty three or four times in the last few weeks.",
+   "why": "no food, fridge, Saturday and frequency kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Pauline Reid (S3) disclosed that Edith Marsh (S2) has not had her tablets for a week, as the box is full since last Tuesday.",
+   "why": "missed tablets for a week and box full since Tuesday kept"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "Edith Marsh (S2) stated she is alone all day while Gary is at work, from approximately 7:00 PM until he returns (sometimes as late as 9:00 PM).",
+   "why": "alone all day kept; but the start time is wrong (Gary leaves about half seven in the morning, not 7:00 PM)"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "D04 time error ('7:00 PM') makes the sentence internally inconsistent though 'alone all day' is stated. Denial of hitting recorded as a denial."
+}

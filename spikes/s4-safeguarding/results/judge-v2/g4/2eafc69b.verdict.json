@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "softened",
+   "note_text": "Lisa Keegan stated she clears the recycling and sees eight cans a day of the big strong lager, and that there is vodka.",
+   "why": "eight cans a day kept, but vodka quantity and rate (a bottle every two days) lost; 'there is vodka' is materially weaker"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Ronald Keegan admitted he likes a drink and will not lie, stating he has a couple of cans of lager an evening and a couple of cans with his tea.",
+   "why": "his own account recorded as his"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Lisa Keegan stated Ronald Keegan fell in the kitchen after he had had a drink and was on the floor all night and could not get up. Lisa Keegan stated this was not the first time, noting he fell in the hall in the summer after he had had a drink.",
+   "why": "kitchen fall after drinking, all night on the floor and the summer hall fall after drink all kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Driving after drink correctly attributed to Mrs Okafor via Lisa and disputed by Ronald. Sentence 40 misstates that Lisa will do the Attendance Allowance form with the social worker (it is with Ron); not scored."
+}

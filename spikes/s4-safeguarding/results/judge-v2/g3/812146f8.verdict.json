@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Mother Jade Pritchard (S2) disclosed that she drinks alcohol, specifically a bottle of wine per night, most nights, after the children are in bed. ... confirmed the bottle size is a standard 75 centilitre bottle from the Co-op.",
+   "why": "bottle of wine a night, most nights, after children in bed, 75cl all kept; her 'everyone does it' minimising is not recorded but the facts are intact"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Mother Jade Pritchard (S2) reported that she smokes weed a couple of nights a week, consuming a joint or two, only when the children are in bed and never in their presence. ... smokes weed in the garden/out the back door so it is not in the house.",
+   "why": "weed, couple of nights a week, a joint or two, children in bed, garden all kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "...stating she has fallen asleep on the sofa and missed hearing Lily crying. ... her son Mason woke her up after she fell asleep on the sofa and told her that Lily was crying.",
+   "why": "fell asleep on sofa, did not hear Lily crying, Mason woke her all kept; 'a couple of times' not stated but the plain fact is clear"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Cocaine recorded as denied. Unrelated errors: says Dean works 15 hours at Little Acorns (it is Mason's nursery) and Lily 'sleeps for seven hours' (goes down at seven)."
+}

@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "S2 disclosed that on the twelfth of October, Ryan Hale put his hands around her neck in the hallway while she was giving him Mia's bag, pushing her against the wall until she could ... S2 stated her neighbour called the police after hearing her screaming, and the police arrested Ryan Hale.",
+   "why": "who, act (hands round neck), place, date and arrest kept; 'couldn't breathe' cut off mid-sentence but the strangulation itself is plain"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "S2 disclosed that on the third of November, Ryan Hale sent a text threatening to kill her, and stated he has voice notes saying 'I'll regret it'.",
+   "why": "threat to kill, by text, on 3 November kept; voice notes mentioned (wording garbled: 'he has' rather than 'he sent her'), sentence 23 confirms she holds them"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "S2 disclosed that on the twentieth of October, Ryan Hale turned up, grabbed her phone, and smashed it on the floor.",
+   "why": "grabbed and smashed phone with date kept"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "S2 stated Ryan Hale visits the flat every weekend (Friday or Saturday night) since August, banging on the door and shouting through the letterbox.",
+   "why": "every weekend, banging, letterbox kept; her minimisation not adopted"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Knife recorded as Gemma's second-hand claim, not seen by the client. Sentence 8 truncated. Sentence 7 adds 'in August' to the missed weekend, not in the transcript; not scored."
+}

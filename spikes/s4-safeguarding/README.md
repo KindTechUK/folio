@@ -56,6 +56,26 @@ one map call per ~10-minute section (so one call per vignette) with the output c
 tokens, and the note is the section-tagged facts under the template headings (facts tagged `Other` are
 left out, as in S2). Finished notes are skipped on a re-run unless `--force`. Speed is not measured.
 
+## The v2 follow-up
+
+The first run's best condition (Qwen3.5-4B, statutory) still softened 3 of 79 disclosures, each losing how
+often, how hard, who saw it or when. Prompt `v2` is `statutory` plus rule (7), which says to keep those as
+said; its examples appear in no vignette. It also puts each vignette's `recorded` date in the map prompt
+(chosen to contradict nothing the vignette says), and allows 60 facts and 4096 tokens per call.
+
+```bash
+python3 vignettes.py check                                   # now also requires `recorded`
+nice -n 10 python3 run.py --models qwen3.5-4b --prompts v2 --fact-cap 60 --map-max-tokens 4096 --threads 6
+python3 score.py auto
+python3 score.py packets --round v2                          # statutory + v2 notes, blind, 4 groups of 12
+# ...4 blind judges write results/judge-v2/g<n>/<id>.verdict.json...
+python3 score.py collect --round v2                          # -> results/verdicts-v2.jsonl, judge_summary-v2.md
+```
+
+Round `v2` judges the first run's statutory notes again, in the same batches as the v2 notes, so before and
+after are compared by the same judges; their r1 labels give a test–retest check. Its packets show the
+recording date; round `r1`'s packets stay exactly as judged.
+
 ## Outputs (`results/`)
 
 - `runs.jsonl`: one record per map call, including the raw model output. (The qwen3-4b/neutral/s4-07

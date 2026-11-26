@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Jamie Coulter (S2) stated that every payday, Dean and Lewis walk him to the cash machine and he takes out £100 to give to them.",
+   "why": "Dean and Lewis, cash machine, £100, every payday kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Jamie Coulter (S2) stated that if he did not give the money, Dean said he would hurt him. ... felt 'scared' ... Dean said he would hurt him if he did not give him the money, and this was said last Friday.",
+   "why": "Dean's threat to hurt him, repeated, last Friday, his fear kept; retraction not adopted"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Jamie Coulter (S2) stated the electric went off for two days and he had crisps for tea. ... last month he did not have enough money left after Dean took the £100, specifically for the electric key.",
+   "why": "electric key, off two days, last month, caused by the £100 kept (split across two sentences)"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Kayleigh recorded as not taking his money. Person's views section empty, not a key section."
+}

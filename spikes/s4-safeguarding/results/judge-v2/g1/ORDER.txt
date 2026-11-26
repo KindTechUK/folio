@@ -1,0 +1,13 @@
+Judge the packets in this order (see spikes/s4-safeguarding/judge_instructions_s4.md):
+f7ca0cb4.md
+90fd7b33.md
+9a0eaa71.md
+0cbe79d7.md
+782200fd.md
+60880f22.md
+4db09c68.md
+01047a18.md
+d9547723.md
+609c257a.md
+490b402c.md
+0ed0dd2d.md

@@ -1,0 +1,312 @@
+{
+ "run_id": "948f5ec2eeac",
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": []
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "S2 stated that his mother died in June and left the house on Wyvern Road to him and his brother Neil, fifty-fifty.",
+      "cites": [
+       8
+      ]
+     },
+     {
+      "text": "S2 stated that he and Neil are both executors of the estate.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "S2 stated that probate has not yet been applied for because Neil refuses to sign.",
+      "cites": [
+       12
+      ]
+     },
+     {
+      "text": "S2 stated that Neil is currently living in the house and has refused entry to estate agents for a proper valuation.",
+      "cites": [
+       12,
+       14
+      ]
+     },
+     {
+      "text": "S2 stated that an estate agent valued the house at approximately £280,000.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "S2 stated that things between him and Neil have been 'bad'.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "S2 disclosed that Neil punched him in the face on Saturday, 7 November, while arguing in the kitchen about the sale.",
+      "cites": [
+       22,
+       24,
+       26,
+       27
+      ]
+     },
+     {
+      "text": "S2 stated that Neil broke his nose, causing blood everywhere, and S2 went to Castlebrook General A&E that night.",
+      "cites": [
+       29,
+       31
+      ]
+     },
+     {
+      "text": "S2 stated that Neil hit him with a kitchen chair across his back and shoulder after punching him, resulting in bruising that lasted for a week.",
+      "cites": [
+       33,
+       35
+      ]
+     },
+     {
+      "text": "S2 stated that Neil threatened to use a knife if he had one, though S2 confirmed Neil did not have or pick up a knife.",
+      "cites": [
+       38,
+       40
+      ]
+     },
+     {
+      "text": "S2 stated that Neil sent texts saying S2 deserved it and was not getting a penny.",
+      "cites": [
+       48
+      ]
+     },
+     {
+      "text": "S2 stated that he has not reported the assault to the police because he believes his mother would have hated it.",
+      "cites": [
+       44
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": [
+     {
+      "text": "S2 stated that he has the discharge letter, photos of his face taken the next day, and the will.",
+      "cites": [
+       46
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": [
+     {
+      "text": "S2 stated his objectives are to have the house sold, the Mum's estate sorted, and for Neil to stay away from him.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "S1 advised that as joint executors, both must act, but the court can be applied to to remove Neil if he does not co-operate.",
+      "cites": [
+       53
+      ]
+     },
+     {
+      "text": "S1 advised that S2 should report the assault on the 7th to the police.",
+      "cites": [
+       55
+      ]
+     },
+     {
+      "text": "S1 advised that S2 can apply to family court for a non-molestation order to stop Neil contacting him or coming near him.",
+      "cites": [
+       57
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": [
+     {
+      "text": "S1 stated that S2 would need to send screenshots of texts, a copy of the discharge letter, photos, and the will by Monday, 30 November.",
+      "cites": [
+       62
+      ]
+     },
+     {
+      "text": "S1 stated that she would draft a letter to Neil regarding the estate and send it to S2 for approval by Wednesday, 2 December.",
+      "cites": [
+       64
+      ]
+     },
+     {
+      "text": "S1 stated that S2 would be booked for an appointment on the 9th of December.",
+      "cites": [
+       66
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "S2 stated that his mother died in June and left the house on Wyvern Road to him and his brother Neil, fifty-fifty.",
+   "cites": [
+    8
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated that he and Neil are both executors of the estate.",
+   "cites": [
+    10
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated that probate has not yet been applied for because Neil refuses to sign.",
+   "cites": [
+    12
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated that Neil is currently living in the house and has refused entry to estate agents for a proper valuation.",
+   "cites": [
+    12,
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated that an estate agent valued the house at approximately £280,000.",
+   "cites": [
+    14
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated that things between him and Neil have been 'bad'.",
+   "cites": [
+    16
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that Neil punched him in the face on Saturday, 7 November, while arguing in the kitchen about the sale.",
+   "cites": [
+    22,
+    24,
+    26,
+    27
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated that Neil broke his nose, causing blood everywhere, and S2 went to Castlebrook General A&E that night.",
+   "cites": [
+    29,
+    31
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated that Neil hit him with a kitchen chair across his back and shoulder after punching him, resulting in bruising that lasted for a week.",
+   "cites": [
+    33,
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated that Neil threatened to use a knife if he had one, though S2 confirmed Neil did not have or pick up a knife.",
+   "cites": [
+    38,
+    40
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated that Neil sent texts saying S2 deserved it and was not getting a penny.",
+   "cites": [
+    48
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated that he has the discharge letter, photos of his face taken the next day, and the will.",
+   "cites": [
+    46
+   ],
+   "section": "Documents and evidence"
+  },
+  {
+   "text": "S2 stated that he has not reported the assault to the police because he believes his mother would have hated it.",
+   "cites": [
+    44
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 stated his objectives are to have the house sold, the Mum's estate sorted, and for Neil to stay away from him.",
+   "cites": [
+    52
+   ],
+   "section": "Client's objectives"
+  },
+  {
+   "text": "S1 advised that as joint executors, both must act, but the court can be applied to to remove Neil if he does not co-operate.",
+   "cites": [
+    53
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 advised that S2 should report the assault on the 7th to the police.",
+   "cites": [
+    55
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 advised that S2 can apply to family court for a non-molestation order to stop Neil contacting him or coming near him.",
+   "cites": [
+    57
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 stated that S2 would need to send screenshots of texts, a copy of the discharge letter, photos, and the will by Monday, 30 November.",
+   "cites": [
+    62
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "S1 stated that she would draft a letter to Neil regarding the estate and send it to S2 for approval by Wednesday, 2 December.",
+   "cites": [
+    64
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "S1 stated that S2 would be booked for an appointment on the 9th of December.",
+   "cites": [
+    66
+   ],
+   "section": "Next steps"
+  }
+ ]
+}

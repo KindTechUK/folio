@@ -1,0 +1,1040 @@
+[
+ {
+  "id": "S001",
+  "section": "Attendance",
+  "sentence": "Solicitor Priya Nandakumar confirmed the recording was for her notes only and would be deleted after the meeting.",
+  "cites": [
+   {
+    "start": 1.3,
+    "end": 6.9
+   }
+  ],
+  "lines": [
+   1
+  ]
+ },
+ {
+  "id": "S002",
+  "section": "Attendance",
+  "sentence": "Solicitor Priya Nandakumar identified herself as a solicitor in the employment team at Lindqvist Moore.",
+  "cites": [
+   {
+    "start": 21.4,
+    "end": 27.0
+   }
+  ],
+  "lines": [
+   7
+  ]
+ },
+ {
+  "id": "S003",
+  "section": "Attendance",
+  "sentence": "Solicitor Priya Nandakumar recorded the meeting date as Tuesday 24 November 2026.",
+  "cites": [
+   {
+    "start": 27.3,
+    "end": 33.4
+   }
+  ],
+  "lines": [
+   8
+  ]
+ },
+ {
+  "id": "S004",
+  "section": "Client's account",
+  "sentence": "Client Megan Farrell confirmed she is still employed at Brightmere Care Limited (Willowbank House, Fenwick Lane) and works as a Senior Care Assistant.",
+  "cites": [
+   {
+    "start": 50.8,
+    "end": 56.9
+   },
+   {
+    "start": 60.5,
+    "end": 63.8
+   },
+   {
+    "start": 68.0,
+    "end": 73.4
+   }
+  ],
+  "lines": [
+   13,
+   15,
+   17
+  ]
+ },
+ {
+  "id": "S005",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated she started as a carer in March 2021 and became a Senior Care Assistant in 2023.",
+  "cites": [
+   {
+    "start": 68.0,
+    "end": 73.4
+   }
+  ],
+  "lines": [
+   17
+  ]
+ },
+ {
+  "id": "S006",
+  "section": "Client's account",
+  "sentence": "Megan Farrell described her role as running the floor on her shift, conducting medication rounds, signing MAR charts, and performing handovers.",
+  "cites": [
+   {
+    "start": 76.7,
+    "end": 80.9
+   }
+  ],
+  "lines": [
+   19
+  ]
+ },
+ {
+  "id": "S007",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated her contracted hours are 37.5 hours a week and her hourly rate is \u00a312.85 (previously \u00a312.60 last year).",
+  "cites": [
+   {
+    "start": 90.5,
+    "end": 94.9
+   },
+   {
+    "start": 95.4,
+    "end": 101.0
+   }
+  ],
+  "lines": [
+   23,
+   24
+  ]
+ },
+ {
+  "id": "S008",
+  "section": "Client's account",
+  "sentence": "Megan Farrell reported that on 28 August, a resident in room 14 was admitted to hospital for three days.",
+  "cites": [
+   {
+    "start": 110.4,
+    "end": 114.7
+   }
+  ],
+  "lines": [
+   27
+  ]
+ },
+ {
+  "id": "S009",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated she observed MAR charts signed as given for the resident while he was in hospital (mornings and nights).",
+  "cites": [
+   {
+    "start": 115.1,
+    "end": 122.1
+   },
+   {
+    "start": 126.5,
+    "end": 127.8
+   },
+   {
+    "start": 132.4,
+    "end": 135.4
+   }
+  ],
+  "lines": [
+   28,
+   30,
+   32
+  ]
+ },
+ {
+  "id": "S010",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated she emailed Denise Hartigan (Registered Manager) on 4 September regarding the medication charts and night staffing issues (two carers for 38 residents).",
+  "cites": [
+   {
+    "start": 138.7,
+    "end": 142.9
+   },
+   {
+    "start": 166.3,
+    "end": 172.3
+   },
+   {
+    "start": 172.7,
+    "end": 176.4
+   }
+  ],
+  "lines": [
+   34,
+   40,
+   41
+  ]
+ },
+ {
+  "id": "S011",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated Denise Hartigan replied verbally in the corridor the following week but provided no written response.",
+  "cites": [
+   {
+    "start": 177.1,
+    "end": 181.7
+   },
+   {
+    "start": 184.7,
+    "end": 185.3
+   }
+  ],
+  "lines": [
+   42,
+   44
+  ]
+ },
+ {
+  "id": "S012",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated she had never received a warning or disciplinary action and had never made a medication error in five years.",
+  "cites": [
+   {
+    "start": 190.3,
+    "end": 195.4
+   }
+  ],
+  "lines": [
+   46
+  ]
+ },
+ {
+  "id": "S013",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated that from 5 October, her hours were reduced from 37.5 to 24 hours and she was removed from senior shifts, retaining only care assistant duties.",
+  "cites": [
+   {
+    "start": 199.1,
+    "end": 205.0
+   },
+   {
+    "start": 208.9,
+    "end": 213.0
+   }
+  ],
+  "lines": [
+   48,
+   50
+  ]
+ },
+ {
+  "id": "S014",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated Denise Hartigan gave no written reason for the reduction, citing 'operational needs' verbally.",
+  "cites": [
+   {
+    "start": 215.7,
+    "end": 217.7
+   }
+  ],
+  "lines": [
+   52
+  ]
+ },
+ {
+  "id": "S015",
+  "section": "Client's account",
+  "sentence": "Megan Farrell reported that day carer Shauna Price told her she heard Denise Hartigan say in the office that Megan was a 'troublemaker' and needed to be cut down.",
+  "cites": [
+   {
+    "start": 226.2,
+    "end": 234.5
+   }
+  ],
+  "lines": [
+   55
+  ]
+ },
+ {
+  "id": "S016",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated she only knows the Shauna Price account as second-hand information because the door was open and she was not present.",
+  "cites": [
+   {
+    "start": 238.4,
+    "end": 244.6
+   }
+  ],
+  "lines": [
+   57
+  ]
+ },
+ {
+  "id": "S017",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated she booked holiday leave from 14 to 18 September, which was approved via the app (green tick screenshot).",
+  "cites": [
+   {
+    "start": 257.1,
+    "end": 261.6
+   },
+   {
+    "start": 262.0,
+    "end": 265.7
+   }
+  ],
+  "lines": [
+   61,
+   62
+  ]
+ },
+ {
+  "id": "S018",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated her September pay (paid 30 September) was deducted for unpaid leave in the amount of \u00a3481.88.",
+  "cites": [
+   {
+    "start": 267.7,
+    "end": 273.8
+   },
+   {
+    "start": 277.3,
+    "end": 281.6
+   }
+  ],
+  "lines": [
+   64,
+   66
+  ]
+ },
+ {
+  "id": "S019",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated she emailed Lorraine in payroll, who replied that the deduction was 'as instructed by the home'.",
+  "cites": [
+   {
+    "start": 286.3,
+    "end": 290.3
+   }
+  ],
+  "lines": [
+   68
+  ]
+ },
+ {
+  "id": "S020",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated that on her October payslip (paid 30 October), there was a deduction of \u00a3420.00 for 'training cost recovery'.",
+  "cites": [
+   {
+    "start": 292.8,
+    "end": 296.5
+   },
+   {
+    "start": 296.9,
+    "end": 301.9
+   },
+   {
+    "start": 306.6,
+    "end": 307.6
+   }
+  ],
+  "lines": [
+   70,
+   71,
+   73
+  ]
+ },
+ {
+  "id": "S021",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated the October deduction was for the Level 3 meds course she completed in February, which she was put on by the home.",
+  "cites": [
+   {
+    "start": 308.4,
+    "end": 310.1
+   },
+   {
+    "start": 310.7,
+    "end": 315.1
+   }
+  ],
+  "lines": [
+   74,
+   75
+  ]
+ },
+ {
+  "id": "S022",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated she never signed a training agreement or contract clause agreeing to pay back training costs.",
+  "cites": [
+   {
+    "start": 322.1,
+    "end": 328.1
+   }
+  ],
+  "lines": [
+   77
+  ]
+ },
+ {
+  "id": "S023",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated Lorraine told her verbally that the training deduction was on Denise Hartigan's say-so and that Denise had never processed one for anyone else.",
+  "cites": [
+   {
+    "start": 346.4,
+    "end": 351.2
+   },
+   {
+    "start": 351.7,
+    "end": 354.6
+   }
+  ],
+  "lines": [
+   82,
+   83
+  ]
+ },
+ {
+  "id": "S024",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated she did not know if Lorraine's statement was true as she did not see other payslips.",
+  "cites": [
+   {
+    "start": 355.8,
+    "end": 361.1
+   }
+  ],
+  "lines": [
+   84
+  ]
+ },
+ {
+  "id": "S025",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated she filed a grievance on 9 November, with Callum Ashworth's help.",
+  "cites": [
+   {
+    "start": 365.6,
+    "end": 368.0
+   }
+  ],
+  "lines": [
+   86
+  ]
+ },
+ {
+  "id": "S026",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated the grievance was sent to Denise Hartigan, copied to Area Manager Rob Ellery, and received an acknowledgement email with no hearing date.",
+  "cites": [
+   {
+    "start": 368.9,
+    "end": 372.3
+   },
+   {
+    "start": 376.5,
+    "end": 379.8
+   }
+  ],
+  "lines": [
+   87,
+   89
+  ]
+ },
+ {
+  "id": "S027",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated the new rota from 30 November reduced her hours to 16 hours.",
+  "cites": [
+   {
+    "start": 384.6,
+    "end": 389.0
+   },
+   {
+    "start": 389.8,
+    "end": 393.8
+   }
+  ],
+  "lines": [
+   91,
+   92
+  ]
+ },
+ {
+  "id": "S028",
+  "section": "Client's account",
+  "sentence": "Union representative Callum Ashworth stated that night carer Femi Adei Emi told Megan that Rob Ellery knew about the two carers on nights months ago.",
+  "cites": [
+   {
+    "start": 439.6,
+    "end": 446.1
+   }
+  ],
+  "lines": [
+   101
+  ]
+ },
+ {
+  "id": "S029",
+  "section": "Client's account",
+  "sentence": "Megan Farrell stated Femi Adei Emi said Rob Ellery was told at a meeting in the summer, but Megan was not present and does not know what was said.",
+  "cites": [
+   {
+    "start": 448.8,
+    "end": 456.0
+   }
+  ],
+  "lines": [
+   103
+  ]
+ },
+ {
+  "id": "S030",
+  "section": "Client's account",
+  "sentence": "S1 stated the earliest deduction was on the thirtieth of September, calculating the ACAS deadline as Tuesday the twenty-ninth of December twenty twenty-six,",
+  "cites": [
+   {
+    "start": 628.2,
+    "end": 637.5
+   }
+  ],
+  "lines": [
+   137
+  ]
+ },
+ {
+  "id": "S031",
+  "section": "Client's account",
+  "sentence": "S1 stated that if the employee were dismissed because of disclosure, it could be automatically unfair,",
+  "cites": [
+   {
+    "start": 697.2,
+    "end": 706.4
+   }
+  ],
+  "lines": [
+   148
+  ]
+ },
+ {
+  "id": "S032",
+  "section": "Client's account",
+  "sentence": "S1 instructed Megan to keep doing shifts and keep a diary of every rota change and every conversation with Denise,",
+  "cites": [
+   {
+    "start": 708.9,
+    "end": 714.1
+   }
+  ],
+  "lines": [
+   150
+  ]
+ },
+ {
+  "id": "S033",
+  "section": "Client's account",
+  "sentence": "S1 instructed Megan to ask Shauna if she would be willing to talk to the solicitor, specifying to just ask without going into detail,",
+  "cites": [
+   {
+    "start": 716.3,
+    "end": 721.2
+   }
+  ],
+  "lines": [
+   152
+  ]
+ },
+ {
+  "id": "S034",
+  "section": "Client's account",
+  "sentence": "S2 confirmed she would ask Shauna but not at work,",
+  "cites": [
+   {
+    "start": 722.2,
+    "end": 724.6
+   }
+  ],
+  "lines": [
+   153
+  ]
+ },
+ {
+  "id": "S035",
+  "section": "Client's account",
+  "sentence": "S1 instructed S3 to check if Megan is covered by the union's legal scheme, noting Megan only joined in October and there may be rules about problems from before joining,",
+  "cites": [
+   {
+    "start": 729.4,
+    "end": 732.9
+   },
+   {
+    "start": 733.9,
+    "end": 740.2
+   }
+  ],
+  "lines": [
+   155,
+   156
+  ]
+ },
+ {
+  "id": "S036",
+  "section": "Client's account",
+  "sentence": "S3 stated they would check with the regional office and let S1 know by Monday,",
+  "cites": [
+   {
+    "start": 743.3,
+    "end": 746.6
+   }
+  ],
+  "lines": [
+   158
+  ]
+ },
+ {
+  "id": "S037",
+  "section": "Client's account",
+  "sentence": "S2 stated she thought her home insurance was with the contents one,",
+  "cites": [
+   {
+    "start": 754.3,
+    "end": 757.4
+   }
+  ],
+  "lines": [
+   160
+  ]
+ },
+ {
+  "id": "S038",
+  "section": "Client's account",
+  "sentence": "S1 instructed that if Brightmere sends anything (such as a grievance date or anything to sign), it must be sent to the solicitor before the employee replies,",
+  "cites": [
+   {
+    "start": 780.8,
+    "end": 785.8
+   }
+  ],
+  "lines": [
+   165
+  ]
+ },
+ {
+  "id": "S039",
+  "section": "Client's account",
+  "sentence": "S2 confirmed she would not sign anything,",
+  "cites": [
+   {
+    "start": 786.2,
+    "end": 788.1
+   }
+  ],
+  "lines": [
+   166
+  ]
+ },
+ {
+  "id": "S040",
+  "section": "Client's account",
+  "sentence": "S2 stated she felt a bit less mad after the meeting,",
+  "cites": [
+   {
+    "start": 791.2,
+    "end": 795.1
+   }
+  ],
+  "lines": [
+   168
+  ]
+ },
+ {
+  "id": "S041",
+  "section": "Client's account",
+  "sentence": "S3 confirmed they would stop telling people the ACAS clock pauses,",
+  "cites": [
+   {
+    "start": 801.8,
+    "end": 804.1
+   }
+  ],
+  "lines": [
+   170
+  ]
+ },
+ {
+  "id": "S042",
+  "section": "Documents and evidence",
+  "sentence": "Megan Farrell stated she has payslips for September and October, a screenshot of the holiday approval, a printed email, and photos of the rotas.",
+  "cites": [
+   {
+    "start": 505.6,
+    "end": 510.9
+   }
+  ],
+  "lines": [
+   113
+  ]
+ },
+ {
+  "id": "S043",
+  "section": "Documents and evidence",
+  "sentence": "Megan Farrell stated she has a photo of a MAR chart on her phone.",
+  "cites": [
+   {
+    "start": 511.2,
+    "end": 515.8
+   }
+  ],
+  "lines": [
+   114
+  ]
+ },
+ {
+  "id": "S044",
+  "section": "Documents and evidence",
+  "sentence": "Solicitor Priya Nandakumar instructed Megan Farrell not to send the MAR chart photo to anyone (including Callum) as it is resident data, but to keep it.",
+  "cites": [
+   {
+    "start": 516.5,
+    "end": 523.0
+   }
+  ],
+  "lines": [
+   115
+  ]
+ },
+ {
+  "id": "S045",
+  "section": "Documents and evidence",
+  "sentence": "Megan Farrell stated she does not have a copy of her senior contract, only the first one from when she was a carer.",
+  "cites": [
+   {
+    "start": 335.9,
+    "end": 341.6
+   }
+  ],
+  "lines": [
+   80
+  ]
+ },
+ {
+  "id": "S046",
+  "section": "Documents and evidence",
+  "sentence": "Megan Farrell stated she can screenshot the holiday and pay sections from the handbook app.",
+  "cites": [
+   {
+    "start": 532.6,
+    "end": 536.6
+   }
+  ],
+  "lines": [
+   119
+  ]
+ },
+ {
+  "id": "S047",
+  "section": "Documents and evidence",
+  "sentence": "Solicitor Priya Nandakumar requested Megan Farrell provide all electronic documents by Friday 27 November.",
+  "cites": [
+   {
+    "start": 537.7,
+    "end": 541.3
+   }
+  ],
+  "lines": [
+   120
+  ]
+ },
+ {
+  "id": "S048",
+  "section": "Documents and evidence",
+  "sentence": "Megan Farrell stated she moved address on 1 November and requested all future correspondence be sent via email.",
+  "cites": [
+   {
+    "start": 548.0,
+    "end": 554.2
+   }
+  ],
+  "lines": [
+   123
+  ]
+ },
+ {
+  "id": "S049",
+  "section": "Client's objectives",
+  "sentence": "Megan Farrell stated her primary objective is to have her hours and senior shifts (medication rounds) back, with money recovery as a secondary objective.",
+  "cites": [
+   {
+    "start": 404.0,
+    "end": 411.1
+   },
+   {
+    "start": 412.3,
+    "end": 418.4
+   }
+  ],
+  "lines": [
+   95,
+   96
+  ]
+ },
+ {
+  "id": "S050",
+  "section": "Client's objectives",
+  "sentence": "Megan Farrell stated she would still pursue the money back even if her hours were restored, though she was unsure if she would let it go.",
+  "cites": [
+   {
+    "start": 427.8,
+    "end": 436.0
+   }
+  ],
+  "lines": [
+   99
+  ]
+ },
+ {
+  "id": "S051",
+  "section": "Client's objectives",
+  "sentence": "Megan Farrell stated she wants someone to investigate the medication charts properly.",
+  "cites": [
+   {
+    "start": 412.3,
+    "end": 418.4
+   }
+  ],
+  "lines": [
+   96
+  ]
+ },
+ {
+  "id": "S052",
+  "section": "Client's objectives",
+  "sentence": "Megan Farrell stated she considered contacting the CQC but had not yet done so.",
+  "cites": [
+   {
+    "start": 460.8,
+    "end": 465.2
+   }
+  ],
+  "lines": [
+   105
+  ]
+ },
+ {
+  "id": "S053",
+  "section": "Client's objectives",
+  "sentence": "Megan Farrell stated she did not want to go to the press because her name would appear in the paper and families would see it.",
+  "cites": [
+   {
+    "start": 486.3,
+    "end": 492.1
+   }
+  ],
+  "lines": [
+   109
+  ]
+ },
+ {
+  "id": "S054",
+  "section": "Client's objectives",
+  "sentence": "Solicitor Priya Nandakumar stated she would not recommend going to the press at this stage.",
+  "cites": [
+   {
+    "start": 493.2,
+    "end": 499.7
+   }
+  ],
+  "lines": [
+   110
+  ]
+ },
+ {
+  "id": "S055",
+  "section": "Advice given",
+  "sentence": "Solicitor Priya Nandakumar stated there appear to be two possible claims: unlawful deduction of wages (holiday and training) and whistleblowing detriment (hours and removal frommed",
+  "cites": [
+   {
+    "start": 565.6,
+    "end": 575.5
+   }
+  ],
+  "lines": [
+   127
+  ]
+ },
+ {
+  "id": "S056",
+  "section": "Advice given",
+  "sentence": "Solicitor Priya Nandakumar stated she could not put a percentage on the chances of success or give a figure on the value of the claim.",
+  "cites": [
+   {
+    "start": 579.7,
+    "end": 585.0
+   },
+   {
+    "start": 588.3,
+    "end": 593.8
+   }
+  ],
+  "lines": [
+   129,
+   131
+  ]
+ },
+ {
+  "id": "S057",
+  "section": "Advice given",
+  "sentence": "Solicitor Priya Nandakumar stated the time limit is the most important thing to know today.",
+  "cites": [
+   {
+    "start": 594.9,
+    "end": 600.5
+   }
+  ],
+  "lines": [
+   132
+  ]
+ },
+ {
+  "id": "S058",
+  "section": "Advice given",
+  "sentence": "S1 advised that ACAS early conciliation must be started within three months less one day from the act complained about, noting that waiting for a grievance outcome causes people to",
+  "cites": [
+   {
+    "start": 601.6,
+    "end": 609.8
+   }
+  ],
+  "lines": [
+   133
+  ]
+ },
+ {
+  "id": "S059",
+  "section": "Advice given",
+  "sentence": "S1 advised Megan to notify ACAS by Friday the fourth of December,",
+  "cites": [
+   {
+    "start": 638.4,
+    "end": 644.1
+   }
+  ],
+  "lines": [
+   138
+  ]
+ },
+ {
+  "id": "S060",
+  "section": "Advice given",
+  "sentence": "S1 advised against resigning, stating that resigning makes the situation riskier even if the employee is still employed and being paid,",
+  "cites": [
+   {
+    "start": 686.3,
+    "end": 692.5
+   }
+  ],
+  "lines": [
+   146
+  ]
+ },
+ {
+  "id": "S061",
+  "section": "Advice given",
+  "sentence": "S1 advised Megan to check for legal expenses cover on her home insurance if the union cannot help,",
+  "cites": [
+   {
+    "start": 747.7,
+    "end": 753.5
+   }
+  ],
+  "lines": [
+   159
+  ]
+ },
+ {
+  "id": "S062",
+  "section": "Advice given",
+  "sentence": "S1 stated there are real questions here and that no promises can be made until the other side is seen,",
+  "cites": [
+   {
+    "start": 795.9,
+    "end": 801.5
+   }
+  ],
+  "lines": [
+   169
+  ]
+ },
+ {
+  "id": "S063",
+  "section": "Next steps",
+  "sentence": "Solicitor Priya Nandakumar instructed Megan Farrell to send her the new address for the file.",
+  "cites": [
+   {
+    "start": 555.4,
+    "end": 558.9
+   }
+  ],
+  "lines": [
+   124
+  ]
+ },
+ {
+  "id": "S064",
+  "section": "Next steps",
+  "sentence": "Solicitor Priya Nandakumar requested Megan Farrell send all electronic documents by Friday 27 November.",
+  "cites": [
+   {
+    "start": 537.7,
+    "end": 541.3
+   }
+  ],
+  "lines": [
+   120
+  ]
+ },
+ {
+  "id": "S065",
+  "section": "Next steps",
+  "sentence": "S1 instructed Megan to send documents and the new address to the solicitor by Friday the twenty-seventh and to start the diary,",
+  "cites": [
+   {
+    "start": 758.1,
+    "end": 764.8
+   }
+  ],
+  "lines": [
+   161
+  ]
+ },
+ {
+  "id": "S066",
+  "section": "Next steps",
+  "sentence": "S1 instructed S3 to provide the union scheme status by Monday the thirtieth,",
+  "cites": [
+   {
+    "start": 765.7,
+    "end": 768.5
+   }
+  ],
+  "lines": [
+   162
+  ]
+ },
+ {
+  "id": "S067",
+  "section": "Next steps",
+  "sentence": "S1 instructed S1 to send a letter confirming today's advice with a draft ACAS form by Wednesday the second, to be submitted by Friday the fourth of December,",
+  "cites": [
+   {
+    "start": 769.6,
+    "end": 778.3
+   }
+  ],
+  "lines": [
+   163
+  ]
+ }
+]

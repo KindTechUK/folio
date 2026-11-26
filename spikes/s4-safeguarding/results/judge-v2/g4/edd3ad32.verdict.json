@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "S2 stated that it was Jordan who slapped Alfie, not that he fell off the sofa. S2 stated that Jordan slapped Alfie across the face because he would not eat his tea.",
+   "why": "who, act and 'across the face' kept; restated disclosure recorded as stated (brief retraction not mentioned, but the account is not weakened)"
+  },
+  "D02": {
+   "label": "softened",
+   "note_text": "S2 stated the incident on the 8th of November occurred on Sunday at about five o'clock. S2 stated that Jordan grabbed Alfie by the arm, really hard, and pulled him off the chair, which caused the bruise. S2 stated she was at the sink when she saw the bruise on Alfie's arm.",
+   "why": "grab, arm, bruise and date kept, but the note says she saw the bruise rather than that she witnessed Jordan grabbing Alfie; her eyewitness account of the act is lost"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "S2 stated Jordan told her to say Alfie fell off the sofa when Ms Okoye came.",
+   "why": "Jordan's instruction to give the sofa story kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "C01 handled correctly: threat recorded as a threat and sentence 16 says he has never taken the children."
+}

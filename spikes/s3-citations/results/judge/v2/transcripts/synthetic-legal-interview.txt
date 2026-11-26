@@ -1,0 +1,328 @@
+# Employment client interview — first meeting (synthetic)
+# id: synthetic-legal-interview
+# Speakers: S1 = Solicitor (Daniel Okafor); S2 = Aisha Rahman (client); S3 = Trainee (Sophie Grant)
+# Recorded on Wednesday 23 September 2026
+
+L1 [00:00] S1: Right, is that, is that on? Yeah, okay, the little light's on. Sorry, I just record these for my own notes, it's only for me and it gets deleted once the note's done, is that alright with you?
+L2 [00:15] S2: Yeah, yeah that's fine. Sorry I'm a bit late, the parking round here is, honestly, it's a nightmare.
+L3 [00:22] S1: Oh no, don't worry at all, everyone says that. Did you end up in the, the multi-storey on Mill Lane?
+L4 [00:30] S2: No, I went round twice and then I found one on the street, but it's only two hours, so I'll, I'll keep an eye on it.
+L5 [00:41] S1: We'll be done well before that. Probably forty-five minutes, maybe a bit more if we need it. So, um, I'm Daniel, Daniel Okafor, I'm a solicitor here in the employment team.
+L6 [00:54] S1: And for the note, today's Wednesday the twenty-third of September. My trainee Sophie might pop in a bit later just to, to take copies of anything you've brought, if that's okay.
+L7 [01:07] S2: Yeah, of course, that's fine.
+L8 [01:09] S1: Great. So just so you know, everything you tell me is confidential. Today is really about me getting the story and the dates straight, and then at the end I'll tell you what I think and what happens next. Okay?
+L9 [01:26] S2: Okay. I've, I've written some stuff down on my phone, I didn't know what you'd need, so I just sort of, wrote everything.
+L10 [01:35] S1: That's brilliant, honestly that's really helpful, most people don't. So let's start at the beginning. Who were you working for?
+L11 [01:44] S2: North gate Logistics. Northgate Logistics Limited. It's the big warehouse off the, the ring road, by the retail park, the one with the blue cladding.
+L12 [01:55] S1: Oh I know it, yeah. Okay. And when did you start there?
+L13 [02:01] S2: I started in, um, twenty nineteen. March twenty nineteen.
+L14 [02:05] S2: No, sorry, no, twenty eighteen. It was twenty eighteen because my youngest was just starting nursery, so. The fifth of March twenty eighteen. It's on my contract.
+L15 [02:16] S1: Fifth of March twenty eighteen. Okay. So eight and a half years, give or take. And what were you doing when you started?
+L16 [02:27] S2: I started as a picker, just on the, on the floor, general picking. And then I went to team leader in, it was the summer of twenty twenty-one. June twenty-one I think it was.
+L17 [02:41] S1: And team leader of what, sorry, what's the team?
+L18 [02:45] S2: Inbound goods. So we do the, the unloading and the checking in, booking stuff onto the system, and I had, I've got, had, eleven people on my shift.
+L19 [02:57] S1: Eleven people. That's a decent sized team. And your hours, full time?
+L20 [03:02] S2: Full time, yeah, it's four on four off, days, it's seven till seven. Well, seven till quarter past really, with the handover.
+L21 [03:12] S1: Right. And your pay? Roughly, or if you know it exactly, even better.
+L22 [03:17] S2: It was thirty-one thousand.
+L23 [03:20] S2: Actually, no, sorry, that's, that's with the shift allowance and the overtime I think. The basic was twenty-nine thousand four hundred. The thirty-one is what I put on, like, a mortgage form once.
+L24 [03:33] S1: Okay, so basic twenty-nine thousand four hundred a year. And the shift allowance on top, do you know what that was?
+L25 [03:42] S2: It's about eighteen hundred a year, it's on the payslip as, um, unsocial something, unsocial hours supplement, something like that.
+L26 [03:50] S1: Okay, fine, we'll get it off the payslips anyway, so don't worry if you're not sure. Pension?
+L27 [03:57] S2: Yeah, the workplace one. I think they put in five percent. Maybe it's four. I'd have to check, sorry.
+L28 [04:06] S1: That's fine, don't worry about that now, it's all in the payslips. Did you get a new contract when you became team leader?
+L29 [04:16] S2: I, I think I signed something on a, on the tablet thing, but I never got a copy. I've only got the original one from twenty eighteen, the paper one.
+L30 [04:28] S1: Okay. Noted, we can ask for it. Now, I think from what you said on the phone to, to reception, there's a health side to this.
+L31 [04:40] S2: Yeah. So I've got type one diabetes. I've had it since I was fourteen.
+L32 [04:45] S1: Okay. And how do you manage it day to day, if you don't mind me asking? Only as much as you're comfortable with.
+L33 [04:55] S2: No, it's fine, I'm used to it. I've got a, a sensor, a glucose sensor on my arm, it goes to an app on my phone, and I do injections.
+L34 [05:08] S2: And basically if I'm dropping I need to stop and have something, like a juice or glucose tablets, and then check again after fifteen minutes, and then have something proper, like a biscuit or a sandwich.
+L35 [05:23] S1: So it's not something you can really schedule.
+L36 [05:27] S2: No, that's the thing, that's exactly the thing, you can't, it depends on how busy we are, the heat, what I've eaten, everything.
+L37 [05:36] S1: And did Northgate know about the diabetes? From the start?
+L38 [05:41] S2: Yes. I put it on the health form when I started, and I told my manager then, Linda, Linda Chu. She was brilliant about it honestly.
+L39 [05:52] S1: Linda Chu, C-H-U? Is she still there?
+L40 [05:55] S2: Yeah, C-H-U. No, she left, she left end of last year, she went to one of the supermarkets, on the distribution side. I've still got her number though, we're still friends on Facebook and that.
+L41 [06:09] S1: Okay, that could be useful. We'll come back to that. So with Linda, what was the arrangement? If there was one.
+L42 [06:18] S2: It wasn't written down, it was just, like, if I needed to step off for five minutes, I'd tell one of the lads to cover and I'd go. She never had an issue. It wasn't a lot, maybe once or twice a shift, if that, some days not at all.
+L43 [06:38] S1: And nothing in writing about that, no email, no, no plan?
+L44 [06:43] S2: No. I mean, I don't think so. There might be an email somewhere from years ago, but I don't think so, it was just how we did it.
+L45 [06:56] S1: Okay. That's fine, that's very normal actually.
+L46 [06:59] S2: Sorry, my phone's buzzing, it's the, it's the school. Hang on. No, it's fine, it's just the, the trip money thing. Sorry.
+L47 [07:09] S1: No problem at all, honestly. How old are they?
+L48 [07:13] S2: Seven and eleven. The eleven year old just started secondary, so it's all, you know, new everything, new shoes, new blazer, new bus.
+L49 [07:22] S1: Oh, big change. My nephew's just done that, my sister says he's gone from, like, wanting to hold her hand to not wanting to be seen with her in a week.
+L50 [07:34] S2: That's it, that's exactly it. Mine walks ten metres ahead of me now. Anyway. Sorry.
+L51 [07:41] S1: No, no. Right, where were we. So Linda was your manager until the end of twenty twenty-five and the, the stepping off arrangement was fine.
+L52 [07:52] S2: Yeah, it was fine for, like, years. Nobody ever said anything. I was never, I was even team leader of the quarter once. Twenty twenty-three I think. There's a certificate somewhere.
+L53 [08:04] S1: Oh, that's worth finding as well if you can, it shows the kind of employee you were.
+L54 [08:12] S2: It's probably in the kitchen drawer, with everything else, with all the, like, takeaway menus.
+L55 [08:18] S1: Ha. Everyone's got that drawer.
+L56 [08:21] S1: So Linda leaves at the end of last year. Who comes in?
+L57 [08:28] S2: Gary. Gary Whitlock. He started in January, it was, I think the twelfth of January. He's the operations manager for the whole inbound side.
+L58 [08:38] S1: Whitlock, W-H-I-T—
+L59 [08:39] S2: L-O-C-K, yeah. Whit lock.
+L60 [08:41] S1: And how was it with Gary at first?
+L61 [08:45] S2: Fine at first, honestly. He was just, he was very, very into numbers, like, the unload rates, the dock-to-stock times, all that. There's a big screen now with everyone's rates on it.
+L62 [08:59] S2: And then in February he sent round this email about breaks.
+L63 [09:04] S1: What did it say, as best you remember?
+L64 [09:07] S2: Basically that everyone takes their breaks at fixed times now, the thirty minutes and the two fifteens, and no one leaves the dock outside those without, um, without his say-so. That was the second of February.
+L65 [09:23] S1: Do you have a copy of that email?
+L66 [09:27] S2: I, no, it was on my work email, so I haven't got it now. They cut me off the system the day I was dismissed, I can't get into anything.
+L67 [09:39] S1: Okay, that's one for the, for the list, we can ask them for it. And did you say anything to him about the diabetes, when that came out?
+L68 [09:52] S2: Yeah, I went to see him that week, the same week, and I said look, I've got type one, sometimes I need to just step off for five minutes, I've always done it with Linda. And he said just, just time it with your breaks.
+L69 [10:10] S2: Which, I mean, you can't, it doesn't work like that, you don't know when you're going to drop. It's not like, it's not like needing the toilet.
+L70 [10:23] S1: Sure. Did you put anything in writing to him at that point?
+L71 [10:28] S2: Not then. Later I did. In March I emailed HR and asked for an occupational health referral, because I thought, you know, if a doctor says it, he'll have to listen.
+L72 [10:41] S1: Good. That was sensible. And did that happen?
+L73 [10:45] S2: Yeah, I had a phone appointment with a nurse, and then the report came, it was dated the twenty-second of April.
+L74 [10:53] S2: And it said I should be allowed short breaks when I need them, to test and eat, like, as a reasonable adjustment. It literally says reasonable adjustment.
+L75 [11:05] S1: Do you have a copy of that report?
+L76 [11:08] S2: I think so. HR sent it to my personal email as well because I asked them to, so it should be in there. I'll have to dig for it, my inbox is, it's a mess, it's all school emails.
+L77 [11:24] S1: That's a really important document, so if you can find that, that's top of the list, honestly. That's probably the most important thing after the letters.
+L78 [11:34] S2: Okay. I'll find it tonight.
+L79 [11:37] S1: After that report, did anything change?
+L80 [11:40] S2: Not really. Gary said he'd take it on board. That's what he said, "I'll take it on board". And then in May he had me in the office for a, he called it a conversation.
+L81 [11:55] S1: When in May?
+L82 [11:57] S2: The nineteenth, I think, the nineteenth of May. It was a Tuesday. He said my team were seeing me leave the dock and it looked bad. And that I need to set an example as a team leader.
+L83 [12:13] S1: Was that a formal meeting? Did you get a letter afterwards, anything saying it was a warning?
+L84 [12:20] S2: No. Nothing. No letter, nobody said warning. He just said it was a conversation, like, informal, just a chat. I've never had a warning, not ever, not in eight years. Not a verbal, not a written, nothing.
+L85 [12:34] S1: Okay, that's helpful. So no written warning, nothing on your file that you know of.
+L86 [12:41] S2: Not that I know of. If they say I was late, well, I wasn't, I've never been late, I'm the one that opens up half the time.
+L87 [12:52] S1: Has anyone actually said you were late? Is that in any of the letters?
+L88 [12:58] S2: No, no, nobody's said it, it's just, I wouldn't put it past them, that's all. I'm just saying if they do.
+L89 [13:07] S1: Okay. Let's stick to what they've actually said. Right, so, take me to July.
+L90 [13:13] S2: So the first of July and the third of July, both days I had a low mid-morning and I stepped off, and I told Tomasz to cover, and I was maybe ten, twelve minutes each time.
+L91 [13:28] S1: Tomasz is?
+L92 [13:29] S2: Tomasz Nowak, he's one of my team, he's like my, unofficial deputy I suppose. He's been there nearly as long as me.
+L93 [13:38] S1: And Gary saw that?
+L94 [13:40] S2: He must have been watching, because on the, the third, when I came back he said, "that's twice this week", in front of everyone. It was, I was so embarrassed. The agency lads were all there.
+L95 [13:56] S1: And then the ninth.
+L96 [13:58] S2: The ninth. Yeah. Um. So the ninth of July, it was really hot, it was that week where it was like thirty degrees, and the dock is like an oven, the doors are open but it doesn't help, it's all tarmac out there.
+L97 [14:16] S2: And I'd been trying not to step off, because of Gary, you know, and I was pushing it, and about two o'clock I went really low. Like, I was shaking and I couldn't, I couldn't read the scanner.
+L98 [14:31] S1: Take your time. There's no rush.
+L99 [14:34] S2: Sorry. It's fine. I sat down on a pallet basically, and Marcus, Marcus Bell, he's a first aider, he came over and he got me a Lucozade from the machine and stayed with me.
+L100 [14:48] S1: Did you lose consciousness at all?
+L101 [14:51] S2: No, no. I was very confused, I don't remember all of it. My sensor said two point one. Marcus took a photo of it actually, of my phone, because he said you'll want that.
+L102 [15:05] S1: That's, that's quite a sensible thing for him to have done.
+L103 [15:10] S2: He's great, Marcus. He's the one who does all the first aid training as well. So after, like, twenty minutes I was okay, I went to the canteen to eat something properly.
+L104 [15:23] S2: And Gary came in and said, you've left the dock with no team leader, go home. He said, "go home, you're not fit to be here". And I went home.
+L105 [15:36] S1: He sent you home. Was that the end of the shift, or?
+L106 [15:42] S2: No, it was about half two, so I lost, what, four and a half hours. And they didn't pay me for them, actually, I noticed that on the payslip after.
+L107 [15:55] S1: Was there an accident form, anything like that, filled in?
+L108 [16:00] S2: Marcus said he filled in the first aid log. I don't know if Gary did anything, I doubt it.
+L109 [16:09] S2: If I'd told Gary that morning that my levels were all over the place, maybe it wouldn't have got to that, I don't know. Maybe he would have moved me off the dock or something.
+L110 [16:24] S1: Well, let's not beat yourself up about that. You'd already told them about the condition, and they had the OH report since April.
+L111 [16:34] S2: I know. I just keep going over it, you know. At night.
+L112 [16:39] S1: Of course. That's completely natural.
+L113 [16:41] S2: And it's still so warm now, isn't it, for September. I was sat in the car this morning with the air con on thinking, God, not again.
+L114 [16:53] S1: I know, it's mad. My tomatoes are still going.
+L115 [16:57] S1: So what happened next, after the ninth?
+L116 [17:01] S2: I went back in on my next block of shifts, and nothing happened for about a week. Then I got called to an investigation meeting on the seventeenth, with Dean Farrow, he's one of the shift managers.
+L117 [17:16] S1: Seventeenth of July. What did Dean ask you?
+L118 [17:20] S2: About the three days. The first, the third and the ninth. Why I'd left the dock. And I told him, I said it's my diabetes, it's in the OH report, you've got it on file. He wrote it all down, he was typing on the laptop.
+L119 [17:38] S1: Did you get notes of that meeting? A copy of what he typed?
+L120 [17:43] S2: No. I asked, I asked for them and they said they'd be in the pack, and they weren't. There was no pack really, just the letter.
+L121 [17:54] S1: Okay. Then?
+L122 [17:56] S2: Then I got a letter, the twenty-eighth of July, inviting me to a disciplinary meeting. It said the allegations were, um, unauthorised absence from my work area, and failure to follow a reasonable management instruction.
+L123 [18:11] S1: Did it say it could lead to dismissal?
+L124 [18:14] S2: Yes. It said, um, "a possible outcome is dismissal". I've got that letter, I brought it, it's in the, in the folder.
+L125 [18:23] S1: Great. We'll get Sophie to copy it. And the meeting itself, when was that?
+L126 [18:30] S2: The sixth of August. And, and this is the bit that really, it was Gary. Gary was the one doing it. The one hearing it.
+L127 [18:41] S1: So Gary chaired the disciplinary. The same person who'd raised the concerns about you in the first place.
+L128 [18:48] S2: Yes. And there was someone from HR, Kerry, taking notes. Kerry Doyle I think her surname is. She's nice enough, she's just, she's HR.
+L129 [18:58] S1: Were you accompanied? You have a right to bring a colleague or a union rep.
+L130 [19:05] S2: Tomasz came with me. He didn't really say much, he was scared, honestly, he's got a mortgage and a baby on the way, so, I don't blame him.
+L131 [19:17] S1: No, that's understandable. What happened in the meeting?
+L132 [19:20] S2: Gary basically read out the dates, and I explained again about the hypos and the OH report, and he said the report says "where operationally possible".
+L133 [19:30] S2: Which, it does say that, I think, somewhere in it, but.
+L134 [19:35] S1: Okay, that's worth noting, we'll look at the exact wording carefully when you send it through. Those few words can matter a lot.
+L135 [19:45] S2: And he said I should have radioed him before I left the dock every time. But on the ninth I couldn't, I could barely stand, I couldn't have held a radio.
+L136 [19:57] S1: Did you have a radio on the other days?
+L137 [20:02] S2: Yeah, the first and third I did. I, I didn't radio him, I just told Tomasz. That's what I'd always done. I suppose, I mean, technically, he'd said to ask him. But it's five minutes.
+L138 [20:17] S1: Okay. Thank you for being straight about that, that's exactly the kind of thing I need to know, because they will definitely raise it.
+L139 [20:26] S1: How long was the meeting?
+L140 [20:29] S2: Forty minutes? Maybe less. And then he said he'd let me know in writing. He didn't even look at me, he just, looked at his screen.
+L141 [20:40] S1: And did you get notes of the disciplinary meeting? Kerry's notes?
+L142 [20:46] S2: No. I asked for them in my appeal as well. Never got them.
+L143 [20:52] S1: Okay. So neither set of notes. And then the outcome letter.
+L144 [20:57] S2: The letter came, it was the fifteenth of August.
+L145 [21:02] S2: Wait, no. Hang on, let me look, I've got it here. It's, it's dated the fourteenth. The fourteenth of August, and it says my employment ends that day.
+L146 [21:14] S2: I got it by email on the fourteenth, about five o'clock, and then the post one came on the Saturday. That's why I had the fifteenth in my head.
+L147 [21:26] S1: Can I see that? Thanks. Yes, fourteenth of August twenty twenty-six, "your employment will terminate with effect from today's date". Okay, so that's your effective date of termination, the fourteenth of August.
+L148 [21:38] S1: And it says dismissed for, let's see, "misconduct, namely repeated failure to follow reasonable management instructions". So it's not gross misconduct. And they've paid you in lieu of notice.
+L149 [21:51] S2: Yeah, eight weeks. It was four thousand five hundred and something.
+L150 [21:56] S1: The letter says four thousand five hundred and twenty-three pounds, which is eight weeks' pay in lieu of notice. Did that actually arrive in your bank?
+L151 [22:07] S2: Yes, it came in with the final pay at the end of August.
+L152 [22:13] S1: Good. And holiday, was there any holiday owed?
+L153 [22:16] S2: I think I had some left, maybe six days, but I don't know if it's in there, the payslip's really confusing, there's all these codes.
+L154 [22:27] S1: We'll check that. It's a small point but it's worth checking, and it's easy money if they've got it wrong.
+L155 [22:35] S1: Does the letter mention your diabetes at all? Or the occupational health report?
+L156 [22:41] S2: No. Not once. That's what got me. Eight years, and it doesn't even mention it. It's like it never happened.
+L157 [22:49] S1: Okay. And does it tell you about a right of appeal?
+L158 [22:54] S2: Yeah, it says I can appeal within five working days, in writing, to HR.
+L159 [23:00] S1: Right. Sorry, I'm just writing, bear with me. My handwriting is terrible, I'll never read this back.
+L160 [23:07] S2: Mine's worse. My son says I write like a doctor.
+L161 [23:12] S1: Ha. Okay.
+L162 [23:14] S1: So you appealed.
+L163 [23:16] S2: Yeah, I emailed my appeal on the nineteenth of August. To HR, to the HR inbox, and I copied Kerry in.
+L164 [23:25] S1: Nineteenth. Good, so within the five working days. What were your grounds, roughly?
+L165 [23:31] S2: That it was because of my diabetes, that they ignored the OH report, that Gary shouldn't have done the hearing because it was his complaint in the first place. And that I'd never had a warning, not even one.
+L166 [23:47] S1: Honestly, those are good points to have made yourself, without any advice. Well done. Who heard the appeal?
+L167 [23:55] S2: Claire Ashdown, she's the regional manager. It was on the second of September. On Teams, which, my camera kept freezing, it was a disaster.
+L168 [24:05] S1: And how did it go, apart from the camera?
+L169 [24:09] S2: She was nicer. She listened, she actually let me talk. But then the letter came and it was just, dismissal upheld. The sixteenth of September, last Wednesday.
+L170 [24:20] S1: Did she deal with each of your points in the letter?
+L171 [24:25] S2: Sort of, a paragraph each. She said Gary was the right person because he knew the facts best. And on the OH thing, she said they'd offered me fixed breaks, which was an adjustment, and I didn't use them properly.
+L172 [24:41] S1: Okay. That's, well, we'll look at it. I can see what they're going to say.
+L173 [24:47] S2: And then at the end of the appeal call, Kerry from HR, she said something like, if I wanted to go quietly there might be something they could do. But she didn't say what. She didn't say an amount or anything.
+L174 [25:03] S1: Did they send you anything after that? A document to sign, a settlement agreement, anything like that?
+L175 [25:11] S2: No. Nothing came. And I haven't signed anything. Nothing at all. They wanted me to sign to say I'd got the dismissal letter and I didn't even do that.
+L176 [25:22] S1: Good. Please don't sign anything without talking to us first. Even if it looks like a formality.
+L177 [25:29] S2: No, I won't. I promise.
+L178 [25:32] S1: Now, is there anything anyone said about you? About why this happened, anything you've heard?
+L179 [25:39] S2: Um. So, this is, one of the girls on the other shift, Jodie, she told me that she heard that Gary called me a liability. In the, like the managers' meeting, the Monday one.
+L180 [25:52] S1: Was Jodie in that meeting herself?
+L181 [25:56] S2: No, no. She heard it from someone who was, I think. She wouldn't say who. So I don't know if it's true. It sounds like him, but I honestly don't know.
+L182 [26:08] S1: Okay. So that's second-hand, possibly third-hand. I'll write it down, but we can't rely on it as it stands. If it's true, it might come out in the documents.
+L183 [26:19] S2: No, I understand. I just, it upset me.
+L184 [26:23] S1: Of course it did.
+L185 [26:25] S3: Sorry, hi, sorry to interrupt, Daniel said to come in about now? I'm Sophie, I'm the trainee.
+L186 [26:33] S1: Perfect timing. Sophie, this is Aisha. Aisha's brought some documents, could you take copies for the file?
+L187 [26:40] S3: Of course. Hi, nice to meet you. So what have we got?
+L188 [26:45] S2: Hi. So there's the invite letter, the dismissal letter, the appeal outcome. And my old contract, the twenty eighteen one. And some payslips, I've got May, June, July and the final one, the August one.
+L189 [27:00] S3: Great. And the OH report, is that in here?
+L190 [27:04] S2: No, that's on my email, I'll have to forward it. Sorry.
+L191 [27:09] S3: Okay, no problem. And is there a, a copy of your appeal email?
+L192 [27:15] S2: Yeah, that's the one on the top, I printed it off at my sister's.
+L193 [27:21] S1: She doesn't have the break policy email from February, it's on the work system. Same with the meeting notes, she's never had the notes from the investigation or the disciplinary.
+L194 [27:34] S3: Okay. Would that go in a subject access request?
+L195 [27:39] S1: Exactly, yes. So we'll do a DSAR to Northgate, ask for her personnel file, both sets of notes, emails mentioning her, the break email, the first aid log, CCTV if there is any.
+L196 [27:52] S3: CCTV only keeps, like, thirty days sometimes, doesn't it?
+L197 [27:56] S1: Often, yeah, it may well be gone by now. Still worth asking.
+L198 [28:02] S2: There's cameras all over the dock, so. Gary loves them.
+L199 [28:07] S3: Right. Um, could I ask, Aisha, the photo Marcus took of the sensor, do you have that or does he?
+L200 [28:15] S2: He sent it to me on WhatsApp. I've got it. It's got the time on it as well, it says fourteen oh six.
+L201 [28:25] S3: Brilliant. Could you forward that too, when you send the OH report?
+L202 [28:30] S2: Yeah, yeah, I'll do it all together.
+L203 [28:34] S3: Okay, I'll go and do these and bring the originals back.
+L204 [28:39] S1: Thanks, Sophie. So, while she's doing that. Witnesses. Who saw what? Let's start with the ninth of July.
+L205 [28:46] S2: Marcus, definitely. He was there the whole time. And he's still there, he's still working there.
+L206 [28:53] S1: Do you think he'd be willing to give a statement? No pressure on him, just, what's your feeling?
+L207 [29:02] S2: I think so. He said to me, if you need anything, just ask. He was really angry about it actually. He said it was, he said it was out of order.
+L208 [29:15] S1: Okay. And Tomasz?
+L209 [29:17] S2: Tomasz, I don't know. Like I said, he's nervous. He's still there, and Gary's his manager now. I don't want to get him in trouble.
+L210 [29:27] S1: That's fair. We don't need to approach him yet. And Linda? She could say what the arrangement was before Gary.
+L211 [29:36] S2: Linda would, I think. She's not there any more so she's got nothing to lose. She's always said they were lucky to have me.
+L212 [29:45] S1: That's really helpful. And Jodie? Only because you mentioned her.
+L213 [29:49] S2: No, Jodie wouldn't, she's, she's on a temp contract, she's hoping to get made permanent. And like I said, she didn't hear it herself.
+L214 [30:00] S1: Okay, understood. We'll leave Jodie out of it for now.
+L215 [30:05] S1: Let's talk about how you are now, and money. Since the fourteenth of August, have you worked at all? Even a bit of agency work?
+L216 [30:15] S2: No. Nothing. I've been applying though. I've done about fifteen applications, maybe more. Mostly warehouse supervisor stuff, team leader, a couple of admin jobs.
+L217 [30:25] S1: Any interviews yet?
+L218 [30:27] S2: One, next Tuesday, at a parcel company, Harbour Freight, out by the airport. It's a team leader job. It's less money, it's like twenty-seven, but it's something.
+L219 [30:38] S1: That's positive. That's really positive. The problem, I'd guess, is going to be references.
+L220 [30:43] S2: That's it, that's exactly it, because they'll ring Northgate and Northgate will say dismissed, and then that's it, isn't it. That's what I'm most worried about, honestly, more than anything.
+L221 [30:56] S1: Have you claimed any benefits?
+L222 [30:58] S2: I put in for Universal Credit, I'm waiting to hear. My husband works, he's a bus driver, so, I don't know if I'll get much, if anything.
+L223 [31:10] S1: Okay. Keep a record of every application, dates, where, what happened. That matters for any compensation, because they'll say you should have done more to find work. It's called mitigating your loss.
+L224 [31:23] S2: I've got a spreadsheet actually. My eleven year old made it for me, it's got colours and everything, green for interview, red for rejected.
+L225 [31:34] S1: Ha, brilliant. Honestly, that's better than most spreadsheets I get sent.
+L226 [31:38] S2: There's a lot of red.
+L227 [31:41] S1: That's normal, it's normal, especially at the moment. Don't read too much into it.
+L228 [31:47] S2: And the, the stress. I've not been sleeping. My levels have been all over the place since, my diabetes nurse said so, she said my average has gone right up.
+L229 [31:59] S1: Have you seen your GP about the stress, about sleeping?
+L230 [32:04] S2: Not yet. The nurse, yes, early September. Not the GP.
+L231 [32:08] S1: Might be worth mentioning to your GP. Just so it's on record, if you're struggling, and so you get some support. That's for you first, not just for the case.
+L232 [32:20] S2: Yeah. I'll book something. If I can get through on the phone, it's like trying to get concert tickets.
+L233 [32:28] S1: Tell me about it. Eight o'clock on the dot. Right. So, what do you actually want out of this? If you could wave a magic wand.
+L234 [32:38] S2: Honestly? I want them to say they got it wrong. That you can't treat someone like that for being ill. And a proper reference, a decent one, so I can get a job. The money, it'd be nice, obviously, but it's not the main thing.
+L235 [32:57] S1: So acknowledgement, a reference, and compensation is secondary. Have I got that right?
+L236 [33:03] S2: Yeah. That's right. And I suppose, I'd like them to sort out the break thing for anyone else. There's a lad with epilepsy on nights, and I worry about him.
+L237 [33:14] S1: Understood. A tribunal can make recommendations, but its powers there are fairly limited. Some of that might be more achievable in a negotiated outcome. We'll come back to that.
+L238 [33:26] S2: Okay.
+L239 [33:28] S1: Now, the boring bit, sorry. Funding. Do you have any legal expenses insurance? It's often bolted on to home insurance, or car insurance, people have it without realising.
+L240 [33:40] S2: I don't, I don't know. We've got home insurance with, um, Castleford Mutual. I think my husband ticked a box for legal something when we renewed, but I don't know, he does all that.
+L241 [33:55] S1: That's definitely worth checking. If there's legal expenses cover, it might pay for this.
+L242 [34:01] S1: They usually want to see that the case has reasonable prospects, and sometimes they want you to use their own panel solicitors, although you can usually insist on your own once proceedings are issued.
+L243 [34:15] S2: Okay. So would you still be able to do it?
+L244 [34:20] S1: Possibly, it depends on the policy. So if you can send me the policy schedule and the policy wording, the long document, I'll look at it.
+L245 [34:31] S1: I'm not going to talk about fees today, because it really depends what the insurance says. Once we know, I'll set out the options in writing, and nothing happens on fees until you've agreed it.
+L246 [34:45] S2: Okay, that's good, because I was worried about that, to be honest. I was worried I'd walk out owing you money.
+L247 [34:54] S1: No, today's free anyway, it's our free first meeting. So you won't get a bill for this.
+L248 [35:01] S2: Thank you. Sorry, can I just check the car? It's, I just want to make sure I've not, it's fine, I've got till quarter past.
+L249 [35:13] S1: Of course, do you want to go and move it?
+L250 [35:17] S2: No, it's fine, it's fine, we've got time.
+L251 [35:21] S1: Okay. Now, the really important bit. Time limits. In employment tribunal claims they're very short and they're very strict. If you miss them, that's usually the end of it, however good the case is.
+L252 [35:35] S2: Okay. That's, yeah. Okay.
+L253 [35:37] S1: Before you can bring a claim, you have to go through ACAS early conciliation. That's a free service. You notify ACAS, they contact the employer, and they try to see if it can be settled without a tribunal.
+L254 [35:54] S1: And you have to start that, you have to notify ACAS, within three months less one day of the dismissal. Your dismissal date is the fourteenth of August. So the last day to contact ACAS is the thirteenth of November twenty twenty-six.
+L255 [36:11] S2: Thirteenth of November.
+L256 [36:13] S1: Thirteenth of November. But we are not going to leave it that late, I don't like leaving things to the last week. My plan is to get the ACAS notification in by the middle of October. Say by the sixteenth of October at the latest.
+L257 [36:31] S2: Okay. Sixteenth of October.
+L258 [36:33] S1: Have you contacted a cast, sorry, ACAS, yourself already? Some people do.
+L259 [36:39] S2: No, I rang the helpline once, back in August, but I didn't, I didn't do the form. I didn't know if I should, I didn't want to mess it up.
+L260 [36:52] S1: That's fine, that's absolutely fine. Better we do it together, properly.
+L261 [36:57] S3: Sorry, here's your originals back, Aisha, and the copies are on the file.
+L262 [37:03] S2: Oh, thank you.
+L263 [37:04] S3: Sorry, Daniel, can I just ask something, because the appeal outcome was the sixteenth of September, doesn't the three months run from then instead? So it'd be December?
+L264 [37:16] S1: No, good question, but no. The clock runs from the effective date of termination, the fourteenth of August. An internal appeal doesn't pause it and it doesn't restart it.
+L265 [37:28] S1: That's a really common mistake, so thank you for raising it, but the deadline is the thirteenth of November, not December. Please don't anyone work to December.
+L266 [37:39] S3: Okay, got it. Sorry.
+L267 [37:41] S1: Not at all, better asked here than found out later. Sophie, could you hang on a minute, we'll do next steps in a sec and there's a job for you.
+L268 [37:54] S3: Sure.
+L269 [37:55] S1: On the discrimination side, it's the same basic three-month rule, running from the act you're complaining about. Some of the earlier things, February, May, they might be argued as part of a continuing course of conduct up to the dismissal. But we'll work to the thirteenth of November for everything, to be safe.
+L270 [38:17] S1: And once ACAS is notified, the clock is paused while conciliation happens, and then there's a further period to issue the claim. But I'll explain that properly in writing, I don't want to overload you today.
+L271 [38:32] S2: No, thank you, it's a lot. It's a lot to take in.
+L272 [38:38] S1: So, my initial view. You've got more than two years' service, so you can bring an unfair dismissal claim, that's not an issue.
+L273 [38:46] S1: On the diabetes, type one diabetes is very likely to count as a disability under the Equality Act. They might try to argue about it, but I'd be surprised.
+L274 [38:59] S1: The claims I can see at this stage are unfair dismissal, discrimination arising from disability, because the things they dismissed you for were caused by your diabetes, and failure to make reasonable adjustments, especially given the occupational health report.
+L275 [39:16] S1: And procedurally there are some real concerns. Gary chairing the disciplinary when it was his complaint. No previous warnings. You not being given the notes. The letter not even mentioning the diabetes.
+L276 [39:30] S2: So, do you think I'll win? Like, what are my chances, honestly? Fifty-fifty? More?
+L277 [39:35] S1: I'm not going to put a percentage on it, I'm sorry. Honestly, I'd be making it up at this stage. I haven't seen their side, I haven't seen the OH report, I haven't seen their policies.
+L278 [39:50] S1: What I can say is there are real issues here that are worth pursuing. But there's no guarantee. None at all.
+L279 [39:58] S1: They'll say this was about following instructions, not the diabetes. They'll say fixed breaks were a reasonable adjustment, and the "where operationally possible" wording gives them some room. And they'll say you didn't radio in on the first and the third.
+L280 [40:16] S1: And tribunals are slow. If it doesn't settle, it could be a year or more before there's a hearing. And it's stressful. I want you to go in with your eyes open.
+L281 [40:28] S2: Yeah. No, I appreciate that. I'd rather know.
+L282 [40:32] S2: And the money, like, roughly how much would I get? If it went well.
+L283 [40:38] S1: Again, it's too early to give you a figure, and I don't want to give you a number that sticks in your head. It depends on how quickly you find work, among other things. I'll give you a range once I've got the payslips and your job search.
+L284 [40:56] S1: On the reference, though, that's something that can often be negotiated as part of a settlement through ACAS. An agreed reference. That lines up quite well with what you've said you want.
+L285 [41:11] S2: That would, honestly, that would be the main thing. That would be everything.
+L286 [41:17] S1: And just so we're clear, nothing has been issued. There's no claim in the tribunal yet, and nothing's gone to ACAS. We're right at the start.
+L287 [41:27] S1: So, next steps. Let me go through who's doing what, and then I'll put it all in the letter so you don't have to remember it.
+L288 [41:37] S2: Okay. Let me get my phone out, I'll write it down anyway.
+L289 [41:43] S1: So you, Aisha. By this Friday, the twenty-fifth, email me the OH report, Marcus's photo of the sensor, and any payslips you've got that you haven't brought today. And the February email if you ever find a copy anywhere.
+L290 [41:58] S2: Friday. Okay.
+L291 [42:00] S1: Then by Monday, let's say Monday the twenty-eighth, check with Castleford Mutual whether you've got legal expenses cover, and send me the policy schedule and the wording.
+L292 [42:11] S2: I'll get my husband to ring them, he's off on Monday actually, so that works.
+L293 [42:17] S1: Perfect. And by next Friday, the second of October, write me a timeline in your own words. Everything you've told me today, with dates, as best you can. It doesn't have to be pretty, bullet points is fine.
+L294 [42:33] S2: Okay. Friday the twenty-fifth, Monday the twenty-eighth, Friday the second. Got it.
+L295 [42:38] S1: And keep the spreadsheet going. Every application.
+L296 [42:41] S2: I will. My son will be thrilled, he loves that spreadsheet more than I do.
+L297 [42:48] S1: Ha. Sophie, you'll draft the subject access request to Northgate by Monday, and I'll check it and it'll go out on Tuesday.
+L298 [42:57] S3: Yep, Monday. Should I send it to the HR inbox or to a registered office?
+L299 [43:04] S1: Both. Email to HR and post to the registered office, we'll look it up on Companies House.
+L300 [43:12] S3: Okay, will do.
+L301 [43:14] S1: Thanks. You can go, Sophie, thank you.
+L302 [43:17] S3: Nice to meet you, Aisha. Good luck on Tuesday.
+L303 [43:21] S2: Oh, thank you. Thanks.
+L304 [43:23] S1: And from me, I'll send you a letter confirming today's advice and the funding options by Tuesday the twenty-ninth. It'll set out the time limits again, with the thirteenth of November in bold.
+L305 [43:38] S1: And one more thing for you. If you're comfortable, could you ask Marcus whether he'd be willing to give a statement? Just ask, don't go into detail with him. Don't approach Tomasz for now.
+L306 [43:52] S2: Okay. I'll message Marcus. I'll leave Tomasz.
+L307 [43:55] S1: And maybe, if you can, ask Linda too? Just whether she'd be happy to talk to me at some point. No rush on that one.
+L308 [44:06] S2: Yeah, I'll message her, she'll be fine.
+L309 [44:09] S1: Then let's meet again. Thursday the eighth of October, ten o'clock? By then I should have your documents and hopefully an answer on the insurance, and we'll aim to have ACAS notified by the sixteenth.
+L310 [44:23] S2: Thursday the eighth, ten. Let me just check, the, um, the little one's got an assembly on the eighth. No, that's the ninth. Yeah, the eighth is fine.
+L311 [44:35] S1: Great. And if anything comes from Northgate in the meantime, any letter, any offer, anything to sign, send it to me before you reply. Don't respond to them directly.
+L312 [44:46] S2: I won't. I won't sign anything.
+L313 [44:49] S1: And good luck on Tuesday. If they ask about why you left, just say it's subject to an ongoing process and you'd rather not go into detail. Keep it short and factual.
+L314 [45:02] S2: Okay. That's, that's actually really useful. I was dreading that question.
+L315 [45:07] S1: Everyone does. Is there anything else you wanted to ask me? Anything I haven't covered?
+L316 [45:13] S2: No, I think, no. I think that's it. I just, thank you. I feel a bit better. Like, I thought I was being mad, you know. That maybe I was the problem.
+L317 [45:26] S1: No. You're not being mad. There are real questions about how this was handled. But as I said, no promises, and we'll know a lot more once we've got their documents.
+L318 [45:39] S2: Yeah. No, I get that. I'd rather that than someone telling me I'll definitely win.
+L319 [45:45] S1: Exactly. Right, let me walk you down. Did you say you're on the street? Which one?
+L320 [45:52] S2: Yeah, on Cromwell Road, by the church. Hopefully without a ticket.
+L321 [45:57] S1: Fingers crossed. The wardens round here are ruthless. And take a coat on Tuesday, they're saying it's finally going to break at the weekend, rain all week.
+L322 [46:09] S2: Finally. Honestly, I'll be glad. Thank you, Daniel.
+L323 [46:13] S1: You're welcome. Speak on Friday, or, well, email on Friday. Take care. I'm just going to stop the, the recording now.

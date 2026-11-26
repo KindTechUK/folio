@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "S2 disclosed that Lee slapped him across the face last Thursday because he was slow getting off the bed. S2 disclosed that Lee had also slapped him once before, a few weeks back... S2 confirmed the slapping was done with an open hand on the face.",
+   "why": "slapped, face, open hand, twice, last Thursday, by carer Lee all kept"
+  },
+  "D02": {
+   "label": "softened",
+   "note_text": "S2 disclosed that Lee grabbed his arm to pull him up off the commode. S2 stated Lee grabbed his arm hard on Saturday, which really hurt him. S2 identified the left arm as the one that was grabbed hard.",
+   "why": "grabbed, left arm, commode and Saturday kept, but that he does it 'most mornings' is lost (sentence 13's 'most mornings' is about Lee's shifts, not the grabbing)"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "S3 disclosed she found out about the abuse when she helped him change his top on Sunday and saw bruises on his upper left arm. S3 described the bruises as four in a row, like fingermarks... S3 stated she took photos of the bruises on her phone on Sunday.",
+   "why": "Karen, Sunday, four fingermark bruises, upper left arm, photos kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Family harm recorded as denied. Person's views section empty (not a key section; his wish about Lee is under risks). Sentence 33 misattributes the lunch-club follow-up to S2."
+}

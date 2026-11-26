@@ -1,0 +1,409 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S003": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L25 alone doesn't say these are panic attacks; that's the question in L24."
+    },
+    "S004": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'low mood out of ten' is from the question in L26, not cited."
+    },
+    "S005": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S006": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "The voices question is L131, not cited."
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S008": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S009": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S010": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S011": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S012": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'while Tom is away' comes from L140-141, not cited."
+    },
+    "S013": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L144-146: S1 asked 'Still right?'; Hannah confirmed and added 'not answering Megan' as a new sign."
+    },
+    "S014": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S015": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'crisis line number' is from S1's question L146, not cited."
+    },
+    "S016": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'crisis line number' is from L146, not cited."
+    },
+    "S017": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S018": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S019": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Leaflet's link to the carer's assessment is from L149, not cited."
+    },
+    "S020": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L152-153: Tom said he'd better go; Hannah told him to go, not the reverse."
+    },
+    "S021": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S023": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S024": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S025": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "PHQ9 named only in L163, not cited."
+    },
+    "S026": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Dr Mensah named in L30, and corrected date in L35 is cited; prescriber not in cited lines."
+    },
+    "S027": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S028": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L41-43: she gets about four hours' sleep in total and can't get back off after waking."
+    },
+    "S029": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L45: weight loss came from not eating before; only hunger is a side effect."
+    },
+    "S030": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L47 alone doesn't frame it as a side effect; question in L46."
+    },
+    "S031": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S032": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S033": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L59 'expects them done by nine' is next morning; 9 pm is wrong."
+    },
+    "S034": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'via text' is from L63, not cited."
+    },
+    "S035": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S036": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S037": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S038": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S039": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Sister named as Megan in L79-80, not cited."
+    },
+    "S040": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Cannabis named only in the question L83, not cited."
+    },
+    "S041": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L95-96: Tom said this himself when asked; Hannah did not report it."
+    },
+    "S042": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L91: Tom relayed Megan's claim directly; Hannah did not report it."
+    },
+    "S043": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S044": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L99: Tom said this himself in the meeting; Hannah did not report hearing it."
+    },
+    "S045": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S046": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L105: Tom voiced this himself; Hannah did not report it."
+    },
+    "S047": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L109: Tom asked this himself, about his own mate's wife, not Hannah's friend's wife."
+    },
+    "S048": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S049": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S050": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S051": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Preparation/looking up/saving tablets are from the question L120, not cited."
+    },
+    "S052": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'cutting or hurting herself' is from the question L122, not cited."
+    },
+    "S053": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S054": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "True per L130, but cited L129 is only S1's question."
+    },
+    "S055": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S056": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "What she promises is in L176, not cited."
+    },
+    "S057": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S058": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Clinic-date question is L169, not cited."
+    },
+    "S059": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S060": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L171: next week (Tom away) goes into the safety plan; no timing given for dropping the copy round."
+    },
+    "S061": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S062": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'sleep diary' is from L172, not cited."
+    },
+    "S063": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S064": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {
+    "F01": "absent",
+    "F02": "present",
+    "F03": "present",
+    "F04": "partial",
+    "F05": "partial",
+    "F06": "partial",
+    "F07": "partial",
+    "F08": "present",
+    "F09": "partial",
+    "F10": "present",
+    "F11": "present",
+    "F12": "present",
+    "F13": "partial",
+    "F14": "partial",
+    "F15": "partial",
+    "F16": "present",
+    "F17": "present",
+    "F18": "present"
+  },
+  "notes": "Corrections and risk content handled well; repeated 'Hannah reported' framing of Tom's own statements, plus sleep and email-time errors."
+}

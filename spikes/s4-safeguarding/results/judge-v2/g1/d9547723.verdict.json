@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Harold disclosed that his wife Sandra hits him with her walking stick when she gets cross. ... Harold stated Sandra hits him on his arms when she gets cross. Harold estimated the hitting happens once a week, or more if Sandra has had a bad day.",
+   "why": "hits, walking stick, arms, once a week kept; recorded as confirmed after initial deflection"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Harold disclosed that Sandra locks him in the bedroom when she goes out... Harold stated Sandra locks him in the bedroom two or three times a week for the afternoon.",
+   "why": "locks, bedroom, two or three times a week, no toilet kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Harold disclosed that Sandra keeps his medication in her handbag and sometimes keeps his tablets back if he has annoyed her. Harold reported he did not have his heart tablets for three days last week because Sandra kept them back.",
+   "why": "tablets withheld when annoyed, heart tablets, three days kept; water tablets also noted"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "House kept conditional ('if he leaves... Sandra would take it') with the house in his name. Sentence 2 contradicts itself ('lives alone with his wife') and misplaces Sandra at her sister's; sentence 14 muddles the initial deflection."
+}

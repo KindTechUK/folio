@@ -65,6 +65,29 @@ to `<id>.verdict.stale.json`, so it must be judged again. `collect` and `flag.py
 problems if a verdict is missing a sentence or fact, uses an unknown label or trap, or belongs to a note that
 has changed since its packet was written.
 
+## The v2 follow-up and the second-pass check
+
+The first run's write-up recommended giving the model the recording date, keeping how often, how hard, who
+saw it and when as said (from S4), and raising the 30-fact limit. Run `v2` does all three with Qwen3.5-4B
+(`common.PROMPTS["v2"]`; each transcript's `recorded` date was chosen to contradict nothing it says).
+`check.py` tests a second-pass check: the same model labels each sentence against its cited lines and the line
+before each, one word forced by a grammar, scored from the first token's log-probabilities.
+
+```bash
+python stamp_data.py --check                                     # now also requires `recorded`
+nice -n 10 python run.py --run v2 --models qwen3.5-4b --prompt v2 --fact-cap 60 --map-max-tokens 4096 \
+    --threads 6 --transcripts all                                # skips finished notes unless --force
+python score.py auto --run v2
+python score.py packets --run v2 --calibrate s3:qwen3.5-4b       # the first run's Qwen3.5-4B notes judged
+                                                                 # blind alongside, as qwen3.5-4b@s3
+# ...blind judges write results/judge/v2/<packet>.verdict.json, then:
+python score.py collect --run v2
+nice -n 10 python check.py run --run s3 --variant prev --threads 6   # port 8095; resumable
+python check.py eval --run s3 --variant prev                     # -> results/s3.check-prev.md
+```
+
+Packets for runs other than `s3` show the recording date. Packet paths are relative to the repo root.
+
 ## Outputs (`results/`)
 
 - `s3.jsonl`: one record per map call (with the model's raw output, `json_ok`, `finish_reason` and the transcript

@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "S2 disclosed that Brian Hollis touched him in the changing room after training when the other children had gone.",
+   "why": "touched, by the coach, changing room, after training, when others gone all kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "S2 disclosed that Brian Hollis made him touch Hollis, stating it was part of being in the squad and that everyone did it.",
+   "why": "made him touch the coach and the 'part of the squad' justification kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "S2 stated the incidents occurred every Saturday morning after squad training. S2 stated the abuse occurred from when he was eleven until he was nearly thirteen (approximately 1996 to 1998).",
+   "why": "every Saturday, from eleven, roughly two years kept"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "S2 stated he told his mother when he was 13, that she did not know what to do, and she took him out of the club. ... he told his wife, Claire, in 2020. ... he saw his GP. ... he went to the police last year in March and gave them a statement.",
+   "why": "mum at 13, removal from club, wife, GP, police statement last March all kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Other boys recorded as what he heard, with a Facebook message as source and his own statement that he saw nothing. Sentence 3 garbles who became coach at eleven (reads as if the client became coach)."
+}

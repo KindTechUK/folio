@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Keith Dawson (S2) stated he is not managing well with washing because there is no hot water. Keith Dawson (S2) stated he had not washed in three or four weeks.",
+   "why": "not washed, three or four weeks and the no-hot-water reason all kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Keith Dawson (S2) stated the boiler had packed up and there had been no heating since October. Keith Dawson (S2) stated there was no hot water.",
+   "why": "boiler broke, no heating since October and no hot water kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Keith Dawson (S2) stated there are rats in the kitchen and he has seen two. Keith Dawson (S2) stated the rats have been at the bread for a few weeks.",
+   "why": "rats, kitchen, seen two and few weeks kept"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "District nurse Siobhan Kelly (S3) stated the log book showed there should have been 28 visits in the last two weeks, but 16 were missed with nothing written for those visits. District nurse Siobhan Kelly (S3) stated there were four days last week when no one came at all.",
+   "why": "16 of 28 missed in two weeks and four days with no visit kept, attributed to the nurse"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Heavy drinking recorded as the neighbour's claim, with the nurse not having seen it and Keith not engaging."
+}
