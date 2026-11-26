@@ -364,11 +364,18 @@ pub const EMB_MODEL: &str = "3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx";
 /// [`SherpaEngine::new`]'s existence check and the verified-pack resolver, so
 /// the two can never drift.
 pub fn required_model_files(asr_model: AsrModel, diarize: bool) -> Vec<String> {
-    let mut files = asr_model.asr_files();
-    files.push(VAD_MODEL.to_string());
+    let mut files = transcription_model_files(asr_model);
     if diarize {
         files.extend(speaker_model_files());
     }
+    files
+}
+
+/// The RELATIVE model-file paths transcription needs (the ASR model's files and
+/// Silero VAD): what a transcription pack must provide.
+pub fn transcription_model_files(asr_model: AsrModel) -> Vec<String> {
+    let mut files = asr_model.asr_files();
+    files.push(VAD_MODEL.to_string());
     files
 }
 

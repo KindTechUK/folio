@@ -156,11 +156,7 @@ fn packs_dir(app: &tauri::AppHandle) -> Result<PathBuf, String> {
     if let Ok(dir) = std::env::var("KINDTECH_PACKS_DIR") {
         return Ok(PathBuf::from(dir));
     }
-    let base = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| format!("cannot resolve app data dir: {e}"))?;
-    Ok(base.join("packs"))
+    Ok(app_cache_base(app)?.join("packs"))
 }
 
 /// List + verify every pack in the packs dir. Returns an empty list (not an
@@ -296,30 +292,31 @@ fn declared_task(dir: &Path) -> Option<String> {
     value.get("task").and_then(Value::as_str).map(str::to_string)
 }
 
-/// Verify every pack directory in `packs_dir` whose declared task passes
-/// `wanted`, returning the verified ones. Packs with an unreadable manifest are
-/// still verified (and so rejected).
+/// Verify every pack directory in `packs_dir` that declares `task`, returning
+/// the verified ones, newest first: highest version, ties going to the last
+/// directory name. Packs with an unreadable manifest are still verified (and so
+/// rejected).
 fn verified_packs(
     packs_dir: &Path,
     pubkey: &PublicKey<'_>,
     engine_versions: &BTreeMap<String, String>,
-    wanted: impl Fn(&str) -> bool,
+    task: &str,
 ) -> Vec<(PathBuf, PackStatus)> {
     let mut out: Vec<(PathBuf, PackStatus)> = match std::fs::read_dir(packs_dir) {
         Ok(entries) => entries
             .filter_map(|e| e.ok())
             .map(|e| e.path())
             .filter(|p| p.is_dir())
-            .filter(|p| declared_task(p).is_none_or(|t| wanted(&t)))
+            .filter(|p| declared_task(p).is_none_or(|t| t == task))
             .map(|p| {
                 let status = verify_pack_dir(&p, pubkey, engine_versions);
                 (p, status)
             })
-            .filter(|(_, status)| status.verified)
+            .filter(|(_, status)| status.verified && status.task == task)
             .collect(),
         Err(_) => Vec::new(),
     };
-    out.sort_by(|a, b| a.0.cmp(&b.0));
+    out.sort_by(|a, b| compare_semver(&b.1.version, &a.1.version).then(b.0.cmp(&a.0)));
     out
 }
 
@@ -336,57 +333,35 @@ fn zip_lists(weights: &Path, files: &[String]) -> bool {
     files.iter().all(|f| names.contains(f.as_str()))
 }
 
-/// The verified packs of `task` in `packs_dir` (see [`verified_packs`]).
-fn verified_packs_of(
-    packs_dir: &Path,
-    pubkey: &PublicKey<'_>,
-    engine_versions: &BTreeMap<String, String>,
-    task: &str,
-) -> Vec<(PathBuf, PackStatus)> {
-    verified_packs(packs_dir, pubkey, engine_versions, |t| t == task)
-        .into_iter()
-        .filter(|(_, status)| status.task == task)
-        .collect()
-}
-
-/// The pack among `packs` that holds every one of `files`: the highest
-/// version, ties going to the last directory name.
-fn pick_pack(packs: Vec<(PathBuf, PackStatus)>, files: &[String]) -> Option<PathBuf> {
-    let mut packs: Vec<(PathBuf, PackStatus)> = packs
-        .into_iter()
-        .filter(|(dir, _)| zip_lists(&dir.join("weights.bin"), files))
-        .collect();
-    packs.sort_by(|a, b| compare_semver(&a.1.version, &b.1.version).then(a.0.cmp(&b.0)));
-    packs.pop().map(|(dir, _)| dir)
-}
-
-/// Unpack the zip at `weights` into `dest` unless a `.complete` marker says a
-/// previous run already did; a partial folder from an interrupted run is
-/// cleared first.
-fn unpack_once(weights: &Path, dest: &Path) -> Result<(), String> {
-    let complete_marker = dest.join(".complete");
-    if complete_marker.exists() {
-        return Ok(());
-    }
-    if dest.exists() {
-        std::fs::remove_dir_all(dest)
-            .map_err(|e| format!("clearing partial cache {}: {e}", dest.display()))?;
-    }
-    std::fs::create_dir_all(dest)
-        .map_err(|e| format!("creating cache dir {}: {e}", dest.display()))?;
-    extract_zip_into(weights, dest)?;
-    std::fs::write(&complete_marker, b"")
-        .map_err(|e| format!("writing completion marker {}: {e}", complete_marker.display()))
-}
-
-/// The verified speech pack `pack`, unpacked into its own content-addressed
-/// cache folder, `cache_base/verified-models/pack-<manifest sha256>/`, and
-/// checked to hold every one of `files`.
-fn unpacked_pack(pack: &Path, cache_base: &Path, files: &[String]) -> Result<PathBuf, String> {
+/// `pack` unpacked into its own content-addressed cache folder,
+/// `cache_base/verified-models/<prefix>-<manifest sha256>/`. A `.complete`
+/// marker skips the unpack on later runs; a partial folder from an interrupted
+/// run is cleared first.
+fn unpacked(pack: &Path, cache_base: &Path, prefix: &str) -> Result<PathBuf, String> {
     let dest = cache_base
         .join("verified-models")
-        .join(format!("pack-{}", manifest_sha256(pack)?));
-    unpack_once(&pack.join("weights.bin"), &dest)?;
+        .join(format!("{prefix}-{}", manifest_sha256(pack)?));
+    let complete_marker = dest.join(".complete");
+    if complete_marker.exists() {
+        return Ok(dest);
+    }
+    if dest.exists() {
+        std::fs::remove_dir_all(&dest)
+            .map_err(|e| format!("clearing partial cache {}: {e}", dest.display()))?;
+    }
+    std::fs::create_dir_all(&dest)
+        .map_err(|e| format!("creating cache dir {}: {e}", dest.display()))?;
+    extract_zip_into(&pack.join("weights.bin"), &dest)?;
+    std::fs::write(&complete_marker, b"")
+        .map_err(|e| format!("writing completion marker {}: {e}", complete_marker.display()))?;
+    Ok(dest)
+}
+
+/// The verified speech pack `pack`, unpacked (see [`unpacked`]) into
+/// `verified-models/pack-<manifest sha256>/` and checked to hold every one of
+/// `files`.
+fn unpacked_speech_pack(pack: &Path, cache_base: &Path, files: &[String]) -> Result<PathBuf, String> {
+    let dest = unpacked(pack, cache_base, "pack")?;
     let missing: Vec<&String> = files.iter().filter(|rel| !dest.join(rel).exists()).collect();
     if !missing.is_empty() {
         return Err(format!("verified pack {} is missing {missing:?}", pack.display()));
@@ -412,8 +387,8 @@ fn remove_old_shared_caches(cache_base: &Path) {
 
 /// Verified transcription-pack resolver. Enumerates `packs_dir`, VERIFIES every
 /// `task: "asr"` pack, picks one holding every model file the engine requires
-/// for `asr_model` (each ASR pack carries Silero VAD too), and unpacks only that
-/// pack into its own cache folder (see [`unpacked_pack`]). Fails closed: no
+/// for `asr_model` (each ASR pack carries Silero VAD too), newest first, and
+/// unpacks only that pack into its own cache folder (see [`unpacked_speech_pack`]). Fails closed: no
 /// verified pack, or none providing the required files, is an `Err`. Other
 /// packs, the speaker-detection pack included, are never unpacked here, so one
 /// that fails to unpack can't stop transcription (#38).
@@ -427,15 +402,17 @@ pub fn resolve_verified_models_dir_in(
     asr_model: engine::AsrModel,
 ) -> Result<PathBuf, String> {
     remove_old_shared_caches(cache_base);
-    let files = engine::required_model_files(asr_model, false);
-    let packs = verified_packs_of(packs_dir, pubkey, engine_versions, ASR_TASK);
+    let files = engine::transcription_model_files(asr_model);
+    let packs = verified_packs(packs_dir, pubkey, engine_versions, ASR_TASK);
     if packs.is_empty() {
         return Err(format!("no verified model pack found in {}", packs_dir.display()));
     }
-    let pack = pick_pack(packs, &files).ok_or_else(|| {
-        format!("no verified pack provides the required model file(s): {files:?}")
-    })?;
-    unpacked_pack(&pack, cache_base, &files)
+    // The zip's directory names its files, so this unpacks nothing.
+    let (pack, _) = packs
+        .into_iter()
+        .find(|(dir, _)| zip_lists(&dir.join("weights.bin"), &files))
+        .ok_or_else(|| format!("no verified pack provides the required model file(s): {files:?}"))?;
+    unpacked_speech_pack(&pack, cache_base, &files)
 }
 
 /// AppHandle wrapper around [`resolve_verified_models_dir_in`].
@@ -443,45 +420,49 @@ pub fn resolve_verified_models_dir(
     app: &tauri::AppHandle,
     asr_model: engine::AsrModel,
 ) -> Result<PathBuf, String> {
-    let packs = packs_dir(app)?;
-    let cache_base = app_cache_base(app)?;
-    let pubkey = PublicKey::SpkiPem(vendor_pubkey_pem());
-    let versions = engine_versions();
-    resolve_verified_models_dir_in(&packs, &cache_base, &pubkey, &versions, asr_model)
+    with_installed(app, |packs, cache, key, versions| {
+        resolve_verified_models_dir_in(packs, cache, key, versions, asr_model)
+    })
 }
 
-/// Verified speaker-detection-pack resolver: the cache folder of a verified
-/// `task: "diarization"` pack holding [`engine::speaker_model_files`], unpacked
-/// on its own (see [`unpacked_pack`]). `Ok(None)` when no verified pack
-/// provides them; `Err` when the pack can't be unpacked.
+/// Verified speaker-detection-pack resolver: the newest verified
+/// `task: "diarization"` pack, unpacked on its own (see
+/// [`unpacked_speech_pack`]) and checked to hold [`engine::speaker_model_files`].
+/// `Ok(None)` when no verified speaker pack is installed; `Err` when it can't be
+/// unpacked or lacks those files.
 pub fn resolve_verified_speaker_dir_in(
     packs_dir: &Path,
     cache_base: &Path,
     pubkey: &PublicKey<'_>,
     engine_versions: &BTreeMap<String, String>,
 ) -> Result<Option<PathBuf>, String> {
-    let files = engine::speaker_model_files();
-    let packs = verified_packs_of(packs_dir, pubkey, engine_versions, DIARIZATION_TASK);
-    match pick_pack(packs, &files) {
-        Some(pack) => unpacked_pack(&pack, cache_base, &files).map(Some),
-        None => Ok(None),
-    }
+    let newest = verified_packs(packs_dir, pubkey, engine_versions, DIARIZATION_TASK).into_iter().next();
+    newest
+        .map(|(pack, _)| unpacked_speech_pack(&pack, cache_base, &engine::speaker_model_files()))
+        .transpose()
 }
 
 /// AppHandle wrapper around [`resolve_verified_speaker_dir_in`].
 pub fn resolve_verified_speaker_dir(app: &tauri::AppHandle) -> Result<Option<PathBuf>, String> {
-    let packs = packs_dir(app)?;
-    let cache_base = app_cache_base(app)?;
-    let pubkey = PublicKey::SpkiPem(vendor_pubkey_pem());
-    let versions = engine_versions();
-    resolve_verified_speaker_dir_in(&packs, &cache_base, &pubkey, &versions)
+    with_installed(app, resolve_verified_speaker_dir_in)
 }
 
-/// Where verified packs are unpacked: the per-user app-data dir.
+/// The per-user app-data dir: where packs are installed and unpacked.
 fn app_cache_base(app: &tauri::AppHandle) -> Result<PathBuf, String> {
     app.path()
         .app_data_dir()
         .map_err(|e| format!("cannot resolve app data dir: {e}"))
+}
+
+/// Run a `_in` resolver against this app's packs folder, cache folder, trusted
+/// vendor key and engine versions.
+fn with_installed<T>(
+    app: &tauri::AppHandle,
+    resolve: impl FnOnce(&Path, &Path, &PublicKey<'_>, &BTreeMap<String, String>) -> Result<T, String>,
+) -> Result<T, String> {
+    let packs = packs_dir(app)?;
+    let cache_base = app_cache_base(app)?;
+    resolve(&packs, &cache_base, &PublicKey::SpkiPem(vendor_pubkey_pem()), &engine_versions())
 }
 
 /// Verified LLM-pack resolver. Enumerates `packs_dir`, VERIFIES every pack, and
@@ -499,19 +480,15 @@ pub fn resolve_verified_llm_in(
     pubkey: &PublicKey<'_>,
     engine_versions: &BTreeMap<String, String>,
 ) -> Result<PathBuf, String> {
-    let mut llm_packs = verified_packs_of(packs_dir, pubkey, engine_versions, LLM_TASK);
-    llm_packs.sort_by(|a, b| compare_semver(&a.1.version, &b.1.version).then(a.0.cmp(&b.0)));
-    let Some((dir, status)) = llm_packs.pop() else {
+    let newest = verified_packs(packs_dir, pubkey, engine_versions, LLM_TASK).into_iter().next();
+    let Some((dir, status)) = newest else {
         return Err(format!(
             "no verified LLM model pack found in {}",
             packs_dir.display()
         ));
     };
 
-    let dest = cache_base
-        .join("verified-models")
-        .join(format!("llm-{}", manifest_sha256(&dir)?));
-    unpack_once(&dir.join("weights.bin"), &dest)?;
+    let dest = unpacked(&dir, cache_base, "llm")?;
 
     let ggufs: Vec<PathBuf> = std::fs::read_dir(&dest)
         .map_err(|e| format!("reading cache dir {}: {e}", dest.display()))?
@@ -537,11 +514,7 @@ pub fn resolve_verified_llm_in(
 /// AppHandle wrapper around [`resolve_verified_llm_in`].
 #[allow(dead_code)] // Spike S5: not called by the app yet; P2 (local notes) will use it.
 pub fn resolve_verified_llm(app: &tauri::AppHandle) -> Result<PathBuf, String> {
-    let packs = packs_dir(app)?;
-    let cache_base = app_cache_base(app)?;
-    let pubkey = PublicKey::SpkiPem(vendor_pubkey_pem());
-    let versions = engine_versions();
-    resolve_verified_llm_in(&packs, &cache_base, &pubkey, &versions)
+    with_installed(app, resolve_verified_llm_in)
 }
 
 #[cfg(test)]
@@ -549,7 +522,7 @@ pub(crate) mod tests {
     use super::*;
     use std::fs;
 
-    pub(crate) fn repo_root() -> PathBuf {
+    fn repo_root() -> PathBuf {
         // CARGO_MANIFEST_DIR = <repo>/app/src-tauri
         Path::new(env!("CARGO_MANIFEST_DIR"))
             .ancestors()

@@ -123,6 +123,12 @@ fn debug_models_dir_override() -> Option<std::path::PathBuf> {
     std::env::var("KINDTECH_MODELS_DIR").ok().map(std::path::PathBuf::from)
 }
 
+/// Whether every one of `files` (relative paths) is a file under `dir`.
+#[cfg(debug_assertions)]
+fn holds_all(dir: &std::path::Path, files: Vec<String>) -> bool {
+    files.iter().all(|file| dir.join(file).is_file())
+}
+
 /// Report a usable raw-model override to the frontend in development builds.
 ///
 /// This keeps the import preflight honest when developers run with
@@ -139,10 +145,7 @@ pub fn debug_asr_model_override() -> Option<String> {
             (engine::AsrModel::SmallEn, "small.en"),
             (engine::AsrModel::MediumEn, "medium.en"),
         ] {
-            if engine::required_model_files(model, false)
-                .iter()
-                .all(|file| dir.join(file).is_file())
-            {
+            if holds_all(&dir, engine::transcription_model_files(model)) {
                 return Some(name.to_string());
             }
         }
@@ -170,11 +173,10 @@ pub(crate) fn resolve_models_dir(
 /// Resolve the speaker-detection models' folder, or `None` when no verified
 /// speaker-detection pack is installed (debug-only raw override: the override
 /// folder, if it holds the speaker models). Blocking: may unpack the pack.
-pub(crate) fn resolve_speaker_dir(app: &AppHandle) -> Result<Option<std::path::PathBuf>, String> {
+fn resolve_speaker_dir(app: &AppHandle) -> Result<Option<std::path::PathBuf>, String> {
     #[cfg(debug_assertions)]
     if let Some(raw) = debug_models_dir_override() {
-        let present = engine::speaker_model_files().iter().all(|file| raw.join(file).is_file());
-        return Ok(present.then_some(raw));
+        return Ok(holds_all(&raw, engine::speaker_model_files()).then_some(raw));
     }
     models::resolve_verified_speaker_dir(app)
 }
