@@ -41,7 +41,9 @@ use engine::{
 use serde::Serialize;
 use tauri::{AppHandle, Emitter, Manager};
 
-use crate::commands::{label_speakers, resolve_models_dir, unlabelled_note, NewTranscript};
+use crate::commands::{
+    label_speakers, resolve_models_dir, speaker_engine, unlabelled_note, NewTranscript,
+};
 use crate::system;
 
 const SAMPLE_RATE: u32 = 16_000;
@@ -1411,8 +1413,10 @@ fn label_recording(
     let mut cfg = done.cfg.clone();
     // Resolved again, so a pack added while recording counts.
     cfg.models_dir = resolve_models_dir(app, cfg.asr_model, false).map_err(unlabelled_note)?;
+    // Before reading the recording, which takes about 230 MB per hour.
+    let eng = speaker_engine(&cfg)?;
     let (samples, sr) = load_wav_16k_mono(&done.path).map_err(unlabelled_note)?;
-    label_speakers(&cfg, &samples, sr, &done.segments, num_speakers)
+    label_speakers(&eng, &samples, sr, &done.segments, num_speakers)
 }
 
 /// Remove a finished recording's notes file once the transcript holding the

@@ -28,19 +28,13 @@ pub(crate) fn unlabelled_note(e: impl std::fmt::Display) -> String {
     format!("Speakers couldn't be labelled, so this transcript has none. ({e})")
 }
 
-/// Diarize `samples` and attach speakers to the transcribed `segments`. On
+/// The engine to label speakers with, checked before any audio is read. On
 /// failure, returns the note to show with the transcript instead.
 ///
 /// `cfg.models_dir` is a models dir resolved for transcription. The resolver
 /// composes every verified pack into it, so the speaker models are there only
 /// if their pack is installed.
-pub(crate) fn label_speakers(
-    cfg: &EngineConfig,
-    samples: &[f32],
-    sample_rate: u32,
-    segments: &[AsrSegment],
-    num_speakers: Option<u32>,
-) -> Result<engine::Transcript, String> {
+pub(crate) fn speaker_engine(cfg: &EngineConfig) -> Result<SherpaEngine, String> {
     let mut cfg = cfg.clone();
     cfg.diarize = true;
     if !engine::required_model_files(cfg.asr_model, true)
@@ -49,9 +43,20 @@ pub(crate) fn label_speakers(
     {
         return Err(NO_SPEAKER_PACK.to_string());
     }
-    let spans = SherpaEngine::new(&cfg)
-        .and_then(|eng| eng.diarize(samples, sample_rate, num_speakers))
-        .map_err(unlabelled_note)?;
+    SherpaEngine::new(&cfg).map_err(unlabelled_note)
+}
+
+/// Diarize `samples` with `engine` (from [`speaker_engine`]) and attach
+/// speakers to the transcribed `segments`. On failure, returns the note to
+/// show with the transcript instead.
+pub(crate) fn label_speakers(
+    engine: &SherpaEngine,
+    samples: &[f32],
+    sample_rate: u32,
+    segments: &[AsrSegment],
+    num_speakers: Option<u32>,
+) -> Result<engine::Transcript, String> {
+    let spans = engine.diarize(samples, sample_rate, num_speakers).map_err(unlabelled_note)?;
     Ok(merge::merge(segments, &spans))
 }
 
@@ -156,8 +161,10 @@ pub async fn transcribe(
     tauri::async_runtime::spawn_blocking(move || {
         // Resolve the models dir, enforcing verified-pack trust (debug-only raw
         // override: see `debug_models_dir_override`). Transcription models
-        // only: speakers are labelled as a separate step below, so a missing
-        // or failing speaker pack can't cost the transcript.
+        // only: speakers are labelled as a separate step below, so missing
+        // speaker models, or a failure to load or run them, don't cost the
+        // transcript. (Resolving still unpacks every verified pack, so a pack
+        // that fails to unpack stops this too: #38.)
         cfg.models_dir = resolve_models_dir(&resolve_app, cfg.asr_model, false)?;
 
         // Timed from model load to the finished transcript: what the person
@@ -190,7 +197,10 @@ pub async fn transcribe(
         };
         if diarize {
             progress(engine::Progress::new("diarizing", 0, 1, 0.95));
-            match label_speakers(&cfg, &samples, sample_rate, &segments, num_speakers) {
+            let labelled = speaker_engine(&cfg).and_then(|eng| {
+                label_speakers(&eng, &samples, sample_rate, &segments, num_speakers)
+            });
+            match labelled {
                 Ok(transcript) => {
                     result.transcript = transcript;
                     result.speakers_labelled = true;
