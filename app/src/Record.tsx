@@ -46,12 +46,9 @@ export interface NewTranscript {
 }
 
 /** What a finished recording hands to the transcript view. */
-export interface FinishedRecording {
-  transcript: Transcript;
+export interface FinishedRecording extends NewTranscript {
   audioPath: string;
-  speakersLabelled: boolean;
   notes: string;
-  note: string | null;
 }
 
 const SILENT_MESSAGE =
@@ -247,13 +244,7 @@ export default function Record({
         diarize: detectSpeakers,
         numSpeakers: requestedSpeakers(detectSpeakers, speakerCount),
       });
-      const finished: FinishedRecording = {
-        transcript: stopped.transcript,
-        audioPath,
-        speakersLabelled: stopped.speakersLabelled,
-        notes: notesRef.current,
-        note: stopped.note,
-      };
+      const finished: FinishedRecording = { ...stopped, audioPath, notes: notesRef.current };
       reset();
       onFinished(finished);
     } catch (e) {

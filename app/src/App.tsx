@@ -3,7 +3,6 @@ import { invoke, convertFileSrc } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { loadTranscript } from "@core/editor";
 import type { EditorState } from "@core/editor";
-import type { Transcript } from "@core/types";
 import { progressView } from "./progress";
 import type { Progress, ProgressView } from "./progress";
 import {
@@ -438,18 +437,16 @@ export default function App() {
 
   // Open a just-created transcript in the editor and save it at once.
   async function openNewTranscript(
-    transcript: Transcript,
+    { transcript, speakersLabelled, note }: NewTranscript,
     path: string,
-    withSpeakers: boolean,
     newNotes = "",
-    note: string | null = null,
     fromRecording = false,
   ) {
     // Build the editor state once and reuse it for both the live history and
     // the saved copy, so the persisted session matches what is on screen.
     const editorState = loadTranscript(transcript);
     setHistory(initHistory(editorState));
-    setDiarized(withSpeakers);
+    setDiarized(speakersLabelled);
     notesRef.current = newNotes;
     setNotes(newNotes);
     setReviewTab(newNotes ? "notes" : "transcript");
@@ -462,7 +459,7 @@ export default function App() {
       createdAt: new Date().toISOString(),
       audioPath: path,
       audioFilename: basename(path),
-      diarized: withSpeakers,
+      diarized: speakersLabelled,
     };
     setCurrentSessionMeta(meta);
     setStatus("idle");
@@ -487,9 +484,7 @@ export default function App() {
   async function createTranscript() {
     if (!selectedPath || !asrModel) return;
     const path = selectedPath;
-    await transcribeAndOpen(path, (r) =>
-      openNewTranscript(r.transcript, path, r.speakersLabelled, "", r.note),
-    );
+    await transcribeAndOpen(path, (r) => openNewTranscript(r, path));
   }
 
   // Transcribe a recording that has no transcript, with its notes, and open it.
@@ -528,11 +523,9 @@ export default function App() {
       }
       const done = await transcribeAndOpen(path, (r) =>
         openNewTranscript(
-          r.transcript,
+          { ...r, note: r.note ? `${RECOVERED_NOTE} ${r.note}` : RECOVERED_NOTE },
           path,
-          r.speakersLabelled,
           notes,
-          r.note ? `${RECOVERED_NOTE} ${r.note}` : RECOVERED_NOTE,
           true,
         ),
       );
@@ -911,14 +904,7 @@ export default function App() {
               hintDismissed={recordHintDismissed}
               onDismissHint={() => setRecordHintDismissed(true)}
               onFinished={(r: FinishedRecording) =>
-                void openNewTranscript(
-                  r.transcript,
-                  r.audioPath,
-                  r.speakersLabelled,
-                  r.notes,
-                  r.note,
-                  true,
-                )
+                void openNewTranscript(r, r.audioPath, r.notes, true)
               }
             />
           ) : view === "models" ? (

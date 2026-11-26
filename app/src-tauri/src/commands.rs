@@ -23,40 +23,66 @@ pub struct NewTranscript {
 
 const NO_SPEAKER_PACK: &str = "The speaker-detection pack isn't installed, so this transcript has no speakers. Add it on the Models page.";
 
-/// The note for a transcript whose speakers couldn't be labelled because of `e`.
-pub(crate) fn unlabelled_note(e: impl std::fmt::Display) -> String {
-    format!("Speakers couldn't be labelled, so this transcript has none. ({e})")
+/// Finish a new transcript from the transcribed `segments`: label speakers
+/// with `label` if one is given, apply the vocabulary file, and report `done`.
+/// If labelling fails, the transcript has no speakers and the note says why,
+/// after any `notes` already given.
+pub(crate) fn finish_transcript(
+    app: &AppHandle,
+    segments: &[AsrSegment],
+    label: Option<impl FnOnce() -> anyhow::Result<engine::Transcript>>,
+    mut notes: Vec<String>,
+) -> NewTranscript {
+    let labelled = label.map(|label| {
+        let at = engine::PROGRESS_TRANSCRIBE_END;
+        let _ = app.emit("transcribe-progress", engine::Progress::new("diarizing", 0, 1, at));
+        label()
+    });
+    let (mut transcript, speakers_labelled) = match labelled {
+        Some(Ok(transcript)) => (transcript, true),
+        Some(Err(e)) => {
+            notes.push(unlabelled_note(&e));
+            (merge::from_asr(segments), false)
+        }
+        None => (merge::from_asr(segments), false),
+    };
+    crate::vocab::apply(app, &mut transcript);
+    let _ = app.emit("transcribe-progress", engine::Progress::new("done", 1, 1, 1.0));
+    let note = (!notes.is_empty()).then(|| notes.join(" "));
+    NewTranscript { transcript, speakers_labelled, note }
 }
 
-/// The engine to label speakers with, checked before any audio is read. On
-/// failure, returns the note to show with the transcript instead.
+/// The note for a transcript whose speakers couldn't be labelled because of `e`.
+fn unlabelled_note(e: &anyhow::Error) -> String {
+    match e.downcast_ref::<engine::EngineError>() {
+        Some(engine::EngineError::ModelNotFound(_)) => NO_SPEAKER_PACK.to_string(),
+        _ => format!("Speakers couldn't be labelled, so this transcript has none. ({e})"),
+    }
+}
+
+/// The engine to label speakers with. Building it checks for the speaker
+/// models, so build it before reading any audio.
 ///
 /// `cfg.models_dir` is a models dir resolved for transcription. The resolver
 /// composes every verified pack into it, so the speaker models are there only
-/// if their pack is installed.
-pub(crate) fn speaker_engine(cfg: &EngineConfig) -> Result<SherpaEngine, String> {
+/// if their pack is installed; if not, this fails with
+/// [`engine::EngineError::ModelNotFound`].
+pub(crate) fn speaker_engine(cfg: &EngineConfig) -> anyhow::Result<SherpaEngine> {
     let mut cfg = cfg.clone();
     cfg.diarize = true;
-    if !engine::required_model_files(cfg.asr_model, true)
-        .iter()
-        .all(|file| cfg.models_dir.join(file).is_file())
-    {
-        return Err(NO_SPEAKER_PACK.to_string());
-    }
-    SherpaEngine::new(&cfg).map_err(unlabelled_note)
+    SherpaEngine::new(&cfg)
 }
 
 /// Diarize `samples` with `engine` (from [`speaker_engine`]) and attach
-/// speakers to the transcribed `segments`. On failure, returns the note to
-/// show with the transcript instead.
+/// speakers to the transcribed `segments`.
 pub(crate) fn label_speakers(
     engine: &SherpaEngine,
     samples: &[f32],
     sample_rate: u32,
     segments: &[AsrSegment],
     num_speakers: Option<u32>,
-) -> Result<engine::Transcript, String> {
-    let spans = engine.diarize(samples, sample_rate, num_speakers).map_err(unlabelled_note)?;
+) -> anyhow::Result<engine::Transcript> {
+    let spans = engine.diarize(samples, sample_rate, num_speakers)?;
     Ok(merge::merge(segments, &spans))
 }
 
@@ -117,13 +143,12 @@ pub fn debug_asr_model_override() -> Option<String> {
 pub(crate) fn resolve_models_dir(
     app: &AppHandle,
     asr_model: engine::AsrModel,
-    diarize: bool,
 ) -> Result<std::path::PathBuf, String> {
     #[cfg(debug_assertions)]
     if let Some(raw) = debug_models_dir_override() {
         return Ok(raw);
     }
-    models::resolve_verified_models_dir(app, asr_model, diarize)
+    models::resolve_verified_models_dir(app, asr_model)
 }
 
 /// Transcribe an audio file (wav/mp3/m4a/mp4/flac/ogg…) into the project's JSON
@@ -165,7 +190,7 @@ pub async fn transcribe(
         // speaker models, or a failure to load or run them, don't cost the
         // transcript. (Resolving still unpacks every verified pack, so a pack
         // that fails to unpack stops this too: #38.)
-        cfg.models_dir = resolve_models_dir(&resolve_app, cfg.asr_model, false)?;
+        cfg.models_dir = resolve_models_dir(&resolve_app, cfg.asr_model)?;
 
         // Timed from model load to the finished transcript: what the person
         // waits for, and what the Import estimate learns from.
@@ -190,26 +215,11 @@ pub async fn transcribe(
         .map_err(|e| e.to_string())?;
         let segments =
             sherpa.transcribe(&samples, sample_rate, &progress).map_err(|e| e.to_string())?;
-        let mut result = NewTranscript {
-            transcript: merge::from_asr(&segments),
-            speakers_labelled: false,
-            note: None,
-        };
-        if diarize {
-            progress(engine::Progress::new("diarizing", 0, 1, 0.95));
-            let labelled = speaker_engine(&cfg).and_then(|eng| {
-                label_speakers(&eng, &samples, sample_rate, &segments, num_speakers)
-            });
-            match labelled {
-                Ok(transcript) => {
-                    result.transcript = transcript;
-                    result.speakers_labelled = true;
-                }
-                Err(note) => result.note = Some(note),
-            }
-        }
-        progress(engine::Progress::new("done", 1, 1, 1.0));
-        crate::vocab::apply(&run_app, &mut result.transcript);
+        let label = diarize.then_some(|| {
+            let eng = speaker_engine(&cfg)?;
+            label_speakers(&eng, &samples, sample_rate, &segments, num_speakers)
+        });
+        let result = finish_transcript(&run_app, &segments, label, Vec::new());
         crate::device::record_run(
             &run_app,
             crate::device::Run {

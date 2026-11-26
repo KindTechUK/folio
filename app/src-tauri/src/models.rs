@@ -347,6 +347,11 @@ fn verified_packs(
 /// The cache dir is keyed by the SHA-256 of the verified packs' `sha256` manifest
 /// strings (sorted ascending, `\n`-joined), so the same verified set always maps
 /// to the same dir and re-extraction is skipped via a `.complete` marker.
+///
+/// The app relies on the dir holding EVERY verified pack's files: it resolves
+/// for transcription only, and `commands::speaker_engine` then finds the speaker
+/// models there if their pack is installed. Caching packs separately (#38) must
+/// keep that working.
 pub fn resolve_verified_models_dir_in(
     packs_dir: &Path,
     cache_base: &Path,
@@ -412,10 +417,11 @@ pub fn resolve_verified_models_dir_in(
 }
 
 /// AppHandle wrapper around [`resolve_verified_models_dir_in`].
+/// Resolves for transcription; the speaker step finds the speaker models in the
+/// same dir (see [`resolve_verified_models_dir_in`]).
 pub fn resolve_verified_models_dir(
     app: &tauri::AppHandle,
     asr_model: engine::AsrModel,
-    diarize: bool,
 ) -> Result<PathBuf, String> {
     let packs = packs_dir(app)?;
     let cache_base = app
@@ -424,7 +430,7 @@ pub fn resolve_verified_models_dir(
         .map_err(|e| format!("cannot resolve app data dir: {e}"))?;
     let pubkey = PublicKey::SpkiPem(vendor_pubkey_pem());
     let versions = engine_versions();
-    resolve_verified_models_dir_in(&packs, &cache_base, &pubkey, &versions, asr_model, diarize)
+    resolve_verified_models_dir_in(&packs, &cache_base, &pubkey, &versions, asr_model, false)
 }
 
 /// Verified LLM-pack resolver. Enumerates `packs_dir`, VERIFIES every pack, and
