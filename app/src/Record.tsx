@@ -37,8 +37,8 @@ interface Status {
   transient: boolean;
 }
 
-/** What `stop_recording` returns. */
-interface Stopped {
+/** What `stop_recording` and `transcribe` return. */
+export interface NewTranscript {
   transcript: Transcript;
   speakersLabelled: boolean;
   /** Something the user should know about the result (e.g. labelling failed). */
@@ -243,7 +243,7 @@ export default function Record({
           setProgress(progressView(e.payload, (Date.now() - startedAt) / 1000)),
         ),
       );
-      const stopped = await invoke<Stopped>("stop_recording", {
+      const stopped = await invoke<NewTranscript>("stop_recording", {
         diarize: detectSpeakers,
         numSpeakers: requestedSpeakers(detectSpeakers, speakerCount),
       });

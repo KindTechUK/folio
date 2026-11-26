@@ -1,10 +1,59 @@
 //! Tauri IPC commands for transcription. In-process and CPU-only: audio never
 //! leaves the machine and no network call is made.
 
-use engine::{decode_to_16k_mono_with_progress, process, EngineConfig, SherpaEngine};
+use engine::{
+    decode_to_16k_mono_with_progress, merge, AsrSegment, EngineConfig, SherpaEngine,
+    TranscriptionEngine,
+};
+use serde::Serialize;
 use tauri::{AppHandle, Emitter};
 
 use crate::models;
+
+/// A new transcript, as Import, recovery and Stop return it.
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct NewTranscript {
+    pub(crate) transcript: engine::Transcript,
+    /// Whether the transcript carries speaker labels.
+    pub(crate) speakers_labelled: bool,
+    /// Something the user should know about the result.
+    pub(crate) note: Option<String>,
+}
+
+const NO_SPEAKER_PACK: &str = "The speaker-detection pack isn't installed, so this transcript has no speakers. Add it on the Models page.";
+
+/// The note for a transcript whose speakers couldn't be labelled because of `e`.
+pub(crate) fn unlabelled_note(e: impl std::fmt::Display) -> String {
+    format!("Speakers couldn't be labelled, so this transcript has none. ({e})")
+}
+
+/// Diarize `samples` and attach speakers to the transcribed `segments`. On
+/// failure, returns the note to show with the transcript instead.
+///
+/// `cfg.models_dir` is a models dir resolved for transcription. The resolver
+/// composes every verified pack into it, so the speaker models are there only
+/// if their pack is installed.
+pub(crate) fn label_speakers(
+    cfg: &EngineConfig,
+    samples: &[f32],
+    sample_rate: u32,
+    segments: &[AsrSegment],
+    num_speakers: Option<u32>,
+) -> Result<engine::Transcript, String> {
+    let mut cfg = cfg.clone();
+    cfg.diarize = true;
+    if !engine::required_model_files(cfg.asr_model, true)
+        .iter()
+        .all(|file| cfg.models_dir.join(file).is_file())
+    {
+        return Err(NO_SPEAKER_PACK.to_string());
+    }
+    let spans = SherpaEngine::new(&cfg)
+        .and_then(|eng| eng.diarize(samples, sample_rate, num_speakers))
+        .map_err(unlabelled_note)?;
+    Ok(merge::merge(segments, &spans))
+}
 
 /// Map a frontend model name to an [`engine::AsrModel`], falling back to the
 /// engine default (`parakeet`) for `None`/unrecognized values.
@@ -79,7 +128,8 @@ pub(crate) fn resolve_models_dir(
 /// via the `transcribe-progress` event.
 ///
 /// `diarize` defaults to `false` (speaker-less transcript); `Some(true)` opts
-/// in, and `num_speakers = None` then auto-detects.
+/// in, and `num_speakers = None` then auto-detects. If labelling fails, the
+/// transcript comes back without speakers and with a note saying why.
 ///
 /// `model`: `"parakeet"` (default) | `"small.en"` | `"medium.en"`;
 /// `None`/unrecognized falls back to the default.
@@ -92,22 +142,23 @@ pub async fn transcribe(
     num_speakers: Option<u32>,
     diarize: Option<bool>,
     model: Option<String>,
-) -> Result<engine::Transcript, String> {
+) -> Result<NewTranscript, String> {
     // `models_dir` is left UNSET here on purpose: it is resolved INSIDE
     // spawn_blocking (verified-pack extraction may be large — keep the UI thread
     // free) and assigned just before `SherpaEngine::new`.
     let mut cfg = EngineConfig::new("");
-    cfg.num_speakers = num_speakers;
-    cfg.diarize = diarize.unwrap_or(false);
     cfg.asr_model = parse_asr_model(model.as_deref());
+    let diarize = diarize.unwrap_or(false);
 
     let resolve_app = app.clone();
     let run_app = app.clone();
 
     tauri::async_runtime::spawn_blocking(move || {
         // Resolve the models dir, enforcing verified-pack trust (debug-only raw
-        // override: see `debug_models_dir_override`).
-        cfg.models_dir = resolve_models_dir(&resolve_app, cfg.asr_model, cfg.diarize)?;
+        // override: see `debug_models_dir_override`). Transcription models
+        // only: speakers are labelled as a separate step below, so a missing
+        // or failing speaker pack can't cost the transcript.
+        cfg.models_dir = resolve_models_dir(&resolve_app, cfg.asr_model, false)?;
 
         // Timed from model load to the finished transcript: what the person
         // waits for, and what the Import estimate learns from.
@@ -130,18 +181,34 @@ pub async fn transcribe(
             ));
         })
         .map_err(|e| e.to_string())?;
-        let mut transcript =
-            process(&sherpa, &samples, sample_rate, &cfg, &progress).map_err(|e| e.to_string())?;
-        crate::vocab::apply(&run_app, &mut transcript);
+        let segments =
+            sherpa.transcribe(&samples, sample_rate, &progress).map_err(|e| e.to_string())?;
+        let mut result = NewTranscript {
+            transcript: merge::from_asr(&segments),
+            speakers_labelled: false,
+            note: None,
+        };
+        if diarize {
+            progress(engine::Progress::new("diarizing", 0, 1, 0.95));
+            match label_speakers(&cfg, &samples, sample_rate, &segments, num_speakers) {
+                Ok(transcript) => {
+                    result.transcript = transcript;
+                    result.speakers_labelled = true;
+                }
+                Err(note) => result.note = Some(note),
+            }
+        }
+        progress(engine::Progress::new("done", 1, 1, 1.0));
+        crate::vocab::apply(&run_app, &mut result.transcript);
         crate::device::record_run(
             &run_app,
             crate::device::Run {
                 audio_s: samples.len() as f64 / sample_rate as f64,
                 elapsed_s: started.elapsed().as_secs_f64(),
-                diarize: cfg.diarize,
+                diarize,
             },
         );
-        Ok(transcript)
+        Ok(result)
     })
     .await
     .map_err(|e| format!("transcription task failed: {e}"))?

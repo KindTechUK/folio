@@ -95,7 +95,7 @@ beforeEach(() => {
   deleteTranscriptReport = { deleted: ["/recordings/interview.wav"], failed: [] };
   pickRecording = () => Promise.resolve("/recordings/interview.wav");
   saveSession = () => Promise.resolve();
-  transcribe = () => Promise.resolve(transcript);
+  transcribe = () => Promise.resolve({ transcript, speakersLabelled: false, note: null });
   sessions = [];
   interrupted = [];
   recoverRecording = () => Promise.resolve({ notes: "Client agreed to mediation." });
@@ -551,6 +551,32 @@ describe("speaker count", () => {
       expect.objectContaining({ numSpeakers: 2 }),
     );
   });
+
+  it("opens an import without speakers, and says why, when speakers can't be labelled", async () => {
+    transcribe = () =>
+      Promise.resolve({
+        transcript,
+        speakersLabelled: false,
+        note: "The speaker-detection pack isn't installed, so this transcript has no speakers. Add it on the Models page.",
+      });
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+    fireEvent.click(await screen.findByTestId("detect-speakers"));
+    fireEvent.click(await screen.findByRole("button", { name: "Create transcript" }));
+
+    expect(
+      await screen.findByText(
+        "The speaker-detection pack isn't installed, so this transcript has no speakers. Add it on the Models page.",
+      ),
+    ).toBeInTheDocument();
+    expect(invokeMock).toHaveBeenCalledWith("transcribe", expect.objectContaining({ diarize: true }));
+    expect(screen.getByTestId("paragraph")).toHaveTextContent("The local transcript is ready.");
+    await waitFor(() => expect(savedNotes()).toHaveLength(1));
+    const saved = invokeMock.mock.calls.find(([command]) => command === "save_session")!;
+    expect((saved[1] as { session: { diarized: boolean } }).session.diarized).toBe(false);
+  });
 });
 
 describe("Record", () => {
@@ -893,6 +919,38 @@ describe("Recordings without a transcript", () => {
     await waitFor(() => expect(savedNotes()).toEqual(["Client agreed to mediation."]));
     const saved = invokeMock.mock.calls.find(([command]) => command === "save_session")!;
     expect((saved[1] as { session: { audioPath: string } }).session.audioPath).toBe(LEFT.audioPath);
+    expect(screen.queryByTestId("interrupted-recording")).not.toBeInTheDocument();
+  });
+
+  it("recovers one without speakers, and says why, when speakers can't be labelled", async () => {
+    transcribe = () =>
+      Promise.resolve({
+        transcript,
+        speakersLabelled: false,
+        note: "The speaker-detection pack isn't installed, so this transcript has no speakers. Add it on the Models page.",
+      });
+    interrupted = [LEFT];
+    render(<App />);
+    await screen.findByText("Import your first recording");
+    fireEvent.click(screen.getAllByRole("button", { name: /Import recording/ })[0]!);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose recording" }));
+    fireEvent.click(await screen.findByTestId("detect-speakers"));
+
+    fireEvent.click(screen.getByRole("button", { name: "Recover transcript" }));
+
+    expect(
+      await screen.findByText(
+        "Recovered from a recording that had no transcript. The last moment of audio may be missing. The speaker-detection pack isn't installed, so this transcript has no speakers. Add it on the Models page.",
+      ),
+    ).toBeInTheDocument();
+    expect(invokeMock).toHaveBeenCalledWith(
+      "transcribe",
+      expect.objectContaining({ path: LEFT.audioPath, diarize: true }),
+    );
+    expect(screen.getByTestId("paragraph")).toHaveTextContent("The local transcript is ready.");
+    await waitFor(() => expect(savedNotes()).toEqual(["Client agreed to mediation."]));
+    const saved = invokeMock.mock.calls.find(([command]) => command === "save_session")!;
+    expect((saved[1] as { session: { diarized: boolean } }).session.diarized).toBe(false);
     expect(screen.queryByTestId("interrupted-recording")).not.toBeInTheDocument();
   });
 
