@@ -2,7 +2,7 @@
 
 > Status: **NO-GO as specified, with a clear way forward** · Run 2026-11-24; follow-ups on 2026-11-26
 > ([prompt v2](#follow-up-1-prompt-v2-2026-11-26): the date and a higher fact limit cut errors by a third and lift
-> recall; [second-pass check](#follow-up-2-a-second-pass-check-2026-11-26)), on a Mac (a proxy for the reference
+> recall; [second-pass check](#follow-up-2-a-second-pass-check-2026-11-26): fails, precision at most 0.68), on a Mac (a proxy for the reference
 > laptop).
 > Plan: [`next-phase-spikes.md`](next-phase-spikes.md#s3-citations-and-faithfulness).
 > Harness: `spikes/s3-citations/` (setup and commands are in its README). Builds on S2's harness.
@@ -46,7 +46,9 @@ list.)
    check it. "Partly" support was mostly a cited answer without its question.
 3. **If an automatic check is wanted, test a second LLM pass** that checks each sentence against its cited
    lines and the lines around them. Lexical overlap and a small NLI model can't separate a faithful
-   paraphrase of conversational speech from a contradiction.
+   paraphrase of conversational speech from a contradiction. *Tested in follow-up 2 with the note model
+   itself: precision 0.49–0.68 and recall 0.35–0.54, so it fails the 70% bar. It would need a larger model
+   or reasoning before the verdict.*
 4. **Neither finalist is clearly better here.** Qwen3.5-4B made more contradictions on the two long transcripts
    (38 against 20). Qwen3-4B made more on the test set's tribunal interview (17 against 6) and the only 2
    fabrications. S4 decides between them.
@@ -116,6 +118,68 @@ python score.py packets --run v2 --calibrate s3:qwen3.5-4b
 python score.py auto --run v2
 # 6 blind judges write results/judge/v2/<packet>.verdict.json, then:
 python score.py collect --run v2
+```
+
+## Follow-up 2: a second-pass check (2026-11-26)
+
+Recommendation 3 was tried: the note model (Qwen3.5-4B) reads each sentence again with the lines it cites and
+answers with one word: `supported`, `partly`, `not_supported` or `contradicted`. A grammar forces the word, so the
+call returns no reasoning. The input also includes the recording date and the speakers. The score is
+P(`supported`), read from the first token's log-probabilities. The check ran on the first run's 1,099 judged
+sentences (both models), so the judges' labels are the answer key. A threshold was chosen on the tuning set and
+then applied to the test set.
+
+Two context variants, fixed before any result:
+- **`prev`:** each cited line plus the line before it, which is what recommendation 2 shows the reviewer.
+- **`window`:** each cited line plus three lines either side. This one ran only because `prev` missed the
+  target.
+
+| Flag (test set: 451 sentences, 78 positive) | Precision | Recall | Flagged | Contradictions or fabrications unflagged |
+|---|---:|---:|---:|---:|
+| `prev`, verdict is not_supported or contradicted | 0.54 | 0.42 | 61 | 27 |
+| `prev`, P(supported) < 0.55 (best F1 on tuning) | 0.49 | 0.54 | 85 | 21 |
+| `window`, verdict is not_supported or contradicted | 0.68 | 0.35 | 40 | 33 |
+| `window`, P(supported) < 0.45 (best F1 on tuning) | 0.58 | 0.41 | 55 | 30 |
+| either, flag every sentence (the only zero-miss threshold) | 0.17 | 1.00 | 451 | 0 |
+
+**Verdict: fail.** Neither variant reaches 70% precision. `window`'s verdict rule comes closest at 0.68 on the
+test set, but it scores only 0.51 on the tuning set, and it catches only about a third of the bad sentences.
+It is still much better than the S3 flags (best precision 0.22). It is not good enough to show as a warning.
+
+**What the checker gets wrong:**
+- **It passes most contradictions.** With `window`, it calls 64 of the 114 contradictions `supported`, and 33
+  of the 40 over-inferences. These are the same subtle errors as before: the wrong speaker, a pronoun resolved
+  to the wrong person, a figure or date that changed. A 4B model reading its own kind of paraphrase sees no
+  difference.
+- **It rarely says `contradicted`** (3 of 114 contradictions, in either variant). When it does flag a
+  contradiction, it calls it `not_supported`.
+- **It never really uses `partly`.**
+- **It is wrong in the other direction too.** It calls 36 to 90 supported sentences `not_supported`, more often
+  with less context.
+
+**Cost.**
+- **Per sentence:** a mean of 2.3 s for `prev` (on 6 threads, prompts of about 320 tokens) and 4.8 s for
+  `window` (on 4 threads, about 500 tokens). Both ran on this Mac while it was busy, with a load average of
+  about 19.
+- **The 61-minute care assessment** produces about 220 sentences with v2, so `prev` adds about 8 minutes after
+  the note is written. On the reference Windows laptop (2–4× slower) that would be 17–34 minutes, against S2's
+  5-minute budget for the whole note.
+
+**What this means:**
+- Recommendation 2 stands. The reviewer checks each sentence against its cited lines; P3 shows no automatic
+  "unsupported" warning.
+- If a check is tried again, it needs a larger checker model than the note model, or reasoning before the
+  verdict. Both cost more time, so it would run as an optional "check this note" action, not on every note.
+- The bonus run of the checker on the v2 sentences was skipped. With both variants well below target, a second
+  test set would not change the verdict, and the machine was busy.
+
+Commands (from `spikes/s3-citations/`):
+
+```bash
+nice -n 10 python check.py run --run s3 --variant prev --threads 6     # about 45 min
+nice -n 10 python check.py run --run s3 --variant window --threads 4   # about 90 min
+python check.py eval --run s3 --variant prev     # -> results/s3.check-prev.md
+python check.py eval --run s3 --variant window   # -> results/s3.check-window.md
 ```
 
 ## Environment
@@ -226,13 +290,14 @@ readily as wrong ones.
 
 - **The note prompt includes the recording date, the participants and their roles** (v2 follow-up: confirmed).
 - **Every note sentence links to its cited transcript lines, shown with the line before them.** Faithfulness is
-  checked by the reviewer, with the evidence one click away. There is no automatic "unsupported" warning in P3
-  unless a second-pass LLM check passes its own spike.
+  checked by the reviewer, with the evidence one click away. There is no automatic "unsupported" warning in P3.
+  A second-pass check with the note model was tried and failed (follow-up 2).
 - **The map call allows 60 facts and 4,096 output tokens** (v2 follow-up: recall 0.61 → 0.84, no call reached 60).
 
 ## Still to do
 
 1. ~~Re-run with the recording date in the prompt and the fact limit raised.~~ Done: follow-up 1.
-2. Prototype a second-pass LLM check (sentence plus cited lines plus neighbours → supported / not), and measure
-   its precision and recall against these labels.
+2. ~~Prototype a second-pass LLM check and measure its precision and recall against these labels.~~ Done:
+   follow-up 2 (fails with the note model). Still open, if wanted: a larger checker model, or reasoning
+   before the verdict, as an optional action.
 3. A human spot-check at a larger scale, if the verdict is to be relied on beyond P2 planning.

@@ -106,6 +106,9 @@ consent) in roughly 5–10% of disclosures, and which ones varies between runs.
 disclosures again, plus one borderline case (s4-06, the "2.30" check time). They are the same kind of judge,
 so this measures consistency, not accuracy.
 
+**Human check: pending.** All 12 disclosures judged softened in round v2 (4 statutory, 8 v2) are on a blind
+spot-check page, so a person can say whether each is softened. No answers yet.
+
 Softened / dropped by category, round v2:
 
 | Category | statutory | v2 |
