@@ -1,10 +1,90 @@
 //! Tauri IPC commands for transcription. In-process and CPU-only: audio never
 //! leaves the machine and no network call is made.
 
-use engine::{decode_to_16k_mono_with_progress, process, EngineConfig, SherpaEngine};
+use engine::{
+    decode_to_16k_mono_with_progress, merge, AsrSegment, EngineConfig, SherpaEngine,
+    TranscriptionEngine,
+};
+use serde::Serialize;
 use tauri::{AppHandle, Emitter};
 
 use crate::models;
+
+/// A new transcript, as Import, recovery and Stop return it.
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct NewTranscript {
+    pub(crate) transcript: engine::Transcript,
+    /// Whether the transcript carries speaker labels.
+    pub(crate) speakers_labelled: bool,
+    /// Something the user should know about the result.
+    pub(crate) note: Option<String>,
+}
+
+const NO_SPEAKER_PACK: &str = "The speaker-detection pack isn't installed, so this transcript has no speakers. Add it on the Models page.";
+
+/// Finish a new transcript from the transcribed `segments`: label speakers
+/// with `label` if one is given, apply the vocabulary file, and report `done`.
+/// If labelling fails, the transcript has no speakers and the note says why,
+/// after any `notes` already given.
+pub(crate) fn finish_transcript(
+    app: &AppHandle,
+    segments: &[AsrSegment],
+    label: Option<impl FnOnce() -> anyhow::Result<engine::Transcript>>,
+    mut notes: Vec<String>,
+) -> NewTranscript {
+    let labelled = label.map(|label| {
+        let at = engine::PROGRESS_TRANSCRIBE_END;
+        let _ = app.emit("transcribe-progress", engine::Progress::new("diarizing", 0, 1, at));
+        label()
+    });
+    let (mut transcript, speakers_labelled) = match labelled {
+        Some(Ok(transcript)) => (transcript, true),
+        Some(Err(e)) => {
+            notes.push(unlabelled_note(&e));
+            (merge::from_asr(segments), false)
+        }
+        None => (merge::from_asr(segments), false),
+    };
+    crate::vocab::apply(app, &mut transcript);
+    let _ = app.emit("transcribe-progress", engine::Progress::new("done", 1, 1, 1.0));
+    let note = (!notes.is_empty()).then(|| notes.join(" "));
+    NewTranscript { transcript, speakers_labelled, note }
+}
+
+/// The note for a transcript whose speakers couldn't be labelled because of `e`.
+fn unlabelled_note(e: &anyhow::Error) -> String {
+    match e.downcast_ref::<engine::EngineError>() {
+        Some(engine::EngineError::ModelNotFound(_)) => NO_SPEAKER_PACK.to_string(),
+        _ => format!("Speakers couldn't be labelled, so this transcript has none. ({e})"),
+    }
+}
+
+/// The engine to label speakers with. Building it checks for the speaker
+/// models, so build it before reading any audio.
+///
+/// `cfg.models_dir` is a models dir resolved for transcription. The resolver
+/// composes every verified pack into it, so the speaker models are there only
+/// if their pack is installed; if not, this fails with
+/// [`engine::EngineError::ModelNotFound`].
+pub(crate) fn speaker_engine(cfg: &EngineConfig) -> anyhow::Result<SherpaEngine> {
+    let mut cfg = cfg.clone();
+    cfg.diarize = true;
+    SherpaEngine::new(&cfg)
+}
+
+/// Diarize `samples` with `engine` (from [`speaker_engine`]) and attach
+/// speakers to the transcribed `segments`.
+pub(crate) fn label_speakers(
+    engine: &SherpaEngine,
+    samples: &[f32],
+    sample_rate: u32,
+    segments: &[AsrSegment],
+    num_speakers: Option<u32>,
+) -> anyhow::Result<engine::Transcript> {
+    let spans = engine.diarize(samples, sample_rate, num_speakers)?;
+    Ok(merge::merge(segments, &spans))
+}
 
 /// Map a frontend model name to an [`engine::AsrModel`], falling back to the
 /// engine default (`parakeet`) for `None`/unrecognized values.
@@ -63,13 +143,12 @@ pub fn debug_asr_model_override() -> Option<String> {
 pub(crate) fn resolve_models_dir(
     app: &AppHandle,
     asr_model: engine::AsrModel,
-    diarize: bool,
 ) -> Result<std::path::PathBuf, String> {
     #[cfg(debug_assertions)]
     if let Some(raw) = debug_models_dir_override() {
         return Ok(raw);
     }
-    models::resolve_verified_models_dir(app, asr_model, diarize)
+    models::resolve_verified_models_dir(app, asr_model)
 }
 
 /// Transcribe an audio file (wav/mp3/m4a/mp4/flac/ogg…) into the project's JSON
@@ -79,7 +158,8 @@ pub(crate) fn resolve_models_dir(
 /// via the `transcribe-progress` event.
 ///
 /// `diarize` defaults to `false` (speaker-less transcript); `Some(true)` opts
-/// in, and `num_speakers = None` then auto-detects.
+/// in, and `num_speakers = None` then auto-detects. If labelling fails, the
+/// transcript comes back without speakers and with a note saying why.
 ///
 /// `model`: `"parakeet"` (default) | `"small.en"` | `"medium.en"`;
 /// `None`/unrecognized falls back to the default.
@@ -92,22 +172,25 @@ pub async fn transcribe(
     num_speakers: Option<u32>,
     diarize: Option<bool>,
     model: Option<String>,
-) -> Result<engine::Transcript, String> {
+) -> Result<NewTranscript, String> {
     // `models_dir` is left UNSET here on purpose: it is resolved INSIDE
     // spawn_blocking (verified-pack extraction may be large — keep the UI thread
     // free) and assigned just before `SherpaEngine::new`.
     let mut cfg = EngineConfig::new("");
-    cfg.num_speakers = num_speakers;
-    cfg.diarize = diarize.unwrap_or(false);
     cfg.asr_model = parse_asr_model(model.as_deref());
+    let diarize = diarize.unwrap_or(false);
 
     let resolve_app = app.clone();
     let run_app = app.clone();
 
     tauri::async_runtime::spawn_blocking(move || {
         // Resolve the models dir, enforcing verified-pack trust (debug-only raw
-        // override: see `debug_models_dir_override`).
-        cfg.models_dir = resolve_models_dir(&resolve_app, cfg.asr_model, cfg.diarize)?;
+        // override: see `debug_models_dir_override`). Transcription models
+        // only: speakers are labelled as a separate step below, so missing
+        // speaker models, or a failure to load or run them, don't cost the
+        // transcript. (Resolving still unpacks every verified pack, so a pack
+        // that fails to unpack stops this too: #38.)
+        cfg.models_dir = resolve_models_dir(&resolve_app, cfg.asr_model)?;
 
         // Timed from model load to the finished transcript: what the person
         // waits for, and what the Import estimate learns from.
@@ -130,18 +213,22 @@ pub async fn transcribe(
             ));
         })
         .map_err(|e| e.to_string())?;
-        let mut transcript =
-            process(&sherpa, &samples, sample_rate, &cfg, &progress).map_err(|e| e.to_string())?;
-        crate::vocab::apply(&run_app, &mut transcript);
+        let segments =
+            sherpa.transcribe(&samples, sample_rate, &progress).map_err(|e| e.to_string())?;
+        let label = diarize.then_some(|| {
+            let eng = speaker_engine(&cfg)?;
+            label_speakers(&eng, &samples, sample_rate, &segments, num_speakers)
+        });
+        let result = finish_transcript(&run_app, &segments, label, Vec::new());
         crate::device::record_run(
             &run_app,
             crate::device::Run {
                 audio_s: samples.len() as f64 / sample_rate as f64,
                 elapsed_s: started.elapsed().as_secs_f64(),
-                diarize: cfg.diarize,
+                diarize,
             },
         );
-        Ok(transcript)
+        Ok(result)
     })
     .await
     .map_err(|e| format!("transcription task failed: {e}"))?

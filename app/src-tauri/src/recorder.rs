@@ -36,12 +36,14 @@ use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
 use engine::segment::PieceCutter;
 use engine::sherpa::{PIECE_S, PIECE_SEARCH_S};
 use engine::{
-    load_wav_16k_mono, merge, AsrSegment, EngineConfig, SherpaEngine, StreamResampler,
-    TranscriptionEngine, VadProfile,
+    load_wav_16k_mono, AsrSegment, EngineConfig, SherpaEngine, StreamResampler, VadProfile,
 };
 use serde::Serialize;
 use tauri::{AppHandle, Emitter, Manager};
 
+use crate::commands::{
+    finish_transcript, label_speakers, resolve_models_dir, speaker_engine, NewTranscript,
+};
 use crate::system;
 
 const SAMPLE_RATE: u32 = 16_000;
@@ -1214,7 +1216,7 @@ pub async fn start_recording(
         }
         let mut cfg = EngineConfig::new("");
         cfg.asr_model = crate::commands::parse_asr_model(model.as_deref());
-        cfg.models_dir = crate::commands::resolve_models_dir(&app, cfg.asr_model, false)?;
+        cfg.models_dir = resolve_models_dir(&app, cfg.asr_model)?;
         let engine = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
         let recognizer = engine.recognizer().map_err(|e| e.to_string())?;
 
@@ -1357,16 +1359,6 @@ fn finish(app: &AppHandle, discarding: bool) -> Result<Finished, String> {
     Ok(Finished { path: active.path, cfg: active.cfg, segments, unread_s })
 }
 
-#[derive(Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct StoppedRecording {
-    transcript: engine::Transcript,
-    /// Whether the transcript carries speaker labels.
-    speakers_labelled: bool,
-    /// Something the user should know about the result.
-    note: Option<String>,
-}
-
 /// Stop recording and build the transcript from the record's pieces, with
 /// speaker labels from diarizing the whole recording if `diarize` is set. If labelling
 /// fails, the transcript is returned without labels and with a note.
@@ -1375,7 +1367,7 @@ pub async fn stop_recording(
     app: AppHandle,
     diarize: Option<bool>,
     num_speakers: Option<u32>,
-) -> Result<StoppedRecording, String> {
+) -> Result<NewTranscript, String> {
     tauri::async_runtime::spawn_blocking(move || {
         let done = finish(&app, false)?;
         let mut notes = Vec::new();
@@ -1385,26 +1377,9 @@ pub async fn stop_recording(
                 done.unread_s.ceil() as u64
             ));
         }
-        let mut result = StoppedRecording {
-            transcript: merge::from_asr(&done.segments),
-            speakers_labelled: false,
-            note: None,
-        };
-        if diarize.unwrap_or(false) {
-            let _ = app.emit("transcribe-progress", engine::Progress::new("diarizing", 0, 1, 0.95));
-            match label_speakers(&app, &done, num_speakers) {
-                Ok(transcript) => {
-                    result.transcript = transcript;
-                    result.speakers_labelled = true;
-                }
-                Err(e) => notes.push(format!(
-                    "Speakers couldn't be labelled, so this transcript has none. ({e})"
-                )),
-            }
-        }
-        result.note = (!notes.is_empty()).then(|| notes.join(" "));
-        crate::vocab::apply(&app, &mut result.transcript);
-        let _ = app.emit("transcribe-progress", engine::Progress::new("done", 1, 1, 1.0));
+        let label =
+            diarize.unwrap_or(false).then_some(|| label_recording(&app, &done, num_speakers));
+        let result = finish_transcript(&app, &done.segments, label, notes);
         // The notes file stays until the app has saved the transcript with
         // the notes (`forget_recording_notes`).
         Ok(result)
@@ -1414,18 +1389,18 @@ pub async fn stop_recording(
 }
 
 /// Diarize the whole recording and attach speakers to the record's pieces.
-fn label_speakers(
+fn label_recording(
     app: &AppHandle,
     done: &Finished,
     num_speakers: Option<u32>,
-) -> Result<engine::Transcript, String> {
+) -> anyhow::Result<engine::Transcript> {
     let mut cfg = done.cfg.clone();
-    cfg.diarize = true;
-    cfg.models_dir = crate::commands::resolve_models_dir(app, cfg.asr_model, true)?;
-    let (samples, sr) = load_wav_16k_mono(&done.path).map_err(|e| e.to_string())?;
-    let eng = SherpaEngine::new(&cfg).map_err(|e| e.to_string())?;
-    let spans = eng.diarize(&samples, sr, num_speakers).map_err(|e| e.to_string())?;
-    Ok(merge::merge(&done.segments, &spans))
+    // Resolved again, so a pack added while recording counts.
+    cfg.models_dir = resolve_models_dir(app, cfg.asr_model).map_err(anyhow::Error::msg)?;
+    // Before reading the recording, which takes about 230 MB per hour.
+    let eng = speaker_engine(&cfg)?;
+    let (samples, sr) = load_wav_16k_mono(&done.path)?;
+    label_speakers(&eng, &samples, sr, &done.segments, num_speakers)
 }
 
 /// Remove a finished recording's notes file once the transcript holding the

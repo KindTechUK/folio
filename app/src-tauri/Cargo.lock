@@ -2136,6 +2136,7 @@ dependencies = [
 name = "kindtech-transcribe-app"
 version = "0.3.0"
 dependencies = [
+ "anyhow",
  "chrono",
  "cpal",
  "ed25519-dalek",

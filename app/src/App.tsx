@@ -3,7 +3,6 @@ import { invoke, convertFileSrc } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { loadTranscript } from "@core/editor";
 import type { EditorState } from "@core/editor";
-import type { Transcript } from "@core/types";
 import { progressView } from "./progress";
 import type { Progress, ProgressView } from "./progress";
 import {
@@ -24,7 +23,7 @@ import Library from "./Library";
 import Record from "./Record";
 import { ImportEstimate, UNCHECKED } from "./Device";
 import type { DeviceProfile } from "./Device";
-import type { FinishedRecording } from "./Record";
+import type { FinishedRecording, NewTranscript } from "./Record";
 import SpeakerOptions, { requestedSpeakers } from "./SpeakerOptions";
 import Sidebar from "./Sidebar";
 import type { View } from "./Sidebar";
@@ -438,18 +437,16 @@ export default function App() {
 
   // Open a just-created transcript in the editor and save it at once.
   async function openNewTranscript(
-    transcript: Transcript,
+    { transcript, speakersLabelled, note }: NewTranscript,
     path: string,
-    withSpeakers: boolean,
     newNotes = "",
-    note: string | null = null,
     fromRecording = false,
   ) {
     // Build the editor state once and reuse it for both the live history and
     // the saved copy, so the persisted session matches what is on screen.
     const editorState = loadTranscript(transcript);
     setHistory(initHistory(editorState));
-    setDiarized(withSpeakers);
+    setDiarized(speakersLabelled);
     notesRef.current = newNotes;
     setNotes(newNotes);
     setReviewTab(newNotes ? "notes" : "transcript");
@@ -462,7 +459,7 @@ export default function App() {
       createdAt: new Date().toISOString(),
       audioPath: path,
       audioFilename: basename(path),
-      diarized: withSpeakers,
+      diarized: speakersLabelled,
     };
     setCurrentSessionMeta(meta);
     setStatus("idle");
@@ -487,10 +484,7 @@ export default function App() {
   async function createTranscript() {
     if (!selectedPath || !asrModel) return;
     const path = selectedPath;
-    const withSpeakers = detectSpeakers;
-    await transcribeAndOpen(path, (transcript) =>
-      openNewTranscript(transcript, path, withSpeakers),
-    );
+    await transcribeAndOpen(path, (r) => openNewTranscript(r, path));
   }
 
   // Transcribe a recording that has no transcript, with its notes, and open it.
@@ -527,9 +521,13 @@ export default function App() {
         setRecoveryError({ audioPath: path, message: `Couldn't recover it: ${String(e)}` });
         return;
       }
-      const withSpeakers = detectSpeakers;
-      const done = await transcribeAndOpen(path, (transcript) =>
-        openNewTranscript(transcript, path, withSpeakers, notes, RECOVERED_NOTE, true),
+      const done = await transcribeAndOpen(path, (r) =>
+        openNewTranscript(
+          { ...r, note: r.note ? `${RECOVERED_NOTE} ${r.note}` : RECOVERED_NOTE },
+          path,
+          notes,
+          true,
+        ),
       );
       if (done) setInterrupted((list) => list.filter((r) => r.audioPath !== path));
     } finally {
@@ -561,7 +559,7 @@ export default function App() {
   // Returns whether it got that far; errors go to the status line.
   async function transcribeAndOpen(
     path: string,
-    open: (transcript: Transcript) => Promise<void>,
+    open: (result: NewTranscript) => Promise<void>,
   ): Promise<boolean> {
     setHistory(null);
     setCurrentSessionMeta(null);
@@ -578,7 +576,7 @@ export default function App() {
         setProgress(progressView(event.payload, elapsedSec));
       });
 
-      const transcript = await invoke<Transcript>("transcribe", {
+      const result = await invoke<NewTranscript>("transcribe", {
         path,
         diarize: detectSpeakers,
         numSpeakers,
@@ -586,7 +584,7 @@ export default function App() {
       });
       // The backend timed this run; pick up the refined estimate.
       refreshDevice();
-      await open(transcript);
+      await open(result);
       return true;
     } catch (e) {
       setStatus(`error: ${String(e)}`);
@@ -906,14 +904,7 @@ export default function App() {
               hintDismissed={recordHintDismissed}
               onDismissHint={() => setRecordHintDismissed(true)}
               onFinished={(r: FinishedRecording) =>
-                void openNewTranscript(
-                  r.transcript,
-                  r.audioPath,
-                  r.speakersLabelled,
-                  r.notes,
-                  r.note,
-                  true,
-                )
+                void openNewTranscript(r, r.audioPath, r.notes, true)
               }
             />
           ) : view === "models" ? (
