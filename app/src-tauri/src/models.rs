@@ -734,27 +734,33 @@ pub(crate) mod tests {
     /// Write `packs/<name>/` as a pack of `weights`, signed with the committed
     /// test key, declaring `task`.
     fn signed_pack(packs: &Path, name: &str, task: &str, weights: &[u8]) -> PathBuf {
+        use base64::Engine as _;
         use ed25519_dalek::pkcs8::DecodePrivateKey;
+        use ed25519_dalek::Signer as _;
         let pem =
             fs::read_to_string(repo_root().join("fixtures/modelpack/keys/test-private.pkcs8.pem"))
                 .unwrap();
         let key = ed25519_dalek::SigningKey::from_pkcs8_pem(&pem).unwrap();
-        let meta = modelpack_sign::PackMeta {
-            id: format!("test/{name}"),
-            version: "1.0.0".into(),
+        let manifest = modelpack::Manifest {
+            attribution: "Test pack".into(),
             engine: "sherpa-onnx".into(),
             engine_min_version: "1.13.2".into(),
-            task: task.into(),
+            id: format!("test/{name}"),
             license: "MIT".into(),
-            attribution: "Test pack".into(),
+            sha256: modelpack::sha256_hex_reader(weights).unwrap(),
+            task: task.into(),
+            version: "1.0.0".into(),
+            signature: String::new(),
         };
-        let sha = modelpack::sha256_hex_reader(weights).unwrap();
-        let signature = modelpack_sign::sign_manifest(&key, &meta, &sha);
+        let signature = key.sign(&modelpack::canonicalize(&manifest));
+        // `signature` is left out of the serialized manifest; add it back.
+        let mut json = serde_json::to_value(&manifest).unwrap();
+        json["signature"] =
+            base64::engine::general_purpose::STANDARD.encode(signature.to_bytes()).into();
         let dir = packs.join(name);
         fs::create_dir_all(&dir).unwrap();
         fs::write(dir.join("weights.bin"), weights).unwrap();
-        let manifest = modelpack_sign::build_manifest_json(&meta, &sha, &signature);
-        fs::write(dir.join("manifest.json"), manifest.to_string()).unwrap();
+        fs::write(dir.join("manifest.json"), json.to_string()).unwrap();
         dir
     }
 
