@@ -14,7 +14,6 @@ use std::path::{Component, Path, PathBuf};
 use modelpack::{compare_semver, verify_model_pack_reader, PublicKey};
 use serde::Serialize;
 use serde_json::Value;
-use sha2::{Digest, Sha256};
 use tauri::Manager;
 
 /// Committed dev/test SPKI key; never the production signing key (release
@@ -46,6 +45,10 @@ fn engine_versions() -> BTreeMap<String, String> {
 
 /// The manifest `task` of a language-model pack (a GGUF for llama.cpp).
 const LLM_TASK: &str = "llm";
+/// The manifest `task` of a transcription pack (ASR models + Silero VAD).
+const ASR_TASK: &str = "asr";
+/// The manifest `task` of the speaker-detection pack (segmentation + embedding).
+const DIARIZATION_TASK: &str = "diarization";
 
 /// The verified/rejected status of a single model pack, surfaced to the UI.
 #[derive(Debug, Clone, Serialize)]
@@ -153,11 +156,7 @@ fn packs_dir(app: &tauri::AppHandle) -> Result<PathBuf, String> {
     if let Ok(dir) = std::env::var("KINDTECH_PACKS_DIR") {
         return Ok(PathBuf::from(dir));
     }
-    let base = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| format!("cannot resolve app data dir: {e}"))?;
-    Ok(base.join("packs"))
+    Ok(app_cache_base(app)?.join("packs"))
 }
 
 /// List + verify every pack in the packs dir. Returns an empty list (not an
@@ -217,16 +216,6 @@ pub fn import_model_pack(app: tauri::AppHandle, src_dir: String) -> Result<PackS
 
 // --- verified-pack resolver -----------------------------------------------
 
-/// Lowercase-hex SHA-256 of `bytes`.
-fn sha256_hex(bytes: &[u8]) -> String {
-    let digest = Sha256::digest(bytes);
-    let mut out = String::with_capacity(digest.len() * 2);
-    for b in digest {
-        out.push_str(&format!("{b:02x}"));
-    }
-    out
-}
-
 /// True iff `name` (a zip entry path) stays within the extraction root: no
 /// absolute paths, no `..` components, no root/prefix components. Defends
 /// against zip path-traversal ("zip slip") regardless of `ZipArchive::extract`'s
@@ -280,13 +269,6 @@ fn extract_zip_into(weights: &Path, dest: &Path) -> Result<(), String> {
     Ok(())
 }
 
-/// True iff `path` is a readable zip archive.
-fn is_zip_file(path: &Path) -> bool {
-    std::fs::File::open(path)
-        .map(|f| zip::ZipArchive::new(std::io::BufReader::new(f)).is_ok())
-        .unwrap_or(false)
-}
-
 /// The `sha256` string of the (already verified) manifest in `dir`.
 fn manifest_sha256(dir: &Path) -> Result<String, String> {
     let bytes = std::fs::read(dir.join("manifest.json"))
@@ -310,127 +292,177 @@ fn declared_task(dir: &Path) -> Option<String> {
     value.get("task").and_then(Value::as_str).map(str::to_string)
 }
 
-/// Verify every pack directory in `packs_dir` whose declared task passes
-/// `wanted`, returning the verified ones. Packs with an unreadable manifest are
-/// still verified (and so rejected).
+/// Verify every pack directory in `packs_dir` that declares `task`, returning
+/// the verified ones, newest first: highest version, ties going to the last
+/// directory name. Packs with an unreadable manifest are still verified (and so
+/// rejected).
 fn verified_packs(
     packs_dir: &Path,
     pubkey: &PublicKey<'_>,
     engine_versions: &BTreeMap<String, String>,
-    wanted: impl Fn(&str) -> bool,
+    task: &str,
 ) -> Vec<(PathBuf, PackStatus)> {
     let mut out: Vec<(PathBuf, PackStatus)> = match std::fs::read_dir(packs_dir) {
         Ok(entries) => entries
             .filter_map(|e| e.ok())
             .map(|e| e.path())
             .filter(|p| p.is_dir())
-            .filter(|p| declared_task(p).is_none_or(|t| wanted(&t)))
+            .filter(|p| declared_task(p).is_none_or(|t| t == task))
             .map(|p| {
                 let status = verify_pack_dir(&p, pubkey, engine_versions);
                 (p, status)
             })
-            .filter(|(_, status)| status.verified)
+            .filter(|(_, status)| status.verified && status.task == task)
             .collect(),
         Err(_) => Vec::new(),
     };
-    out.sort_by(|a, b| a.0.cmp(&b.0));
+    out.sort_by(|a, b| compare_semver(&b.1.version, &a.1.version).then(b.0.cmp(&a.0)));
     out
 }
 
-/// Verified-pack resolver. Enumerates `packs_dir`, VERIFIES every
-/// pack, extracts ONLY verified speech packs' `weights.bin` zips into a content-
-/// addressed cache under `cache_base`, and returns the cache dir IFF it provides
-/// every model file the engine requires for `(asr_model, diarize)`. Fails closed
-/// at every step: no verified pack, or any missing required file, is an `Err`.
-/// Language-model packs (`task: "llm"`) are left out; see [`resolve_verified_llm_in`].
+/// True iff the zip at `weights` lists every one of `files`. Reads only the
+/// zip's directory, so choosing a pack never unpacks the others.
+fn zip_lists(weights: &Path, files: &[String]) -> bool {
+    let Ok(file) = std::fs::File::open(weights) else {
+        return false;
+    };
+    let Ok(archive) = zip::ZipArchive::new(std::io::BufReader::new(file)) else {
+        return false;
+    };
+    let names: std::collections::HashSet<&str> = archive.file_names().collect();
+    files.iter().all(|f| names.contains(f.as_str()))
+}
+
+/// `pack` unpacked into its own content-addressed cache folder,
+/// `cache_base/verified-models/<prefix>-<manifest sha256>/`. A `.complete`
+/// marker skips the unpack on later runs; a partial folder from an interrupted
+/// run is cleared first.
+fn unpacked(pack: &Path, cache_base: &Path, prefix: &str) -> Result<PathBuf, String> {
+    let dest = cache_base
+        .join("verified-models")
+        .join(format!("{prefix}-{}", manifest_sha256(pack)?));
+    let complete_marker = dest.join(".complete");
+    if complete_marker.exists() {
+        return Ok(dest);
+    }
+    if dest.exists() {
+        std::fs::remove_dir_all(&dest)
+            .map_err(|e| format!("clearing partial cache {}: {e}", dest.display()))?;
+    }
+    std::fs::create_dir_all(&dest)
+        .map_err(|e| format!("creating cache dir {}: {e}", dest.display()))?;
+    extract_zip_into(&pack.join("weights.bin"), &dest)?;
+    std::fs::write(&complete_marker, b"")
+        .map_err(|e| format!("writing completion marker {}: {e}", complete_marker.display()))?;
+    Ok(dest)
+}
+
+/// The verified speech pack `pack`, unpacked (see [`unpacked`]) into
+/// `verified-models/pack-<manifest sha256>/` and checked to hold every one of
+/// `files`.
+fn unpacked_speech_pack(pack: &Path, cache_base: &Path, files: &[String]) -> Result<PathBuf, String> {
+    let dest = unpacked(pack, cache_base, "pack")?;
+    let missing: Vec<&String> = files.iter().filter(|rel| !dest.join(rel).exists()).collect();
+    if !missing.is_empty() {
+        return Err(format!("verified pack {} is missing {missing:?}", pack.display()));
+    }
+    Ok(dest)
+}
+
+/// Remove the folders of the old layout, where every verified speech pack was
+/// unpacked into one shared folder named by a 64-hex hash of the whole set.
+/// Best effort: nothing uses them any more.
+fn remove_old_shared_caches(cache_base: &Path) {
+    let Ok(entries) = std::fs::read_dir(cache_base.join("verified-models")) else {
+        return;
+    };
+    for entry in entries.filter_map(|e| e.ok()) {
+        let name = entry.file_name();
+        let name = name.to_string_lossy();
+        if name.len() == 64 && name.bytes().all(|b| b.is_ascii_hexdigit()) && entry.path().is_dir() {
+            let _ = std::fs::remove_dir_all(entry.path());
+        }
+    }
+}
+
+/// Verified transcription-pack resolver. Enumerates `packs_dir`, VERIFIES every
+/// `task: "asr"` pack, picks one holding every model file the engine requires
+/// for `asr_model` (each ASR pack carries Silero VAD too), newest first, and
+/// unpacks only that pack into its own cache folder (see [`unpacked_speech_pack`]). Fails closed: no
+/// verified pack, or none providing the required files, is an `Err`. Other
+/// packs, the speaker-detection pack included, are never unpacked here, so one
+/// that fails to unpack can't stop transcription (#38).
 ///
-/// The cache dir is keyed by the SHA-256 of the verified packs' `sha256` manifest
-/// strings (sorted ascending, `\n`-joined), so the same verified set always maps
-/// to the same dir and re-extraction is skipped via a `.complete` marker.
-///
-/// The app relies on the dir holding EVERY verified pack's files: it resolves
-/// for transcription only, and `commands::speaker_engine` then finds the speaker
-/// models there if their pack is installed. Caching packs separately (#38) must
-/// keep that working.
+/// Also removes the old shared cache folders (see [`remove_old_shared_caches`]).
 pub fn resolve_verified_models_dir_in(
     packs_dir: &Path,
     cache_base: &Path,
     pubkey: &PublicKey<'_>,
     engine_versions: &BTreeMap<String, String>,
     asr_model: engine::AsrModel,
-    diarize: bool,
 ) -> Result<PathBuf, String> {
-    let verified_dirs: Vec<PathBuf> =
-        verified_packs(packs_dir, pubkey, engine_versions, |task| task != LLM_TASK)
-            .into_iter()
-            .filter(|(_, status)| status.task != LLM_TASK)
-            .map(|(dir, _)| dir)
-            .collect();
-    if verified_dirs.is_empty() {
-        return Err(format!(
-            "no verified model pack found in {}",
-            packs_dir.display()
-        ));
+    remove_old_shared_caches(cache_base);
+    let files = engine::transcription_model_files(asr_model);
+    let packs = verified_packs(packs_dir, pubkey, engine_versions, ASR_TASK);
+    if packs.is_empty() {
+        return Err(format!("no verified model pack found in {}", packs_dir.display()));
     }
-
-    let mut sha_list: Vec<String> = Vec::new();
-    for dir in &verified_dirs {
-        sha_list.push(manifest_sha256(dir)?);
-    }
-    sha_list.sort();
-    let combined_key = sha256_hex(sha_list.join("\n").as_bytes());
-
-    let composed = cache_base.join("verified-models").join(&combined_key);
-    let complete_marker = composed.join(".complete");
-    if !complete_marker.exists() {
-        // Fresh extraction: clear any partial dir, recreate, extract each
-        // verified pack's zip-valid weights.bin (skip non-zip packs).
-        if composed.exists() {
-            std::fs::remove_dir_all(&composed)
-                .map_err(|e| format!("clearing partial cache {}: {e}", composed.display()))?;
-        }
-        std::fs::create_dir_all(&composed)
-            .map_err(|e| format!("creating cache dir {}: {e}", composed.display()))?;
-        for dir in &verified_dirs {
-            let weights = dir.join("weights.bin");
-            // A non-zip weights.bin contributes no files — skip rather than abort.
-            if !is_zip_file(&weights) {
-                continue;
-            }
-            extract_zip_into(&weights, &composed)?;
-        }
-        std::fs::write(&complete_marker, b"")
-            .map_err(|e| format!("writing completion marker {}: {e}", complete_marker.display()))?;
-    }
-
-    // Fail closed unless EVERY required file is present.
-    let missing: Vec<String> = engine::required_model_files(asr_model, diarize)
+    // The zip's directory names its files, so this unpacks nothing.
+    let (pack, _) = packs
         .into_iter()
-        .filter(|rel| !composed.join(rel).exists())
-        .collect();
-    if !missing.is_empty() {
-        return Err(format!(
-            "no verified pack provides the required model file(s): {missing:?}"
-        ));
-    }
-    Ok(composed)
+        .find(|(dir, _)| zip_lists(&dir.join("weights.bin"), &files))
+        .ok_or_else(|| format!("no verified pack provides the required model file(s): {files:?}"))?;
+    unpacked_speech_pack(&pack, cache_base, &files)
 }
 
 /// AppHandle wrapper around [`resolve_verified_models_dir_in`].
-/// Resolves for transcription; the speaker step finds the speaker models in the
-/// same dir (see [`resolve_verified_models_dir_in`]).
 pub fn resolve_verified_models_dir(
     app: &tauri::AppHandle,
     asr_model: engine::AsrModel,
 ) -> Result<PathBuf, String> {
-    let packs = packs_dir(app)?;
-    let cache_base = app
-        .path()
+    with_installed(app, |packs, cache, key, versions| {
+        resolve_verified_models_dir_in(packs, cache, key, versions, asr_model)
+    })
+}
+
+/// Verified speaker-detection-pack resolver: the newest verified
+/// `task: "diarization"` pack, unpacked on its own (see
+/// [`unpacked_speech_pack`]) and checked to hold [`engine::speaker_model_files`].
+/// `Ok(None)` when no verified speaker pack is installed; `Err` when it can't be
+/// unpacked or lacks those files.
+pub fn resolve_verified_speaker_dir_in(
+    packs_dir: &Path,
+    cache_base: &Path,
+    pubkey: &PublicKey<'_>,
+    engine_versions: &BTreeMap<String, String>,
+) -> Result<Option<PathBuf>, String> {
+    let newest = verified_packs(packs_dir, pubkey, engine_versions, DIARIZATION_TASK).into_iter().next();
+    newest
+        .map(|(pack, _)| unpacked_speech_pack(&pack, cache_base, &engine::speaker_model_files()))
+        .transpose()
+}
+
+/// AppHandle wrapper around [`resolve_verified_speaker_dir_in`].
+pub fn resolve_verified_speaker_dir(app: &tauri::AppHandle) -> Result<Option<PathBuf>, String> {
+    with_installed(app, resolve_verified_speaker_dir_in)
+}
+
+/// The per-user app-data dir: where packs are installed and unpacked.
+fn app_cache_base(app: &tauri::AppHandle) -> Result<PathBuf, String> {
+    app.path()
         .app_data_dir()
-        .map_err(|e| format!("cannot resolve app data dir: {e}"))?;
-    let pubkey = PublicKey::SpkiPem(vendor_pubkey_pem());
-    let versions = engine_versions();
-    resolve_verified_models_dir_in(&packs, &cache_base, &pubkey, &versions, asr_model, false)
+        .map_err(|e| format!("cannot resolve app data dir: {e}"))
+}
+
+/// Run a `_in` resolver against this app's packs folder, cache folder, trusted
+/// vendor key and engine versions.
+fn with_installed<T>(
+    app: &tauri::AppHandle,
+    resolve: impl FnOnce(&Path, &Path, &PublicKey<'_>, &BTreeMap<String, String>) -> Result<T, String>,
+) -> Result<T, String> {
+    let packs = packs_dir(app)?;
+    let cache_base = app_cache_base(app)?;
+    resolve(&packs, &cache_base, &PublicKey::SpkiPem(vendor_pubkey_pem()), &engine_versions())
 }
 
 /// Verified LLM-pack resolver. Enumerates `packs_dir`, VERIFIES every pack, and
@@ -448,34 +480,15 @@ pub fn resolve_verified_llm_in(
     pubkey: &PublicKey<'_>,
     engine_versions: &BTreeMap<String, String>,
 ) -> Result<PathBuf, String> {
-    let mut llm_packs: Vec<(PathBuf, PackStatus)> =
-        verified_packs(packs_dir, pubkey, engine_versions, |task| task == LLM_TASK)
-            .into_iter()
-            .filter(|(_, status)| status.task == LLM_TASK)
-            .collect();
-    llm_packs.sort_by(|a, b| compare_semver(&a.1.version, &b.1.version).then(a.0.cmp(&b.0)));
-    let Some((dir, status)) = llm_packs.pop() else {
+    let newest = verified_packs(packs_dir, pubkey, engine_versions, LLM_TASK).into_iter().next();
+    let Some((dir, status)) = newest else {
         return Err(format!(
             "no verified LLM model pack found in {}",
             packs_dir.display()
         ));
     };
 
-    let dest = cache_base
-        .join("verified-models")
-        .join(format!("llm-{}", manifest_sha256(&dir)?));
-    let complete_marker = dest.join(".complete");
-    if !complete_marker.exists() {
-        if dest.exists() {
-            std::fs::remove_dir_all(&dest)
-                .map_err(|e| format!("clearing partial cache {}: {e}", dest.display()))?;
-        }
-        std::fs::create_dir_all(&dest)
-            .map_err(|e| format!("creating cache dir {}: {e}", dest.display()))?;
-        extract_zip_into(&dir.join("weights.bin"), &dest)?;
-        std::fs::write(&complete_marker, b"")
-            .map_err(|e| format!("writing completion marker {}: {e}", complete_marker.display()))?;
-    }
+    let dest = unpacked(&dir, cache_base, "llm")?;
 
     let ggufs: Vec<PathBuf> = std::fs::read_dir(&dest)
         .map_err(|e| format!("reading cache dir {}: {e}", dest.display()))?
@@ -501,18 +514,11 @@ pub fn resolve_verified_llm_in(
 /// AppHandle wrapper around [`resolve_verified_llm_in`].
 #[allow(dead_code)] // Spike S5: not called by the app yet; P2 (local notes) will use it.
 pub fn resolve_verified_llm(app: &tauri::AppHandle) -> Result<PathBuf, String> {
-    let packs = packs_dir(app)?;
-    let cache_base = app
-        .path()
-        .app_data_dir()
-        .map_err(|e| format!("cannot resolve app data dir: {e}"))?;
-    let pubkey = PublicKey::SpkiPem(vendor_pubkey_pem());
-    let versions = engine_versions();
-    resolve_verified_llm_in(&packs, &cache_base, &pubkey, &versions)
+    with_installed(app, resolve_verified_llm_in)
 }
 
 #[cfg(test)]
-mod tests {
+pub(crate) mod tests {
     use super::*;
     use std::fs;
 
@@ -525,7 +531,7 @@ mod tests {
             .to_path_buf()
     }
 
-    fn fixtures_context() -> (String, BTreeMap<String, String>) {
+    pub(crate) fn fixtures_context() -> (String, BTreeMap<String, String>) {
         let fixtures = repo_root().join("fixtures/modelpack");
         let v: Value =
             serde_json::from_str(&fs::read_to_string(fixtures.join("context.json")).unwrap())
@@ -621,7 +627,7 @@ mod tests {
         assert!(status.reason.unwrap().contains("weights hash mismatch"));
     }
 
-    fn unique_tmp(tag: &str) -> PathBuf {
+    pub(crate) fn unique_tmp(tag: &str) -> PathBuf {
         std::env::temp_dir().join(format!(
             "podcast-resolver-{tag}-{}-{:?}",
             std::process::id(),
@@ -649,7 +655,6 @@ mod tests {
             &pubkey,
             &versions,
             engine::AsrModel::SmallEn,
-            false,
         )
         .expect("committed verified pack must resolve");
 
@@ -669,7 +674,6 @@ mod tests {
             &pubkey,
             &versions,
             engine::AsrModel::SmallEn,
-            false,
         )
         .expect("second resolve must succeed");
         assert_eq!(dir, dir2, "resolver must be deterministic / idempotent");
@@ -703,7 +707,6 @@ mod tests {
             &pubkey,
             &versions,
             engine::AsrModel::SmallEn,
-            false,
         )
         .expect_err("an unsigned pack must not be trusted");
         assert!(
@@ -715,35 +718,162 @@ mod tests {
         let _ = fs::remove_dir_all(&cache_base);
     }
 
-    /// DIARIZE-MISSING: the asr-only fixture pack provides no seg/emb model, so
-    /// resolving with `diarize=true` fails closed naming the missing file(s).
+    /// A zip holding `files` (path, bytes), stored uncompressed.
+    fn zip_of(files: &[(&str, &[u8])]) -> Vec<u8> {
+        use std::io::Write;
+        let mut zip = zip::ZipWriter::new(std::io::Cursor::new(Vec::new()));
+        let stored = zip::write::SimpleFileOptions::default()
+            .compression_method(zip::CompressionMethod::Stored);
+        for (name, bytes) in files {
+            zip.start_file(*name, stored).unwrap();
+            zip.write_all(bytes).unwrap();
+        }
+        zip.finish().unwrap().into_inner()
+    }
+
+    /// Write `packs/<name>/` as a pack of `weights`, signed with the committed
+    /// test key, declaring `task`.
+    fn signed_pack(packs: &Path, name: &str, task: &str, weights: &[u8]) -> PathBuf {
+        use base64::Engine as _;
+        use ed25519_dalek::pkcs8::DecodePrivateKey;
+        use ed25519_dalek::Signer as _;
+        let pem =
+            fs::read_to_string(repo_root().join("fixtures/modelpack/keys/test-private.pkcs8.pem"))
+                .unwrap();
+        let key = ed25519_dalek::SigningKey::from_pkcs8_pem(&pem).unwrap();
+        let manifest = modelpack::Manifest {
+            attribution: "Test pack".into(),
+            engine: "sherpa-onnx".into(),
+            engine_min_version: "1.13.2".into(),
+            id: format!("test/{name}"),
+            license: "MIT".into(),
+            sha256: modelpack::sha256_hex_reader(weights).unwrap(),
+            task: task.into(),
+            version: "1.0.0".into(),
+            signature: String::new(),
+        };
+        let signature = key.sign(&modelpack::canonicalize(&manifest));
+        // `signature` is left out of the serialized manifest; add it back.
+        let mut json = serde_json::to_value(&manifest).unwrap();
+        json["signature"] =
+            base64::engine::general_purpose::STANDARD.encode(signature.to_bytes()).into();
+        let dir = packs.join(name);
+        fs::create_dir_all(&dir).unwrap();
+        fs::write(dir.join("weights.bin"), weights).unwrap();
+        fs::write(dir.join("manifest.json"), json.to_string()).unwrap();
+        dir
+    }
+
+    /// A speaker-detection pack that verifies but can't be unpacked: its
+    /// segmentation model's bytes were changed after zipping, so the entry
+    /// fails its CRC check.
+    pub(crate) fn broken_speaker_pack(packs: &Path) -> PathBuf {
+        let mut weights = zip_of(&[
+            (engine::SEG_MODEL, b"segmentation model bytes"),
+            (engine::EMB_MODEL, b"embedding model bytes"),
+        ]);
+        let at = weights
+            .windows(b"segmentation model bytes".len())
+            .position(|w| w == b"segmentation model bytes")
+            .unwrap();
+        weights[at] ^= 0x01;
+        signed_pack(packs, "speakers-broken", "diarization", &weights)
+    }
+
+    /// #38: a speaker pack that fails to unpack doesn't stop transcription.
     #[test]
-    fn resolve_verified_models_dir_in_fails_closed_when_diarization_models_missing() {
+    fn a_speaker_pack_that_fails_to_unpack_does_not_stop_transcription_models_resolving() {
         let (pem, versions) = fixtures_context();
         let pubkey = PublicKey::SpkiPem(&pem);
-        let packs = repo_root().join("fixtures/modelpack/packs");
-        let cache_base = unique_tmp("diarize");
-        let _ = fs::remove_dir_all(&cache_base);
+        let packs = unique_tmp("broken-speakers-packs");
+        copy_fixture_pack("asr-small-en", &packs);
+        broken_speaker_pack(&packs);
+        let cache_base = unique_tmp("broken-speakers-cache");
 
-        let err = resolve_verified_models_dir_in(
+        let dir = resolve_verified_models_dir_in(
             &packs,
             &cache_base,
             &pubkey,
             &versions,
             engine::AsrModel::SmallEn,
-            true,
         )
-        .expect_err("asr-only pack must not satisfy diarization");
-        assert!(
-            err.contains("required model file") && err.contains("pyannote-segmentation"),
-            "expected missing seg/emb error, got: {err}"
-        );
+        .expect("transcription models must resolve");
 
+        for rel in engine::required_model_files(engine::AsrModel::SmallEn, false) {
+            assert!(dir.join(&rel).is_file(), "{rel} missing under {}", dir.display());
+        }
+        let err = resolve_verified_speaker_dir_in(&packs, &cache_base, &pubkey, &versions)
+            .expect_err("the broken speaker pack can't be unpacked");
+        assert!(err.contains("extracting zip entry"), "got: {err}");
+        let _ = fs::remove_dir_all(&packs);
+        let _ = fs::remove_dir_all(&cache_base);
+    }
+
+    /// The speaker models resolve from the speaker-detection pack on its own;
+    /// a packs folder without one has none.
+    #[test]
+    fn speaker_models_resolve_from_the_speaker_pack_alone() {
+        let (pem, versions) = fixtures_context();
+        let pubkey = PublicKey::SpkiPem(&pem);
+        let packs = unique_tmp("speakers-packs");
+        let weights = zip_of(&[(engine::SEG_MODEL, b""), (engine::EMB_MODEL, b"")]);
+        signed_pack(&packs, "speakers", "diarization", &weights);
+        let cache_base = unique_tmp("speakers-cache");
+
+        let dir = resolve_verified_speaker_dir_in(&packs, &cache_base, &pubkey, &versions)
+            .expect("the speaker pack must unpack")
+            .expect("the speaker pack provides the speaker models");
+        assert!(dir.join(engine::SEG_MODEL).is_file());
+        assert!(dir.join(engine::EMB_MODEL).is_file());
+
+        let asr_only = unique_tmp("speakers-asr-only-packs");
+        copy_fixture_pack("asr-small-en", &asr_only);
+        assert_eq!(
+            resolve_verified_speaker_dir_in(&asr_only, &cache_base, &pubkey, &versions),
+            Ok(None)
+        );
+        for dir in [&packs, &asr_only, &cache_base] {
+            let _ = fs::remove_dir_all(dir);
+        }
+    }
+
+    /// Resolving removes the old layout's shared cache folders (named by a
+    /// 64-hex hash) and keeps the per-pack and LLM ones.
+    #[test]
+    fn resolving_removes_the_old_shared_cache_folders() {
+        let (pem, versions) = fixtures_context();
+        let pubkey = PublicKey::SpkiPem(&pem);
+        let packs = unique_tmp("old-cache-packs");
+        copy_fixture_pack("asr-small-en", &packs);
+        let cache_base = unique_tmp("old-cache");
+        let cached = cache_base.join("verified-models");
+        let hash = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";
+        let old = cached.join(hash);
+        let other_pack = cached.join(format!("pack-{hash}"));
+        let llm = cached.join(format!("llm-{hash}"));
+        for dir in [&old, &other_pack, &llm] {
+            fs::create_dir_all(dir).unwrap();
+            fs::write(dir.join("silero_vad.onnx"), b"").unwrap();
+        }
+
+        resolve_verified_models_dir_in(
+            &packs,
+            &cache_base,
+            &pubkey,
+            &versions,
+            engine::AsrModel::SmallEn,
+        )
+        .expect("transcription models must resolve");
+
+        assert!(!old.exists(), "the old shared folder must be removed");
+        assert!(other_pack.exists(), "a per-pack folder must stay");
+        assert!(llm.exists(), "an LLM folder must stay");
+        let _ = fs::remove_dir_all(&packs);
         let _ = fs::remove_dir_all(&cache_base);
     }
 
     /// Copy the committed fixture pack `name` into `packs/<name>/`.
-    fn copy_fixture_pack(name: &str, packs: &Path) -> PathBuf {
+    pub(crate) fn copy_fixture_pack(name: &str, packs: &Path) -> PathBuf {
         let src = repo_root().join("fixtures/modelpack/packs").join(name);
         let dest = packs.join(name);
         fs::create_dir_all(&dest).unwrap();
@@ -843,7 +973,6 @@ mod tests {
                 &pubkey,
                 &versions,
                 engine::AsrModel::SmallEn,
-                false,
             );
             let _ = tx.send(r);
         });

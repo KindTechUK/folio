@@ -261,12 +261,7 @@ impl SherpaEngine {
         let dir = &cfg.models_dir;
         // Build the required list from the shared source of truth so the
         // diarization models are required ONLY when `cfg.diarize`.
-        for rel in crate::required_model_files(cfg.asr_model, cfg.diarize) {
-            let p = dir.join(&rel);
-            if !p.exists() {
-                return Err(EngineError::ModelNotFound(p).into());
-            }
-        }
+        require_files(dir, crate::required_model_files(cfg.asr_model, cfg.diarize))?;
         if let Some(h) = &cfg.hotwords {
             if !h.file.exists() {
                 return Err(EngineError::ModelNotFound(h.file.clone()).into());
@@ -288,7 +283,7 @@ impl SherpaEngine {
     }
 
     fn model_path(&self, rel: impl AsRef<Path>) -> String {
-        self.models_dir.join(rel).to_string_lossy().into_owned()
+        model_path(&self.models_dir, rel)
     }
 
     fn build_recognizer(&self) -> anyhow::Result<OfflineRecognizer> {
@@ -618,6 +613,41 @@ impl TranscriptionEngine for SherpaEngine {
         sample_rate: u32,
         num_speakers: Option<u32>,
     ) -> anyhow::Result<Vec<SpeakerSpan>> {
+        let diarizer = Diarizer { models_dir: self.models_dir.clone(), num_threads: self.num_threads };
+        diarizer.diarize(samples, sample_rate, num_speakers)
+    }
+}
+
+/// Speaker diarization (pyannote segmentation + 3D-Speaker embeddings +
+/// FastClustering), bound to a folder holding only the speaker models: the
+/// verified speaker-detection pack is unpacked on its own, apart from the
+/// transcription models.
+pub struct Diarizer {
+    models_dir: PathBuf,
+    num_threads: i32,
+}
+
+impl Diarizer {
+    /// Bind to `models_dir`, checking up front that it holds every
+    /// [`crate::speaker_model_files`] file.
+    pub fn new(models_dir: impl AsRef<Path>, num_threads: i32) -> anyhow::Result<Self> {
+        let models_dir = models_dir.as_ref().to_path_buf();
+        require_files(&models_dir, crate::speaker_model_files())?;
+        Ok(Self { models_dir, num_threads })
+    }
+
+    fn model_path(&self, rel: impl AsRef<Path>) -> String {
+        model_path(&self.models_dir, rel)
+    }
+
+    /// Diarize 16 kHz mono `samples` into speaker spans. `num_speakers = None`
+    /// auto-detects.
+    pub fn diarize(
+        &self,
+        samples: &[f32],
+        sample_rate: u32,
+        num_speakers: Option<u32>,
+    ) -> anyhow::Result<Vec<SpeakerSpan>> {
         let config = OfflineSpeakerDiarizationConfig {
             segmentation: OfflineSpeakerSegmentationModelConfig {
                 pyannote: OfflineSpeakerSegmentationPyannoteModelConfig {
@@ -672,6 +702,24 @@ impl TranscriptionEngine for SherpaEngine {
         spans.sort_by(|a, b| a.start.partial_cmp(&b.start).unwrap_or(std::cmp::Ordering::Equal));
         Ok(spans)
     }
+}
+
+/// Fail with [`EngineError::ModelNotFound`] naming the first of `files`
+/// (relative to `dir`) that is missing, so a missing file fails with a clear
+/// path rather than a deep sherpa error.
+fn require_files(dir: &Path, files: Vec<String>) -> Result<(), EngineError> {
+    for rel in files {
+        let p = dir.join(&rel);
+        if !p.exists() {
+            return Err(EngineError::ModelNotFound(p));
+        }
+    }
+    Ok(())
+}
+
+/// `rel` under `dir`, as the string sherpa-onnx configs take.
+fn model_path(dir: &Path, rel: impl AsRef<Path>) -> String {
+    dir.join(rel).to_string_lossy().into_owned()
 }
 
 #[cfg(test)]

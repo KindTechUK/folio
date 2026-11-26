@@ -42,7 +42,7 @@ use serde::Serialize;
 use tauri::{AppHandle, Emitter, Manager};
 
 use crate::commands::{
-    finish_transcript, label_speakers, resolve_models_dir, speaker_engine, NewTranscript,
+    finish_transcript, label_speakers, resolve_models_dir, speaker_diarizer, NewTranscript,
 };
 use crate::system;
 
@@ -1324,7 +1324,8 @@ pub fn resume_recording(app: AppHandle) -> Result<(), String> {
 
 struct Finished {
     path: PathBuf,
-    cfg: EngineConfig,
+    /// Threads the recording's engine used; speaker labelling uses as many.
+    num_threads: i32,
     segments: Vec<AsrSegment>,
     /// Seconds of the record that couldn't be transcribed.
     unread_s: f64,
@@ -1356,7 +1357,7 @@ fn finish(app: &AppHandle, discarding: bool) -> Result<Finished, String> {
     let mut segments = active.segments.lock().unwrap().clone();
     segments.sort_by(|a, b| a.start.partial_cmp(&b.start).unwrap_or(std::cmp::Ordering::Equal));
     let unread_s = active.unread.load(Ordering::Relaxed) as f64 / SAMPLE_RATE as f64;
-    Ok(Finished { path: active.path, cfg: active.cfg, segments, unread_s })
+    Ok(Finished { path: active.path, num_threads: active.cfg.num_threads, segments, unread_s })
 }
 
 /// Stop recording and build the transcript from the record's pieces, with
@@ -1394,13 +1395,11 @@ fn label_recording(
     done: &Finished,
     num_speakers: Option<u32>,
 ) -> anyhow::Result<engine::Transcript> {
-    let mut cfg = done.cfg.clone();
-    // Resolved again, so a pack added while recording counts.
-    cfg.models_dir = resolve_models_dir(app, cfg.asr_model).map_err(anyhow::Error::msg)?;
-    // Before reading the recording, which takes about 230 MB per hour.
-    let eng = speaker_engine(&cfg)?;
+    // Resolved at Stop, so a pack added while recording counts, and before
+    // reading the recording, which takes about 230 MB per hour.
+    let diarizer = speaker_diarizer(app, done.num_threads)?;
     let (samples, sr) = load_wav_16k_mono(&done.path)?;
-    label_speakers(&eng, &samples, sr, &done.segments, num_speakers)
+    label_speakers(&diarizer, &samples, sr, &done.segments, num_speakers)
 }
 
 /// Remove a finished recording's notes file once the transcript holding the
