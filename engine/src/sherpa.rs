@@ -555,6 +555,97 @@ fn round3(x: f64) -> f64 {
     (x * 1000.0).round() / 1000.0
 }
 
+/// Speaker diarization (pyannote segmentation + 3D-Speaker embeddings +
+/// FastClustering), bound to a folder holding only the speaker models: the
+/// verified speaker-detection pack is unpacked on its own, apart from the
+/// transcription models.
+pub struct Diarizer {
+    models_dir: PathBuf,
+    num_threads: i32,
+}
+
+impl Diarizer {
+    /// Bind to `models_dir`, checking up front that it holds every
+    /// [`crate::speaker_model_files`] file.
+    pub fn new(models_dir: impl AsRef<Path>, num_threads: i32) -> anyhow::Result<Self> {
+        let models_dir = models_dir.as_ref().to_path_buf();
+        for rel in crate::speaker_model_files() {
+            let p = models_dir.join(&rel);
+            if !p.exists() {
+                return Err(EngineError::ModelNotFound(p).into());
+            }
+        }
+        Ok(Self { models_dir, num_threads })
+    }
+
+    fn model_path(&self, rel: impl AsRef<Path>) -> String {
+        self.models_dir.join(rel).to_string_lossy().into_owned()
+    }
+
+    /// Diarize 16 kHz mono `samples` into speaker spans. `num_speakers = None`
+    /// auto-detects.
+    pub fn diarize(
+        &self,
+        samples: &[f32],
+        sample_rate: u32,
+        num_speakers: Option<u32>,
+    ) -> anyhow::Result<Vec<SpeakerSpan>> {
+        let config = OfflineSpeakerDiarizationConfig {
+            segmentation: OfflineSpeakerSegmentationModelConfig {
+                pyannote: OfflineSpeakerSegmentationPyannoteModelConfig {
+                    model: Some(self.model_path(SEG_MODEL)),
+                    ..Default::default()
+                },
+                num_threads: self.num_threads,
+                provider: Some("cpu".to_string()),
+                ..Default::default()
+            },
+            embedding: SpeakerEmbeddingExtractorConfig {
+                model: Some(self.model_path(EMB_MODEL)),
+                num_threads: self.num_threads,
+                provider: Some("cpu".to_string()),
+                ..Default::default()
+            },
+            clustering: FastClusteringConfig {
+                // -1 (auto via threshold) when no count given; else fixed count.
+                num_clusters: num_speakers.map(|n| n as i32).unwrap_or(-1),
+                threshold: 0.5,
+                ..Default::default()
+            },
+            min_duration_on: 0.3,
+            min_duration_off: 0.5,
+        };
+
+        let sd = OfflineSpeakerDiarization::create(&config)
+            .ok_or_else(|| EngineError::Sherpa("create OfflineSpeakerDiarization returned None".into()))?;
+
+        if sd.sample_rate() as u32 != sample_rate {
+            return Err(EngineError::Audio(format!(
+                "diarization expects {} Hz, got {} Hz",
+                sd.sample_rate(),
+                sample_rate
+            ))
+            .into());
+        }
+
+        let result = sd
+            .process(samples)
+            .ok_or_else(|| EngineError::Sherpa("diarization process returned None".into()))?;
+
+        let mut spans: Vec<SpeakerSpan> = result
+            .sort_by_start_time()
+            .into_iter()
+            .map(|s| SpeakerSpan {
+                speaker: format!("SPEAKER_{:02}", s.speaker),
+                start: round3(s.start as f64),
+                end: round3(s.end as f64),
+            })
+            .collect();
+        spans.sort_by(|a, b| a.start.partial_cmp(&b.start).unwrap_or(std::cmp::Ordering::Equal));
+        Ok(spans)
+    }
+}
+
 impl TranscriptionEngine for SherpaEngine {
     fn transcribe(
         &self,
@@ -618,59 +709,8 @@ impl TranscriptionEngine for SherpaEngine {
         sample_rate: u32,
         num_speakers: Option<u32>,
     ) -> anyhow::Result<Vec<SpeakerSpan>> {
-        let config = OfflineSpeakerDiarizationConfig {
-            segmentation: OfflineSpeakerSegmentationModelConfig {
-                pyannote: OfflineSpeakerSegmentationPyannoteModelConfig {
-                    model: Some(self.model_path(SEG_MODEL)),
-                    ..Default::default()
-                },
-                num_threads: self.num_threads,
-                provider: Some("cpu".to_string()),
-                ..Default::default()
-            },
-            embedding: SpeakerEmbeddingExtractorConfig {
-                model: Some(self.model_path(EMB_MODEL)),
-                num_threads: self.num_threads,
-                provider: Some("cpu".to_string()),
-                ..Default::default()
-            },
-            clustering: FastClusteringConfig {
-                // -1 (auto via threshold) when no count given; else fixed count.
-                num_clusters: num_speakers.map(|n| n as i32).unwrap_or(-1),
-                threshold: 0.5,
-                ..Default::default()
-            },
-            min_duration_on: 0.3,
-            min_duration_off: 0.5,
-        };
-
-        let sd = OfflineSpeakerDiarization::create(&config)
-            .ok_or_else(|| EngineError::Sherpa("create OfflineSpeakerDiarization returned None".into()))?;
-
-        if sd.sample_rate() as u32 != sample_rate {
-            return Err(EngineError::Audio(format!(
-                "diarization expects {} Hz, got {} Hz",
-                sd.sample_rate(),
-                sample_rate
-            ))
-            .into());
-        }
-
-        let result = sd
-            .process(samples)
-            .ok_or_else(|| EngineError::Sherpa("diarization process returned None".into()))?;
-
-        let mut spans: Vec<SpeakerSpan> = result
-            .sort_by_start_time()
-            .into_iter()
-            .map(|s| SpeakerSpan {
-                speaker: format!("SPEAKER_{:02}", s.speaker),
-                start: round3(s.start as f64),
-                end: round3(s.end as f64),
-            })
-            .collect();
-        spans.sort_by(|a, b| a.start.partial_cmp(&b.start).unwrap_or(std::cmp::Ordering::Equal));
-        Ok(spans)
+        let diarizer = Diarizer { models_dir: self.models_dir.clone(), num_threads: self.num_threads };
+        diarizer.diarize(samples, sample_rate, num_speakers)
     }
 }
 

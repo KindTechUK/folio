@@ -16,7 +16,7 @@ pub mod vocab;
 
 pub use decode::{decode_to_16k_mono, decode_to_16k_mono_with_progress, probe_duration_s};
 pub use resample::StreamResampler;
-pub use sherpa::{Recognizer, SherpaEngine, Vad, VadProfile};
+pub use sherpa::{Diarizer, Recognizer, SherpaEngine, Vad, VadProfile};
 pub use vocab::{SkippedLine, Vocabulary};
 
 /// A progress update emitted during the pipeline so the UI can render a
@@ -367,10 +367,15 @@ pub fn required_model_files(asr_model: AsrModel, diarize: bool) -> Vec<String> {
     let mut files = asr_model.asr_files();
     files.push(VAD_MODEL.to_string());
     if diarize {
-        files.push(SEG_MODEL.to_string());
-        files.push(EMB_MODEL.to_string());
+        files.extend(speaker_model_files());
     }
     files
+}
+
+/// The RELATIVE model-file paths diarization needs: what [`Diarizer::new`]
+/// checks for, and what a speaker-detection pack must provide.
+pub fn speaker_model_files() -> Vec<String> {
+    vec![SEG_MODEL.to_string(), EMB_MODEL.to_string()]
 }
 
 #[derive(Debug, thiserror::Error)]

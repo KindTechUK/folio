@@ -17,6 +17,9 @@ ed25519-dalek = { version = "2", features = ["pem"] }
 
 [dev-dependencies]
 ed25519-dalek = { version = "2", features = ["pem"] }
+# The pack producer, so tests can sign packs with the committed test key. Tests
+# only: never linked into the app.
+modelpack-sign = { path = "../../tools/modelpack-sign" }
 
 [dependencies]
 # In-process engine via a PATH dependency — NOT a registry fetch. Pulls
@@ -44,7 +47,6 @@ serde_json = "1"
 # Verified-pack resolution: extract verified packs' `weights.bin` zips into a
 # content-addressed cache. Network-free (scanned by the zero-egress gate).
 zip = "2"
-sha2 = "0.10"
 
 # In-app recording: microphone capture (CoreAudio / WASAPI / ALSA backends),
 # WAV writing, and local-time file names. All network-free.

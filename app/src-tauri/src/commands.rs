@@ -2,7 +2,7 @@
 //! leaves the machine and no network call is made.
 
 use engine::{
-    decode_to_16k_mono_with_progress, merge, AsrSegment, EngineConfig, SherpaEngine,
+    decode_to_16k_mono_with_progress, merge, AsrSegment, Diarizer, EngineConfig, SherpaEngine,
     TranscriptionEngine,
 };
 use serde::Serialize;
@@ -52,37 +52,53 @@ pub(crate) fn finish_transcript(
     NewTranscript { transcript, speakers_labelled, note }
 }
 
-/// The note for a transcript whose speakers couldn't be labelled because of `e`.
-fn unlabelled_note(e: &anyhow::Error) -> String {
-    match e.downcast_ref::<engine::EngineError>() {
-        Some(engine::EngineError::ModelNotFound(_)) => NO_SPEAKER_PACK.to_string(),
-        _ => format!("Speakers couldn't be labelled, so this transcript has none. ({e})"),
+/// Speakers were asked for, but no speaker-detection pack is installed.
+#[derive(Debug)]
+struct NoSpeakerPack;
+
+impl std::fmt::Display for NoSpeakerPack {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("no speaker-detection pack is installed")
     }
 }
 
-/// The engine to label speakers with. Building it checks for the speaker
-/// models, so build it before reading any audio.
-///
-/// `cfg.models_dir` is a models dir resolved for transcription. The resolver
-/// composes every verified pack into it, so the speaker models are there only
-/// if their pack is installed; if not, this fails with
-/// [`engine::EngineError::ModelNotFound`].
-pub(crate) fn speaker_engine(cfg: &EngineConfig) -> anyhow::Result<SherpaEngine> {
-    let mut cfg = cfg.clone();
-    cfg.diarize = true;
-    SherpaEngine::new(&cfg)
+impl std::error::Error for NoSpeakerPack {}
+
+/// The note for a transcript whose speakers couldn't be labelled because of `e`.
+fn unlabelled_note(e: &anyhow::Error) -> String {
+    if e.is::<NoSpeakerPack>() {
+        NO_SPEAKER_PACK.to_string()
+    } else {
+        format!("Speakers couldn't be labelled, so this transcript has none. ({e})")
+    }
 }
 
-/// Diarize `samples` with `engine` (from [`speaker_engine`]) and attach
+/// The diarizer to label speakers with, from the speaker-detection pack. Get
+/// it before reading any audio: it fails fast when the pack is missing.
+pub(crate) fn speaker_diarizer(app: &AppHandle, num_threads: i32) -> anyhow::Result<Diarizer> {
+    diarizer_for(resolve_speaker_dir(app), num_threads)
+}
+
+/// The diarizer for a resolved speaker-models folder; `Ok(None)` means no
+/// speaker-detection pack is installed.
+fn diarizer_for(
+    dir: Result<Option<std::path::PathBuf>, String>,
+    num_threads: i32,
+) -> anyhow::Result<Diarizer> {
+    let dir = dir.map_err(anyhow::Error::msg)?.ok_or(NoSpeakerPack)?;
+    Diarizer::new(dir, num_threads)
+}
+
+/// Diarize `samples` with `diarizer` (from [`speaker_diarizer`]) and attach
 /// speakers to the transcribed `segments`.
 pub(crate) fn label_speakers(
-    engine: &SherpaEngine,
+    diarizer: &Diarizer,
     samples: &[f32],
     sample_rate: u32,
     segments: &[AsrSegment],
     num_speakers: Option<u32>,
 ) -> anyhow::Result<engine::Transcript> {
-    let spans = engine.diarize(samples, sample_rate, num_speakers)?;
+    let spans = diarizer.diarize(samples, sample_rate, num_speakers)?;
     Ok(merge::merge(segments, &spans))
 }
 
@@ -151,6 +167,18 @@ pub(crate) fn resolve_models_dir(
     models::resolve_verified_models_dir(app, asr_model)
 }
 
+/// Resolve the speaker-detection models' folder, or `None` when no verified
+/// speaker-detection pack is installed (debug-only raw override: the override
+/// folder, if it holds the speaker models). Blocking: may unpack the pack.
+pub(crate) fn resolve_speaker_dir(app: &AppHandle) -> Result<Option<std::path::PathBuf>, String> {
+    #[cfg(debug_assertions)]
+    if let Some(raw) = debug_models_dir_override() {
+        let present = engine::speaker_model_files().iter().all(|file| raw.join(file).is_file());
+        return Ok(present.then_some(raw));
+    }
+    models::resolve_verified_speaker_dir(app)
+}
+
 /// Transcribe an audio file (wav/mp3/m4a/mp4/flac/ogg…) into the project's JSON
 /// contract.
 ///
@@ -186,10 +214,9 @@ pub async fn transcribe(
     tauri::async_runtime::spawn_blocking(move || {
         // Resolve the models dir, enforcing verified-pack trust (debug-only raw
         // override: see `debug_models_dir_override`). Transcription models
-        // only: speakers are labelled as a separate step below, so missing
-        // speaker models, or a failure to load or run them, don't cost the
-        // transcript. (Resolving still unpacks every verified pack, so a pack
-        // that fails to unpack stops this too: #38.)
+        // only: speakers are labelled as a separate step below, from their own
+        // pack, so a speaker pack that is missing or fails to unpack, load or
+        // run doesn't cost the transcript.
         cfg.models_dir = resolve_models_dir(&resolve_app, cfg.asr_model)?;
 
         // Timed from model load to the finished transcript: what the person
@@ -216,8 +243,8 @@ pub async fn transcribe(
         let segments =
             sherpa.transcribe(&samples, sample_rate, &progress).map_err(|e| e.to_string())?;
         let label = diarize.then_some(|| {
-            let eng = speaker_engine(&cfg)?;
-            label_speakers(&eng, &samples, sample_rate, &segments, num_speakers)
+            let diarizer = speaker_diarizer(&run_app, cfg.num_threads)?;
+            label_speakers(&diarizer, &samples, sample_rate, &segments, num_speakers)
         });
         let result = finish_transcript(&run_app, &segments, label, Vec::new());
         crate::device::record_run(
@@ -232,4 +259,43 @@ pub async fn transcribe(
     })
     .await
     .map_err(|e| format!("transcription task failed: {e}"))?
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::models::resolve_verified_speaker_dir_in;
+    use crate::models::tests::{broken_speaker_pack, copy_fixture_pack, fixtures_context, unique_tmp};
+    use modelpack::PublicKey;
+    use std::path::Path;
+
+    /// The speaker step's note says why a transcript has no speakers: the pack
+    /// isn't installed, or it couldn't be used.
+    #[test]
+    fn the_speaker_step_says_why_a_transcript_has_no_speakers() {
+        let (pem, versions) = fixtures_context();
+        let pubkey = PublicKey::SpkiPem(&pem);
+        let packs = unique_tmp("note-packs");
+        copy_fixture_pack("asr-small-en", &packs);
+        let cache_base = unique_tmp("note-cache");
+        let note = |packs: &Path| {
+            let dir = resolve_verified_speaker_dir_in(packs, &cache_base, &pubkey, &versions);
+            let err = diarizer_for(dir, 4).err().expect("no speaker models to label with");
+            unlabelled_note(&err)
+        };
+
+        assert_eq!(
+            note(&packs),
+            "The speaker-detection pack isn't installed, so this transcript has no speakers. Add it on the Models page."
+        );
+        broken_speaker_pack(&packs);
+        let broken = note(&packs);
+        assert!(
+            broken.starts_with("Speakers couldn't be labelled, so this transcript has none. ("),
+            "got: {broken}"
+        );
+
+        let _ = std::fs::remove_dir_all(&packs);
+        let _ = std::fs::remove_dir_all(&cache_base);
+    }
 }
