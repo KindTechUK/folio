@@ -9,6 +9,7 @@ id so the output is reproducible. The base rate is nudged (2.0-3.2 words/s) to k
   python stamp_data.py SRC.json [SRC.json ...]     # stamp, validate, write data/<stem>.json
   python stamp_data.py --check                     # validate the tuning and test transcripts (run.TUNING/TEST)
 """
+import datetime
 import json
 import pathlib
 import random
@@ -34,6 +35,11 @@ def stamp(t, rate):
 
 def validate(t, new=True):
     errs = []
+    # The recording date the v2 prompt and the judges see (common.recorded_on).
+    try:
+        datetime.date.fromisoformat(t.get("recorded", ""))
+    except ValueError:
+        errs.append(f"recorded date {t.get('recorded')!r} (want YYYY-MM-DD)")
     ids = [l["id"] for l in t["lines"]]
     if ids != [f"L{i:04d}" for i in range(1, len(ids) + 1)]:
         errs.append("line ids not sequential")

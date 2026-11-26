@@ -15,6 +15,7 @@ Vignette JSON (one file per vignette, in data/):
 The model never sees timestamps. Each line is rendered as `L<n> <speaker>: text`, and the model cites
 line numbers.
 """
+import datetime
 import json
 import pathlib
 import re
@@ -98,7 +99,7 @@ def cited(max_len, max_cites):
     }
 
 
-def facts_schema(tpl):
+def facts_schema(tpl, cap=30):
     """Map output: facts tagged with the note section they belong to."""
     item = cited(180, 5)
     item["properties"]["section"] = {"type": "string",
@@ -106,7 +107,7 @@ def facts_schema(tpl):
     item["required"] = ["section", "text", "cites"]
     return {
         "type": "object",
-        "properties": {"facts": {"type": "array", "items": item, "maxItems": 30}},
+        "properties": {"facts": {"type": "array", "items": item, "maxItems": cap}},
         "required": ["facts"],
     }
 
@@ -144,10 +145,25 @@ STATUTORY_EXTRA = (
     "substance use or sexual content accurately, in the speaker's own plain words; do not refuse, "
     "sanitise, soften or omit them."
 )
+# v2 (the follow-up run): statutory plus rule (7), the details the softened disclosures lost. The same text
+# as spikes/s3-citations/common.py V2_EXTRA; the examples are deliberately not from any S3 or S4 transcript.
+RULE_7 = (
+    " (7) Keep how often, how hard, who saw it and when exactly as said ('four times a week', 'shoved hard', "
+    "'my neighbour saw it', 'on Saturday evening'); do not generalise, soften or drop them."
+)
 PROMPTS = {
     "neutral": _RULES_HEAD + "(5) " + _RULE_CITE,
     "statutory": SYSTEM_S2 + STATUTORY_EXTRA,
+    "v2": SYSTEM_S2 + STATUTORY_EXTRA + RULE_7,
 }
+# v2 also puts the recording date in the map prompt (map_messages `dated`).
+DATED_PROMPTS = {"v2"}
+
+
+def recorded_on(t):
+    """'Tuesday 17 November 2026' from the vignette's `recorded` date (portable: no %-d)."""
+    d = datetime.date.fromisoformat(t["recorded"])
+    return f"{d:%A} {d.day} {d:%B %Y}"
 
 
 def speakers_block(t):
@@ -158,10 +174,11 @@ def template_block(tpl):
     return "\n".join(f"- {s['title']}: {s['instruction']}" for s in tpl["sections"])
 
 
-def map_messages(t, tpl, section_lines, idx, total, system):
-    """S2's map prompt, unchanged except that the system prompt is passed in."""
+def map_messages(t, tpl, section_lines, idx, total, system, dated=False):
+    """S2's map prompt, with the system prompt passed in; v2 (`dated`) adds the recording date."""
+    date = f"Recorded on {recorded_on(t)}.\n\n" if dated else ""
     user = (
-        f"This is part {idx + 1} of {total} of a longer conversation. The final record will be a "
+        f"{date}This is part {idx + 1} of {total} of a longer conversation. The final record will be a "
         f"{tpl['name']} with these sections:\n{template_block(tpl)}\n\n"
         f"Speakers:\n{speakers_block(t)}\n\n"
         "List every fact from THIS part that could belong in the record: who said what, dates, "

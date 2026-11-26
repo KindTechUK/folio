@@ -21,6 +21,7 @@ import argparse
 import hashlib
 import json
 import math
+import pathlib
 import re
 import statistics
 
@@ -34,6 +35,9 @@ what which who whom when where why how all any some very just also about into ov
 um uh er erm like yeah okay ok oh well really right mean know think going get got one two""".split())
 
 STRATEGY = "sectioned"
+# Runs judged before packets showed the recording date. Their packet text (and so their ids and verdicts)
+# must stay exactly as judged.
+LEGACY_RUNS = {"s3"}
 PART_MAX = 120  # sentences per judge packet before a note is split into parts
 POSITIVE = {"unsupported_fabrication", "contradiction", "over_inference"}
 LABELS = {"supported"} | POSITIVE
@@ -148,8 +152,9 @@ def auto(run):
 
 # ---- blind packets ----
 
-def note_hash(model, tid):
-    return hashlib.sha1(f"s3|{model}|{tid}|{STRATEGY}".encode()).hexdigest()[:8]
+def note_hash(model, tid, run):
+    tag = "" if run in LEGACY_RUNS else f"|{run}"
+    return hashlib.sha1(f"s3|{model}|{tid}|{STRATEGY}{tag}".encode()).hexdigest()[:8]
 
 
 def sentence_fp(s):
@@ -157,12 +162,42 @@ def sentence_fp(s):
     return hashlib.sha1(json.dumps([s["text"], s["cites"]]).encode()).hexdigest()[:12]
 
 
-def transcript_txt(t):
+def transcript_txt(t, dated):
     head = f"# {t['title']}\n# id: {t['id']}\n# Speakers: " + "; ".join(f"{k} = {v}" for k, v in t["speakers"].items())
+    if dated:
+        head += f"\n# Recorded on {C.recorded_on(t)}"
     return head + "\n\n" + C.render_lines(t["lines"]) + "\n"
 
 
-def packets(run):
+REPO = C.HERE.parents[1]
+
+
+def rel(p):
+    """Repo-relative path for packets, so a packet's text doesn't depend on where the repo is checked out."""
+    return pathlib.Path(p).resolve().relative_to(REPO)
+
+
+def same_packet(old, new):
+    """Packet texts equal apart from where the repo was checked out (the first run wrote absolute paths)."""
+    norm = lambda x: re.sub(r"`/[^`]*?/(spikes/s3-citations/)", r"`\1", x)
+    return norm(old) == norm(new)
+
+
+def calibrate(run, spec):
+    """Copy another run's notes into this run as model `<model>@<run>`, so the judges label them blind, in
+    the same batch as this run's notes. `spec` is `<run>:<model>`, e.g. `s3:qwen3.5-4b`."""
+    src_run, model = spec.split(":")
+    src, dst = C.RESULTS / "notes" / src_run / model, C.RESULTS / "notes" / run / f"{model}@{src_run}"
+    dst.mkdir(parents=True, exist_ok=True)
+    for f in sorted(src.glob(f"*.{STRATEGY}.json")):
+        C.write_text(dst / f.name, C.read_text(f))
+    print(f"calibration: {src} -> {dst}")
+
+
+def packets(run, calibration=None):
+    if calibration:
+        calibrate(run, calibration)
+    dated = run not in LEGACY_RUNS
     jdir = C.RESULTS / "judge" / run
     (jdir / "transcripts").mkdir(parents=True, exist_ok=True)
     key, sizes = {}, []
@@ -171,12 +206,12 @@ def packets(run):
         t = C.load_transcript(tpath)
         tpl = C.load_template(t["template"])
         txt = jdir / "transcripts" / f"{t['id']}.txt"
-        C.write_text(txt, transcript_txt(t))
+        C.write_text(txt, transcript_txt(t, dated))
         by_num = {C.line_num(l["id"]): l for l in t["lines"]}
         sents = C.note_sentence_list(json.loads(C.read_text(path)))
         n_parts = max(1, math.ceil(len(sents) / PART_MAX))
         size = math.ceil(len(sents) / n_parts) if sents else 0
-        h = note_hash(model, tid)
+        h = note_hash(model, tid, run)
         for i in range(n_parts):
             pid = h if n_parts == 1 else f"{h}-{i + 1}"
             chunk = sents[i * size:(i + 1) * size]
@@ -191,9 +226,10 @@ def packets(run):
                 blocks.append(f"### {s['sid']} · {s['section']}\n{s['text']}\n\nCited lines:\n" + "\n".join(quoted))
             part_note = f" (part {i + 1} of {n_parts}: sentences {chunk[0]['sid']}–{chunk[-1]['sid']})" if n_parts > 1 else ""
             md = [f"# Judge packet {pid}{part_note}\n",
-                  f"Full transcript (read it all): `{txt}`  ",
-                  f"Same transcript as JSON: `{tpath}`\n",
-                  f"Note type: {tpl['name']}. Speakers: " + "; ".join(f"{k} = {v}" for k, v in t["speakers"].items()),
+                  f"Full transcript (read it all): `{rel(txt)}`  ",
+                  f"Same transcript as JSON: `{rel(tpath)}`\n",
+                  (f"Recorded on {C.recorded_on(t)}.  " if dated else "")
+                  + f"Note type: {tpl['name']}. Speakers: " + "; ".join(f"{k} = {v}" for k, v in t["speakers"].items()),
                   "\nLine references: `L52` in a note's cites = line `L52` in the transcript file "
                   "(id `L0052` in the JSON). Times are [mm:ss] from the start.\n",
                   f"## Sentences to judge ({len(chunk)})\n", "\n\n".join(blocks) or "(the note has no sentences)"]
@@ -208,12 +244,14 @@ def packets(run):
                        "Write `\"facts\": {}`."]
             md += ["\n\n## Traps (a sentence that makes one of these claims, even implicitly, hits the trap)\n",
                    "\n".join(f"- {x['id']} ({x['kind']}): must NOT claim: {x['must_not_claim']}" for x in t["traps"]),
-                   f"\n\nWrite your verdict to `{jdir / (pid + '.verdict.json')}` following "
-                   f"`{C.HERE / 'judge_instructions_s3.md'}`.\n"]
+                   f"\n\nWrite your verdict to `{rel(jdir / (pid + '.verdict.json'))}` following "
+                   f"`{rel(C.HERE / 'judge_instructions_s3.md')}`.\n"]
             packet = jdir / f"{pid}.md"
             text = "\n".join(md)
             verdict = jdir / f"{pid}.verdict.json"
-            if verdict.exists() and (not packet.exists() or C.read_text(packet) != text):
+            if packet.exists() and same_packet(C.read_text(packet), text):
+                continue  # unchanged: keep the packet exactly as the judge saw it
+            if verdict.exists():
                 # The judge labelled a different note: never let that verdict count for this one.
                 verdict.rename(jdir / f"{pid}.verdict.stale.json")
                 print(f"  {pid}: packet changed; old verdict moved to {pid}.verdict.stale.json")
@@ -336,5 +374,9 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("cmd", choices=["auto", "packets", "collect"])
     ap.add_argument("--run", required=True)
+    ap.add_argument("--calibrate", help="packets only: also judge another run's notes blind, e.g. s3:qwen3.5-4b")
     a = ap.parse_args()
-    {"auto": auto, "packets": packets, "collect": collect}[a.cmd](a.run)
+    if a.cmd == "packets":
+        packets(a.run, a.calibrate)
+    else:
+        {"auto": auto, "collect": collect}[a.cmd](a.run)

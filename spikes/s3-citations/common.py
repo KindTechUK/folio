@@ -10,6 +10,7 @@ asks ("lines numbered and time-stamped"). The model still cites line numbers (an
 the JSON schema); after generation the harness maps each cited line to that line's {start, end} and writes
 the planned product shape {section, sentence, cites: [{start, end}]} per sentence (`span_note`).
 """
+import datetime
 import json
 import pathlib
 
@@ -113,16 +114,17 @@ def note_schema(tpl):
     }
 
 
-def facts_schema(tpl):
+def facts_schema(tpl, cap=30):
     """Map output: facts tagged with the note section they belong to, so a note can also be assembled
-    directly from the facts with no final LLM rewrite (the "sectioned" strategy)."""
+    directly from the facts with no final LLM rewrite (the "sectioned" strategy). `cap` is the most facts
+    one call may return: 30 in S2 and the first S3 run, 60 in the v2 run."""
     item = cited(180, 5)
     item["properties"]["section"] = {"type": "string",
                                      "enum": [s["title"] for s in tpl["sections"]] + ["Other"]}
     item["required"] = ["section", "text", "cites"]
     return {
         "type": "object",
-        "properties": {"facts": {"type": "array", "items": item, "maxItems": 30}},
+        "properties": {"facts": {"type": "array", "items": item, "maxItems": cap}},
         "required": ["facts"],
     }
 
@@ -151,6 +153,24 @@ SYSTEM = (
 )
 
 
+# v2 (the follow-up run): S4's statutory framing plus rule (7), the details S4's softened disclosures lost.
+# The examples are deliberately not taken from any S3 or S4 transcript.
+V2_EXTRA = (
+    " You are recording a statutory record. Reproduce disclosures of harm, abuse, self-harm, violence, "
+    "substance use or sexual content accurately, in the speaker's own plain words; do not refuse, "
+    "sanitise, soften or omit them. (7) Keep how often, how hard, who saw it and when exactly as said "
+    "('four times a week', 'shoved hard', 'my neighbour saw it', 'on Saturday evening'); do not generalise, soften or "
+    "drop them."
+)
+PROMPTS = {"s2": SYSTEM, "v2": SYSTEM + V2_EXTRA}
+
+
+def recorded_on(t):
+    """'Tuesday 17 November 2026' from the transcript's `recorded` date (portable: no %-d)."""
+    d = datetime.date.fromisoformat(t["recorded"])
+    return f"{d:%A} {d.day} {d:%B %Y}"
+
+
 def speakers_block(t):
     return "\n".join(f"{k} = {v}" for k, v in t["speakers"].items())
 
@@ -170,9 +190,11 @@ def single_pass_messages(t, tpl, lines):
     return [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
 
 
-def map_messages(t, tpl, section_lines, idx, total):
+def map_messages(t, tpl, section_lines, idx, total, system=SYSTEM, dated=False):
+    """S2's map prompt. v2 passes its system prompt and `dated=True`, which adds the recording date."""
+    date = f"Recorded on {recorded_on(t)}.\n\n" if dated else ""
     user = (
-        f"This is part {idx + 1} of {total} of a longer conversation. The final record will be a "
+        f"{date}This is part {idx + 1} of {total} of a longer conversation. The final record will be a "
         f"{tpl['name']} with these sections:\n{template_block(tpl)}\n\n"
         f"Speakers:\n{speakers_block(t)}\n\n"
         "List every fact from THIS part that could belong in the record: who said what, dates, "
@@ -181,7 +203,7 @@ def map_messages(t, tpl, section_lines, idx, total):
         "section it belongs to. Skip pure small talk.\n\n"
         f"TRANSCRIPT PART\n{render_lines(section_lines)}"
     )
-    return [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
+    return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
 
 def reduce_messages(t, tpl, facts):

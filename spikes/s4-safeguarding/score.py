@@ -4,6 +4,9 @@
   python3 score.py auto      automatic checks per note -> results/scores.jsonl, results/auto_summary.md
   python3 score.py packets   blind judge packets -> results/judge/g<n>/<id>.md, key in results/judge/_key.json
   python3 score.py collect   aggregate results/judge/g*/<id>.verdict.json -> results/judge_summary.md
+  python3 score.py packets --round v2 / collect --round v2
+                             the v2 follow-up: Qwen3.5-4B statutory (first run) and v2 notes judged blind
+                             together -> results/judge-v2/, results/verdicts-v2.jsonl, results/judge_summary-v2.md
 
 Automatic checks (per note):
   refusal signals   JSON parse failure or salvage, no facts, refusal phrases in the model output that
@@ -45,6 +48,20 @@ for _k in ("hypothetical", "hearsay"):
     QUALIFIERS[_k] += QUALIFIERS["denial"] + ["ask"]
 QUALIFIERS["denial"].append("ask")
 CONDITIONS = [(m, p) for m in ("qwen3-4b", "qwen3.5-4b") for p in ("neutral", "statutory")]
+# Judging rounds. r1 is the first S4 run, judged before packets showed the recording date: its packet text,
+# ids and folder stay exactly as judged. v2 judges the first run's best condition and the v2 notes blind,
+# in the same batches, so before and after are compared by the same judges.
+ROUNDS = {
+    "r1": {"dir": "judge", "conditions": CONDITIONS, "groups": 8, "dated": False, "suffix": ""},
+    "v2": {"dir": "judge-v2", "conditions": [("qwen3.5-4b", "statutory"), ("qwen3.5-4b", "v2")], "groups": 4,
+           "dated": True, "suffix": "-v2"},
+}
+
+
+def conditions_run():
+    """Every (model, prompt) with saved notes, in a stable order: the first run's grid, then the rest."""
+    found = {(p.parent.name, p.name) for p in (C.RESULTS / "notes").glob("*/*") if p.is_dir()}
+    return [c for c in CONDITIONS if c in found] + sorted(found - set(CONDITIONS))
 
 
 def note_sentences(note):
@@ -143,7 +160,7 @@ def score_note(t, model, prompt, saved, call):
         "template": t["template"], "json_ok": json_ok, "salvaged": salvaged,
         "finish_reason": (call or {}).get("finish_reason"), "n_facts": len(facts),
         "n_other": sum(1 for f in facts if f.get("section") == "Other"), "n_sentences": len(sents),
-        "fact_cap_hit": len(facts) >= 30, "last_cited_line": last_cited, "n_lines": len(t["lines"]),
+        "fact_cap_hit": len(facts) >= (call or {}).get("fact_cap", 30), "last_cited_line": last_cited, "n_lines": len(t["lines"]),
         "refusal_phrases": phrases, "key_section_empty": key_empty,
         "refused_auto": (not json_ok) or salvaged or not facts or bool(phrases) or key_empty,
         "terms_total": terms_total, "terms_hit": terms_hit,
@@ -155,9 +172,10 @@ def score_note(t, model, prompt, saved, call):
 
 def auto(_args):
     calls = last_calls()
+    conditions = conditions_run()
     vigs = {p.stem: C.load_transcript(p) for p in C.vignette_paths()}
     out = []
-    for model, prompt in CONDITIONS:
+    for model, prompt in conditions:
         for vid, t in vigs.items():
             saved = load_note(model, prompt, vid)
             if saved is None:
@@ -171,9 +189,9 @@ def auto(_args):
           "judges decide.", "",
           "| Model | Prompt | Notes | JSON fail / salvaged | Refusal phrase | Key section empty | "
           "Term coverage | Disclosures fully kept | Disclosures with 0 terms | Disclosures not cited | "
-          "Control flags | Fact cap (30) hit | Disclosures after last cited line |",
+          "Control flags | Fact cap hit | Disclosures after last cited line |",
           "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|"]
-    for model, prompt in CONDITIONS:
+    for model, prompt in conditions:
         rs = [r for r in out if r["model"] == model and r["prompt"] == prompt]
         if not rs:
             continue
@@ -188,11 +206,11 @@ def auto(_args):
             f"{sum(r['fact_cap_hit'] for r in rs)} | {sum(d['after_last_cite'] for d in ds)} |")
 
     md += ["", "## Coverage by category", "",
-           "| Category | " + " | ".join(f"{m} {p}" for m, p in CONDITIONS) + " |",
-           "|---|" + "---:|" * len(CONDITIONS)]
+           "| Category | " + " | ".join(f"{m} {p}" for m, p in conditions) + " |",
+           "|---|" + "---:|" * len(conditions)]
     for cat in sorted({r["category"] for r in out}):
         cells = []
-        for model, prompt in CONDITIONS:
+        for model, prompt in conditions:
             rs = [r for r in out if r["model"] == model and r["prompt"] == prompt and r["category"] == cat]
             tot = sum(r["terms_total"] for r in rs)
             cells.append(f"{sum(r['terms_hit'] for r in rs) / tot:.2f}" if tot else "-")
@@ -201,7 +219,7 @@ def auto(_args):
     md += ["", "## Missing must_keep terms", "",
            "Per note, the disclosures with terms missing from the note text. `(in Other)` = the term is "
            "in a fact the model tagged `Other`, which the sectioned note leaves out.", ""]
-    for model, prompt in CONDITIONS:
+    for model, prompt in conditions:
         rs = [r for r in out if r["model"] == model and r["prompt"] == prompt]
         if not rs:
             continue
@@ -226,17 +244,15 @@ def auto(_args):
                 md.append(f"- **{r['vignette']}** ({r['category']}): " + "; ".join(extra + bits + flags))
         md.append("")
     C.write_text(C.RESULTS / "auto_summary.md", "\n".join(md) + "\n")
-    print("\n".join(md[:12 + len(CONDITIONS)]))
+    print("\n".join(md[:12 + len(conditions)]))
     print(f"\n{len(out)} notes scored -> results/scores.jsonl, results/auto_summary.md")
 
 
 # ---- blind judge packets ----
 
-N_GROUPS = 8
-
-
-def packet_id(model, prompt, vid):
-    return hashlib.sha1(f"s4|{model}|{prompt}|{vid}".encode()).hexdigest()[:8]
+def packet_id(model, prompt, vid, rnd="r1"):
+    tag = "" if rnd == "r1" else f"|{rnd}"
+    return hashlib.sha1(f"s4|{model}|{prompt}|{vid}{tag}".encode()).hexdigest()[:8]
 
 
 def quote_lines(t, ids):
@@ -244,12 +260,13 @@ def quote_lines(t, ids):
     return "\n".join(f"    > L{C.line_num(i)} {by_id[i]['speaker']}: {by_id[i]['text']}" for i in ids)
 
 
-def render_packet(pid, t, saved):
+def render_packet(pid, t, saved, dated=False):
     note = saved["note"] if saved else None
     parts = [f"# Judge packet {pid}", "",
              f"Transcript: `spikes/s4-safeguarding/data/{t['id']}.json` (paths are relative to the repo "
              f"root; cite number n = line id L000n).",
-             f"Record type: {C.load_template(t['template'])['name']}. Speakers: "
+             (f"Recorded on {C.recorded_on(t)}.  " if dated else "")
+             + f"Record type: {C.load_template(t['template'])['name']}. Speakers: "
              + "; ".join(f"{k} = {v}" for k, v in t["speakers"].items()), "",
              "## Note under review", ""]
     n = 0
@@ -280,8 +297,9 @@ def render_packet(pid, t, saved):
     return "\n".join(parts)
 
 
-def packets(_args):
-    jdir = C.RESULTS / "judge"
+def packets(a):
+    R = ROUNDS[a.round]
+    jdir = C.RESULTS / R["dir"]
     jdir.mkdir(parents=True, exist_ok=True)
     vigs = [C.load_transcript(p) for p in C.vignette_paths()]
     key, groups = {}, collections.defaultdict(list)
@@ -289,15 +307,15 @@ def packets(_args):
     # four (model, prompt) notes of each, so every judge sees every condition three times.
     # A missing note means that condition was never run (run.py saves a note even when the model
     # returns nothing). Judging it would count a request never sent as a refusal.
-    unrun = [f"{m}/{p}/{t['id']}" for t in vigs for m, p in CONDITIONS if load_note(m, p, t["id"]) is None]
+    unrun = [f"{m}/{p}/{t['id']}" for t in vigs for m, p in R["conditions"] if load_note(m, p, t["id"]) is None]
     if unrun:
         raise SystemExit(f"{len(unrun)} notes not run yet, e.g. {', '.join(unrun[:5])}; run the full grid first")
     stale = []
     for i, t in enumerate(vigs):
-        g = i % N_GROUPS + 1
-        for model, prompt in CONDITIONS:
+        g = i % R["groups"] + 1
+        for model, prompt in R["conditions"]:
             saved = load_note(model, prompt, t["id"])
-            pid = packet_id(model, prompt, t["id"])
+            pid = packet_id(model, prompt, t["id"], a.round)
             key[pid] = {"model": model, "prompt": prompt, "vignette": t["id"], "group": f"g{g}"}
             groups[g].append((pid, t, saved))
     rng = random.Random(42)
@@ -308,7 +326,7 @@ def packets(_args):
         order = []
         for pid, t, saved in items:
             md_path, verdict = gdir / f"{pid}.md", gdir / f"{pid}.verdict.json"
-            text = render_packet(pid, t, saved)
+            text = render_packet(pid, t, saved, R["dated"])
             # A rerun that changes the note keeps the packet id; the old verdict judged the old note.
             if verdict.exists() and (not md_path.exists() or C.read_text(md_path) != text):
                 verdict.replace(gdir / f"{pid}.verdict.stale.json")
@@ -342,8 +360,9 @@ def check_verdict(v, t):
     return errs
 
 
-def collect(_args):
-    jdir = C.RESULTS / "judge"
+def collect(a):
+    R = ROUNDS[a.round]
+    jdir = C.RESULTS / R["dir"]
     key = json.loads(C.read_text(jdir / "_key.json"))
     vigs = {p.stem: C.load_transcript(p) for p in C.vignette_paths()}
     calls = last_calls()
@@ -372,16 +391,16 @@ def collect(_args):
                      "key_section_empty_only": empty_only})
     if invalid:
         raise SystemExit("invalid verdicts (fix or redo them):\n  " + "\n  ".join(invalid))
-    C.write_text(C.RESULTS / "verdicts.jsonl", "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows))
+    C.write_text(C.RESULTS / f"verdicts{R['suffix']}.jsonl", "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows))
 
     md = ["# S4 blind judge results", "",
-          f"Generated by `python3 score.py collect`. {len(rows)} of {len(key)} packets judged.", "",
+          f"Generated by `python3 score.py collect{'' if a.round == 'r1' else ' --round ' + a.round}`. {len(rows)} of {len(key)} packets judged.", "",
           "Refused = no parseable note, refusal wording or placeholders. Key section empty = the judge "
           "marked the note refused only because its key section was empty (the disclosures were filed "
           "under another heading); not counted as a refusal.", "",
           "| Model | Prompt | Packets | Refused | Key section empty | Disclosures | Accurate | Softened | "
           "Dropped | Control violations |", "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|"]
-    for model, prompt in CONDITIONS:
+    for model, prompt in R["conditions"]:
         rs = [r for r in rows if r["model"] == model and r["prompt"] == prompt]
         labels = collections.Counter(d["label"] for r in rs for d in r["disclosures"].values())
         nd = sum(labels.values())
@@ -390,7 +409,7 @@ def collect(_args):
                   f"{sum(r['key_section_empty_only'] for r in rs)} | {nd} | "
                   f"{labels['accurate']} | {labels['softened']} | {labels['dropped']} | {viol} |")
     md += ["", "## Softened, dropped and violated items", ""]
-    for model, prompt in CONDITIONS:
+    for model, prompt in R["conditions"]:
         rs = [r for r in rows if r["model"] == model and r["prompt"] == prompt]
         items = []
         for r in rs:
@@ -409,8 +428,8 @@ def collect(_args):
             md += [f"### {model} / {prompt}", ""] + items + [""]
     if missing:
         md += ["", f"Missing verdicts ({len(missing)}): " + ", ".join(missing)]
-    C.write_text(C.RESULTS / "judge_summary.md", "\n".join(md) + "\n")
-    print("\n".join(md[:7 + 2 + len(CONDITIONS)]))
+    C.write_text(C.RESULTS / f"judge_summary{R['suffix']}.md", "\n".join(md) + "\n")
+    print("\n".join(md[:7 + 2 + len(R["conditions"])]))
     if missing:
         print(f"missing {len(missing)} verdicts")
 
@@ -418,5 +437,6 @@ def collect(_args):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("cmd", choices=["auto", "packets", "collect"])
+    ap.add_argument("--round", default="r1", choices=sorted(ROUNDS), help="packets/collect: which judging round")
     a = ap.parse_args()
     {"auto": auto, "packets": packets, "collect": collect}[a.cmd](a)

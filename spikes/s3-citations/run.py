@@ -15,7 +15,12 @@ Changes from S2: transcript lines carry [mm:ss] start times (common.render_lines
 finalists; each call's raw output is kept in the JSONL; after each note the harness writes the span
 shape {section, sentence, cites: [{start, end}]} next to it (<tid>.sectioned.spans.json).
 
-Usage:
+v2 follow-up run (prompt v2 = statutory framing + rule 7, the recording date in each map prompt,
+up to 60 facts and 4096 tokens per map call); finished notes are skipped unless --force:
+  nice -n 10 python run.py --run v2 --models qwen3.5-4b --prompt v2 --fact-cap 60 --map-max-tokens 4096 \
+      --threads 6 --transcripts all
+
+Usage (the first S3 run):
   python run.py --run s3 --models qwen3-4b,qwen3.5-4b --transcripts all
 """
 import argparse
@@ -131,7 +136,7 @@ class Server:
             self.proc.kill()
 
 
-def run_transcript(srv, model, tpath, strategies, out, notes_dir, meta):
+def run_transcript(srv, model, tpath, strategies, out, notes_dir, meta, opts):
     t = C.load_transcript(tpath)
     tpl = C.load_template(t["template"])
     lines = t["lines"]
@@ -151,9 +156,10 @@ def run_transcript(srv, model, tpath, strategies, out, notes_dir, meta):
 
     secs = C.sections(lines)
     facts, ok = [], True
+    system = C.PROMPTS[opts.prompt]
     for i, sec in enumerate(secs):
-        m, parsed = srv.chat(C.map_messages(t, tpl, sec, i, len(secs)), C.facts_schema(tpl), MAP_MAX_TOKENS,
-                             "facts")
+        msgs = C.map_messages(t, tpl, sec, i, len(secs), system, dated=opts.prompt != "s2")
+        m, parsed = srv.chat(msgs, C.facts_schema(tpl, opts.fact_cap), opts.map_max_tokens, "facts")
         emit({**base, "strategy": "sectioned", "stage": f"map{i}",
               "section_lines": [sec[0]["id"], sec[-1]["id"]], **m})
         ok &= m["json_ok"]
@@ -181,6 +187,11 @@ def main():
     ap.add_argument("--threads", type=int, default=8)
     ap.add_argument("--ctx", type=int, default=8192)
     ap.add_argument("--port", type=int, default=8093)
+    ap.add_argument("--prompt", default="s2", choices=sorted(C.PROMPTS),
+                    help="s2: the first run's prompt; v2: statutory framing, rule (7) and the recording date")
+    ap.add_argument("--fact-cap", type=int, default=30, help="most facts per map call (schema maxItems)")
+    ap.add_argument("--map-max-tokens", type=int, default=MAP_MAX_TOKENS)
+    ap.add_argument("--force", action="store_true", help="re-run notes that already exist")
     a = ap.parse_args()
 
     models = list(MODELS) if a.models == "all" else a.models.split(",")
@@ -189,19 +200,25 @@ def main():
     strategies = a.strategies.split(",")
     C.RESULTS.mkdir(exist_ok=True)
     notes_dir = C.RESULTS / "notes" / a.run
-    meta = {"run": a.run, "threads": a.threads, "ctx": a.ctx, "map_max_tokens": MAP_MAX_TOKENS}
+    meta = {"run": a.run, "threads": a.threads, "ctx": a.ctx, "map_max_tokens": a.map_max_tokens,
+            "prompt": a.prompt, "fact_cap": a.fact_cap}
 
     with open(C.RESULTS / f"{a.run}.jsonl", "a", encoding="utf-8") as out:
         for model in models:
-            print(f"== {model} (t={a.threads}, ctx={a.ctx}, port={a.port})", flush=True)
+            todo = [tp for tp in tpaths if a.force or not (
+                notes_dir / model / f"{C.load_transcript(tp)['id']}.sectioned.json").exists()]
+            if not todo:
+                print(f"== {model}: nothing to do")
+                continue
+            print(f"== {model} (t={a.threads}, ctx={a.ctx}, port={a.port}): {len(todo)} notes", flush=True)
             srv = Server(model, a.threads, a.ctx, a.port, C.RESULTS / "logs")
             try:
                 # os.getloadavg() does not exist on Windows.
                 load = [round(x, 1) for x in os.getloadavg()] if hasattr(os, "getloadavg") else None
                 out.write(json.dumps({**meta, "model": model, "stage": "load", "load_s": srv.load_s,
                                       "loadavg": load}) + "\n")
-                for tp in tpaths:
-                    run_transcript(srv, model, tp, strategies, out, notes_dir, meta)
+                for tp in todo:
+                    run_transcript(srv, model, tp, strategies, out, notes_dir, meta, a)
             finally:
                 srv.stop()
 
