@@ -9,6 +9,7 @@ Timestamps are synthetic but realistic: 2.5 spoken words per second (150 wpm), a
 line, and a 0.3-1.1 s pause between lines that is derived from a hash of the line, so it is stable.
 """
 import argparse
+import datetime
 import hashlib
 import json
 import pathlib
@@ -45,6 +46,10 @@ def check(t):
             errs.append(f"missing {k}")
     if errs:
         return errs
+    try:  # the recording date the v2 prompt and the judges see (common.recorded_on)
+        datetime.date.fromisoformat(t.get("recorded", ""))
+    except ValueError:
+        errs.append(f"recorded date {t.get('recorded')!r} (want YYYY-MM-DD)")
     if t["review"] != "pending practitioner review":
         errs.append("review field")
     if t["category"] not in CATEGORIES:

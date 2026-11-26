@@ -1,0 +1,342 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Recording date is 24 November 2026; '2024' is wrong. L8 gives no year."
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S003": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S004": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S005": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S006": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S008": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S009": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S010": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S011": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L28: Megan 'came back on' shift after the 3-day stay; she didn't return from hospital, not on 28 August."
+    },
+    "S012": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S013": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S014": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S015": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S016": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Work email comes from uncited L36."
+    },
+    "S017": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S018": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S019": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S020": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S021": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Date 5 October is in uncited L48."
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S023": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S024": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L57: Megan said Shauna said she heard it herself (door open); not that Megan doesn't know."
+    },
+    "S025": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S026": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S027": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S028": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S029": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S030": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S031": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S032": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S033": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L140: the solicitor (S1), not Megan, wants to notify ACAS by 4 December."
+    },
+    "S034": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S035": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S036": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S037": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S038": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S039": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Regional office is in uncited L156."
+    },
+    "S040": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S041": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S042": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S043": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Grievance-waiting point is in uncited L135; sentence truncated."
+    },
+    "S044": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S045": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S046": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S047": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S048": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L120, L161: deadline is Friday 27 November, not 27 December."
+    },
+    "S049": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S050": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L159, L162: deadline is Monday 30 November, not 30 December."
+    },
+    "S051": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S052": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S053": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "partial",
+    "F04": "present",
+    "F05": "absent",
+    "F06": "present",
+    "F07": "partial",
+    "F08": "absent",
+    "F09": "absent",
+    "F10": "absent",
+    "F11": "absent",
+    "F12": "absent",
+    "F13": "absent",
+    "F14": "partial",
+    "F15": "present",
+    "F16": "partial",
+    "F17": "present"
+  },
+  "notes": "Accurate on the opening account but omits grievance, documents, objectives, claims advice; wrong year and two wrong deadline months (December for November)."
+}

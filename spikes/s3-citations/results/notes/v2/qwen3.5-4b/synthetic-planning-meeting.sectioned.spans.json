@@ -1,0 +1,1050 @@
+[
+ {
+  "id": "S001",
+  "section": "Summary",
+  "sentence": "The meeting was held on Tuesday 24 November 2026 for a child in need review of the Haddon family, comprising Leanne (mother), Tyler (8 years old), and Amelia (7 months).",
+  "cites": [
+   {
+    "start": 43.6,
+    "end": 50.3
+   },
+   {
+    "start": 50.9,
+    "end": 55.2
+   },
+   {
+    "start": 56.4,
+    "end": 58.8
+   },
+   {
+    "start": 59.2,
+    "end": 61.5
+   },
+   {
+    "start": 62.5,
+    "end": 69.0
+   }
+  ],
+  "lines": [
+   10,
+   11,
+   12,
+   13,
+   14
+  ]
+ },
+ {
+  "id": "S002",
+  "section": "Summary",
+  "sentence": "Leanne sent apologies; Amelia had a GP appointment that morning; Leanne requested information sharing but not with her mother, Sandra.",
+  "cites": [
+   {
+    "start": 69.4,
+    "end": 75.1
+   },
+   {
+    "start": 75.9,
+    "end": 84.6
+   }
+  ],
+  "lines": [
+   15,
+   16
+  ]
+ },
+ {
+  "id": "S003",
+  "section": "Discussion",
+  "sentence": "Tyler's attendance was 84% for the current term, mostly consisting of lates rather than whole days, particularly on Mondays.",
+  "cites": [
+   {
+    "start": 94.7,
+    "end": 99.8
+   },
+   {
+    "start": 101.5,
+    "end": 107.8
+   },
+   {
+    "start": 108.8,
+    "end": 111.4
+   },
+   {
+    "start": 112.2,
+    "end": 118.9
+   }
+  ],
+  "lines": [
+   19,
+   21,
+   22,
+   23
+  ]
+ },
+ {
+  "id": "S004",
+  "section": "Discussion",
+  "sentence": "Tyler has to prepare Amelia's bottles in the morning before he can attend school.",
+  "cites": [
+   {
+    "start": 123.8,
+    "end": 133.3
+   }
+  ],
+  "lines": [
+   25
+  ]
+ },
+ {
+  "id": "S005",
+  "section": "Discussion",
+  "sentence": "Tyler has had a couple of meltdowns at lunch; staff have discussed whether to refer him to CAMHS or consider ADHD, but no referral has been made.",
+  "cites": [
+   {
+    "start": 180.5,
+    "end": 189.7
+   },
+   {
+    "start": 190.3,
+    "end": 191.5
+   },
+   {
+    "start": 192.3,
+    "end": 199.1
+   }
+  ],
+  "lines": [
+   36,
+   37,
+   38
+  ]
+ },
+ {
+  "id": "S006",
+  "section": "Discussion",
+  "sentence": "A lunchtime supervisor reported second-hand that Jordan (Amelia's father/ex-partner) has been dropping Tyler off at the gate on a couple of mornings; no office staff have seen him.",
+  "cites": [
+   {
+    "start": 210.9,
+    "end": 218.7
+   },
+   {
+    "start": 219.2,
+    "end": 220.5
+   },
+   {
+    "start": 221.5,
+    "end": 226.3
+   }
+  ],
+  "lines": [
+   41,
+   42,
+   43
+  ]
+ },
+ {
+  "id": "S007",
+  "section": "Discussion",
+  "sentence": "Amelia is tracking on the 25th centile for weight; she has a cow's milk protein allergy and is on hypoallergenic formula.",
+  "cites": [
+   {
+    "start": 235.5,
+    "end": 243.4
+   },
+   {
+    "start": 243.9,
+    "end": 247.9
+   },
+   {
+    "start": 249.7,
+    "end": 255.8
+   }
+  ],
+  "lines": [
+   46,
+   47,
+   49
+  ]
+ },
+ {
+  "id": "S008",
+  "section": "Discussion",
+  "sentence": "Amelia has had a cough for three weeks and sleeps in the back bedroom which has mould on the wall behind the cot; the health visitor has photos of the mould.",
+  "cites": [
+   {
+    "start": 256.4,
+    "end": 266.8
+   },
+   {
+    "start": 267.1,
+    "end": 270.0
+   },
+   {
+    "start": 270.6,
+    "end": 276.4
+   }
+  ],
+  "lines": [
+   50,
+   51,
+   52
+  ]
+ },
+ {
+  "id": "S009",
+  "section": "Discussion",
+  "sentence": "The health visitor sees Amelia fortnightly; if her weight drops or her chest condition worsens, visits would increase to weekly.",
+  "cites": [
+   {
+    "start": 281.5,
+    "end": 290.4
+   }
+  ],
+  "lines": [
+   54
+  ]
+ },
+ {
+  "id": "S010",
+  "section": "Discussion",
+  "sentence": "Leanne scored high on the PHQ questionnaire and has stopped taking her sertraline; the health visitor heard this from Leanne's mother, Sandra, but has not confirmed it with Leanne.",
+  "cites": [
+   {
+    "start": 293.2,
+    "end": 299.3
+   },
+   {
+    "start": 300.1,
+    "end": 304.5
+   },
+   {
+    "start": 306.6,
+    "end": 316.9
+   }
+  ],
+  "lines": [
+   56,
+   57,
+   59
+  ]
+ },
+ {
+  "id": "S011",
+  "section": "Discussion",
+  "sentence": "The family lives at 22 Ashby Court, second floor, two-bed flat; the housing officer confirmed the rent account is clear with no arrears.",
+  "cites": [
+   {
+    "start": 354.2,
+    "end": 359.4
+   },
+   {
+    "start": 360.5,
+    "end": 369.6
+   },
+   {
+    "start": 470.0,
+    "end": 475.6
+   },
+   {
+    "start": 476.2,
+    "end": 478.2
+   }
+  ],
+  "lines": [
+   68,
+   69,
+   91,
+   92
+  ]
+ },
+ {
+  "id": "S012",
+  "section": "Discussion",
+  "sentence": "There is damp coming through the external wall of the flat; a surveyor is booked for Tuesday 1 December to assess it.",
+  "cites": [
+   {
+    "start": 370.0,
+    "end": 377.2
+   },
+   {
+    "start": 382.3,
+    "end": 386.2
+   },
+   {
+    "start": 386.9,
+    "end": 389.9
+   },
+   {
+    "start": 391.1,
+    "end": 396.2
+   }
+  ],
+  "lines": [
+   70,
+   73,
+   74,
+   75
+  ]
+ },
+ {
+  "id": "S013",
+  "section": "Discussion",
+  "sentence": "If the surveyor identifies a category one hazard, a management move or decanting could be considered; the housing officer could not confirm a date for the works.",
+  "cites": [
+   {
+    "start": 399.0,
+    "end": 406.6
+   },
+   {
+    "start": 409.1,
+    "end": 413.9
+   },
+   {
+    "start": 421.0,
+    "end": 430.5
+   },
+   {
+    "start": 431.5,
+    "end": 434.5
+   }
+  ],
+  "lines": [
+   77,
+   79,
+   81,
+   82
+  ]
+ },
+ {
+  "id": "S014",
+  "section": "Discussion",
+  "sentence": "The tenancy is an introductory tenancy subject to review on 11 January.",
+  "cites": [
+   {
+    "start": 479.1,
+    "end": 485.7
+   }
+  ],
+  "lines": [
+   93
+  ]
+ },
+ {
+  "id": "S015",
+  "section": "Discussion",
+  "sentence": "An anonymous complaint was received from a neighbour alleging shouting from the flat late at night a couple of weeks ago; the housing officer could not verify the complaint.",
+  "cites": [
+   {
+    "start": 486.0,
+    "end": 494.5
+   },
+   {
+    "start": 494.9,
+    "end": 495.7
+   },
+   {
+    "start": 496.1,
+    "end": 504.0
+   }
+  ],
+  "lines": [
+   94,
+   95,
+   96
+  ]
+ },
+ {
+  "id": "S016",
+  "section": "Discussion",
+  "sentence": "Leanne stated she has had no contact with Jordan since he left in June and he has not visited the flat; a police check confirmed no call-outs to the address since June.",
+  "cites": [
+   {
+    "start": 515.2,
+    "end": 527.0
+   },
+   {
+    "start": 527.8,
+    "end": 533.5
+   }
+  ],
+  "lines": [
+   100,
+   101
+  ]
+ },
+ {
+  "id": "S017",
+  "section": "Discussion",
+  "sentence": "Gareth Pryce expressed a concern that the Jordan situation should be referred to a child protection conference.",
+  "cites": [
+   {
+    "start": 534.7,
+    "end": 540.9
+   }
+  ],
+  "lines": [
+   102
+  ]
+ },
+ {
+  "id": "S018",
+  "section": "Discussion",
+  "sentence": "Hannah Brightwell and Ruth Lindqvist agreed there is no child protection threshold based on current evidence; the matter requires further discussion regarding Clare's Law.",
+  "cites": [
+   {
+    "start": 541.7,
+    "end": 544.2
+   },
+   {
+    "start": 545.1,
+    "end": 554.3
+   },
+   {
+    "start": 554.9,
+    "end": 560.7
+   }
+  ],
+  "lines": [
+   103,
+   104,
+   105
+  ]
+ },
+ {
+  "id": "S019",
+  "section": "Discussion",
+  "sentence": "S3 stated that the child is 'lovely' with Amelia and 'really attentive'.",
+  "cites": [
+   {
+    "start": 603.2,
+    "end": 605.5
+   }
+  ],
+  "lines": [
+   115
+  ]
+ },
+ {
+  "id": "S020",
+  "section": "Discussion",
+  "sentence": "S2 stated that Tyler 'adores' the child and 'talks about his mum all the time'.",
+  "cites": [
+   {
+    "start": 606.7,
+    "end": 609.9
+   }
+  ],
+  "lines": [
+   116
+  ]
+ },
+ {
+  "id": "S021",
+  "section": "Discussion",
+  "sentence": "S2 proposed offering Tyler a free breakfast club place at school, open every day from 08:00.",
+  "cites": [
+   {
+    "start": 610.9,
+    "end": 617.1
+   }
+  ],
+  "lines": [
+   117
+  ]
+ },
+ {
+  "id": "S022",
+  "section": "Discussion",
+  "sentence": "S2 stated that Tyler 'gets fed' at the proposed breakfast club.",
+  "cites": [
+   {
+    "start": 619.9,
+    "end": 621.8
+   }
+  ],
+  "lines": [
+   119
+  ]
+ },
+ {
+  "id": "S023",
+  "section": "Discussion",
+  "sentence": "S1 reported that she mentioned the breakfast club to Leanne on Thursday and that Leanne was 'keen'.",
+  "cites": [
+   {
+    "start": 622.1,
+    "end": 626.7
+   }
+  ],
+  "lines": [
+   120
+  ]
+ },
+ {
+  "id": "S024",
+  "section": "Discussion",
+  "sentence": "S2 stated that Tyler 'can start' the breakfast club on Monday the thirtieth.",
+  "cites": [
+   {
+    "start": 627.6,
+    "end": 629.7
+   }
+  ],
+  "lines": [
+   121
+  ]
+ },
+ {
+  "id": "S025",
+  "section": "Discussion",
+  "sentence": "S2 suggested that the mother would 'really benefit' from a parenting course run by the Family Hub on Wednesdays.",
+  "cites": [
+   {
+    "start": 630.5,
+    "end": 638.3
+   }
+  ],
+  "lines": [
+   122
+  ]
+ },
+ {
+  "id": "S026",
+  "section": "Discussion",
+  "sentence": "S1 reported that Leanne said 'no' to the parenting course, stating she felt it would be 'being told she's a bad mum'.",
+  "cites": [
+   {
+    "start": 639.2,
+    "end": 646.9
+   }
+  ],
+  "lines": [
+   123
+  ]
+ },
+ {
+  "id": "S027",
+  "section": "Discussion",
+  "sentence": "S1 reported that Leanne stated she 'would like' the stay and play at the Family Hub for Amelia to 'meet some other mums'.",
+  "cites": [
+   {
+    "start": 647.6,
+    "end": 653.6
+   }
+  ],
+  "lines": [
+   124
+  ]
+ },
+ {
+  "id": "S028",
+  "section": "Discussion",
+  "sentence": "S3 stated she could make the perinatal referral via an online form.",
+  "cites": [
+   {
+    "start": 654.3,
+    "end": 657.3
+   }
+  ],
+  "lines": [
+   125
+  ]
+ },
+ {
+  "id": "S029",
+  "section": "Discussion",
+  "sentence": "S1 stated she would talk to Leanne about the morning routine and whether a young carers assessment is 'appropriate' regarding Tyler and the bottles.",
+  "cites": [
+   {
+    "start": 663.8,
+    "end": 669.4
+   }
+  ],
+  "lines": [
+   128
+  ]
+ },
+ {
+  "id": "S030",
+  "section": "Discussion",
+  "sentence": "S3 asked if Tyler is 'making up formula' regarding the bottles.",
+  "cites": [
+   {
+    "start": 670.6,
+    "end": 674.2
+   }
+  ],
+  "lines": [
+   129
+  ]
+ },
+ {
+  "id": "S031",
+  "section": "Discussion",
+  "sentence": "S2 stated he 'doesn't know' if Tyler is making up formula, only that Tyler 'just said bottles'.",
+  "cites": [
+   {
+    "start": 674.7,
+    "end": 676.8
+   }
+  ],
+  "lines": [
+   130
+  ]
+ },
+ {
+  "id": "S032",
+  "section": "Discussion",
+  "sentence": "S3 stated she would ask Leanne about the hypoallergenic formula because it is 'fiddly'.",
+  "cites": [
+   {
+    "start": 677.6,
+    "end": 680.6
+   }
+  ],
+  "lines": [
+   131
+  ]
+ },
+ {
+  "id": "S033",
+  "section": "Discussion",
+  "sentence": "S2 stated he 'thanks' S1 for the room and 'the flask'.",
+  "cites": [
+   {
+    "start": 800.9,
+    "end": 804.4
+   }
+  ],
+  "lines": [
+   162
+  ]
+ },
+ {
+  "id": "S034",
+  "section": "Discussion",
+  "sentence": "S2 stated he 'mind[s] the car park' because they 'coned half of it off'.",
+  "cites": [
+   {
+    "start": 804.8,
+    "end": 808.4
+   }
+  ],
+  "lines": [
+   163
+  ]
+ },
+ {
+  "id": "S035",
+  "section": "Decisions",
+  "sentence": "A perinatal mental health referral is planned for Leanne by Friday 27 November.",
+  "cites": [
+   {
+    "start": 328.2,
+    "end": 334.8
+   },
+   {
+    "start": 335.2,
+    "end": 341.8
+   },
+   {
+    "start": 345.6,
+    "end": 350.6
+   }
+  ],
+  "lines": [
+   63,
+   64,
+   66
+  ]
+ },
+ {
+  "id": "S036",
+  "section": "Decisions",
+  "sentence": "S1 stated that Gareth's disagreement regarding the case staying at 'child in need' is 'noted'.",
+  "cites": [
+   {
+    "start": 689.3,
+    "end": 696.1
+   }
+  ],
+  "lines": [
+   133
+  ]
+ },
+ {
+  "id": "S037",
+  "section": "Decisions",
+  "sentence": "S2 agreed that Gareth's view that the case 'should go to conference' is 'fair'.",
+  "cites": [
+   {
+    "start": 696.8,
+    "end": 697.7
+   }
+  ],
+  "lines": [
+   134
+  ]
+ },
+ {
+  "id": "S038",
+  "section": "Decisions",
+  "sentence": "S1 stated that Tyler 'starts' the breakfast club on Monday the thirtieth.",
+  "cites": [
+   {
+    "start": 698.9,
+    "end": 701.8
+   }
+  ],
+  "lines": [
+   135
+  ]
+ },
+ {
+  "id": "S039",
+  "section": "Decisions",
+  "sentence": "S1 stated that Ruth 'makes' the perinatal referral by Friday.",
+  "cites": [
+   {
+    "start": 702.8,
+    "end": 705.1
+   }
+  ],
+  "lines": [
+   136
+  ]
+ },
+ {
+  "id": "S040",
+  "section": "Decisions",
+  "sentence": "S3 confirmed the deadline for the perinatal referral is 'By Friday'.",
+  "cites": [
+   {
+    "start": 706.2,
+    "end": 707.0
+   }
+  ],
+  "lines": [
+   137
+  ]
+ },
+ {
+  "id": "S041",
+  "section": "Decisions",
+  "sentence": "S1 stated that Ruth 'refers' Leanne and Amelia to the stay and play.",
+  "cites": [
+   {
+    "start": 708.1,
+    "end": 711.2
+   }
+  ],
+  "lines": [
+   138
+  ]
+ },
+ {
+  "id": "S042",
+  "section": "Decisions",
+  "sentence": "S3 stated the deadline for the stay and play referral is 'by the end of next week' (Friday the fourth).",
+  "cites": [
+   {
+    "start": 711.6,
+    "end": 714.9
+   }
+  ],
+  "lines": [
+   139
+  ]
+ },
+ {
+  "id": "S043",
+  "section": "Decisions",
+  "sentence": "S1 stated the deadline for the stay and play referral is 'Friday the fourth'.",
+  "cites": [
+   {
+    "start": 715.3,
+    "end": 720.3
+   }
+  ],
+  "lines": [
+   140
+  ]
+ },
+ {
+  "id": "S044",
+  "section": "Decisions",
+  "sentence": "S1 stated that Darren (the surveyor) is on Tuesday the first and will 'send' the report.",
+  "cites": [
+   {
+    "start": 715.3,
+    "end": 720.3
+   }
+  ],
+  "lines": [
+   140
+  ]
+ },
+ {
+  "id": "S045",
+  "section": "Decisions",
+  "sentence": "S4 stated he would 'aim' to send the survey report 'within a week' of the visit.",
+  "cites": [
+   {
+    "start": 721.4,
+    "end": 726.1
+   }
+  ],
+  "lines": [
+   141
+  ]
+ },
+ {
+  "id": "S046",
+  "section": "Decisions",
+  "sentence": "S1 stated that Gareth will 'send' the attendance breakdown.",
+  "cites": [
+   {
+    "start": 727.0,
+    "end": 729.5
+   }
+  ],
+  "lines": [
+   142
+  ]
+ },
+ {
+  "id": "S047",
+  "section": "Decisions",
+  "sentence": "S2 stated the deadline for the attendance breakdown is 'By Friday', with lates 'broken down by day'.",
+  "cites": [
+   {
+    "start": 729.9,
+    "end": 733.0
+   }
+  ],
+  "lines": [
+   143
+  ]
+ },
+ {
+  "id": "S048",
+  "section": "Decisions",
+  "sentence": "S1 stated she would speak to her manager about Jordan information and the Clare's Law question, and 'email everyone' by Monday the thirtieth.",
+  "cites": [
+   {
+    "start": 733.7,
+    "end": 741.2
+   }
+  ],
+  "lines": [
+   144
+  ]
+ },
+ {
+  "id": "S049",
+  "section": "Decisions",
+  "sentence": "S1 stated that the CAMHS matter was 'Not agreed' and 'Not today'.",
+  "cites": [
+   {
+    "start": 744.5,
+    "end": 749.2
+   }
+  ],
+  "lines": [
+   146
+  ]
+ },
+ {
+  "id": "S050",
+  "section": "Decisions",
+  "sentence": "S3 stated that the move to Sandra's 'is not happening'.",
+  "cites": [
+   {
+    "start": 750.3,
+    "end": 754.4
+   }
+  ],
+  "lines": [
+   147
+  ]
+ },
+ {
+  "id": "S051",
+  "section": "Decisions",
+  "sentence": "S1 confirmed that the move to Sandra's 'is not a decision'.",
+  "cites": [
+   {
+    "start": 755.0,
+    "end": 757.2
+   }
+  ],
+  "lines": [
+   148
+  ]
+ },
+ {
+  "id": "S052",
+  "section": "Decisions",
+  "sentence": "S4 confirmed that the management move 'is not agreed' and depends on the survey.",
+  "cites": [
+   {
+    "start": 760.4,
+    "end": 765.3
+   }
+  ],
+  "lines": [
+   150
+  ]
+ },
+ {
+  "id": "S053",
+  "section": "Actions",
+  "sentence": "Hannah Brightwell intends to discuss Clare's Law with her manager and will email the team by Monday 30 November.",
+  "cites": [
+   {
+    "start": 578.6,
+    "end": 584.0
+   },
+   {
+    "start": 585.0,
+    "end": 585.6
+   },
+   {
+    "start": 586.7,
+    "end": 593.1
+   }
+  ],
+  "lines": [
+   110,
+   111,
+   112
+  ]
+ },
+ {
+  "id": "S054",
+  "section": "Actions",
+  "sentence": "S1 proposed the next review be held on Tuesday the eighth of December.",
+  "cites": [
+   {
+    "start": 767.7,
+    "end": 769.8
+   }
+  ],
+  "lines": [
+   152
+  ]
+ },
+ {
+  "id": "S055",
+  "section": "Actions",
+  "sentence": "S3 stated she is 'on leave' the eighth of December for 'that whole week'.",
+  "cites": [
+   {
+    "start": 770.6,
+    "end": 773.6
+   }
+  ],
+  "lines": [
+   153
+  ]
+ },
+ {
+  "id": "S056",
+  "section": "Actions",
+  "sentence": "S1 proposed the next review be held on Tuesday the fifteenth of December at 10:00 at the school.",
+  "cites": [
+   {
+    "start": 774.1,
+    "end": 778.4
+   }
+  ],
+  "lines": [
+   154
+  ]
+ },
+ {
+  "id": "S057",
+  "section": "Actions",
+  "sentence": "S2 confirmed the fifteenth is 'fine' and stated he 'will book the room'.",
+  "cites": [
+   {
+    "start": 779.6,
+    "end": 781.3
+   }
+  ],
+  "lines": [
+   155
+  ]
+ },
+ {
+  "id": "S058",
+  "section": "Actions",
+  "sentence": "S4 confirmed he 'can do' the fifteenth and stated he 'will dial in again, probably'.",
+  "cites": [
+   {
+    "start": 782.5,
+    "end": 785.5
+   }
+  ],
+  "lines": [
+   156
+  ]
+ },
+ {
+  "id": "S059",
+  "section": "Actions",
+  "sentence": "S3 confirmed the review date is 'Fifteenth, yes'.",
+  "cites": [
+   {
+    "start": 786.1,
+    "end": 786.8
+   }
+  ],
+  "lines": [
+   157
+  ]
+ },
+ {
+  "id": "S060",
+  "section": "Actions",
+  "sentence": "S1 stated she 'will share' the meeting notes with Leanne.",
+  "cites": [
+   {
+    "start": 788.0,
+    "end": 790.7
+   }
+  ],
+  "lines": [
+   158
+  ]
+ },
+ {
+  "id": "S061",
+  "section": "Actions",
+  "sentence": "S3 stated she 'will send' photos to S1 and Darren 'today'.",
+  "cites": [
+   {
+    "start": 793.6,
+    "end": 796.7
+   }
+  ],
+  "lines": [
+   160
+  ]
+ },
+ {
+  "id": "S062",
+  "section": "Actions",
+  "sentence": "S4 stated the photos 'will help' with the surveyor.",
+  "cites": [
+   {
+    "start": 797.7,
+    "end": 799.9
+   }
+  ],
+  "lines": [
+   161
+  ]
+ }
+]

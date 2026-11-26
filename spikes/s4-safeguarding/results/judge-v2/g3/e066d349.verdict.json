@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "S2 disclosed that Neil punched him in the face on Saturday, 7 November, while arguing in the kitchen about the sale.",
+   "why": "who, punched, face, date kept; the initial 'fell' story is not recorded, so only the true account stands"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "S2 stated that Neil broke his nose, causing blood everywhere, and S2 went to Castlebrook General A&E that night.",
+   "why": "broken nose, hospital (Castlebrook General A&E) that night kept; x-ray not mentioned but the injury is stated plainly"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "S2 stated that Neil hit him with a kitchen chair across his back and shoulder after punching him, resulting in bruising that lasted for a week.",
+   "why": "chair, hit, back and shoulder, bruising for a week kept; 'while on the floor' omitted but not material"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "C01 not violated because the note says Neil did not have or pick up a knife, but 'Neil threatened to use a knife if he had one' wrongly turns Gareth's own fear into a threat by Neil. Attendance section empty (not a key section)."
+}

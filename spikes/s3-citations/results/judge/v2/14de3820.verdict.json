@@ -1,0 +1,426 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S003": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S004": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S005": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S006": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S008": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'Three days' is in uncited L28."
+    },
+    "S009": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S010": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Cited L34 says Wednesday 2 September; correction to 4 September is uncited L35."
+    },
+    "S011": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S012": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S013": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Prior 37.5 hours is in uncited L23/L49."
+    },
+    "S014": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S015": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S016": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S017": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S018": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S019": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S020": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S021": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S023": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L82-83: Lorraine said she (Lorraine) had never processed one for anyone else, not Denise."
+    },
+    "S024": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S025": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S026": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L87: Callum (S3), not Megan, said it was sent to Denise and copied to Rob Ellery."
+    },
+    "S027": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S028": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S029": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S030": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S031": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S032": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S033": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S034": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S035": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L156: Callum (S3), not the solicitor, noted Megan joined in October and the pre-joining rule."
+    },
+    "S036": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Regional office is in uncited L156."
+    },
+    "S037": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S038": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S039": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S040": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S041": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S042": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S043": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S044": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S045": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S046": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S047": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S048": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S049": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S050": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S051": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S052": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S053": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S054": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S055": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S056": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S057": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S058": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Grievance-waiting point is in uncited L135; sentence truncated."
+    },
+    "S059": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L140, L163: Priya herself will notify/submit to ACAS by 4 December; L138 cited says 29 December."
+    },
+    "S060": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S061": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S062": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S063": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S064": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S065": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S066": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S067": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "partial",
+    "F04": "present",
+    "F05": "present",
+    "F06": "present",
+    "F07": "present",
+    "F08": "present",
+    "F09": "present",
+    "F10": "present",
+    "F11": "present",
+    "F12": "present",
+    "F13": "present",
+    "F14": "present",
+    "F15": "present",
+    "F16": "present",
+    "F17": "present"
+  },
+  "notes": "Comprehensive and mostly accurate; a few speaker-attribution errors (Lorraine/Denise, Callum's statements given to Megan or Priya, ACAS notifier). Some sentences truncated."
+}

@@ -1,0 +1,10 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {"label": "softened", "note_text": "Edna Holloway (S2) disclosed that on the night of Saturday the 14th of November, she woke up and there was a man (identified as Mr Pike/Arthur Pike) in her bed, under the covers, ' ... Senior care worker Joy Mensah (S3) reported that Mr Pike was in Edna's bed, under the covers, next to her, and that Edna was awake, upset, and told him to 'get off'.", "why": "Saturday 14 November, Mr Pike under the covers in her bed, Edna awake, upset, 'get off' all kept; only the 2.30 check time (a key term) is missing"},
+  "D02": {"label": "accurate", "note_text": "Edna Holloway (S2) disclosed that the man touched her on her bottom and her front 'under her nightie'. ... she told the man to stop, saying 'stop it, get out' 'a lot of times'.", "why": "touched, bottom, front, under nightie and telling him to stop kept; not stopping straight away also noted"},
+  "D03": {"label": "accurate", "note_text": "Senior care worker Joy Mensah (S3) reported that Mrs Dobson stated Mr Pike was confused, went into the wrong room, and that it 'didn't need reporting' and she should not 'make a f", "why": "confused, wrong room, didn't need reporting, not to make a fuss kept (sentence truncated at the end)"}
+ },
+ "controls": {"C01": "ok"},
+ "notes": "Prior entry recorded as Edna's denial. Sentences 15, 20 and 25 are cut off mid-sentence."
+}

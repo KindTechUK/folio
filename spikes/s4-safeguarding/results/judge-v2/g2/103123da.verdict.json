@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "softened",
+   "note_text": "Pauline Reid (S3) stated she pops in most afternoons and observed Edith Marsh (S2) left in wet clothes most days, specifically noting the pad and skirt were wet when she arrived at ... Pauline Reid (S3) stated she estimates the wet clothes situation happens four or five days a week.",
+   "why": "wet clothes and four or five days a week kept, but 'all day' (the duration she is left wet) is lost and sentence 12 is truncated"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Pauline Reid (S3) stated there was no food in the fridge on Saturday, only a bit of milk that was gone off, and she brought Edith Marsh (S2) a dinner round. ... the fridge has been empty three or four times in the last few weeks when she looked.",
+   "why": "no food, fridge, Saturday and frequency all kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Pauline Reid (S3) stated Edith Marsh (S2) has not had her tablets for a week, noting the box was full since last Tuesday.",
+   "why": "missed tablets for a week and box full since Tuesday kept"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "Edith Marsh (S2) stated she is alone all day while Gary is at work, but has the telly.",
+   "why": "alone all day kept; protectiveness recorded elsewhere ('just tired', 'Gary has been busy'); the half seven to nine hours are not given"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Denial of hitting recorded as a denial. Two sentences (12, 26) are cut off mid-sentence."
+}

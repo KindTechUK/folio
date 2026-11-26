@@ -1,0 +1,321 @@
+{
+ "run_id": "576c1362c225",
+ "note": {
+  "sections": [
+   {
+    "title": "Background and presenting situation",
+    "sentences": []
+   },
+   {
+    "title": "Needs and daily living",
+    "sentences": [
+     {
+      "text": "Edna Hollis (S2) reported that her hip is stiff in the mornings and she now uses a frame in the house.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) stated she does not go out without someone.",
+      "cites": [
+       10
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) reported that carers Jade (morning) and an unnamed teatime carer visit her.",
+      "cites": [
+       12,
+       14
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) described the teatime carer as being 'in and out' quickly.",
+      "cites": [
+       14
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) stated she cannot get to the post office and her grandson Kyle goes to the cash machine for her.",
+      "cites": [
+       20
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) reported she does not put the heating on during the day, only when someone is coming.",
+      "cites": [
+       40
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) stated that at the end of the month she has toast for dinner because there is nothing left.",
+      "cites": [
+       42
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Person's views and wishes",
+    "sentences": [
+     {
+      "text": "Edna Hollis (S2) expressed a wish that Kyle does not get in trouble and she does not want the police involved.",
+      "cites": [
+       52
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Risks and safeguarding",
+    "sentences": [
+     {
+      "text": "Edna Hollis (S2) denied that Kyle has threatened her or hurt her.",
+      "cites": [
+       44
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) reported her daughter Sandra says Kyle gambles on his phone with betting things.",
+      "cites": [
+       46
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) stated she has never seen Kyle gamble.",
+      "cites": [
+       48
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Support network and finances",
+    "sentences": [
+     {
+      "text": "Edna Hollis (S2) confirmed Kyle uses her bank card.",
+      "cites": [
+       22
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) stated Kyle takes £50 from her bank card every week for himself.",
+      "cites": [
+       24,
+       25
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) reported she does not say anything about the £50 withdrawal because she sees it on the statement.",
+      "cites": [
+       26,
+       28
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) stated her daughter Sandra does a shop on a Saturday when she can.",
+      "cites": [
+       16
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) reported that £400 was in her purse for Christmas presents and was gone after Kyle visited three weeks ago (Sunday).",
+      "cites": [
+       30,
+       32,
+       36
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) stated Kyle told her he was borrowing the money and would pay it back, and she believes it is not stealing.",
+      "cites": [
+       34
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) confirmed Sandra knows about the £400 in the purse but she is cross about it.",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) stated she has not told Sandra about the bank card.",
+      "cites": [
+       50
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Agreed actions",
+    "sentences": [
+     {
+      "text": "Edna Hollis (S2) stated she would ring the social worker on the duty line if Kyle asks for money before Thursday and she is worried.",
+      "cites": [
+       72
+      ]
+     },
+     {
+      "text": "Edna Hollis (S2) requested the social worker write the meeting time on her calendar.",
+      "cites": [
+       69
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "Edna Hollis (S2) reported that her hip is stiff in the mornings and she now uses a frame in the house.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis (S2) stated she does not go out without someone.",
+   "cites": [
+    10
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis (S2) reported that carers Jade (morning) and an unnamed teatime carer visit her.",
+   "cites": [
+    12,
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis (S2) described the teatime carer as being 'in and out' quickly.",
+   "cites": [
+    14
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis (S2) stated she cannot get to the post office and her grandson Kyle goes to the cash machine for her.",
+   "cites": [
+    20
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis (S2) confirmed Kyle uses her bank card.",
+   "cites": [
+    22
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Edna Hollis (S2) stated Kyle takes £50 from her bank card every week for himself.",
+   "cites": [
+    24,
+    25
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Edna Hollis (S2) reported she does not say anything about the £50 withdrawal because she sees it on the statement.",
+   "cites": [
+    26,
+    28
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Edna Hollis (S2) stated her daughter Sandra does a shop on a Saturday when she can.",
+   "cites": [
+    16
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Edna Hollis (S2) reported that £400 was in her purse for Christmas presents and was gone after Kyle visited three weeks ago (Sunday).",
+   "cites": [
+    30,
+    32,
+    36
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Edna Hollis (S2) stated Kyle told her he was borrowing the money and would pay it back, and she believes it is not stealing.",
+   "cites": [
+    34
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Edna Hollis (S2) reported she does not put the heating on during the day, only when someone is coming.",
+   "cites": [
+    40
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis (S2) stated that at the end of the month she has toast for dinner because there is nothing left.",
+   "cites": [
+    42
+   ],
+   "section": "Needs and daily living"
+  },
+  {
+   "text": "Edna Hollis (S2) denied that Kyle has threatened her or hurt her.",
+   "cites": [
+    44
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna Hollis (S2) reported her daughter Sandra says Kyle gambles on his phone with betting things.",
+   "cites": [
+    46
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna Hollis (S2) stated she has never seen Kyle gamble.",
+   "cites": [
+    48
+   ],
+   "section": "Risks and safeguarding"
+  },
+  {
+   "text": "Edna Hollis (S2) confirmed Sandra knows about the £400 in the purse but she is cross about it.",
+   "cites": [
+    50
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Edna Hollis (S2) stated she has not told Sandra about the bank card.",
+   "cites": [
+    50
+   ],
+   "section": "Support network and finances"
+  },
+  {
+   "text": "Edna Hollis (S2) expressed a wish that Kyle does not get in trouble and she does not want the police involved.",
+   "cites": [
+    52
+   ],
+   "section": "Person's views and wishes"
+  },
+  {
+   "text": "Edna Hollis (S2) stated she would ring the social worker on the duty line if Kyle asks for money before Thursday and she is worried.",
+   "cites": [
+    72
+   ],
+   "section": "Agreed actions"
+  },
+  {
+   "text": "Edna Hollis (S2) requested the social worker write the meeting time on her calendar.",
+   "cites": [
+    69
+   ],
+   "section": "Agreed actions"
+  }
+ ]
+}

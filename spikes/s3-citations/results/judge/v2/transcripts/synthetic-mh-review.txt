@@ -1,0 +1,184 @@
+# CMHT care coordinator home review (synthetic)
+# id: synthetic-mh-review
+# Speakers: S1 = Care coordinator (Samuel Adeyemi); S2 = Hannah Rees; S3 = Tom Whitfield (partner)
+# Recorded on Tuesday 24 November 2026
+
+L1 [00:00] S1: Hiya, Hannah? It's Samuel, from the, uh, the community mental health team.
+L2 [00:05] S2: Hi. Yeah, come in. Sorry, the dog's going to go mad.
+L3 [00:10] S1: That's fine. Hello. Who's this then?
+L4 [00:12] S2: That's Pip. Pip, down. She just gets excited.
+L5 [00:15] S1: She's lovely. Is she a, um, a spaniel?
+L6 [00:18] S2: Cocker spaniel, yeah. Mostly. We're not totally sure about the dad.
+L7 [00:22] S1: Ha. Fair enough. Where do you want me?
+L8 [00:24] S2: Anywhere, um, the sofa's fine. Sorry, it's a bit of a state.
+L9 [00:29] S1: Don't worry. Is Tom about?
+L10 [00:32] S2: He's upstairs on a work call. He said he'll come down after, if that's, if that's still okay.
+L11 [00:38] S1: Yeah, of course, as long as you're happy for him to join.
+L12 [00:42] S2: Yeah. Yeah, I am. For some of it anyway.
+L13 [00:46] S1: Okay, we'll play that by ear. So today's your care review. It's been about six weeks since I last saw you?
+L14 [00:53] S2: Something like that. It was before Bonfire Night, I think.
+L15 [00:57] S1: Yeah. So I want to go through how things have been, medication, sleep, work, and then, uh, your safety plan and what happens next.
+L16 [01:06] S2: Okay.
+L17 [01:08] S1: And as always it's confidential, unless I'm worried about your safety, and then I'd talk to you first.
+L18 [01:15] S2: Yeah, I know. You say that every time.
+L19 [01:18] S1: I do, I know. Sorry. So, how have things been?
+L20 [01:22] S2: Honestly? Not great. It's been, um. It's been going downhill since about September really.
+L21 [01:27] S2: The mood, mostly. Just flat. And the anxiety's come back, the, the panic stuff.
+L22 [01:33] S1: The panic attacks you had before?
+L23 [01:35] S2: Yeah. I had one in the supermarket last week. Had to just leave the trolley in the aisle and walk out.
+L24 [01:43] S1: That sounds really horrible. How often are they happening?
+L25 [01:46] S2: Two or three a week? Some days it's just, like, a constant hum.
+L26 [01:51] S1: Okay. And the low mood, if you had to score it out of ten, where ten's the best you've felt?
+L27 [01:58] S2: Three. Maybe a four on a good day.
+L28 [02:01] S1: Okay. And what was it over the summer?
+L29 [02:04] S2: Summer I was a seven, I'd say. I was doing well. That's what's annoying.
+L30 [02:09] S1: Yeah. It is. So, medication. Dr Mensah saw you in clinic and changed things, didn't she?
+L31 [02:15] S2: Yeah. She put the sertraline up to two hundred.
+L32 [02:18] S1: Two hundred? Let me just check, because I've got, um—
+L33 [02:21] S2: No, sorry, sorry, a hundred and fifty. It was a hundred, and now it's a hundred and fifty. I always get that wrong.
+L34 [02:30] S1: A hundred and fifty, yeah, that matches the clinic letter. And when did you start the higher dose?
+L35 [02:37] S2: The third. The third of November. No, wait. It was after the appointment, so the tenth. The tenth.
+L36 [02:43] S1: The tenth, okay. So only two weeks.
+L37 [02:46] S2: Yeah.
+L38 [02:47] S1: And she added something for sleep as well?
+L39 [02:50] S2: The mirta, mirtazapine. The, um, fifteen milligrams, at night.
+L40 [02:54] S1: Fifteen at night. How are you getting on with that?
+L41 [02:59] S2: It knocks me out. But I'm still waking at three, half three. Every night.
+L42 [03:03] S1: And can you get back off after that?
+L43 [03:06] S2: Not really. I just lie there. Going over work stuff. I'm probably getting four hours, if that.
+L44 [03:13] S1: Four hours. Any side effects?
+L45 [03:15] S2: I'm hungrier. Which is, I mean, it's probably not a bad thing, because I'd stopped eating properly and lost about half a stone. Anyway.
+L46 [03:23] S1: Okay. Anything else? Feeling sick, headaches?
+L47 [03:26] S2: Bit of a dry mouth. Nothing major.
+L48 [03:28] S1: And are you taking them every day?
+L49 [03:31] S2: Yeah. I haven't missed any. Tom does the boxes now anyway, they're in his drawer upstairs.
+L50 [03:36] S1: That was from the safety plan, wasn't it, Tom looking after them.
+L51 [03:40] S2: Yeah. After last time.
+L52 [03:42] S1: Mm. And do you think the medication's helping?
+L53 [03:46] S2: Honestly, it's too early to say. Dr Mensah said give it six weeks and I want to do that. I don't want to chop and change again.
+L54 [03:54] S1: That makes sense. So, work. You're still signed off?
+L55 [03:57] S2: Yeah. The GP's signed me off until the fourth of December.
+L56 [04:01] S2: No, I tell a lie. It's the eleventh. The eleventh. He did it for four weeks.
+L57 [04:07] S1: Eleventh of December, okay. And what's been going on at work? Last time you mentioned the restructure.
+L58 [04:13] S2: Yeah. So, um, new manager in August, and they've merged payroll with, with accounts. My workload's basically doubled.
+L59 [04:20] S2: And she's just, she's very, she sends emails at eleven at night and expects them done by nine.
+L60 [04:26] S1: That's a lot of pressure.
+L61 [04:28] S2: It is. And, um, apparently, I mean this is just what Leanne in HR said to me, but apparently my manager's been saying I'm not resilient enough and they'll be looking at my position.
+L62 [04:39] S1: That's what Leanne told you?
+L63 [04:41] S2: Yeah. Over a text. I don't know if it's true. Leanne does like a bit of drama.
+L64 [04:47] S1: Okay. That must sit heavy, hearing that.
+L65 [04:50] S2: It does. It's what I think about at three in the morning.
+L66 [04:55] S1: And how do you feel about the job itself, apart from the manager?
+L67 [04:59] S2: I like the job. I've been at Calloway Freight six years. I'm good at it. I want to go back, I just don't want to go back to that.
+L68 [05:08] S1: Have they mentioned occupational health at all?
+L69 [05:11] S2: Oh, yeah, there's an occupational health appointment on the second of December, a phone one. Anyway, the thing I was going to say about the manager—
+L70 [05:20] S1: Go on.
+L71 [05:21] S2: If they offered me a phased return, like mornings only, I might, I might give it a go. But they haven't offered anything.
+L72 [05:30] S1: Okay. That could be something to raise with them, maybe.
+L73 [05:34] S2: Yeah, maybe.
+L74 [05:36] S1: And day to day, what does a typical day look like at the moment?
+L75 [05:41] S2: Um. I get up when Tom goes, about seven. Walk Pip, because she makes me.
+L76 [05:47] S2: Then mostly I'm on the sofa. Some days I don't even get dressed.
+L77 [05:52] S1: Are you seeing anybody? Friends?
+L78 [05:54] S2: Not really. I've been avoiding people. My sister rings but I let it go to voicemail half the time.
+L79 [06:01] S1: That's Megan?
+L80 [06:02] S2: Megan, yeah.
+L81 [06:04] S1: Okay. And alcohol, how's that been?
+L82 [06:07] S2: I have a glass of wine on a Friday. Two maybe. That's it.
+L83 [06:12] S1: And anything else, cannabis, anything like that?
+L84 [06:15] S2: No. Never. I've never touched any of that.
+L85 [06:18] S3: Hiya, sorry. Sorry, that call went on forever.
+L86 [06:21] S1: No worries. Hi Tom. Samuel. We met in the summer, I think.
+L87 [06:26] S3: Yeah, we did. Do you want a tea or anything?
+L88 [06:30] S1: I'm fine, thanks. Hannah, are you happy for Tom to sit in for this bit?
+L89 [06:35] S2: Yeah, it's fine.
+L90 [06:37] S1: We were just talking about day to day stuff and, um, alcohol actually.
+L91 [06:41] S3: Right. Well, I mean, Megan said to me she'd seen loads of empties in our recycling. Like, bottles. She reckons Hannah's drinking every night.
+L92 [06:49] S2: That's, oh my god, that's the bottles from your brother's birthday, Tom.
+L93 [06:54] S3: I'm just saying what she said.
+L94 [06:57] S2: I'm not drinking every night. I've told Samuel, it's a glass on a Friday.
+L95 [07:03] S1: Okay. I'll note what Megan said and what you've told me. Tom, have you seen her drinking more yourself?
+L96 [07:08] S3: No, honestly, not really. I just thought I should mention it.
+L97 [07:12] S1: That's fine. So Tom, how have you found the last couple of months?
+L98 [07:17] S3: Hard. She's not, she's not herself. I can hear her up at three.
+L99 [07:21] S3: And I think the job's doing it. I think she should just pack it in. Hand her notice in and be done with it.
+L100 [07:30] S2: I'm not quitting my job, Tom.
+L101 [07:33] S3: I know, I know, I'm just—
+L102 [07:35] S2: We've had this. I like my job. It's the manager.
+L103 [07:39] S3: Okay. Okay. That's my view, that's all.
+L104 [07:42] S1: That's fair, you're allowed different views. Tom, anything else you're worried about?
+L105 [07:46] S3: The tablets. I don't think they're doing anything. Two weeks on the new dose and she's no better. I think she needs something different.
+L106 [07:54] S2: It's two weeks. Dr Mensah said six.
+L107 [07:57] S3: I know what she said.
+L108 [07:59] S1: It can take four to six weeks to really see a difference after an increase. If things aren't better by the next clinic, Dr Mensah might look at a switch, maybe venlafaxine, but that's her call and nothing's been decided.
+L109 [08:14] S3: Could it be bipolar or something? My mate's wife had that and it was the same, up and down.
+L110 [08:21] S1: That's a fair question to ask. It's not something I can answer, honestly. It'd be one for Dr Mensah to look at.
+L111 [08:28] S2: I'm not up and down, though. I'm just down.
+L112 [08:32] S1: Okay. I'll put that you raised it, Tom, and we can ask her.
+L113 [08:37] S1: So, um, I need to ask about some of the harder stuff now. Is that okay, Hannah? And are you okay with Tom here for it?
+L114 [08:44] S2: Yeah. He knows everything anyway.
+L115 [08:47] S1: Okay. So, have you had any thoughts of ending your life, recently?
+L116 [08:52] S2: Um. Not, not like that. Not like last time.
+L117 [08:56] S2: Sometimes I think, I wouldn't mind not waking up. Like, if I just didn't wake up, that'd be okay. A few times in the last fortnight maybe.
+L118 [09:06] S1: Thank you for telling me that. When you have those thoughts, have you thought about acting on them?
+L119 [09:11] S2: No. No. I haven't got any plans. I'm not going to do anything.
+L120 [09:16] S1: Okay. Have you done anything to prepare, looked anything up, saved tablets, anything like that?
+L121 [09:22] S2: No. Nothing like that. And Tom's got the tablets anyway.
+L122 [09:26] S1: And any self-harm? Cutting, hurting yourself in any way?
+L123 [09:29] S2: No. Not since the overdose. Nothing.
+L124 [09:32] S1: And just for my notes, the overdose was, was it October twenty twenty-three?
+L125 [09:37] S2: Twenty-three, yeah. No, sorry, twenty-four. October twenty-four. It was the October after we moved here.
+L126 [09:42] S3: Twenty-four. Yeah.
+L127 [09:44] S1: Twenty twenty-four, yeah. And that was paracetamol, you went to A and E, and then the home treatment team came out for about three weeks.
+L128 [09:53] S2: Yeah.
+L129 [09:54] S1: What's different now from back then, do you think?
+L130 [09:58] S2: Back then I'd stopped talking to anyone. Now I'm talking to you. And there's Pip. And my niece, Megan's little girl, I'm her godmother. I wouldn't do that to her.
+L131 [10:09] S1: Those are really important things. And any voices, or seeing things other people don't?
+L132 [10:14] S2: No. Never had anything like that.
+L133 [10:16] S3: Can I say something?
+L134 [10:18] S1: Of course.
+L135 [10:19] S3: I think she should be in hospital. Or have the, the crisis people come every day, like last time. I'm at work all day, I can't watch her.
+L136 [10:29] S2: I don't need hospital, Tom. I don't want that. I'm not where I was last time.
+L137 [10:35] S3: I'm just scared.
+L138 [10:37] S2: I know you are.
+L139 [10:39] S1: That's understandable, Tom. From what Hannah's told me I'm not referring to home treatment right now, but we'll firm up the safety plan.
+L140 [10:48] S3: Okay. And, um, I'm away next week as well, that's the other thing. Monday to Thursday, for work, up in Leeds.
+L141 [10:56] S1: Right. Is anyone able to be around while you're away?
+L142 [11:00] S2: Megan said I could stay at hers. Maybe. I haven't decided.
+L143 [11:04] S1: Okay. Let's put that week in the safety plan then, so there's something in place.
+L144 [11:10] S1: So, the safety plan. Warning signs, last time we had, um, not getting out of bed, stopping walking Pip, and going quiet on Tom. Still right?
+L145 [11:19] S2: Yeah. And not answering Megan, I suppose. Which I'm already doing.
+L146 [11:23] S1: Okay, we'll add that. And the crisis line number's still on the fridge?
+L147 [11:28] S2: Yeah, it's on the fridge.
+L148 [11:30] S3: It's on my phone too.
+L149 [11:32] S1: Good. Now, Tom, I wanted to mention, you're entitled to a carer's assessment, in your own right. Is that something you'd want?
+L150 [11:38] S3: Um. I don't know. Maybe. Can I think about it?
+L151 [11:42] S1: Course. I'll leave you the leaflet.
+L152 [11:45] S3: Thanks. I'd better, uh, I've got another call at half eleven. Sorry, Hannah.
+L153 [11:50] S2: It's fine. Go.
+L154 [11:51] S3: Nice to see you, Samuel.
+L155 [11:53] S1: You too, Tom.
+L156 [11:55] S1: Okay. How are you doing, after all that?
+L157 [11:58] S2: Tired. He means well. He just panics.
+L158 [12:00] S2: Can I ask about the therapy? Because my friend Jo, she's under your team as well, she said the wait for psychology is like two years now.
+L159 [12:08] S1: I don't know where she got that. It varies a lot and I can't give you a number today.
+L160 [12:14] S2: Two years though. I can't wait two years.
+L161 [12:17] S1: Let's not assume that. Let's see what they say first.
+L162 [12:21] S2: Okay.
+L163 [12:23] S1: Last thing, I was going to do the, the PH Q nine with you today, the mood questionnaire.
+L164 [12:29] S2: Oh god, the forms.
+L165 [12:31] S1: Ha, I know. Actually, let's leave it, you look shattered. We'll do it next time.
+L166 [12:37] S2: Thank you.
+L167 [12:38] S1: So, let me just recap what we've agreed. I'm going to do the referral to psychology, and I'll get that done by Friday.
+L168 [12:45] S2: Okay.
+L169 [12:47] S1: I'll ring Dr Mensah's secretary to chase your next clinic appointment, because I don't think you've had a date through, have you?
+L170 [12:54] S2: No, nothing yet.
+L171 [12:56] S1: I'll update the safety plan with the new warning sign and next week while Tom's away, and drop a copy round.
+L172 [13:02] S1: And can you do a sleep diary for me? Bedtime, waking, and how long you're awake in the night.
+L173 [13:10] S2: Yeah, I can do that.
+L174 [13:13] S1: And I'll come back Tuesday the eighth of December. Same time, ten o'clock?
+L175 [13:18] S2: The eighth. Yeah, that's fine.
+L176 [13:20] S1: Great. And if those thoughts get stronger before then, you ring the crisis line or the duty worker, okay?
+L177 [13:26] S2: I will. I promise.
+L178 [13:28] S1: Okay. Bye, Pip. Take care, Hannah.
+L179 [13:31] S2: Bye. Thanks, Samuel.

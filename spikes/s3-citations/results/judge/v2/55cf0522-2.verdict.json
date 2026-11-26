@@ -1,0 +1,672 @@
+{
+  "sentences": {
+    "S113": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Biscuit is a cat (L7, L15, L20); L593 doesn't say dog."
+    },
+    "S114": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S115": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S116": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S117": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S118": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S119": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S120": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S121": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S122": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Consent question is L42, not cited."
+    },
+    "S123": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S124": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S125": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S126": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S127": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L66 says 'She'; that Brenda found her is L63, not cited."
+    },
+    "S128": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S129": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L71 doesn't say Biscuit is a cat; that is L7/L20, not cited."
+    },
+    "S130": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S131": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S132": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S133": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S134": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S135": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'No broken hips' is L88, not cited."
+    },
+    "S136": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'Two earlier falls' context is L118, not cited."
+    },
+    "S137": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L131 answers S1's question at L130 (not cited) about the falls service."
+    },
+    "S138": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S139": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S140": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S141": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S142": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L450 'I'd tell Dr Shah. I think I would' - the hedge is dropped."
+    },
+    "S143": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S144": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S145": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S146": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S147": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Brenda is Margaret's neighbour (L63, L378), not Kevin's mother; hearsay itself is preserved."
+    },
+    "S148": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S149": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L534's 'that' refers to the betting claim at L531-533, not cited."
+    },
+    "S150": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S151": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S152": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S153": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S154": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S155": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S156": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S157": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S158": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S159": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L665 'Yes. I'll try.' - 'agreed' drops her hedge."
+    },
+    "S160": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S161": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'Every night' context is L666, not cited."
+    },
+    "S162": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'Every night' context is L666, not cited."
+    },
+    "S163": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'Son' comes from S1's question at L46, not cited."
+    },
+    "S164": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Getting cash out is L306, not cited."
+    },
+    "S165": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S166": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L318 is S2 saying he smells; Kevin's 'came straight from work' is L317, not cited."
+    },
+    "S167": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S168": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S169": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S170": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S171": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S172": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S173": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S174": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S175": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'Brenda next door' is from L378, not cited."
+    },
+    "S176": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S177": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S178": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S179": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S180": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S181": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S182": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S183": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S184": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S185": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S186": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S187": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S188": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S189": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S190": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S191": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S192": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S193": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L403 replies to S1's offer at L401-402, not cited."
+    },
+    "S194": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S195": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S196": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S197": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S198": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S199": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S200": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S201": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S202": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S203": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S204": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S205": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S206": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S207": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S208": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S209": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S210": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S211": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S212": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S213": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S214": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S215": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S216": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S217": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S218": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S219": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S220": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S221": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S222": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Appointment date is L656-657, not cited; L659 alone lacks it."
+    },
+    "S223": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {},
+  "notes": "Mostly accurate; errors: Biscuit called a dog (cat elsewhere), Brenda called Kevin's mother, two dropped hedges."
+}

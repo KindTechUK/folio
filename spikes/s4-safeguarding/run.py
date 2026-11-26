@@ -16,6 +16,8 @@ Outputs:
 
 Usage:
   python3 run.py --models qwen3-4b,qwen3.5-4b --prompts neutral,statutory --vignettes all
+The v2 follow-up run (statutory + rule 7 + the recording date, up to 60 facts and 4096 tokens per call):
+  nice -n 10 python3 run.py --models qwen3.5-4b --prompts v2 --fact-cap 60 --map-max-tokens 4096 --threads 6
 """
 import argparse
 import json
@@ -110,7 +112,7 @@ def note_path(model, prompt, vid):
     return C.RESULTS / "notes" / model / prompt / f"{vid}.json"
 
 
-def run_one(srv, model, prompt, vpath, out):
+def run_one(srv, model, prompt, vpath, out, fact_cap=30, max_tokens=MAP_MAX_TOKENS):
     """One note. Its map calls in runs.jsonl and the saved note share a run_id, so score.py pairs a note
     with the calls that made it even when a rerun was interrupted between the two writes."""
     run_id = uuid.uuid4().hex[:12]
@@ -119,10 +121,11 @@ def run_one(srv, model, prompt, vpath, out):
     secs = C.sections(t["lines"])
     facts = []
     for i, sec in enumerate(secs):
-        msgs = C.map_messages(t, tpl, sec, i, len(secs), C.PROMPTS[prompt])
-        m, parsed, raw = srv.chat(msgs, C.facts_schema(tpl), MAP_MAX_TOKENS, "facts")
+        msgs = C.map_messages(t, tpl, sec, i, len(secs), C.PROMPTS[prompt], dated=prompt in C.DATED_PROMPTS)
+        m, parsed, raw = srv.chat(msgs, C.facts_schema(tpl, fact_cap), max_tokens, "facts")
         rec = {"run_id": run_id, "model": model, "prompt": prompt, "vignette": t["id"], "stage": f"map{i}",
-               "n_sections": len(secs), **m, "n_facts": len((parsed or {}).get("facts", [])), "raw": raw}
+               "n_sections": len(secs), "fact_cap": fact_cap, "max_tokens": max_tokens, **m,
+               "n_facts": len((parsed or {}).get("facts", [])), "raw": raw}
         out.write(json.dumps(rec) + "\n")
         out.flush()
         print(f"  {model} {prompt} {t['id']} map{i}: wall_s={m['wall_s']} prompt_n={m['prompt_n']} "
@@ -145,10 +148,15 @@ def main():
     ap.add_argument("--ctx", type=int, default=8192)
     ap.add_argument("--port", type=int, default=8094)
     ap.add_argument("--force", action="store_true", help="re-run notes that already exist")
+    ap.add_argument("--fact-cap", type=int, default=30, help="most facts per map call (schema maxItems)")
+    ap.add_argument("--map-max-tokens", type=int, default=MAP_MAX_TOKENS)
     a = ap.parse_args()
 
     vpaths = C.vignette_paths() if a.vignettes == "all" else [C.find_vignette(v) for v in a.vignettes.split(",")]
     prompts = a.prompts.split(",")
+    unknown = [p for p in prompts if p not in C.PROMPTS]
+    if unknown:
+        raise SystemExit(f"unknown prompts {unknown}; choose from {sorted(C.PROMPTS)}")
     C.RESULTS.mkdir(exist_ok=True)
     with open(C.RESULTS / "runs.jsonl", "a", encoding="utf-8") as out:
         for model in a.models.split(","):
@@ -165,7 +173,7 @@ def main():
                 out.write(json.dumps({"model": model, "stage": "load", "load_s": srv.load_s, "threads": a.threads,
                                       "ctx": a.ctx, "loadavg": load}) + "\n")
                 for prompt, vp in todo:
-                    run_one(srv, model, prompt, vp, out)
+                    run_one(srv, model, prompt, vp, out, a.fact_cap, a.map_max_tokens)
             finally:
                 srv.stop()
 

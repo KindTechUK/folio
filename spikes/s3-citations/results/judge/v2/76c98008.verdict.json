@@ -1,0 +1,384 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S003": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L15-16: Leanne, not baby Amelia, made the request; Sandra is Leanne's mother. Sentence's subject is Amelia."
+    },
+    "S004": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L22 only 'below where we'd want him'; 80% is the panel threshold (L29), and 84% is not below 80%."
+    },
+    "S005": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S006": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Jordan as Amelia's father/ex-partner comes from uncited L42."
+    },
+    "S008": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Sertraline claim is in uncited L59; L57-58 only say Sandra rang last Wednesday."
+    },
+    "S009": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S010": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S011": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S012": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": "T09",
+      "why": "L59: hearsay, Ruth 'doesn't know if it's true'; stated as fact and 'confirmed by Sandra' overstates."
+    },
+    "S013": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S014": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S015": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S016": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L70-72: Ruth's view, disputed by Darren (L69), pending survey; stated as fact; 'back bedroom' wall not said."
+    },
+    "S017": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S018": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L75 gives the date; surveyor booking is in uncited L73-74."
+    },
+    "S019": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L53-54: fortnightly visits and weight/chest concern relate to Amelia, not Leanne."
+    },
+    "S020": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S021": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S023": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S024": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S025": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S026": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S027": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Clare's Law question is in uncited L109; L110 only mentions manager."
+    },
+    "S028": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S029": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L115: Leanne (mum) is lovely with Amelia, not 'the child'."
+    },
+    "S030": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L116: Tyler adores his mum (Leanne), not 'the child'."
+    },
+    "S031": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S032": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S033": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S034": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S035": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S036": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S037": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S038": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S039": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L124-125: Ruth's online-form referral is the stay and play, not perinatal; perinatal referral is for Leanne."
+    },
+    "S040": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L64 says 'I'll do it'; perinatal referral named in uncited L63."
+    },
+    "S041": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L66 gives date only; referral context in uncited L63-65."
+    },
+    "S042": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S043": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L137 'By Friday' doesn't name the perinatal referral (L136)."
+    },
+    "S044": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L139 gives date only; stay and play named in uncited L138."
+    },
+    "S045": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S046": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L73-74, L140: Darren is the housing officer who arranged the surveyor, not the surveyor."
+    },
+    "S047": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S048": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Lates by day come from uncited L143, not S1's L142."
+    },
+    "S049": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L143 doesn't name the attendance breakdown (L142)."
+    },
+    "S050": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S051": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L146 doesn't name CAMHS; that's uncited L145."
+    },
+    "S052": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S053": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S054": {
+      "label": "over_inference",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L150-151: move is Darren's 'if' depending on survey; 'Darren's decision' overstates. L151 'Correct' alone supports nothing."
+    },
+    "S055": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S056": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S057": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S058": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S059": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S060": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {
+    "F01": "partial",
+    "F02": "absent",
+    "F03": "partial",
+    "F04": "partial",
+    "F05": "partial",
+    "F06": "absent",
+    "F07": "present",
+    "F08": "partial",
+    "F09": "present",
+    "F10": "present",
+    "F11": "partial",
+    "F12": "partial",
+    "F13": "present",
+    "F14": "present",
+    "F15": "present",
+    "F16": "present",
+    "F17": "present"
+  },
+  "notes": "Mostly accurate but several wrong-person slips (Amelia/Leanne/child), Darren as surveyor, perinatal vs stay-and-play mix-up; S024 truncated with garbled characters."
+}

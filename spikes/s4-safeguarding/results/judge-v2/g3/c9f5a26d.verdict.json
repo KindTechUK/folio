@@ -1,0 +1,29 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "Jade Turner stated that when her friend Shannon cannot look after Leo and Poppy, she has left them on their own for a couple of hours while they are asleep. Jade Turner confirmed that Leo and Poppy are left alone in the flat for a couple of hours while she is at work.",
+   "why": "children named, left on their own in the flat, a couple of hours, while at (night) work all kept"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "Jade Turner stated this occurs roughly three nights a week since Shannon got her new job, which started the last month.",
+   "why": "three nights a week and the last month kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "Poppy has a bad nappy rash that is broken in places. Jade Turner admitted she ran out of nappies on Sunday and had been leaving them on longer. The nappy rash has been present for about a week.",
+   "why": "nappy rash, broken skin, a week, ran out of nappies, left on longer all kept"
+  },
+  "D04": {
+   "label": "accurate",
+   "note_text": "Jade Turner stated she has not managed for food in the house, with only bread, some cereal, and one tin of Poppy's milk remaining until Friday.",
+   "why": "bread, cereal, one tin of milk, until Friday kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Eviction recorded as a conditional fear, with no landlord letters or notice. Person's views section empty (not a key section)."
+}

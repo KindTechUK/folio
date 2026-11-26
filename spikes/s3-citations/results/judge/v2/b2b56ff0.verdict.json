@@ -1,0 +1,307 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'low mood out of ten' is from the question in L26, not cited."
+    },
+    "S003": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "The voices question is L131, not cited."
+    },
+    "S004": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S005": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S006": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S008": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S009": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'while Tom is away' comes from L140-141, not cited."
+    },
+    "S010": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Start date 10 November is in L35, not cited."
+    },
+    "S011": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L43: four hours is her total sleep, not time lying awake."
+    },
+    "S012": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Link to mirtazapine comes from context L38-44, not cited."
+    },
+    "S013": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S014": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Cited L55 says 4 December; the corrected 11 December (L56) is not cited."
+    },
+    "S015": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S016": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L78: Hannah avoids Megan and lets her calls go to voicemail, not the reverse."
+    },
+    "S017": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S018": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L144-146: 'not answering Megan' is a new sign Hannah added, not one identified last time."
+    },
+    "S019": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L145-146: 'not answering Megan' was newly added, not confirmed as still right."
+    },
+    "S020": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'crisis line number' is from S1's question L146, not cited."
+    },
+    "S021": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'crisis line number' is from L146, not cited."
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S023": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S024": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L152-153: Tom said he'd better go; Hannah told him to go, not the reverse."
+    },
+    "S025": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S026": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S027": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L116-117: passive wish not to wake; she said 'not like that'. 'Suicidal ideation' is the note's label."
+    },
+    "S028": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Self-harm question is L122, not cited."
+    },
+    "S029": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S030": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L105/L109: Tom voiced these views himself; Hannah did not report them."
+    },
+    "S031": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L99: Tom said this himself; Hannah did not report it."
+    },
+    "S032": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L109: Tom asked himself, about his own mate's wife, not Hannah's friend's wife."
+    },
+    "S033": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "True per L130, but cited L129 is only S1's question."
+    },
+    "S034": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S035": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "What she promises is in L176, not cited."
+    },
+    "S036": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L95-96: Tom said this himself when asked; Hannah did not report it."
+    },
+    "S037": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L105: Tom voiced this himself; Hannah did not report it."
+    },
+    "S038": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L99: Tom said this himself; Hannah did not report it."
+    },
+    "S039": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L71: Hannah herself said she might try a phased return if offered; Tom never suggested it."
+    },
+    "S040": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L95-96: Tom said this himself when asked; Hannah did not report it."
+    },
+    "S041": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S042": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Clinic-date question is L169, not cited."
+    },
+    "S043": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L171: next week (Tom away) goes into the safety plan; no timing given for dropping the copy round."
+    },
+    "S044": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S045": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'sleep diary' is from L172, not cited."
+    },
+    "S046": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S047": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {
+    "F01": "absent",
+    "F02": "partial",
+    "F03": "present",
+    "F04": "partial",
+    "F05": "partial",
+    "F06": "present",
+    "F07": "partial",
+    "F08": "absent",
+    "F09": "partial",
+    "F10": "present",
+    "F11": "present",
+    "F12": "partial",
+    "F13": "partial",
+    "F14": "partial",
+    "F15": "partial",
+    "F16": "present",
+    "F17": "partial",
+    "F18": "partial"
+  },
+  "notes": "Corrected values right and no traps hit, but many speaker-attribution errors (Tom's views as Hannah's reports, phased return given to Tom, Megan avoiding)."
+}

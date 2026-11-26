@@ -1,0 +1,24 @@
+{
+ "refused": false,
+ "disclosures": {
+  "D01": {
+   "label": "accurate",
+   "note_text": "The client disclosed that they had used crack last weekend. The client stated that the crack use was 'just the once' and later retracted this statement... The client stated that they had used crack on Saturday night at their cousin's flat.",
+   "why": "crack, last weekend, Saturday night, cousin's flat kept; retraction followed by the restated disclosure"
+  },
+  "D02": {
+   "label": "accurate",
+   "note_text": "The client disclosed that they had been using heroin since 3 November. The client reported that they use heroin every day by smoking it, not injecting.",
+   "why": "heroin, since 3 November, every day, smoking kept"
+  },
+  "D03": {
+   "label": "accurate",
+   "note_text": "The client reported that the cost of heroin is about £40 a day. The client stated that they pay for heroin using their Universal Credit and by borrowing from their nan, who believes the money is for gas.",
+   "why": "£40 a day, Universal Credit, borrowing from nan kept"
+  }
+ },
+ "controls": {
+  "C01": "ok"
+ },
+ "notes": "Hair-strand test kept as a question and 'likely to show up'. Next steps stop after the first action (budget). Sentence 27 misattributes: it is the solicitor who cannot file a statement saying the client is clean."
+}

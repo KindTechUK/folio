@@ -1,0 +1,714 @@
+{
+  "sentences": {
+    "S001": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S002": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S003": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S004": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S005": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S006": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S007": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S008": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S009": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Flat/bungalow suggestion is L338-339, not cited."
+    },
+    "S010": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S011": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S012": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S013": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S014": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Biscuit is a cat (L7, L9), not a dog."
+    },
+    "S015": {
+      "label": "over_inference",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L415 says only 'it was his heart. Very sudden'; 'heart attack' is a diagnosis not stated."
+    },
+    "S016": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S017": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Wind context is in L677, not cited."
+    },
+    "S018": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L680: Margaret said 'Mind the step' to Priya; Priya did not say it to Kevin."
+    },
+    "S019": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S020": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S021": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S022": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S023": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S024": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S025": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S026": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S027": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'Three' and 'six months' are in L116-117, not cited."
+    },
+    "S028": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S029": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S030": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S031": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "'Especially her hair' is L192, not cited."
+    },
+    "S032": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S033": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S034": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S035": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S036": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S037": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S038": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S039": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S040": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S041": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L146-147: it is her one walking frame left at the stair bottom, not a bathroom frame."
+    },
+    "S042": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Cited L153 is S1's observation, not Margaret's report; she only acknowledges it at L154."
+    },
+    "S043": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S044": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S045": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S046": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S047": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L183-186: there is no shower and she has not used the bath since January."
+    },
+    "S048": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S049": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S050": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S051": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S052": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S053": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S054": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S055": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S056": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S057": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S058": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S059": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S060": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S061": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S062": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S063": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S064": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Evening context is L250, not cited."
+    },
+    "S065": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Cheese context is L251, not cited."
+    },
+    "S066": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S067": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S068": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S069": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "70mg is stated in L287, not cited."
+    },
+    "S070": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S071": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L295-296: the two tablets found were her blood-pressure tablets (amlodipine), not paracetamol."
+    },
+    "S072": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Context (opening the box with wrist) is L297, not cited."
+    },
+    "S073": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S074": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L296 alone does not name medication; context L293-295 not cited."
+    },
+    "S075": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L335: Kevin (S3) said this, sarcastically; Margaret said she is 'thinking about it' (L334)."
+    },
+    "S076": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S077": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S078": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S079": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S080": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S081": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S082": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "The question 'Do you get lonely?' is L406, not cited."
+    },
+    "S083": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Biscuit is a cat (L7, L9), not a dog."
+    },
+    "S084": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S085": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Watching programmes is L412, not cited."
+    },
+    "S086": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S087": {
+      "label": "contradiction",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "L426: it was Dr Patel then and Dr Shah now; '(then Dr Shah)' inverts it."
+    },
+    "S088": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S089": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S090": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Sertraline name is L432, not cited."
+    },
+    "S091": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S092": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S093": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S094": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S095": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S096": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S097": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S098": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S099": {
+      "label": "supported",
+      "cites_support": "no",
+      "trap": null,
+      "why": "Missed tablets is in L608; cited L607 does not say it."
+    },
+    "S100": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S101": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S102": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S103": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S104": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S105": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S106": {
+      "label": "supported",
+      "cites_support": "partly",
+      "trap": null,
+      "why": "Second frame was S1's suggestion (L149, not cited); she endorsed it at L152."
+    },
+    "S107": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L175-176: 'Interested. Put it down' refers to the telecare watch alarm, not the assessment."
+    },
+    "S108": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S109": {
+      "label": "contradiction",
+      "cites_support": "no",
+      "trap": null,
+      "why": "L175-176: 'Interested. Put it down' refers to the telecare watch alarm, not the assessment."
+    },
+    "S110": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S111": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    },
+    "S112": {
+      "label": "supported",
+      "cites_support": "yes",
+      "trap": null,
+      "why": ""
+    }
+  },
+  "facts": {
+    "F01": "present",
+    "F02": "present",
+    "F03": "present",
+    "F04": "present",
+    "F05": "present",
+    "F06": "partial",
+    "F07": "present",
+    "F08": "partial",
+    "F09": "present",
+    "F10": "present",
+    "F11": "present",
+    "F12": "present",
+    "F13": "present",
+    "F14": "partial",
+    "F15": "partial",
+    "F16": "partial",
+    "F17": "absent",
+    "F18": "present",
+    "F19": "present",
+    "F20": "present",
+    "F21": "present",
+    "F22": "present",
+    "F23": "present",
+    "F24": "present",
+    "F25": "present",
+    "F26": "present",
+    "F27": "present",
+    "F28": "present",
+    "F29": "present",
+    "F30": "present",
+    "F31": "present",
+    "F32": "present",
+    "F33": "present",
+    "F34": "present",
+    "F35": "present"
+  },
+  "notes": "Broad coverage; errors include Biscuit as dog, missed tablets called paracetamol, telecare interest read as assessment, shower/bath and speaker slips."
+}

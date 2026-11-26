@@ -1,0 +1,456 @@
+{
+ "sentences": {
+  "S001": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Purpose comes from L8/L10, not the cited L1-5"
+  },
+  "S002": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S003": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S004": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S005": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S006": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "June 2021 is in L16, not the cited L17-18"
+  },
+  "S007": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "L19 is S1 echoing 'eleven people'; client's statement L18 not cited"
+  },
+  "S008": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S009": {
+   "label": "over_inference",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "L23: client said 31k includes allowance and overtime 'I think', a mortgage-form figure; hedge dropped"
+  },
+  "S010": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S011": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "L27: 'they put in' 4-5% means employer contribution; note makes it her contribution"
+  },
+  "S012": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S013": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S014": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "'Five minutes' is from L42/L68, not cited lines"
+  },
+  "S015": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S016": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S017": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S018": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S019": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "L42: colleague covered for her, not she for a colleague; L44 possible email ('don't think so') turned into none"
+  },
+  "S020": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S021": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "L51 is S1's summary; client confirms at L40/L52, not cited"
+  },
+  "S022": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "L52 'nobody ever said anything'; 'never disciplined' rests on uncited L84"
+  },
+  "S023": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S024": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S025": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Gary started January 2026 (Linda left end 2025, L40/L51); note says 2025"
+  },
+  "S026": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S027": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S028": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S029": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S030": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S031": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S032": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S033": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S034": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S035": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S036": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S037": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S038": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S039": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S040": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S041": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S042": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S043": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S044": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S045": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Events were in 2026 (Linda left end 2025, L51; dismissal Aug 2026, L147); note says 2024"
+  },
+  "S046": {
+   "label": "contradiction",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Year 2024 wrong (2026); L135: Gary said radio 'every time', not specifically 9 July"
+  },
+  "S047": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S048": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S049": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "L142 alone doesn't say which notes; context is L141 (uncited)"
+  },
+  "S050": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S051": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S052": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "L148: S1 read the letter and noted not gross misconduct, not client; 'misuse' typo"
+  },
+  "S053": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "Eight weeks is in L149/L150, not cited L148"
+  },
+  "S054": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "L149-150: client said '4,500 and something'; exact figure read by S1"
+  },
+  "S055": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S056": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S057": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "L156 needs uncited question L155 to show diabetes/OH report were meant"
+  },
+  "S058": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S059": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S060": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S061": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S062": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S063": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S064": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S065": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S066": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S067": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S068": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  },
+  "S069": {
+   "label": "supported",
+   "cites_support": "partly",
+   "trap": null,
+   "why": "L177 'I won't' answers uncited L176 (don't sign without talking to us)"
+  },
+  "S070": {
+   "label": "supported",
+   "cites_support": "yes",
+   "trap": null,
+   "why": ""
+  }
+ },
+ "facts": {
+  "F01": "present",
+  "F02": "present",
+  "F03": "present",
+  "F04": "partial",
+  "F05": "partial",
+  "F06": "absent",
+  "F07": "partial",
+  "F08": "absent",
+  "F09": "absent",
+  "F10": "absent",
+  "F11": "absent",
+  "F12": "absent",
+  "F13": "absent",
+  "F14": "absent",
+  "F15": "absent",
+  "F16": "partial",
+  "F17": "present",
+  "F18": "present",
+  "F19": "partial",
+  "F20": "partial",
+  "F21": "partial",
+  "F22": "partial",
+  "F23": "partial",
+  "F24": "present",
+  "F25": "present",
+  "F26": "present",
+  "F27": "partial",
+  "F28": "present",
+  "F29": "present"
+ },
+ "notes": "Systematic wrong years (2025 for Gary, 2024 for every Mar-Aug event); cover arrangement reversed; pension contribution misattributed; otherwise detailed and faithful."
+}

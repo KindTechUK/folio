@@ -1,0 +1,360 @@
+{
+ "run_id": "84c03a532155",
+ "note": {
+  "sections": [
+   {
+    "title": "Attendance",
+    "sentences": []
+   },
+   {
+    "title": "Client's account",
+    "sentences": [
+     {
+      "text": "S2 disclosed that her mother, Margaret (81 years old), has dementia diagnosed two years ago and lives on Larch Road with carers.",
+      "cites": [
+       11
+      ]
+     },
+     {
+      "text": "S2 disclosed that her brother, Martin, holds the power of attorney for financial and property affairs, which Margaret signed in 2023 and registered.",
+      "cites": [
+       13
+      ]
+     },
+     {
+      "text": "S2 disclosed that she found a £12,000 transfer from Margaret's account to Martin's account on 14 August, which she photographed and printed.",
+      "cites": [
+       17,
+       18,
+       19,
+       21
+      ]
+     },
+     {
+      "text": "S2 disclosed that Martin arrived at Margaret's house in a new white estate car in early September.",
+      "cites": [
+       23
+      ]
+     },
+     {
+      "text": "S2 disclosed that when asked where the money came from, Martin stated Margaret had 'helped him out' and that he is entitled to it because he does everything for her.",
+      "cites": [
+       25
+      ]
+     },
+     {
+      "text": "S2 disclosed that she knows of no prior gifts from Margaret to Martin before the dementia diagnosis.",
+      "cites": [
+       27
+      ]
+     },
+     {
+      "text": "S2 disclosed that on 22 September, Margaret told her Martin made her sign a document, though Margaret did not know what it was and was frightened to say no.",
+      "cites": [
+       29,
+       31,
+       32
+      ]
+     },
+     {
+      "text": "S2 disclosed that she has not seen the document Margaret was asked to sign on 22 September and has searched Margaret's drawers without finding it.",
+      "cites": [
+       33,
+       35
+      ]
+     },
+     {
+      "text": "S2 disclosed that Margaret's care invoices from the agency 'Brightwell' are three months behind, totaling approximately £2,400.",
+      "cites": [
+       39
+      ]
+     },
+     {
+      "text": "S2 disclosed that 'Brightwell' wrote to Margaret's address on 3 November stating the agency might stop calls if the debt is not paid.",
+      "cites": [
+       41
+      ]
+     },
+     {
+      "text": "S2 disclosed that Margaret has a social worker she has never met, and her GP is at the Wexley health centre.",
+      "cites": [
+       43
+      ]
+     },
+     {
+      "text": "S2 disclosed that she is worried Martin might sell the house, which would leave nothing for Margaret's care.",
+      "cites": [
+       47
+      ]
+     },
+     {
+      "text": "S2 disclosed that Martin has not said anything about selling the house.",
+      "cites": [
+       49
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Documents and evidence",
+    "sentences": []
+   },
+   {
+    "title": "Client's objectives",
+    "sentences": []
+   },
+   {
+    "title": "Advice given",
+    "sentences": [
+     {
+      "text": "S1 advised that an attorney must act in the client's best interests and keep money separate, and noted that a £12,000 transfer to himself without authority is something the Office,",
+      "cites": [
+       50
+      ]
+     },
+     {
+      "text": "S1 advised that the Office of the Public Guardian can ask Martin to account for every penny and apply to the Court of Protection to cancel the power of attorney.",
+      "cites": [
+       52
+      ]
+     },
+     {
+      "text": "S1 advised that taking money as an attorney can be a criminal offence.",
+      "cites": [
+       54
+      ]
+     },
+     {
+      "text": "S1 advised that Margaret is an adult at risk and recommended an adult safeguarding referral to Wexley council.",
+      "cites": [
+       56
+      ]
+     },
+     {
+      "text": "S1 advised S2 not to confront Martin about the issue for now, as it could cause him to move more money or become defensive.",
+      "cites": [
+       58
+      ]
+     },
+     {
+      "text": "S1 advised S2 to ring 'Brightwell' and explain the situation is in hand so calls do not stop.",
+      "cites": [
+       60
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Next steps",
+    "sentences": [
+     {
+      "text": "S1 instructed S2 to email the statement photos and the agency letter by Friday 27 November.",
+      "cites": [
+       62
+      ]
+     },
+     {
+      "text": "S1 instructed S2 that he would write to the Office of the Public Guardian by Tuesday 1 December.",
+      "cites": [
+       62
+      ]
+     },
+     {
+      "text": "S1 instructed S2 that he would make the safeguarding referral today (17 November).",
+      "cites": [
+       62
+      ]
+     },
+     {
+      "text": "S1 instructed S2 to send the client care letter today (17 November).",
+      "cites": [
+       64
+      ]
+     },
+     {
+      "text": "S1 scheduled a next meeting for 8 December.",
+      "cites": [
+       64
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "facts": [
+  {
+   "text": "S2 disclosed that her mother, Margaret (81 years old), has dementia diagnosed two years ago and lives on Larch Road with carers.",
+   "cites": [
+    11
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that her brother, Martin, holds the power of attorney for financial and property affairs, which Margaret signed in 2023 and registered.",
+   "cites": [
+    13
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that she found a £12,000 transfer from Margaret's account to Martin's account on 14 August, which she photographed and printed.",
+   "cites": [
+    17,
+    18,
+    19,
+    21
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that Martin arrived at Margaret's house in a new white estate car in early September.",
+   "cites": [
+    23
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that when asked where the money came from, Martin stated Margaret had 'helped him out' and that he is entitled to it because he does everything for her.",
+   "cites": [
+    25
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that she knows of no prior gifts from Margaret to Martin before the dementia diagnosis.",
+   "cites": [
+    27
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that on 22 September, Margaret told her Martin made her sign a document, though Margaret did not know what it was and was frightened to say no.",
+   "cites": [
+    29,
+    31,
+    32
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that she has not seen the document Margaret was asked to sign on 22 September and has searched Margaret's drawers without finding it.",
+   "cites": [
+    33,
+    35
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that Margaret's care invoices from the agency 'Brightwell' are three months behind, totaling approximately £2,400.",
+   "cites": [
+    39
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that 'Brightwell' wrote to Margaret's address on 3 November stating the agency might stop calls if the debt is not paid.",
+   "cites": [
+    41
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that Margaret has a social worker she has never met, and her GP is at the Wexley health centre.",
+   "cites": [
+    43
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that she is worried Martin might sell the house, which would leave nothing for Margaret's care.",
+   "cites": [
+    47
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S2 disclosed that Martin has not said anything about selling the house.",
+   "cites": [
+    49
+   ],
+   "section": "Client's account"
+  },
+  {
+   "text": "S1 advised that an attorney must act in the client's best interests and keep money separate, and noted that a £12,000 transfer to himself without authority is something the Office,",
+   "cites": [
+    50
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 advised that the Office of the Public Guardian can ask Martin to account for every penny and apply to the Court of Protection to cancel the power of attorney.",
+   "cites": [
+    52
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 advised that taking money as an attorney can be a criminal offence.",
+   "cites": [
+    54
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 advised that Margaret is an adult at risk and recommended an adult safeguarding referral to Wexley council.",
+   "cites": [
+    56
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 advised S2 not to confront Martin about the issue for now, as it could cause him to move more money or become defensive.",
+   "cites": [
+    58
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 advised S2 to ring 'Brightwell' and explain the situation is in hand so calls do not stop.",
+   "cites": [
+    60
+   ],
+   "section": "Advice given"
+  },
+  {
+   "text": "S1 instructed S2 to email the statement photos and the agency letter by Friday 27 November.",
+   "cites": [
+    62
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "S1 instructed S2 that he would write to the Office of the Public Guardian by Tuesday 1 December.",
+   "cites": [
+    62
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "S1 instructed S2 that he would make the safeguarding referral today (17 November).",
+   "cites": [
+    62
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "S1 instructed S2 to send the client care letter today (17 November).",
+   "cites": [
+    64
+   ],
+   "section": "Next steps"
+  },
+  {
+   "text": "S1 scheduled a next meeting for 8 December.",
+   "cites": [
+    64
+   ],
+   "section": "Next steps"
+  }
+ ]
+}
