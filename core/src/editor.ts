@@ -121,7 +121,9 @@ function respread(
  * subsequence of the two word lists, compared by exact text.
  */
 function keptPairs(oldTexts: string[], newTexts: string[]): Array<[number, number]> {
-  // Most edits touch a few words, so match the shared prefix and suffix directly.
+  // Match the shared prefix and suffix first. Edits usually touch a few words in the
+  // middle, so this keeps the table small; and where a repeated word could match in
+  // more than one place, it keeps the words at both ends matched.
   let head = 0;
   while (
     head < oldTexts.length &&
@@ -172,43 +174,34 @@ function keptPairs(oldTexts: string[], newTexts: string[]): Array<[number, numbe
 }
 
 /**
- * The words for edited text `tokens` that replaces `old`, all assigned `speaker`.
- * Words the edit kept stay as they were: their timing and `original`. A run of new
- * words that replaces old words takes those words' time; a run inserted between kept
- * words takes the gap between them (no duration if there is none). With nothing kept,
- * the new words spread across `[spanStart, spanEnd]`.
+ * The words for edited text `tokens` that replaces `old`, all given the speaker of
+ * `old`'s first word. Words the edit kept stay as they were: their timing and
+ * `original`. A run of new words that replaces old words takes those words' time; a
+ * run inserted between kept words takes the gap between them (no duration if there
+ * is none). With nothing kept, the new words spread across `old`'s whole span.
  */
-function retime(
-  old: EditorWord[],
-  tokens: string[],
-  spanStart: number,
-  spanEnd: number,
-  speaker: SpeakerId,
-): EditorWord[] {
+function retime(old: EditorWord[], tokens: string[]): EditorWord[] {
+  const spanStart = old[0]?.start ?? 0;
+  const spanEnd = old.at(-1)?.end ?? 0;
+  const speaker = old[0]?.speaker ?? UNKNOWN_SPEAKER;
   const pairs = keptPairs(
     old.map((w) => w.text),
     tokens,
   );
   if (pairs.length === 0) return respread(spanStart, spanEnd, tokens, speaker);
 
+  // A sentinel pair past both ends flushes the run after the last kept word.
+  pairs.push([old.length, tokens.length]);
   const words: EditorWord[] = [];
   let oldAt = 0;
   let newAt = 0;
-  // A sentinel pair past both ends flushes the run after the last kept word.
-  for (const [keptOld, keptNew] of [...pairs, [old.length, tokens.length] as [number, number]]) {
-    const added = tokens.slice(newAt, keptNew);
-    if (added.length > 0) {
+  for (const [keptOld, keptNew] of pairs) {
+    if (keptNew > newAt) {
+      // The replaced words' own time, else the gap between the kept neighbours.
       const replaced = keptOld > oldAt;
-      const from = replaced
-        ? old[oldAt]!.start
-        : oldAt > 0
-          ? old[oldAt - 1]!.end
-          : spanStart;
-      const to = replaced
-        ? old[keptOld - 1]!.end
-        : keptOld < old.length
-          ? old[keptOld]!.start
-          : spanEnd;
+      const from = replaced ? old[oldAt]!.start : (old[oldAt - 1]?.end ?? spanStart);
+      const to = replaced ? old[keptOld - 1]!.end : (old[keptOld]?.start ?? spanEnd);
+      const added = tokens.slice(newAt, keptNew);
       words.push(...spread(from, Math.max(to - from, 0), added, speaker));
     }
     if (keptOld < old.length) words.push({ ...old[keptOld]!, speaker });
@@ -219,34 +212,16 @@ function retime(
 }
 
 /**
- * Replace a sentence's text. Words the edit didn't touch keep their timing and
- * `original`; changed and inserted words are timed from their neighbours (see
- * `retime`). Blank text deletes the sentence.
+ * Replace a sentence's text: `editParagraph` on that one sentence. Words the edit
+ * didn't touch keep their timing and `original` (see `retime`). Blank text deletes
+ * the sentence; an unknown id returns the state unchanged.
  */
 export function editSentence(
   state: EditorState,
   sentenceId: string,
   newText: string,
 ): EditorState {
-  const next = cloneState(state);
-  const idx = next.sentences.findIndex((s) => s.id === sentenceId);
-  if (idx === -1) return next;
-
-  const sentence = next.sentences[idx]!;
-  const orig = sentence.words;
-  const s = orig.length > 0 ? orig[0]!.start : 0;
-  const e = orig.length > 0 ? orig[orig.length - 1]!.end : 0;
-  const speaker = orig.length > 0 ? orig[0]!.speaker : UNKNOWN_SPEAKER;
-
-  const toks = tokenize(newText);
-
-  if (toks.length === 0) {
-    next.sentences.splice(idx, 1);
-    return next;
-  }
-
-  sentence.words = retime(orig, toks, s, e, speaker);
-  return next;
+  return editParagraph(state, [sentenceId], newText);
 }
 
 /** Indexes of `sentenceIds` if they name consecutive sentences in document order, else null. */
@@ -269,9 +244,7 @@ function contiguousRun(
 
 /**
  * Paragraph-scope edit. Re-tokenize `newText` and time it against the run's words
- * (see `retime`): untouched words keep their timing and `original`, and with nothing
- * kept the text spreads across the run's ANCHOR span — the first listed sentence's
- * first-word `start` to the last listed sentence's last-word `end`. The whole
+ * (see `retime`), so untouched words keep their timing and `original`. The whole
  * contiguous run collapses to ONE sentence whose id is the FIRST sentence's id (so
  * highlight/edit ids stay stable) and whose speaker is the first word's speaker.
  * Blank/whitespace `newText` deletes the entire run.
@@ -297,32 +270,11 @@ export function editParagraph(
     return next;
   }
 
-  let spanStart = 0;
-  let spanEnd = 0;
-  let speaker: SpeakerId = UNKNOWN_SPEAKER;
-  for (const s of runSentences) {
-    if (s.words.length > 0) {
-      spanStart = s.words[0]!.start;
-      speaker = s.words[0]!.speaker;
-      break;
-    }
-  }
-  for (let i = runSentences.length - 1; i >= 0; i--) {
-    const w = runSentences[i]!.words;
-    if (w.length > 0) {
-      spanEnd = w[w.length - 1]!.end;
-      break;
-    }
-  }
-
   const collapsed: EditorSentence = {
     id: runSentences[0]!.id,
     words: retime(
       runSentences.flatMap((s) => s.words),
       toks,
-      spanStart,
-      spanEnd,
-      speaker,
     ),
   };
   next.sentences.splice(startIdx, run.length, collapsed);
@@ -342,11 +294,47 @@ function escapeRegExp(s: string): string {
 }
 
 /**
+ * The sentences a replace-all changes: each one's index, its number of matches and
+ * its words after replacing. A replacement that would empty a sentence is skipped.
+ */
+function replacements(
+  sentences: EditorSentence[],
+  find: string,
+  replace: string,
+  opts: ReplaceOptions,
+): Array<{ index: number; matches: number; toks: string[] }> {
+  if (find === "") return [];
+
+  const escaped = escapeRegExp(find);
+  const pattern = opts.wholeWord ? `\\b${escaped}\\b` : escaped;
+  const flags = opts.caseSensitive ? "g" : "gi";
+  const regex = new RegExp(pattern, flags);
+  const replacer = (): string => replace;
+
+  const changed: Array<{ index: number; matches: number; toks: string[] }> = [];
+  sentences.forEach((sentence, index) => {
+    const joined = sentence.words.map((w) => w.text).join(" ");
+
+    regex.lastIndex = 0;
+    let matches = 0;
+    while (regex.exec(joined) !== null) {
+      matches++;
+    }
+    if (matches === 0) return;
+
+    const toks = tokenize(joined.replace(regex, replacer));
+    if (toks.length === 0) return; // no-delete rule
+    changed.push({ index, matches, toks });
+  });
+  return changed;
+}
+
+/**
  * Literal, per-sentence find/replace (a multi-word `find` matches across word gaps).
  * `replace` is inserted verbatim (no `$`-substitution). In a changed sentence only the
  * replaced words are re-timed (see `retime`); a replacement that would empty a sentence
- * is skipped. Empty `find` is a
- * no-op. Returns the new state and the number of matches replaced.
+ * is skipped. Empty `find` is a no-op. Returns the new state and the number of matches
+ * replaced.
  */
 export function replaceAll(
   state: EditorState,
@@ -356,38 +344,27 @@ export function replaceAll(
 ): { state: EditorState; count: number } {
   if (find === "") return { state, count: 0 };
 
-  const escaped = escapeRegExp(find);
-  const pattern = opts.wholeWord ? `\\b${escaped}\\b` : escaped;
-  const flags = opts.caseSensitive ? "g" : "gi";
-  const regex = new RegExp(pattern, flags);
-  const replacer = (): string => replace;
-
   const next = cloneState(state);
   let count = 0;
-
-  for (const sentence of next.sentences) {
-    const orig = sentence.words;
-    const joined = orig.map((w) => w.text).join(" ");
-
-    regex.lastIndex = 0;
-    let matches = 0;
-    while (regex.exec(joined) !== null) {
-      matches++;
-    }
-    if (matches === 0) continue;
-
-    const newText = joined.replace(regex, replacer);
-    const toks = tokenize(newText);
-    if (toks.length === 0) continue; // no-delete rule
-
-    const s = orig.length > 0 ? orig[0]!.start : 0;
-    const e = orig.length > 0 ? orig[orig.length - 1]!.end : 0;
-    const speaker = orig.length > 0 ? orig[0]!.speaker : UNKNOWN_SPEAKER;
-    sentence.words = retime(orig, toks, s, e, speaker);
+  for (const { index, matches, toks } of replacements(state.sentences, find, replace, opts)) {
+    const sentence = next.sentences[index]!;
+    sentence.words = retime(sentence.words, toks);
     count += matches;
   }
-
   return { state: next, count };
+}
+
+/** The `count` that `replaceAll` would return, without building the new state. */
+export function countReplacements(
+  state: EditorState,
+  find: string,
+  replace: string,
+  opts: ReplaceOptions = {},
+): number {
+  return replacements(state.sentences, find, replace, opts).reduce(
+    (sum, r) => sum + r.matches,
+    0,
+  );
 }
 
 /**

@@ -14,6 +14,7 @@ import {
   reassignSentenceSpeaker,
   groupParagraphs,
   replaceAll,
+  countReplacements,
 } from "@core/editor";
 import type { EditorState, EditorSentence } from "@core/editor";
 import { UNKNOWN_SPEAKER } from "@core/types";
@@ -118,13 +119,14 @@ export default function Editor({
   );
   const starts = useMemo(() => flatWords(state).map((w) => w.start), [state]);
 
-  // Dry-run replaceAll for the live match count; the real replace runs on "Replace all".
+  // Live match count without building the replaced state; the real replace runs on
+  // "Replace all".
   const findOpts = useMemo(
     () => ({ caseSensitive: findCase, wholeWord: findWhole }),
     [findCase, findWhole],
   );
   const findCount = useMemo(
-    () => replaceAll(state, findText, replaceText, findOpts).count,
+    () => countReplacements(state, findText, replaceText, findOpts),
     [state, findText, replaceText, findOpts],
   );
 

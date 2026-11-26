@@ -62,10 +62,7 @@ describe("edits keep untouched words", () => {
     const words = editSentence(state, sid, "I met Siobhán on Tuesday.").sentences[0]!.words;
 
     expect(words.map((w) => w.text)).toEqual(["I", "met", "Siobhán", "on", "Tuesday."]);
-    expect(words[0]).toEqual(I);
-    expect(words[1]).toEqual(MET);
-    expect(words[3]).toEqual(ON);
-    expect(words[4]).toEqual(TUESDAY);
+    expect([words[0], words[1], words[3], words[4]]).toEqual([I, MET, ON, TUESDAY]);
     // "met" ends at 0.6 and "on" starts at 1.5.
     expect(words[2]!.start).toBeGreaterThanOrEqual(0.6);
     expect(words[2]!.end).toBeLessThanOrEqual(1.5);
